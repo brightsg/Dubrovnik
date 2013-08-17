@@ -1,0 +1,1078 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		9300D02808723DF40024409B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9300D02708723DF40024409B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93365A8D0872370700EC726F /* DBMonoClassRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93365A870872370700EC726F /* DBMonoClassRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93365A8E0872370700EC726F /* DBMonoClassRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93365A880872370700EC726F /* DBMonoClassRepresentation.m */; };
+		93365A8F0872370700EC726F /* DBMonoObjectRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93365A890872370700EC726F /* DBMonoObjectRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93365A900872370700EC726F /* DBMonoObjectRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93365A8A0872370700EC726F /* DBMonoObjectRepresentation.m */; };
+		9D021BFE08811729003E48C1 /* DBInvoke.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D021BFC08811729003E48C1 /* DBInvoke.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D021BFF08811729003E48C1 /* DBInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D021BFD08811729003E48C1 /* DBInvoke.m */; };
+		9D10FF4008B54E2F0066C2ED /* DBArrayList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D10FF3E08B54E2F0066C2ED /* DBArrayList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D10FF4108B54E2F0066C2ED /* DBArrayList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D10FF3F08B54E2F0066C2ED /* DBArrayList.m */; };
+		9D13A6EE08833E74008ACA37 /* DBBoxing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13A6EC08833E74008ACA37 /* DBBoxing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D496B2F09082F6700CD26AF /* DBImageCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D496B2D09082F6700CD26AF /* DBImageCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D496B3009082F6700CD26AF /* DBImageCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D496B2E09082F6700CD26AF /* DBImageCategory.m */; };
+		9D6335AE09750DAD00FB76DF /* DBWrappedData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6335AC09750DAD00FB76DF /* DBWrappedData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D6335AF09750DAD00FB76DF /* DBWrappedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6335AD09750DAD00FB76DF /* DBWrappedData.m */; };
+		9D68AF5408EA1569002C7AB0 /* DBDateCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D68AF5208EA1569002C7AB0 /* DBDateCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D68AF5508EA1569002C7AB0 /* DBDateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68AF5308EA1569002C7AB0 /* DBDateCategory.m */; };
+		9D69DC4308B1851E008BB787 /* DBMonoEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D69DC4108B1851E008BB787 /* DBMonoEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D69DC4408B1851E008BB787 /* DBMonoEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D69DC4208B1851E008BB787 /* DBMonoEnvironment.m */; };
+		9D8863490974F55500365976 /* DBWrappedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863470974F55500365976 /* DBWrappedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88634A0974F55500365976 /* DBWrappedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8863480974F55500365976 /* DBWrappedString.m */; };
+		9D88636A0974F59A00365976 /* DBWrappers.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863680974F59A00365976 /* DBWrappers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D8A17D6096A4085000477C0 /* DBFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8A17D4096A4085000477C0 /* DBFileInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D8A17D7096A4085000477C0 /* DBFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A17D5096A4085000477C0 /* DBFileInfo.m */; };
+		9D8BE8210885A57600D019A5 /* DBIList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE81F0885A57600D019A5 /* DBIList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D8BE8220885A57600D019A5 /* DBIList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BE8200885A57600D019A5 /* DBIList.m */; };
+		9D8BE945088613C500D019A5 /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE944088613C500D019A5 /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D8BE9670886152500D019A5 /* DBCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE9660886152500D019A5 /* DBCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D8BE971088615D200D019A5 /* DBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE970088615D200D019A5 /* DBUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */; };
+		9DA04A0808C8E22A00EEE149 /* DBMonoRegisteredThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA04A0608C8E22A00EEE149 /* DBMonoRegisteredThread.m */; };
+		9DA75F670A239104008EC2F7 /* DBArrayCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DA75F650A239104008EC2F7 /* DBArrayCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA75F680A239104008EC2F7 /* DBArrayCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA75F660A239104008EC2F7 /* DBArrayCategory.m */; };
+		9DA8F08D09EF2BDF000EE2DE /* DBArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DA8F08B09EF2BDF000EE2DE /* DBArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA8F08E09EF2BE0000EE2DE /* DBArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8F08C09EF2BDF000EE2DE /* DBArray.m */; };
+		9DB4200B0873614E0045F939 /* DBStringCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DB420090873614E0045F939 /* DBStringCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DB4200C0873614E0045F939 /* DBStringCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4200A0873614E0045F939 /* DBStringCategory.m */; };
+		9DC576B108CF65C900897270 /* Judy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC576B008CF65C900897270 /* Judy.h */; };
+		9DCD135D0A7ABFB900849E5C /* DBConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DCD135B0A7ABFB900849E5C /* DBConvert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DCD135E0A7ABFB900849E5C /* DBConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCD135C0A7ABFB900849E5C /* DBConvert.m */; };
+		9DCD14300A7AE69900849E5C /* DBEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DCD142E0A7AE69900849E5C /* DBEnum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DCD14310A7AE69900849E5C /* DBEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCD142F0A7AE69900849E5C /* DBEnum.m */; };
+		9DF2367B0874E3CC008A199C /* DBDataCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF236790874E3CC008A199C /* DBDataCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DF2367C0874E3CC008A199C /* DBDataCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2367A0874E3CC008A199C /* DBDataCategory.m */; };
+		AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */ = {isa = PBXBuildFile; fileRef = AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */; };
+		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
+		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
+		AB30149A17A29EBB001F7544 /* libmonoboehm-2.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB30149817A29C57001F7544 /* libmonoboehm-2.0.1.dylib */; };
+		AB30149B17A2A1FA001F7544 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB28C511178331010051A8D9 /* libJudy.a */; };
+		AB3C258B17B69391001DE389 /* mscorlib.dll.References.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3C258A17B69391001DE389 /* mscorlib.dll.References.h */; };
+		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
+		AB49E430178A06AC00D01244 /* DBDecimalNumberCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* DBDecimalNumberCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB49E431178A06AC00D01244 /* DBDecimalNumberCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E42F178A06AC00D01244 /* DBDecimalNumberCategory.m */; };
+		AB49E434178ABAAE00D01244 /* DBNumberCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E432178ABAAD00D01244 /* DBNumberCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB49E435178ABAAE00D01244 /* DBNumberCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E433178ABAAE00D01244 /* DBNumberCategory.m */; };
+		AB49E43C178B2D7B00D01244 /* DBEntityObjectSet.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E43A178B2D7A00D01244 /* DBEntityObjectSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB49E43D178B2D7B00D01244 /* DBEntityObjectSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E43B178B2D7A00D01244 /* DBEntityObjectSet.m */; };
+		AB49E441178B2ED600D01244 /* DBEntityObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E43F178B2ED600D01244 /* DBEntityObjectContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB49E442178B2ED600D01244 /* DBEntityObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E440178B2ED600D01244 /* DBEntityObjectContext.m */; };
+		AB49E445178B2EF400D01244 /* DBEntityObject.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E443178B2EF400D01244 /* DBEntityObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB49E446178B2EF400D01244 /* DBEntityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E444178B2EF400D01244 /* DBEntityObject.m */; };
+		AB49E449178B2F1000D01244 /* DBEntityCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E447178B2F0F00D01244 /* DBEntityCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E448178B2F1000D01244 /* DBEntityCollection.m */; };
+		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
+		ABB8CE3F17BFEF7B0015FFB0 /* libmonoboehm-2.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB30149817A29C57001F7544 /* libmonoboehm-2.0.1.dylib */; };
+		ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103917B11A9F006F6E93 /* System.Nullable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF103C17B11A9F006F6E93 /* System.Nullable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF103A17B11A9F006F6E93 /* System.Nullable.m */; };
+		ABBF103F17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103D17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF104017B11C16006F6E93 /* System.Collections.Generic.Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF103E17B11C16006F6E93 /* System.Collections.Generic.Dictionary.m */; };
+		ABBF104317B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104117B11C9F006F6E93 /* System.Collections.Generic.IEnumerable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF104417B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104217B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m */; };
+		ABBF104717B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104517B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF104817B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104617B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m */; };
+		ABBF104B17B11E23006F6E93 /* System.Collections.Generic.List.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104917B11E23006F6E93 /* System.Collections.Generic.List.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF104C17B11E23006F6E93 /* System.Collections.Generic.List.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */; };
+		ABBF104F17B11EA2006F6E93 /* System.Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104D17B11EA2006F6E93 /* System.Exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF105017B11EA2006F6E93 /* System.Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104E17B11EA2006F6E93 /* System.Exception.m */; };
+		ABBF105317B12E9A006F6E93 /* System.DayOfWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF105117B12E9A006F6E93 /* System.DayOfWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF105417B12E9A006F6E93 /* System.DayOfWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF105217B12E9A006F6E93 /* System.DayOfWeek.m */; };
+		ABBF105717B1371F006F6E93 /* System.Func.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF105517B1371E006F6E93 /* System.Func.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF105817B1371F006F6E93 /* System.Func.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF105617B1371F006F6E93 /* System.Func.m */; };
+		ABBF106517B147F4006F6E93 /* System.Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106317B147F3006F6E93 /* System.Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF106917B148A1006F6E93 /* System.Reflection.MethodInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106717B1489F006F6E93 /* System.Reflection.MethodInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF106A17B148A1006F6E93 /* System.Reflection.MethodInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF106817B148A0006F6E93 /* System.Reflection.MethodInfo.m */; };
+		ABBF106D17B14950006F6E93 /* System.Type.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106B17B1494E006F6E93 /* System.Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF106E17B14950006F6E93 /* System.Type.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF106C17B1494F006F6E93 /* System.Type.m */; };
+		ABBF107117B149DA006F6E93 /* System.Reflection.ConstructorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106F17B149D6006F6E93 /* System.Reflection.ConstructorInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF107217B149DA006F6E93 /* System.Reflection.ConstructorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107017B149D8006F6E93 /* System.Reflection.ConstructorInfo.m */; };
+		ABBF107517B14A43006F6E93 /* System.Reflection.PropertyInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107317B14A3F006F6E93 /* System.Reflection.PropertyInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF107617B14A43006F6E93 /* System.Reflection.PropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107417B14A41006F6E93 /* System.Reflection.PropertyInfo.m */; };
+		ABBF107917B25B36006F6E93 /* System.Collections.IEnumerable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107717B25B32006F6E93 /* System.Collections.IEnumerable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF107D17B25D16006F6E93 /* System.Text.Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107B17B25D13006F6E93 /* System.Text.Encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF107E17B25D16006F6E93 /* System.Text.Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107C17B25D15006F6E93 /* System.Text.Encoding.m */; };
+		ABBF108117B25DE1006F6E93 /* System.IO.StringWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107F17B25DE1006F6E93 /* System.IO.StringWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF108217B25DE1006F6E93 /* System.IO.StringWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF108017B25DE1006F6E93 /* System.IO.StringWriter.m */; };
+		ABBF108517B26246006F6E93 /* System.EventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF108317B26241006F6E93 /* System.EventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF108617B26246006F6E93 /* System.EventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF108417B26243006F6E93 /* System.EventArgs.m */; };
+		ABBF108917B29DD1006F6E93 /* System.Data.Entity.EntityState.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF108717B29DD1006F6E93 /* System.Data.Entity.EntityState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBF108A17B29DD1006F6E93 /* System.Data.Entity.EntityState.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF108817B29DD1006F6E93 /* System.Data.Entity.EntityState.m */; };
+		ABBF108B17B2C531006F6E93 /* System.Collections.IEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107817B25B34006F6E93 /* System.Collections.IEnumerable.m */; };
+		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
+		ABBF10B317B3D2E1006F6E93 /* DBUIntEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A917B3D2E1006F6E93 /* DBUIntEnum.m */; };
+		ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AB17B3D2E1006F6E93 /* DBULongEnum.m */; };
+		ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */; };
+		ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */; };
+		ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF43FB9179FF4FC00BAB99E /* DBMonoMethodRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF43FB7179FF4FC00BAB99E /* DBMonoMethodRepresentation.m */; };
+		DA4FDE7E09B38A1F00D16517 /* DBSize.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4FDE7C09B38A1F00D16517 /* DBSize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA4FDE7F09B38A1F00D16517 /* DBSize.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FDE7D09B38A1F00D16517 /* DBSize.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB2CD2F8178D6EDA0075CF6A /* Copy frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */,
+			);
+			name = "Copy frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* Dubrovnik_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_Prefix.pch; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9300D02708723DF40024409B /* Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.h; sourceTree = "<group>"; };
+		93365A870872370700EC726F /* DBMonoClassRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DBMonoClassRepresentation.h; sourceTree = "<group>"; };
+		93365A880872370700EC726F /* DBMonoClassRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DBMonoClassRepresentation.m; sourceTree = "<group>"; };
+		93365A890872370700EC726F /* DBMonoObjectRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DBMonoObjectRepresentation.h; sourceTree = "<group>"; };
+		93365A8A0872370700EC726F /* DBMonoObjectRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DBMonoObjectRepresentation.m; sourceTree = "<group>"; };
+		9361F26A087234A90073CD9D /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		9D021BFC08811729003E48C1 /* DBInvoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBInvoke.h; sourceTree = "<group>"; };
+		9D021BFD08811729003E48C1 /* DBInvoke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBInvoke.m; sourceTree = "<group>"; };
+		9D10FF3E08B54E2F0066C2ED /* DBArrayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBArrayList.h; sourceTree = "<group>"; };
+		9D10FF3F08B54E2F0066C2ED /* DBArrayList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBArrayList.m; sourceTree = "<group>"; };
+		9D13A6EC08833E74008ACA37 /* DBBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBBoxing.h; sourceTree = "<group>"; };
+		9D496B2D09082F6700CD26AF /* DBImageCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBImageCategory.h; sourceTree = "<group>"; };
+		9D496B2E09082F6700CD26AF /* DBImageCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBImageCategory.m; sourceTree = "<group>"; };
+		9D6335AC09750DAD00FB76DF /* DBWrappedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWrappedData.h; sourceTree = "<group>"; };
+		9D6335AD09750DAD00FB76DF /* DBWrappedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBWrappedData.m; sourceTree = "<group>"; };
+		9D68AF5208EA1569002C7AB0 /* DBDateCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDateCategory.h; sourceTree = "<group>"; };
+		9D68AF5308EA1569002C7AB0 /* DBDateCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDateCategory.m; sourceTree = "<group>"; };
+		9D69DC4108B1851E008BB787 /* DBMonoEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoEnvironment.h; sourceTree = "<group>"; };
+		9D69DC4208B1851E008BB787 /* DBMonoEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMonoEnvironment.m; sourceTree = "<group>"; };
+		9D8863470974F55500365976 /* DBWrappedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWrappedString.h; sourceTree = "<group>"; };
+		9D8863480974F55500365976 /* DBWrappedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBWrappedString.m; sourceTree = "<group>"; };
+		9D8863680974F59A00365976 /* DBWrappers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWrappers.h; sourceTree = "<group>"; };
+		9D8A17D4096A4085000477C0 /* DBFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFileInfo.h; sourceTree = "<group>"; };
+		9D8A17D5096A4085000477C0 /* DBFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFileInfo.m; sourceTree = "<group>"; };
+		9D8BE81F0885A57600D019A5 /* DBIList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBIList.h; sourceTree = "<group>"; };
+		9D8BE8200885A57600D019A5 /* DBIList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBIList.m; sourceTree = "<group>"; };
+		9D8BE944088613C500D019A5 /* DBMonoIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoIncludes.h; sourceTree = "<group>"; };
+		9D8BE9660886152500D019A5 /* DBCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCategories.h; sourceTree = "<group>"; };
+		9D8BE970088615D200D019A5 /* DBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUtility.h; sourceTree = "<group>"; };
+		9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoRegisteredThread.h; sourceTree = "<group>"; };
+		9DA04A0608C8E22A00EEE149 /* DBMonoRegisteredThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMonoRegisteredThread.m; sourceTree = "<group>"; };
+		9DA75F650A239104008EC2F7 /* DBArrayCategory.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DBArrayCategory.h; sourceTree = "<group>"; };
+		9DA75F660A239104008EC2F7 /* DBArrayCategory.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DBArrayCategory.m; sourceTree = "<group>"; };
+		9DA8F08B09EF2BDF000EE2DE /* DBArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBArray.h; sourceTree = "<group>"; };
+		9DA8F08C09EF2BDF000EE2DE /* DBArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBArray.m; sourceTree = "<group>"; };
+		9DB420090873614E0045F939 /* DBStringCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStringCategory.h; sourceTree = "<group>"; };
+		9DB4200A0873614E0045F939 /* DBStringCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStringCategory.m; sourceTree = "<group>"; };
+		9DC576B008CF65C900897270 /* Judy.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Judy.h; path = Judy/src/Judy.h; sourceTree = "<group>"; };
+		9DCD135B0A7ABFB900849E5C /* DBConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBConvert.h; sourceTree = "<group>"; };
+		9DCD135C0A7ABFB900849E5C /* DBConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBConvert.m; sourceTree = "<group>"; };
+		9DCD142E0A7AE69900849E5C /* DBEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBEnum.h; sourceTree = "<group>"; };
+		9DCD142F0A7AE69900849E5C /* DBEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBEnum.m; sourceTree = "<group>"; };
+		9DF236790874E3CC008A199C /* DBDataCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDataCategory.h; sourceTree = "<group>"; };
+		9DF2367A0874E3CC008A199C /* DBDataCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDataCategory.m; sourceTree = "<group>"; };
+		AB28C511178331010051A8D9 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
+		AB2CD2FA178D74F20075CF6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		AB30149817A29C57001F7544 /* libmonoboehm-2.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libmonoboehm-2.0.1.dylib"; path = "/Library/Frameworks/Mono.framework/Versions/3.2.0/lib/libmonoboehm-2.0.1.dylib"; sourceTree = "<absolute>"; };
+		AB3C258A17B69391001DE389 /* mscorlib.dll.References.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mscorlib.dll.References.h; path = Representations/System/mscorlib.dll.References.h; sourceTree = "<group>"; };
+		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
+		AB49E42E178A06AC00D01244 /* DBDecimalNumberCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDecimalNumberCategory.h; sourceTree = "<group>"; };
+		AB49E42F178A06AC00D01244 /* DBDecimalNumberCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDecimalNumberCategory.m; sourceTree = "<group>"; };
+		AB49E432178ABAAD00D01244 /* DBNumberCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNumberCategory.h; sourceTree = "<group>"; };
+		AB49E433178ABAAE00D01244 /* DBNumberCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNumberCategory.m; sourceTree = "<group>"; };
+		AB49E43A178B2D7A00D01244 /* DBEntityObjectSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBEntityObjectSet.h; path = EntityFramework/DBEntityObjectSet.h; sourceTree = "<group>"; };
+		AB49E43B178B2D7A00D01244 /* DBEntityObjectSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityObjectSet.m; path = EntityFramework/DBEntityObjectSet.m; sourceTree = "<group>"; };
+		AB49E43F178B2ED600D01244 /* DBEntityObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBEntityObjectContext.h; path = EntityFramework/DBEntityObjectContext.h; sourceTree = "<group>"; };
+		AB49E440178B2ED600D01244 /* DBEntityObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityObjectContext.m; path = EntityFramework/DBEntityObjectContext.m; sourceTree = "<group>"; };
+		AB49E443178B2EF400D01244 /* DBEntityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBEntityObject.h; path = EntityFramework/DBEntityObject.h; sourceTree = "<group>"; };
+		AB49E444178B2EF400D01244 /* DBEntityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityObject.m; path = EntityFramework/DBEntityObject.m; sourceTree = "<group>"; };
+		AB49E447178B2F0F00D01244 /* DBEntityCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBEntityCollection.h; path = EntityFramework/DBEntityCollection.h; sourceTree = "<group>"; };
+		AB49E448178B2F1000D01244 /* DBEntityCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityCollection.m; path = EntityFramework/DBEntityCollection.m; sourceTree = "<group>"; };
+		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB588DC4178308000000AAC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AB64DC8117B5003100989ADF /* System.dll.References.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = System.dll.References.h; path = Representations/System/System.dll.References.h; sourceTree = "<group>"; };
+		ABB8CE4017BFF03E0015FFB0 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
+		ABBF103917B11A9F006F6E93 /* System.Nullable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Nullable.h; sourceTree = "<group>"; };
+		ABBF103A17B11A9F006F6E93 /* System.Nullable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Nullable.m; sourceTree = "<group>"; };
+		ABBF103D17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.Dictionary.h; sourceTree = "<group>"; };
+		ABBF103E17B11C16006F6E93 /* System.Collections.Generic.Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.Dictionary.m; sourceTree = "<group>"; };
+		ABBF104117B11C9F006F6E93 /* System.Collections.Generic.IEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.IEnumerable.h; sourceTree = "<group>"; };
+		ABBF104217B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.IEnumerable.m; sourceTree = "<group>"; };
+		ABBF104517B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Data.Entity.Core.Objects.DataClasses.EntityReference.h; sourceTree = "<group>"; };
+		ABBF104617B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Data.Entity.Core.Objects.DataClasses.EntityReference.m; sourceTree = "<group>"; };
+		ABBF104917B11E23006F6E93 /* System.Collections.Generic.List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.List.h; sourceTree = "<group>"; };
+		ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.List.m; sourceTree = "<group>"; };
+		ABBF104D17B11EA2006F6E93 /* System.Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Exception.h; sourceTree = "<group>"; };
+		ABBF104E17B11EA2006F6E93 /* System.Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Exception.m; sourceTree = "<group>"; };
+		ABBF105117B12E9A006F6E93 /* System.DayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.DayOfWeek.h; sourceTree = "<group>"; };
+		ABBF105217B12E9A006F6E93 /* System.DayOfWeek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.DayOfWeek.m; sourceTree = "<group>"; };
+		ABBF105517B1371E006F6E93 /* System.Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Func.h; sourceTree = "<group>"; };
+		ABBF105617B1371F006F6E93 /* System.Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Func.m; sourceTree = "<group>"; };
+		ABBF106317B147F3006F6E93 /* System.Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.h; sourceTree = "<group>"; };
+		ABBF106417B147F3006F6E93 /* System.Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.m; sourceTree = "<group>"; };
+		ABBF106717B1489F006F6E93 /* System.Reflection.MethodInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.MethodInfo.h; sourceTree = "<group>"; };
+		ABBF106817B148A0006F6E93 /* System.Reflection.MethodInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.MethodInfo.m; sourceTree = "<group>"; };
+		ABBF106B17B1494E006F6E93 /* System.Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Type.h; sourceTree = "<group>"; };
+		ABBF106C17B1494F006F6E93 /* System.Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Type.m; sourceTree = "<group>"; };
+		ABBF106F17B149D6006F6E93 /* System.Reflection.ConstructorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.ConstructorInfo.h; sourceTree = "<group>"; };
+		ABBF107017B149D8006F6E93 /* System.Reflection.ConstructorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.ConstructorInfo.m; sourceTree = "<group>"; };
+		ABBF107317B14A3F006F6E93 /* System.Reflection.PropertyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.PropertyInfo.h; sourceTree = "<group>"; };
+		ABBF107417B14A41006F6E93 /* System.Reflection.PropertyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.PropertyInfo.m; sourceTree = "<group>"; };
+		ABBF107717B25B32006F6E93 /* System.Collections.IEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.IEnumerable.h; sourceTree = "<group>"; };
+		ABBF107817B25B34006F6E93 /* System.Collections.IEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.IEnumerable.m; sourceTree = "<group>"; };
+		ABBF107B17B25D13006F6E93 /* System.Text.Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Text.Encoding.h; sourceTree = "<group>"; };
+		ABBF107C17B25D15006F6E93 /* System.Text.Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Text.Encoding.m; sourceTree = "<group>"; };
+		ABBF107F17B25DE1006F6E93 /* System.IO.StringWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IO.StringWriter.h; sourceTree = "<group>"; };
+		ABBF108017B25DE1006F6E93 /* System.IO.StringWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.IO.StringWriter.m; sourceTree = "<group>"; };
+		ABBF108317B26241006F6E93 /* System.EventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.EventArgs.h; sourceTree = "<group>"; };
+		ABBF108417B26243006F6E93 /* System.EventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.EventArgs.m; sourceTree = "<group>"; };
+		ABBF108717B29DD1006F6E93 /* System.Data.Entity.EntityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.Data.Entity.EntityState.h; path = EntityFramework/System.Data.Entity.EntityState.h; sourceTree = "<group>"; };
+		ABBF108817B29DD1006F6E93 /* System.Data.Entity.EntityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.Data.Entity.EntityState.m; path = EntityFramework/System.Data.Entity.EntityState.m; sourceTree = "<group>"; };
+		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
+		ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceObject.m; sourceTree = "<group>"; };
+		ABBF10A817B3D2E1006F6E93 /* DBUIntEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIntEnum.h; sourceTree = "<group>"; };
+		ABBF10A917B3D2E1006F6E93 /* DBUIntEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIntEnum.m; sourceTree = "<group>"; };
+		ABBF10AA17B3D2E1006F6E93 /* DBULongEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBULongEnum.h; sourceTree = "<group>"; };
+		ABBF10AB17B3D2E1006F6E93 /* DBULongEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBULongEnum.m; sourceTree = "<group>"; };
+		ABBF10AC17B3D2E1006F6E93 /* Dubrovnik Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Dubrovnik Unit Tests-Info.plist"; sourceTree = "<group>"; };
+		ABBF10AD17B3D2E1006F6E93 /* Dubrovnik Unit Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dubrovnik Unit Tests-Prefix.pch"; sourceTree = "<group>"; };
+		ABBF10AE17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_Unit_Tests.h; sourceTree = "<group>"; };
+		ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_Unit_Tests.m; sourceTree = "<group>"; };
+		ABBF10B117B3D2E1006F6E93 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.h; sourceTree = "<group>"; };
+		ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.m; sourceTree = "<group>"; };
+		ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoMethodRepresentation.h; sourceTree = "<group>"; };
+		ABF43FB7179FF4FC00BAB99E /* DBMonoMethodRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMonoMethodRepresentation.m; sourceTree = "<group>"; };
+		DA4FDE7C09B38A1F00D16517 /* DBSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSize.h; path = Image/DBSize.h; sourceTree = "<group>"; };
+		DA4FDE7D09B38A1F00D16517 /* DBSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBSize.m; path = Image/DBSize.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB30149A17A29EBB001F7544 /* libmonoboehm-2.0.1.dylib in Frameworks */,
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				AB30149B17A2A1FA001F7544 /* libJudy.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB588DBE178308000000AAC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8CE3F17BFEF7B0015FFB0 /* libmonoboehm-2.0.1.dylib in Frameworks */,
+				AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */,
+				AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */,
+				AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */,
+				AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Source */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				AB588DC3178308000000AAC1 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+				ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */,
+			);
+			name = Dumbarton;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9DF236C70875D58E008A199C /* Categories */,
+				9D69DC2A08B1842D008BB787 /* Environment */,
+				9D69DC2B08B1844D008BB787 /* Representations */,
+				9DA049F208C8DEAD00EEE149 /* Posing */,
+				9D021B3108810720003E48C1 /* Utility */,
+				9D8863370974F4D000365976 /* Wrappers */,
+				9300D02708723DF40024409B /* Dubrovnik.h */,
+				9D8BE944088613C500D019A5 /* DBMonoIncludes.h */,
+				AB64DC8117B5003100989ADF /* System.dll.References.h */,
+				AB3C258A17B69391001DE389 /* mscorlib.dll.References.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9361F26A087234A90073CD9D /* Mono.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9DC576B008CF65C900897270 /* Judy.h */,
+				32DBCF5E0370ADEE00C91783 /* Dubrovnik_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		9D021B3108810720003E48C1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9D8BE970088615D200D019A5 /* DBUtility.h */,
+				9D021BFC08811729003E48C1 /* DBInvoke.h */,
+				9D021BFD08811729003E48C1 /* DBInvoke.m */,
+				9D13A6EC08833E74008ACA37 /* DBBoxing.h */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		9D69DC2A08B1842D008BB787 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				9D69DC4108B1851E008BB787 /* DBMonoEnvironment.h */,
+				9D69DC4208B1851E008BB787 /* DBMonoEnvironment.m */,
+			);
+			name = Environment;
+			sourceTree = "<group>";
+		};
+		9D69DC2B08B1844D008BB787 /* Representations */ = {
+			isa = PBXGroup;
+			children = (
+				AB49E43E178B2D9000D01244 /* EntityFramework */,
+				9D8BE81E0885A53D00D019A5 /* Collections */,
+				9D8A17D3096A3FCE000477C0 /* IO */,
+				DA4FDE7B09B389FF00D16517 /* Image */,
+				9DA8F08A09EF2BA4000EE2DE /* System */,
+				93365A870872370700EC726F /* DBMonoClassRepresentation.h */,
+				93365A880872370700EC726F /* DBMonoClassRepresentation.m */,
+				93365A890872370700EC726F /* DBMonoObjectRepresentation.h */,
+				93365A8A0872370700EC726F /* DBMonoObjectRepresentation.m */,
+				ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */,
+				ABF43FB7179FF4FC00BAB99E /* DBMonoMethodRepresentation.m */,
+			);
+			path = Representations;
+			sourceTree = "<group>";
+		};
+		9D8863370974F4D000365976 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				9D8863680974F59A00365976 /* DBWrappers.h */,
+				9D8863470974F55500365976 /* DBWrappedString.h */,
+				9D8863480974F55500365976 /* DBWrappedString.m */,
+				9D6335AC09750DAD00FB76DF /* DBWrappedData.h */,
+				9D6335AD09750DAD00FB76DF /* DBWrappedData.m */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		9D8A17D3096A3FCE000477C0 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				9D8A17D4096A4085000477C0 /* DBFileInfo.h */,
+				9D8A17D5096A4085000477C0 /* DBFileInfo.m */,
+				ABBF107F17B25DE1006F6E93 /* System.IO.StringWriter.h */,
+				ABBF108017B25DE1006F6E93 /* System.IO.StringWriter.m */,
+			);
+			path = IO;
+			sourceTree = "<group>";
+		};
+		9D8BE81E0885A53D00D019A5 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				9D8BE81F0885A57600D019A5 /* DBIList.h */,
+				9D8BE8200885A57600D019A5 /* DBIList.m */,
+				9D10FF3E08B54E2F0066C2ED /* DBArrayList.h */,
+				9D10FF3F08B54E2F0066C2ED /* DBArrayList.m */,
+				ABBF104917B11E23006F6E93 /* System.Collections.Generic.List.h */,
+				ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		9DA049F208C8DEAD00EEE149 /* Posing */ = {
+			isa = PBXGroup;
+			children = (
+				9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */,
+				9DA04A0608C8E22A00EEE149 /* DBMonoRegisteredThread.m */,
+			);
+			path = Posing;
+			sourceTree = "<group>";
+		};
+		9DA8F08A09EF2BA4000EE2DE /* System */ = {
+			isa = PBXGroup;
+			children = (
+				9DA8F08B09EF2BDF000EE2DE /* DBArray.h */,
+				9DA8F08C09EF2BDF000EE2DE /* DBArray.m */,
+				9DCD135B0A7ABFB900849E5C /* DBConvert.h */,
+				9DCD135C0A7ABFB900849E5C /* DBConvert.m */,
+				9DCD142E0A7AE69900849E5C /* DBEnum.h */,
+				9DCD142F0A7AE69900849E5C /* DBEnum.m */,
+				ABBF103917B11A9F006F6E93 /* System.Nullable.h */,
+				ABBF103A17B11A9F006F6E93 /* System.Nullable.m */,
+				ABBF103D17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h */,
+				ABBF103E17B11C16006F6E93 /* System.Collections.Generic.Dictionary.m */,
+				ABBF104117B11C9F006F6E93 /* System.Collections.Generic.IEnumerable.h */,
+				ABBF104217B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m */,
+				ABBF104D17B11EA2006F6E93 /* System.Exception.h */,
+				ABBF104E17B11EA2006F6E93 /* System.Exception.m */,
+				ABBF105117B12E9A006F6E93 /* System.DayOfWeek.h */,
+				ABBF105217B12E9A006F6E93 /* System.DayOfWeek.m */,
+				ABBF105517B1371E006F6E93 /* System.Func.h */,
+				ABBF105617B1371F006F6E93 /* System.Func.m */,
+				ABBF106317B147F3006F6E93 /* System.Reflection.h */,
+				ABBF106417B147F3006F6E93 /* System.Reflection.m */,
+				ABBF106717B1489F006F6E93 /* System.Reflection.MethodInfo.h */,
+				ABBF106817B148A0006F6E93 /* System.Reflection.MethodInfo.m */,
+				ABBF106B17B1494E006F6E93 /* System.Type.h */,
+				ABBF106C17B1494F006F6E93 /* System.Type.m */,
+				ABBF106F17B149D6006F6E93 /* System.Reflection.ConstructorInfo.h */,
+				ABBF107017B149D8006F6E93 /* System.Reflection.ConstructorInfo.m */,
+				ABBF107317B14A3F006F6E93 /* System.Reflection.PropertyInfo.h */,
+				ABBF107417B14A41006F6E93 /* System.Reflection.PropertyInfo.m */,
+				ABBF107717B25B32006F6E93 /* System.Collections.IEnumerable.h */,
+				ABBF107817B25B34006F6E93 /* System.Collections.IEnumerable.m */,
+				ABBF107B17B25D13006F6E93 /* System.Text.Encoding.h */,
+				ABBF107C17B25D15006F6E93 /* System.Text.Encoding.m */,
+				ABBF108317B26241006F6E93 /* System.EventArgs.h */,
+				ABBF108417B26243006F6E93 /* System.EventArgs.m */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		9DF236C70875D58E008A199C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9D8BE9660886152500D019A5 /* DBCategories.h */,
+				9DA75F650A239104008EC2F7 /* DBArrayCategory.h */,
+				9DA75F660A239104008EC2F7 /* DBArrayCategory.m */,
+				9DB420090873614E0045F939 /* DBStringCategory.h */,
+				9DB4200A0873614E0045F939 /* DBStringCategory.m */,
+				9DF236790874E3CC008A199C /* DBDataCategory.h */,
+				9DF2367A0874E3CC008A199C /* DBDataCategory.m */,
+				9D68AF5208EA1569002C7AB0 /* DBDateCategory.h */,
+				9D68AF5308EA1569002C7AB0 /* DBDateCategory.m */,
+				9D496B2D09082F6700CD26AF /* DBImageCategory.h */,
+				9D496B2E09082F6700CD26AF /* DBImageCategory.m */,
+				AB49E42E178A06AC00D01244 /* DBDecimalNumberCategory.h */,
+				AB49E42F178A06AC00D01244 /* DBDecimalNumberCategory.m */,
+				AB49E432178ABAAD00D01244 /* DBNumberCategory.h */,
+				AB49E433178ABAAE00D01244 /* DBNumberCategory.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */ = {
+			isa = PBXGroup;
+			children = (
+				ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */,
+				ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */,
+				AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */,
+			);
+			name = "Dubrovnik.UnitTests assembly";
+			sourceTree = "<group>";
+		};
+		AB49E43E178B2D9000D01244 /* EntityFramework */ = {
+			isa = PBXGroup;
+			children = (
+				AB49E43A178B2D7A00D01244 /* DBEntityObjectSet.h */,
+				AB49E43B178B2D7A00D01244 /* DBEntityObjectSet.m */,
+				AB49E43F178B2ED600D01244 /* DBEntityObjectContext.h */,
+				AB49E440178B2ED600D01244 /* DBEntityObjectContext.m */,
+				AB49E443178B2EF400D01244 /* DBEntityObject.h */,
+				AB49E444178B2EF400D01244 /* DBEntityObject.m */,
+				AB49E447178B2F0F00D01244 /* DBEntityCollection.h */,
+				AB49E448178B2F1000D01244 /* DBEntityCollection.m */,
+				ABBF104517B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h */,
+				ABBF104617B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m */,
+				ABBF108717B29DD1006F6E93 /* System.Data.Entity.EntityState.h */,
+				ABBF108817B29DD1006F6E93 /* System.Data.Entity.EntityState.m */,
+			);
+			name = EntityFramework;
+			sourceTree = "<group>";
+		};
+		AB588DC3178308000000AAC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8CE4017BFF03E0015FFB0 /* Mono.framework */,
+				AB30149817A29C57001F7544 /* libmonoboehm-2.0.1.dylib */,
+				AB28C511178331010051A8D9 /* libJudy.a */,
+				AB2CD2FA178D74F20075CF6A /* Cocoa.framework */,
+				AB588DC4178308000000AAC1 /* SenTestingKit.framework */,
+				AB588DC8178308000000AAC1 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB588DC8178308000000AAC1 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */,
+				ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */,
+				ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */,
+				ABBF10A817B3D2E1006F6E93 /* DBUIntEnum.h */,
+				ABBF10A917B3D2E1006F6E93 /* DBUIntEnum.m */,
+				ABBF10AA17B3D2E1006F6E93 /* DBULongEnum.h */,
+				ABBF10AB17B3D2E1006F6E93 /* DBULongEnum.m */,
+				ABBF10AC17B3D2E1006F6E93 /* Dubrovnik Unit Tests-Info.plist */,
+				ABBF10AD17B3D2E1006F6E93 /* Dubrovnik Unit Tests-Prefix.pch */,
+				ABBF10AE17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.h */,
+				ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */,
+				ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */,
+			);
+			path = "Dubrovnik Unit Tests";
+			sourceTree = "<group>";
+		};
+		DA4FDE7B09B389FF00D16517 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DA4FDE7C09B38A1F00D16517 /* DBSize.h */,
+				DA4FDE7D09B38A1F00D16517 /* DBSize.m */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBF108917B29DD1006F6E93 /* System.Data.Entity.EntityState.h in Headers */,
+				ABBF108517B26246006F6E93 /* System.EventArgs.h in Headers */,
+				ABBF108117B25DE1006F6E93 /* System.IO.StringWriter.h in Headers */,
+				ABBF107D17B25D16006F6E93 /* System.Text.Encoding.h in Headers */,
+				ABBF107917B25B36006F6E93 /* System.Collections.IEnumerable.h in Headers */,
+				ABBF107517B14A43006F6E93 /* System.Reflection.PropertyInfo.h in Headers */,
+				ABBF107117B149DA006F6E93 /* System.Reflection.ConstructorInfo.h in Headers */,
+				ABBF106D17B14950006F6E93 /* System.Type.h in Headers */,
+				ABBF106917B148A1006F6E93 /* System.Reflection.MethodInfo.h in Headers */,
+				ABBF106517B147F4006F6E93 /* System.Reflection.h in Headers */,
+				ABBF105717B1371F006F6E93 /* System.Func.h in Headers */,
+				ABBF105317B12E9A006F6E93 /* System.DayOfWeek.h in Headers */,
+				ABBF104F17B11EA2006F6E93 /* System.Exception.h in Headers */,
+				ABBF104B17B11E23006F6E93 /* System.Collections.Generic.List.h in Headers */,
+				ABBF104717B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h in Headers */,
+				ABBF104317B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.h in Headers */,
+				ABBF103F17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h in Headers */,
+				ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */,
+				ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */,
+				AB49E43C178B2D7B00D01244 /* DBEntityObjectSet.h in Headers */,
+				AB49E441178B2ED600D01244 /* DBEntityObjectContext.h in Headers */,
+				AB49E445178B2EF400D01244 /* DBEntityObject.h in Headers */,
+				AB49E449178B2F1000D01244 /* DBEntityCollection.h in Headers */,
+				AB49E434178ABAAE00D01244 /* DBNumberCategory.h in Headers */,
+				AB49E430178A06AC00D01244 /* DBDecimalNumberCategory.h in Headers */,
+				93365A8D0872370700EC726F /* DBMonoClassRepresentation.h in Headers */,
+				93365A8F0872370700EC726F /* DBMonoObjectRepresentation.h in Headers */,
+				9300D02808723DF40024409B /* Dubrovnik.h in Headers */,
+				9DB4200B0873614E0045F939 /* DBStringCategory.h in Headers */,
+				9DF2367B0874E3CC008A199C /* DBDataCategory.h in Headers */,
+				9D021BFE08811729003E48C1 /* DBInvoke.h in Headers */,
+				9D13A6EE08833E74008ACA37 /* DBBoxing.h in Headers */,
+				9D8BE8210885A57600D019A5 /* DBIList.h in Headers */,
+				9D8BE945088613C500D019A5 /* DBMonoIncludes.h in Headers */,
+				9D8BE9670886152500D019A5 /* DBCategories.h in Headers */,
+				9D8BE971088615D200D019A5 /* DBUtility.h in Headers */,
+				9D69DC4308B1851E008BB787 /* DBMonoEnvironment.h in Headers */,
+				9D10FF4008B54E2F0066C2ED /* DBArrayList.h in Headers */,
+				9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */,
+				9DC576B108CF65C900897270 /* Judy.h in Headers */,
+				9D68AF5408EA1569002C7AB0 /* DBDateCategory.h in Headers */,
+				9D496B2F09082F6700CD26AF /* DBImageCategory.h in Headers */,
+				9D8A17D6096A4085000477C0 /* DBFileInfo.h in Headers */,
+				9D8863490974F55500365976 /* DBWrappedString.h in Headers */,
+				9D88636A0974F59A00365976 /* DBWrappers.h in Headers */,
+				9D6335AE09750DAD00FB76DF /* DBWrappedData.h in Headers */,
+				DA4FDE7E09B38A1F00D16517 /* DBSize.h in Headers */,
+				9DA8F08D09EF2BDF000EE2DE /* DBArray.h in Headers */,
+				9DA75F670A239104008EC2F7 /* DBArrayCategory.h in Headers */,
+				9DCD135D0A7ABFB900849E5C /* DBConvert.h in Headers */,
+				9DCD14300A7AE69900849E5C /* DBEnum.h in Headers */,
+				AB3C258B17B69391001DE389 /* mscorlib.dll.References.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8DC2EF4F0486A6940098B216 /* Dubrovnik */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A417D5087230B000352242 /* Build configuration list for PBXNativeTarget "Dubrovnik" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+				9DA4F5BD08CE79CA008EE9FB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dubrovnik;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = Dumbarton;
+			productReference = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AB588DC1178308000000AAC1 /* Dubrovnik Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB588DD6178308000000AAC1 /* Build configuration list for PBXNativeTarget "Dubrovnik Unit Tests" */;
+			buildPhases = (
+				AB588DBD178308000000AAC1 /* Sources */,
+				AB588DBE178308000000AAC1 /* Frameworks */,
+				AB588DBF178308000000AAC1 /* Resources */,
+				AB2CD2F8178D6EDA0075CF6A /* Copy frameworks */,
+				AB588DC0178308000000AAC1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dubrovnik Unit Tests";
+			productName = "Dumbarton Unit Tests";
+			productReference = AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 93A417D9087230B000352242 /* Build configuration list for PBXProject "Dubrovnik" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* Dumbarton */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* Dubrovnik */,
+				AB588DC1178308000000AAC1 /* Dubrovnik Unit Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB588DBF178308000000AAC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */,
+				AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9DA4F5BD08CE79CA008EE9FB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# cd $BUILT_PRODUCTS_DIR/Dumbarton.framework\n# install_name_tool -change /usr/local/lib/libJudy.1.dylib @executable_path/../Frameworks/Dumbarton.framework/Libraries/libJudy.dylib Dumbarton\n";
+		};
+		AB588DC0178308000000AAC1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBF108B17B2C531006F6E93 /* System.Collections.IEnumerable.m in Sources */,
+				93365A8E0872370700EC726F /* DBMonoClassRepresentation.m in Sources */,
+				93365A900872370700EC726F /* DBMonoObjectRepresentation.m in Sources */,
+				9DB4200C0873614E0045F939 /* DBStringCategory.m in Sources */,
+				9DF2367C0874E3CC008A199C /* DBDataCategory.m in Sources */,
+				9D021BFF08811729003E48C1 /* DBInvoke.m in Sources */,
+				9D8BE8220885A57600D019A5 /* DBIList.m in Sources */,
+				9D69DC4408B1851E008BB787 /* DBMonoEnvironment.m in Sources */,
+				9D10FF4108B54E2F0066C2ED /* DBArrayList.m in Sources */,
+				9DA04A0808C8E22A00EEE149 /* DBMonoRegisteredThread.m in Sources */,
+				9D68AF5508EA1569002C7AB0 /* DBDateCategory.m in Sources */,
+				9D496B3009082F6700CD26AF /* DBImageCategory.m in Sources */,
+				9D8A17D7096A4085000477C0 /* DBFileInfo.m in Sources */,
+				9D88634A0974F55500365976 /* DBWrappedString.m in Sources */,
+				9D6335AF09750DAD00FB76DF /* DBWrappedData.m in Sources */,
+				DA4FDE7F09B38A1F00D16517 /* DBSize.m in Sources */,
+				9DA8F08E09EF2BE0000EE2DE /* DBArray.m in Sources */,
+				9DA75F680A239104008EC2F7 /* DBArrayCategory.m in Sources */,
+				9DCD135E0A7ABFB900849E5C /* DBConvert.m in Sources */,
+				9DCD14310A7AE69900849E5C /* DBEnum.m in Sources */,
+				AB49E431178A06AC00D01244 /* DBDecimalNumberCategory.m in Sources */,
+				AB49E435178ABAAE00D01244 /* DBNumberCategory.m in Sources */,
+				AB49E43D178B2D7B00D01244 /* DBEntityObjectSet.m in Sources */,
+				AB49E442178B2ED600D01244 /* DBEntityObjectContext.m in Sources */,
+				AB49E446178B2EF400D01244 /* DBEntityObject.m in Sources */,
+				AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */,
+				ABF43FB9179FF4FC00BAB99E /* DBMonoMethodRepresentation.m in Sources */,
+				ABBF103C17B11A9F006F6E93 /* System.Nullable.m in Sources */,
+				ABBF104017B11C16006F6E93 /* System.Collections.Generic.Dictionary.m in Sources */,
+				ABBF104417B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m in Sources */,
+				ABBF104817B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m in Sources */,
+				ABBF104C17B11E23006F6E93 /* System.Collections.Generic.List.m in Sources */,
+				ABBF105017B11EA2006F6E93 /* System.Exception.m in Sources */,
+				ABBF105417B12E9A006F6E93 /* System.DayOfWeek.m in Sources */,
+				ABBF105817B1371F006F6E93 /* System.Func.m in Sources */,
+				ABBF106A17B148A1006F6E93 /* System.Reflection.MethodInfo.m in Sources */,
+				ABBF106E17B14950006F6E93 /* System.Type.m in Sources */,
+				ABBF107217B149DA006F6E93 /* System.Reflection.ConstructorInfo.m in Sources */,
+				ABBF107617B14A43006F6E93 /* System.Reflection.PropertyInfo.m in Sources */,
+				ABBF107E17B25D16006F6E93 /* System.Text.Encoding.m in Sources */,
+				ABBF108217B25DE1006F6E93 /* System.IO.StringWriter.m in Sources */,
+				ABBF108617B26246006F6E93 /* System.EventArgs.m in Sources */,
+				ABBF108A17B29DD1006F6E93 /* System.Data.Entity.EntityState.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB588DBD178308000000AAC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */,
+				ABBF10B317B3D2E1006F6E93 /* DBUIntEnum.m in Sources */,
+				ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */,
+				ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABBF10B117B3D2E1006F6E93 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93A417D6087230B000352242 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Dubrovnik_Prefix.pch;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"/**";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PRODUCT_NAME = Dubrovnik;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		93A417D7087230B000352242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Dubrovnik_Prefix.pch;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"/**";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PRODUCT_NAME = Dubrovnik;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		93A417DA087230B000352242 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_FAST_OBJC_DISPATCH = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_UNROLL_LOOPS = NO;
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Versions/3.2.0/include/mono-2.0";
+				OTHER_CFLAGS = (
+					"-Winvalid-pch",
+					"-DDEBUG",
+					"-Winline",
+					"-DJUDYERROR_NOTEST",
+					"-D_THREAD_SAFE",
+				);
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+					"-lm",
+					"-lgmodule-2.0",
+					"-lgthread-2.0",
+					"-lglib-2.0",
+					"-lintl",
+					"-liconv",
+				);
+			};
+			name = Debug;
+		};
+		93A417DB087230B000352242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_FAST_OBJC_DISPATCH = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_UNROLL_LOOPS = NO;
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Versions/3.2.0/include/mono-2.0";
+				OTHER_CFLAGS = (
+					"-Winline",
+					"-DJUDYERROR_NOTEST",
+					"-D_THREAD_SAFE",
+				);
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+					"-lm",
+					"-lgmodule-2.0",
+					"-lgthread-2.0",
+					"-lglib-2.0",
+					"-lintl",
+					"-liconv",
+				);
+			};
+			name = Release;
+		};
+		AB588DD7178308000000AAC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "Dubrovnik Unit Tests";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AB588DD8178308000000AAC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "Dubrovnik Unit Tests";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93A417D5087230B000352242 /* Build configuration list for PBXNativeTarget "Dubrovnik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A417D6087230B000352242 /* Debug */,
+				93A417D7087230B000352242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		93A417D9087230B000352242 /* Build configuration list for PBXProject "Dubrovnik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A417DA087230B000352242 /* Debug */,
+				93A417DB087230B000352242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AB588DD6178308000000AAC1 /* Build configuration list for PBXNativeTarget "Dubrovnik Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB588DD7178308000000AAC1 /* Debug */,
+				AB588DD8178308000000AAC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
