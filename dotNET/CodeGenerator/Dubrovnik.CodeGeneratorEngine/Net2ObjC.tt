@@ -83,7 +83,7 @@ void WriteFileHeader()
 public void WriteInterfaceFilePreliminaries()
 {
 	string objCAssemblyHeaderName = AssemblyFacet.Name;
-	string defineName = ("Include_" + CodeFacet.ObjCType(objCAssemblyHeaderName) + "_Extra").ToUpper();
+	string defineName = ("Include_" + ObjCNameFromMonoName(objCAssemblyHeaderName) + "_Extra").ToUpper();
 	
 #>
 #import <Cocoa/Cocoa.h>
@@ -112,7 +112,7 @@ public void WriteInterfaceFilePreliminaries()
 		defineName = (includeFile + "_Included").ToUpper();
 #>
 #ifndef <#=defineName#>
-#import "<#=includeFile#>.h"
+//#import "<#=includeFile#>.h"
 #endif
 
 <#+  
@@ -153,8 +153,8 @@ public void WriteInterfaceFilePreliminaries()
 public void WriteClassPredeclaration(CodeFacet facet)
 {
 	string namespacePrefix = MinimizeNamespace(facet.TypeNamespace);
-	string classDefine = CodeFacet.ObjCName(namespacePrefix, facet.Name) + "_";
-	string classObjCType = facet.ObjC.Type;
+	string classDefine = ObjCNameFromMonoName(namespacePrefix, facet.Name) + "_";
+	string classObjCType = facet.ObjCFacet.Type;
 #>
 @class <#=classObjCType#>;
 #ifdef <#=classDefine#>
@@ -202,7 +202,7 @@ public void WriteClass(ClassFacet @class)
 //
 // Mono class <#=@class.Name#>
 //
-@<#=classPrefix#> <#=@class.ObjC.Type#><#=superClass#>
+@<#=classPrefix#> <#=@class.ObjCFacet.Type#><#=superClass#>
 <#+		
 	WriteFacetAsClassSetup(@class);
 	WriteConstructors(@class.Constructors);
@@ -221,7 +221,7 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 {
 	WritePragmaMark("Setup");
 #>
-
+	// obligatory override
 	+ (const char *)monoClassName<#=LT#>
 <#+	// output implementation body
 	if (OutputFileType == OutputType.Implementation) 
@@ -233,7 +233,7 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 <#+
     }
 #>
-
+	// obligatory override
 	+ (const char *)monoAssemblyName<#=LT#>
 <#+	// output implementation body
 	if (OutputFileType == OutputType.Implementation) 
@@ -259,7 +259,7 @@ public void WriteInterface(InterfaceFacet @interface)
 //
 // Mono interface <#=@interface.Name#>
 //
-@<#=classPrefix#> <#=@interface.ObjC.Type#> : DBMonoObjectRepresentation
+@<#=classPrefix#> <#=@interface.ObjCFacet.Type#> : DBMonoObjectRepresentation
 <#+		
 	WriteFacetAsClassSetup(@interface);	
 	WriteProperties(@interface.Properties);
@@ -274,7 +274,8 @@ public void WriteInterface(InterfaceFacet @interface)
 //
 public void WriteEnumeration(EnumerationFacet enumeration)
 {
-	string objCType = ObjCTypeName(enumeration.UnderlyingType);
+	string objCEnumType = ObjCTypeNameFromMonoTypeName(enumeration.UnderlyingType);
+	string objCType = ObjCTypeNameFromMonoTypeName(enumeration.Type);
 
 	// output the enums as a typedef.
 	// note that we could also generate a class based definition.
@@ -285,13 +286,14 @@ public void WriteEnumeration(EnumerationFacet enumeration)
 #>
 
 //
-// Mono enumeration <#=enumeration.Name#>
+// Mono enumeration <#=enumeration.Type#>
 //
-typedef NS_ENUM(<#=objCType#>, e<#=enumeration.Name#>) {
+typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 <#+
 			foreach (FieldFacet field in enumeration.Fields) {
+				string objCFieldName = ObjCNameFromMonoName(field.Name);
 #>
-	e<#=enumeration.Name#>_<#=field.Name#> = <#=field.ConstantValue#>,
+	<#=objCType#>_<#=objCFieldName#> = <#=field.ConstantValue#>,
 <#+
 			}
 #>
@@ -310,17 +312,14 @@ typedef NS_ENUM(<#=objCType#>, e<#=enumeration.Name#>) {
 public void WriteFacetAsAccessor(CodeFacet facet)
 {
 	string accessorName = facet.Name;
-	string getterName = Char.ToLowerInvariant(accessorName[0]).ToString();
-	if (accessorName.Length > 1) {
-		getterName += accessorName.Substring(1);
-    }
-	string setterName = "set" + accessorName;
+	string getterName = accessorName.FirstCharacterToLower();
+	string setterName = "set" + accessorName.FirstCharacterToUpper();
 	string accessorType = facet.Type;
-	string objCTypeDecl = ObjCTypeDecl(accessorType);
+	string objCTypeDecl = ObjCTypeDeclFromMonoFacet(facet);
 
 	// create Obj-C representation of mono object
-	string monoValueToObjcC = MonoValueToObjc(MonoVariableName, facet);
-	string objCValueToMono = ObjCValueToMono(ObjCVariableName, objCTypeDecl, accessorType);
+	string monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
+	string objCValueToMono = ObjCValueToMono(ObjCVariableName, objCTypeDecl, facet);
 	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet.Type);
 
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
@@ -367,7 +366,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 			if (facet is PropertyFacet) {
 #>
 		MonoObject *<#=MonoVariableName#> = <#=getExpression#>;
-		return <#=monoValueToObjcC#>;
+		return <#=monoValueToObjC#>;
 	}
 <#+	
             } else if (facet is FieldFacet) {
@@ -375,7 +374,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 				string returnExpression;
 				string valueTypeDecl = objCTypeDecl;
 				if (objCTypeAssociate == null || objCTypeAssociate.IsNSObject) {
-					returnExpression = monoValueToObjcC;
+					returnExpression = monoValueToObjC;
 					valueTypeDecl = "MonoObject *";
 				} else {
 					returnExpression = MonoVariableName;
@@ -419,20 +418,16 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	string monoMethodName = "";
 	bool isConstructorMethod = (facet.Name == null);	// constructor has no method name
 	string objCMethodType = facet.IsStatic || isConstructorMethod ? "+" : "-";
-	string objCTypeDecl = ObjCTypeDecl(facet.Type);	// TODO: constructor method facet requires a type
-	string monoValueToObjcC = null;
+	string objCTypeDecl = ObjCTypeDeclFromMonoFacet(facet);	
+	string monoValueToObjC = null;
 
 	// instance method requires a name and type
 	if (!isConstructorMethod) {
 
-		monoMethodName = facet.Name;
-		methodName = Char.ToLowerInvariant(monoMethodName[0]).ToString();
-		if (monoMethodName.Length > 1) {
-			methodName += monoMethodName.Substring(1);
-		}
+		methodName = facet.Name.FirstCharacterToLower();
 
 		// create Obj-C representation of mono object
-		monoValueToObjcC = MonoValueToObjc(MonoVariableName, facet);
+		monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
 
 		if (!facet.IsStatic) {
 			methodFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
@@ -446,7 +441,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 			return;
         }
 
-		methodName = "newWith";
+		methodName = "new";
 
 		// a constructor requires no explicit name or type
 		methodFormat = "[[self alloc] initWithSignature:\"{1}\" withNumArgs:{2}]";
@@ -471,31 +466,27 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		MonoTypeAssociation monoTypeAssociate = null;
 		if (objCTypeAssociate != null) {
 			monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
-			//methodArgSig = monoTypeAssociate != null ? monoTypeAssociate.MonoTypeAlias : objCTypeAssociate.ObjCType;
 			methodArgType =  objCTypeAssociate.ObjCTypeDecl;
 			parameterIsObject = objCTypeAssociate.IsNSObject;
 		} else {
-			//methodArgSig = ObjCTypeName(parameter.Type);
-			methodArgType = ObjCTypeDecl(parameter.Type);
+			methodArgType = ObjCTypeDeclFromMonoFacet(parameter);
         }
 		
 		// use parameter name as signature ?
 		bool usePrameterNameAsSignature = true;
  		if (usePrameterNameAsSignature) {
-			methodArgSig = ObjCTypeName(parameter.Name);
+			methodArgSig = ObjCNameFromMonoName(parameter.Name);
         }
 
 		if (idx == 0) {
-			bool appendFirstArgSignatureToMethodName = true;
-			if (appendFirstArgSignatureToMethodName) {
-				methodArgsBuilder.AppendFormat("_{0}:", methodArgSig);
-            } else {
-				methodArgsBuilder.Append(":");
-            }
+			if (AppendFirstArgSignatureToMethodName) {
+				methodName += "With";
+				methodArgsBuilder.AppendFormat("{0}", methodArgSig.FirstCharacterToUpper());
+            } 
         } else {
-			methodArgsBuilder.AppendFormat(" {0}:", methodArgSig);
+			methodArgsBuilder.AppendFormat(" {0}", methodArgSig.FirstCharacterToLower());
         }
-		methodArgsBuilder.AppendFormat("({0})p{1}", methodArgType, idx+1);
+		methodArgsBuilder.AppendFormat(":({0})p{1}", methodArgType, idx + 1);
 
 		//
 		// build the mono invocation argument representation
@@ -561,10 +552,10 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		return <#=getExpression#>;
 <#+
 		} else {
-			if (String.IsNullOrEmpty(monoValueToObjcC)) throw new Exception("Mono value to ObjC expression is empty"); 
+			if (String.IsNullOrEmpty(monoValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
 #>
 		MonoObject *<#=MonoVariableName#> = <#=getExpression#>;
-		return <#=monoValueToObjcC#>;
+		return <#=monoValueToObjC#>;
 <#+	
 		}// if objCTypeDecl
 #>

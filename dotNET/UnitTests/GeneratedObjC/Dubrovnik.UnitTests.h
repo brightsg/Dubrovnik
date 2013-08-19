@@ -7,10 +7,10 @@
 //
 // This code was generated from a template.
 //
-// Date:     8/17/2013 5:10:56 PM
+// Date:     8/18/2013 12:44:09 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4976.17454, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4978.15396, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -72,23 +72,23 @@
 
 
 //
-// Mono enumeration IntEnum
+// Mono enumeration Dubrovnik.UnitTests.IntEnum
 //
-typedef NS_ENUM(int32_t, eIntEnum) {
-	eIntEnum_val1 = 1,
-	eIntEnum_val2 = 2,
-	eIntEnum_val3 = 3,
-	eIntEnum_val4 = 4,
+typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
+	Dubrovnik_UnitTests_IntEnum_val1 = 1,
+	Dubrovnik_UnitTests_IntEnum_val2 = 2,
+	Dubrovnik_UnitTests_IntEnum_val3 = 3,
+	Dubrovnik_UnitTests_IntEnum_val4 = 4,
 };
 
 //
-// Mono enumeration LongEnum
+// Mono enumeration Dubrovnik.UnitTests.LongEnum
 //
-typedef NS_ENUM(int64_t, eLongEnum) {
-	eLongEnum_val1 = 1,
-	eLongEnum_val2 = 2,
-	eLongEnum_val3 = 3,
-	eLongEnum_val4 = 4,
+typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
+	Dubrovnik_UnitTests_LongEnum_val1 = 1,
+	Dubrovnik_UnitTests_LongEnum_val2 = 2,
+	Dubrovnik_UnitTests_LongEnum_val3 = 3,
+	Dubrovnik_UnitTests_LongEnum_val4 = 4,
 };
 
 //
@@ -98,19 +98,19 @@ typedef NS_ENUM(int64_t, eLongEnum) {
 
 #pragma mark -
 #pragma mark Setup
-
+	// obligatory override
 	+ (const char *)monoClassName;
-
+	// obligatory override
 	+ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
 	// Mono type is Dubrovnik.UnitTests.ReferenceObject
-    + (Dubrovnik_UnitTests_ReferenceObject *)newWith_value:(NSString *)p1;
+    + (Dubrovnik_UnitTests_ReferenceObject *)newWithValue:(NSString *)p1;
 
 	// Mono type is Dubrovnik.UnitTests.ReferenceObject
-    + (Dubrovnik_UnitTests_ReferenceObject *)newWith_value1:(NSString *)p1 value2:(NSString *)p2;
+    + (Dubrovnik_UnitTests_ReferenceObject *)newWithValue1:(NSString *)p1 value2:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Fields
@@ -134,16 +134,16 @@ typedef NS_ENUM(int64_t, eLongEnum) {
     - (void)setDateField:(NSDate *)value;
 
 	// Mono type is Dubrovnik.UnitTests.IntEnum
-    - (Dubrovnik_UnitTests_IntEnum *)intEnumField;
-    - (void)setIntEnumField:(Dubrovnik_UnitTests_IntEnum *)value;
+    - (Dubrovnik_UnitTests_IntEnum)intEnumField;
+    - (void)setIntEnumField:(Dubrovnik_UnitTests_IntEnum)value;
 
 	// Mono type is System.Int32
     - (int32_t)intField;
     - (void)setIntField:(int32_t)value;
 
 	// Mono type is Dubrovnik.UnitTests.LongEnum
-    - (Dubrovnik_UnitTests_LongEnum *)longEnumField;
-    - (void)setLongEnumField:(Dubrovnik_UnitTests_LongEnum *)value;
+    - (Dubrovnik_UnitTests_LongEnum)longEnumField;
+    - (void)setLongEnumField:(Dubrovnik_UnitTests_LongEnum)value;
 
 	// Mono type is System.String
     - (NSString *)stringField;
@@ -164,33 +164,25 @@ typedef NS_ENUM(int64_t, eLongEnum) {
     - (NSDecimalNumber *)decimalNumber;
     - (void)setDecimalNumber:(NSDecimalNumber *)value;
 
-	// Mono type is System.Nullable
-    - (System_Nullable *)int32NullableNumber;
-    - (void)setInt32NullableNumber:(System_Nullable *)value;
-
 	// Mono type is System.Int32
     - (int32_t)int32Number;
     - (void)setInt32Number:(int32_t)value;
-
-	// Mono type is System.Nullable
-    - (System_Nullable *)int64NullableNumber;
-    - (void)setInt64NullableNumber:(System_Nullable *)value;
 
 	// Mono type is System.Int64
     - (int64_t)int64Number;
     - (void)setInt64Number:(int64_t)value;
 
 	// Mono type is Dubrovnik.UnitTests.IntEnum
-    - (Dubrovnik_UnitTests_IntEnum *)intEnumeration;
-    - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum *)value;
+    - (Dubrovnik_UnitTests_IntEnum)intEnumeration;
+    - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value;
 
 	// Mono type is System.Int32
     - (int32_t)intNumber;
     - (void)setIntNumber:(int32_t)value;
 
 	// Mono type is Dubrovnik.UnitTests.LongEnum
-    - (Dubrovnik_UnitTests_LongEnum *)longEnumeration;
-    - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum *)value;
+    - (Dubrovnik_UnitTests_LongEnum)longEnumeration;
+    - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value;
 
 	// Mono type is System.String
     - (NSString *)name;
@@ -211,19 +203,19 @@ typedef NS_ENUM(int64_t, eLongEnum) {
     - (NSString *)classDescription;
 
 	// Mono type is System.DateTime
-    - (NSDate *)dateMethod_d1:(NSDate *)p1;
+    - (NSDate *)dateMethodWithD1:(NSDate *)p1;
 
 	// Mono type is System.String
-    - (NSString *)mixedMethod1_intarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
+    - (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
 
 	// Mono type is System.String
     - (NSString *)stringMethod;
 
 	// Mono type is System.String
-    - (NSString *)stringMethod_s1:(NSString *)p1;
+    - (NSString *)stringMethodWithS1:(NSString *)p1;
 
 	// Mono type is System.String
-    - (NSString *)stringMethod_s1:(NSString *)p1 s2:(NSString *)p2;
+    - (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2;
 @end
 
 //
@@ -233,9 +225,9 @@ typedef NS_ENUM(int64_t, eLongEnum) {
 
 #pragma mark -
 #pragma mark Setup
-
+	// obligatory override
 	+ (const char *)monoClassName;
-
+	// obligatory override
 	+ (const char *)monoAssemblyName;
 
 #pragma mark -
@@ -253,20 +245,20 @@ typedef NS_ENUM(int64_t, eLongEnum) {
 
 #pragma mark -
 #pragma mark Setup
-
+	// obligatory override
 	+ (const char *)monoClassName;
-
+	// obligatory override
 	+ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
 
 	// Mono type is System.String
-    - (NSString *)extensionString_test:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+    - (NSString *)extensionStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 
 	// Mono type is System.String
     - (NSString *)staticString;
 
 	// Mono type is System.String
-    - (NSString *)staticString_test:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+    - (NSString *)staticStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 @end

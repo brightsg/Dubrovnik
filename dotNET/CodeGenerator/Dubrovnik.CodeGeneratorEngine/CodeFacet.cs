@@ -18,18 +18,18 @@ namespace Dubrovnik
 
         public CodeFacet(CodeFacet facet)
         {
-            Name = ObjCName(facet.Name);
-            Type = ObjCType(facet.Type);
-            BaseName = ObjCName(facet.BaseName);
-            BaseType = ObjCType(facet.BaseType);
-            UnderlyingType = ObjCType(facet.UnderlyingType);
+            Name = ObjCNameFromMonoName(facet.Name);
+            Type = ObjCNameFromMonoName(facet.Type);
+            BaseName = ObjCNameFromMonoName(facet.BaseName);
+            BaseType = ObjCNameFromMonoName(facet.BaseType);
+            UnderlyingType = ObjCNameFromMonoName(facet.UnderlyingType);
 
             if (facet.ChildTypes != null && facet.ChildTypes.Count() > 0)
             {
                 List<string> list = new  List<string>();
                 foreach (string childType in facet.ChildTypes)
                 {
-                    list.Add(ObjCType(childType));
+                    list.Add(ObjCNameFromMonoName(childType));
                 }
                 ChildTypes = list.ToArray<string>();
             }
@@ -54,7 +54,7 @@ namespace Dubrovnik
             ConstantValue = XElementAttributeValue(xelement, "ConstantValue");
 
             // define ObjC code facet
-            ObjC = new CodeFacet(this);
+            ObjCFacet = new CodeFacet(this);
         }
 
         public CodeFacet Output { get; private set; }
@@ -71,7 +71,7 @@ namespace Dubrovnik
         public string UnderlyingType { get; private set; }
         public bool IsGeneric { get; private set; }
         public bool IsStatic { get; private set; }
-        public CodeFacet ObjC { get; private set; }
+        public CodeFacet ObjCFacet { get; private set; }
         public string[] ChildTypes { get; private set; }
         public string TypeNamespace { get; private set; }
         public string ConstantValue { get; private set; }
@@ -122,50 +122,52 @@ namespace Dubrovnik
             return Convert.ToBoolean(value);
         }
 
-        public static string ObjCType(string monoType)
+        //
+        // ObjCNameFromMonoName
+        //
+        // Converts a Mono value or type name string to its corresponding ObjC represntation.
+        // This method does no type conversion.
+        // It merely attempts to produce a valid ObjC variable or type name string from the 
+        // input Mono name.
+        //
+        public static string ObjCNameFromMonoName(string monoName)
         {
-            string value = null;
-            if (monoType != null) 
+            string name = "";
+            if (monoName != null) 
             {
-                value = monoType;
+                name = monoName;
 
                 // for C# qualifier details see http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx
-                value = value.Replace(".", "_"); // namespacing
-                value = value.Replace("+", "__"); // nested classes
-                value = value.Replace("<", "_"); // start of generic type parameter identifier
-                value = value.Replace(",", "_"); // generic type parameter separator
-                value = value.Replace(">", ""); // end of generic type parameter identifier
-                value = value.Replace("`", "_P"); // generic arity indicates parameter count
-                value = value.Replace(" ", ""); // hmm...
+                name = name.Replace(".", "_"); // namespacing
+                name = name.Replace("+", "__"); // nested classes
+                name = name.Replace("<", "_"); // start of generic type parameter identifier
+                name = name.Replace(",", "_"); // generic type parameter separator
+                name = name.Replace(">", ""); // end of generic type parameter identifier
+                name = name.Replace("`", "_P"); // generic arity indicates parameter count
+                name = name.Replace(" ", ""); // ill advised paranoia at work
 
-                value = value.Replace("[]", "_ARRAY_"); //TODO: this is temporary
+                name = name.Replace("[]", "_ARRAY_"); //TODO: this is temporary
 
                 Regex validObjcCNameRegex = new Regex("^[A-Za-z_][A-Za-z_0-9]*$");
-                if (!validObjcCNameRegex.IsMatch(value))
+                if (!validObjcCNameRegex.IsMatch(name))
                 {
                     throw new Exception("{0} is not a valid ObjC type or variable name");
                 }
             }
-            return value;
-        }
-
-        public static string ObjCName(string name)
-        {
-            if (name != null)
-            {
-                // default to Dubrovnik namespace prefix
-                name = ObjCName("DB", name);
-            }
             return name;
         }
-        public static string ObjCName(string prefix, string name)
+
+        //
+        // ObjCNameFromMonoName()
+        //
+        public static string ObjCNameFromMonoName(string prefix, string name)
         {
             if (name != null)
             {
-                name = ObjCType(name);
+                name = ObjCNameFromMonoName(name);
                 if (prefix != null)
                 {
-                    prefix = ObjCType(prefix);
+                    prefix = ObjCNameFromMonoName(prefix);
                     name = prefix + name;
                 }
             }

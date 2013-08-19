@@ -73,6 +73,7 @@
 		AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E448178B2F1000D01244 /* DBEntityCollection.m */; };
 		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
 		ABB8CE3F17BFEF7B0015FFB0 /* libmonoboehm-2.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB30149817A29C57001F7544 /* libmonoboehm-2.0.1.dylib */; };
+		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103917B11A9F006F6E93 /* System.Nullable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBF103C17B11A9F006F6E93 /* System.Nullable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF103A17B11A9F006F6E93 /* System.Nullable.m */; };
 		ABBF103F17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103D17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -828,6 +829,7 @@
 				ABBF10B317B3D2E1006F6E93 /* DBUIntEnum.m in Sources */,
 				ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */,
 				ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */,
+				ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,7 +912,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_FAST_OBJC_DISPATCH = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -924,8 +926,6 @@
 					"-D_THREAD_SAFE",
 				);
 				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
 					"-lm",
 					"-lgmodule-2.0",
 					"-lgthread-2.0",
@@ -943,7 +943,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_FAST_OBJC_DISPATCH = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -955,8 +955,6 @@
 					"-D_THREAD_SAFE",
 				);
 				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
 					"-lm",
 					"-lgmodule-2.0",
 					"-lgthread-2.0",
@@ -996,12 +994,12 @@
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"",
+					/Library/Frameworks/Mono.framework/Versions/3.2.0/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = octest;
@@ -1031,11 +1029,11 @@
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"",
+					/Library/Frameworks/Mono.framework/Versions/3.2.0/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = octest;

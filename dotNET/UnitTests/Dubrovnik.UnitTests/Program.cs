@@ -18,8 +18,11 @@ namespace Dubrovnik.UnitTests
 			Console.WriteLine ("Int: {0}", refObject.IntNumber);
 			Console.WriteLine ("Int32: {0}", refObject.Int32Number);
 			Console.WriteLine ("Int64: {0}", refObject.Int64Number);
+
+            /*
 			Console.WriteLine ("Nullable Int32: {0}", refObject.Int32NullableNumber);
 			Console.WriteLine ("Nullable Int64: {0}", refObject.Int64NullableNumber);
+            */
 
 			Console.WriteLine (refObject.MixedMethod1(1, 2, 3.0f, 4.0, refObject.Date, "MixedMethod", refObject));
 

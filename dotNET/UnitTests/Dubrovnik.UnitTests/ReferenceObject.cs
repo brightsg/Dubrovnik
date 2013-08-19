@@ -54,12 +54,15 @@ namespace Dubrovnik.UnitTests
 
 			Date = DateTime.Now;
 			DecimalNumber = 10.5005m;
-			Value = "Dubrovnik.UnitTests property";
+			StringProperty = "Dubrovnik.UnitTests property";
             Name = "Dubrovnik.UnitTests ReferenceObject";
 			Int32Number = 32;
 			Int64Number = 64;
+
+            /*
 			Int32NullableNumber = null;
 			Int64NullableNumber = null;
+            */
 
 			IntEnumeration = IntEnum.val1;
 			LongEnumeration = LongEnum.val1;
@@ -74,12 +77,12 @@ namespace Dubrovnik.UnitTests
 
 		public ReferenceObject (string value) : this ()
 		{
-			Value = value;
+            StringProperty = value;
 		}
 
 		public ReferenceObject (string value1, string value2) : this()
 		{
-			Value = value1  + value2;
+            StringProperty = value1 + value2;
 		}
 
 		//==============================
@@ -94,7 +97,7 @@ namespace Dubrovnik.UnitTests
 		//==============================
 		// properties
 		//==============================
-		public string Value
+        public string StringProperty
 		{ 
 			get; 
 			set;
@@ -139,7 +142,7 @@ namespace Dubrovnik.UnitTests
 			get;
 			set;
 		}
-
+/*
 		public Int32? Int32NullableNumber {
 			get;
 			set;
@@ -149,14 +152,14 @@ namespace Dubrovnik.UnitTests
 			get;
 			set;
 		}
-
+*/
         public ReferenceObject ReferenceObjectRelative
         {
 			get { return _referenceObjectRelative;}
 			set
 			{ 
 				_referenceObjectRelative = value;
-                Console.WriteLine("ReferenceObjectRelative setter value : {0}", _referenceObjectRelative.Value);
+                Console.WriteLine("ReferenceObjectRelative StringProperty: {0}", _referenceObjectRelative.StringProperty);
 			}
 		}
 

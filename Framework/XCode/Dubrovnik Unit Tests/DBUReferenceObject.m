@@ -24,12 +24,12 @@
 #pragma mark -
 #pragma mark Mono constructors
 
-+ (id)newWithString:(NSString *)p1
++ (id)newWithValue:(NSString *)p1
 {
     return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoString]];
 }
 
-+ (id)newWithString:(NSString *)p1 string:(NSString *)p2
++ (id)newWithValue1:(NSString *)p1 value2:(NSString *)p2
 {
     return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoString], [p2 monoString]];
 }
@@ -88,14 +88,14 @@
 
 - (NSString *)stringProperty
 {
-    MonoObject *monoObject = [self getMonoProperty:"Value"];
+    MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
 }
 - (void)setStringProperty:(NSString *)value
 {
-    [self setMonoProperty:"Value" valueObject:[value monoValue]];
+    [self setMonoProperty:"StringProperty" valueObject:[value monoValue]];
 }
 
 - (NSDate *)date

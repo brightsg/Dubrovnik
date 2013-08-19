@@ -20,8 +20,8 @@
 @interface DBUReferenceObject : DBMonoObjectRepresentation
 
 // constructors
-+ (id)newWithString:(NSString *)p1;
-+ (id)newWithString:(NSString *)p1 string:(NSString *)p2;
++ (id)newWithValue:(NSString *)p1;
++ (id)newWithValue1:(NSString *)p1 value2:(NSString *)p2;
 
 // class fields
 + (NSString *)classStringField;

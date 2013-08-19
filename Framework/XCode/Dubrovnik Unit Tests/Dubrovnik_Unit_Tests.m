@@ -9,8 +9,10 @@
 #import "Dubrovnik_Unit_Tests.h"
 #import "DBUReferenceObject.h"
 
-#ifdef DB_INCLUDE_GENERATED_CODE
-#import "Dubrovnik.UnitTests.exe.h"
+//#define DB_RUN_AUTO_GENERATED_CODE_TEST
+
+#ifdef DB_RUN_AUTO_GENERATED_CODE_TEST
+#import "Dubrovnik.UnitTests.h"
 #endif
 
 NSString *DBUTestString = @"Dubrovnik";
@@ -26,7 +28,7 @@ NSString *DBUSubstringTestFailed = @"Substring not found";
 static BOOL _setup = NO;
 
 @interface Dubrovnik_Unit_Tests()
-- (void)doTestGeneralWithClass:(Class)testClass;
+- (void)doTestReferenceClass:(Class)testClass;
 @end
 
 @implementation Dubrovnik_Unit_Tests
@@ -116,19 +118,31 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"NSDate date = %@ Mono DateTime = %@ ticks = %lld", dateNow, dateString, ticks);
     
     //[DBMonoObjectRepresentation logMonoClassInfo:mono_object_get_class(monoObject)];
-
 }
 
-- (void)testGeneral
+- (void)testReferenceClass
 {
-    [self doTestGeneralWithClass:[DBUReferenceObject class]];
+    // When adding support for new features it is best to
+    // ensure that the manually coded reference class passes its tests first.
+    // DB_RUN_AUTO_GENERATED_CODE_TEST can be undefined if required.
+    //
+    // Once the manually code class performs as required it can be used
+    // as a guide for implementing the auto generated code
     
-#ifdef DUReferenceObject_
-    [self doTestGeneralWithClass:[DUReferenceObject_ class]];
+    NSLog(@"==============================================");
+    NSLog(@"Testing manually generated reference object");
+    NSLog(@"==============================================");
+    [self doTestReferenceClass:[DBUReferenceObject class]];
+    
+#ifdef DB_RUN_AUTO_GENERATED_CODE_TEST    
+    NSLog(@"==============================================");
+    NSLog(@"Testing auto generated reference object");
+    NSLog(@"==============================================");
+    [self doTestReferenceClass:[DUReferenceObject_ class]];
 #endif
 }
 
-- (void)doTestGeneralWithClass:(Class)testClass
+- (void)doTestReferenceClass:(Class)testClass
 {
     //
     // default constructor
@@ -143,13 +157,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // constructor overloads
     //
     NSString *ctorString = @"Constructor with one string argument";
-    refObject = [testClass newWithString:ctorString];
+    refObject = [testClass newWithValue:ctorString];
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:ctorString], DBUEqualityTestFailed);
     
     NSString *ctorString1 = @"Constructor with two ";
     NSString *ctorString2 = @"string arguments";
-    refObject = [testClass newWithString:ctorString1 string:ctorString2];
+    refObject = [testClass newWithValue1:ctorString1 value2:ctorString2];
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
     

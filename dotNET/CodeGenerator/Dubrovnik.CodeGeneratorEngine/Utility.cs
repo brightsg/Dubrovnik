@@ -19,4 +19,41 @@ namespace Dubrovnik
             }
         }
     }
+
+        public static class StringUtils
+        {
+            public static string FirstCharacterToUpper(this String s)
+            {
+                // Check for empty string.
+                if (string.IsNullOrEmpty(s))
+                {
+                    return "";
+                }
+
+                string result = Char.ToUpperInvariant(s[0]).ToString();
+                if (s.Length > 1)
+                {
+                    result += s.Substring(1);
+                }
+
+                return result;
+            }
+
+            public static string FirstCharacterToLower(this String s)
+            {
+                // Check for empty string.
+                if (string.IsNullOrEmpty(s))
+                {
+                    return "";
+                }
+
+                string result = Char.ToLowerInvariant(s[0]).ToString();
+                if (s.Length > 1)
+                {
+                    result += s.Substring(1);
+                }
+
+                return result;
+            }
+        }
 }

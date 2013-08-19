@@ -17,6 +17,7 @@ namespace Dubrovnik
         public string ImplementationOutput { get; private set; }
         public string XMLFilePath { get; set; }
         public bool ImplementEnumerationsAsClasses { get; private set; }
+        public bool AppendFirstArgSignatureToMethodName { get; private set; }
 
         public Net2ObjC() : base ()
         {
@@ -24,8 +25,9 @@ namespace Dubrovnik
             BuildTypeAssociations();
 
             // assign property defaults
-            this.OutputFileType = OutputType.Interface;
-            this.ImplementEnumerationsAsClasses = false;
+            OutputFileType = OutputType.Interface;
+            ImplementEnumerationsAsClasses = false;
+            AppendFirstArgSignatureToMethodName = true;
         }
 
         //
@@ -183,10 +185,7 @@ namespace Dubrovnik
         public OutputType OutputFileType { get; private set; }
 
         public enum OutputType { Implementation, Interface };
-        public string ClassPrefix { get; set; }
-        public string ClassSuffix { get; set; }
-        public string CP { get { return ClassPrefix; } }
-        public string CS { get { return ClassSuffix; } }
+
 
         private Dictionary<string, ObjCTypeAssociation> ObjCTypeAssociations { get; set; }
         private Dictionary<string, MonoTypeAssociation> MonoTypeAssociations { get; set; }
@@ -334,7 +333,10 @@ namespace Dubrovnik
             public string SetterMethod { get; set; }
         }
 
-        string ObjCTypeName(string monoType)
+        //
+        // ObjCTypeNameFromMonoTypeName
+        //
+        string ObjCTypeNameFromMonoTypeName(string monoType)
         {
             string value = monoType;
 
@@ -345,26 +347,35 @@ namespace Dubrovnik
                 value = ObjCTypeAssociations[monoType].ObjCType;
             }
 
-            return CodeFacet.ObjCType(value);
+            return ObjCNameFromMonoName(value);
         }
 
-        string ObjCTypeDecl(string monoType)
+        //
+        // ObjCTypeDeclFromMonoFacet()
+        //
+        string ObjCTypeDeclFromMonoFacet(CodeFacet monoFacet)
         {
-            string value = "";
+            string decl = "";
+            string monoType = monoFacet.Type;
 
             if (monoType == null) return "????";
 
             if (!ObjCTypeAssociations.ContainsKey(monoType))
             {
-                // If no explicit type found then return a pointer to a canonical type name
-                value = CodeFacet.ObjCType(monoType) + " *";
+                // If no explicit type found then return a canonical type name.
+                decl = ObjCNameFromMonoName(monoType);
+
+                // if not a value type then declare as a pointer
+                if (!monoFacet.IsValueType) {
+                    decl += " *";
+                }
             }
             else
             {
-                value = ObjCTypeAssociations[monoType].ObjCTypeDecl;
+                decl = ObjCTypeAssociations[monoType].ObjCTypeDecl;
             }
 
-            return value;
+            return decl;
         }
 
         //
@@ -438,7 +449,7 @@ namespace Dubrovnik
             string value = "";
             if (OutputFileType == OutputType.Interface)
             {
-                value = " : " + ObjCTypeName(@class.BaseType);
+                value = " : " + ObjCTypeNameFromMonoTypeName(@class.BaseType);
             }
             return value;
         }
@@ -454,6 +465,12 @@ namespace Dubrovnik
             string exp = null;
             string objCType = null;
 
+            // if type is an enum then use its underlying type
+            if (monoFacet.IsEnum)
+            {
+                monoType = monoFacet.UnderlyingType;
+            }
+
             // use type association if available
             ObjCTypeAssociation typeAssoc = ObjCTypeAssociate(monoType);
             if (typeAssoc != null)
@@ -466,9 +483,9 @@ namespace Dubrovnik
                     getterArgs.Add(monoVarName);
 
                     // add any child type arguments representing generic types
-                    if (monoFacet.ObjC.ChildTypes != null && monoFacet.ObjC.ChildTypes.Count() > 0)
+                    if (monoFacet.ObjCFacet.ChildTypes != null && monoFacet.ObjCFacet.ChildTypes.Count() > 0)
                     {
-                        getterArgs.AddRange(monoFacet.ObjC.ChildTypes);
+                        getterArgs.AddRange(monoFacet.ObjCFacet.ChildTypes);
                     }
 
                     // add additional arguments
@@ -502,7 +519,7 @@ namespace Dubrovnik
             {
                 // default to canonical type representation
                 if (objCType == null) {
-                    objCType = CodeFacet.ObjCType(monoType);
+                    objCType = ObjCNameFromMonoName(monoType);
                 }
 
                 // create DBMonoObjectRepresentation subclass
@@ -517,9 +534,17 @@ namespace Dubrovnik
         //
         // Return an ObjC expression that converts a ObjC object to its corresponding Mono representation
         //
-        public string ObjCValueToMono(string objCVarName, string objCTypeDecl, string monoType)
+        public string ObjCValueToMono(string objCVarName, string objCTypeDecl, CodeFacet monoFacet)
         {
             string exp = null;
+
+            string monoType = monoFacet.Type;
+
+            // if type is an enum then use its underlying type
+            if (monoFacet.IsEnum)
+            {
+                monoType = monoFacet.UnderlyingType;
+            }
 
             string key = ObjCTypeAssociation.UniqueTypeName(objCTypeDecl, monoType);
             if (MonoTypeAssociations.ContainsKey(key))
@@ -551,7 +576,14 @@ namespace Dubrovnik
             // generate default object representation
             if (exp == null)
             {
-                exp = string.Format("[{0} monoObject]", objCVarName);
+                if (monoFacet.IsValueType)
+                {
+                    exp = string.Format("DB_VALUE({0})", objCVarName);
+                }
+                else
+                {
+                    exp = string.Format("[{0} monoObject]", objCVarName);
+                }
             }
             return exp;
         }
@@ -806,6 +838,16 @@ namespace Dubrovnik
         static AssemblyName[] ReferencedAssemblies()
         {
             return Assembly.GetExecutingAssembly().GetReferencedAssemblies();
+        }
+
+        public static string ObjCNameFromMonoName(string monoName)
+        {
+            return CodeFacet.ObjCNameFromMonoName(monoName);
+        }
+
+        public static string ObjCNameFromMonoName(string prefix, string monoName)
+        {
+            return CodeFacet.ObjCNameFromMonoName(prefix, monoName);
         }
     }
 }
