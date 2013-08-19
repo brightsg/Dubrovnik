@@ -2,9 +2,20 @@ Overview
 ========
 Dubrovnik is an Objective-C framework that provides a series of bindings between Obj-C and the Mono open source implementation of .NET. Functionally, it works like an ObjC<->C# language bridge. Dubrovnik is a fork of [Dumbarton](https://github.com/mono/Dumbarton). Dubrovnik retains the Dumbarton core but has better weather.
 
-Dubrovnik is a work in progress and the API is still mutable. It is currently 32 bit but will likely soon support 64 bit ARC only soon.
-
 Dubrovnik is intended to provide a means of interfacing a Cocoa GUI to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
+
+Status
+======
+
+
+Version: 0.0.1 Alpha
+
+Production ready: No
+
+Experimental use only : Yes
+
+Dubrovnik is a work in progress and the API is still very mutable. It is currently 32 bit but will likely soon support 64 bit soon.
+
 
 What's in the Bag?
 ================
@@ -21,10 +32,12 @@ Dubrovnik provides:
 
 - A .NET assembly reflector and a t4 template powered code generator.
 
-- Unit tests.
+- Unit tests for both manually and automatically generated bindings.
 
 Project Layout
 ================
+
+* Dubrovnik.xcworkspace : the workspace provides access to the framework, unit tests and example code.
 
 * [Framework](Framework) : Obj-C framework code, samples and docs.
 
@@ -33,6 +46,9 @@ Project Layout
 Prerequisites
 =============
 - [Mono Framework](http://www.mono-project.com/Downloads)  v3.2.0 or above
+
+- The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK.
+
 
 How Do I Use It?
 ===============
