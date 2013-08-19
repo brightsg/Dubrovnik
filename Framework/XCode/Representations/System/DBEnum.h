@@ -40,6 +40,4 @@
 + (MonoObject *)monoEnumFromUInt32:(uint32_t)value;
 + (MonoObject *)monoEnumFromUInt64:(uint64_t)value;
 
-+ (id)representationWithMonoObject:(MonoObject *)monoObject;
-
 @end

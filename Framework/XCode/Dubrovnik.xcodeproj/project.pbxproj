@@ -910,29 +910,19 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_FAST_OBJC_DISPATCH = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_UNROLL_LOOPS = NO;
 				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Versions/3.2.0/include/mono-2.0";
 				OTHER_CFLAGS = (
-					"-Winvalid-pch",
+					"-Wextra",
+					"-Wall",
 					"-DDEBUG",
 					"-Winline",
 					"-DJUDYERROR_NOTEST",
 					"-D_THREAD_SAFE",
 				);
-				OTHER_LDFLAGS = (
-					"-lm",
-					"-lgmodule-2.0",
-					"-lgthread-2.0",
-					"-lglib-2.0",
-					"-lintl",
-					"-liconv",
-				);
+				OTHER_LDFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -941,27 +931,16 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_FAST_OBJC_DISPATCH = YES;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_UNROLL_LOOPS = NO;
 				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Versions/3.2.0/include/mono-2.0";
 				OTHER_CFLAGS = (
-					"-Winline",
+					"-Wextra",
+					"-Wall",
 					"-DJUDYERROR_NOTEST",
 					"-D_THREAD_SAFE",
 				);
-				OTHER_LDFLAGS = (
-					"-lm",
-					"-lgmodule-2.0",
-					"-lgthread-2.0",
-					"-lglib-2.0",
-					"-lintl",
-					"-liconv",
-				);
+				OTHER_LDFLAGS = "";
 			};
 			name = Release;
 		};

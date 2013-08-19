@@ -377,6 +377,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (NSString *)monoEnvironment:(DBMonoEnvironment *)monoEnv pathToAssemblyName:(const char *)name
 {
+#pragma unused(monoEnv)
+#pragma unused(name)
+    
     // this method will not be called but if it were we would return the path to the named assembly
     return nil;
 }

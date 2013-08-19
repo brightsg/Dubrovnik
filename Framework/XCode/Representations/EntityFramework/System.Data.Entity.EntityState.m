@@ -13,7 +13,7 @@
 + (MonoReflectionType *)monoReflectionType {
 	
     DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
-#warning may load asembly twice?
+
     MonoAssembly *monoAssembly = [monoEnv loadedAssemblyWithName:"EntityFramework"];
     NSAssert(monoAssembly, @"invalid");
     

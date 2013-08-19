@@ -86,9 +86,4 @@ static DBMonoClassRepresentation *_classRep = nil;
 	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,ulong)" withNumArgs:2, [[self class] monoReflectionType], &value]);
 }
 
-+ (id)representationWithMonoObject:(MonoObject *)monoObject
-{
-    id obj = [[self alloc] init];
-    return obj;
-}
 @end

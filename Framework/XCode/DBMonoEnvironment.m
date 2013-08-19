@@ -263,6 +263,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 
 //this thread is launched just to force cocoa into multithreaded mode.
 - (void)nothingThread:(id)arg {
+#pragma unused(arg)    
 	//nothing actually goes on here.
 }
 
