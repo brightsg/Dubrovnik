@@ -7,4 +7,7 @@
    <FileRef
       location = "group:Framework/examples/DBCocoaExample/DBCocoaExample.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Framework/examples/DBCommandLineExample/DBCommandLineExample.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -45,42 +45,42 @@ extern MonoAssembly* sampleAssembly;
 #pragma mark -
 
 - (NSString *)lowerCaseSpecialString {
-	MonoString *monoString = (MonoString*)[self getProperty:"LowerCaseSpecialString"];
+	MonoString *monoString = (MonoString*)[self getMonoProperty:"LowerCaseSpecialString"];
 	return [NSString stringWithMonoString:monoString];
 }
 
 - (int32_t)magicNumberProperty {
-	MonoObject *boxedNumber = [self getProperty:"MagicNumberProperty"];
+	MonoObject *boxedNumber = [self getMonoProperty:"MagicNumberProperty"];
 	return DB_UNBOX_INT32(boxedNumber);
 }
 
 - (void)setMagicNumberProperty:(int32_t)magicNumber {
-	[self setProperty:"MagicNumberProperty" valueObject:(MonoObject*)&magicNumber];
+	[self setMonoProperty:"MagicNumberProperty" valueObject:(MonoObject*)&magicNumber];
 }
 
 - (int32_t)magicNumberField {
 	int32_t magicNumber;
-	[self getField:"MagicNumber" valueObject:&magicNumber];
+	[self getMonoField:"MagicNumber" valuePtr:&magicNumber];
 	return magicNumber;
 }
 
 - (void)setMagicNumberField:(int32_t)magicNumber {
-	[self setField:"MagicNumber" valueObject:&magicNumber];
+	[self setMonoField:"MagicNumber" valueObject:(MonoObject*)&magicNumber];
 }
 
 - (void)printMagicMultiple:(int32_t)multiple prefix:(NSString*)prefix {
 	MonoString *monoString = [prefix monoString];
-	[self invokeMethod:"PrintMagicMultiple(int,string)" withNumArgs:2, &multiple, monoString];
+	[self invokeMonoMethod:"PrintMagicMultiple(int,string)" withNumArgs:2, &multiple, monoString];
 }
 
 - (DBArrayList*)getSpecialArray {
-	MonoObject* monoArrayList = [self invokeMethod:"GetSpecialArray()" withNumArgs:0];
+	MonoObject* monoArrayList = [self invokeMonoMethod:"GetSpecialArray()" withNumArgs:0];
 	return [DBArrayList listWithMonoObject:monoArrayList withRepresentationClass:[DBMonoObjectRepresentation class]];
 }
 
 - (void)throwAwesomeException:(NSString*)message {
 	MonoString* monoString = [message monoString];
-	[self invokeMethod:"ThrowAwesomeException(string)" withNumArgs:1, monoString];
+	[self invokeMonoMethod:"ThrowAwesomeException(string)" withNumArgs:1, monoString];
 }
 
 
