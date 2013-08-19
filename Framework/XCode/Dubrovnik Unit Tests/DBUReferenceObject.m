@@ -191,14 +191,14 @@
     
     return value;
 }
-- (NSString *)stringMethod:(NSString *)p1
+- (NSString *)stringMethodWithS1:(NSString *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
 }
-- (NSString *)stringMethod:(NSString *)p1 withString:(NSString *)p2
+- (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -206,7 +206,7 @@
     return value;
 }
 
-- (NSString *)mixedMethod1:(int32_t)p1 int64_t:(int64_t)p2 float:(float)p3 double:(double)p4 NSDate:(NSDate *)p5 NSString:(NSString *)p6 DBUReferenceObject:(DBUReferenceObject *)p7
+- (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(id)p7
 {
     // note tha mono float is an alias for System.Single, hence the use of single in the signature below
     MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
@@ -218,7 +218,7 @@
 #pragma mark -
 #pragma mark Date methods
 
-- (NSDate *)dateMethod:(NSDate *)p1
+- (NSDate *)dateMethodWithD1:(NSDate *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
     NSDate *value = [NSDate dateWithMonoDateTime:monoObject];
@@ -229,7 +229,7 @@
 #pragma mark -
 #pragma mark Mono static methods
 
-- (NSString *)staticClassDescription
+- (NSString *)classDescription
 {
     MonoObject *monoObject = [self invokeMonoMethod:"ClassDescription()" withNumArgs:0, NULL];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -246,7 +246,7 @@
  To access extensions in the embedded API the static class defining the extension has to be accessed directly.
  
  */
-- (NSString *)ExtensionString
+- (NSString *)extensionString
 {
     MonoAssembly *monoAssembly = self.monoAssembly;
   

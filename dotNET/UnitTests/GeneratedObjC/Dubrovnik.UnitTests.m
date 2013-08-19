@@ -7,10 +7,10 @@
 //
 // This code was generated from a template.
 //
-// Date:     8/18/2013 12:44:09 PM
+// Date:     8/19/2013 5:17:06 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4978.15396, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4979.28099, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -298,15 +298,15 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	}
 
 	// Mono type is System.String
-    - (NSString *)value
+    - (NSString *)stringProperty
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
 	}
-    - (void)setValue:(NSString *)value
+    - (void)setStringProperty:(NSString *)value
 	{
 		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Value" valueObject:monoObject];          
+		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
 	}
 
 #pragma mark -
@@ -315,42 +315,42 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Mono type is System.String
     - (NSString *)classDescription
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoMethod:"ClassDescription()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Mono type is System.DateTime
     - (NSDate *)dateMethodWithD1:(NSDate *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Mono type is System.String
     - (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Mono type is System.String
     - (NSString *)stringMethod
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Mono type is System.String
     - (NSString *)stringMethodWithS1:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Mono type is System.String
     - (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end
@@ -413,21 +413,21 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Mono type is System.String
     - (NSString *)extensionStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Mono type is System.String
     - (NSString *)staticString
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoMethod:"StaticString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Mono type is System.String
     - (NSString *)staticStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end

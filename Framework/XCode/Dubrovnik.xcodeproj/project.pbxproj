@@ -56,7 +56,6 @@
 		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB30149B17A2A1FA001F7544 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB28C511178331010051A8D9 /* libJudy.a */; };
-		AB3C258B17B69391001DE389 /* mscorlib.dll.References.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3C258A17B69391001DE389 /* mscorlib.dll.References.h */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB49E430178A06AC00D01244 /* DBDecimalNumberCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* DBDecimalNumberCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E431178A06AC00D01244 /* DBDecimalNumberCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E42F178A06AC00D01244 /* DBDecimalNumberCategory.m */; };
@@ -186,7 +185,6 @@
 		9DF2367A0874E3CC008A199C /* DBDataCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDataCategory.m; sourceTree = "<group>"; };
 		AB28C511178331010051A8D9 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB2CD2FA178D74F20075CF6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		AB3C258A17B69391001DE389 /* mscorlib.dll.References.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mscorlib.dll.References.h; path = Representations/System/mscorlib.dll.References.h; sourceTree = "<group>"; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
 		AB49E42E178A06AC00D01244 /* DBDecimalNumberCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDecimalNumberCategory.h; sourceTree = "<group>"; };
 		AB49E42F178A06AC00D01244 /* DBDecimalNumberCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDecimalNumberCategory.m; sourceTree = "<group>"; };
@@ -202,7 +200,9 @@
 		AB49E448178B2F1000D01244 /* DBEntityCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityCollection.m; path = EntityFramework/DBEntityCollection.m; sourceTree = "<group>"; };
 		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB588DC4178308000000AAC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		AB64DC8117B5003100989ADF /* System.dll.References.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = System.dll.References.h; path = Representations/System/System.dll.References.h; sourceTree = "<group>"; };
+		AB97FC0417C277D600CBE585 /* Extensions.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = Extensions.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/Extensions.cs; sourceTree = "<group>"; };
+		AB97FC0517C277D600CBE585 /* ReferenceObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = ReferenceObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs; sourceTree = "<group>"; };
+		AB97FC0617C277D600CBE585 /* TestObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/TestObject.cs; sourceTree = "<group>"; };
 		ABB8CE4017BFF03E0015FFB0 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
 		ABBF103917B11A9F006F6E93 /* System.Nullable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Nullable.h; sourceTree = "<group>"; };
 		ABBF103A17B11A9F006F6E93 /* System.Nullable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Nullable.m; sourceTree = "<group>"; };
@@ -336,8 +336,6 @@
 				9D8863370974F4D000365976 /* Wrappers */,
 				9300D02708723DF40024409B /* Dubrovnik.h */,
 				9D8BE944088613C500D019A5 /* DBMonoIncludes.h */,
-				AB64DC8117B5003100989ADF /* System.dll.References.h */,
-				AB3C258A17B69391001DE389 /* mscorlib.dll.References.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -516,6 +514,9 @@
 		AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */ = {
 			isa = PBXGroup;
 			children = (
+				AB97FC0417C277D600CBE585 /* Extensions.cs */,
+				AB97FC0517C277D600CBE585 /* ReferenceObject.cs */,
+				AB97FC0617C277D600CBE585 /* TestObject.cs */,
 				ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */,
 				ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */,
 				AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */,
@@ -647,7 +648,6 @@
 				9DA75F670A239104008EC2F7 /* DBArrayCategory.h in Headers */,
 				9DCD135D0A7ABFB900849E5C /* DBConvert.h in Headers */,
 				9DCD14300A7AE69900849E5C /* DBEnum.h in Headers */,
-				AB3C258B17B69391001DE389 /* mscorlib.dll.References.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,7 +751,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# cd $BUILT_PRODUCTS_DIR/Dumbarton.framework\n# install_name_tool -change /usr/local/lib/libJudy.1.dylib @executable_path/../Frameworks/Dumbarton.framework/Libraries/libJudy.dylib Dumbarton\n";
+			shellScript = "# cd $BUILT_PRODUCTS_DIR/Dubrovnik.framework\n# install_name_tool -change /usr/local/lib/libJudy.1.dylib @executable_path/../Frameworks/Dubrovnik.framework/Libraries/libJudy.dylib Dubrovnik\n";
 		};
 		AB588DC0178308000000AAC1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

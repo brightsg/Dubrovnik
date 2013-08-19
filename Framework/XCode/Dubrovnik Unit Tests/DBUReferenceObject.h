@@ -37,14 +37,14 @@
 
 // string methods + overloads
 - (NSString *)stringMethod;
-- (NSString *)stringMethod:(NSString *)p1;
-- (NSString *)stringMethod:(NSString *)p1 withString:(NSString *)p2;
+- (NSString *)stringMethodWithS1:(NSString *)p1;
+- (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2;
 
 // date methods
-- (NSDate *)dateMethod:(NSDate *)p1;
+- (NSDate *)dateMethodWithD1:(NSDate *)p1;
 
 // mixed methods
-- (NSString *)mixedMethod1:(int32_t)p1 int64_t:(int64_t)p2 float:(float)p3 double:(double)p4 NSDate:(NSDate *)p5 NSString:(NSString *)p6 DBUReferenceObject:(DBUReferenceObject *)p7;
+- (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(id)p7;
 
 // string property implementation
 - (NSString *)stringProperty;
@@ -78,6 +78,6 @@
 - (eDBULongEnum)longEnumeration;
 - (void)setLongEnumeration:(eDBULongEnum)value;
 
-- (NSString *)staticClassDescription;
-- (NSString *)ExtensionString;
+- (NSString *)classDescription;
+- (NSString *)extensionString;
 @end

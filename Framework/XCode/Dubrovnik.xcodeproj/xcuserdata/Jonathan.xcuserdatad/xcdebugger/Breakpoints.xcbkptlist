@@ -4,15 +4,15 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Dubrovnik Unit Tests/Dubrovnik_Unit_Tests.m"
-         timestampString = "398519898.903841"
+         timestampString = "398622133.207119"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "150"
-         endingLineNumber = "150"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
          landmarkName = "-doTestReferenceClass:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,90 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Dubrovnik Unit Tests/Dubrovnik_Unit_Tests.m"
-         timestampString = "398519898.903841"
+         timestampString = "398622133.207119"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "202"
-         endingLineNumber = "202"
+         startingLineNumber = "361"
+         endingLineNumber = "361"
          landmarkName = "-doTestReferenceClass:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Dubrovnik Unit Tests/Dubrovnik_Unit_Tests.m"
-         timestampString = "398519898.903841"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "345"
-         endingLineNumber = "345"
-         landmarkName = "-doTestReferenceClass:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Representations/DBMonoObjectRepresentation.m"
-         timestampString = "398444002.723004"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
-         landmarkName = "-init"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Dubrovnik Unit Tests/Dubrovnik_Unit_Tests.m"
-         timestampString = "398519898.903841"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "316"
-         endingLineNumber = "316"
-         landmarkName = "-doTestReferenceClass:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Dubrovnik Unit Tests/Dubrovnik_Unit_Tests.m"
-         timestampString = "398507968.771525"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
-         landmarkName = "-setUp"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "DBMonoEnvironment.m"
-         timestampString = "398438237.703192"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
-         landmarkName = "+defaultEnvironment"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Dubrovnik Unit Tests/Dubrovnik_Unit_Tests.m"
-         timestampString = "398507968.771525"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
-         landmarkName = "-setUp"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -130,20 +52,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "251"
          endingLineNumber = "251"
-         landmarkName = "-ExtensionString"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Dubrovnik Unit Tests/Dubrovnik_Unit_Tests.m"
-         timestampString = "398519898.903841"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "371"
-         endingLineNumber = "371"
-         landmarkName = "-doTestReferenceClass:"
+         landmarkName = "-extensionString"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

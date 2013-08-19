@@ -9,7 +9,7 @@
 #import "Dubrovnik_Unit_Tests.h"
 #import "DBUReferenceObject.h"
 
-//#define DB_RUN_AUTO_GENERATED_CODE_TEST
+#define DB_RUN_AUTO_GENERATED_CODE_TEST
 
 #ifdef DB_RUN_AUTO_GENERATED_CODE_TEST
 #import "Dubrovnik.UnitTests.h"
@@ -135,11 +135,26 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestReferenceClass:[DBUReferenceObject class]];
     
 #ifdef DB_RUN_AUTO_GENERATED_CODE_TEST    
+    
     NSLog(@"==============================================");
     NSLog(@"Testing auto generated reference object");
     NSLog(@"==============================================");
     [self doTestReferenceClass:[DUReferenceObject_ class]];
+    
+    //
+    // enumerations
+    //
+    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DBUIntEnum val1], DBUEqualityTestFailed);
+    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DBUIntEnum val2], DBUEqualityTestFailed);
+    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DBUIntEnum val3], DBUEqualityTestFailed);
+    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DBUIntEnum val4], DBUEqualityTestFailed);
+
+    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == eDBULongEnum_Val1, DBUEqualityTestFailed);
+    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == eDBULongEnum_Val2, DBUEqualityTestFailed);
+    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
+    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
 #endif
+    
 }
 
 - (void)doTestReferenceClass:(Class)testClass
@@ -185,6 +200,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[testClass classStringField] isEqualToString:classStringField], DBUEqualityTestFailed);
     
     // class int field
+    [testClass setClassIntField:1]; // set initially otherwise test fails when called again
     int32_t classIntField = [testClass classIntField];
     STAssertTrue(classIntField == 1, DBUEqualityTestFailed);
     
@@ -225,20 +241,20 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *stringMethod = [refObject stringMethod];
     STAssertNotNil(stringMethod, DBUObjectIsNil);
 
-    NSString *stringMethod1 = [refObject stringMethod:@"1"];
+    NSString *stringMethod1 = [refObject stringMethodWithS1:@"1"];
     STAssertNotNil(stringMethod1, DBUObjectIsNil);
 
-    NSString *stringMethod2 = [refObject stringMethod:@"1" withString:@"2"];
+    NSString *stringMethod2 = [refObject stringMethodWithS1:@"1" s2:@"2"];
     STAssertNotNil(stringMethod2, DBUObjectIsNil);
 
-    NSDate *dateMethod = [refObject dateMethod:[NSDate date]];
+    NSDate *dateMethod = [refObject dateMethodWithD1:[NSDate date]];
     STAssertNotNil(dateMethod, DBUObjectIsNil);
 
     //
     // mixed methods
     //
     
-    NSString *mixedMethod1 = [refObject mixedMethod1:1111 int64_t:-2222 float:33.33f double:-44.44 NSDate:[NSDate date] NSString:@"GeneralTest" DBUReferenceObject:refObject];
+    NSString *mixedMethod1 = [refObject mixedMethod1WithIntarg:1111 longArg:-2222 floatArg:33.33f doubleArg:-44.44 dateArg:[NSDate date] stringArg:@"GeneralTest" refObjectArg:refObject];
     STAssertTrue([mixedMethod1 rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([mixedMethod1 rangeOfString:@"1111"].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([mixedMethod1 rangeOfString:@"-2222"].location != NSNotFound, DBUSubstringTestFailed);
@@ -361,15 +377,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // static methods
     //
-    NSString *classDescription = [refObject staticClassDescription];
+    NSString *classDescription = (NSString *)[refObject classDescription];
     STAssertNotNil(classDescription, DBUObjectIsNil);
 
     //
     // extension methods
     //
-    NSString *extensionString = [refObject ExtensionString];
-    STAssertNotNil(extensionString, DBUObjectIsNil);
-    
+    if ([refObject respondsToSelector:@selector(extensionString)]) {
+        NSString *extensionString = [refObject extensionString];
+        STAssertNotNil(extensionString, DBUObjectIsNil);
+    }
 }
 
 #pragma mark -

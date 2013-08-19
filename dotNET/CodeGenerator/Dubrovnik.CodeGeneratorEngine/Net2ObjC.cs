@@ -1499,9 +1499,9 @@ this.Write(";          \r\n\t}\r\n");
 //
 public void WriteFacetAsMethod(MethodFacet facet)
 {
-	string methodFormat = null;
-	string methodName = null;
-	string monoMethodName = "";
+	string monoMethodName = facet.Name;
+	string objCMethodFormat = null;
+	string objCMethodName = null;
 	bool isConstructorMethod = (facet.Name == null);	// constructor has no method name
 	string objCMethodType = facet.IsStatic || isConstructorMethod ? "+" : "-";
 	string objCTypeDecl = ObjCTypeDeclFromMonoFacet(facet);	
@@ -1510,15 +1510,15 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	// instance method requires a name and type
 	if (!isConstructorMethod) {
 
-		methodName = facet.Name.FirstCharacterToLower();
+		objCMethodName = monoMethodName.FirstCharacterToLower();
 
 		// create Obj-C representation of mono object
 		monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
 
 		if (!facet.IsStatic) {
-			methodFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
+			objCMethodFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
 		} else {
-			methodFormat = "[[self class] invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{1}]";
+			objCMethodFormat = "[[self class] invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{1}]";
 		}
 	} else {
 
@@ -1527,10 +1527,10 @@ public void WriteFacetAsMethod(MethodFacet facet)
 			return;
         }
 
-		methodName = "new";
+		objCMethodName = "new";
 
 		// a constructor requires no explicit name or type
-		methodFormat = "[[self alloc] initWithSignature:\"{1}\" withNumArgs:{2}]";
+		objCMethodFormat = "[[self alloc] initWithSignature:\"{1}\" withNumArgs:{2}]";
     }
 
 	// build the argument lists
@@ -1566,7 +1566,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 
 		if (idx == 0) {
 			if (AppendFirstArgSignatureToMethodName) {
-				methodName += "With";
+				objCMethodName += "With";
 				methodArgsBuilder.AppendFormat("{0}", methodArgSig.FirstCharacterToUpper());
             } 
         } else {
@@ -1608,12 +1608,12 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		invokeArgs += ", " + invokeArgsBuilder.ToString();
     }
 
-	string getExpression = String.Format(methodFormat, monoMethodName, monoMethodSig, invokeArgs);
+	string getExpression = String.Format(objCMethodFormat, monoMethodName, monoMethodSig, invokeArgs);
 
 	// validation
 	if (isConstructorMethod && String.IsNullOrEmpty(monoMethodSig)) throw new Exception("Mono method argument signature is empty");
 	if (String.IsNullOrEmpty(objCTypeDecl)) throw new Exception("ObjC type delaration is empty");    
-	if (String.IsNullOrEmpty(methodName)) throw new Exception("Method name is empty"); 
+	if (String.IsNullOrEmpty(objCMethodName)) throw new Exception("Method name is empty"); 
 	if (String.IsNullOrEmpty(getExpression)) throw new Exception("Get expression is empty"); 
 
 	//
@@ -1674,7 +1674,7 @@ this.Write(")");
         #line hidden
         
         #line 539 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(methodName));
+this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodName));
 
         
         #line default

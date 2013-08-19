@@ -7,10 +7,10 @@
 //
 // This code was generated from a template.
 //
-// Date:     8/18/2013 12:44:09 PM
+// Date:     8/19/2013 5:17:06 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4978.15396, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4979.28099, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -193,8 +193,8 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value;
 
 	// Mono type is System.String
-    - (NSString *)value;
-    - (void)setValue:(NSString *)value;
+    - (NSString *)stringProperty;
+    - (void)setStringProperty:(NSString *)value;
 
 #pragma mark -
 #pragma mark Methods
