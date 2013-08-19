@@ -181,6 +181,8 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     if (!monoAssembly) {
         monoAssembly = [self openAssemblyWithPath:path];
         if (monoAssembly) {
+            
+            // cache the loaded assembly
             [_loadedAssemblies setObject:[NSValue valueWithPointer:monoAssembly] forKey:name];
         }
     }

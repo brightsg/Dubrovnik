@@ -4,6 +4,7 @@
 //
 //  Created by Allan Hsu on 2/16/06.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
+//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -34,7 +35,7 @@
 
 + (const char *)monoAssemblyName
 {
-    return [MainController sampleAssembly];
+    return "sample";
 }
 
 #pragma mark -
@@ -58,17 +59,17 @@
 }
 
 - (float)exchangeRate {
-	MonoObject *boxedValue = [self getProperty:"ExchangeRate"];
+	MonoObject *boxedValue = [self getMonoProperty:"ExchangeRate"];
 	
 	return(DB_UNBOX_FLOAT(boxedValue));
 }
 
 - (void)setExchangeRate:(float)rate {
-	[self setProperty:"ExchangeRate" valueObject:(MonoObject *)&rate];
+	[self setMonoProperty:"ExchangeRate" valueObject:(MonoObject *)&rate];
 }
 
 - (float)convertDollars:(float)dollarAmount {
-	MonoObject *boxedValue = [self invokeMethod:"ConvertDollars(single)" withNumArgs:1, &dollarAmount];
+	MonoObject *boxedValue = [self invokeMonoMethod:"ConvertDollars(single)" withNumArgs:1, &dollarAmount];
 	
 	return(DB_UNBOX_FLOAT(boxedValue));
 }

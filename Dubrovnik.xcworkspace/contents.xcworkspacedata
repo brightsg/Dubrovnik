@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:Framework/XCode/Dubrovnik.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Framework/examples/DBCocoaExample/DBCocoaExample.xcodeproj">
+   </FileRef>
+</Workspace>

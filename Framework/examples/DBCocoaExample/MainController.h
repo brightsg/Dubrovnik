@@ -4,6 +4,7 @@
 //
 //  Created by Allan Hsu on 2/16/06.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
+//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -29,13 +30,8 @@
 	IBOutlet NSTextField *_dollarsTextField;
 	IBOutlet NSTextField *_otherCurrencyAmountTextField;
 	
-	MonoAssembly *_sampleAssembly;
-	
 	CurrencyConverter *_converter;
 }
-
-//you should be smarter about managing this. This is done this way for example simplicity.
-+ (MonoAssembly *)sampleAssembly;
 
 - (IBAction)convertButtonPressed:(id)sender;
 

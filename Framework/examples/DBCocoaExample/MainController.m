@@ -4,6 +4,7 @@
 //
 //  Created by Allan Hsu on 2/16/06.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
+//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -35,14 +36,14 @@ static MonoAssembly *_sampleAssembly = NULL;
 	
 	NSString *libraryPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents/Libraries"];
 	NSString *sampleAssemblyPath = [libraryPath stringByAppendingPathComponent:@"sample.dll"];
-	_sampleAssembly = [monoEnvironment openAssemblyWithPath:sampleAssemblyPath];
+    
+    // This method will open the assembly and cache it using the given name.
+    // A DBMonoObjectRepresentation subclass can target this assembly by returning the assembly name from + monoAssemblyName.
+    // If the target assembly has not been already loaded then the DBMonoEnvironment instance delegate will be queried for the assembly path.
+	MonoAssembly *sampleAssembly = [monoEnvironment openAssembly:@"sample" path:sampleAssemblyPath];
 	
 	NSLog(@"Assembly Path: %@", sampleAssemblyPath);
-	NSLog(@"sample assembly: %p", _sampleAssembly);
-}
-
-+ (MonoAssembly *)sampleAssembly {
-	return(_sampleAssembly);
+	NSLog(@"sample assembly: %p", sampleAssembly);
 }
 
 #pragma mark -

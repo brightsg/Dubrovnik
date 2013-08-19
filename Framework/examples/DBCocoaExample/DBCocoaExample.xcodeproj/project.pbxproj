@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,8 @@
 		9D90CEC609A50DFA0085718C /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D90CEC509A50DFA0085718C /* Mono.framework */; };
 		9D90CEEB09A513C20085718C /* CurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90CEEA09A513C20085718C /* CurrencyConverter.m */; };
 		9D90CF0609A538C70085718C /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90CF0509A538C70085718C /* MainController.m */; };
-		ABB8CDF917BFDD390015FFB0 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CDF817BFDD390015FFB0 /* Dubrovnik.framework */; };
-		ABB8CDFB17BFDDB10015FFB0 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CDF817BFDD390015FFB0 /* Dubrovnik.framework */; };
+		ABB8CE4A17C254D50015FFB0 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */; };
+		ABB8CE4B17C254E20015FFB0 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ABB8CDFB17BFDDB10015FFB0 /* Dubrovnik.framework in Copy frameworks */,
+				ABB8CE4B17C254E20015FFB0 /* Dubrovnik.framework in Copy frameworks */,
 			);
 			name = "Copy frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,7 +49,7 @@
 		9D90CEEA09A513C20085718C /* CurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyConverter.m; sourceTree = "<group>"; };
 		9D90CF0409A538C70085718C /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		9D90CF0509A538C70085718C /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
-		ABB8CDF817BFDD390015FFB0 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-aemsvprmjjnodresygkxregwcjcq/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
+		ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +57,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB8CE4A17C254D50015FFB0 /* Dubrovnik.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				9D90CEC609A50DFA0085718C /* Mono.framework in Frameworks */,
-				ABB8CDF917BFDD390015FFB0 /* Dubrovnik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +80,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8CDF817BFDD390015FFB0 /* Dubrovnik.framework */,
+				ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */,
 				9D90CEC509A50DFA0085718C /* Mono.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -182,8 +182,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DBCocoaExample" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -263,14 +266,16 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-aemsvprmjjnodresygkxregwcjcq/Build/Products/Debug\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
@@ -283,11 +288,14 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-aemsvprmjjnodresygkxregwcjcq/Build/Products/Debug\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
@@ -300,12 +308,10 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/Versions/3.2.0/include/mono-2.0\"";
+				LIBRARY_SEARCH_PATHS = /Library/Frameworks/Mono.framework/Libraries;
 				OTHER_CFLAGS = (
 					"-D_THREAD_SAFE",
 					"-pthreads",
@@ -313,33 +319,17 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/include/glib-2.0",
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
-				OTHER_LDFLAGS = (
-					"-bind_at_load",
-					"-pthread",
-					"-pthreads",
-					"-L/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/../../lib",
-					"-L/Library/Frameworks/Mono.framework/Versions/Current/lib",
-					"-lmono",
-					"-lm",
-					"-lgmodule-2.0",
-					"-lgthread-2.0",
-					"-lglib-2.0",
-					"-lintl",
-					"-liconv",
-				);
-				PREBINDING = NO;
+				OTHER_LDFLAGS = "";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/Versions/3.2.0/include/mono-2.0\"";
+				LIBRARY_SEARCH_PATHS = /Library/Frameworks/Mono.framework/Libraries;
 				OTHER_CFLAGS = (
 					"-D_THREAD_SAFE",
 					"-pthreads",
@@ -347,21 +337,7 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/include/glib-2.0",
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
-				OTHER_LDFLAGS = (
-					"-bind_at_load",
-					"-pthread",
-					"-pthreads",
-					"-L/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/../../lib",
-					"-L/Library/Frameworks/Mono.framework/Versions/Current/lib",
-					"-lmono",
-					"-lm",
-					"-lgmodule-2.0",
-					"-lgthread-2.0",
-					"-lglib-2.0",
-					"-lintl",
-					"-liconv",
-				);
-				PREBINDING = NO;
+				OTHER_LDFLAGS = "";
 			};
 			name = Release;
 		};
