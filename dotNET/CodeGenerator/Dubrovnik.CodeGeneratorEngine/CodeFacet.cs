@@ -45,6 +45,7 @@ namespace Dubrovnik
             IsWritable = XElementAttributeBool(xelement, "IsWritable");
             IsEnum = XElementAttributeBool(xelement, "IsEnum");
             IsValueType = XElementAttributeBool(xelement, "IsValueType");
+            IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
             HandlerType = XElementAttributeValue(xelement, "HandlerType");
             IsConstant = XElementAttributeBool(xelement, "IsConstant");
             IsStatic= XElementAttributeBool(xelement, "IsStatic");
@@ -66,6 +67,7 @@ namespace Dubrovnik
         public bool IsConstant { get; private set; }
         public bool IsEnum { get; private set; }
         public bool IsValueType { get; private set; }
+        public bool IsPrimitive { get; private set; }
         public string BaseName { get; private set; }
         public string BaseType { get; private set; }
         public string UnderlyingType { get; private set; }
@@ -75,6 +77,13 @@ namespace Dubrovnik
         public string[] ChildTypes { get; private set; }
         public string TypeNamespace { get; private set; }
         public string ConstantValue { get; private set; }
+
+        public bool IsStruct {
+            get
+            {
+                return IsValueType && !IsEnum && !IsPrimitive;
+            }
+        }
 
         public string Type {
             get
@@ -91,7 +100,6 @@ namespace Dubrovnik
                     string[] parts = _type.Split(tags, StringSplitOptions.RemoveEmptyEntries);
                     if (parts != null &&parts.Count() > 0)
                     {
-                        _type = parts[0];
                         ChildTypes = parts.Skip(1).ToArray();
                     }
 
@@ -146,7 +154,9 @@ namespace Dubrovnik
                 name = name.Replace("`", "_P"); // generic arity indicates parameter count
                 name = name.Replace(" ", ""); // ill advised paranoia at work
 
-                name = name.Replace("[]", "_ARRAY_"); //TODO: this is temporary
+                name = name.Replace("[]", "_ARR_"); //TODO: this is temporary
+                name = name.Replace("&", "_AMP_"); //TODO: this is temporary
+                name = name.Replace("*", "_AST_"); //TODO: this is temporary
 
                 Regex validObjcCNameRegex = new Regex("^[A-Za-z_][A-Za-z_0-9]*$");
                 if (!validObjcCNameRegex.IsMatch(name))
@@ -278,10 +288,12 @@ namespace Dubrovnik
             Classes = new FacetList<ClassFacet>(xelement, "Class");
             Interfaces = new FacetList<InterfaceFacet>(xelement, "Interface");
             Enumerations = new FacetList<EnumerationFacet>(xelement, "Enumeration");
+            Structs = new FacetList<StructFacet>(xelement, "Struct");
         }
         public IList<ClassFacet> Classes { get; set; }
         public IList<InterfaceFacet> Interfaces { get; set; }
         public IList<EnumerationFacet> Enumerations { get; set; }
+        public IList<StructFacet> Structs { get; set; }
     }
 
     /*
@@ -324,6 +336,16 @@ namespace Dubrovnik
         public IList<MethodFacet> Constructors { get; set; }
     }
 
+    /*
+     * StructFacet
+     */
+    public class StructFacet : ClassFacet
+    {
+        public StructFacet(XElement xelement)
+            : base(xelement)
+        {
+        }
+    }
     /*
      * EnumerationFacet
      */

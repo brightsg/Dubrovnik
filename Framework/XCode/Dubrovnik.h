@@ -37,7 +37,6 @@
 #import "DBEnum.h"
 #import "System.Nullable.h"
 #import "System.Exception.h"
-#import "System.DayOfWeek.h"
 #import "System.Func.h"
 #import "System.Type.h"
 #import "System.EventArgs.h"

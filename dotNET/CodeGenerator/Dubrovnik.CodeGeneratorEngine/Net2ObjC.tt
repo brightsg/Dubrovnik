@@ -125,6 +125,7 @@ public void WriteInterfaceFilePreliminaries()
 		IList<CodeFacet> facets = new List<CodeFacet>();
 		facets.AddRange(@namespace.Classes);
 		facets.AddRange(@namespace.Interfaces);
+		facets.AddRange(@namespace.Structs);
 		if (ImplementEnumerationsAsClasses) {
 			facets.AddRange(@namespace.Enumerations);
         }
@@ -155,6 +156,7 @@ public void WriteClassPredeclaration(CodeFacet facet)
 	string namespacePrefix = MinimizeNamespace(facet.TypeNamespace);
 	string classDefine = ObjCNameFromMonoName(namespacePrefix, facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
+
 #>
 @class <#=classObjCType#>;
 #ifdef <#=classDefine#>
@@ -244,6 +246,31 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 	}
 <#+
     }
+}
+
+//
+// WriteStruct
+//
+public void WriteStruct(StructFacet @struct)
+{
+	// prefix defines interface or implementation
+	string classPrefix = OutputDelarationPrefix();
+	string superClass = OutputDelarationSuffix(@struct);
+#>
+
+//
+// Mono struct <#=@struct.Name#>
+//
+@<#=classPrefix#> <#=@struct.ObjCFacet.Type#><#=superClass#>
+<#+		
+	WriteFacetAsClassSetup(@struct);
+	WriteConstructors(@struct.Constructors);
+	WriteFields(@struct.Fields);
+	WriteProperties(@struct.Properties);
+	WriteMethods(@struct.Methods);
+#>
+@end
+<#+
 }
 
 //

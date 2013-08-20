@@ -227,6 +227,15 @@
 }
 
 #pragma mark -
+#pragma mark Structure methods
+
+- (DBUReferenceStruct *)referenceStructMethodWithS1:(NSString *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
+    return [DBUReferenceObject representationWithMonoObject:monoObject];
+}
+
+#pragma mark -
 #pragma mark Mono static methods
 
 - (NSString *)classDescription
@@ -260,3 +269,5 @@
     return value;
 }
 @end
+
+

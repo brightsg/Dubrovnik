@@ -188,6 +188,13 @@ namespace Dubrovnik.UnitTests
 			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
 		}
 
+        public ReferenceStruct ReferenceStructMethod(string s1)
+        {
+            ReferenceStruct rstruct = new ReferenceStruct("Dubrovnik.UnitTests.ReferenceStructMethod");
+
+            return rstruct;
+        }
+
 		//
 		// date methods
 		//
@@ -206,6 +213,25 @@ namespace Dubrovnik.UnitTests
 			return s;
 		}
 	}
+
+    public struct ReferenceStruct
+    {
+        public string StringField;
+        public Int32 intField;
+        public string StringProperty { get; set; }
+
+        public ReferenceStruct(string s) : this()
+        {
+            StringField = "Dubrovnik.UnitTests.StringField";
+            intField = 1;
+            StringProperty = "Dubrovnik.UnitTests.StringProperty";
+        }
+
+		public string StringMethod(string s1)
+		{
+			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}", s1);
+		}
+    }
 }
 
 

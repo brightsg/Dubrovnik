@@ -72,6 +72,9 @@
 		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
 		AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
+		AB97FC0917C2B7D800CBE585 /* mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB97FC0717C2B7D700CBE585 /* mscorlib.h */; };
+		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
+		AB97FC0E17C39DE600CBE585 /* mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0817C2B7D800CBE585 /* mscorlib.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103917B11A9F006F6E93 /* System.Nullable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBF103C17B11A9F006F6E93 /* System.Nullable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF103A17B11A9F006F6E93 /* System.Nullable.m */; };
@@ -85,8 +88,6 @@
 		ABBF104C17B11E23006F6E93 /* System.Collections.Generic.List.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */; };
 		ABBF104F17B11EA2006F6E93 /* System.Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104D17B11EA2006F6E93 /* System.Exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBF105017B11EA2006F6E93 /* System.Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104E17B11EA2006F6E93 /* System.Exception.m */; };
-		ABBF105317B12E9A006F6E93 /* System.DayOfWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF105117B12E9A006F6E93 /* System.DayOfWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF105417B12E9A006F6E93 /* System.DayOfWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF105217B12E9A006F6E93 /* System.DayOfWeek.m */; };
 		ABBF105717B1371F006F6E93 /* System.Func.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF105517B1371E006F6E93 /* System.Func.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBF105817B1371F006F6E93 /* System.Func.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF105617B1371F006F6E93 /* System.Func.m */; };
 		ABBF106517B147F4006F6E93 /* System.Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106317B147F3006F6E93 /* System.Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -203,6 +204,10 @@
 		AB97FC0417C277D600CBE585 /* Extensions.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = Extensions.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/Extensions.cs; sourceTree = "<group>"; };
 		AB97FC0517C277D600CBE585 /* ReferenceObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = ReferenceObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs; sourceTree = "<group>"; };
 		AB97FC0617C277D600CBE585 /* TestObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/TestObject.cs; sourceTree = "<group>"; };
+		AB97FC0717C2B7D700CBE585 /* mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mscorlib.h; path = dotNetBindings/Framework/V4.0.30319/mscorlib.h; sourceTree = "<group>"; };
+		AB97FC0817C2B7D800CBE585 /* mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = mscorlib.m; path = dotNetBindings/Framework/V4.0.30319/mscorlib.m; sourceTree = "<group>"; };
+		AB97FC0B17C3957E00CBE585 /* DBUReferenceStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceStruct.h; sourceTree = "<group>"; };
+		AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceStruct.m; sourceTree = "<group>"; };
 		ABB8CE4017BFF03E0015FFB0 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
 		ABBF103917B11A9F006F6E93 /* System.Nullable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Nullable.h; sourceTree = "<group>"; };
 		ABBF103A17B11A9F006F6E93 /* System.Nullable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Nullable.m; sourceTree = "<group>"; };
@@ -216,8 +221,6 @@
 		ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.List.m; sourceTree = "<group>"; };
 		ABBF104D17B11EA2006F6E93 /* System.Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Exception.h; sourceTree = "<group>"; };
 		ABBF104E17B11EA2006F6E93 /* System.Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Exception.m; sourceTree = "<group>"; };
-		ABBF105117B12E9A006F6E93 /* System.DayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.DayOfWeek.h; sourceTree = "<group>"; };
-		ABBF105217B12E9A006F6E93 /* System.DayOfWeek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.DayOfWeek.m; sourceTree = "<group>"; };
 		ABBF105517B1371E006F6E93 /* System.Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Func.h; sourceTree = "<group>"; };
 		ABBF105617B1371F006F6E93 /* System.Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Func.m; sourceTree = "<group>"; };
 		ABBF106317B147F3006F6E93 /* System.Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.h; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
 			isa = PBXGroup;
 			children = (
+				AB97FC0717C2B7D700CBE585 /* mscorlib.h */,
+				AB97FC0817C2B7D800CBE585 /* mscorlib.m */,
 				08FB77AEFE84172EC02AAC07 /* Source */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
@@ -465,8 +470,6 @@
 				ABBF104217B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m */,
 				ABBF104D17B11EA2006F6E93 /* System.Exception.h */,
 				ABBF104E17B11EA2006F6E93 /* System.Exception.m */,
-				ABBF105117B12E9A006F6E93 /* System.DayOfWeek.h */,
-				ABBF105217B12E9A006F6E93 /* System.DayOfWeek.m */,
 				ABBF105517B1371E006F6E93 /* System.Func.h */,
 				ABBF105617B1371F006F6E93 /* System.Func.m */,
 				ABBF106317B147F3006F6E93 /* System.Reflection.h */,
@@ -577,6 +580,8 @@
 				ABBF10AE17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.h */,
 				ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */,
 				ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */,
+				AB97FC0B17C3957E00CBE585 /* DBUReferenceStruct.h */,
+				AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */,
 			);
 			path = "Dubrovnik Unit Tests";
 			sourceTree = "<group>";
@@ -608,7 +613,6 @@
 				ABBF106917B148A1006F6E93 /* System.Reflection.MethodInfo.h in Headers */,
 				ABBF106517B147F4006F6E93 /* System.Reflection.h in Headers */,
 				ABBF105717B1371F006F6E93 /* System.Func.h in Headers */,
-				ABBF105317B12E9A006F6E93 /* System.DayOfWeek.h in Headers */,
 				ABBF104F17B11EA2006F6E93 /* System.Exception.h in Headers */,
 				ABBF104B17B11E23006F6E93 /* System.Collections.Generic.List.h in Headers */,
 				ABBF104717B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h in Headers */,
@@ -648,6 +652,7 @@
 				9DA75F670A239104008EC2F7 /* DBArrayCategory.h in Headers */,
 				9DCD135D0A7ABFB900849E5C /* DBConvert.h in Headers */,
 				9DCD14300A7AE69900849E5C /* DBEnum.h in Headers */,
+				AB97FC0917C2B7D800CBE585 /* mscorlib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,7 +811,6 @@
 				ABBF104817B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m in Sources */,
 				ABBF104C17B11E23006F6E93 /* System.Collections.Generic.List.m in Sources */,
 				ABBF105017B11EA2006F6E93 /* System.Exception.m in Sources */,
-				ABBF105417B12E9A006F6E93 /* System.DayOfWeek.m in Sources */,
 				ABBF105817B1371F006F6E93 /* System.Func.m in Sources */,
 				ABBF106A17B148A1006F6E93 /* System.Reflection.MethodInfo.m in Sources */,
 				ABBF106E17B14950006F6E93 /* System.Type.m in Sources */,
@@ -816,6 +820,7 @@
 				ABBF108217B25DE1006F6E93 /* System.IO.StringWriter.m in Sources */,
 				ABBF108617B26246006F6E93 /* System.EventArgs.m in Sources */,
 				ABBF108A17B29DD1006F6E93 /* System.Data.Entity.EntityState.m in Sources */,
+				AB97FC0E17C39DE600CBE585 /* mscorlib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,6 +833,7 @@
 				ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */,
 				ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */,
 				ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */,
+				AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

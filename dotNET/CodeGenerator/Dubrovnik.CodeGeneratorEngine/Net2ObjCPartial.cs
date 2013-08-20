@@ -80,6 +80,13 @@ namespace Dubrovnik
                 {
                     WriteEnumeration(enumeration);
                 }
+
+                // write structs
+                foreach (StructFacet @struct in @namespace.Structs)
+                {
+                    WriteStruct(@struct);
+                }
+            
             }
 
             // write classes
@@ -365,8 +372,9 @@ namespace Dubrovnik
                 // If no explicit type found then return a canonical type name.
                 decl = ObjCNameFromMonoName(monoType);
 
-                // if not a value type then declare as a pointer
-                if (!monoFacet.IsValueType) {
+                // if not a value type then declare as a pointer.
+                // a managed struct is a value type but its ObjC representation is class based. 
+                if (!monoFacet.IsValueType || monoFacet.IsStruct) {
                     decl += " *";
                 }
             }
@@ -686,6 +694,11 @@ namespace Dubrovnik
             //===============================================================================================
             // value types
             //===============================================================================================
+
+            // System.ValueType - struct
+            monoTA = new MonoTypeAssociation { MonoType = "System.ValueType" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
+            AssociateTypes(monoTA, objcTA);
 
             // System.Void
             monoTA = new MonoTypeAssociation { MonoType = "System.Void", MonoTypeAlias = "void"};

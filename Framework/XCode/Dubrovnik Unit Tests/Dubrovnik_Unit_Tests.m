@@ -387,6 +387,21 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSString *extensionString = [refObject extensionString];
         STAssertNotNil(extensionString, DBUObjectIsNil);
     }
+    
+    //
+    // Managed struct handling
+    //
+    id refStruct = [refObject referenceStructMethodWithS1:@"ReferenceStruct"];
+    STAssertNotNil(refStruct, DBUObjectIsNil);
+    
+    NSString *refStructStringProperty = [refStruct stringProperty];
+    STAssertTrue([refStructStringProperty rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    
+    NSString *refStructStringMethod = [refStruct stringMethodWithS1:@"ReferenceStruct"];
+    STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);    
+    
+    // log the class
+    [refStruct logMonoClassInfo];
 }
 
 #pragma mark -

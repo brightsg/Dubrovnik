@@ -76,6 +76,10 @@ namespace Dubrovnik.Reflector {
                 xtw.WriteAttributeString("UnderlyingType", undertype.GetFriendlyFullName());
                 xtw.WriteAttributeString("IsEnum", Boolean.TrueString);
             }
+            if (type.IsPrimitive)
+            {
+                xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString);
+            }
             Type baseType = type.BaseType;
             if (baseType != null)
             {

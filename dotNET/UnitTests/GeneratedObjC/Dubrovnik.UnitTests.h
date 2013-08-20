@@ -7,10 +7,10 @@
 //
 // This code was generated from a template.
 //
-// Date:     8/19/2013 5:17:06 PM
+// Date:     8/20/2013 1:47:04 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4979.28099, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4980.20189, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -90,6 +90,49 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	Dubrovnik_UnitTests_LongEnum_val3 = 3,
 	Dubrovnik_UnitTests_LongEnum_val4 = 4,
 };
+
+//
+// Mono struct ReferenceStruct
+//
+@interface Dubrovnik_UnitTests_ReferenceStruct : DBMonoObjectRepresentation
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Constructors
+
+	// Mono type is Dubrovnik.UnitTests.ReferenceStruct
+    + (Dubrovnik_UnitTests_ReferenceStruct *)newWithS:(NSString *)p1;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Mono type is System.Int32
+    - (int32_t)intField;
+    - (void)setIntField:(int32_t)value;
+
+	// Mono type is System.String
+    - (NSString *)stringField;
+    - (void)setStringField:(NSString *)value;
+
+#pragma mark -
+#pragma mark Properties
+
+	// Mono type is System.String
+    - (NSString *)stringProperty;
+    - (void)setStringProperty:(NSString *)value;
+
+#pragma mark -
+#pragma mark Methods
+
+	// Mono type is System.String
+    - (NSString *)stringMethodWithS1:(NSString *)p1;
+@end
 
 //
 // Mono class ReferenceObject
@@ -207,6 +250,9 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 
 	// Mono type is System.String
     - (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
+
+	// Mono type is Dubrovnik.UnitTests.ReferenceStruct
+    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethodWithS1:(NSString *)p1;
 
 	// Mono type is System.String
     - (NSString *)stringMethod;
