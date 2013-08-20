@@ -74,7 +74,6 @@
 		AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0917C2B7D800CBE585 /* mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB97FC0717C2B7D700CBE585 /* mscorlib.h */; };
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
-		AB97FC0E17C39DE600CBE585 /* mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0817C2B7D800CBE585 /* mscorlib.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103917B11A9F006F6E93 /* System.Nullable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBF103C17B11A9F006F6E93 /* System.Nullable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF103A17B11A9F006F6E93 /* System.Nullable.m */; };
@@ -820,7 +819,6 @@
 				ABBF108217B25DE1006F6E93 /* System.IO.StringWriter.m in Sources */,
 				ABBF108617B26246006F6E93 /* System.EventArgs.m in Sources */,
 				ABBF108A17B29DD1006F6E93 /* System.Data.Entity.EntityState.m in Sources */,
-				AB97FC0E17C39DE600CBE585 /* mscorlib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

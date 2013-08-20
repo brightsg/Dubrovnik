@@ -182,7 +182,7 @@
 }
 
 #pragma mark -
-#pragma mark Mono methods
+#pragma mark Mono string methods
 
 - (NSString *)stringMethod
 {
@@ -205,7 +205,19 @@
     
     return value;
 }
+- (NSString *)stringMethodByRef:(NSString **)p1
+{
+    MonoObject *p1Value = [*p1 monoValue];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&)" withNumArgs:1, &p1Value];
+    *p1 = [NSString stringWithMonoString:DB_STRING(p1Value)];
+    NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+    
+    return value;
+}
 
+//
+// mixed parameter methods
+//
 - (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(id)p7
 {
     // note tha mono float is an alias for System.Single, hence the use of single in the signature below
@@ -213,6 +225,21 @@
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
+}
+
+#pragma mark -
+#pragma mark Mono int methods
+
+- (int32_t)doubleIt:(int32_t)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
+    return DB_UNBOX_INT32(monoObject);
+}
+
+- (int32_t)doubleItByRef:(int32_t *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
+    return DB_UNBOX_INT32(monoObject);
 }
 
 #pragma mark -

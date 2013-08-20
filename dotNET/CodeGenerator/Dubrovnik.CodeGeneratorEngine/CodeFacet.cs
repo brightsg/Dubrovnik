@@ -45,7 +45,10 @@ namespace Dubrovnik
             IsWritable = XElementAttributeBool(xelement, "IsWritable");
             IsEnum = XElementAttributeBool(xelement, "IsEnum");
             IsValueType = XElementAttributeBool(xelement, "IsValueType");
+            IsByRef = XElementAttributeBool(xelement, "IsByRef");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
+            IsPointer = XElementAttributeBool(xelement, "IsPointer");
+            IsArray = XElementAttributeBool(xelement, "IsArray"); 
             HandlerType = XElementAttributeValue(xelement, "HandlerType");
             IsConstant = XElementAttributeBool(xelement, "IsConstant");
             IsStatic= XElementAttributeBool(xelement, "IsStatic");
@@ -68,6 +71,9 @@ namespace Dubrovnik
         public bool IsEnum { get; private set; }
         public bool IsValueType { get; private set; }
         public bool IsPrimitive { get; private set; }
+        public bool IsPointer { get; private set; }
+        public bool IsArray { get; private set; }
+        public bool IsByRef { get; private set; }
         public string BaseName { get; private set; }
         public string BaseType { get; private set; }
         public string UnderlyingType { get; private set; }
@@ -145,19 +151,21 @@ namespace Dubrovnik
             {
                 name = monoName;
 
-                // for C# qualifier details see http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx
+                // The following is done piecemeal  largely for informative purposes.
+                // For C# qualifier details see http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx
                 name = name.Replace(".", "_"); // namespacing
                 name = name.Replace("+", "__"); // nested classes
+                name = name.Replace("\\", ""); // escape character
                 name = name.Replace("<", "_"); // start of generic type parameter identifier
                 name = name.Replace(",", "_"); // generic type parameter separator
                 name = name.Replace(">", ""); // end of generic type parameter identifier
                 name = name.Replace("`", "_P"); // generic arity indicates parameter count
                 name = name.Replace(" ", ""); // ill advised paranoia at work
+                name = name.Replace("&", ""); // indicates that a parameter type is being passed by reference - detect with IsByRef
+                name = name.Replace("[]", ""); // an array of types - detect with IsArray
+                name = name.Replace("*", ""); // type is a pointer such as System.Void*, System.Char* - detect with IsPointer
 
-                name = name.Replace("[]", "_ARR_"); //TODO: this is temporary
-                name = name.Replace("&", "_AMP_"); //TODO: this is temporary
-                name = name.Replace("*", "_AST_"); //TODO: this is temporary
-
+                // If the name is not now valid then we have a problem.
                 Regex validObjcCNameRegex = new Regex("^[A-Za-z_][A-Za-z_0-9]*$");
                 if (!validObjcCNameRegex.IsMatch(name))
                 {

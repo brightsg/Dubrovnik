@@ -853,14 +853,59 @@ namespace Dubrovnik
             return Assembly.GetExecutingAssembly().GetReferencedAssemblies();
         }
 
+        //
+        // ObjCNameFromMonoName
+        //
         public static string ObjCNameFromMonoName(string monoName)
         {
             return CodeFacet.ObjCNameFromMonoName(monoName);
         }
 
+        //
+        // ObjCNameFromMonoName
+        //
         public static string ObjCNameFromMonoName(string prefix, string monoName)
         {
             return CodeFacet.ObjCNameFromMonoName(prefix, monoName);
+        }
+
+        //
+        // WriteFacetTypeInfo
+        //
+        public string WriteFacetTypeInfo(IList<ParameterFacet> parameters)
+        {
+            StringBuilder s = new StringBuilder();
+            int idx = 0;
+            foreach (ParameterFacet facet in parameters)
+            {
+                if (idx > 0) s.Append(", ");
+                if (facet.IsByRef) s.Append("ref ");
+                s.Append(facet.Type);
+                idx++;
+            }
+            return s.ToString();
+        }
+
+        //
+        // GenerateTypeWarnings
+        //
+        public void GenerateTypeWarnings(CodeFacet facet)
+        {
+            // in production quality code we should not have any warnings!
+            if (facet.IsArray) WriteLine("#warning Array type implementation is pending");
+            if (facet.IsByRef) WriteLine("#warning Ref and out parameter implementation is pending");
+            if (facet.IsPointer) WriteLine("#warning Pointer type implementation is pending");
+        }
+
+        //
+        // GenerateTypeWarnings
+        //
+        public void GenerateTypeWarnings(IList<ParameterFacet> parameters)
+        {
+            foreach (ParameterFacet facet in parameters)
+            {
+                GenerateTypeWarnings(facet);
+            }
         }
     }
 }

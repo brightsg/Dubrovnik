@@ -82,6 +82,11 @@
 - (NSString *)stringMethod;
 - (NSString *)stringMethodWithS1:(NSString *)p1;
 - (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2;
+- (NSString *)stringMethodByRef:(NSString **)p1;
+
+// int methods
+- (int32_t)doubleIt:(int32_t)p1;
+- (int32_t)doubleItByRef:(int32_t *)p1;
 
 // date methods
 - (NSDate *)dateMethodWithD1:(NSDate *)p1;
@@ -120,6 +125,8 @@
 // long enumeration property implementation
 - (eDBULongEnum)longEnumeration;
 - (void)setLongEnumeration:(eDBULongEnum)value;
+
+- (DBUReferenceStruct *)referenceStructMethodWithS1:(NSString *)p1;
 
 - (NSString *)classDescription;
 - (NSString *)extensionString;

@@ -1,5 +1,6 @@
 using System;
 using Dubrovnik.UnitTests.Extensions;
+using System.Diagnostics;
 
 namespace Dubrovnik.UnitTests
 {
@@ -28,7 +29,19 @@ namespace Dubrovnik.UnitTests
 
 			// confirm extensions accessible
 			string extensionString = refObject.ExtensionString ();
-			Console.WriteLine (extensionString); 
+			Console.WriteLine (extensionString);
+
+            // int ref methods
+            int value1 = 1;
+            int value2 = 1;
+            refObject.DoubleIt(ref value2);
+            Console.WriteLine("{0} doubled is {1}", value1, value2);
+
+            // string ref methods
+            string s1 = "Repeat me.";
+            string s2 = s1;
+            refObject.StringMethod(ref s2);
+            Console.WriteLine("{0} doubled is {1}", s1, s2);
 		}
 	}
 }

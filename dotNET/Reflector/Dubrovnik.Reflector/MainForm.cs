@@ -69,16 +69,15 @@ namespace Dubrovnik.Reflector {
         private void WriteTypeAttributes(XmlTextWriter xtw, Type type)
         {
             xtw.WriteAttributeString("Type", type.GetFriendlyFullName());
-            xtw.WriteAttributeString("IsValueType", type.IsValueType.ToString());
+            if (type.IsValueType) xtw.WriteAttributeString("IsValueType", Boolean.TrueString);
+            if (type.IsPointer) xtw.WriteAttributeString("IsPointer", Boolean.TrueString);
+            if (type.IsArray) xtw.WriteAttributeString("IsArray", Boolean.TrueString);
+            if (type.IsPrimitive) xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString); 
             if (type.IsEnum)
             {
                 Type undertype = Enum.GetUnderlyingType(type);
                 xtw.WriteAttributeString("UnderlyingType", undertype.GetFriendlyFullName());
                 xtw.WriteAttributeString("IsEnum", Boolean.TrueString);
-            }
-            if (type.IsPrimitive)
-            {
-                xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString);
             }
             Type baseType = type.BaseType;
             if (baseType != null)
@@ -86,6 +85,20 @@ namespace Dubrovnik.Reflector {
                 xtw.WriteAttributeString("BaseName", baseType.GetFriendlyName());
                 xtw.WriteAttributeString("BaseType", baseType.GetFriendlyFullName());
             }
+        }
+
+        private void WriteParameterInfoAttributes(XmlTextWriter xtw, ParameterInfo parameterInfo)
+        {
+            xtw.WriteStartElement("Parameter");
+            xtw.WriteAttributeString("Name", parameterInfo.Name);
+            WriteTypeAttributes(xtw, parameterInfo.ParameterType);
+
+            // determine if parameter is passed explictly by reference
+            if (parameterInfo.ParameterType.IsByRef)
+            {
+                xtw.WriteAttributeString("IsByRef", Boolean.TrueString);
+            }
+            xtw.WriteEndElement();
         }
 
         private void ParseAssembly() {
@@ -237,12 +250,10 @@ namespace Dubrovnik.Reflector {
 
                                 var constructorNode = new TreeNode(string.Format("{0}() : {1}", type.GetFriendlyName(), type.GetFriendlyName())) { ImageIndex = 9 };
                                 typeNode.Nodes.Add(constructorNode);
-                                foreach (var parameterInfo in constructorInfo.GetParameters()) {
-                                    xtw.WriteStartElement("Parameter");
-                                    xtw.WriteAttributeString("Name", parameterInfo.Name);
-                                    WriteTypeAttributes(xtw, parameterInfo.ParameterType);
-                                    xtw.WriteEndElement();
 
+                                // write parameters
+                                foreach (var parameterInfo in constructorInfo.GetParameters()) {
+                                    WriteParameterInfoAttributes(xtw, parameterInfo);
                                     constructorNode.Nodes.Add(new TreeNode(string.Format("{0} : {1}", parameterInfo.Name, parameterInfo.ParameterType.GetFriendlyName())) { ImageIndex = 10 });
                                 }
 
@@ -261,12 +272,10 @@ namespace Dubrovnik.Reflector {
 
                                 var methodNode = new TreeNode(string.Format("{0}() : {1}", methodInfo.Name, methodInfo.ReturnType.GetFriendlyName())) { ImageIndex = 9 };
                                 typeNode.Nodes.Add(methodNode);
-                                foreach (var parameterInfo in methodInfo.GetParameters()) {
-                                    xtw.WriteStartElement("Parameter");
-                                    xtw.WriteAttributeString("Name", parameterInfo.Name);
-                                    WriteTypeAttributes(xtw, parameterInfo.ParameterType);
-                                    xtw.WriteEndElement();
 
+                                // write parameters
+                                foreach (var parameterInfo in methodInfo.GetParameters()) {
+                                    WriteParameterInfoAttributes(xtw, parameterInfo);
                                     methodNode.Nodes.Add(new TreeNode(string.Format("{0} : {1}", parameterInfo.Name, parameterInfo.ParameterType.GetFriendlyName())) { ImageIndex = 10 });
                                 }
 

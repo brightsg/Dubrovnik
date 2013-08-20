@@ -188,12 +188,55 @@ namespace Dubrovnik.UnitTests
 			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
 		}
 
+        //
+        // string methods with ref arg
+        //
+        public string StringMethod(ref string s1) {
+            s1 += s1;
+            return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}", s1);
+        }
+        public string StringMethod(ref string s1, string s2)
+        {
+            s1 += s2;
+            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
+        }
+        public string StringMethod(string s1, ref string s2)
+        {
+            s2 += s1;
+            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
+        }
+        public string StringMethod(ref string s1, ref string s2)
+        {
+            s1 += s1;
+            s2 += s2;
+            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
+        }
+
+        //
+        // int methods
+        //
+        public Int32 DoubleIt(Int32 x)
+        {
+            Console.WriteLine(@"DoubleIt called with value parameter"); 
+            return 2 * x;
+        }
+        public Int32 DoubleIt(ref Int32 x)
+        {
+            Console.WriteLine(@"DoubleIt called with ref parameter");
+            x =  2 * x;
+            return x;
+        }
+
         public ReferenceStruct ReferenceStructMethod(string s1)
         {
             ReferenceStruct rstruct = new ReferenceStruct("Dubrovnik.UnitTests.ReferenceStructMethod");
 
             return rstruct;
         }
+
+        //
+        // int methods
+        //
 
 		//
 		// date methods

@@ -9,7 +9,7 @@
 #import "Dubrovnik_Unit_Tests.h"
 #import "DBUReferenceObject.h"
 
-#define DB_RUN_AUTO_GENERATED_CODE_TEST
+//#define DB_RUN_AUTO_GENERATED_CODE_TEST
 
 #ifdef DB_RUN_AUTO_GENERATED_CODE_TEST
 #import "Dubrovnik.UnitTests.h"
@@ -247,6 +247,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *stringMethod2 = [refObject stringMethodWithS1:@"1" s2:@"2"];
     STAssertNotNil(stringMethod2, DBUObjectIsNil);
 
+    NSString *refString1 = @"Repeat me.";
+    NSString *refString2 = refString1;
+    [refObject stringMethodByRef:&refString2];
+    
+    //
+    // date methods
+    //
     NSDate *dateMethod = [refObject dateMethodWithD1:[NSDate date]];
     STAssertNotNil(dateMethod, DBUObjectIsNil);
 
@@ -264,6 +271,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"%@", mixedMethod1);
     
     // TODO: mixed methods to cover all value types
+    
+    //
+    // int methods
+    //
+    int32_t intToDouble = 1;
+    int32_t intDoubled = [refObject doubleIt:intToDouble];
+    STAssertTrue(intDoubled == 2 * intToDouble, DBUEqualityTestFailed);
+    
+    [refObject doubleItByRef:&intToDouble];
+    STAssertTrue(intDoubled == intToDouble, DBUEqualityTestFailed);
     
     //===================================
     // properties
