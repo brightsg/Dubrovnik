@@ -41,14 +41,19 @@ namespace Dubrovnik
 
         }
 
+        private void ResetTextBoxes()
+        {
+            InterfaceTextBox.Text = "";
+            ImplementationTextBox.Text = "";
+            ErrorsTextBox.Text = "";
+        }
+
         private void genCode_Click(object sender, EventArgs e)
         {
             ExportButton.Enabled = false;
 
-            // setup GUI
-            InterfaceTextBox.Text = "";
-            ImplementationTextBox.Text = "";
-            ErrorsTextBox.Text = "";
+            // reset GUI
+            ResetTextBoxes();
 
             // generate the code
             _codeGen.Execute();
@@ -94,6 +99,10 @@ namespace Dubrovnik
                 XMLTextBox.Text = _codeGen.codeDoc.ToString();
 
                 genCode.Enabled = true;
+
+                ResetTextBoxes();
+                tabs.SelectedTab = tabs.TabPages["tabXML"];
+                ExportButton.Enabled = false;
             }
             catch (Exception ex)
             {
