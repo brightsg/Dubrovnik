@@ -3,16 +3,16 @@
 //
 // Dubrovnik.UnitTests.h
 //
-// Dubrovnik based Objective-C to Mono bindings.
+// Dubrovnik based OS X Cocoa Objective-C to Mono bindings.
 //
 // This code was generated using a tool available as part of:
-// https://github.com/ThesaurusSoftware/Dubrovnik
+// http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/21/2013 10:02:29 PM
+// Date:     8/21/2013 10:32:31 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4980.38600, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4981.38672, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -298,6 +298,11 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed return type : System.String
 	// Managed param types : System.String
     - (NSString *)stringMethod_withS1String:(NSString *)p1;
+
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.Int32
+    - (NSString *)stringMethod_withNInt:(int32_t)p1;
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String

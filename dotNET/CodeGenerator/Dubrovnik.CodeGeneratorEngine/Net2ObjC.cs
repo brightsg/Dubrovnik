@@ -106,10 +106,10 @@ this.Write(this.ToStringHelper.ToStringWithCulture(OutputFileType == OutputType.
         #line hidden
         
         #line 43 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write("\r\n//\r\n// Dubrovnik based Objective-C to Mono bindings.\r\n//\r\n// This code was gene" +
-        "rated using a tool available as part of:\r\n// https://github.com/ThesaurusSoftwar" +
-        "e/Dubrovnik\r\n// This code has dependencies on the above project.\r\n//\r\n// Date:  " +
-        "   ");
+this.Write("\r\n//\r\n// Dubrovnik based OS X Cocoa Objective-C to Mono bindings.\r\n//\r\n// This co" +
+        "de was generated using a tool available as part of:\r\n// http://github.com/Thesau" +
+        "rusSoftware/Dubrovnik\r\n// This code has dependencies on the above project.\r\n//\r\n" +
+        "// Date:     ");
 
         
         #line default

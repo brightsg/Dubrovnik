@@ -198,6 +198,13 @@
     
     return value;
 }
+
+- (NSString *)stringMethod_withNInt:(int32_t)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, DB_VALUE(p1)];
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
 - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];

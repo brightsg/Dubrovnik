@@ -42,10 +42,10 @@ void WriteFileHeader()
 //
 // <#=OutputFileType == OutputType.Implementation ? ImplementationFile : InterfaceFile #>
 //
-// Dubrovnik based Objective-C to Mono bindings.
+// Dubrovnik based OS X Cocoa Objective-C to Mono bindings.
 //
 // This code was generated using a tool available as part of:
-// https://github.com/ThesaurusSoftware/Dubrovnik
+// http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
 // Date:     <#=DateTime.Now.ToString()#>

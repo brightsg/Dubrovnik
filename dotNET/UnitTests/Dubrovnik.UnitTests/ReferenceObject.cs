@@ -183,6 +183,12 @@ namespace Dubrovnik.UnitTests
 			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}", s1);
 		}
 
+        // overload test
+        public string StringMethod(int n)
+        {
+            return String.Format("Dubrovnik.UnitTests.StringMethod int overload: {0}", n);
+        }
+
 		public string StringMethod(string s1, string s2)
 		{
 			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);

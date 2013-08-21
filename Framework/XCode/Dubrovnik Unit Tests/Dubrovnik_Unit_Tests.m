@@ -246,7 +246,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     NSString *stringMethod1 = [refObject stringMethod_withS1String:@"1"];
     STAssertNotNil(stringMethod1, DBUObjectIsNil);
-
+    
+    NSString *stringMethodWithInt = [refObject stringMethod_withNInt:100];
+    STAssertTrue([stringMethodWithInt rangeOfString:@"100"].location != NSNotFound, DBUSubstringTestFailed);
+    
     NSString *stringMethod2 = [refObject stringMethod_withS1String:@"1" s2String:@"2"];
     STAssertNotNil(stringMethod2, DBUObjectIsNil);
 

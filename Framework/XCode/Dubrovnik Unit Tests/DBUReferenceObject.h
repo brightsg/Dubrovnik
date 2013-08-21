@@ -83,6 +83,7 @@
 - (NSString *)stringMethod_withS1String:(NSString *)p1;
 - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
 - (NSString *)stringMethodByRef:(NSString **)p1;
+- (NSString *)stringMethod_withNInt:(int32_t)p1;
 
 // int methods
 - (int32_t)doubleIt_withXInt:(int32_t)p1;
