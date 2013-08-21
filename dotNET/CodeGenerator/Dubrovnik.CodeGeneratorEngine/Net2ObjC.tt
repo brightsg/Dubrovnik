@@ -44,7 +44,9 @@ void WriteFileHeader()
 //
 // Dubrovnik based Objective-C to Mono bindings.
 //
-// This code was generated from a template.
+// This code was generated using a tool available as part of:
+// https://github.com/ThesaurusSoftware/Dubrovnik
+// This code has dependencies on the above project.
 //
 // Date:     <#=DateTime.Now.ToString()#>
 //
@@ -493,7 +495,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		//  eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
 		//
 		string objCParamTypeDecl = null;
-		bool parameterIsObject = true;
+		bool objCParameterIsObject = true;
 
 		// get the associated ObjC type
 		ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(monoParameterType);
@@ -501,9 +503,10 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		if (objCTypeAssociate != null) {
 			monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
 			objCParamTypeDecl =  objCTypeAssociate.ObjCTypeDecl;
-			parameterIsObject = objCTypeAssociate.IsNSObject;
+			objCParameterIsObject = objCTypeAssociate.IsNSObject;
 		} else {
 			objCParamTypeDecl = ObjCTypeDeclFromMonoFacet(parameter);
+			objCParameterIsObject = ObjCNonAssociatedTypeIsNSObject(parameter);
         }
 		if (parameter.IsByRef) {
 			objCParamTypeDecl += "*";	// add additional indirection
@@ -541,7 +544,8 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// append the complete interleaved parameter expression
 		if (idx == 0) {
 			if (AppendFirstArgSignatureToMethodName) {
-				objCMethodName += "With";
+				// the leading underscore helps identify the preceding characters as the managed method name
+				objCMethodName += "_with";
 				methodArgsBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
             } 
         } else {
@@ -555,7 +559,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		//
 		string argFormat = null;
 		if (idx > 0) invokeArgsBuilder.Append(", ");
-		if (parameterIsObject) {
+		if (objCParameterIsObject) {
 			argFormat = "[p{0} monoValue]";
         } else {
 			if (!parameter.IsByRef) {
@@ -590,6 +594,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	//
 #>
 
+	// Managed method name : <#=isConstructorMethod ? facet.Type : monoMethodName #>
 	// Managed return type : <#=facet.Type#>
 	// Managed param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
     <#=objCMethodType#> (<#=objCTypeDecl#>)<#=objCMethodName#><#=methodArgs#><#=LT#>

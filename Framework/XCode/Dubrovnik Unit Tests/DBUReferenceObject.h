@@ -63,8 +63,8 @@
 @interface DBUReferenceObject : DBMonoObjectRepresentation
 
 // constructors
-+ (id)newWithValue:(NSString *)p1;
-+ (id)newWithValue1:(NSString *)p1 value2:(NSString *)p2;
++ (id)new_withValueString:(NSString *)p1;
++ (id)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2;
 
 // class fields
 + (NSString *)classStringField;
@@ -80,19 +80,19 @@
 
 // string methods + overloads
 - (NSString *)stringMethod;
-- (NSString *)stringMethodWithS1:(NSString *)p1;
-- (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2;
+- (NSString *)stringMethod_withS1String:(NSString *)p1;
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
 - (NSString *)stringMethodByRef:(NSString **)p1;
 
 // int methods
-- (int32_t)doubleItWithX:(int32_t)p1;
-- (int32_t)doubleItWithXRef:(int32_t *)p1;
+- (int32_t)doubleIt_withXInt:(int32_t)p1;
+- (int32_t)doubleIt_withXIntRef:(int32_t *)p1;
 
 // date methods
-- (NSDate *)dateMethodWithD1:(NSDate *)p1;
+- (NSDate *)dateMethod_withD1SDateTime:(NSDate *)p1;
 
 // mixed methods
-- (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(id)p7;
+- (NSString *)mixedMethod1_withIntargInt:(int32_t)p1 longArgLong:(int64_t)p2 floatArgSingle:(float)p3 doubleArgDouble:(double)p4 dateArgSDateTime:(NSDate *)p5 stringArgString:(NSString *)p6 refObjectArgDUReferenceObject:(DBUReferenceObject *)p7;
 
 // string property implementation
 - (NSString *)stringProperty;
@@ -126,7 +126,7 @@
 - (eDBULongEnum)longEnumeration;
 - (void)setLongEnumeration:(eDBULongEnum)value;
 
-- (DBUReferenceStruct *)referenceStructMethodWithS1:(NSString *)p1;
+- (DBUReferenceStruct *)referenceStructMethod_withS1String:(NSString *)p1;
 
 - (NSString *)classDescription;
 - (NSString *)extensionString;

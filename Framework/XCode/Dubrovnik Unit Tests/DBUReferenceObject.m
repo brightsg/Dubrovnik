@@ -24,12 +24,12 @@
 #pragma mark -
 #pragma mark Mono constructors
 
-+ (id)newWithValue:(NSString *)p1
++ (id)new_withValueString:(NSString *)p1
 {
     return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoString]];
 }
 
-+ (id)newWithValue1:(NSString *)p1 value2:(NSString *)p2
++ (id)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2
 {
     return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoString], [p2 monoString]];
 }
@@ -191,14 +191,14 @@
     
     return value;
 }
-- (NSString *)stringMethodWithS1:(NSString *)p1
+- (NSString *)stringMethod_withS1String:(NSString *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
 }
-- (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -218,7 +218,7 @@
 //
 // mixed parameter methods
 //
-- (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(id)p7
+- (NSString *)mixedMethod1_withIntargInt:(int32_t)p1 longArgLong:(int64_t)p2 floatArgSingle:(float)p3 doubleArgDouble:(double)p4 dateArgSDateTime:(NSDate *)p5 stringArgString:(NSString *)p6 refObjectArgDUReferenceObject:(DBUReferenceObject *)p7
 {
     // note tha mono float is an alias for System.Single, hence the use of single in the signature below
     MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
@@ -230,13 +230,13 @@
 #pragma mark -
 #pragma mark Mono int methods
 
-- (int32_t)doubleItWithX:(int32_t)p1
+- (int32_t)doubleIt_withXInt:(int32_t)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
     return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)doubleItWithXRef:(int32_t *)p1
+- (int32_t)doubleIt_withXIntRef:(int32_t *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
     return DB_UNBOX_INT32(monoObject);
@@ -245,7 +245,7 @@
 #pragma mark -
 #pragma mark Date methods
 
-- (NSDate *)dateMethodWithD1:(NSDate *)p1
+- (NSDate *)dateMethod_withD1SDateTime:(NSDate *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
     NSDate *value = [NSDate dateWithMonoDateTime:monoObject];
@@ -256,7 +256,7 @@
 #pragma mark -
 #pragma mark Structure methods
 
-- (DBUReferenceStruct *)referenceStructMethodWithS1:(NSString *)p1
+- (DBUReferenceStruct *)referenceStructMethod_withS1String:(NSString *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
     return [DBUReferenceObject representationWithMonoObject:monoObject];

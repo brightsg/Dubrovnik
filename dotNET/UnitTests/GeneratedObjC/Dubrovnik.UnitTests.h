@@ -5,9 +5,11 @@
 //
 // Dubrovnik based Objective-C to Mono bindings.
 //
-// This code was generated from a template.
+// This code was generated using a tool available as part of:
+// https://github.com/ThesaurusSoftware/Dubrovnik
+// This code has dependencies on the above project.
 //
-// Date:     8/21/2013 11:07:04 AM
+// Date:     8/21/2013 10:02:29 PM
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.4980.38600, Culture=neutral, PublicKeyToken=null
@@ -34,7 +36,7 @@
 // Extra include
 //
 #ifdef INCLUDE_DUBROVNIK_UNITTESTS_EXTRA
-#import "Dubrovnik.UnitTests.Extra.h"	// Not generated. Add manually to project.
+#import "Dubrovnik.UnitTests.__Extra__.h"	// Not auto generated. Add manually to project.
 #endif
 
 
@@ -79,7 +81,7 @@
 
 
 //
-// Mono enumeration : Dubrovnik.UnitTests.IntEnum
+// Managed enumeration : Dubrovnik.UnitTests.IntEnum
 //
 typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
 	Dubrovnik_UnitTests_IntEnum_val1 = 1,
@@ -89,7 +91,7 @@ typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
 };
 
 //
-// Mono enumeration : Dubrovnik.UnitTests.LongEnum
+// Managed enumeration : Dubrovnik.UnitTests.LongEnum
 //
 typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	Dubrovnik_UnitTests_LongEnum_val1 = 1,
@@ -99,7 +101,7 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 };
 
 //
-// Mono struct : ReferenceStruct
+// Managed struct : ReferenceStruct
 //
 @interface Dubrovnik_UnitTests_ReferenceStruct : DBMonoObjectRepresentation
 
@@ -113,38 +115,40 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 #pragma mark -
 #pragma mark Constructors
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceStruct
-	// Mono param types : System.String
-    + (Dubrovnik_UnitTests_ReferenceStruct *)newWithS:(NSString *)p1;
+	// Managed method name : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed param types : System.String
+    + (Dubrovnik_UnitTests_ReferenceStruct *)new_withSString:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Fields
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)intField;
     - (void)setIntField:(int32_t)value;
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringField;
     - (void)setStringField:(NSString *)value;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringProperty;
     - (void)setStringProperty:(NSString *)value;
 
 #pragma mark -
 #pragma mark Methods
 
-	// Mono return type : System.String
-	// Mono param types : System.String
-    - (NSString *)stringMethodWithS1:(NSString *)p1;
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String
+    - (NSString *)stringMethod_withS1String:(NSString *)p1;
 @end
 
 //
-// Mono class : ReferenceObject
+// Managed class : ReferenceObject
 //
 @interface Dubrovnik_UnitTests_ReferenceObject : DBMonoObjectRepresentation
 
@@ -158,156 +162,171 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 #pragma mark -
 #pragma mark Constructors
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceObject
-	// Mono param types : System.String
-    + (Dubrovnik_UnitTests_ReferenceObject *)newWithValue:(NSString *)p1;
+	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
+	// Managed param types : System.String
+    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValueString:(NSString *)p1;
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceObject
-	// Mono param types : System.String, System.String
-    + (Dubrovnik_UnitTests_ReferenceObject *)newWithValue1:(NSString *)p1 value2:(NSString *)p2;
+	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
+	// Managed param types : System.String, System.String
+    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Fields
 
-	// Mono type : System.String
+	// Managed type : System.String
     + (NSString *)classConstStringField;
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     + (int32_t)classIntField;
     + (void)setClassIntField:(int32_t)value;
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)classReadonlyStringField;
 
-	// Mono type : System.String
+	// Managed type : System.String
     + (NSString *)classStringField;
     + (void)setClassStringField:(NSString *)value;
 
-	// Mono type : System.DateTime
+	// Managed type : System.DateTime
     - (NSDate *)dateField;
     - (void)setDateField:(NSDate *)value;
 
-	// Mono type : Dubrovnik.UnitTests.IntEnum
+	// Managed type : Dubrovnik.UnitTests.IntEnum
     - (Dubrovnik_UnitTests_IntEnum)intEnumField;
     - (void)setIntEnumField:(Dubrovnik_UnitTests_IntEnum)value;
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)intField;
     - (void)setIntField:(int32_t)value;
 
-	// Mono type : Dubrovnik.UnitTests.LongEnum
+	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumField;
     - (void)setLongEnumField:(Dubrovnik_UnitTests_LongEnum)value;
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringField;
     - (void)setStringField:(NSString *)value;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Mono type : System.String
+	// Managed type : System.String
     + (NSString *)classProperty;
     + (void)setClassProperty:(NSString *)value;
 
-	// Mono type : System.DateTime
+	// Managed type : System.DateTime
     - (NSDate *)date;
     - (void)setDate:(NSDate *)value;
 
-	// Mono type : System.Decimal
+	// Managed type : System.Decimal
     - (NSDecimalNumber *)decimalNumber;
     - (void)setDecimalNumber:(NSDecimalNumber *)value;
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)int32Number;
     - (void)setInt32Number:(int32_t)value;
 
-	// Mono type : System.Int64
+	// Managed type : System.Int64
     - (int64_t)int64Number;
     - (void)setInt64Number:(int64_t)value;
 
-	// Mono type : Dubrovnik.UnitTests.IntEnum
+	// Managed type : Dubrovnik.UnitTests.IntEnum
     - (Dubrovnik_UnitTests_IntEnum)intEnumeration;
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value;
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)intNumber;
     - (void)setIntNumber:(int32_t)value;
 
-	// Mono type : Dubrovnik.UnitTests.LongEnum
+	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration;
     - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value;
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)name;
     - (void)setName:(NSString *)value;
 
-	// Mono type : Dubrovnik.UnitTests.ReferenceObject
+	// Managed type : Dubrovnik.UnitTests.ReferenceObject
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative;
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value;
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringProperty;
     - (void)setStringProperty:(NSString *)value;
 
 #pragma mark -
 #pragma mark Methods
 
-	// Mono return type : System.String
-	// Mono param types : 
+	// Managed method name : ClassDescription
+	// Managed return type : System.String
+	// Managed param types : 
     - (NSString *)classDescription;
 
-	// Mono return type : System.DateTime
-	// Mono param types : System.DateTime
-    - (NSDate *)dateMethodWithD1:(NSDate *)p1;
+	// Managed method name : DateMethod
+	// Managed return type : System.DateTime
+	// Managed param types : System.DateTime
+    - (NSDate *)dateMethod_withD1SDateTime:(NSDate *)p1;
 
-	// Mono return type : System.Int32
-	// Mono param types : System.Int32
-    - (int32_t)doubleItWithX:(int32_t)p1;
+	// Managed method name : DoubleIt
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32
+    - (int32_t)doubleIt_withXInt:(int32_t)p1;
 
-	// Mono return type : System.Int32
-	// Mono param types : ref System.Int32&
-    - (int32_t)doubleItWithXRef:(int32_t*)p1;
+	// Managed method name : DoubleIt
+	// Managed return type : System.Int32
+	// Managed param types : ref System.Int32&
+    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
 
-	// Mono return type : System.String
-	// Mono param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
+	// Managed method name : MixedMethod1
+	// Managed return type : System.String
+	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
+    - (NSString *)mixedMethod1_withIntargInt:(int32_t)p1 longArgLong:(int64_t)p2 floatArgSingle:(float)p3 doubleArgDouble:(double)p4 dateArgSDateTime:(NSDate *)p5 stringArgString:(NSString *)p6 refObjectArgDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p7;
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceStruct
-	// Mono param types : System.String
-    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethodWithS1:(NSString *)p1;
+	// Managed method name : ReferenceStructMethod
+	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed param types : System.String
+    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1String:(NSString *)p1;
 
-	// Mono return type : System.String
-	// Mono param types : 
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : 
     - (NSString *)stringMethod;
 
-	// Mono return type : System.String
-	// Mono param types : System.String
-    - (NSString *)stringMethodWithS1:(NSString *)p1;
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String
+    - (NSString *)stringMethod_withS1String:(NSString *)p1;
 
-	// Mono return type : System.String
-	// Mono param types : System.String, System.String
-    - (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2;
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String, System.String
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
 
-	// Mono return type : System.String
-	// Mono param types : ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString **)p1;
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : ref System.String&
+    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1;
 
-	// Mono return type : System.String
-	// Mono param types : ref System.String&, System.String
-    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2:(NSString *)p2;
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : ref System.String&, System.String
+    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2String:(NSString *)p2;
 
-	// Mono return type : System.String
-	// Mono param types : System.String, ref System.String&
-    - (NSString *)stringMethodWithS1:(NSString *)p1 s2Ref:(NSString **)p2;
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String, ref System.String&
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2StringRef:(NSString **)p2;
 
-	// Mono return type : System.String
-	// Mono param types : ref System.String&, ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2Ref:(NSString **)p2;
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : ref System.String&, ref System.String&
+    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2StringRef:(NSString **)p2;
 @end
 
 //
-// Mono class : TestObject
+// Managed class : TestObject
 //
 @interface Dubrovnik_UnitTests_TestObject : DBMonoObjectRepresentation
 
@@ -321,13 +340,13 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 #pragma mark -
 #pragma mark Properties
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)name;
     - (void)setName:(NSString *)value;
 @end
 
 //
-// Mono class : ReferenceObjectExtensions
+// Managed class : ReferenceObjectExtensions
 //
 @interface Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions : DBMonoObjectRepresentation
 
@@ -341,15 +360,18 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 #pragma mark -
 #pragma mark Methods
 
-	// Mono return type : System.String
-	// Mono param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)extensionStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+	// Managed method name : ExtensionString
+	// Managed return type : System.String
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
+    - (NSString *)extensionString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 
-	// Mono return type : System.String
-	// Mono param types : 
+	// Managed method name : StaticString
+	// Managed return type : System.String
+	// Managed param types : 
     - (NSString *)staticString;
 
-	// Mono return type : System.String
-	// Mono param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)staticStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+	// Managed method name : StaticString
+	// Managed return type : System.String
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
+    - (NSString *)staticString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 @end

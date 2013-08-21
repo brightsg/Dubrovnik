@@ -5,9 +5,11 @@
 //
 // Dubrovnik based Objective-C to Mono bindings.
 //
-// This code was generated from a template.
+// This code was generated using a tool available as part of:
+// https://github.com/ThesaurusSoftware/Dubrovnik
+// This code has dependencies on the above project.
 //
-// Date:     8/21/2013 11:07:04 AM
+// Date:     8/21/2013 10:02:29 PM
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.4980.38600, Culture=neutral, PublicKeyToken=null
@@ -32,7 +34,7 @@
 static const char * _AssemblyName = "Dubrovnik.UnitTests";
 
 //
-// Mono struct : ReferenceStruct
+// Managed struct : ReferenceStruct
 //
 @implementation Dubrovnik_UnitTests_ReferenceStruct
 
@@ -52,9 +54,10 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Constructors
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceStruct
-	// Mono param types : System.String
-    + (Dubrovnik_UnitTests_ReferenceStruct *)newWithS:(NSString *)p1
+	// Managed method name : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed param types : System.String
+    + (Dubrovnik_UnitTests_ReferenceStruct *)new_withSString:(NSString *)p1
     {
 		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
     }
@@ -62,7 +65,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Fields
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)intField
     {
 		int32_t monoObject;
@@ -75,7 +78,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoField:"intField" valueObject:monoObject];          
 	}
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringField
     {
 		MonoObject * monoObject;
@@ -91,7 +94,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Properties
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringProperty
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
@@ -106,9 +109,10 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Methods
 
-	// Mono return type : System.String
-	// Mono param types : System.String
-    - (NSString *)stringMethodWithS1:(NSString *)p1
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String
+    - (NSString *)stringMethod_withS1String:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -116,7 +120,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 @end
 
 //
-// Mono class : ReferenceObject
+// Managed class : ReferenceObject
 //
 @implementation Dubrovnik_UnitTests_ReferenceObject
 
@@ -136,16 +140,18 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Constructors
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceObject
-	// Mono param types : System.String
-    + (Dubrovnik_UnitTests_ReferenceObject *)newWithValue:(NSString *)p1
+	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
+	// Managed param types : System.String
+    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValueString:(NSString *)p1
     {
 		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
     }
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceObject
-	// Mono param types : System.String, System.String
-    + (Dubrovnik_UnitTests_ReferenceObject *)newWithValue1:(NSString *)p1 value2:(NSString *)p2
+	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
+	// Managed param types : System.String, System.String
+    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2
     {
 		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -153,7 +159,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Fields
 
-	// Mono type : System.String
+	// Managed type : System.String
     + (NSString *)classConstStringField
     {
 		MonoObject * monoObject;
@@ -161,7 +167,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
 	}
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     + (int32_t)classIntField
     {
 		int32_t monoObject;
@@ -174,7 +180,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[[self class] setMonoClassField:"ClassIntField" valueObject:monoObject];          
 	}
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)classReadonlyStringField
     {
 		MonoObject * monoObject;
@@ -182,7 +188,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
 	}
 
-	// Mono type : System.String
+	// Managed type : System.String
     + (NSString *)classStringField
     {
 		MonoObject * monoObject;
@@ -195,7 +201,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];          
 	}
 
-	// Mono type : System.DateTime
+	// Managed type : System.DateTime
     - (NSDate *)dateField
     {
 		MonoObject * monoObject;
@@ -208,7 +214,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoField:"DateField" valueObject:monoObject];          
 	}
 
-	// Mono type : Dubrovnik.UnitTests.IntEnum
+	// Managed type : Dubrovnik.UnitTests.IntEnum
     - (Dubrovnik_UnitTests_IntEnum)intEnumField
     {
 		MonoObject * monoObject;
@@ -221,7 +227,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoField:"IntEnumField" valueObject:monoObject];          
 	}
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)intField
     {
 		int32_t monoObject;
@@ -234,7 +240,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoField:"IntField" valueObject:monoObject];          
 	}
 
-	// Mono type : Dubrovnik.UnitTests.LongEnum
+	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumField
     {
 		MonoObject * monoObject;
@@ -247,7 +253,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoField:"LongEnumField" valueObject:monoObject];          
 	}
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringField
     {
 		MonoObject * monoObject;
@@ -263,7 +269,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Properties
 
-	// Mono type : System.String
+	// Managed type : System.String
     + (NSString *)classProperty
     {
 		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassProperty"];
@@ -275,7 +281,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[[self class] setMonoClassProperty:"ClassProperty" valueObject:monoObject];          
 	}
 
-	// Mono type : System.DateTime
+	// Managed type : System.DateTime
     - (NSDate *)date
     {
 		MonoObject *monoObject = [self getMonoProperty:"Date"];
@@ -287,7 +293,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"Date" valueObject:monoObject];          
 	}
 
-	// Mono type : System.Decimal
+	// Managed type : System.Decimal
     - (NSDecimalNumber *)decimalNumber
     {
 		MonoObject *monoObject = [self getMonoProperty:"DecimalNumber"];
@@ -299,7 +305,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"DecimalNumber" valueObject:monoObject];          
 	}
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)int32Number
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int32Number"];
@@ -311,7 +317,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"Int32Number" valueObject:monoObject];          
 	}
 
-	// Mono type : System.Int64
+	// Managed type : System.Int64
     - (int64_t)int64Number
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int64Number"];
@@ -323,7 +329,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"Int64Number" valueObject:monoObject];          
 	}
 
-	// Mono type : Dubrovnik.UnitTests.IntEnum
+	// Managed type : Dubrovnik.UnitTests.IntEnum
     - (Dubrovnik_UnitTests_IntEnum)intEnumeration
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntEnumeration"];
@@ -335,7 +341,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"IntEnumeration" valueObject:monoObject];          
 	}
 
-	// Mono type : System.Int32
+	// Managed type : System.Int32
     - (int32_t)intNumber
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntNumber"];
@@ -347,7 +353,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"IntNumber" valueObject:monoObject];          
 	}
 
-	// Mono type : Dubrovnik.UnitTests.LongEnum
+	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration
     {
 		MonoObject *monoObject = [self getMonoProperty:"LongEnumeration"];
@@ -359,7 +365,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"LongEnumeration" valueObject:monoObject];          
 	}
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)name
     {
 		MonoObject *monoObject = [self getMonoProperty:"Name"];
@@ -371,7 +377,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
-	// Mono type : Dubrovnik.UnitTests.ReferenceObject
+	// Managed type : Dubrovnik.UnitTests.ReferenceObject
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative
     {
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
@@ -383,7 +389,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"ReferenceObjectRelative" valueObject:monoObject];          
 	}
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)stringProperty
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
@@ -398,109 +404,121 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Methods
 
-	// Mono return type : System.String
-	// Mono param types : 
+	// Managed method name : ClassDescription
+	// Managed return type : System.String
+	// Managed param types : 
     - (NSString *)classDescription
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ClassDescription()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.DateTime
-	// Mono param types : System.DateTime
-    - (NSDate *)dateMethodWithD1:(NSDate *)p1
+	// Managed method name : DateMethod
+	// Managed return type : System.DateTime
+	// Managed param types : System.DateTime
+    - (NSDate *)dateMethod_withD1SDateTime:(NSDate *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
-	// Mono return type : System.Int32
-	// Mono param types : System.Int32
-    - (int32_t)doubleItWithX:(int32_t)p1
+	// Managed method name : DoubleIt
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32
+    - (int32_t)doubleIt_withXInt:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_INT32(monoObject);
     }
 
-
-	// Mono return type : System.Int32
-	// Mono param types : ref System.Int32&
-    - (int32_t)doubleItWithXRef:(int32_t*)p1
+	// Managed method name : DoubleIt
+	// Managed return type : System.Int32
+	// Managed param types : ref System.Int32&
+    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT32(monoObject);
     }
 
-	// Mono return type : System.String
-	// Mono param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7
+	// Managed method name : MixedMethod1
+	// Managed return type : System.String
+	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
+    - (NSString *)mixedMethod1_withIntargInt:(int32_t)p1 longArgLong:(int64_t)p2 floatArgSingle:(float)p3 doubleArgDouble:(double)p4 dateArgSDateTime:(NSDate *)p5 stringArgString:(NSString *)p6 refObjectArgDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p7
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : Dubrovnik.UnitTests.ReferenceStruct
-	// Mono param types : System.String
-    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethodWithS1:(NSString *)p1
+	// Managed method name : ReferenceStructMethod
+	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed param types : System.String
+    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1String:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
 		return [Dubrovnik_UnitTests_ReferenceStruct representationWithMonoObject:monoObject];
     }
 
-	// Mono return type : System.String
-	// Mono param types : 
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : 
     - (NSString *)stringMethod
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : System.String
-    - (NSString *)stringMethodWithS1:(NSString *)p1
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String
+    - (NSString *)stringMethod_withS1String:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : System.String, System.String
-    - (NSString *)stringMethodWithS1:(NSString *)p1 s2:(NSString *)p2
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String, System.String
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString **)p1
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : ref System.String&
+    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1
 #warning object ref and out parameter implementation is pending
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : ref System.String&, System.String
-    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2:(NSString *)p2
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : ref System.String&, System.String
+    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2String:(NSString *)p2
 #warning object ref and out parameter implementation is pending
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : System.String, ref System.String&
-    - (NSString *)stringMethodWithS1:(NSString *)p1 s2Ref:(NSString **)p2
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String, ref System.String&
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2StringRef:(NSString **)p2
 #warning object ref and out parameter implementation is pending
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : ref System.String&, ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2Ref:(NSString **)p2
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : ref System.String&, ref System.String&
+    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2StringRef:(NSString **)p2
 #warning object ref and out parameter implementation is pending
 #warning object ref and out parameter implementation is pending
     {
@@ -510,7 +528,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 @end
 
 //
-// Mono class : TestObject
+// Managed class : TestObject
 //
 @implementation Dubrovnik_UnitTests_TestObject
 
@@ -530,7 +548,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Properties
 
-	// Mono type : System.String
+	// Managed type : System.String
     - (NSString *)name
     {
 		MonoObject *monoObject = [self getMonoProperty:"Name"];
@@ -544,7 +562,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 @end
 
 //
-// Mono class : ReferenceObjectExtensions
+// Managed class : ReferenceObjectExtensions
 //
 @implementation Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions
 
@@ -564,25 +582,28 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Methods
 
-	// Mono return type : System.String
-	// Mono param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)extensionStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
+	// Managed method name : ExtensionString
+	// Managed return type : System.String
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
+    - (NSString *)extensionString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : 
+	// Managed method name : StaticString
+	// Managed return type : System.String
+	// Managed param types : 
     - (NSString *)staticString
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StaticString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Mono return type : System.String
-	// Mono param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)staticStringWithTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
+	// Managed method name : StaticString
+	// Managed return type : System.String
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
+    - (NSString *)staticString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];

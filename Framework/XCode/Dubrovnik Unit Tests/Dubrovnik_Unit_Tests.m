@@ -175,13 +175,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // constructor overloads
     //
     NSString *ctorString = @"Constructor with one string argument";
-    refObject = [testClass newWithValue:ctorString];
+    refObject = [testClass new_withValueString:ctorString];
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:ctorString], DBUEqualityTestFailed);
     
     NSString *ctorString1 = @"Constructor with two ";
     NSString *ctorString2 = @"string arguments";
-    refObject = [testClass newWithValue1:ctorString1 value2:ctorString2];
+    refObject = [testClass new_withValue1String:ctorString1 value2String:ctorString2];
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
     
@@ -244,10 +244,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *stringMethod = [refObject stringMethod];
     STAssertNotNil(stringMethod, DBUObjectIsNil);
 
-    NSString *stringMethod1 = [refObject stringMethodWithS1:@"1"];
+    NSString *stringMethod1 = [refObject stringMethod_withS1String:@"1"];
     STAssertNotNil(stringMethod1, DBUObjectIsNil);
 
-    NSString *stringMethod2 = [refObject stringMethodWithS1:@"1" s2:@"2"];
+    NSString *stringMethod2 = [refObject stringMethod_withS1String:@"1" s2String:@"2"];
     STAssertNotNil(stringMethod2, DBUObjectIsNil);
 
 #if DB_REFTYPE_BY_REFERENCE_SUPPORT == 1
@@ -259,14 +259,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // date methods
     //
-    NSDate *dateMethod = [refObject dateMethodWithD1:[NSDate date]];
+    NSDate *dateMethod = [refObject dateMethod_withD1SDateTime:[NSDate date]];
     STAssertNotNil(dateMethod, DBUObjectIsNil);
 
     //
     // mixed methods
     //
     
-    NSString *mixedMethod1 = [refObject mixedMethod1WithIntarg:1111 longArg:-2222 floatArg:33.33f doubleArg:-44.44 dateArg:[NSDate date] stringArg:@"GeneralTest" refObjectArg:refObject];
+    NSString *mixedMethod1 = [refObject mixedMethod1_withIntargInt:1111 longArgLong:-2222 floatArgSingle:33.33f doubleArgDouble:-44.44 dateArgSDateTime:[NSDate date] stringArgString:@"GeneralTest" refObjectArgDUReferenceObject:refObject];
     STAssertTrue([mixedMethod1 rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([mixedMethod1 rangeOfString:@"1111"].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([mixedMethod1 rangeOfString:@"-2222"].location != NSNotFound, DBUSubstringTestFailed);
@@ -281,12 +281,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // int methods
     //
     int32_t intToDouble = 1;
-    int32_t intDoubled = [refObject doubleItWithX:intToDouble];
+    int32_t intDoubled = [refObject doubleIt_withXInt:intToDouble];
     STAssertTrue(intDoubled == 2 * intToDouble, DBUEqualityTestFailed);
     
 #if DB_VALUETYPE_BY_REFERENCE_SUPPORT == 1
     // value type by ref
-    [refObject doubleItWithXRef:&intToDouble];
+    [refObject doubleIt_withXIntRef:&intToDouble];
     STAssertTrue(intDoubled == intToDouble, DBUEqualityTestFailed);
 #endif
     
@@ -416,13 +416,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // Managed struct handling
     //
-    id refStruct = [refObject referenceStructMethodWithS1:@"ReferenceStruct"];
+    id refStruct = [refObject referenceStructMethod_withS1String:@"ReferenceStruct"];
     STAssertNotNil(refStruct, DBUObjectIsNil);
     
     NSString *refStructStringProperty = [refStruct stringProperty];
     STAssertTrue([refStructStringProperty rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     
-    NSString *refStructStringMethod = [refStruct stringMethodWithS1:@"ReferenceStruct"];
+    NSString *refStructStringMethod = [refStruct stringMethod_withS1String:@"ReferenceStruct"];
     STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);    
     
     // log the class

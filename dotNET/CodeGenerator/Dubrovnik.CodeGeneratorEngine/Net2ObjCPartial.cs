@@ -341,6 +341,20 @@ namespace Dubrovnik
         }
 
         //
+        // ObjCNonAssociatedTypeIsNSObject
+        //
+        public static bool ObjCNonAssociatedTypeIsNSObject(CodeFacet facet)
+        {
+            // This assessment is only valid for non associated types.
+            // ie: System.String will fail this test even though its ObjC rep is NSString.
+            // Only call this method if associated type info cannot be found.
+            // TODO: determine if association can be tested for in this method.
+            // Logic :
+            // Managed structs are value types, ObjC rep is an NSObject
+            return (!facet.IsValueType || facet.IsStruct);
+        }
+
+        //
         // ObjCTypeNameFromMonoTypeName
         //
         string ObjCTypeNameFromMonoTypeName(string monoType)
@@ -372,9 +386,8 @@ namespace Dubrovnik
                 // If no explicit type found then return a canonical type name.
                 decl = ObjCTypeFromMonoType(monoType);
 
-                // if not a value type then declare as a pointer.
-                // a managed struct is a value type but its ObjC representation is class based. 
-                if (!monoFacet.IsValueType || monoFacet.IsStruct) {
+                // if ObjC rep is NSObject then declare as a pointer.
+                if (ObjCNonAssociatedTypeIsNSObject(monoFacet)) {
                     decl += " *";
                 }
             }
