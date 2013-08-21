@@ -7,7 +7,7 @@
 //
 
 #import "System.Data.Entity.EntityState.h"
-
+/*
 @implementation System_Data_Entity_EntityState
 
 + (MonoReflectionType *)monoReflectionType {
@@ -51,4 +51,4 @@
 {
     return 0;
 }
-@end
+@end  */

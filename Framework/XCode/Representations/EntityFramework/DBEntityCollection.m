@@ -15,3 +15,11 @@
 
 @implementation  System_Data_Entity_Core_Objects_ObjectStateEntry
 @end
+
+
+@implementation  System_Data_Entity_Core_EntityClient_EntityConnection
+@end
+
+
+
+

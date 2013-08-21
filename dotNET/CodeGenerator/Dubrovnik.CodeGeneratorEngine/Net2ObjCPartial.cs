@@ -527,7 +527,7 @@ namespace Dubrovnik
             {
                 // default to canonical type representation
                 if (objCType == null) {
-                    objCType = ObjCNameFromMonoName(monoType);
+                    objCType = ObjCTypeFromMonoType(monoType);
                 }
 
                 // create DBMonoObjectRepresentation subclass
@@ -816,17 +816,48 @@ namespace Dubrovnik
         }
 
         //
-        // MinimizeNamespace()
+        // MonoNameSpaceAndNameFromMonoType
         //
-        public string MinimizeNamespace(string @namespace)
+        void MonoNameSpaceAndNameFromMonoType(string monoType, out string nspace, out string name) {
+            int idx = monoType.LastIndexOf('.');
+            if (idx != -1)
+            {
+                nspace = monoType.Substring(0, idx);
+                name = ++idx < monoType.Length ? monoType.Substring(idx) : "";
+            }
+            else
+            {
+                nspace = "";
+                name = monoType;
+            }
+        }
+        //
+        // ObjCMinimalNameFromMonoName()
+        //
+        public string ObjCMinimalNameFromMonoName(string monoName)
         {
-            string[] parts = @namespace.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+            string nspace = null;
+            string name = null;
+            MonoNameSpaceAndNameFromMonoType(monoName, out nspace, out name);
+            monoName = ObjCAcronymFromMonoName(nspace) + name;
+            string minimalName = ObjCNameFromMonoName(monoName);
+            return minimalName;
+        }
+
+        //
+        // ObjCAcronymFromMonoName()
+        //
+        public string ObjCAcronymFromMonoName(string monoName)
+        {
+            string[] parts = monoName.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder s = new StringBuilder();
             foreach (string part in parts)
             {
-                s.Append(part.ToUpper().First());
+                s.Append(part.ToUpper().First());   // first letter only
             }
-            return s.ToString();
+            string acronym = ObjCNameFromMonoName(s.ToString());
+
+            return acronym;
         }
 
         //

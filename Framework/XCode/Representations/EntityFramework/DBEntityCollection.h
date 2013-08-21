@@ -14,3 +14,14 @@
 
 @interface System_Data_Entity_Core_Objects_ObjectStateEntry : DBMonoObjectRepresentation
 @end
+
+@interface  System_Data_Entity_Core_EntityClient_EntityConnection : DBMonoObjectRepresentation
+@end
+
+typedef NS_ENUM(int32_t, System_Data_Entity_Core_Objects_SaveOptions) {
+	System_Data_Entity_Core_Objects_SaveOptions_Monday = 1,
+};
+
+typedef NS_ENUM(int32_t, System_Data_Entity_EntityState) {
+	System_Data_Entity_EntityState_Monday = 1,
+};

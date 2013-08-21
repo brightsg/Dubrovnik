@@ -153,7 +153,7 @@ public void WriteInterfaceFilePreliminaries()
 //
 public void WriteClassPredeclaration(CodeFacet facet)
 {
-	string namespacePrefix = MinimizeNamespace(facet.TypeNamespace);
+	string namespacePrefix = ObjCAcronymFromMonoName(facet.TypeNamespace);
 	string classDefine = ObjCNameFromMonoName(namespacePrefix, facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
 
@@ -202,7 +202,7 @@ public void WriteClass(ClassFacet @class)
 #>
 
 //
-// Mono class : <#=@class.Name#>
+// Managed class : <#=@class.Name#>
 //
 @<#=classPrefix#> <#=@class.ObjCFacet.Type#><#=superClass#>
 <#+		
@@ -259,7 +259,7 @@ public void WriteStruct(StructFacet @struct)
 #>
 
 //
-// Mono struct : <#=@struct.Name#>
+// Managed struct : <#=@struct.Name#>
 //
 @<#=classPrefix#> <#=@struct.ObjCFacet.Type#><#=superClass#>
 <#+		
@@ -284,7 +284,7 @@ public void WriteInterface(InterfaceFacet @interface)
 #>
 
 //
-// Mono interface : <#=@interface.Name#>
+// Managed interface : <#=@interface.Name#>
 //
 @<#=classPrefix#> <#=@interface.ObjCFacet.Type#> : DBMonoObjectRepresentation
 <#+		
@@ -313,7 +313,7 @@ public void WriteEnumeration(EnumerationFacet enumeration)
 #>
 
 //
-// Mono enumeration : <#=enumeration.Type#>
+// Managed enumeration : <#=enumeration.Type#>
 //
 typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 <#+
@@ -382,7 +382,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	if (facet.IsReadable) {
 #>
 
-	// Mono type : <#=accessorType#>
+	// Managed type : <#=accessorType#>
     <#=objCMethodType#> (<#=objCTypeDecl#>)<#=getterName#><#=LT#>
 <#+		
 		if (OutputFileType == OutputType.Implementation) 
@@ -481,20 +481,19 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	int idx = 0;
 	foreach (ParameterFacet parameter in facet.Parameters) {
 
-		//
-		// build the ObjC method parameter representation
-		//  eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
-		//
-		string objCParamName = null;
-		string objCParamTypeDecl = null;
-		bool parameterIsObject = true;
-
 		// if the mono parameters is passed by ref then strip
 		// the suffix to enable type association
 		string monoParameterType = parameter.Type;
 		if (parameter.IsByRef) {
 			monoParameterType = monoParameterType.Replace("&", "");
         }
+
+		//
+		// build the ObjC method interleaved parameter representation
+		//  eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
+		//
+		string objCParamTypeDecl = null;
+		bool parameterIsObject = true;
 
 		// get the associated ObjC type
 		ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(monoParameterType);
@@ -510,17 +509,36 @@ public void WriteFacetAsMethod(MethodFacet facet)
 			objCParamTypeDecl += "*";	// add additional indirection
         }
 
-		// use parameter name as signature ?
-		bool usePrameterNameAsSignature = true;
- 		if (usePrameterNameAsSignature) {
-			objCParamName = ObjCNameFromMonoName(parameter.Name);
-        }
-
-		// referencing creates an overload so differentiate the parameter name
+		//
+		// build the mono method argument signature
+		// eg: int,long,string
+		// use a type associate if available.
+		// if not then default to the parameter type
+		//
+		if (idx > 0) monoSigBuilder.Append(",");
+		string monoMethodParameterType = null;
+		if (monoTypeAssociate != null) monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
+		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
+		monoSigBuilder.Append(monoMethodParameterType);
 		if (parameter.IsByRef) {
-			objCParamName += "Ref";
+			monoSigBuilder.Append("&");	// the signature needs to express by ref
         }
 
+		// Build ObjC parameter name.
+		// In order to represent overloaded methods effectively the 
+		// ObjC paramter name is constructed as follows:
+		// Mono parameter name + Mono parameter type + Ref
+		string objCParamName = ObjCNameFromMonoName(parameter.Name);
+
+		// We adopt a minimal as opposed to a full type repesentation here.
+		// Time will tell how it flies.
+		string objCParamOverloadSuffix = ObjCMinimalNameFromMonoName(monoMethodParameterType);
+		if (parameter.IsByRef) {
+			objCParamOverloadSuffix += "Ref";
+        }
+		objCParamName += objCParamOverloadSuffix.FirstCharacterToUpper();
+
+		// append the complete interleaved parameter expression
 		if (idx == 0) {
 			if (AppendFirstArgSignatureToMethodName) {
 				objCMethodName += "With";
@@ -548,20 +566,6 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		}
 		invokeArgsBuilder.AppendFormat(argFormat, idx + 1);
 
-		//
-		// build the mono method argument signature
-		// eg: int, long, string
-		// use a type associate if available.
-		// if not then default to the parameter type
-		if (idx > 0) monoSigBuilder.Append(",");
-		string monoMethodParameterType = null;
-		if (monoTypeAssociate != null) monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
-		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
-		monoSigBuilder.Append(monoMethodParameterType);
-		if (parameter.IsByRef) {
-			monoSigBuilder.Append("&");	// the signature needs to express by ref
-        }
-
 		idx++;
     }
 
@@ -586,8 +590,8 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	//
 #>
 
-	// Mono return type : <#=facet.Type#>
-	// Mono param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
+	// Managed return type : <#=facet.Type#>
+	// Managed param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
     <#=objCMethodType#> (<#=objCTypeDecl#>)<#=objCMethodName#><#=methodArgs#><#=LT#>
 <#+		
 	if (OutputFileType == OutputType.Implementation) 

@@ -29,7 +29,7 @@ namespace Dubrovnik
                 List<string> list = new  List<string>();
                 foreach (string childType in facet.ChildTypes)
                 {
-                    list.Add(ObjCNameFromMonoName(childType));
+                    list.Add(ObjCTypeFromMonoType(childType));
                 }
                 ChildTypes = list.ToArray<string>();
             }
@@ -167,7 +167,7 @@ namespace Dubrovnik
         public static string ObjCNameFromMonoName(string monoName)
         {
             string name = "";
-            if (monoName != null) 
+            if (!String.IsNullOrEmpty(monoName)) 
             {
                 name = monoName;
 
