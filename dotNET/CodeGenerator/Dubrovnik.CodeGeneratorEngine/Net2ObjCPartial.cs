@@ -370,7 +370,7 @@ namespace Dubrovnik
             if (!ObjCTypeAssociations.ContainsKey(monoType))
             {
                 // If no explicit type found then return a canonical type name.
-                decl = ObjCNameFromMonoName(monoType);
+                decl = ObjCTypeFromMonoType(monoType);
 
                 // if not a value type then declare as a pointer.
                 // a managed struct is a value type but its ObjC representation is class based. 
@@ -851,6 +851,14 @@ namespace Dubrovnik
         static AssemblyName[] ReferencedAssemblies()
         {
             return Assembly.GetExecutingAssembly().GetReferencedAssemblies();
+        }
+
+        //
+        // ObjCTypeFromMonoType
+        //
+        public static string ObjCTypeFromMonoType(string monoName)
+        {
+            return CodeFacet.ObjCTypeFromMonoType(monoName);
         }
 
         //

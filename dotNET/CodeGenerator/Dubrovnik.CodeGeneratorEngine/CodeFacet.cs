@@ -18,11 +18,11 @@ namespace Dubrovnik
 
         public CodeFacet(CodeFacet facet)
         {
-            Name = ObjCNameFromMonoName(facet.Name);
-            Type = ObjCNameFromMonoName(facet.Type);
+            Name = ObjCNameFromMonoName(facet.Name);    // retain generic sig
+            Type = ObjCTypeFromMonoType(facet.Type);    // discard generic sig
             BaseName = ObjCNameFromMonoName(facet.BaseName);
-            BaseType = ObjCNameFromMonoName(facet.BaseType);
-            UnderlyingType = ObjCNameFromMonoName(facet.UnderlyingType);
+            BaseType = ObjCTypeFromMonoType(facet.BaseType);
+            UnderlyingType = ObjCTypeFromMonoType(facet.UnderlyingType);
 
             if (facet.ChildTypes != null && facet.ChildTypes.Count() > 0)
             {
@@ -137,11 +137,31 @@ namespace Dubrovnik
         }
 
         //
+        // ObjCTypeFromMonoType
+        //
+        public static string ObjCTypeFromMonoType(string monoType)
+        {
+            if (monoType != null)
+            {
+                // ObjCtype type name will not include generic information
+                int idx  = monoType.IndexOf('<');
+                if (idx != -1)
+                {
+                    monoType = monoType.Substring(0, idx);
+                }
+            }
+
+            string objCType = ObjCNameFromMonoName(monoType);
+
+            return objCType;
+        }
+
+        //
         // ObjCNameFromMonoName
         //
-        // Converts a Mono value or type name string to its corresponding ObjC represntation.
-        // This method does no type conversion.
-        // It merely attempts to produce a valid ObjC variable or type name string from the 
+        // Converts a Mono name string to its corresponding ObjC represntation.
+        // This method does no analysis.
+        // It merely attempts to produce a valid ObjC variable name string from the 
         // input Mono name.
         //
         public static string ObjCNameFromMonoName(string monoName)
@@ -153,14 +173,14 @@ namespace Dubrovnik
 
                 // The following is done piecemeal  largely for informative purposes.
                 // For C# qualifier details see http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx
+                name = name.Replace(" ", ""); // paranoia at work ?
                 name = name.Replace(".", "_"); // namespacing
                 name = name.Replace("+", "__"); // nested classes
                 name = name.Replace("\\", ""); // escape character
-                name = name.Replace("<", "_"); // start of generic type parameter identifier
-                name = name.Replace(",", "_"); // generic type parameter separator
+                name = name.Replace("<", "___"); // start of generic type parameter identifier
+                name = name.Replace(",", "__"); // generic type parameter separator
                 name = name.Replace(">", ""); // end of generic type parameter identifier
                 name = name.Replace("`", "_P"); // generic arity indicates parameter count
-                name = name.Replace(" ", ""); // ill advised paranoia at work
                 name = name.Replace("&", ""); // indicates that a parameter type is being passed by reference - detect with IsByRef
                 name = name.Replace("[]", ""); // an array of types - detect with IsArray
                 name = name.Replace("*", ""); // type is a pointer such as System.Void*, System.Char* - detect with IsPointer

@@ -8,6 +8,10 @@
 
 #import "DBEntityCollection.h"
 
-@implementation DBEntityCollection
+@implementation System_Data_Entity_Core_Objects_DataClasses_EntityCollection
 
+@end
+
+
+@implementation  System_Data_Entity_Core_Objects_ObjectStateEntry
 @end

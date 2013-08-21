@@ -8,12 +8,12 @@
 
 #import <Dubrovnik/Dubrovnik.h>
 
-@interface DBEntityObjectSet : DBMonoObjectRepresentation
+@interface System_Data_Entity_Core_Objects_ObjectSet : DBMonoObjectRepresentation
 {
     Class _representationClass;
 }
 
-+ (DBEntityObjectSet *)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
++ (System_Data_Entity_Core_Objects_ObjectSet *)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
 - (DBIList *)list;
 - (void)addObject:(DBMonoObjectRepresentation *)object;
 

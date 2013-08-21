@@ -8,11 +8,11 @@
 
 #import "DBEntityObjectSet.h"
 
-@interface DBEntityObjectSet()
+@interface System_Data_Entity_Core_Objects_ObjectSet()
 @property (retain, readwrite) Class representationClass;
 @end
 
-@implementation DBEntityObjectSet
+@implementation System_Data_Entity_Core_Objects_ObjectSet
 
 @synthesize representationClass = _representationClass;
 
@@ -20,8 +20,8 @@
     return [self objectSetWithMonoObject:obj withRepresentationClass:nil];
 }
 
-+ (DBEntityObjectSet *)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass {
-	DBEntityObjectSet *objectSet = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
++ (System_Data_Entity_Core_Objects_ObjectSet *)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass {
+	System_Data_Entity_Core_Objects_ObjectSet *objectSet = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
 	return([objectSet autorelease]);
 }
 
