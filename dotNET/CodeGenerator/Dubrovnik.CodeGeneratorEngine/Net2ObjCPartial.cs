@@ -893,7 +893,7 @@ namespace Dubrovnik
         {
             // in production quality code we should not have any warnings!
             if (facet.IsArray) WriteLine("#warning Array type implementation is pending");
-            if (facet.IsByRef) WriteLine("#warning Ref and out parameter implementation is pending");
+            if (facet.IsByRef && (facet.Type == "System.String&")) WriteLine("#warning object ref and out parameter implementation is pending");
             if (facet.IsPointer) WriteLine("#warning Pointer type implementation is pending");
         }
 

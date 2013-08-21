@@ -85,8 +85,8 @@
 - (NSString *)stringMethodByRef:(NSString **)p1;
 
 // int methods
-- (int32_t)doubleIt:(int32_t)p1;
-- (int32_t)doubleItByRef:(int32_t *)p1;
+- (int32_t)doubleItWithX:(int32_t)p1;
+- (int32_t)doubleItWithXRef:(int32_t *)p1;
 
 // date methods
 - (NSDate *)dateMethodWithD1:(NSDate *)p1;

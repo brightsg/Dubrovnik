@@ -1635,11 +1635,11 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	foreach (ParameterFacet parameter in facet.Parameters) {
 
 		//
-		// build the ObjC method argument representation
+		// build the ObjC method parameter representation
 		//  eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
 		//
-		string methodArgSig = null;
-		string methodArgType = null;
+		string objCParamName = null;
+		string objCParamTypeDecl = null;
 		bool parameterIsObject = true;
 
 		// if the mono parameters is passed by ref then strip
@@ -1654,33 +1654,35 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		MonoTypeAssociation monoTypeAssociate = null;
 		if (objCTypeAssociate != null) {
 			monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
-			methodArgType =  objCTypeAssociate.ObjCTypeDecl;
+			objCParamTypeDecl =  objCTypeAssociate.ObjCTypeDecl;
 			parameterIsObject = objCTypeAssociate.IsNSObject;
 		} else {
-			methodArgType = ObjCTypeDeclFromMonoFacet(parameter);
+			objCParamTypeDecl = ObjCTypeDeclFromMonoFacet(parameter);
         }
-		
+		if (parameter.IsByRef) {
+			objCParamTypeDecl += "*";	// add additional indirection
+        }
+
 		// use parameter name as signature ?
 		bool usePrameterNameAsSignature = true;
  		if (usePrameterNameAsSignature) {
-			methodArgSig = ObjCNameFromMonoName(parameter.Name);
+			objCParamName = ObjCNameFromMonoName(parameter.Name);
         }
 
 		// referencing creates an overload so differentiate the parameter name
-		string argSuffix = "";
 		if (parameter.IsByRef) {
-			argSuffix += "Ref";
+			objCParamName += "Ref";
         }
 
 		if (idx == 0) {
 			if (AppendFirstArgSignatureToMethodName) {
 				objCMethodName += "With";
-				methodArgsBuilder.AppendFormat("{0}{1}", methodArgSig.FirstCharacterToUpper(), argSuffix);
+				methodArgsBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
             } 
         } else {
-			methodArgsBuilder.AppendFormat(" {0}{1}", methodArgSig.FirstCharacterToLower(), argSuffix);
+			methodArgsBuilder.AppendFormat(" {0}", objCParamName.FirstCharacterToLower());
         }
-		methodArgsBuilder.AppendFormat(":({0})p{1}", methodArgType, idx + 1);
+		methodArgsBuilder.AppendFormat(":({0})p{1}", objCParamTypeDecl, idx + 1);
 
 		//
 		// build the mono invocation argument representation
@@ -1691,18 +1693,24 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		if (parameterIsObject) {
 			argFormat = "[p{0} monoValue]";
         } else {
-			argFormat = "DB_VALUE(p{0})";
+			if (!parameter.IsByRef) {
+				argFormat = "DB_VALUE(p{0})";	// DB_VALUE equates to &
+            } else {
+				argFormat = "p{0}";	// just pass the pointer
+            }
 		}
 		invokeArgsBuilder.AppendFormat(argFormat, idx + 1);
 
 		//
 		// build the mono method argument signature
 		// eg: int, long, string
-		//
+		// use a type associate if available.
+		// if not then default to the parameter type
 		if (idx > 0) monoSigBuilder.Append(",");
-
-		if (monoTypeAssociate != null) monoParameterType = monoTypeAssociate.MonoTypeInvoke;
-		monoSigBuilder.Append(monoParameterType);
+		string monoMethodParameterType = null;
+		if (monoTypeAssociate != null) monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
+		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
+		monoSigBuilder.Append(monoMethodParameterType);
 		if (parameter.IsByRef) {
 			monoSigBuilder.Append("&");	// the signature needs to express by ref
         }
@@ -1734,98 +1742,98 @@ public void WriteFacetAsMethod(MethodFacet facet)
         #line default
         #line hidden
         
-        #line 579 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 587 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Mono return type : ");
 
         
         #line default
         #line hidden
         
-        #line 581 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 589 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.Type));
 
         
         #line default
         #line hidden
         
-        #line 581 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 589 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Mono param types : ");
 
         
         #line default
         #line hidden
         
-        #line 582 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 590 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet.Parameters)));
 
         
         #line default
         #line hidden
         
-        #line 582 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 590 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n    ");
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" (");
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodName));
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(methodArgs));
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 584 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 592 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 		
 	if (OutputFileType == OutputType.Implementation) 
 	{
@@ -1837,14 +1845,14 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 590 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 598 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 592 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 600 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		if (objCTypeDecl == "void") {
 
@@ -1852,28 +1860,28 @@ this.Write("    {\r\n");
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 602 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 595 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 603 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 595 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 603 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 596 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 604 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		} else if (isConstructorMethod) {
 
@@ -1881,28 +1889,28 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 598 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 599 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 607 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 599 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 607 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 600 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 608 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		} else {
 			if (String.IsNullOrEmpty(monoValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
@@ -1911,56 +1919,56 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 603 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 611 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\tMonoObject *");
 
         
         #line default
         #line hidden
         
-        #line 604 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
 
         
         #line default
         #line hidden
         
-        #line 604 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 604 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 604 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 605 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 613 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(monoValueToObjC));
 
         
         #line default
         #line hidden
         
-        #line 605 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 613 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 614 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 		}// if objCTypeDecl
 
@@ -1968,14 +1976,14 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 608 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 616 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 610 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 618 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	} // if Implementation
 }

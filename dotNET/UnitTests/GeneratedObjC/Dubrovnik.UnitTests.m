@@ -7,10 +7,10 @@
 //
 // This code was generated from a template.
 //
-// Date:     8/20/2013 10:20:09 PM
+// Date:     8/21/2013 11:07:04 AM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4980.26472, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4980.38600, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -410,7 +410,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Mono param types : System.DateTime
     - (NSDate *)dateMethodWithD1:(NSDate *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod()" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
@@ -422,12 +422,12 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return DB_UNBOX_INT32(monoObject);
     }
 
+
 	// Mono return type : System.Int32
 	// Mono param types : ref System.Int32&
-    - (int32_t)doubleItWithXRef:(int32_t)p1
-#warning Ref and out parameter implementation is pending
+    - (int32_t)doubleItWithXRef:(int32_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -435,7 +435,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Mono param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
     - (NSString *)mixedMethod1WithIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -473,8 +473,8 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 
 	// Mono return type : System.String
 	// Mono param types : ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString *)p1
-#warning Ref and out parameter implementation is pending
+    - (NSString *)stringMethodWithS1Ref:(NSString **)p1
+#warning object ref and out parameter implementation is pending
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -482,8 +482,8 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 
 	// Mono return type : System.String
 	// Mono param types : ref System.String&, System.String
-    - (NSString *)stringMethodWithS1Ref:(NSString *)p1 s2:(NSString *)p2
-#warning Ref and out parameter implementation is pending
+    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2:(NSString *)p2
+#warning object ref and out parameter implementation is pending
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -491,8 +491,8 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 
 	// Mono return type : System.String
 	// Mono param types : System.String, ref System.String&
-    - (NSString *)stringMethodWithS1:(NSString *)p1 s2Ref:(NSString *)p2
-#warning Ref and out parameter implementation is pending
+    - (NSString *)stringMethodWithS1:(NSString *)p1 s2Ref:(NSString **)p2
+#warning object ref and out parameter implementation is pending
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -500,9 +500,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 
 	// Mono return type : System.String
 	// Mono param types : ref System.String&, ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString *)p1 s2Ref:(NSString *)p2
-#warning Ref and out parameter implementation is pending
-#warning Ref and out parameter implementation is pending
+    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2Ref:(NSString **)p2
+#warning object ref and out parameter implementation is pending
+#warning object ref and out parameter implementation is pending
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&,string&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];

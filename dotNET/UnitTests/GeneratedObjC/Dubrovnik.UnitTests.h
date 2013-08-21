@@ -7,10 +7,10 @@
 //
 // This code was generated from a template.
 //
-// Date:     8/20/2013 10:20:09 PM
+// Date:     8/21/2013 11:07:04 AM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4980.26472, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4980.38600, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -267,7 +267,7 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 
 	// Mono return type : System.Int32
 	// Mono param types : ref System.Int32&
-    - (int32_t)doubleItWithXRef:(int32_t)p1;
+    - (int32_t)doubleItWithXRef:(int32_t*)p1;
 
 	// Mono return type : System.String
 	// Mono param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
@@ -291,19 +291,19 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 
 	// Mono return type : System.String
 	// Mono param types : ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString *)p1;
+    - (NSString *)stringMethodWithS1Ref:(NSString **)p1;
 
 	// Mono return type : System.String
 	// Mono param types : ref System.String&, System.String
-    - (NSString *)stringMethodWithS1Ref:(NSString *)p1 s2:(NSString *)p2;
+    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2:(NSString *)p2;
 
 	// Mono return type : System.String
 	// Mono param types : System.String, ref System.String&
-    - (NSString *)stringMethodWithS1:(NSString *)p1 s2Ref:(NSString *)p2;
+    - (NSString *)stringMethodWithS1:(NSString *)p1 s2Ref:(NSString **)p2;
 
 	// Mono return type : System.String
 	// Mono param types : ref System.String&, ref System.String&
-    - (NSString *)stringMethodWithS1Ref:(NSString *)p1 s2Ref:(NSString *)p2;
+    - (NSString *)stringMethodWithS1Ref:(NSString **)p1 s2Ref:(NSString **)p2;
 @end
 
 //

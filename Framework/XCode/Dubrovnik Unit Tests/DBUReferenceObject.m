@@ -230,13 +230,13 @@
 #pragma mark -
 #pragma mark Mono int methods
 
-- (int32_t)doubleIt:(int32_t)p1
+- (int32_t)doubleItWithX:(int32_t)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
     return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)doubleItByRef:(int32_t *)p1
+- (int32_t)doubleItWithXRef:(int32_t *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
     return DB_UNBOX_INT32(monoObject);

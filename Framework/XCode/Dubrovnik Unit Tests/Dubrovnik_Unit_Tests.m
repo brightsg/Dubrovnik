@@ -9,9 +9,12 @@
 #import "Dubrovnik_Unit_Tests.h"
 #import "DBUReferenceObject.h"
 
-//#define DB_RUN_AUTO_GENERATED_CODE_TEST
+// toggle 0-1
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
+#define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
+#define DB_REFTYPE_BY_REFERENCE_SUPPORT 0
 
-#ifdef DB_RUN_AUTO_GENERATED_CODE_TEST
+#if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
 #import "Dubrovnik.UnitTests.h"
 #endif
 
@@ -124,7 +127,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
     // When adding support for new features it is best to
     // ensure that the manually coded reference class passes its tests first.
-    // DB_RUN_AUTO_GENERATED_CODE_TEST can be undefined if required.
+    // DB_RUN_AUTO_GENERATED_CODE_TEST can be #defined as 0
     //
     // Once the manually code class performs as required it can be used
     // as a guide for implementing the auto generated code
@@ -134,7 +137,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"==============================================");
     [self doTestReferenceClass:[DBUReferenceObject class]];
     
-#ifdef DB_RUN_AUTO_GENERATED_CODE_TEST    
+#if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
     
     NSLog(@"==============================================");
     NSLog(@"Testing auto generated reference object");
@@ -247,10 +250,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *stringMethod2 = [refObject stringMethodWithS1:@"1" s2:@"2"];
     STAssertNotNil(stringMethod2, DBUObjectIsNil);
 
+#if DB_REFTYPE_BY_REFERENCE_SUPPORT == 1
     NSString *refString1 = @"Repeat me.";
     NSString *refString2 = refString1;
     [refObject stringMethodByRef:&refString2];
-    
+#endif
+
     //
     // date methods
     //
@@ -276,11 +281,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // int methods
     //
     int32_t intToDouble = 1;
-    int32_t intDoubled = [refObject doubleIt:intToDouble];
+    int32_t intDoubled = [refObject doubleItWithX:intToDouble];
     STAssertTrue(intDoubled == 2 * intToDouble, DBUEqualityTestFailed);
     
-    [refObject doubleItByRef:&intToDouble];
+#if DB_VALUETYPE_BY_REFERENCE_SUPPORT == 1
+    // value type by ref
+    [refObject doubleItWithXRef:&intToDouble];
     STAssertTrue(intDoubled == intToDouble, DBUEqualityTestFailed);
+#endif
     
     //===================================
     // properties

@@ -482,11 +482,11 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	foreach (ParameterFacet parameter in facet.Parameters) {
 
 		//
-		// build the ObjC method argument representation
+		// build the ObjC method parameter representation
 		//  eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
 		//
-		string methodArgSig = null;
-		string methodArgType = null;
+		string objCParamName = null;
+		string objCParamTypeDecl = null;
 		bool parameterIsObject = true;
 
 		// if the mono parameters is passed by ref then strip
@@ -501,33 +501,35 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		MonoTypeAssociation monoTypeAssociate = null;
 		if (objCTypeAssociate != null) {
 			monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
-			methodArgType =  objCTypeAssociate.ObjCTypeDecl;
+			objCParamTypeDecl =  objCTypeAssociate.ObjCTypeDecl;
 			parameterIsObject = objCTypeAssociate.IsNSObject;
 		} else {
-			methodArgType = ObjCTypeDeclFromMonoFacet(parameter);
+			objCParamTypeDecl = ObjCTypeDeclFromMonoFacet(parameter);
         }
-		
+		if (parameter.IsByRef) {
+			objCParamTypeDecl += "*";	// add additional indirection
+        }
+
 		// use parameter name as signature ?
 		bool usePrameterNameAsSignature = true;
  		if (usePrameterNameAsSignature) {
-			methodArgSig = ObjCNameFromMonoName(parameter.Name);
+			objCParamName = ObjCNameFromMonoName(parameter.Name);
         }
 
 		// referencing creates an overload so differentiate the parameter name
-		string argSuffix = "";
 		if (parameter.IsByRef) {
-			argSuffix += "Ref";
+			objCParamName += "Ref";
         }
 
 		if (idx == 0) {
 			if (AppendFirstArgSignatureToMethodName) {
 				objCMethodName += "With";
-				methodArgsBuilder.AppendFormat("{0}{1}", methodArgSig.FirstCharacterToUpper(), argSuffix);
+				methodArgsBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
             } 
         } else {
-			methodArgsBuilder.AppendFormat(" {0}{1}", methodArgSig.FirstCharacterToLower(), argSuffix);
+			methodArgsBuilder.AppendFormat(" {0}", objCParamName.FirstCharacterToLower());
         }
-		methodArgsBuilder.AppendFormat(":({0})p{1}", methodArgType, idx + 1);
+		methodArgsBuilder.AppendFormat(":({0})p{1}", objCParamTypeDecl, idx + 1);
 
 		//
 		// build the mono invocation argument representation
@@ -538,18 +540,24 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		if (parameterIsObject) {
 			argFormat = "[p{0} monoValue]";
         } else {
-			argFormat = "DB_VALUE(p{0})";
+			if (!parameter.IsByRef) {
+				argFormat = "DB_VALUE(p{0})";	// DB_VALUE equates to &
+            } else {
+				argFormat = "p{0}";	// just pass the pointer
+            }
 		}
 		invokeArgsBuilder.AppendFormat(argFormat, idx + 1);
 
 		//
 		// build the mono method argument signature
 		// eg: int, long, string
-		//
+		// use a type associate if available.
+		// if not then default to the parameter type
 		if (idx > 0) monoSigBuilder.Append(",");
-
-		if (monoTypeAssociate != null) monoParameterType = monoTypeAssociate.MonoTypeInvoke;
-		monoSigBuilder.Append(monoParameterType);
+		string monoMethodParameterType = null;
+		if (monoTypeAssociate != null) monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
+		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
+		monoSigBuilder.Append(monoMethodParameterType);
 		if (parameter.IsByRef) {
 			monoSigBuilder.Append("&");	// the signature needs to express by ref
         }
