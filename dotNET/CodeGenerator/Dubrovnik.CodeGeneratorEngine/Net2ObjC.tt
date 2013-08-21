@@ -93,7 +93,7 @@ public void WriteInterfaceFilePreliminaries()
 // Extra include
 //
 #ifdef <#=defineName#>
-#import "<#=objCAssemblyHeaderName#>.Extra.h"	// Not generated. Add manually to project.
+#import "<#=objCAssemblyHeaderName#>.__Extra__.h"	// Not auto generated. Add manually to project.
 #endif
 
 <#+
@@ -109,7 +109,7 @@ public void WriteInterfaceFilePreliminaries()
 	foreach (CodeFacet reference in AssemblyFacet.References)
 	{
 		string includeFile = reference.Name;
-		defineName = (includeFile + "_Included").ToUpper();
+		defineName = (ObjCNameFromMonoName(includeFile) + "_Included").ToUpper();
 #>
 #ifndef <#=defineName#>
 //#import "<#=includeFile#>.h"

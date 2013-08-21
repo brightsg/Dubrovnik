@@ -352,7 +352,7 @@ this.Write(this.ToStringHelper.ToStringWithCulture(objCAssemblyHeaderName));
         #line hidden
         
         #line 96 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(".Extra.h\"\t// Not generated. Add manually to project.\r\n#endif\r\n\r\n");
+this.Write(".__Extra__.h\"\t// Not auto generated. Add manually to project.\r\n#endif\r\n\r\n");
 
         
         #line default
@@ -380,7 +380,7 @@ this.Write("\r\n//\r\n// Referenced assemblies\r\n//\r\n");
 	foreach (CodeFacet reference in AssemblyFacet.References)
 	{
 		string includeFile = reference.Name;
-		defineName = (includeFile + "_Included").ToUpper();
+		defineName = (ObjCNameFromMonoName(includeFile) + "_Included").ToUpper();
 
         
         #line default
