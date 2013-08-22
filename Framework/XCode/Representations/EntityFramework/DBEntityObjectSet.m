@@ -57,7 +57,8 @@
     
     // invoke the extension method passing mono object as first argument
     // NOTE: we could invoke this as a class method but it is clean to invoke against self.
-    MonoObject *monoObject = [self invokeMethodRepresentation:methodRep withNumArgs:1, [self monoObject]];
+    MonoObject * mo = [self monoObject];
+    MonoObject *monoObject = [self invokeMethodRepresentation:methodRep withNumArgs:1, mo];
     
     // wrap the list
     DBIList *list = [DBIList listWithMonoObject:monoObject withRepresentationClass:self.representationClass];

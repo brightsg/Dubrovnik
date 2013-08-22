@@ -201,6 +201,10 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     NSValue *value = [_loadedAssemblies objectForKey:name];
     if (value) {
         monoAssembly  = value.pointerValue;
+    } else {
+        MonoAssemblyName *monoAssemblyName = mono_assembly_name_new(name.UTF8String);
+        monoAssembly = mono_assembly_loaded(monoAssemblyName);
+        mono_assembly_name_free(monoAssemblyName);
     }
     return monoAssembly;
 }
@@ -273,9 +277,9 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 {
     if (!_DubrovnikAssembly) {
         // load the assemble from the framework bundle
-        NSString *assemblyName = @"Dubrovnik.dll";
-        NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
-        NSString *assemblyFile = [resourcePath stringByAppendingPathComponent:assemblyName];
+        NSString *assemblyName = @"Dubrovnik.FrameworkHelper";
+        NSString *assemblyFile = [[NSBundle bundleForClass:[self class]] pathForResource:assemblyName ofType:@"dll" inDirectory:@"ManagedBinaries/Debug"];
+        NSAssert(assemblyFile, @"Cannot find assembly : %@", assemblyFile);
         
         self.DubrovnikAssembly = [self openAssemblyWithPath:assemblyFile];
         NSAssert(_DubrovnikAssembly, @"Cannot open assembly : %@", assemblyFile);

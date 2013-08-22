@@ -52,6 +52,7 @@
 		9DCD14310A7AE69900849E5C /* DBEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCD142F0A7AE69900849E5C /* DBEnum.m */; };
 		9DF2367B0874E3CC008A199C /* DBDataCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF236790874E3CC008A199C /* DBDataCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DF2367C0874E3CC008A199C /* DBDataCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2367A0874E3CC008A199C /* DBDataCategory.m */; };
+		AB00206417C654AC00178AFC /* Debug in Copy Managed Binaries */ = {isa = PBXBuildFile; fileRef = AB00206217C6549E00178AFC /* Debug */; };
 		AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */ = {isa = PBXBuildFile; fileRef = AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */; };
 		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
@@ -120,6 +121,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AB00205E17C652DB00178AFC /* Copy Managed Binaries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ManagedBinaries;
+			dstSubfolderSpec = 7;
+			files = (
+				AB00206417C654AC00178AFC /* Debug in Copy Managed Binaries */,
+			);
+			name = "Copy Managed Binaries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB2CD2F8178D6EDA0075CF6A /* Copy frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +195,7 @@
 		9DCD142F0A7AE69900849E5C /* DBEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBEnum.m; sourceTree = "<group>"; };
 		9DF236790874E3CC008A199C /* DBDataCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDataCategory.h; sourceTree = "<group>"; };
 		9DF2367A0874E3CC008A199C /* DBDataCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDataCategory.m; sourceTree = "<group>"; };
+		AB00206217C6549E00178AFC /* Debug */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Debug; path = ../../dotNET/FrameworkHelper/Dubrovnik.FrameworkHelper/bin/Debug; sourceTree = "<group>"; };
 		AB28C511178331010051A8D9 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB2CD2FA178D74F20075CF6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
@@ -298,6 +311,7 @@
 		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
 			isa = PBXGroup;
 			children = (
+				AB00206117C653E900178AFC /* ManagedBinaries */,
 				AB97FC0717C2B7D700CBE585 /* mscorlib.h */,
 				AB97FC0817C2B7D800CBE585 /* mscorlib.m */,
 				08FB77AEFE84172EC02AAC07 /* Source */,
@@ -513,6 +527,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		AB00206117C653E900178AFC /* ManagedBinaries */ = {
+			isa = PBXGroup;
+			children = (
+				AB00206217C6549E00178AFC /* Debug */,
+			);
+			name = ManagedBinaries;
+			sourceTree = "<group>";
+		};
 		AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +686,7 @@
 			buildPhases = (
 				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF520486A6940098B216 /* Resources */,
+				AB00205E17C652DB00178AFC /* Copy Managed Binaries */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
 				9DA4F5BD08CE79CA008EE9FB /* ShellScript */,

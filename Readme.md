@@ -34,14 +34,31 @@ Dubrovnik provides:
 
 - Unit tests for both manually and automatically generated bindings.
 
-Project Layout
+Project Map
 ================
 
-* Dubrovnik.xcworkspace : the workspace provides access to the framework, unit tests and example code.
+* Dubrovnik.xcworkspace : the workspace provides access to the Objective-C framework and unit tests.
 
-* [Framework](Framework) : Obj-C framework code, samples and docs.
+* [Framework](Framework) : Objective-C sources 
 
-* [dotNET](dotNET) : .NET reflector and code generator
+    * [docs](docs) : docs from the original Dumbarton project
+
+    * [examples](examples) : example code samples
+
+    * [XCode](Xcode) : contains the Dubrovnik.xcodeproj file
+
+* [dotNET](dotNET) : Managed code sources
+
+    * [CodeGenerator](CodeGenerator) : a runtime t4 template powered Obj-C code generator.
+
+    * [FrameworkHelper](FrameworkHelper) : the Dubrovnik framework helper
+
+    * [Reflector](Reflector) : generates the reflection XML that is parsed by the code generateor 
+
+    * [UnitTests](UnitTests) : unit test target assembly
+
+
+
 
 Prerequisites
 =============

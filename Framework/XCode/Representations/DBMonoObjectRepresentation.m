@@ -227,13 +227,15 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 		DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
 
         // The first argument must be the represented mono object in the case of an extension method.
-        // It would be possible to insert this if not supplied but ten there would be an apparent mismatch between the
+        // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
         // method signature and the argument count at the call site.
         NSAssert(monoArgs[0] == [self monoObject], @"Invalid first argument to extension method implementation.");
         
         // get the mono class
         DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
         MonoAssembly *monoAssembly = [monoEnv loadedAssemblyWithName:methodRepresentation.assemblyName];
+        NSAssert(monoAssembly, @"invalid");
+        
         DBMonoClassRepresentation *classRepresentation = [DBMonoClassRepresentation representationWithMonoClassNamed:methodRepresentation.monoClassName fromMonoAssembly:monoAssembly];
 
         // get the class method
@@ -262,7 +264,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
             void *hargs [2];
 
             // get generic helper class
-            MonoClass *helpMonoClass = [DBMonoEnvironment DubrovnikMonoClassWithName:"Dubrovnik.GenericHelper"];
+            MonoClass *helpMonoClass = [DBMonoEnvironment DubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
             NSAssert(helpMonoClass, @"invalid");
             
             // if the argument type is a generic then extract the type info.
