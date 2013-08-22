@@ -41,21 +41,21 @@ Project Map
 
 * [Framework](Framework) : Objective-C sources 
 
-    * [docs](docs) : docs from the original Dumbarton project
+    * [docs](framework/docs) : docs from the original Dumbarton project
 
-    * [examples](examples) : example code samples
+    * [examples](framework/examples) : example code samples
 
-    * [XCode](Xcode) : contains the Dubrovnik.xcodeproj file
+    * [XCode](framework/Xcode) : contains the Dubrovnik.xcodeproj file
 
 * [dotNET](dotNET) : Managed code sources
 
-    * [CodeGenerator](CodeGenerator) : a runtime t4 template powered Obj-C code generator.
+    * [CodeGenerator](dotNET/CodeGenerator) : a runtime t4 template powered Obj-C code generator.
 
-    * [FrameworkHelper](FrameworkHelper) : the Dubrovnik framework helper
+    * [FrameworkHelper](dotNET/FrameworkHelper) : the Dubrovnik framework helper
 
-    * [Reflector](Reflector) : generates the reflection XML that is parsed by the code generateor 
+    * [Reflector](dotNET/Reflector) : generates the reflection XML that is parsed by the code generateor 
 
-    * [UnitTests](UnitTests) : unit test target assembly
+    * [UnitTests](dotNET/UnitTests) : unit test target assembly
 
 
 
