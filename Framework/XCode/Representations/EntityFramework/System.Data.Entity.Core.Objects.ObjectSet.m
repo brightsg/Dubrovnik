@@ -1,12 +1,12 @@
 //
-//  DBEntityObjectSet.m
+//  System_Data_Entity_Core_Objects_ObjectSet.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
 //
 //
 
-#import "DBEntityObjectSet.h"
+#import "System.Data.Entity.Core.Objects.ObjectSet.h"
 
 @interface System_Data_Entity_Core_Objects_ObjectSet()
 @property (retain, readwrite) Class representationClass;
@@ -45,6 +45,11 @@
 	return(self);
 }
 
+- (Class)representationClass
+{
+#warning fails if more than one generic type parameter
+    return NSClassFromString(self.genericParameterTypeNames);
+}
 - (DBIList *)list
 {
     // ToList is an extension method defined as a static method on System.Linq.Enumerable

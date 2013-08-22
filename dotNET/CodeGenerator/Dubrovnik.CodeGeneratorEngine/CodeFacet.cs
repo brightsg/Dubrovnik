@@ -24,15 +24,18 @@ namespace Dubrovnik
             BaseType = ObjCTypeFromMonoType(facet.BaseType);
             UnderlyingType = ObjCTypeFromMonoType(facet.UnderlyingType);
 
-            if (facet.ChildTypes != null && facet.ChildTypes.Count() > 0)
+            /*
+             * // suspect !
+            if (facet.GenericParameterTypes != null && facet.GenericParameterTypes.Count() > 0)
             {
                 List<string> list = new  List<string>();
-                foreach (string childType in facet.ChildTypes)
+                foreach (string childType in facet.GenericParameterTypes)
                 {
                     list.Add(ObjCTypeFromMonoType(childType));
                 }
-                ChildTypes = list.ToArray<string>();
+                GenericParameterTypes = list.ToArray<string>();
             }
+             * */
         }
 
         public CodeFacet(XElement xelement)
@@ -47,6 +50,7 @@ namespace Dubrovnik
             IsValueType = XElementAttributeBool(xelement, "IsValueType");
             IsByRef = XElementAttributeBool(xelement, "IsByRef");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
+            IsConstructedGenericType = XElementAttributeBool(xelement, "IsConstructedGenericType");
             IsPointer = XElementAttributeBool(xelement, "IsPointer");
             IsArray = XElementAttributeBool(xelement, "IsArray"); 
             HandlerType = XElementAttributeValue(xelement, "HandlerType");
@@ -71,6 +75,7 @@ namespace Dubrovnik
         public bool IsEnum { get; private set; }
         public bool IsValueType { get; private set; }
         public bool IsPrimitive { get; private set; }
+        public bool IsConstructedGenericType { get; private set; }
         public bool IsPointer { get; private set; }
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }
@@ -80,7 +85,7 @@ namespace Dubrovnik
         public bool IsGeneric { get; private set; }
         public bool IsStatic { get; private set; }
         public CodeFacet ObjCFacet { get; private set; }
-        public string[] ChildTypes { get; private set; }
+        public string[] GenericParameterTypes { get; private set; }
         public string TypeNamespace { get; private set; }
         public string ConstantValue { get; private set; }
 
@@ -101,19 +106,22 @@ namespace Dubrovnik
                 _type = value;
 
                 if (_type != null) {
+
+                    string typeValue = _type.Replace(" ", "");
+
                     // extract generic information from the type
                     string[] tags = new string[] {"<", ",", ">"};
-                    string[] parts = _type.Split(tags, StringSplitOptions.RemoveEmptyEntries);
+                    string[] parts = typeValue.Split(tags, StringSplitOptions.RemoveEmptyEntries);
                     if (parts != null &&parts.Count() > 0)
                     {
-                        ChildTypes = parts.Skip(1).ToArray();
+                        GenericParameterTypes = parts.Skip(1).ToArray();
                     }
 
                     // get the namespace
-                    int pos = _type.LastIndexOf('.');
+                    int pos = typeValue.LastIndexOf('.');
                     if (pos > 0)
                     {
-                        TypeNamespace = _type.Substring(0, pos);
+                        TypeNamespace = typeValue.Substring(0, pos);
                     }
                 }
             }

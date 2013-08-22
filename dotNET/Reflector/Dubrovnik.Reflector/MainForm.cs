@@ -72,7 +72,8 @@ namespace Dubrovnik.Reflector {
             if (type.IsValueType) xtw.WriteAttributeString("IsValueType", Boolean.TrueString);
             if (type.IsPointer) xtw.WriteAttributeString("IsPointer", Boolean.TrueString);
             if (type.IsArray) xtw.WriteAttributeString("IsArray", Boolean.TrueString);
-            if (type.IsPrimitive) xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString); 
+            if (type.IsPrimitive) xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString);
+            if (type.IsConstructedGenericType) xtw.WriteAttributeString("IsConstructedGenericType", Boolean.TrueString); 
             if (type.IsEnum)
             {
                 Type undertype = Enum.GetUnderlyingType(type);

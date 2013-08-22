@@ -62,8 +62,8 @@
 		AB49E431178A06AC00D01244 /* DBDecimalNumberCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E42F178A06AC00D01244 /* DBDecimalNumberCategory.m */; };
 		AB49E434178ABAAE00D01244 /* DBNumberCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E432178ABAAD00D01244 /* DBNumberCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E435178ABAAE00D01244 /* DBNumberCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E433178ABAAE00D01244 /* DBNumberCategory.m */; };
-		AB49E43C178B2D7B00D01244 /* DBEntityObjectSet.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E43A178B2D7A00D01244 /* DBEntityObjectSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB49E43D178B2D7B00D01244 /* DBEntityObjectSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E43B178B2D7A00D01244 /* DBEntityObjectSet.m */; };
+		AB49E43C178B2D7B00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E43A178B2D7A00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB49E43D178B2D7B00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E43B178B2D7A00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.m */; };
 		AB49E441178B2ED600D01244 /* DBEntityObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E43F178B2ED600D01244 /* DBEntityObjectContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E442178B2ED600D01244 /* DBEntityObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E440178B2ED600D01244 /* DBEntityObjectContext.m */; };
 		AB49E445178B2EF400D01244 /* DBEntityObject.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E443178B2EF400D01244 /* DBEntityObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -203,8 +203,8 @@
 		AB49E42F178A06AC00D01244 /* DBDecimalNumberCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDecimalNumberCategory.m; sourceTree = "<group>"; };
 		AB49E432178ABAAD00D01244 /* DBNumberCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNumberCategory.h; sourceTree = "<group>"; };
 		AB49E433178ABAAE00D01244 /* DBNumberCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNumberCategory.m; sourceTree = "<group>"; };
-		AB49E43A178B2D7A00D01244 /* DBEntityObjectSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBEntityObjectSet.h; path = EntityFramework/DBEntityObjectSet.h; sourceTree = "<group>"; };
-		AB49E43B178B2D7A00D01244 /* DBEntityObjectSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityObjectSet.m; path = EntityFramework/DBEntityObjectSet.m; sourceTree = "<group>"; };
+		AB49E43A178B2D7A00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.Data.Entity.Core.Objects.ObjectSet.h; path = EntityFramework/System.Data.Entity.Core.Objects.ObjectSet.h; sourceTree = "<group>"; };
+		AB49E43B178B2D7A00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.Data.Entity.Core.Objects.ObjectSet.m; path = EntityFramework/System.Data.Entity.Core.Objects.ObjectSet.m; sourceTree = "<group>"; };
 		AB49E43F178B2ED600D01244 /* DBEntityObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBEntityObjectContext.h; path = EntityFramework/DBEntityObjectContext.h; sourceTree = "<group>"; };
 		AB49E440178B2ED600D01244 /* DBEntityObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityObjectContext.m; path = EntityFramework/DBEntityObjectContext.m; sourceTree = "<group>"; };
 		AB49E443178B2EF400D01244 /* DBEntityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBEntityObject.h; path = EntityFramework/DBEntityObject.h; sourceTree = "<group>"; };
@@ -551,8 +551,8 @@
 		AB49E43E178B2D9000D01244 /* EntityFramework */ = {
 			isa = PBXGroup;
 			children = (
-				AB49E43A178B2D7A00D01244 /* DBEntityObjectSet.h */,
-				AB49E43B178B2D7A00D01244 /* DBEntityObjectSet.m */,
+				AB49E43A178B2D7A00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.h */,
+				AB49E43B178B2D7A00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.m */,
 				AB49E43F178B2ED600D01244 /* DBEntityObjectContext.h */,
 				AB49E440178B2ED600D01244 /* DBEntityObjectContext.m */,
 				AB49E443178B2EF400D01244 /* DBEntityObject.h */,
@@ -641,7 +641,7 @@
 				ABBF103F17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h in Headers */,
 				ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */,
 				ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */,
-				AB49E43C178B2D7B00D01244 /* DBEntityObjectSet.h in Headers */,
+				AB49E43C178B2D7B00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.h in Headers */,
 				AB49E441178B2ED600D01244 /* DBEntityObjectContext.h in Headers */,
 				AB49E445178B2EF400D01244 /* DBEntityObject.h in Headers */,
 				AB49E449178B2F1000D01244 /* DBEntityCollection.h in Headers */,
@@ -822,7 +822,7 @@
 				9DCD14310A7AE69900849E5C /* DBEnum.m in Sources */,
 				AB49E431178A06AC00D01244 /* DBDecimalNumberCategory.m in Sources */,
 				AB49E435178ABAAE00D01244 /* DBNumberCategory.m in Sources */,
-				AB49E43D178B2D7B00D01244 /* DBEntityObjectSet.m in Sources */,
+				AB49E43D178B2D7B00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.m in Sources */,
 				AB49E442178B2ED600D01244 /* DBEntityObjectContext.m in Sources */,
 				AB49E446178B2EF400D01244 /* DBEntityObject.m in Sources */,
 				AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */,

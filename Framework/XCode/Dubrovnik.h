@@ -66,7 +66,7 @@
 #import "DBSize.h"
 
 // System.Data.Entity
-#import "DBEntityObjectSet.h"
+#import "System.Data.Entity.Core.Objects.ObjectSet.h"
 #import "DBEntityObjectContext.h"
 #import "DBEntityObject.h"
 #import "DBEntityCollection.h"

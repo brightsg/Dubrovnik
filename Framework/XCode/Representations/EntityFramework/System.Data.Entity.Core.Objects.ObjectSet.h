@@ -1,5 +1,5 @@
 //
-//  DBEntityObjectSet.h
+//  System_Data_Entity_Core_Objects_ObjectSet.h
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
@@ -20,6 +20,6 @@
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;
 
-@property (retain, readonly) Class representationClass;
+@property (retain, readonly, nonatomic) Class representationClass;
 
 @end

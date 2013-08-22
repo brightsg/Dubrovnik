@@ -400,6 +400,23 @@ namespace Dubrovnik
         }
 
         //
+        // ObjCGenericParameterTypeNamesStringFromMonoFacet
+        //
+        public string ObjCGenericParameterTypeNamesStringFromMonoFacet(CodeFacet monoFacet)
+        {
+            int idx = 0;
+            string typeNames = "";
+            foreach (string genericParameterType in monoFacet.GenericParameterTypes)
+            {
+                if (idx > 0) typeNames += ",";
+                string objCTypeName = ObjCTypeNameFromMonoTypeName(genericParameterType);
+                typeNames += objCTypeName;
+                idx++;
+            }
+            return typeNames;
+        }
+
+        //
         // Output()
         //
         // Get the current state of the GenerationEnvironment.
@@ -504,9 +521,9 @@ namespace Dubrovnik
                     getterArgs.Add(monoVarName);
 
                     // add any child type arguments representing generic types
-                    if (monoFacet.ObjCFacet.ChildTypes != null && monoFacet.ObjCFacet.ChildTypes.Count() > 0)
+                    if (monoFacet.ObjCFacet.GenericParameterTypes != null && monoFacet.ObjCFacet.GenericParameterTypes.Count() > 0)
                     {
-                        getterArgs.AddRange(monoFacet.ObjCFacet.ChildTypes);
+                        getterArgs.AddRange(monoFacet.ObjCFacet.GenericParameterTypes);
                     }
 
                     // add additional arguments

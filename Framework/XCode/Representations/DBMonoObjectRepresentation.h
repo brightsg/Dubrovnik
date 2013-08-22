@@ -35,14 +35,19 @@
 	DBMonoEnvironment *_monoEnvironment;
 	@private
 	uint32_t _mono_gchandle;
+    NSString *_genericParameterTypeNames;
 }
 
-//subclasses should override this
-+ (MonoClass *)monoClass;
-+ (DBMonoClassRepresentation *)monoClassRepresentation;
+// Subclasses must override these
 + (const char *)monoAssemblyName;
 + (const char *)monoClassName;
 
+// Subclasses may override these
++ (const char *)monoGenericParameterTypeNames;
+
+// Class methods
++ (MonoClass *)monoClass;
++ (DBMonoClassRepresentation *)monoClassRepresentation;
 + (id)representationWithMonoObject:(MonoObject *)obj;
 + (id)representationWithNumArgs:(int)numArgs, ...;
 
@@ -100,4 +105,5 @@
 + (const char *)monoClassNamespace:(MonoClass *)klass;
 
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
+@property (retain, readwrite) NSString *genericParameterTypeNames;
 @end

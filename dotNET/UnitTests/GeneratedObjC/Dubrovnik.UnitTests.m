@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/21/2013 10:32:31 PM
+// Date:     8/22/2013 10:10:08 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4981.38672, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4982.35649, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -49,6 +49,11 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	+ (const char *)monoAssemblyName
 	{
 		return _AssemblyName;
+	}
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames
+	{
+		return  "";
 	}
 
 #pragma mark -
@@ -97,8 +102,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.String
     - (NSString *)stringProperty
     {
-		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		MonoObject * monoObject = [self getMonoProperty:"StringProperty"];
+		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return result;
 	}
     - (void)setStringProperty:(NSString *)value
 	{
@@ -135,6 +141,11 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	+ (const char *)monoAssemblyName
 	{
 		return _AssemblyName;
+	}
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames
+	{
+		return  "";
 	}
 
 #pragma mark -
@@ -272,8 +283,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.String
     + (NSString *)classProperty
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassProperty"];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		MonoObject * monoObject = [[self class] getMonoClassProperty:"ClassProperty"];
+		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return result;
 	}
     + (void)setClassProperty:(NSString *)value
 	{
@@ -284,8 +296,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.DateTime
     - (NSDate *)date
     {
-		MonoObject *monoObject = [self getMonoProperty:"Date"];
-		return [NSDate dateWithMonoDateTime:monoObject];
+		MonoObject * monoObject = [self getMonoProperty:"Date"];
+		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
+		return result;
 	}
     - (void)setDate:(NSDate *)value
 	{
@@ -296,8 +309,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.Decimal
     - (NSDecimalNumber *)decimalNumber
     {
-		MonoObject *monoObject = [self getMonoProperty:"DecimalNumber"];
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		MonoObject * monoObject = [self getMonoProperty:"DecimalNumber"];
+		NSDecimalNumber * result = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		return result;
 	}
     - (void)setDecimalNumber:(NSDecimalNumber *)value
 	{
@@ -308,8 +322,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.Int32
     - (int32_t)int32Number
     {
-		MonoObject *monoObject = [self getMonoProperty:"Int32Number"];
-		return DB_UNBOX_INT32(monoObject);
+		MonoObject * monoObject = [self getMonoProperty:"Int32Number"];
+		int32_t result = DB_UNBOX_INT32(monoObject);
+		return result;
 	}
     - (void)setInt32Number:(int32_t)value
 	{
@@ -320,8 +335,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.Int64
     - (int64_t)int64Number
     {
-		MonoObject *monoObject = [self getMonoProperty:"Int64Number"];
-		return DB_UNBOX_INT64(monoObject);
+		MonoObject * monoObject = [self getMonoProperty:"Int64Number"];
+		int64_t result = DB_UNBOX_INT64(monoObject);
+		return result;
 	}
     - (void)setInt64Number:(int64_t)value
 	{
@@ -332,8 +348,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : Dubrovnik.UnitTests.IntEnum
     - (Dubrovnik_UnitTests_IntEnum)intEnumeration
     {
-		MonoObject *monoObject = [self getMonoProperty:"IntEnumeration"];
-		return DB_UNBOX_INT32(monoObject);
+		MonoObject * monoObject = [self getMonoProperty:"IntEnumeration"];
+		Dubrovnik_UnitTests_IntEnum result = DB_UNBOX_INT32(monoObject);
+		return result;
 	}
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value
 	{
@@ -341,11 +358,26 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"IntEnumeration" valueObject:monoObject];          
 	}
 
+	// Managed type : System.Collections.Generic.List<System.Int32>
+    - (System_Collections_Generic_List *)intList
+    {
+		MonoObject * monoObject = [self getMonoProperty:"IntList"];
+		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
+		result.genericParameterTypeNames = @"int32_t";
+		return result;
+	}
+    - (void)setIntList:(System_Collections_Generic_List *)value
+	{
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"IntList" valueObject:monoObject];          
+	}
+
 	// Managed type : System.Int32
     - (int32_t)intNumber
     {
-		MonoObject *monoObject = [self getMonoProperty:"IntNumber"];
-		return DB_UNBOX_INT32(monoObject);
+		MonoObject * monoObject = [self getMonoProperty:"IntNumber"];
+		int32_t result = DB_UNBOX_INT32(monoObject);
+		return result;
 	}
     - (void)setIntNumber:(int32_t)value
 	{
@@ -353,11 +385,26 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"IntNumber" valueObject:monoObject];          
 	}
 
+	// Managed type : System.Collections.Generic.Dictionary<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
+    - (System_Collections_Generic_Dictionary *)intObjectDictionary
+    {
+		MonoObject * monoObject = [self getMonoProperty:"IntObjectDictionary"];
+		System_Collections_Generic_Dictionary * result = [System_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
+		result.genericParameterTypeNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
+		return result;
+	}
+    - (void)setIntObjectDictionary:(System_Collections_Generic_Dictionary *)value
+	{
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"IntObjectDictionary" valueObject:monoObject];          
+	}
+
 	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration
     {
-		MonoObject *monoObject = [self getMonoProperty:"LongEnumeration"];
-		return DB_UNBOX_INT64(monoObject);
+		MonoObject * monoObject = [self getMonoProperty:"LongEnumeration"];
+		Dubrovnik_UnitTests_LongEnum result = DB_UNBOX_INT64(monoObject);
+		return result;
 	}
     - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value
 	{
@@ -368,8 +415,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.String
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		MonoObject * monoObject = [self getMonoProperty:"Name"];
+		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return result;
 	}
     - (void)setName:(NSString *)value
 	{
@@ -377,11 +425,26 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
+	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
+    - (System_Collections_Generic_List *)referenceObjectList
+    {
+		MonoObject * monoObject = [self getMonoProperty:"ReferenceObjectList"];
+		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
+		result.genericParameterTypeNames = @"Dubrovnik_UnitTests_ReferenceObject";
+		return result;
+	}
+    - (void)setReferenceObjectList:(System_Collections_Generic_List *)value
+	{
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"ReferenceObjectList" valueObject:monoObject];          
+	}
+
 	// Managed type : Dubrovnik.UnitTests.ReferenceObject
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
-		return [Dubrovnik_UnitTests_ReferenceObject representationWithMonoObject:monoObject];
+		MonoObject * monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
+		Dubrovnik_UnitTests_ReferenceObject * result = [Dubrovnik_UnitTests_ReferenceObject representationWithMonoObject:monoObject];
+		return result;
 	}
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value
 	{
@@ -389,16 +452,45 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"ReferenceObjectRelative" valueObject:monoObject];          
 	}
 
+	// Managed type : System.Collections.Generic.List<System.String>
+    - (System_Collections_Generic_List *)stringList
+    {
+		MonoObject * monoObject = [self getMonoProperty:"StringList"];
+		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
+		result.genericParameterTypeNames = @"NSString";
+		return result;
+	}
+    - (void)setStringList:(System_Collections_Generic_List *)value
+	{
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"StringList" valueObject:monoObject];          
+	}
+
 	// Managed type : System.String
     - (NSString *)stringProperty
     {
-		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		MonoObject * monoObject = [self getMonoProperty:"StringProperty"];
+		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return result;
 	}
     - (void)setStringProperty:(NSString *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
+	}
+
+	// Managed type : System.Collections.Generic.Dictionary<System.String, System.String>
+    - (System_Collections_Generic_Dictionary *)stringStringDictionary
+    {
+		MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
+		System_Collections_Generic_Dictionary * result = [System_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
+		result.genericParameterTypeNames = @"NSString,NSString";
+		return result;
+	}
+    - (void)setStringStringDictionary:(System_Collections_Generic_Dictionary *)value
+	{
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"StringStringDictionary" valueObject:monoObject];          
 	}
 
 #pragma mark -
@@ -553,6 +645,11 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	{
 		return _AssemblyName;
 	}
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames
+	{
+		return  "";
+	}
 
 #pragma mark -
 #pragma mark Properties
@@ -560,8 +657,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	// Managed type : System.String
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		MonoObject * monoObject = [self getMonoProperty:"Name"];
+		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return result;
 	}
     - (void)setName:(NSString *)value
 	{
@@ -586,6 +684,11 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	+ (const char *)monoAssemblyName
 	{
 		return _AssemblyName;
+	}
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames
+	{
+		return  "";
 	}
 
 #pragma mark -

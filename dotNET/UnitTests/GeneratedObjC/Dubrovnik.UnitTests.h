@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/21/2013 10:32:31 PM
+// Date:     8/22/2013 10:10:08 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4981.38672, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4982.35649, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -111,6 +111,8 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Constructors
@@ -158,6 +160,8 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Constructors
@@ -236,9 +240,17 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
     - (Dubrovnik_UnitTests_IntEnum)intEnumeration;
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value;
 
+	// Managed type : System.Collections.Generic.List<System.Int32>
+    - (System_Collections_Generic_List *)intList;
+    - (void)setIntList:(System_Collections_Generic_List *)value;
+
 	// Managed type : System.Int32
     - (int32_t)intNumber;
     - (void)setIntNumber:(int32_t)value;
+
+	// Managed type : System.Collections.Generic.Dictionary<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
+    - (System_Collections_Generic_Dictionary *)intObjectDictionary;
+    - (void)setIntObjectDictionary:(System_Collections_Generic_Dictionary *)value;
 
 	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration;
@@ -248,13 +260,25 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
     - (NSString *)name;
     - (void)setName:(NSString *)value;
 
+	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
+    - (System_Collections_Generic_List *)referenceObjectList;
+    - (void)setReferenceObjectList:(System_Collections_Generic_List *)value;
+
 	// Managed type : Dubrovnik.UnitTests.ReferenceObject
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative;
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value;
 
+	// Managed type : System.Collections.Generic.List<System.String>
+    - (System_Collections_Generic_List *)stringList;
+    - (void)setStringList:(System_Collections_Generic_List *)value;
+
 	// Managed type : System.String
     - (NSString *)stringProperty;
     - (void)setStringProperty:(NSString *)value;
+
+	// Managed type : System.Collections.Generic.Dictionary<System.String, System.String>
+    - (System_Collections_Generic_Dictionary *)stringStringDictionary;
+    - (void)setStringStringDictionary:(System_Collections_Generic_Dictionary *)value;
 
 #pragma mark -
 #pragma mark Methods
@@ -341,6 +365,8 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Properties
@@ -361,6 +387,8 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Methods

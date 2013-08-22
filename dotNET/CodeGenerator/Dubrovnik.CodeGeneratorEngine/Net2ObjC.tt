@@ -227,7 +227,7 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 #>
 	// obligatory override
 	+ (const char *)monoClassName<#=LT#>
-<#+	// output implementation body
+<#+
 	if (OutputFileType == OutputType.Implementation) 
 	{
 #>
@@ -239,7 +239,7 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 #>
 	// obligatory override
 	+ (const char *)monoAssemblyName<#=LT#>
-<#+	// output implementation body
+<#+	
 	if (OutputFileType == OutputType.Implementation) 
 	{
 #>
@@ -247,6 +247,22 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 		return _AssemblyName;
 	}
 <#+
+    }
+
+	// ouout string of generic parameter types if defined
+	if (facet.GenericParameterTypes != null) {
+#>
+	// optional override
+	+ (const char *)monoGenericParameterTypeNames<#=LT#>
+<#+	
+		if (OutputFileType == OutputType.Implementation) 
+		{
+#>
+	{
+		return  "<#=ObjCGenericParameterTypeNamesStringFromMonoFacet(facet)#>";
+	}
+<#+
+        }
     }
 }
 
@@ -394,8 +410,13 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 <#+
 			if (facet is PropertyFacet) {
 #>
-		MonoObject *<#=MonoVariableName#> = <#=getExpression#>;
-		return <#=monoValueToObjC#>;
+		MonoObject * <#=MonoVariableName#> = <#=getExpression#>;
+		<#=objCTypeDecl#> result = <#=monoValueToObjC#>;
+<#+		
+				WriteFacetGenericsToObjCResult(facet);
+				
+#>
+		return result;
 	}
 <#+	
             } else if (facet is FieldFacet) {
@@ -435,6 +456,21 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 <#+
         }  // if Implementation
     } // if IsWritable
+}
+
+//
+// WriteFacetGenericsToObjCResult
+//
+public void WriteFacetGenericsToObjCResult(CodeFacet facet)
+{
+
+#warning All code paths that return results need this processing
+	if (facet.IsConstructedGenericType) {
+		string objCGenericParameterTypeNames = ObjCGenericParameterTypeNamesStringFromMonoFacet(facet);
+#>
+		result.genericParameterTypeNames = @"<#=objCGenericParameterTypeNames#>";
+<#+
+    }
 }
 
 //

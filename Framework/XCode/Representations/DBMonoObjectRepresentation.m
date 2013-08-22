@@ -33,21 +33,48 @@
 @implementation DBMonoObjectRepresentation
 
 @synthesize monoEnvironment = _monoEnvironment;
+@synthesize genericParameterTypeNames = _genericParameterTypeNames;
 
-+ (MonoClass *)monoClass {
-    return [[DBMonoEnvironment currentEnvironment] monoClassWithName:(char *)[self monoClassName] fromAssemblyName:(char *)[self monoAssemblyName]];
-}
+#pragma mark -
+#pragma mark class methods for overriding
 
-// this needs to be overridden if you want initWithNumArgs or initWithVarArgs to return anything but nil.
+//
+// monoAssemblyName
+//
+// This needs to be overridden if you want initWithNumArgs or initWithVarArgs to return anything but nil.
+//
 + (const char *)monoAssemblyName
 {
     @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class does not override +[DBMonoObjectRepresentation monoAssemblyName]" userInfo:nil]);
 }
 
-// this needs to be overridden if you want initWithNumArgs or initWithVarArgs to return anything but nil.
+//
+// monoClassName
+//
+// This needs to be overridden if you want initWithNumArgs or initWithVarArgs to return anything but nil.
+//
 + (const char *)monoClassName
 {
     @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class does not override +[DBMonoObjectRepresentation monoClassName]" userInfo:nil]);
+}
+
+//
+// monoGenericParameterTypeNames
+//
+// Returns a list of comma separated generic parameter type names.
+// E.g: For type defined as SomeType<T,U> and instantiated as say SomeType<string,object>
+// this method should return "string,object".
+//
++ (const char *)monoGenericParameterTypeNames
+{
+    return NULL;
+}
+
+#pragma mark -
+#pragma mark class methods
+
++ (MonoClass *)monoClass {
+    return [[DBMonoEnvironment currentEnvironment] monoClassWithName:(char *)[self monoClassName] fromAssemblyName:(char *)[self monoAssemblyName]];
 }
 
 + (DBMonoClassRepresentation *)monoClassRepresentation
@@ -79,6 +106,9 @@
 	
 	return(rep);
 }
+
+#pragma mark -
+#pragma mark instance methods
 
 - (id)init
 {

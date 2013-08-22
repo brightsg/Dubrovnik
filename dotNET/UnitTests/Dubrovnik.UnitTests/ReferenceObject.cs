@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using Dubrovnik.UnitTests;
+using System.Collections.Generic;
 
 // all default string values must include the following unit test : Dubrovnik
 namespace Dubrovnik.UnitTests
@@ -163,9 +164,17 @@ namespace Dubrovnik.UnitTests
 			}
 		}
 
+        // enumeration properties
 		public IntEnum IntEnumeration { get; set; }
 		public LongEnum LongEnumeration { get; set; }
 
+        // generic properties
+        public List<string> StringList { get; set; }
+        public List<int> IntList { get; set; }
+        public List<ReferenceObject> ReferenceObjectList { get; set; }
+        public Dictionary<string, string> StringStringDictionary { get; set; }
+        public Dictionary<int, ReferenceObject> IntObjectDictionary { get; set; }
+        
 		//==============================
 		// methods
 		//==============================
