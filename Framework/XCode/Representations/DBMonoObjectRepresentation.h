@@ -35,15 +35,13 @@
 	DBMonoEnvironment *_monoEnvironment;
 	@private
 	uint32_t _mono_gchandle;
-    NSString *_genericParameterTypeNames;
+    NSString *_monoGenericTypeArgumentNames;
+    Class _monoPrimaryGenericTypeArgument;
 }
 
 // Subclasses must override these
 + (const char *)monoAssemblyName;
 + (const char *)monoClassName;
-
-// Subclasses may override these
-+ (const char *)monoGenericParameterTypeNames;
 
 // Class methods
 + (MonoClass *)monoClass;
@@ -51,15 +49,17 @@
 + (id)representationWithMonoObject:(MonoObject *)obj;
 + (id)representationWithNumArgs:(int)numArgs, ...;
 
+// Initialisation methods
 - (id)initWithMonoObject:(MonoObject *)obj;
 - (id)initWithSignature:(const char *)constructorSignature withNumArgs:(int)numArgs, ...;
 
+// Mono types
 - (MonoClass *)monoClass;
 - (MonoObject *)monoObject;
 - (MonoObject *)monoValue;
 - (MonoAssembly *)monoAssembly;
 
-//Method Invocation
+// Method Invocation
 + (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 + (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
@@ -67,17 +67,17 @@
 - (MonoObject *)invokeMonoMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 - (MonoObject *)invokeMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs, ...;
 
-//Indexer Access
+// Indexer Access
 - (MonoObject *)monoObjectForIndexObject:(void *)indexObject;
 - (void)setMonoObject:(MonoObject *)valueObject forIndexObject:(void *)indexObject;
 
-//Field Access
+// Field Access
 + (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr;
 + (void)setMonoClassField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
 - (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr;
 - (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
 
-//Property Access
+// Property Access
 + (MonoObject *)getMonoClassProperty:(const char *)propertyName;
 + (void)setMonoClassProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
 - (MonoObject *)getMonoProperty:(const char *)propertyName;
@@ -94,7 +94,7 @@
 - (uint32_t)unsigned32Value;
 - (uint64_t)unsigned64Value;
 
-//Mono info
+// Mono info
 - (int)monoMethodCount;
 - (void)logMonoClassInfo;
 - (const char *)monoClassName;
@@ -105,5 +105,7 @@
 + (const char *)monoClassNamespace:(MonoClass *)klass;
 
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
-@property (retain, readwrite) NSString *genericParameterTypeNames;
+@property (retain, readwrite) NSString *monoGenericTypeArgumentNames;
+@property (retain, readonly, nonatomic) Class monoPrimaryGenericTypeArgument;
+
 @end

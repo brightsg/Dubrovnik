@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/22/2013 10:10:08 PM
+// Date:     8/25/2013 9:58:02 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4982.35649, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.34061, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -111,8 +111,6 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Constructors
@@ -160,8 +158,6 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Constructors
@@ -332,26 +328,6 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed return type : System.String
 	// Managed param types : System.String, System.String
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : ref System.String&
-    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1;
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : ref System.String&, System.String
-    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2String:(NSString *)p2;
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String, ref System.String&
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2StringRef:(NSString **)p2;
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : ref System.String&, ref System.String&
-    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2StringRef:(NSString **)p2;
 @end
 
 //
@@ -365,8 +341,6 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Properties
@@ -387,8 +361,6 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	+ (const char *)monoClassName;
 	// obligatory override
 	+ (const char *)monoAssemblyName;
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames;
 
 #pragma mark -
 #pragma mark Methods

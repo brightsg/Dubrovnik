@@ -66,14 +66,18 @@ namespace Dubrovnik.Reflector {
             ParseAssembly();
         }
 
+        //
+        // WriteTypeAttributes()
+        //
         private void WriteTypeAttributes(XmlTextWriter xtw, Type type)
         {
+            // In order to reduce the XML size only output boolean attributes
+            // that evaluate to true.
             xtw.WriteAttributeString("Type", type.GetFriendlyFullName());
             if (type.IsValueType) xtw.WriteAttributeString("IsValueType", Boolean.TrueString);
             if (type.IsPointer) xtw.WriteAttributeString("IsPointer", Boolean.TrueString);
             if (type.IsArray) xtw.WriteAttributeString("IsArray", Boolean.TrueString);
-            if (type.IsPrimitive) xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString);
-            if (type.IsConstructedGenericType) xtw.WriteAttributeString("IsConstructedGenericType", Boolean.TrueString); 
+            if (type.IsPrimitive) xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString); 
             if (type.IsEnum)
             {
                 Type undertype = Enum.GetUnderlyingType(type);
@@ -86,9 +90,46 @@ namespace Dubrovnik.Reflector {
                 xtw.WriteAttributeString("BaseName", baseType.GetFriendlyName());
                 xtw.WriteAttributeString("BaseType", baseType.GetFriendlyFullName());
             }
+
+            //
+            // For the low-down on generics and reflection see:
+            // http://msdn.microsoft.com/en-us/library/ms172334.aspx
+            //
+            if (type.IsGenericType) xtw.WriteAttributeString("IsGenericType", Boolean.TrueString);
+            if (type.IsGenericTypeDefinition) xtw.WriteAttributeString("IsGenericTypeDefinition", Boolean.TrueString);
+            if (type.IsConstructedGenericType) xtw.WriteAttributeString("IsConstructedGenericType", Boolean.TrueString);
+            if (type.IsGenericParameter) xtw.WriteAttributeString("IsGenericParameter", Boolean.TrueString);
+
+
         }
 
-        private void WriteParameterInfoAttributes(XmlTextWriter xtw, ParameterInfo parameterInfo)
+        //
+        // WriteGenericTypeElements
+        //
+        private void WriteGenericTypeElements(XmlTextWriter xtw, Type type)
+        {
+            // Output generic type arguments.
+            // This actually contains parameters and/or arguments depending on the generic type status.
+            // IsGenericParameter can be used to distinguish between compile time parameters 
+            // and runtime arguments. 
+            Type[] genericTypes = type.GenericTypeArguments;
+            if (genericTypes.Length > 0)
+            {
+
+                foreach (Type genericTypeArgument in genericTypes)
+                {
+                    xtw.WriteStartElement("GenericTypeArgument");
+                    WriteTypeAttributes(xtw, genericTypeArgument);
+                    xtw.WriteEndElement();
+                }
+
+            }
+        }
+
+        //
+        // WriteParameterInfoElement
+        //
+        private void WriteParameterInfoElement(XmlTextWriter xtw, ParameterInfo parameterInfo)
         {
             xtw.WriteStartElement("Parameter");
             xtw.WriteAttributeString("Name", parameterInfo.Name);
@@ -102,6 +143,9 @@ namespace Dubrovnik.Reflector {
             xtw.WriteEndElement();
         }
 
+        //
+        // ParseAssembly
+        //
         private void ParseAssembly() {
             TreeView.Nodes.Clear();
 
@@ -233,6 +277,9 @@ namespace Dubrovnik.Reflector {
                                 if (methodInfo != null && methodInfo.IsStatic) {
                                    xtw.WriteAttributeString("IsStatic", Boolean.TrueString);
                                 }
+
+                                WriteGenericTypeElements(xtw, propertyInfo.PropertyType);
+
                                 xtw.WriteEndElement();
 
                                 typeNode.Nodes.Add(new TreeNode(string.Format("{0} : {1}", propertyInfo.Name, propertyInfo.PropertyType.GetFriendlyName())) { ImageIndex = 8 });
@@ -254,7 +301,7 @@ namespace Dubrovnik.Reflector {
 
                                 // write parameters
                                 foreach (var parameterInfo in constructorInfo.GetParameters()) {
-                                    WriteParameterInfoAttributes(xtw, parameterInfo);
+                                    WriteParameterInfoElement(xtw, parameterInfo);
                                     constructorNode.Nodes.Add(new TreeNode(string.Format("{0} : {1}", parameterInfo.Name, parameterInfo.ParameterType.GetFriendlyName())) { ImageIndex = 10 });
                                 }
 
@@ -269,14 +316,20 @@ namespace Dubrovnik.Reflector {
 
                                 xtw.WriteStartElement("Method");
                                 xtw.WriteAttributeString("Name", methodInfo.Name);
+                                
                                 WriteTypeAttributes(xtw, methodInfo.ReturnType);
+                                if (methodInfo.IsGenericMethod) xtw.WriteAttributeString("IsGenericMethod", Boolean.TrueString);
+                                if (methodInfo.IsGenericMethodDefinition) xtw.WriteAttributeString("IsGenericMethodDefinition", Boolean.TrueString);
+
+                                WriteGenericTypeElements(xtw, methodInfo.ReturnType);
 
                                 var methodNode = new TreeNode(string.Format("{0}() : {1}", methodInfo.Name, methodInfo.ReturnType.GetFriendlyName())) { ImageIndex = 9 };
                                 typeNode.Nodes.Add(methodNode);
 
-                                // write parameters
+
+                                // write parameter elements
                                 foreach (var parameterInfo in methodInfo.GetParameters()) {
-                                    WriteParameterInfoAttributes(xtw, parameterInfo);
+                                    WriteParameterInfoElement(xtw, parameterInfo);
                                     methodNode.Nodes.Add(new TreeNode(string.Format("{0} : {1}", parameterInfo.Name, parameterInfo.ParameterType.GetFriendlyName())) { ImageIndex = 10 });
                                 }
 

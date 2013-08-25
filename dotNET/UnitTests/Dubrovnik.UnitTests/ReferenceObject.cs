@@ -1,3 +1,6 @@
+//#define EXPOSE_PASSING_NON_NUMERICS_BY_REF_FOR_TESTING
+//#define EXPOSE_GENERICS_FOR_TESTING
+
 using System;
 using System.Text;
 using Dubrovnik.UnitTests;
@@ -206,6 +209,7 @@ namespace Dubrovnik.UnitTests
         //
         // string methods with ref arg
         //
+#if EXPOSE_PASSING_NON_NUMERICS_BY_REF_FOR_TESTING
         public string StringMethod(ref string s1) {
             s1 += s1;
             return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}", s1);
@@ -226,7 +230,7 @@ namespace Dubrovnik.UnitTests
             s2 += s2;
             return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
         }
-
+#endif
         //
         // int methods
         //
@@ -249,9 +253,22 @@ namespace Dubrovnik.UnitTests
             return rstruct;
         }
 
+#if EXPOSE_GENERICS_FOR_TESTING
+
         //
-        // int methods
+        // Generic properties
         //
+        public GenericReferenceObject<int, string> genericReferenceObject{ get; set; }
+
+        //
+        // Generic methods
+        //
+        // note we use U as the type parameter  rather than the more common T 
+        public U GenericMethodReturningGenericArgument<U>(U parameterU)
+        {
+            return parameterU;
+        }
+#endif
 
 		//
 		// date methods
@@ -272,24 +289,7 @@ namespace Dubrovnik.UnitTests
 		}
 	}
 
-    public struct ReferenceStruct
-    {
-        public string StringField;
-        public Int32 intField;
-        public string StringProperty { get; set; }
 
-        public ReferenceStruct(string s) : this()
-        {
-            StringField = "Dubrovnik.UnitTests.StringField";
-            intField = 1;
-            StringProperty = "Dubrovnik.UnitTests.StringProperty";
-        }
-
-		public string StringMethod(string s1)
-		{
-			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}", s1);
-		}
-    }
 }
 
 

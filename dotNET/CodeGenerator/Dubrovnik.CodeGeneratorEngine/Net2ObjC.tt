@@ -249,21 +249,6 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 <#+
     }
 
-	// ouout string of generic parameter types if defined
-	if (facet.GenericParameterTypes != null) {
-#>
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames<#=LT#>
-<#+	
-		if (OutputFileType == OutputType.Implementation) 
-		{
-#>
-	{
-		return  "<#=ObjCGenericParameterTypeNamesStringFromMonoFacet(facet)#>";
-	}
-<#+
-        }
-    }
 }
 
 //
@@ -466,9 +451,9 @@ public void WriteFacetGenericsToObjCResult(CodeFacet facet)
 
 #warning All code paths that return results need this processing
 	if (facet.IsConstructedGenericType) {
-		string objCGenericParameterTypeNames = ObjCGenericParameterTypeNamesStringFromMonoFacet(facet);
+		string objCGenericArgumentTypeNames = ObjCGenericArgumentTypeNamesStringFromMonoFacet(facet);
 #>
-		result.genericParameterTypeNames = @"<#=objCGenericParameterTypeNames#>";
+		result.monoGenericTypeArgumentNames = @"<#=objCGenericArgumentTypeNames#>";
 <#+
     }
 }

@@ -40,8 +40,8 @@ namespace Dubrovnik.UnitTests
             // string ref methods
             string s1 = "Repeat me.";
             string s2 = s1;
-            refObject.StringMethod(ref s2);
-            Console.WriteLine("{0} doubled is {1}", s1, s2);
+            //refObject.StringMethod(ref s2);
+            //Console.WriteLine("{0} doubled is {1}", s1, s2);
 		}
 	}
 }

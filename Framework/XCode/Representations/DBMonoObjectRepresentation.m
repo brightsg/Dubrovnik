@@ -27,13 +27,15 @@
 #import "DBStringCategory.h"
 
 @interface DBMonoObjectRepresentation()
+
 @property (retain, readwrite) DBMonoEnvironment *monoEnvironment;
 @end
 
 @implementation DBMonoObjectRepresentation
 
 @synthesize monoEnvironment = _monoEnvironment;
-@synthesize genericParameterTypeNames = _genericParameterTypeNames;
+@synthesize monoGenericTypeArgumentNames = _monoGenericTypeArgumentNames;
+@synthesize monoPrimaryGenericTypeArgument = _monoPrimaryGenericTypeArgument;
 
 #pragma mark -
 #pragma mark class methods for overriding
@@ -41,33 +43,31 @@
 //
 // monoAssemblyName
 //
-// This needs to be overridden if you want initWithNumArgs or initWithVarArgs to return anything but nil.
+// This needs to be overridden if initWithNumArgs or initWithVarArgs is to return anything but nil.
 //
 + (const char *)monoAssemblyName
 {
-    @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class does not override +[DBMonoObjectRepresentation monoAssemblyName]" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class must provide a value for +[DBMonoObjectRepresentation monoAssemblyName]" userInfo:nil]);
 }
 
 //
 // monoClassName
 //
-// This needs to be overridden if you want initWithNumArgs or initWithVarArgs to return anything but nil.
+// This needs to be overridden if initWithNumArgs or initWithVarArgs is to return anything but nil.
 //
+
 + (const char *)monoClassName
 {
-    @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class does not override +[DBMonoObjectRepresentation monoClassName]" userInfo:nil]);
+    @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class must provide a value for +[DBMonoObjectRepresentation monoClassName]" userInfo:nil]);
 }
 
 //
-// monoGenericParameterTypeNames
+// monoPrimaryGenericTypeArgument
 //
-// Returns a list of comma separated generic parameter type names.
-// E.g: For type defined as SomeType<T,U> and instantiated as say SomeType<string,object>
-// this method should return "string,object".
-//
-+ (const char *)monoGenericParameterTypeNames
+- (Class)monoPrimaryGenericTypeArgument
 {
-    return NULL;
+#warning fails if more than one generic type parameter
+    return NSClassFromString(self.monoGenericTypeArgumentNames);
 }
 
 #pragma mark -
@@ -270,8 +270,9 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
         // get the class method
         MonoMethod *monoMethod = nil;
-        MonoClass *extensionMonoClass  = [classRepresentation monoClass];        
+        MonoClass *extensionMonoClass  = [classRepresentation monoClass];
         MonoMethodDesc *methodDesc = mono_method_desc_new(methodRepresentation.methodName, YES);
+        NSAssert(methodDesc, @"invalid");
         while (extensionMonoClass != NULL) {
             monoMethod = mono_method_desc_search_in_class(methodDesc, extensionMonoClass);
             if (monoMethod != NULL) {

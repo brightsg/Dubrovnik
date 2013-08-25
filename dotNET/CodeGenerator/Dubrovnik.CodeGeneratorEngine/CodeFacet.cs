@@ -26,14 +26,14 @@ namespace Dubrovnik
 
             /*
              * // suspect !
-            if (facet.GenericParameterTypes != null && facet.GenericParameterTypes.Count() > 0)
+            if (facet.GenericArgumentTypes != null && facet.GenericArgumentTypes.Count() > 0)
             {
                 List<string> list = new  List<string>();
-                foreach (string childType in facet.GenericParameterTypes)
+                foreach (string childType in facet.GenericArgumentTypes)
                 {
                     list.Add(ObjCTypeFromMonoType(childType));
                 }
-                GenericParameterTypes = list.ToArray<string>();
+                GenericArgumentTypes = list.ToArray<string>();
             }
              * */
         }
@@ -51,6 +51,8 @@ namespace Dubrovnik
             IsByRef = XElementAttributeBool(xelement, "IsByRef");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
             IsConstructedGenericType = XElementAttributeBool(xelement, "IsConstructedGenericType");
+            IsGenericType = XElementAttributeBool(xelement, "IsGenericType");
+            IsGenericTypeDefinition = XElementAttributeBool(xelement, "IsGenericTypeDefinition"); 
             IsPointer = XElementAttributeBool(xelement, "IsPointer");
             IsArray = XElementAttributeBool(xelement, "IsArray"); 
             HandlerType = XElementAttributeValue(xelement, "HandlerType");
@@ -75,17 +77,20 @@ namespace Dubrovnik
         public bool IsEnum { get; private set; }
         public bool IsValueType { get; private set; }
         public bool IsPrimitive { get; private set; }
+        // For the low down on generic type reflection see :
+        // http://msdn.microsoft.com/en-us/library/ms172334.aspx
         public bool IsConstructedGenericType { get; private set; }
+        public bool IsGenericType { get; private set; }
+        public bool IsGenericTypeDefinition { get; private set; }
         public bool IsPointer { get; private set; }
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }
         public string BaseName { get; private set; }
         public string BaseType { get; private set; }
         public string UnderlyingType { get; private set; }
-        public bool IsGeneric { get; private set; }
         public bool IsStatic { get; private set; }
         public CodeFacet ObjCFacet { get; private set; }
-        public string[] GenericParameterTypes { get; private set; }
+        public string[] GenericArgumentTypes { get; private set; }
         public string TypeNamespace { get; private set; }
         public string ConstantValue { get; private set; }
 
@@ -114,7 +119,7 @@ namespace Dubrovnik
                     string[] parts = typeValue.Split(tags, StringSplitOptions.RemoveEmptyEntries);
                     if (parts != null &&parts.Count() > 0)
                     {
-                        GenericParameterTypes = parts.Skip(1).ToArray();
+                        GenericArgumentTypes = parts.Skip(1).ToArray();
                     }
 
                     // get the namespace
@@ -138,7 +143,7 @@ namespace Dubrovnik
             return attributeValue;
         }
 
-        private bool XElementAttributeBool(XElement xelement, string attributeName)
+        protected bool XElementAttributeBool(XElement xelement, string attributeName)
         {
             string value = XElementAttributeValue(xelement, attributeName);
             return Convert.ToBoolean(value);
@@ -426,8 +431,12 @@ namespace Dubrovnik
             : base(xelement)
         {
             Parameters = new FacetList<ParameterFacet>(xelement, "Parameter");
+            IsGenericMethod = XElementAttributeBool(xelement, "IsGenericMethod");
+            IsGenericMethodDefinition = XElementAttributeBool(xelement, "IsGenericMethodDefinition");
         }
         public IList<ParameterFacet> Parameters { get; set; }
+        public bool IsGenericMethod { get; set; }
+        public bool IsGenericMethodDefinition { get; set; }
     }
 
     /*

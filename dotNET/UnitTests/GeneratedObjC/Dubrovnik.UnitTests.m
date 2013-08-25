@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/22/2013 10:10:08 PM
+// Date:     8/25/2013 9:58:02 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4982.35649, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.34061, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -49,11 +49,6 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	+ (const char *)monoAssemblyName
 	{
 		return _AssemblyName;
-	}
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames
-	{
-		return  "";
 	}
 
 #pragma mark -
@@ -141,11 +136,6 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	+ (const char *)monoAssemblyName
 	{
 		return _AssemblyName;
-	}
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames
-	{
-		return  "";
 	}
 
 #pragma mark -
@@ -363,7 +353,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
     {
 		MonoObject * monoObject = [self getMonoProperty:"IntList"];
 		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
-		result.genericParameterTypeNames = @"int32_t";
+		result.monoGenericTypeArgumentNames = @"int32_t";
 		return result;
 	}
     - (void)setIntList:(System_Collections_Generic_List *)value
@@ -390,7 +380,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
     {
 		MonoObject * monoObject = [self getMonoProperty:"IntObjectDictionary"];
 		System_Collections_Generic_Dictionary * result = [System_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
-		result.genericParameterTypeNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
+		result.monoGenericTypeArgumentNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
 		return result;
 	}
     - (void)setIntObjectDictionary:(System_Collections_Generic_Dictionary *)value
@@ -430,7 +420,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
     {
 		MonoObject * monoObject = [self getMonoProperty:"ReferenceObjectList"];
 		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
-		result.genericParameterTypeNames = @"Dubrovnik_UnitTests_ReferenceObject";
+		result.monoGenericTypeArgumentNames = @"Dubrovnik_UnitTests_ReferenceObject";
 		return result;
 	}
     - (void)setReferenceObjectList:(System_Collections_Generic_List *)value
@@ -457,7 +447,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
     {
 		MonoObject * monoObject = [self getMonoProperty:"StringList"];
 		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
-		result.genericParameterTypeNames = @"NSString";
+		result.monoGenericTypeArgumentNames = @"NSString";
 		return result;
 	}
     - (void)setStringList:(System_Collections_Generic_List *)value
@@ -484,7 +474,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
     {
 		MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
 		System_Collections_Generic_Dictionary * result = [System_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
-		result.genericParameterTypeNames = @"NSString,NSString";
+		result.monoGenericTypeArgumentNames = @"NSString,NSString";
 		return result;
 	}
     - (void)setStringStringDictionary:(System_Collections_Generic_Dictionary *)value
@@ -585,47 +575,6 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : ref System.String&
-    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1
-#warning object ref and out parameter implementation is pending
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&)" withNumArgs:1, [p1 monoValue]];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : ref System.String&, System.String
-    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2String:(NSString *)p2
-#warning object ref and out parameter implementation is pending
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String, ref System.String&
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2StringRef:(NSString **)p2
-#warning object ref and out parameter implementation is pending
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : ref System.String&, ref System.String&
-    - (NSString *)stringMethod_withS1StringRef:(NSString **)p1 s2StringRef:(NSString **)p2
-#warning object ref and out parameter implementation is pending
-#warning object ref and out parameter implementation is pending
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&,string&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
 @end
 
 //
@@ -644,11 +593,6 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	+ (const char *)monoAssemblyName
 	{
 		return _AssemblyName;
-	}
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames
-	{
-		return  "";
 	}
 
 #pragma mark -
@@ -684,11 +628,6 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	+ (const char *)monoAssemblyName
 	{
 		return _AssemblyName;
-	}
-	// optional override
-	+ (const char *)monoGenericParameterTypeNames
-	{
-		return  "";
 	}
 
 #pragma mark -
