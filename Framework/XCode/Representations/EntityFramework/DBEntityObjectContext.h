@@ -10,6 +10,7 @@
 
 @interface DBEntityObjectContext : DBMonoObjectRepresentation
 
+- (int32_t)saveChanges;
 - (void)DeleteObject:(DBMonoObjectRepresentation *)object;
 
 @end

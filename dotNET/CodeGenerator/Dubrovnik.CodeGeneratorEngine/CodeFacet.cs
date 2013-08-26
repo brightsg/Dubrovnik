@@ -50,9 +50,6 @@ namespace Dubrovnik
             IsValueType = XElementAttributeBool(xelement, "IsValueType");
             IsByRef = XElementAttributeBool(xelement, "IsByRef");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
-            IsConstructedGenericType = XElementAttributeBool(xelement, "IsConstructedGenericType");
-            IsGenericType = XElementAttributeBool(xelement, "IsGenericType");
-            IsGenericTypeDefinition = XElementAttributeBool(xelement, "IsGenericTypeDefinition"); 
             IsPointer = XElementAttributeBool(xelement, "IsPointer");
             IsArray = XElementAttributeBool(xelement, "IsArray"); 
             HandlerType = XElementAttributeValue(xelement, "HandlerType");
@@ -62,6 +59,12 @@ namespace Dubrovnik
             BaseType = XElementAttributeValue(xelement, "BaseType");
             UnderlyingType = XElementAttributeValue(xelement, "UnderlyingType");
             ConstantValue = XElementAttributeValue(xelement, "ConstantValue");
+
+            // generic type info
+            IsConstructedGenericType = XElementAttributeBool(xelement, "IsConstructedGenericType");
+            IsGenericType = XElementAttributeBool(xelement, "IsGenericType");
+            IsGenericTypeDefinition = XElementAttributeBool(xelement, "IsGenericTypeDefinition");
+            IsGenericParameter = XElementAttributeBool(xelement, "IsGenericParameter"); 
 
             // define ObjC code facet
             ObjCFacet = new CodeFacet(this);
@@ -82,6 +85,7 @@ namespace Dubrovnik
         public bool IsConstructedGenericType { get; private set; }
         public bool IsGenericType { get; private set; }
         public bool IsGenericTypeDefinition { get; private set; }
+        public bool IsGenericParameter { get; private set; }
         public bool IsPointer { get; private set; }
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }

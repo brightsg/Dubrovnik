@@ -1,4 +1,4 @@
-﻿//#define EXPOSE_CLASS_FOR_TESTING
+﻿#define EXPOSE_CLASS_FOR_TESTING
 
 using System;
 using System.Collections.Generic;

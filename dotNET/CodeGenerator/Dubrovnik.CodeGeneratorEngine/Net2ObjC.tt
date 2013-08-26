@@ -350,7 +350,10 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	// create Obj-C representation of mono object
 	string monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
 	string objCValueToMono = ObjCValueToMono(ObjCVariableName, objCTypeDecl, facet);
-	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet.Type);
+	if (facet.Type == "U") {
+    int i = 0;
+	}
+	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
 
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
 	string getFormat, setFormat;
@@ -385,7 +388,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	if (facet.IsReadable) {
 #>
 
-	// Managed type : <#=accessorType#>
+	// Managed type : <#=WriteFacetTypeInfo(facet)#>
     <#=objCMethodType#> (<#=objCTypeDecl#>)<#=getterName#><#=LT#>
 <#+		
 		if (OutputFileType == OutputType.Implementation) 
@@ -519,7 +522,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		bool objCParameterIsObject = true;
 
 		// get the associated ObjC type
-		ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(monoParameterType);
+		ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(parameter);
 		MonoTypeAssociation monoTypeAssociate = null;
 		if (objCTypeAssociate != null) {
 			monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
@@ -615,8 +618,8 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	//
 #>
 
-	// Managed method name : <#=isConstructorMethod ? facet.Type : monoMethodName #>
-	// Managed return type : <#=facet.Type#>
+	// Managed method name : <#=isConstructorMethod ? ".ctor" : monoMethodName #>
+	// Managed return type : <#=WriteFacetTypeInfo(facet)#>
 	// Managed param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
     <#=objCMethodType#> (<#=objCTypeDecl#>)<#=objCMethodName#><#=methodArgs#><#=LT#>
 <#+		

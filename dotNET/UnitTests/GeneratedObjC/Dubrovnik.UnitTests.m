@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/25/2013 9:58:02 PM
+// Date:     8/25/2013 11:24:36 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.34061, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.38059, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -54,7 +54,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceStruct *)new_withSString:(NSString *)p1
@@ -121,6 +121,75 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 @end
 
 //
+// Managed class : GenericReferenceObject<T, U>
+//
+@implementation Dubrovnik_UnitTests_GenericReferenceObject
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName
+	{
+		return "Dubrovnik.UnitTests.GenericReferenceObject<T, U>";
+	}
+	// obligatory override
+	+ (const char *)monoAssemblyName
+	{
+		return _AssemblyName;
+	}
+
+#pragma mark -
+#pragma mark Properties
+
+	// Managed type : <T>
+    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterT
+    {
+		MonoObject * monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterT"];
+		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return result;
+	}
+    - (void)setGenericPropertyWithTypeParameterT:(DBMonoObjectRepresentation *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"GenericPropertyWithTypeParameterT" valueObject:monoObject];          
+	}
+
+	// Managed type : <U>
+    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterU
+    {
+		MonoObject * monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterU"];
+		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return result;
+	}
+    - (void)setGenericPropertyWithTypeParameterU:(DBMonoObjectRepresentation *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"GenericPropertyWithTypeParameterU" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Methods
+
+	// Managed method name : GenericMethodReturningParameterTypeT
+	// Managed return type : <T>
+	// Managed param types : <T>, <U>
+    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeT_withParameterTT:(DBMonoObjectRepresentation *)p1 parameterUU:(DBMonoObjectRepresentation *)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(T,U)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+    }
+
+	// Managed method name : GenericMethodReturningParameterTypeU
+	// Managed return type : <U>
+	// Managed param types : <T>, <U>
+    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterTT:(DBMonoObjectRepresentation *)p1 parameterUU:(DBMonoObjectRepresentation *)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(T,U)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+    }
+@end
+
+//
 // Managed class : ReferenceObject
 //
 @implementation Dubrovnik_UnitTests_ReferenceObject
@@ -141,7 +210,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValueString:(NSString *)p1
@@ -149,7 +218,7 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
     }
 
-	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
 	// Managed param types : System.String, System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2
@@ -307,6 +376,20 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"DecimalNumber" valueObject:monoObject];          
+	}
+
+	// Managed type : Dubrovnik.UnitTests.GenericReferenceObject<System.Int32, System.String>
+    - (Dubrovnik_UnitTests_GenericReferenceObject *)genericReferenceObject
+    {
+		MonoObject * monoObject = [self getMonoProperty:"genericReferenceObject"];
+		Dubrovnik_UnitTests_GenericReferenceObject * result = [Dubrovnik_UnitTests_GenericReferenceObject representationWithMonoObject:monoObject];
+		result.monoGenericTypeArgumentNames = @"int32_t,NSString";
+		return result;
+	}
+    - (void)setGenericReferenceObject:(Dubrovnik_UnitTests_GenericReferenceObject *)value
+	{
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"genericReferenceObject" valueObject:monoObject];          
 	}
 
 	// Managed type : System.Int32
@@ -520,6 +603,15 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT32(monoObject);
+    }
+
+	// Managed method name : GenericMethodReturningGenericArgument
+	// Managed return type : <U>
+	// Managed param types : <U>
+    - (DBMonoObjectRepresentation *)genericMethodReturningGenericArgument_withParameterUU:(DBMonoObjectRepresentation *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningGenericArgument(U)" withNumArgs:1, [p1 monoValue]];
+		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
     }
 
 	// Managed method name : MixedMethod1

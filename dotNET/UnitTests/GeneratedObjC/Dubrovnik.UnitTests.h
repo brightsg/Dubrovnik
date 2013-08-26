@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/25/2013 9:58:02 PM
+// Date:     8/25/2013 11:24:36 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.34061, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.38059, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -51,6 +51,13 @@
 //
 // Forward class declarations and class aliases
 //
+@class Dubrovnik_UnitTests_GenericReferenceObject;
+#ifdef DUGenericReferenceObject___T__U_
+#warning DUGenericReferenceObject___T__U_ class name collision.
+#else
+#define DUGenericReferenceObject___T__U_ Dubrovnik_UnitTests_GenericReferenceObject
+#endif
+
 @class Dubrovnik_UnitTests_ReferenceObject;
 #ifdef DUReferenceObject_
 #warning DUReferenceObject_ class name collision.
@@ -115,7 +122,7 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : Dubrovnik.UnitTests.ReferenceStruct
+	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceStruct *)new_withSString:(NSString *)p1;
@@ -148,6 +155,43 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 @end
 
 //
+// Managed class : GenericReferenceObject<T, U>
+//
+@interface Dubrovnik_UnitTests_GenericReferenceObject : DBMonoObjectRepresentation
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Properties
+
+	// Managed type : <T>
+    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterT;
+    - (void)setGenericPropertyWithTypeParameterT:(DBMonoObjectRepresentation *)value;
+
+	// Managed type : <U>
+    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterU;
+    - (void)setGenericPropertyWithTypeParameterU:(DBMonoObjectRepresentation *)value;
+
+#pragma mark -
+#pragma mark Methods
+
+	// Managed method name : GenericMethodReturningParameterTypeT
+	// Managed return type : <T>
+	// Managed param types : <T>, <U>
+    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeT_withParameterTT:(DBMonoObjectRepresentation *)p1 parameterUU:(DBMonoObjectRepresentation *)p2;
+
+	// Managed method name : GenericMethodReturningParameterTypeU
+	// Managed return type : <U>
+	// Managed param types : <T>, <U>
+    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterTT:(DBMonoObjectRepresentation *)p1 parameterUU:(DBMonoObjectRepresentation *)p2;
+@end
+
+//
 // Managed class : ReferenceObject
 //
 @interface Dubrovnik_UnitTests_ReferenceObject : DBMonoObjectRepresentation
@@ -162,12 +206,12 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValueString:(NSString *)p1;
 
-	// Managed method name : Dubrovnik.UnitTests.ReferenceObject
+	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
 	// Managed param types : System.String, System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2;
@@ -223,6 +267,10 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed type : System.Decimal
     - (NSDecimalNumber *)decimalNumber;
     - (void)setDecimalNumber:(NSDecimalNumber *)value;
+
+	// Managed type : Dubrovnik.UnitTests.GenericReferenceObject<System.Int32, System.String>
+    - (Dubrovnik_UnitTests_GenericReferenceObject *)genericReferenceObject;
+    - (void)setGenericReferenceObject:(Dubrovnik_UnitTests_GenericReferenceObject *)value;
 
 	// Managed type : System.Int32
     - (int32_t)int32Number;
@@ -298,6 +346,11 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed return type : System.Int32
 	// Managed param types : ref System.Int32&
     - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
+
+	// Managed method name : GenericMethodReturningGenericArgument
+	// Managed return type : <U>
+	// Managed param types : <U>
+    - (DBMonoObjectRepresentation *)genericMethodReturningGenericArgument_withParameterUU:(DBMonoObjectRepresentation *)p1;
 
 	// Managed method name : MixedMethod1
 	// Managed return type : System.String

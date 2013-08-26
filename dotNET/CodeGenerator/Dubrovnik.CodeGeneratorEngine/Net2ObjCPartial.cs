@@ -377,7 +377,7 @@ namespace Dubrovnik
         string ObjCTypeDeclFromMonoFacet(CodeFacet monoFacet)
         {
             string decl = "";
-            string monoType = monoFacet.Type;
+            string monoType = MonoTypeForAssociation(monoFacet);
 
             if (monoType == null) return "????";
 
@@ -499,7 +499,7 @@ namespace Dubrovnik
         //
         public string MonoValueToObjc(string monoVarName, CodeFacet monoFacet, IList<string> args = null)
         {
-            string monoType = monoFacet.Type;
+            string monoType = MonoTypeForAssociation(monoFacet);
             string exp = null;
             string objCType = null;
 
@@ -576,7 +576,7 @@ namespace Dubrovnik
         {
             string exp = null;
 
-            string monoType = monoFacet.Type;
+            string monoType = MonoTypeForAssociation(monoFacet);
 
             // if type is an enum then use its underlying type
             if (monoFacet.IsEnum)
@@ -639,6 +639,43 @@ namespace Dubrovnik
         }
 
         //
+        // MonoTypeForAssociation
+        //
+        // Processes the mono type so that it can act as a type
+        // suitable for Obj-C type association
+        //
+        string MonoTypeForAssociation(CodeFacet monoFacet)
+        {
+            string monoType = null;
+
+            // if the type represents a generic type parameter then the actual
+            // type argument will remain unknown until runtime.
+            if (monoFacet.IsGenericParameter)
+            {
+                monoType = "Dubrovnik.Generic.Parameter";
+            }
+            else
+            {
+                monoType = monoFacet.Type;
+
+                if (monoFacet.IsByRef)
+                {
+                    monoType = monoType.Replace("&", "");
+                }
+            }
+            return monoType;
+        }
+
+        //
+        // ObjCTypeAssociate()
+        //
+        ObjCTypeAssociation ObjCTypeAssociate(CodeFacet monoFacet)
+        {
+            string monoType = MonoTypeForAssociation(monoFacet);
+            return ObjCTypeAssociate(monoType);
+        }
+
+        //
         // ObjCTypeAssociate()
         //
         ObjCTypeAssociation ObjCTypeAssociate(string monoType)
@@ -684,10 +721,10 @@ namespace Dubrovnik
 
             //===============================================================================================
             // reference types
-             //===============================================================================================
+            //===============================================================================================
 
-            // Template
-            monoTA = new MonoTypeAssociation { MonoType = "T" };
+            // Dubrovnik.Generic.Parameter
+            monoTA = new MonoTypeAssociation { MonoType = "Dubrovnik.Generic.Parameter" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
@@ -941,15 +978,29 @@ namespace Dubrovnik
         //
         // WriteFacetTypeInfo
         //
+        public string WriteFacetTypeInfo(CodeFacet facet)
+        {
+            StringBuilder s = new StringBuilder();
+            if (facet.IsByRef) s.Append("ref ");
+            if (facet.IsGenericParameter) s.Append("<");
+            s.Append(facet.Type);
+            if (facet.IsGenericParameter) s.Append(">");
+            return s.ToString();
+        }
+
+        //
+        // WriteFacetTypeInfo
+        //
         public string WriteFacetTypeInfo(IList<ParameterFacet> parameters)
         {
             StringBuilder s = new StringBuilder();
             int idx = 0;
+
             foreach (ParameterFacet facet in parameters)
             {
                 if (idx > 0) s.Append(", ");
-                if (facet.IsByRef) s.Append("ref ");
-                s.Append(facet.Type);
+                string facetInfo = WriteFacetTypeInfo(facet);
+                s.Append(facetInfo);
                 idx++;
             }
             return s.ToString();
