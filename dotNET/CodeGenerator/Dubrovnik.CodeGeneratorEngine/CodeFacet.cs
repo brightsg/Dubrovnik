@@ -154,6 +154,14 @@ namespace Dubrovnik
         }
 
         //
+        // OutputFileName
+        //
+        public string OutputFileName()
+        {
+            return TypeNamespace + "." + ObjCTypeFromMonoType(Name);
+        }
+
+        //
         // ObjCTypeFromMonoType
         //
         public static string ObjCTypeFromMonoType(string monoType)
@@ -194,8 +202,8 @@ namespace Dubrovnik
                 name = name.Replace(".", "_"); // namespacing
                 name = name.Replace("+", "__"); // nested classes
                 name = name.Replace("\\", ""); // escape character
-                name = name.Replace("<", "___"); // start of generic type parameter identifier
-                name = name.Replace(",", "__"); // generic type parameter separator
+                name = name.Replace("<", "_"); // start of generic type parameter identifier
+                name = name.Replace(",", "_"); // generic type parameter separator
                 name = name.Replace(">", ""); // end of generic type parameter identifier
                 name = name.Replace("`", "_P"); // generic arity indicates parameter count
                 name = name.Replace("&", ""); // indicates that a parameter type is being passed by reference - detect with IsByRef

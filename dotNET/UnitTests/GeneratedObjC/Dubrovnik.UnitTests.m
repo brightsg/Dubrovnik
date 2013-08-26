@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/25/2013 11:24:36 PM
+// Date:     8/26/2013 3:01:40 PM
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.4985.38059, Culture=neutral, PublicKeyToken=null
@@ -33,6 +33,7 @@
 
 static const char * _AssemblyName = "Dubrovnik.UnitTests";
 
+//++ Dubrovnik.UnitTests.ReferenceStruct.m
 //
 // Managed struct : ReferenceStruct
 //
@@ -119,7 +120,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end
+//--
 
+//++ Dubrovnik.UnitTests.GenericReferenceObject.m
 //
 // Managed class : GenericReferenceObject<T, U>
 //
@@ -188,7 +191,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
     }
 @end
+//-- 
 
+//++ Dubrovnik.UnitTests.ReferenceObject.m
 //
 // Managed class : ReferenceObject
 //
@@ -668,7 +673,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end
+//-- 
 
+//++ Dubrovnik.UnitTests.TestObject.m
 //
 // Managed class : TestObject
 //
@@ -703,7 +710,9 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 @end
+//-- 
 
+//++ Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m
 //
 // Managed class : ReferenceObjectExtensions
 //
@@ -752,3 +761,4 @@ static const char * _AssemblyName = "Dubrovnik.UnitTests";
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end
+//-- 

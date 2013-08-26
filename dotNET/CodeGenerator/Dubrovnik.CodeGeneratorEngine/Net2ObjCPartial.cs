@@ -41,8 +41,8 @@ namespace Dubrovnik
             // retrieving the output will clear the cache
             Output();
 
-            // write the file header
-            WriteFileHeader();
+            // write the file banner
+            WriteFileBanner();
 
             // write initial interface
             if (OutputFileType == OutputType.Interface)
@@ -490,6 +490,16 @@ namespace Dubrovnik
                 value = " : " + ObjCTypeNameFromMonoTypeName(@class.BaseType);
             }
             return value;
+        }
+
+        //
+        // OutputFileSuffix()
+        //
+        // Return the output file suffix based on the outputType
+        //
+        string OutputFileSuffix()
+        {
+            return (OutputFileType == OutputType.Interface) ? ".h" : ".m";
         }
 
         //

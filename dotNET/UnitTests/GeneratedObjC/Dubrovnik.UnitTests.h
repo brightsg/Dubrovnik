@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/25/2013 11:24:36 PM
+// Date:     8/26/2013 3:01:40 PM
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.4985.38059, Culture=neutral, PublicKeyToken=null
@@ -52,10 +52,10 @@
 // Forward class declarations and class aliases
 //
 @class Dubrovnik_UnitTests_GenericReferenceObject;
-#ifdef DUGenericReferenceObject___T__U_
-#warning DUGenericReferenceObject___T__U_ class name collision.
+#ifdef DUGenericReferenceObject_T_U_
+#warning DUGenericReferenceObject_T_U_ class name collision.
 #else
-#define DUGenericReferenceObject___T__U_ Dubrovnik_UnitTests_GenericReferenceObject
+#define DUGenericReferenceObject_T_U_ Dubrovnik_UnitTests_GenericReferenceObject
 #endif
 
 @class Dubrovnik_UnitTests_ReferenceObject;
@@ -107,6 +107,7 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	Dubrovnik_UnitTests_LongEnum_val4 = 4,
 };
 
+//++ Dubrovnik.UnitTests.ReferenceStruct.h
 //
 // Managed struct : ReferenceStruct
 //
@@ -153,7 +154,9 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed param types : System.String
     - (NSString *)stringMethod_withS1String:(NSString *)p1;
 @end
+//--
 
+//++ Dubrovnik.UnitTests.GenericReferenceObject.h
 //
 // Managed class : GenericReferenceObject<T, U>
 //
@@ -190,7 +193,9 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed param types : <T>, <U>
     - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterTT:(DBMonoObjectRepresentation *)p1 parameterUU:(DBMonoObjectRepresentation *)p2;
 @end
+//-- 
 
+//++ Dubrovnik.UnitTests.ReferenceObject.h
 //
 // Managed class : ReferenceObject
 //
@@ -382,7 +387,9 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed param types : System.String, System.String
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
 @end
+//-- 
 
+//++ Dubrovnik.UnitTests.TestObject.h
 //
 // Managed class : TestObject
 //
@@ -402,7 +409,9 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
     - (NSString *)name;
     - (void)setName:(NSString *)value;
 @end
+//-- 
 
+//++ Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h
 //
 // Managed class : ReferenceObjectExtensions
 //
@@ -433,3 +442,4 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
     - (NSString *)staticString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 @end
+//-- 
