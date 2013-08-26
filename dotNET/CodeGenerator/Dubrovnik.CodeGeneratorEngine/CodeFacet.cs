@@ -158,7 +158,7 @@ namespace Dubrovnik
         //
         public string OutputFileName()
         {
-            return TypeNamespace + "." + ObjCTypeFromMonoType(Name);
+            return TypeNamespace + "." + ObjCNameFromMonoName(Name);
         }
 
         //

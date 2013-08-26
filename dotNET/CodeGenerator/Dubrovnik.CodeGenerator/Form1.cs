@@ -131,11 +131,8 @@ namespace Dubrovnik
 
             try
             {
-                // .NET default string encoding is Unicode.
-                // Here we choose UTF8 though.
-                // TODO: allow choice of encoding
-                File.WriteAllText(interfaceFile, _codeGen.N2ObjC.InterfaceOutput, Encoding.UTF8);
-                File.WriteAllText(implementationFile, _codeGen.N2ObjC.ImplementationOutput, Encoding.UTF8);
+                GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Interface, interfaceFile, _codeGen.N2ObjC.InterfaceOutput);
+                GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Implementation, implementationFile, _codeGen.N2ObjC.ImplementationOutput);
 
                 MessageBox.Show(string.Format("The code was successfully exported to {0}.", dialog.SelectedPath));
 

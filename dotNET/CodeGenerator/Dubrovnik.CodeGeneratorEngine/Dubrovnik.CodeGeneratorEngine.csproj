@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CodeFacet.cs" />
     <Compile Include="CodeGenerator.cs" />
+    <Compile Include="GeneratedFileExporter.cs" />
     <Compile Include="Net2ObjC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
