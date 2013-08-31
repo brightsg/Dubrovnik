@@ -508,9 +508,9 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		objCMethodFormat = "[[self alloc] initWithSignature:\"{1}\" withNumArgs:{2}]";
     }
 
-	// build the argument lists
+	// build the parameters
 	StringBuilder monoSigBuilder = new StringBuilder();
-	StringBuilder methodArgsBuilder = new StringBuilder();
+	StringBuilder objCParameterBuilder = new StringBuilder();
 	StringBuilder invokeArgsBuilder = new StringBuilder();
 	int idx = 0;
 	foreach (ParameterFacet parameter in facet.Parameters) {
@@ -565,25 +565,46 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// Mono parameter name + Mono parameter type + Ref
 		string objCParamName = ObjCNameFromMonoName(parameter.Name);
 
-		// We adopt a minimal as opposed to a full type repesentation here.
-		// Time will tell how it flies.
-		string objCParamOverloadSuffix = ObjCMinimalNameFromMonoName(monoMethodParameterType);
+		// If the method is overloaded by name then mkae th ObjC method
+		// name unique by including type info in the name
+		string objCParamOverloadSuffix = "";
+		if (facet.IsOverloadedNameMethod && !facet.IsOverloadedSignatureMethod) {
+			// We adopt a minimal as opposed to a full type repesentation here in order
+			// to minimize the parameter length.
+			// Time will tell how it flies.
+			objCParamOverloadSuffix = ObjCMinimalNameFromMonoName(monoMethodParameterType);
+        }
 		if (parameter.IsByRef) {
 			objCParamOverloadSuffix += "Ref";
         }
-		objCParamName += objCParamOverloadSuffix.FirstCharacterToUpper();
+		if (objCParamOverloadSuffix.Length > 0) {
+			objCParamName += objCParamOverloadSuffix.FirstCharacterToUpper();
+        }
 
 		// append the complete interleaved parameter expression
 		if (idx == 0) {
 			if (AppendFirstArgSignatureToMethodName) {
+
+				// If the method is signature overloaded then it differs from its overloaded siblings
+				// only by its return type.
+				if (facet.IsOverloadedSignatureMethod) {
+					string methodType = facet.Type;
+					//ObjCTypeAssociation objCMethodTypeAssociate = ObjCTypeAssociate(facet);
+					//if (objCMethodTypeAssociate != null) {
+					//	methodType = objCMethodTypeAssociate.ObjCName;
+                    //}
+					string objCMethodReturnMin = ObjCMinimalNameFromMonoName(methodType);
+					objCMethodName += "_returns" + objCMethodReturnMin.FirstCharacterToUpper() + "_";
+                }
+
 				// the leading underscore helps identify the preceding characters as the managed method name
 				objCMethodName += "_with";
-				methodArgsBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
+				objCParameterBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
             } 
         } else {
-			methodArgsBuilder.AppendFormat(" {0}", objCParamName.FirstCharacterToLower());
+			objCParameterBuilder.AppendFormat(" {0}", objCParamName.FirstCharacterToLower());
         }
-		methodArgsBuilder.AppendFormat(":({0})p{1}", objCParamTypeDecl, idx + 1);
+		objCParameterBuilder.AppendFormat(":({0})p{1}", objCParamTypeDecl, idx + 1);
 
 		//
 		// build the mono invocation argument representation
@@ -607,7 +628,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 
 	// finalize arugment list representations
 	string monoMethodSig = monoSigBuilder.ToString();
-	string methodArgs = methodArgsBuilder.ToString();
+	string objCMethodParameters = objCParameterBuilder.ToString();
 	string invokeArgs = facet.Parameters.Count().ToString();
 	if (facet.Parameters.Count() > 0) {
 		invokeArgs += ", " + invokeArgsBuilder.ToString();
@@ -629,7 +650,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	// Managed method name : <#=isConstructorMethod ? ".ctor" : monoMethodName #>
 	// Managed return type : <#=WriteFacetTypeInfo(facet)#>
 	// Managed param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
-    <#=objCMethodType#> (<#=objCTypeDecl#>)<#=objCMethodName#><#=methodArgs#><#=LT#>
+    <#=objCMethodType#> (<#=objCTypeDecl#>)<#=objCMethodName#><#=objCMethodParameters#><#=LT#>
 <#+		
 	if (OutputFileType == OutputType.Implementation) 
 	{

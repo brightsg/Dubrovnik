@@ -132,7 +132,7 @@ namespace Dubrovnik
             try
             {
                 bool ouputMonolithicInterface = false;
-                bool ouputMonolithicImplementation = true;
+                bool ouputMonolithicImplementation = false;
 
                 // output interface
                 if (ouputMonolithicInterface)

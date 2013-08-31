@@ -28,11 +28,11 @@
 	// Managed method name : GenericMethodReturningParameterTypeT
 	// Managed return type : <T>
 	// Managed param types : <T>, <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeT_withParameterTT:(DBMonoObjectRepresentation *)p1 parameterUU:(DBMonoObjectRepresentation *)p2;
+    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeT_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2;
 
 	// Managed method name : GenericMethodReturningParameterTypeU
 	// Managed return type : <U>
 	// Managed param types : <T>, <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterTT:(DBMonoObjectRepresentation *)p1 parameterUU:(DBMonoObjectRepresentation *)p2;
+    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2;
 @end
 //--

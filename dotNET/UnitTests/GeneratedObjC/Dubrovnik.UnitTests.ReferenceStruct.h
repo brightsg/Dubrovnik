@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
 	// Managed param types : System.String
-    + (Dubrovnik_UnitTests_ReferenceStruct *)new_withSString:(NSString *)p1;
+    + (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -43,6 +43,6 @@
 	// Managed method name : StringMethod
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)stringMethod_withS1String:(NSString *)p1;
+    - (NSString *)stringMethod_withS1:(NSString *)p1;
 @end
 //--

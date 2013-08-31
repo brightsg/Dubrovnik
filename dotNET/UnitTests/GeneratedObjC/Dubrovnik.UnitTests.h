@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/26/2013 5:49:26 PM
+// Date:     8/31/2013 8:25:38 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.38059, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4991.27295, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -72,6 +72,13 @@
 #define DUTestObject_ Dubrovnik_UnitTests_TestObject
 #endif
 
+@class Dubrovnik_UnitTests_IMinimalReferenceObject;
+#ifdef DUIMinimalReferenceObject_
+#warning DUIMinimalReferenceObject_ class name collision.
+#else
+#define DUIMinimalReferenceObject_ Dubrovnik_UnitTests_IMinimalReferenceObject
+#endif
+
 @class Dubrovnik_UnitTests_ReferenceStruct;
 #ifdef DUReferenceStruct_
 #warning DUReferenceStruct_ class name collision.
@@ -87,28 +94,11 @@
 #endif
 
 
-//
-// Managed enumeration : Dubrovnik.UnitTests.IntEnum
-//
-typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
-	Dubrovnik_UnitTests_IntEnum_val1 = 1,
-	Dubrovnik_UnitTests_IntEnum_val2 = 2,
-	Dubrovnik_UnitTests_IntEnum_val3 = 3,
-	Dubrovnik_UnitTests_IntEnum_val4 = 4,
-};
-
-//
-// Managed enumeration : Dubrovnik.UnitTests.LongEnum
-//
-typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
-	Dubrovnik_UnitTests_LongEnum_val1 = 1,
-	Dubrovnik_UnitTests_LongEnum_val2 = 2,
-	Dubrovnik_UnitTests_LongEnum_val3 = 3,
-	Dubrovnik_UnitTests_LongEnum_val4 = 4,
-};
-
+#import "Dubrovnik.UnitTests.IntEnum.h"
+#import "Dubrovnik.UnitTests.LongEnum.h"
 #import "Dubrovnik.UnitTests.ReferenceStruct.h"
 #import "Dubrovnik.UnitTests.GenericReferenceObject_T_U.h"
 #import "Dubrovnik.UnitTests.ReferenceObject.h"
 #import "Dubrovnik.UnitTests.TestObject.h"
 #import "Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h"
+#import "Dubrovnik.UnitTests.IMinimalReferenceObject.h"

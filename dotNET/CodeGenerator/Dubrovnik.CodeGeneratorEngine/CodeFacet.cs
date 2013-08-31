@@ -359,11 +359,29 @@ namespace Dubrovnik
         {
             Properties = new FacetList<PropertyFacet>(xelement, "Property");
             Methods = new FacetList<MethodFacet>(xelement, "Method");
+            ParseMethodsForOverrides();
         }
 
         // TODO: add events, indexers
         public IList<PropertyFacet> Properties { get; set; }
         public IList<MethodFacet> Methods { get; set; }
+
+        //
+        // ParseMethodsForOverrides
+        //
+        private void ParseMethodsForOverrides()
+        {
+            for (int i = 0; i < Methods.Count(); i++) {
+                MethodFacet method =  Methods[i];
+                if (!method.IsOverloadedNameMethod)
+                {
+                    for (int j = i + 1; j < Methods.Count(); j++)
+                    {
+                        method.ParseMethodForOverride(Methods[j]);
+                    }
+                }
+            }
+        }
     }
 
     /*
@@ -449,6 +467,84 @@ namespace Dubrovnik
         public IList<ParameterFacet> Parameters { get; set; }
         public bool IsGenericMethod { get; set; }
         public bool IsGenericMethodDefinition { get; set; }
+        public bool IsOverloadedNameMethod { get; private set; }
+        public bool IsOverloadedSignatureMethod { get; private set; }
+
+        //
+        // ParseMethodForOverride
+        //
+        public void ParseMethodForOverride(MethodFacet facet)
+        {
+
+            if (!facet.IsOverloadedNameMethod)
+            {
+                ParseMethodForOverloadedName(facet);
+                if (facet.IsOverloadedNameMethod)
+                {
+                    ParseMethodForOverloadedSignature(facet);
+                }
+            }
+        }
+
+        //
+        // ParseMethodForOverloadedName
+        //
+        // Override created when class method names match
+        //
+        private void ParseMethodForOverloadedName(MethodFacet facet)
+        {
+            // Flag if method names match
+            if (this.Name == facet.Name) {
+                this.IsOverloadedNameMethod = true;
+                facet.IsOverloadedNameMethod = true;
+            }          
+        }
+
+        //
+        // ParseMethodForOverloadedSignature
+        //
+        // Override created when class method signatures match.
+        // In this case the method return types must differ.
+        //
+        // c# methods overload according to their parameter signature only.
+        // Explicit interfaces can used to separate method implementations with identical signatures.
+        //
+        // However use of explicit operators (see System.Decimal) can give rise to multiple method definitions 
+        // (when viewed from the perspective of reflection) that share the same signature. 
+        // In this case we flag the existence of the signature overload.
+        private void ParseMethodForOverloadedSignature(MethodFacet facet)
+        {
+            // Flag if method type signatures match
+            if (MethodParameterTypesEqual(facet))
+            {
+                if (this.Type == facet.Type) {
+                    throw new Exception("Unexpected. Method return types should be distinct.");
+                }
+
+                this.IsOverloadedSignatureMethod = true;
+                facet.IsOverloadedSignatureMethod = true;
+            }
+        }
+
+        //
+        // MethodParameterTypesEqual
+        //
+        public bool MethodParameterTypesEqual(MethodFacet facet)
+        {
+            bool equal = false;
+            if (this.Parameters.Count() == facet.Parameters.Count())
+            {
+                bool presumption = true;
+                for (int i = 0; i < this.Parameters.Count(); i++) {
+                    if (this.Parameters[i].Type != facet.Parameters[i].Type) {
+                        presumption = false;
+                        break;
+                    }
+                }
+                equal = presumption;
+            }
+            return equal;
+        }
     }
 
     /*

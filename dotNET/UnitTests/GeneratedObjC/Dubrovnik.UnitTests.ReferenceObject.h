@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
 	// Managed param types : System.String
-    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValueString:(NSString *)p1;
+    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue:(NSString *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
 	// Managed param types : System.String, System.String
-    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2;
+    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1:(NSString *)p1 value2:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Fields
@@ -143,7 +143,7 @@
 	// Managed method name : DateMethod
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime
-    - (NSDate *)dateMethod_withD1SDateTime:(NSDate *)p1;
+    - (NSDate *)dateMethod_withD1:(NSDate *)p1;
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
@@ -158,17 +158,17 @@
 	// Managed method name : GenericMethodReturningGenericArgument
 	// Managed return type : <U>
 	// Managed param types : <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningGenericArgument_withParameterUU:(DBMonoObjectRepresentation *)p1;
+    - (DBMonoObjectRepresentation *)genericMethodReturningGenericArgument_withParameterU:(DBMonoObjectRepresentation *)p1;
 
 	// Managed method name : MixedMethod1
 	// Managed return type : System.String
 	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)mixedMethod1_withIntargInt:(int32_t)p1 longArgLong:(int64_t)p2 floatArgSingle:(float)p3 doubleArgDouble:(double)p4 dateArgSDateTime:(NSDate *)p5 stringArgString:(NSString *)p6 refObjectArgDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p7;
+    - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
 
 	// Managed method name : ReferenceStructMethod
 	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
 	// Managed param types : System.String
-    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1String:(NSString *)p1;
+    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String
@@ -189,5 +189,10 @@
 	// Managed return type : System.String
 	// Managed param types : System.String, System.String
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
+
+	// Managed method name : StringMethod
+	// Managed return type : System.String
+	// Managed param types : System.String, System.Int32
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 nInt:(int32_t)p2;
 @end
 //--

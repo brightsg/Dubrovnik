@@ -9,6 +9,14 @@ using System.Collections.Generic;
 // all default string values must include the following unit test : Dubrovnik
 namespace Dubrovnik.UnitTests
 {
+    //==============================
+    // interfaces
+    //==============================
+    public interface IMinimalReferenceObject
+    {
+        string StringMethod(string s1, int n);
+    }
+
 	//==============================
 	// enumerations
 	//==============================
@@ -18,7 +26,7 @@ namespace Dubrovnik.UnitTests
 	//==============================
 	// classes
 	//==============================
-	public class ReferenceObject
+    public class ReferenceObject : IMinimalReferenceObject
 	{
 		// private fields
 		private DateTime _date;
@@ -195,7 +203,7 @@ namespace Dubrovnik.UnitTests
 			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}", s1);
 		}
 
-        // overload test
+        // overload tests
         public string StringMethod(int n)
         {
             return String.Format("Dubrovnik.UnitTests.StringMethod int overload: {0}", n);
@@ -205,6 +213,17 @@ namespace Dubrovnik.UnitTests
 		{
 			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
 		}
+
+        public string StringMethod(string s1, int n)
+        {
+            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, n);
+        }
+
+
+        string IMinimalReferenceObject.StringMethod(string s1, int n)
+        {
+            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, n);
+        }
 
         //
         // string methods with ref arg

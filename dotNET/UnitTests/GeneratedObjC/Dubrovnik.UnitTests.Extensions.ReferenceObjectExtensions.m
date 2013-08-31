@@ -24,7 +24,7 @@
 	// Managed method name : ExtensionString
 	// Managed return type : System.String
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)extensionString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1
+    - (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];

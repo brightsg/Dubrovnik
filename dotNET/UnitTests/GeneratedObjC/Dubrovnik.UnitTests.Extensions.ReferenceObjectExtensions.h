@@ -17,7 +17,7 @@
 	// Managed method name : ExtensionString
 	// Managed return type : System.String
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)extensionString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+    - (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 
 	// Managed method name : StaticString
 	// Managed return type : System.String

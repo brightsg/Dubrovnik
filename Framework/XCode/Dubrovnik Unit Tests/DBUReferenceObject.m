@@ -24,12 +24,12 @@
 #pragma mark -
 #pragma mark Mono constructors
 
-+ (id)new_withValueString:(NSString *)p1
++ (id)new_withValue:(NSString *)p1
 {
     return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoString]];
 }
 
-+ (id)new_withValue1String:(NSString *)p1 value2String:(NSString *)p2
++ (id)new_withValue1:(NSString *)p1 value2:(NSString *)p2
 {
     return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoString], [p2 monoString]];
 }
@@ -225,7 +225,7 @@
 //
 // mixed parameter methods
 //
-- (NSString *)mixedMethod1_withIntargInt:(int32_t)p1 longArgLong:(int64_t)p2 floatArgSingle:(float)p3 doubleArgDouble:(double)p4 dateArgSDateTime:(NSDate *)p5 stringArgString:(NSString *)p6 refObjectArgDUReferenceObject:(DBUReferenceObject *)p7
+- (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7
 {
     // note tha mono float is an alias for System.Single, hence the use of single in the signature below
     MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
@@ -252,7 +252,7 @@
 #pragma mark -
 #pragma mark Date methods
 
-- (NSDate *)dateMethod_withD1SDateTime:(NSDate *)p1
+- (NSDate *)dateMethod_withD1:(NSDate *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
     NSDate *value = [NSDate dateWithMonoDateTime:monoObject];
@@ -263,10 +263,10 @@
 #pragma mark -
 #pragma mark Structure methods
 
-- (DBUReferenceStruct *)referenceStructMethod_withS1String:(NSString *)p1
+- (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
-    return [DBUReferenceObject representationWithMonoObject:monoObject];
+    return [DBUReferenceStruct representationWithMonoObject:monoObject];
 }
 
 #pragma mark -

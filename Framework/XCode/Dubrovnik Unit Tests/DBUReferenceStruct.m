@@ -83,7 +83,7 @@
 #pragma mark Methods
 
 // Mono type is System.String
-- (NSString *)stringMethodWithS1:(NSString *)p1
+- (NSString *)stringMethod_withS1:(NSString *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];

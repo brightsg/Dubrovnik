@@ -55,6 +55,6 @@
 #pragma mark Methods
 
 // Mono type is System.String
-- (NSString *)stringMethodWithS1:(NSString *)p1;
+- (NSString *)stringMethod_withS1:(NSString *)p1;
 @end
 

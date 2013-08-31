@@ -175,13 +175,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // constructor overloads
     //
     NSString *ctorString = @"Constructor with one string argument";
-    refObject = [testClass new_withValueString:ctorString];
+    refObject = [testClass new_withValue:ctorString];
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:ctorString], DBUEqualityTestFailed);
     
     NSString *ctorString1 = @"Constructor with two ";
     NSString *ctorString2 = @"string arguments";
-    refObject = [testClass new_withValue1String:ctorString1 value2String:ctorString2];
+    refObject = [testClass new_withValue1:ctorString1 value2:ctorString2];
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
     
@@ -262,14 +262,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // date methods
     //
-    NSDate *dateMethod = [refObject dateMethod_withD1SDateTime:[NSDate date]];
+    NSDate *dateMethod = [refObject dateMethod_withD1:[NSDate date]];
     STAssertNotNil(dateMethod, DBUObjectIsNil);
 
     //
     // mixed methods
     //
     
-    NSString *mixedMethod1 = [refObject mixedMethod1_withIntargInt:1111 longArgLong:-2222 floatArgSingle:33.33f doubleArgDouble:-44.44 dateArgSDateTime:[NSDate date] stringArgString:@"GeneralTest" refObjectArgDUReferenceObject:refObject];
+    NSString *mixedMethod1 = [refObject mixedMethod1_withIntarg:1111 longArg:-2222 floatArg:33.33f doubleArg:-44.44 dateArg:[NSDate date] stringArg:@"GeneralTest" refObjectArg:refObject];
     STAssertTrue([mixedMethod1 rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([mixedMethod1 rangeOfString:@"1111"].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([mixedMethod1 rangeOfString:@"-2222"].location != NSNotFound, DBUSubstringTestFailed);
@@ -419,13 +419,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // Managed struct handling
     //
-    id refStruct = [refObject referenceStructMethod_withS1String:@"ReferenceStruct"];
+    id refStruct = [refObject referenceStructMethod_withS1:@"ReferenceStruct"];
     STAssertNotNil(refStruct, DBUObjectIsNil);
     
     NSString *refStructStringProperty = [refStruct stringProperty];
     STAssertTrue([refStructStringProperty rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     
-    NSString *refStructStringMethod = [refStruct stringMethod_withS1String:@"ReferenceStruct"];
+    NSString *refStructStringMethod = [refStruct stringMethod_withS1:@"ReferenceStruct"];
     STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);    
     
     // log the class

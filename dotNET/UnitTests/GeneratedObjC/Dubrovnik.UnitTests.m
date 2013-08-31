@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/26/2013 5:49:26 PM
+// Date:     8/31/2013 8:25:38 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4985.38059, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.4991.27295, Culture=neutral, PublicKeyToken=null
 // Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -36,3 +36,4 @@
 // AutoGen : Dubrovnik.UnitTests.ReferenceObject.m
 // AutoGen : Dubrovnik.UnitTests.TestObject.m
 // AutoGen : Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m
+// AutoGen : Dubrovnik.UnitTests.IMinimalReferenceObject.m
