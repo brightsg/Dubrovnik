@@ -217,7 +217,6 @@
 		AB49E448178B2F1000D01244 /* DBEntityCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityCollection.m; path = EntityFramework/DBEntityCollection.m; sourceTree = "<group>"; };
 		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB588DC4178308000000AAC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		AB8B5E7917CB656C0030DB23 /* mscorlib.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mscorlib.xml; sourceTree = "<group>"; };
 		AB97FC0417C277D600CBE585 /* Extensions.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = Extensions.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/Extensions.cs; sourceTree = "<group>"; };
 		AB97FC0517C277D600CBE585 /* ReferenceObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = ReferenceObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs; sourceTree = "<group>"; };
 		AB97FC0617C277D600CBE585 /* TestObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/TestObject.cs; sourceTree = "<group>"; };
@@ -324,7 +323,6 @@
 		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
 			isa = PBXGroup;
 			children = (
-				AB8B5E7217CB656C0030DB23 /* dotNetBindings */,
 				AB00206117C653E900178AFC /* ManagedBinaries */,
 				08FB77AEFE84172EC02AAC07 /* Source */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -606,46 +604,6 @@
 			children = (
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		AB8B5E7217CB656C0030DB23 /* dotNetBindings */ = {
-			isa = PBXGroup;
-			children = (
-				AB8B5E7317CB656C0030DB23 /* Assembly */,
-				AB8B5E7517CB656C0030DB23 /* Framework */,
-			);
-			path = dotNetBindings;
-			sourceTree = "<group>";
-		};
-		AB8B5E7317CB656C0030DB23 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				AB8B5E7417CB656C0030DB23 /* GAC */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		AB8B5E7417CB656C0030DB23 /* GAC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GAC;
-			sourceTree = "<group>";
-		};
-		AB8B5E7517CB656C0030DB23 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				AB8B5E7617CB656C0030DB23 /* V4.0.30319 */,
-			);
-			path = Framework;
-			sourceTree = "<group>";
-		};
-		AB8B5E7617CB656C0030DB23 /* V4.0.30319 */ = {
-			isa = PBXGroup;
-			children = (
-				AB8B5E7917CB656C0030DB23 /* mscorlib.xml */,
-			);
-			path = V4.0.30319;
 			sourceTree = "<group>";
 		};
 		ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */ = {

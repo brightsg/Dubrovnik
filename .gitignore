@@ -16,4 +16,4 @@ doxygenWarnings.txt
 xcuserdata
 
 # ignore bindings for now
-Framework/XCode/dotNetBindings
+Framework/Libraries/dotNetBindings

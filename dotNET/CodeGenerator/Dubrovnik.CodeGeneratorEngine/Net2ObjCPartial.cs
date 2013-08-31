@@ -72,24 +72,32 @@ namespace Dubrovnik
         //
         public void WriteAssembly()
         {
-            // write initial output.
+            //
+            // Order is important here. 
+            // Objective-C types must be declared before they can be used.
+            // The ordering here helps to ensure that types are declared before they are referenced.
+            //
+
+            // Write all enumerations.
             foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
             {
-                // write enumerations
                 foreach (EnumerationFacet enumeration in @namespace.Enumerations)
                 {
                     WriteEnumeration(enumeration);
                 }
+            
+            }
 
-                // write structs
+            // Write all structs
+            foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
+            {
                 foreach (StructFacet @struct in @namespace.Structs)
                 {
                     WriteStruct(@struct);
                 }
-            
             }
 
-            // write classes
+            // Write all classes
             // Get all classes in assembly ordered by derivation.
             // This is necessary to ensure that base type interface declarations occur 
             // before derived type interface delarations
@@ -99,7 +107,7 @@ namespace Dubrovnik
                 WriteClass(@class);
             }
 
-            // write additional output
+            // Write all interfaces
             foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
             {
                 // write interfaces

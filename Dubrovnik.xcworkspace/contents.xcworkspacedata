@@ -10,4 +10,7 @@
    <FileRef
       location = "group:Framework/examples/DBCommandLineExample/DBCommandLineExample.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Framework/Libraries/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj">
+   </FileRef>
 </Workspace>

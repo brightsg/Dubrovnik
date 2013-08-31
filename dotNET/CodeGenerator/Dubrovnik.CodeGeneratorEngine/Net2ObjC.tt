@@ -311,6 +311,7 @@ public void WriteEnumeration(EnumerationFacet enumeration)
 {
 	string objCEnumType = ObjCTypeNameFromMonoTypeName(enumeration.UnderlyingType);
 	string objCType = ObjCTypeNameFromMonoTypeName(enumeration.Type);
+	string outputFile = enumeration.OutputFileName() + OutputFileSuffix();
 
 	// output the enums as a typedef.
 	// note that we could also generate a class based definition.
@@ -320,6 +321,7 @@ public void WriteEnumeration(EnumerationFacet enumeration)
 		if (!ImplementEnumerationsAsClasses) {
 #>
 
+//++AutoGen <#=outputFile#>
 //
 // Managed enumeration : <#=enumeration.Type#>
 //
@@ -333,6 +335,7 @@ typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 			}
 #>
 };
+//--
 <#+
 		}	else {
 			throw new Exception("Enumerations as classes not implemented");

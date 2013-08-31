@@ -131,8 +131,29 @@ namespace Dubrovnik
 
             try
             {
-                GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Interface, interfaceFile, _codeGen.N2ObjC.InterfaceOutput);
-                GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Implementation, implementationFile, _codeGen.N2ObjC.ImplementationOutput);
+                bool ouputMonolithicInterface = false;
+                bool ouputMonolithicImplementation = true;
+
+                // output interface
+                if (ouputMonolithicInterface)
+                {
+                    File.WriteAllText(interfaceFile, _codeGen.N2ObjC.InterfaceOutput, Encoding.UTF8); 
+                }
+                else
+                {
+                    GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Interface, interfaceFile, _codeGen.N2ObjC.InterfaceOutput);
+                }
+
+                // output implementation
+                if (ouputMonolithicImplementation)
+                {
+                    File.WriteAllText(implementationFile, _codeGen.N2ObjC.ImplementationOutput, Encoding.UTF8);
+                }
+                else
+                {
+                    GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Implementation, implementationFile,
+                        _codeGen.N2ObjC.ImplementationOutput);
+                }
 
                 MessageBox.Show(string.Format("The code was successfully exported to {0}.", dialog.SelectedPath));
 
