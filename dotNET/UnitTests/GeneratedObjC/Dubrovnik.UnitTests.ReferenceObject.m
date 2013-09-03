@@ -296,6 +296,14 @@
 		[self setMonoProperty:"LongEnumeration" valueObject:monoObject];          
 	}
 
+	// Managed type : Dubrovnik.UnitTests.IMinimalReferenceObject
+    - (Dubrovnik_UnitTests_IMinimalReferenceObject *)minimalReferenceObject
+    {
+		MonoObject * monoObject = [self getMonoProperty:"minimalReferenceObject"];
+		Dubrovnik_UnitTests_IMinimalReferenceObject * result = [Dubrovnik_UnitTests_IMinimalReferenceObject representationWithMonoObject:monoObject];
+		return result;
+	}
+
 	// Managed type : System.String
     - (NSString *)name
     {

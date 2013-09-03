@@ -403,6 +403,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([refObject longEnumeration] == eDBULongEnum_Val4, DBUEqualityTestFailed);
     
     //
+    // interface property
+    //
+    if ([refObject respondsToSelector:@selector(minimalReferenceObject)]) {
+        id minimRefObject = [refObject minimalReferenceObject];
+        NSString * minimalRefString = [minimRefObject stringMethod_withS1:@"1" n:2];
+        STAssertTrue([minimalRefString rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    } else {
+        NSLog(@"minimalReferenceObject method not found");
+    }
+    
+    //
     // static methods
     //
     NSString *classDescription = (NSString *)[refObject classDescription];
@@ -427,6 +438,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     NSString *refStructStringMethod = [refStruct stringMethod_withS1:@"ReferenceStruct"];
     STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);    
+    
     
     // log the class
     [refStruct logMonoClassInfo];

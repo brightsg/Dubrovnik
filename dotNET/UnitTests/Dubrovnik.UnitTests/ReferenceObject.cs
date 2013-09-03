@@ -175,6 +175,14 @@ namespace Dubrovnik.UnitTests
 			}
 		}
 
+        public IMinimalReferenceObject minimalReferenceObject
+        {
+            get
+            {
+                return (IMinimalReferenceObject)this;
+            }
+        }
+
         // enumeration properties
 		public IntEnum IntEnumeration { get; set; }
 		public LongEnum LongEnumeration { get; set; }

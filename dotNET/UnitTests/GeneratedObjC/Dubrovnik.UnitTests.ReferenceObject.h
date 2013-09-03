@@ -108,6 +108,9 @@
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration;
     - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value;
 
+	// Managed type : Dubrovnik.UnitTests.IMinimalReferenceObject
+    - (Dubrovnik_UnitTests_IMinimalReferenceObject *)minimalReferenceObject;
+
 	// Managed type : System.String
     - (NSString *)name;
     - (void)setName:(NSString *)value;

@@ -474,6 +474,29 @@ public void WriteFacetGenericsToObjCResult(CodeFacet facet)
 //
 public void WriteFacetAsMethod(MethodFacet facet)
 {
+	// In order to ensure compilation of an assembly and its references 
+	// the generated code must resolve all types.
+	//
+	// The generation of a complete set of methods is obviously desirable
+	// but in some cases may not be achievable if a unique method signature 
+	// cannot be obtained. 
+
+	// if the method is a duplicate (ie: name, parameter types, return type) 
+	// then we have no option but to omit it
+	if (facet.IsDuplicateSignatureMethod) {
+		this.Warning("Duplicate method omitted : " + facet.Name);
+		return;
+	}
+
+	// if the facet is overloaded on its signature and differs only in its
+	// return type then omit it.
+	// This can occur with explicit operators.
+	// At present it is unknown if these can be called via the embedded API.
+	if (facet.IsOverloadedSignatureMethod) {
+		this.Warning("Overloaded signature method omitted : " + facet.Name);
+		return;
+    }
+
 	string monoMethodName = facet.Name;
 	string objCMethodFormat = null;
 	string objCMethodName = null;

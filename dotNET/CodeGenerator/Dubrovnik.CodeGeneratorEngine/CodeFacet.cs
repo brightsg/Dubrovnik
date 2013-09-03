@@ -282,6 +282,13 @@ namespace Dubrovnik
             }
 
         }
+
+        public void SetDefaultBaseType()
+        {
+            BaseName = "Object";
+            BaseType = "System.Object";
+        }
+
     }
 
     /*
@@ -342,6 +349,13 @@ namespace Dubrovnik
             Interfaces = new FacetList<InterfaceFacet>(xelement, "Interface");
             Enumerations = new FacetList<EnumerationFacet>(xelement, "Enumeration");
             Structs = new FacetList<StructFacet>(xelement, "Struct");
+
+            // Managed interfaces do not derive from a base type
+            // but we want to treat them like an object that does
+            foreach (InterfaceFacet facet in Interfaces)
+            {
+                facet.SetDefaultBaseType();
+            }
         }
         public IList<ClassFacet> Classes { get; set; }
         public IList<InterfaceFacet> Interfaces { get; set; }
@@ -373,12 +387,9 @@ namespace Dubrovnik
         {
             for (int i = 0; i < Methods.Count(); i++) {
                 MethodFacet method =  Methods[i];
-                if (!method.IsOverloadedNameMethod)
+                for (int j = i + 1; j < Methods.Count(); j++)
                 {
-                    for (int j = i + 1; j < Methods.Count(); j++)
-                    {
-                        method.ParseMethodForOverride(Methods[j]);
-                    }
+                    method.ParseMethodForOverride(Methods[j]);
                 }
             }
         }
@@ -469,6 +480,7 @@ namespace Dubrovnik
         public bool IsGenericMethodDefinition { get; set; }
         public bool IsOverloadedNameMethod { get; private set; }
         public bool IsOverloadedSignatureMethod { get; private set; }
+        public bool IsDuplicateSignatureMethod { get; private set; }
 
         //
         // ParseMethodForOverride
@@ -479,10 +491,11 @@ namespace Dubrovnik
             if (!facet.IsOverloadedNameMethod)
             {
                 ParseMethodForOverloadedName(facet);
-                if (facet.IsOverloadedNameMethod)
-                {
-                    ParseMethodForOverloadedSignature(facet);
-                }
+            }
+
+            if (facet.IsOverloadedNameMethod)
+            {
+                ParseMethodForOverloadedSignature(facet);
             }
         }
 
@@ -507,22 +520,32 @@ namespace Dubrovnik
         // In this case the method return types must differ.
         //
         // c# methods overload according to their parameter signature only.
-        // Explicit interfaces can used to separate method implementations with identical signatures.
+        // Explicit interfaces can be used to separate method implementations with identical signatures.
         //
         // However use of explicit operators (see System.Decimal) can give rise to multiple method definitions 
         // (when viewed from the perspective of reflection) that share the same signature. 
         // In this case we flag the existence of the signature overload.
+        //
+        // In some cases our reflection also throws up methods (in say EF 6b1) that meet this critera
+        // PLUS they have a matching return type.
+        // Perhaps the reflection code is not suitably descrptive in some casees.
+        // In this case we flag the existence of the duplicate.
         private void ParseMethodForOverloadedSignature(MethodFacet facet)
         {
             // Flag if method type signatures match
             if (MethodParameterTypesEqual(facet))
             {
-                if (this.Type == facet.Type) {
-                    throw new Exception("Unexpected. Method return types should be distinct.");
+                if (this.Type == facet.Type)
+                {
+                    this.IsDuplicateSignatureMethod = true;
+                    facet.IsDuplicateSignatureMethod = true;
                 }
+                else
+                {
 
-                this.IsOverloadedSignatureMethod = true;
-                facet.IsOverloadedSignatureMethod = true;
+                    this.IsOverloadedSignatureMethod = true;
+                    facet.IsOverloadedSignatureMethod = true;
+                }
             }
         }
 

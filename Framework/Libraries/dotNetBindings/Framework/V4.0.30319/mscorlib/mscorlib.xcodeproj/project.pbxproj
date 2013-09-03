@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		AB07F36D17D5F93A004A10D3 /* mscorlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mscorlib; sourceTree = "<group>"; };
 		AB58212617CBD71A00599DBB /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
-		ABA8F18717CCB06000AFE480 /* mscorlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mscorlib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		AB58211B17CBD6B600599DBB = {
 			isa = PBXGroup;
 			children = (
-				ABA8F18717CCB06000AFE480 /* mscorlib */,
+				AB07F36D17D5F93A004A10D3 /* mscorlib */,
 				AB58212617CBD71A00599DBB /* makefile */,
 			);
 			sourceTree = "<group>";
