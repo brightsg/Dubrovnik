@@ -181,6 +181,13 @@
     [self setMonoProperty:"LongEnumeration" valueObject:DB_VALUE(value)];    
 }
 
+- (DBUIReferenceObject *)minimalReferenceObject
+{
+    MonoObject * monoObject = [self getMonoProperty:"minimalReferenceObject"];
+    DBUIReferenceObject * result = [DBUIReferenceObject representationWithMonoObject:monoObject];
+    return result;
+}
+
 #pragma mark -
 #pragma mark Mono string methods
 

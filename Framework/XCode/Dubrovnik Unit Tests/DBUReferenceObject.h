@@ -16,6 +16,7 @@
 #import <Dubrovnik/Dubrovnik.h>
 #import "DBUIntEnum.h"
 #import "DBULongEnum.h"
+#import "DBUIReferenceObject.h"
 
 //
 // Mono struct ReferenceStruct
@@ -127,6 +128,9 @@
 // long enumeration property implementation
 - (eDBULongEnum)longEnumeration;
 - (void)setLongEnumeration:(eDBULongEnum)value;
+
+// managed interface property
+- (DBUIReferenceObject *)minimalReferenceObject;
 
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 

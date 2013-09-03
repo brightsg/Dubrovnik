@@ -37,6 +37,8 @@ static BOOL _setup = NO;
 - (void)doTestExtensionMethods:(id)refObject class:(Class)testClass;
 - (void)doTestMethods:(id)refObject class:(Class)testClass;
 - (void)doTestProperties:(id)refObject class:(Class)testClass;
+- (void)doTestStructRepresentation:(id)refObject class:(Class)testClass;
+- (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass;
 @end
 
 @implementation Dubrovnik_Unit_Tests
@@ -331,6 +333,45 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil(classDescription, DBUObjectIsNil);
 }
 
+- (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
+{
+    
+#pragma unused(testClass)
+
+    //
+    // Managed struct handling
+    //
+    id refStruct = [refObject referenceStructMethod_withS1:@"ReferenceStruct"];
+    STAssertNotNil(refStruct, DBUObjectIsNil);
+    
+    NSString *refStructStringProperty = [refStruct stringProperty];
+    STAssertTrue([refStructStringProperty rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    
+    NSString *refStructStringMethod = [refStruct stringMethod_withS1:@"ReferenceStruct"];
+    STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    
+    // log the struct
+    [refStruct logMonoClassInfo];
+}
+
+- (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass
+{
+
+    #pragma unused(testClass)
+    
+    //
+    // managed interface property
+    //
+
+    // get managed interface object
+    id minimRefObject = [refObject minimalReferenceObject];
+    
+    // query interface property
+    NSString * minimalRefString = [minimRefObject stringMethod_withS1:@"1" n:2];
+    STAssertTrue([minimalRefString rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+
+}
+
 - (void)doTestProperties:(id)refObject class:(Class)testClass
 {
     //
@@ -437,17 +478,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     [refObject setLongEnumeration:eDBULongEnum_Val4];
     STAssertTrue([refObject longEnumeration] == eDBULongEnum_Val4, DBUEqualityTestFailed);
-    
-    //
-    // interface property
-    //
-    if ([refObject respondsToSelector:@selector(minimalReferenceObject)]) {
-        id minimRefObject = [refObject minimalReferenceObject];
-        NSString * minimalRefString = [minimRefObject stringMethod_withS1:@"1" n:2];
-        STAssertTrue([minimalRefString rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    } else {
-        NSLog(@"minimalReferenceObject method not found");
-    }
 
 }
 
@@ -474,20 +504,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //===================================
     [self doTestProperties:refObject class:testClass];
     
-    //
-    // Managed struct handling
-    //
-    id refStruct = [refObject referenceStructMethod_withS1:@"ReferenceStruct"];
-    STAssertNotNil(refStruct, DBUObjectIsNil);
+    //===================================
+    // representations
+    //===================================
+    [self doTestStructRepresentation:refObject class:testClass];
+    [self doTestInterfaceRepresentation:refObject class:testClass];
     
-    NSString *refStructStringProperty = [refStruct stringProperty];
-    STAssertTrue([refStructStringProperty rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    
-    NSString *refStructStringMethod = [refStruct stringMethod_withS1:@"ReferenceStruct"];
-    STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);    
-    
-    // log the class
-    [refStruct logMonoClassInfo];
 }
 
 #pragma mark -

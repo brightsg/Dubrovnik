@@ -23,7 +23,7 @@
 // obligatory override
 + (const char *)monoAssemblyName
 {
-    return "Dubrovnik.UnitTests";;
+    return "Dubrovnik.UnitTests";
 }
 
 #pragma mark -
