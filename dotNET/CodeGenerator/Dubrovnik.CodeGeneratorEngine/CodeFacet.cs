@@ -373,7 +373,7 @@ namespace Dubrovnik
         {
             Properties = new FacetList<PropertyFacet>(xelement, "Property");
             Methods = new FacetList<MethodFacet>(xelement, "Method");
-            ParseMethodsForOverrides();
+            ParseMethodsForOverrides(Methods);
         }
 
         // TODO: add events, indexers
@@ -383,13 +383,14 @@ namespace Dubrovnik
         //
         // ParseMethodsForOverrides
         //
-        private void ParseMethodsForOverrides()
+        protected void ParseMethodsForOverrides(IList<MethodFacet> methods)
         {
-            for (int i = 0; i < Methods.Count(); i++) {
-                MethodFacet method =  Methods[i];
-                for (int j = i + 1; j < Methods.Count(); j++)
+            for (int i = 0; i < methods.Count(); i++)
+            {
+                MethodFacet method = methods[i];
+                for (int j = i + 1; j < methods.Count(); j++)
                 {
-                    method.ParseMethodForOverride(Methods[j]);
+                    method.ParseMethodForOverride(methods[j]);
                 }
             }
         }
@@ -406,11 +407,13 @@ namespace Dubrovnik
             Fields = new FacetList<FieldFacet>(xelement, "Field"); 
             Constructors = new FacetList<MethodFacet>(xelement, "Constructor");
 
+            // process the constructors
             foreach (MethodFacet facet in Constructors)
             {
                 facet.Name = null;      // constructor name must be null
                 facet.Type = this.Type; // constructor type matches class type
             }
+            ParseMethodsForOverrides(Constructors);
         }
 
         // TODO: add destructors, constants, operators, delegates, structs
@@ -479,6 +482,7 @@ namespace Dubrovnik
         public bool IsGenericMethod { get; set; }
         public bool IsGenericMethodDefinition { get; set; }
         public bool IsOverloadedNameMethod { get; private set; }
+        public bool IsOverloadedParameterMethod { get; private set; }
         public bool IsOverloadedSignatureMethod { get; private set; }
         public bool IsDuplicateSignatureMethod { get; private set; }
 
@@ -495,6 +499,11 @@ namespace Dubrovnik
 
             if (facet.IsOverloadedNameMethod)
             {
+                ParseMethodForOverloadedParameters(facet);
+            }
+
+            if (facet.IsOverloadedNameMethod)
+            {
                 ParseMethodForOverloadedSignature(facet);
             }
         }
@@ -502,7 +511,7 @@ namespace Dubrovnik
         //
         // ParseMethodForOverloadedName
         //
-        // Override created when class method names match
+        // Overload created when method names match
         //
         private void ParseMethodForOverloadedName(MethodFacet facet)
         {
@@ -511,6 +520,21 @@ namespace Dubrovnik
                 this.IsOverloadedNameMethod = true;
                 facet.IsOverloadedNameMethod = true;
             }          
+        }
+
+        //
+        // ParseMethodForOverloadedParameters
+        //
+        // Overload created when method parameter names match
+        //
+        private void ParseMethodForOverloadedParameters(MethodFacet facet)
+        {
+            // Flag if method parameter names match
+            if (MethodParameterNamesEqual(facet))
+            {
+                this.IsOverloadedParameterMethod = true;
+                facet.IsOverloadedParameterMethod = true;
+            }
         }
 
         //
@@ -542,7 +566,6 @@ namespace Dubrovnik
                 }
                 else
                 {
-
                     this.IsOverloadedSignatureMethod = true;
                     facet.IsOverloadedSignatureMethod = true;
                 }
@@ -560,6 +583,29 @@ namespace Dubrovnik
                 bool presumption = true;
                 for (int i = 0; i < this.Parameters.Count(); i++) {
                     if (this.Parameters[i].Type != facet.Parameters[i].Type) {
+                        presumption = false;
+                        break;
+                    }
+                }
+                equal = presumption;
+            }
+            return equal;
+        }
+
+
+        //
+        // MethodParameterNamesEqual
+        //
+        public bool MethodParameterNamesEqual(MethodFacet facet)
+        {
+            bool equal = false;
+            if (this.Parameters.Count() == facet.Parameters.Count())
+            {
+                bool presumption = true;
+                for (int i = 0; i < this.Parameters.Count(); i++)
+                {
+                    if (this.Parameters[i].Name != facet.Parameters[i].Name)
+                    {
                         presumption = false;
                         break;
                     }

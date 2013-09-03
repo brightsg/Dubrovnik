@@ -463,7 +463,7 @@
 	// Managed method name : StringMethod
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)stringMethod_withS1String:(NSString *)p1
+    - (NSString *)stringMethod_withS1:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -472,7 +472,7 @@
 	// Managed method name : StringMethod
 	// Managed return type : System.String
 	// Managed param types : System.Int32
-    - (NSString *)stringMethod_withNInt:(int32_t)p1
+    - (NSString *)stringMethod_withN:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, DB_VALUE(p1)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -489,8 +489,17 @@
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String
+	// Managed param types : System.String, System.Object
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : StringMethod
+	// Managed return type : System.String
 	// Managed param types : System.String, System.Int32
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 nInt:(int32_t)p2
+    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];

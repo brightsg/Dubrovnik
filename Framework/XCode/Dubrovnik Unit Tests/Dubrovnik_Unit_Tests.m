@@ -32,6 +32,11 @@ static BOOL _setup = NO;
 
 @interface Dubrovnik_Unit_Tests()
 - (void)doTestReferenceClass:(Class)testClass;
+- (id)doTestConstructorsWithclass:(Class)testClass;
+- (void)doTestFields:(id)refObject class:(Class)testClass;
+- (void)doTestExtensionMethods:(id)refObject class:(Class)testClass;
+- (void)doTestMethods:(id)refObject class:(Class)testClass;
+- (void)doTestProperties:(id)refObject class:(Class)testClass;
 @end
 
 @implementation Dubrovnik_Unit_Tests
@@ -160,14 +165,15 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
 }
 
-- (void)doTestReferenceClass:(Class)testClass
+- (id)doTestConstructorsWithclass:(Class)testClass
 {
+    
     //
     // default constructor
     //
     id refObject = [testClass new];
     STAssertNotNil(refObject, DBUObjectNotCreated);
-
+    
     // log the class
     [refObject logMonoClassInfo];
     
@@ -185,10 +191,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
     
-    //===================================
-    // fields
-    //===================================
-    
+    return refObject;
+}
+
+- (void)doTestFields:(id)refObject class:(Class)testClass
+{
+   
     //
     // class fields
     //
@@ -228,43 +236,66 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // int field
     int32_t intField = [refObject intField];
     STAssertTrue(intField == 1, DBUEqualityTestFailed);
-
+    
     // int setter
     intField = 10;
     [refObject setIntField:intField];
     STAssertTrue([refObject intField] == intField, DBUEqualityTestFailed);
+}
 
-    //===================================
-    // method
-    //===================================
+- (void)doTestExtensionMethods:(id)refObject class:(Class)testClass
+{
+    #pragma unused(testClass)
+    
+    //
+    // extension methods
+    //
+    if ([refObject respondsToSelector:@selector(extensionString)]) {
+        NSString *extensionString = [refObject extensionString];
+        STAssertNotNil(extensionString, DBUObjectIsNil);
+    }
+}
+
+- (void)doTestMethods:(id)refObject class:(Class)testClass
+{
+    
+#pragma unused(testClass)
     
     //
     // string methods + overloads
     //
     NSString *stringMethod = [refObject stringMethod];
     STAssertNotNil(stringMethod, DBUObjectIsNil);
-
-    NSString *stringMethod1 = [refObject stringMethod_withS1String:@"1"];
+    
+    NSString *stringMethod1 = [refObject stringMethod_withS1:@"1"];
     STAssertNotNil(stringMethod1, DBUObjectIsNil);
     
-    NSString *stringMethodWithInt = [refObject stringMethod_withNInt:100];
+    NSString *stringMethodWithInt = [refObject stringMethod_withN:100];
     STAssertTrue([stringMethodWithInt rangeOfString:@"100"].location != NSNotFound, DBUSubstringTestFailed);
     
+    // These two tests account for the overload situation where the managed method
+    // parameter names match. In this case additional type information is appended to
+    // the interleaved parameters to create a unique signature.
     NSString *stringMethod2 = [refObject stringMethod_withS1String:@"1" s2String:@"2"];
     STAssertNotNil(stringMethod2, DBUObjectIsNil);
-
+    
+    MonoString *monoString = mono_string_new(mono_domain_get(), "2");
+    DBMonoObjectRepresentation *stringObj = [DBMonoObjectRepresentation representationWithMonoObject:(MonoObject *)monoString];
+    NSString *stringMethod3 = [refObject stringMethod_withS1String:@"1" s2Object:stringObj];
+    STAssertNotNil(stringMethod3, DBUObjectIsNil);
+    
 #if DB_REFTYPE_BY_REFERENCE_SUPPORT == 1
     NSString *refString1 = @"Repeat me.";
     NSString *refString2 = refString1;
     [refObject stringMethodByRef:&refString2];
 #endif
-
+    
     //
     // date methods
     //
     NSDate *dateMethod = [refObject dateMethod_withD1:[NSDate date]];
     STAssertNotNil(dateMethod, DBUObjectIsNil);
-
+    
     //
     // mixed methods
     //
@@ -293,10 +324,15 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue(intDoubled == intToDouble, DBUEqualityTestFailed);
 #endif
     
-    //===================================
-    // properties
-    //===================================
-    
+    //
+    // static methods
+    //
+    NSString *classDescription = (NSString *)[refObject classDescription];
+    STAssertNotNil(classDescription, DBUObjectIsNil);
+}
+
+- (void)doTestProperties:(id)refObject class:(Class)testClass
+{
     //
     // string property
     //
@@ -307,7 +343,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     stringProperty = [stringProperty stringByAppendingString:@" : modified"];
     [refObject setStringProperty:stringProperty];
     STAssertTrue([[refObject stringProperty] isEqualToString:stringProperty], DBUEqualityTestFailed);
-
+    
     //
     // int32 property
     //
@@ -318,7 +354,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     int32 = 320;
     [refObject setInt32Number:int32];
     STAssertTrue([refObject int32Number] == int32, DBUEqualityTestFailed);
-
+    
     //
     // int64 property
     //
@@ -329,10 +365,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     int64 = 640;
     [refObject setInt64Number:int64];
     STAssertTrue([refObject int64Number] == int64, DBUEqualityTestFailed);
-
+    
     //
     // object property
-    // 
+    //
     id refObject2 = [[testClass alloc] init];
     STAssertNotNil(refObject2, DBUObjectNotCreated);
     
@@ -359,7 +395,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSTimeInterval tomorrowInterval = [dateTomorrow timeIntervalSinceReferenceDate];
     NSTimeInterval interval = fabs(futureInterval - tomorrowInterval);
     STAssertTrue(interval < 0.1, DBULessThanTestFailed);
-
+    
     if (_verbose) {
         NSLog(@"Now : %@", dateNow);
         NSLog(@"Future : %@", dateFuture);
@@ -371,7 +407,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     NSDecimalNumber *decimalNumber = [refObject decimalNumber];
     STAssertTrue(decimalNumber.doubleValue > 0.1, DBUGreaterThanTestFailed);
-
+    
     // setter
     NSDecimalNumber *newDecimalNumber = [NSDecimalNumber decimalNumberWithString:@"500.5005"];
     [refObject setDecimalNumber:newDecimalNumber];
@@ -387,7 +423,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     eDBUIntEnum intEnumeration = [refObject intEnumeration];
     STAssertTrue(intEnumeration == [DBUIntEnum val1], DBUEqualityTestFailed);
-
+    
     int64_t longEnumeration = [refObject longEnumeration];
     STAssertTrue(longEnumeration == eDBULongEnum_Val1, DBUEqualityTestFailed);
     
@@ -412,20 +448,31 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     } else {
         NSLog(@"minimalReferenceObject method not found");
     }
-    
-    //
-    // static methods
-    //
-    NSString *classDescription = (NSString *)[refObject classDescription];
-    STAssertNotNil(classDescription, DBUObjectIsNil);
 
-    //
-    // extension methods
-    //
-    if ([refObject respondsToSelector:@selector(extensionString)]) {
-        NSString *extensionString = [refObject extensionString];
-        STAssertNotNil(extensionString, DBUObjectIsNil);
-    }
+}
+
+- (void)doTestReferenceClass:(Class)testClass
+{
+    //===================================
+    // constructors
+    //===================================
+    id refObject = [self doTestConstructorsWithclass:testClass];
+ 
+    //===================================
+    // fields
+    //===================================
+    [self doTestFields:refObject class:testClass];
+    
+    //===================================
+    // methods
+    //===================================
+    [self doTestMethods:refObject class:testClass];
+    [self doTestExtensionMethods:refObject class:testClass];
+    
+    //===================================
+    // properties
+    //===================================
+    [self doTestProperties:refObject class:testClass];
     
     //
     // Managed struct handling
@@ -438,7 +485,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     NSString *refStructStringMethod = [refStruct stringMethod_withS1:@"ReferenceStruct"];
     STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);    
-    
     
     // log the class
     [refStruct logMonoClassInfo];

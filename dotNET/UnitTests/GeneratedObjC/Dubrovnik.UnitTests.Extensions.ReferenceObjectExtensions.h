@@ -27,6 +27,6 @@
 	// Managed method name : StaticString
 	// Managed return type : System.String
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)staticString_withTestDUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+    - (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 @end
 //--

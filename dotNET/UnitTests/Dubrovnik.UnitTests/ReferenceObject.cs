@@ -222,12 +222,20 @@ namespace Dubrovnik.UnitTests
 			return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
 		}
 
+        // test type overload 
         public string StringMethod(string s1, int n)
         {
             return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, n);
         }
 
+        // test type overload with matching parameter names
+        public string StringMethod(string s1, object s2)    
+        {
+            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2.ToString());
+        }
 
+
+        // test explicit interface access
         string IMinimalReferenceObject.StringMethod(string s1, int n)
         {
             return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, n);

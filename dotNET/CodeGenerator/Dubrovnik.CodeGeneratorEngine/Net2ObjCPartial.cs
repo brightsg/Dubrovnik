@@ -747,7 +747,7 @@ namespace Dubrovnik
             AssociateTypes(monoTA, objcTA);
 
             // System.Object
-            monoTA = new MonoTypeAssociation { MonoType = "System.Object" };
+            monoTA = new MonoTypeAssociation { MonoType = "System.Object", MonoTypeAlias = "object" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 

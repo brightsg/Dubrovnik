@@ -191,7 +191,7 @@
     
     return value;
 }
-- (NSString *)stringMethod_withS1String:(NSString *)p1
+- (NSString *)stringMethod_withS1:(NSString *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -199,7 +199,7 @@
     return value;
 }
 
-- (NSString *)stringMethod_withNInt:(int32_t)p1
+- (NSString *)stringMethod_withN:(int32_t)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, DB_VALUE(p1)];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -212,6 +212,13 @@
     
     return value;
 }
+
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
 - (NSString *)stringMethodByRef:(NSString **)p1
 {
     MonoObject *p1Value = [*p1 monoValue];

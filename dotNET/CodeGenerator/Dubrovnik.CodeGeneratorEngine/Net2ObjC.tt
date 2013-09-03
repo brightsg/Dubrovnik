@@ -358,9 +358,6 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	// create Obj-C representation of mono object
 	string monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
 	string objCValueToMono = ObjCValueToMono(ObjCVariableName, objCTypeDecl, facet);
-	if (facet.Type == "U") {
-    int i = 0;
-	}
 	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
 
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
@@ -588,10 +585,18 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// Mono parameter name + Mono parameter type + Ref
 		string objCParamName = ObjCNameFromMonoName(parameter.Name);
 
-		// If the method is overloaded by name then mkae th ObjC method
-		// name unique by including type info in the name
+		// If the method is overloaded by parameter then makes th ObjC method
+		// name unique by including type info in the name.
+		//
+		// Managed methods are overloaded by name only.
+		// The Obj-C metjods representation uses interleaved parameters which may
+		// be sufficient to produce a unique method signature.
+		//
+		// If however a managed method overload differs only in the type of its parameters 
+		// (the managed method name, parameter count and parameter names all being equal)
+		// then the Obj-C interleaved parameters will include type info.
 		string objCParamOverloadSuffix = "";
-		if (facet.IsOverloadedNameMethod && !facet.IsOverloadedSignatureMethod) {
+		if (facet.IsOverloadedParameterMethod) {
 			// We adopt a minimal as opposed to a full type repesentation here in order
 			// to minimize the parameter length.
 			// Time will tell how it flies.
@@ -607,19 +612,6 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// append the complete interleaved parameter expression
 		if (idx == 0) {
 			if (AppendFirstArgSignatureToMethodName) {
-
-				// If the method is signature overloaded then it differs from its overloaded siblings
-				// only by its return type.
-				if (facet.IsOverloadedSignatureMethod) {
-					string methodType = facet.Type;
-					//ObjCTypeAssociation objCMethodTypeAssociate = ObjCTypeAssociate(facet);
-					//if (objCMethodTypeAssociate != null) {
-					//	methodType = objCMethodTypeAssociate.ObjCName;
-                    //}
-					string objCMethodReturnMin = ObjCMinimalNameFromMonoName(methodType);
-					objCMethodName += "_returns" + objCMethodReturnMin.FirstCharacterToUpper() + "_";
-                }
-
 				// the leading underscore helps identify the preceding characters as the managed method name
 				objCMethodName += "_with";
 				objCParameterBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
