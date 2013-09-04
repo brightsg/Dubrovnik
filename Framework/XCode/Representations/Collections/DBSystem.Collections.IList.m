@@ -1,5 +1,5 @@
 //
-//  DBIList.m
+//  DBSystem.Collections.IList.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -24,13 +24,13 @@
 // review the following list wrapper:
 // https://github.com/richard-fine/mono/blob/MonoListWrapper/contrib/MonoListWrapper/MonoListWrapper.c
 
-#import "DBIList.h"
+#import "DBSystem.Collections.IList.h"
 #import "DBMonoEnvironment.h"
 
-@implementation DBIList
+@implementation DBSystem_Collections_IList
 
 + (id)listWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass {
-	DBIList *list = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
+	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
 	return([list autorelease]);
 }
 
@@ -85,7 +85,7 @@
 //.NET IList wrapperstuff
 //
 
-- (int32_t)count {
+- (uint32_t)count {
 	MonoObject *retval = [self getMonoProperty:"Count"];
 	return(DB_UNBOX_INT32(retval));
 }

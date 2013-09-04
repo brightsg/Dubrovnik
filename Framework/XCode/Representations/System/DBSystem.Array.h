@@ -1,7 +1,8 @@
 //
-//  DBIList.h
+//  DBSystem.Array.h
 //  Dubrovnik
 //
+//  Created by Allan Hsu on 4/13/06.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
@@ -25,43 +26,44 @@
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoIncludes.h"
 
-@interface DBIList : DBMonoObjectRepresentation {
+@interface DBSystem_Array : DBMonoObjectRepresentation {
 	@protected
 	Class _representationClass;
+	
+	uint32_t _arrayLength;
 }
 
-+ (id)listWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
++ (id)arrayWithMonoArray:(MonoArray *)monoArray withRepresentationClass:(Class)representationClass;
 
-- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
+- (id)initWithMonoArray:(MonoArray *)monoArray withRepresentationClass:(Class)representationClass;
 
-//Indexer Access
-- (MonoObject *)monoObjectAtIndex:(int)index;
-- (void)setMonoObject:(MonoObject *)monoObject forIndex:(int)index;
+- (uint32_t)count;
+- (MonoArray *)monoArray;
 
-//Wrapped Indexer Access
-- (id)objectAtIndex:(int)index;
-- (void)setObjectAtIndex:(int)index object:(DBMonoObjectRepresentation *)object;
+//Access
+- (MonoObject *)monoObjectAtIndex:(uint32_t)index;
+- (void)setMonoObject:(MonoObject *)monoObject forIndex:(uint32_t)index;
 
-//.NET IList wrapperstuff
-//properties
-- (int32_t)count;
+//Wrapped Access
+- (id)objectAtIndex:(uint32_t)index;
+- (void)setObjectAtIndex:(uint32_t)index object:(DBMonoObjectRepresentation *)object;
 
-//methods
-- (int)addMonoObject:(MonoObject *)monoObject;
-- (void)clear;
-- (BOOL)containsMonoObject:(MonoObject *)monoObject;
-- (int)indexOfMonoObject:(MonoObject *)monoObject;
-- (void)insertMonoObject:(MonoObject *)monoObject atIndex:(int)index;
-- (void)removeMonoObject:(MonoObject *)monoObject;
-- (void)removeAtIndex:(int32_t)index;
+//
+// Numeric convenience accessors
+//
+- (float)floatAtIndex:(int)index;
+- (double)doubleAtIndex:(int)index;
 
-//convenience methods
 - (int64_t)int64AtIndex:(int)index;
 - (void)setInt64AtIndex:(int)index value:(int64_t)value;
-- (int32_t)int32AtIndex:(int)index;
-- (void)setInt32AtIndex:(int)index value:(int32_t)value;
 
-- (NSMutableArray *)mutableArray;
-- (NSArray *)array;
+- (int32_t)int32AtIndex:(int)index;
+- (int16_t)int16AtIndex:(int)index;
+- (int8_t)int8AtIndex:(int)index;
+- (uint64_t)uint64AtIndex:(int)index;
+- (uint32_t)uint32AtIndex:(int)index;
+- (uint16_t)uint16AtIndex:(int)index;
+- (uint8_t)uint8AtIndex:(int)index;
+- (BOOL)boolAtIndex:(int)index;
 
 @end

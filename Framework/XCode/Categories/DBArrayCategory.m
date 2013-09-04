@@ -23,8 +23,8 @@
 
 @implementation NSArray (Dubrovnik)
 
-- (DBArrayList *)arrayList {
-	DBArrayList *monoArrayList = [[[DBArrayList alloc] init] autorelease];
+- (DBSystem_Collections_ArrayList *)arrayList {
+	DBSystem_Collections_ArrayList *monoArrayList = [[[DBSystem_Collections_ArrayList alloc] init] autorelease];
 	NSEnumerator *enumerator = [self objectEnumerator];
 	id object = nil;
 	

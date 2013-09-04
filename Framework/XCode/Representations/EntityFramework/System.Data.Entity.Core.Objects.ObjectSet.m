@@ -15,7 +15,7 @@
 @implementation System_Data_Entity_Core_Objects_ObjectSet
 
 
-- (DBIList *)list
+- (DBSystem_Collections_IList *)list
 {
     // ToList is an extension method defined as a static method on System.Linq.Enumerable
     // public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
@@ -31,7 +31,7 @@
     MonoObject *monoObject = [self invokeMethodRepresentation:methodRep withNumArgs:1, mo];
     
     // wrap the list
-    DBIList *list = [DBIList listWithMonoObject:monoObject withRepresentationClass:self.monoPrimaryGenericTypeArgument];
+    DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoObject withRepresentationClass:self.monoPrimaryGenericTypeArgument];
     return list;
 }
 

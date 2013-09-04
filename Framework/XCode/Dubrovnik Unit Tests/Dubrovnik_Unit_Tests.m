@@ -10,7 +10,7 @@
 #import "DBUReferenceObject.h"
 
 // toggle 0-1
-#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 0
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 #define DB_REFTYPE_BY_REFERENCE_SUPPORT 0
 
@@ -27,6 +27,7 @@ NSString *DBUEqualityTestFailed = @"Equality test failed";
 NSString *DBULessThanTestFailed = @"Less than test failed";
 NSString *DBUGreaterThanTestFailed = @"Greater than test failed";
 NSString *DBUSubstringTestFailed = @"Substring not found";
+NSString *DBUCountTestFailed = @"Count test failed";
 
 static BOOL _setup = NO;
 
@@ -39,6 +40,8 @@ static BOOL _setup = NO;
 - (void)doTestProperties:(id)refObject class:(Class)testClass;
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass;
 - (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass;
+- (void)doTestArrayRepresentation:(id)refObject class:(Class)testClass;
+- (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass;
 @end
 
 @implementation Dubrovnik_Unit_Tests
@@ -333,6 +336,119 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil(classDescription, DBUObjectIsNil);
 }
 
+- (void)doTestArrayRepresentation:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    // string array
+    DBSystem_Array *stringArray = [refObject stringArray];
+    STAssertTrue([stringArray count] == 3, DBUCountTestFailed);
+    
+    NSMutableString *ms = [NSMutableString new];
+    for (uint32_t i = 0; i < [stringArray count]; i++) {
+        NSString * s = [stringArray objectAtIndex:i];
+        [ms appendFormat:@"%@ ", s];
+    }
+    STAssertTrue([ms rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    [ms release];
+    
+    // int64 array
+    DBSystem_Array *int64Array = [refObject int64Array];
+    STAssertTrue([int64Array count] == 10, DBUCountTestFailed);
+    
+    int64_t n = 0;
+    for (uint32_t i = 0; i < [int64Array count]; i++) {
+        n += [int64Array int64AtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+
+    // mutate the property array
+    [int64Array setInt64AtIndex:[int64Array count] - 1 value:1];
+    [refObject setInt64Array:int64Array];   // set
+    int64Array = [refObject int64Array];    // get
+    STAssertTrue([int64Array count] == 10, DBUCountTestFailed);
+    n = 0;
+    for (uint32_t i = 0; i < [int64Array count]; i++) {
+        n += [int64Array int64AtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 1, DBUEqualityTestFailed);
+    
+    // derive 64 bit mono array from NSArray
+    /*NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @128L];
+    int64Array = [[int64NSArray monoArray];
+    STAssertTrue([int64Array count] == 10, DBUCountTestFailed)];
+    n = 0;
+    for (uint32_t i = 0; i < [int64Array count]; i++) {
+      n += [int64Array int64AtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 128, DBUEqualityTestFailed);
+        */
+    
+    // int32 array
+    DBSystem_Array *int32Array = [refObject int32Array];
+    STAssertTrue([int32Array count] == 10, DBUCountTestFailed);
+    
+    n = 0;
+    for (uint32_t i = 0; i < [int32Array count]; i++) {
+        n += [int32Array int32AtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+
+    // int16 array
+    DBSystem_Array *int16Array = [refObject int16Array];
+    STAssertTrue([int16Array count] == 10, DBUCountTestFailed);
+    
+    n = 0;
+    for (uint32_t i = 0; i < [int16Array count]; i++) {
+        n += [int16Array int16AtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+ 
+    // float array
+    DBSystem_Array *floatArray = [refObject floatArray];
+    STAssertTrue([floatArray count] == 10, DBUCountTestFailed);
+    
+    float f = 0;
+    for (uint32_t i = 0; i < [floatArray count]; i++) {
+        f += [floatArray floatAtIndex:i];
+    }
+    STAssertTrue(f == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+
+    // double array
+    DBSystem_Array *doubleArray = [refObject doubleArray];
+    STAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
+    
+    double d = 0;
+    for (uint32_t i = 0; i < [doubleArray count]; i++) {
+        d += [doubleArray doubleAtIndex:i];
+    }
+    STAssertTrue(d == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    
+    // bool array
+    DBSystem_Array *boolArray = [refObject boolArray];
+    STAssertTrue([boolArray count] == 10, DBUCountTestFailed);
+    
+    for (uint32_t i = 0; i < [boolArray count]; i++) {
+        bool b = [boolArray boolAtIndex:i];
+        STAssertTrue(b == (i % 2 == 0 ? YES : NO), DBUEqualityTestFailed);
+    }
+}
+
+- (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    // string array list
+    DBSystem_Collections_ArrayList *stringArrayList = [refObject stringArrayList];
+    STAssertTrue([stringArrayList count] == 3, DBUCountTestFailed);
+    
+    NSMutableString *ms = [NSMutableString new];
+    for (uint32_t i = 0; i < [stringArrayList count]; i++) {
+        NSString * s = [stringArrayList objectAtIndex:i];
+        [ms appendFormat:@"%@ ", s];
+    }
+    STAssertTrue([ms rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+}
+
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
 {
     
@@ -509,7 +625,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //===================================
     [self doTestStructRepresentation:refObject class:testClass];
     [self doTestInterfaceRepresentation:refObject class:testClass];
-    
+    [self doTestArrayRepresentation:refObject class:testClass];
+    [self doTestArrayListRepresentation:refObject class:testClass];
 }
 
 #pragma mark -

@@ -751,6 +751,8 @@ namespace Dubrovnik
             objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
+            object s;
+
             // System.String
             monoTA = new MonoTypeAssociation { MonoType = "System.String", MonoTypeAlias = "string" };
             objcTA = new ObjCTypeAssociation { ObjCType = "NSString", GetterFormat = "[NSString stringWithMonoString:DB_STRING({0})]" };

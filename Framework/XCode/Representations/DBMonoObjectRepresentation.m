@@ -23,7 +23,7 @@
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoClassRepresentation.h"
 
-#import "DBConvert.h"
+#import "DBSystem.Convert.h"
 #import "DBStringCategory.h"
 
 @interface DBMonoObjectRepresentation()
@@ -417,35 +417,35 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark System.IConvertible convenience
 
 - (int8_t)int8Value {
-	return([DBConvert convertMonoObjectToInt8:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt8:_monoObj]);
 }
 
 - (int16_t)int16Value {
-	return([DBConvert convertMonoObjectToInt16:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt16:_monoObj]);
 }
 
 - (int32_t)int32Value {
-	return([DBConvert convertMonoObjectToInt32:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt32:_monoObj]);
 }
 
 - (int64_t)int64Value {
-	return([DBConvert convertMonoObjectToInt64:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt64:_monoObj]);
 }
 
 - (uint8_t)unsigned8Value {
-	return([DBConvert convertMonoObjectToUInt8:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt8:_monoObj]);
 }
 
 - (uint16_t)unsigned16Value {
-	return([DBConvert convertMonoObjectToUInt16:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt16:_monoObj]);
 }
 
 - (uint32_t)unsigned32Value {
-	return([DBConvert convertMonoObjectToUInt32:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt32:_monoObj]);
 }
 
 - (uint64_t)unsigned64Value {
-	return([DBConvert convertMonoObjectToUInt64:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt64:_monoObj]);
 }
 
 #pragma mark -

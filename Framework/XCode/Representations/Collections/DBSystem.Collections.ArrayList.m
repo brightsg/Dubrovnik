@@ -1,5 +1,5 @@
 //
-//  DBArrayList.m
+//  DBSystem.Collections.ArrayList.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,12 +20,12 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBArrayList.h"
+#import "DBSystem.Collections.ArrayList.h"
 #import "DBMonoEnvironment.h"
 
 static MonoClass *_monoClass = NULL;
 
-@implementation DBArrayList
+@implementation DBSystem_Collections_ArrayList
 
 + (MonoClass *)monoClass {
 	if(_monoClass == NULL)

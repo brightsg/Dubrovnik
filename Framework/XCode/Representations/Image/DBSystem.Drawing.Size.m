@@ -1,6 +1,6 @@
 
 //  Dubrovnik
-//  DBSize.m
+//  DBSystem.Drawing.Size.m
 //  Created by Dustin Mierau on 2/27/06.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
@@ -20,20 +20,20 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBSize.h"
+#import "DBSystem.Drawing.Size.h"
 #import "DBMonoEnvironment.h"
 #import "DBCategories.h"
 
-@implementation DBSize
+@implementation DBSystem_Drawing_Size
 
-+ (DBSize *)sizeWithMonoObject:(MonoObject *)monoObject {
-	DBSize *size = [[[self class] alloc] initWithMonoObject:monoObject];
++ (DBSystem_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject {
+	DBSystem_Drawing_Size *size = [[[self class] alloc] initWithMonoObject:monoObject];
 	
 	return([size autorelease]);
 }
 
 + (NSSize)convertToNSSize:(MonoObject *)monoObject {
-	DBSize *monoSize = [[DBSize alloc] initWithMonoObject:monoObject];
+	DBSystem_Drawing_Size *monoSize = [[DBSystem_Drawing_Size alloc] initWithMonoObject:monoObject];
 	NSSize size = NSMakeSize((float)[monoSize width],(float)[monoSize height]);
 	
 	[monoSize release];

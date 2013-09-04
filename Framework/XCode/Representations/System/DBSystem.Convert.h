@@ -1,5 +1,5 @@
 //
-//  DBConvert.h
+//  DBSystem.Convert.h
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 7/28/06.
@@ -25,7 +25,7 @@
 #import "DBMonoIncludes.h"
 #import "DBMonoObjectRepresentation.h"
 
-@interface DBConvert : NSObject {
+@interface DBSystem_Convert : NSObject {
 
 }
 

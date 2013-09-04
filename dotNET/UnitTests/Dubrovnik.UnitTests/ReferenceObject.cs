@@ -4,6 +4,7 @@
 using System;
 using System.Text;
 using Dubrovnik.UnitTests;
+using System.Collections;
 using System.Collections.Generic;
 
 // all default string values must include the following unit test : Dubrovnik
@@ -79,7 +80,20 @@ namespace Dubrovnik.UnitTests
 			IntEnumeration = IntEnum.val1;
 			LongEnumeration = LongEnum.val1;
 
-			// Initialize statics
+            // initialize arrays
+            Int64Array = new Int64[] {0, 1, 2, 4, 8, 16, 32, 64, 128, 256}; // 10 items
+            Int32Array = new Int32[] { 0, 1, 2, 4, 8, 16, 32, 64, 128, 256 }; // 10 items
+            Int16Array = new Int16[] { 0, 1, 2, 4, 8, 16, 32, 64, 128, 256 }; // 10 items
+            BoolArray = new bool[] { true, false, true, false, true, false, true, false, true, false }; // 10 itesm
+            DoubleArray = new double[] { 0, 1, 2, 4, 8, 16, 32, 64, 128, 256 }; // 10 items
+            FloatArray = new float[] { 0, 1, 2, 4, 8, 16, 32, 64, 128, 256 }; // 10 items
+
+            StringArray = new string[] {"Dubrovnik.UnitTests", "string", "array"};
+            StringArrayList = new ArrayList { "Dubrovnik.UnitTests", "string", "array" };
+
+            // initialize lists
+
+            // Initialize statics
 			ClassProperty = "Dubrovnik.UnitTests static property";
 			ClassStringField = "Dubrovnik.UnitTests static field";
 
@@ -109,6 +123,8 @@ namespace Dubrovnik.UnitTests
 		//==============================
 		// properties
 		//==============================
+
+        // object properties
         public string StringProperty
 		{ 
 			get; 
@@ -121,6 +137,7 @@ namespace Dubrovnik.UnitTests
 			set;
 		}
 
+        // value type properties
 		public DateTime Date {
 			get { return _date; }
 			set { 
@@ -131,11 +148,7 @@ namespace Dubrovnik.UnitTests
 			}
 		}
 
-		public Decimal DecimalNumber {
-			get;
-			set;
-		}
-
+        // numeric properties
 		public int IntNumber {
 			get;
 			set;
@@ -154,6 +167,13 @@ namespace Dubrovnik.UnitTests
 			get;
 			set;
 		}
+
+        public Decimal DecimalNumber
+        {
+            get;
+            set;
+        }
+
 /*
 		public Int32? Int32NullableNumber {
 			get;
@@ -175,7 +195,7 @@ namespace Dubrovnik.UnitTests
 			}
 		}
 
-        public IMinimalReferenceObject minimalReferenceObject
+        public IMinimalReferenceObject MinimalReferenceObject
         {
             get
             {
@@ -186,6 +206,18 @@ namespace Dubrovnik.UnitTests
         // enumeration properties
 		public IntEnum IntEnumeration { get; set; }
 		public LongEnum LongEnumeration { get; set; }
+
+        // array properties
+        public double[] DoubleArray { get; set; }
+        public float[] FloatArray { get; set; }
+        public Int64[] Int64Array { get; set; }
+        public Int32[] Int32Array { get; set; }
+        public Int16[] Int16Array { get; set; }
+        public bool[] BoolArray { get; set; }
+        public string[] StringArray { get; set; }
+
+        // arraylist properties
+        public ArrayList StringArrayList { get; set; }
 
         // generic properties
         public List<string> StringList { get; set; }

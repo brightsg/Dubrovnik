@@ -12,7 +12,7 @@
 {
 }
 
-- (DBIList *)list;
+- (DBSystem_Collections_IList *)list;
 - (void)addObject:(DBMonoObjectRepresentation *)object;
 
 - (NSMutableArray *)mutableArray;

@@ -1,5 +1,5 @@
 //
-//  DBEnum.m
+//  DBSystem.Enum.h
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 7/28/06.
@@ -20,18 +20,18 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBEnum.h"
+#import "DBSystem.Enum.h"
 
 #import "DBMonoClassRepresentation.h"
 #import "DBMonoEnvironment.h"
 
 static DBMonoClassRepresentation *_classRep = nil;
 
-@interface DBEnum()
+@interface DBSystem_Enum()
 + (DBMonoClassRepresentation *)classRep;
 @end
 
-@implementation DBEnum
+@implementation DBSystem_Enum
 
 + (void)initialize {
     // Do not perform any mono initialization here as this method may be called

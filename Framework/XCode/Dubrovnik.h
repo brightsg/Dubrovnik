@@ -32,9 +32,9 @@
 // representaation subclasses
 
 // System
-#import "DBArray.h"
-#import "DBConvert.h"
-#import "DBEnum.h"
+#import "DBSystem.Array.h"
+#import "DBSystem.Convert.h"
+#import "DBSystem.Enum.h"
 #import "System.Nullable.h"
 #import "System.Exception.h"
 #import "System.Func.h"
@@ -51,19 +51,19 @@
 #import "System.Text.Encoding.h"
 
 // System.IO
-#import "DBFileInfo.h"
+#import "DBSystem.IO.FileInfo.h"
 #import "System.IO.StringWriter.h"
 
 // System.Collections
-#import "DBIList.h"
-#import "DBArrayList.h"
+#import "DBSystem.Collections.IList.h"
+#import "DBSystem.Collections.ArrayList.h"
 #import "System.Collections.Generic.Dictionary.h"
 #import "System.Collections.Generic.IEnumerable.h"
 #import "System.Collections.Generic.List.h"
 #import "System.Collections.IEnumerable.h"
 
 // System.Drawing
-#import "DBSize.h"
+#import "DBSystem.Drawing.Size.h"
 
 // System.Data.Entity
 #import "System.Data.Entity.Core.Objects.ObjectSet.h"

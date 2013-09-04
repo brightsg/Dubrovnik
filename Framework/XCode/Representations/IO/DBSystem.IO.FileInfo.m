@@ -1,5 +1,5 @@
 //
-//  DBFileInfo.m
+//  DBSystem.IO.FileInfo.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,14 +20,14 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBFileInfo.h"
+#import "DBSystem.IO.FileInfo.h"
 
 #import "DBCategories.h"
 #import "DBMonoEnvironment.h"
 
 static MonoClass *_monoClass = NULL;
 
-@implementation DBFileInfo
+@implementation DBSystem_IO_FileInfo
 
 + (MonoClass *)monoClass {
 	if(_monoClass == NULL)
@@ -39,19 +39,19 @@ static MonoClass *_monoClass = NULL;
 #pragma mark -
 
 + (id)fileInfoWithMonoObject:(MonoObject *)monoObject {
-	DBFileInfo *fileInfo = [[DBFileInfo alloc] initWithMonoObject:monoObject];
+	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithMonoObject:monoObject];
 	
 	return([fileInfo autorelease]);
 }
 
 + (id)fileInfoWithURL:(NSURL *)url {
-	DBFileInfo *fileInfo = [[DBFileInfo alloc] initWithURL:url];
+	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithURL:url];
 	
 	return([fileInfo autorelease]);
 }
 
 + (id)fileInfoWithPath:(NSString *)path {
-	DBFileInfo *fileInfo = [[DBFileInfo alloc] initWithPath:path];
+	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithPath:path];
 	
 	return([fileInfo autorelease]);
 }

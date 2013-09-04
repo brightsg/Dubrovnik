@@ -183,9 +183,62 @@
 
 - (DBUIReferenceObject *)minimalReferenceObject
 {
-    MonoObject * monoObject = [self getMonoProperty:"minimalReferenceObject"];
+    MonoObject * monoObject = [self getMonoProperty:"MinimalReferenceObject"];
     DBUIReferenceObject * result = [DBUIReferenceObject representationWithMonoObject:monoObject];
     return result;
+}
+
+#pragma mark -
+#pragma mark Mono array properties
+
+- (DBSystem_Array *)int64Array
+{
+    MonoObject * monoObject = [self getMonoProperty:"Int64Array"];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+}
+- (void)setInt64Array:(DBSystem_Array *)array
+{
+   [self setMonoProperty:"Int64Array" valueObject:[array monoObject]];
+}
+
+- (DBSystem_Array *)int32Array
+{
+    MonoObject * monoObject = [self getMonoProperty:"Int32Array"];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+}
+- (DBSystem_Array *)int16Array
+{
+    MonoObject * monoObject = [self getMonoProperty:"Int16Array"];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+}
+- (DBSystem_Array *)floatArray
+{
+    MonoObject * monoObject = [self getMonoProperty:"FloatArray"];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+}
+- (DBSystem_Array *)doubleArray
+{
+    MonoObject * monoObject = [self getMonoProperty:"DoubleArray"];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+}
+- (DBSystem_Array *)boolArray
+{
+    MonoObject * monoObject = [self getMonoProperty:"BoolArray"];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+}
+- (DBSystem_Array *)stringArray
+{
+    MonoObject * monoObject = [self getMonoProperty:"StringArray"];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[NSString class]];
+}
+
+#pragma mark -
+#pragma mark Mono array list properties
+
+- (DBSystem_Collections_ArrayList *)stringArrayList
+{
+    MonoObject * monoObject = [self getMonoProperty:"StringArrayList"];
+    return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject withRepresentationClass:[NSString class]];
 }
 
 #pragma mark -

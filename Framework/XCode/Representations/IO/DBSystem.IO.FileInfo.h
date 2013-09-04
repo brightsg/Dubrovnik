@@ -1,5 +1,5 @@
 //
-//  DBFileInfo.h
+//  DBSystem.IO.FileInfo.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -25,7 +25,7 @@
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoIncludes.h"
 
-@interface DBFileInfo : DBMonoObjectRepresentation {
+@interface DBSystem_IO_FileInfo : DBMonoObjectRepresentation {
 
 }
 

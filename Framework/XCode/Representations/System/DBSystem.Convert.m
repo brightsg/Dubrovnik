@@ -1,5 +1,5 @@
 //
-//  DBConvert.m
+//  DBSystem.Convert.m
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 7/28/06.
@@ -20,18 +20,18 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBConvert.h"
+#import "DBSystem.Convert.h"
 
 #import "DBMonoClassRepresentation.h"
 #import "DBMonoEnvironment.h"
 
 static DBMonoClassRepresentation *_classRep = nil;
 
-@interface DBConvert()
+@interface DBSystem_Convert()
 + (DBMonoClassRepresentation *)classRep;
 @end
 
-@implementation DBConvert
+@implementation DBSystem_Convert
 
 + (void)initialize {
     // Do not perform any mono initialization here as this method may be called

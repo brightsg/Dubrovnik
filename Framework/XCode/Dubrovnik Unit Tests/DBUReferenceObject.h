@@ -129,6 +129,17 @@
 - (eDBULongEnum)longEnumeration;
 - (void)setLongEnumeration:(eDBULongEnum)value;
 
+// array properties
+- (DBSystem_Array *)stringArray;
+- (DBSystem_Array *)int64Array;
+- (void)setInt64Array:(DBSystem_Array *)array;
+- (DBSystem_Array *)int32Array;
+- (DBSystem_Array *)int16Array;
+- (DBSystem_Array *)floatArray;
+- (DBSystem_Array *)doubleArray;
+- (DBSystem_Array *)boolArray;
+- (DBSystem_Collections_ArrayList *)stringArrayList;
+
 // managed interface property
 - (DBUIReferenceObject *)minimalReferenceObject;
 

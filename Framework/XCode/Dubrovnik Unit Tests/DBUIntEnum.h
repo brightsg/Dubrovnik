@@ -10,7 +10,7 @@
 
 typedef int32_t eDBUIntEnum;
 
-@interface DBUIntEnum : DBEnum
+@interface DBUIntEnum : DBSystem_Enum
 
 + (eDBUIntEnum)val1;
 + (eDBUIntEnum)val2;
