@@ -24,7 +24,12 @@
 
 #import "DBMonoIncludes.h"
 
+// Environment
 #import "DBMonoEnvironment.h"
+#import "DBType.h"
+#import "DBTypeManager.h"
+
+// Mono representation
 #import "DBMonoClassRepresentation.h"
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoMethodRepresentation.h"

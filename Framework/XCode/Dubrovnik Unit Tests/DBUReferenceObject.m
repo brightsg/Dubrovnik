@@ -206,21 +206,37 @@
     MonoObject * monoObject = [self getMonoProperty:"Int32Array"];
     return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
 }
+- (void)setInt32Array:(DBSystem_Array *)array
+{
+    [self setMonoProperty:"Int32Array" valueObject:[array monoObject]];
+}
+
 - (DBSystem_Array *)int16Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int16Array"];
     return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
 }
+
 - (DBSystem_Array *)floatArray
 {
     MonoObject * monoObject = [self getMonoProperty:"FloatArray"];
     return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
 }
+- (void)setFloatArray:(DBSystem_Array *)array
+{
+    [self setMonoProperty:"FloatArray" valueObject:[array monoObject]];
+}
+
 - (DBSystem_Array *)doubleArray
 {
     MonoObject * monoObject = [self getMonoProperty:"DoubleArray"];
     return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
 }
+- (void)setDoubleArray:(DBSystem_Array *)array
+{
+    [self setMonoProperty:"DoubleArray" valueObject:[array monoObject]];
+}
+
 - (DBSystem_Array *)boolArray
 {
     MonoObject * monoObject = [self getMonoProperty:"BoolArray"];
@@ -230,6 +246,10 @@
 {
     MonoObject * monoObject = [self getMonoProperty:"StringArray"];
     return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withRepresentationClass:[NSString class]];
+}
+- (void)setStringArray:(DBSystem_Array *)array
+{
+    [self setMonoProperty:"StringArray" valueObject:[array monoObject]];
 }
 
 #pragma mark -

@@ -146,7 +146,7 @@
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
-    for (NSInteger i = 0; i < [self count]; i++) {
+    for (uint32_t i = 0; i < [self count]; i++) {
         id object = [self objectAtIndex:i];
         [array addObject:object];
     }

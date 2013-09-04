@@ -64,4 +64,10 @@
 {
     return (MonoObject *)[self monoString];
 }
+
+- (MonoObject *)monoObject
+{
+    return [self monoValue];
+}
+
 @end

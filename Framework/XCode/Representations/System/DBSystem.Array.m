@@ -23,7 +23,31 @@
 
 #import "DBSystem.Array.h"
 
+
 @implementation DBSystem_Array
+
++ (MonoArray *)monoArrayWithTypeName:(NSString *)name length:(uintptr_t)length
+{
+    DBType *type = [[DBTypeManager sharedManager] typeWithName:name];
+	MonoArray *monoArray = nil;
+    if (type) {
+        monoArray = [self monoArrayWithType:type length:length];
+    };
+    
+    return monoArray;
+}
+
++ (MonoArray *)monoArrayWithType:(DBType *)type length:(uintptr_t)length
+{
+	MonoArray *monoArray = [self monoArrayWithMonoClass:type.monoClass length:length];
+    
+    return monoArray;
+}
+
++ (MonoArray *)monoArrayWithMonoClass:(MonoClass *)klass length:(uintptr_t)length
+{
+    return mono_array_new(mono_domain_get(), klass, length);
+}
 
 + (id)arrayWithMonoArray:(MonoArray *)monoArray withRepresentationClass:(Class)representationClass {
 	DBSystem_Array *dbArray = [[self alloc] initWithMonoArray:monoArray withRepresentationClass:representationClass];
@@ -88,14 +112,28 @@
 #pragma mark -
 #pragma mark Numeric convenience accessors
 
+//
+// float
+//
 - (float)floatAtIndex:(int)index
 {
 	return mono_array_get([self monoArray], float, index);
 }
+- (void)setFloatAtIndex:(int)index value:(float)value
+{
+	mono_array_set([self monoArray], float, index, value);
+}
 
+//
+// double
+//
 - (double)doubleAtIndex:(int)index
 {
 	return mono_array_get([self monoArray], double, index);
+}
+- (void)setDoubleAtIndex:(int)index value:(double)value
+{
+	mono_array_set([self monoArray], double, index, value);
 }
 
 //
@@ -110,44 +148,100 @@
 	mono_array_set([self monoArray], int64_t, index, value);
 }
 
+//
+// 32 bit int
+//
 - (int32_t)int32AtIndex:(int)index
 {
 	return mono_array_get([self monoArray], int32_t, index);
 }
+- (void)setInt32AtIndex:(int)index value:(int32_t)value
+{
+	mono_array_set([self monoArray], int32_t, index, value);
+}
 
+//
+// 16 bit int
+//
 - (int16_t)int16AtIndex:(int)index
 {
 	return mono_array_get([self monoArray], int16_t, index);
 }
+- (void)setInt16AtIndex:(int)index value:(int16_t)value
+{
+	mono_array_set([self monoArray], int16_t, index, value);
+}
 
+//
+// 8 bit int
+//
 - (int8_t)int8AtIndex:(int)index
 {
 	return mono_array_get([self monoArray], int8_t, index);
 }
+- (void)setInt8AtIndex:(int)index value:(int8_t)value
+{
+	mono_array_set([self monoArray], int8_t, index, value);
+}
 
+//
+// 64 bit uint
+//
 - (uint64_t)uint64AtIndex:(int)index
 {
 	return mono_array_get([self monoArray], uint64_t, index);
 }
+- (void)setUint64AtIndex:(int)index value:(uint64_t)value
+{
+	mono_array_set([self monoArray], uint64_t, index, value);
+}
 
+//
+// 32 bit uint
+//
 - (uint32_t)uint32AtIndex:(int)index
 {
 	return mono_array_get([self monoArray], uint32_t, index);
 }
+- (void)setUint32AtIndex:(int)index value:(uint32_t)value
+{
+	mono_array_set([self monoArray], uint32_t, index, value);
+}
 
+//
+// 16 bit uint
+//
 - (uint16_t)uint16AtIndex:(int)index
 {
 	return mono_array_get([self monoArray], uint16_t, index);
 }
+- (void)setUint16AtIndex:(int)index value:(uint16_t)value
+{
+	mono_array_set([self monoArray], uint16_t, index, value);
+}
 
+//
+// 8 bit uint
+//
 - (uint8_t)uint8AtIndex:(int)index
 {
 	return mono_array_get([self monoArray], uint8_t, index);
 }
+- (void)setUint8AtIndex:(int)index value:(uint8_t)value
+{
+	mono_array_set([self monoArray], uint8_t, index, value);
+}
 
+//
+// bool
+//
 - (BOOL)boolAtIndex:(int)index
 {
 	return mono_array_get([self monoArray], BOOL, index);
+}
+- (void)setBoolAtIndex:(int)index value:(BOOL)value
+{
+	mono_array_set([self monoArray], BOOL, index, value);
 }
 
 @end

@@ -31,5 +31,6 @@
 
 - (MonoString *)monoString;
 - (MonoObject *)monoValue;
+- (MonoObject *)monoObject;
 
 @end

@@ -23,7 +23,8 @@
 
 @implementation NSArray (Dubrovnik)
 
-- (DBSystem_Collections_ArrayList *)arrayList {
+- (DBSystem_Collections_ArrayList *)dbscArrayList
+{
 	DBSystem_Collections_ArrayList *monoArrayList = [[[DBSystem_Collections_ArrayList alloc] init] autorelease];
 	NSEnumerator *enumerator = [self objectEnumerator];
 	id object = nil;
@@ -40,6 +41,106 @@
 	}
 	
 	return(monoArrayList);
+}
+
+- (DBSystem_Array *)dbsArrayWithTypeName:(NSString *)name
+{
+    // get the type
+    DBType *type = [[DBTypeManager sharedManager] typeWithName:name];
+    if (!type) return nil;
+    
+    // create a suitable MonoArray instance
+    MonoArray *monoArray = [DBSystem_Array monoArrayWithType:type length:[self count]];
+    DBSystem_Array *dbsArray  = nil;
+    
+    if (monoArray && [self count] > 0) {
+        
+        Class klass = NULL;
+        switch (type.typeID) {
+                
+            // we assume that all elements are of the same class
+            case DBTypeID_System_Object:
+            case DBTypeID_System_String:
+            case DBTypeID_System_Array:
+                klass = [[self objectAtIndex:0] class];
+                break;
+        }
+        
+        // create System.Array
+        dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray withRepresentationClass:klass];
+        
+        // copy items to system array
+        for (NSUInteger i = 0; i < [self count]; i++) {
+            id item = [self objectAtIndex:i];
+            
+            switch (type.typeID) {
+                    
+                case DBTypeID_System_Object:
+                case DBTypeID_System_String:
+                case DBTypeID_System_Array:
+                    [dbsArray setMonoObject:[item monoObject] forIndex:i];
+                    break;
+                    
+                case DBTypeID_System_Byte:
+                    [dbsArray setInt8AtIndex:i value:[item charValue]];
+                    break;
+
+                case DBTypeID_System_Boolean:
+                    [dbsArray setBoolAtIndex:i value:[item boolValue]];
+                    break;
+
+                case DBTypeID_System_SByte:
+                    [dbsArray setUint8AtIndex:i value:[item unsignedCharValue]];
+                    break;
+
+                case DBTypeID_System_Int16:
+                    [dbsArray setInt16AtIndex:i value:[item shortValue]];
+                    break;
+
+                case DBTypeID_System_UInt16:
+                    [dbsArray setUint16AtIndex:i value:[item unsignedShortValue]];
+                    break;
+
+                case DBTypeID_System_Int32:
+                    [dbsArray setInt32AtIndex:i value:[item intValue]];
+                    break;
+
+                case DBTypeID_System_UInt32:
+                    [dbsArray setUint32AtIndex:i value:[item unsignedLongValue]];
+                    break;
+
+                case DBTypeID_System_Int64:
+                    [dbsArray setInt64AtIndex:i value:[item longValue]];
+                    break;
+
+                case DBTypeID_System_UInt64:
+                    [dbsArray setUint64AtIndex:i value:[item unsignedLongValue]];
+                    break;
+
+                case DBTypeID_System_Single:
+                    [dbsArray setFloatAtIndex:i value:[item floatValue]];
+                    break;
+
+                case DBTypeID_System_Double:
+                    [dbsArray setDoubleAtIndex:i value:[item doubleValue]];
+                    break;
+
+                case DBTypeID_System_Void:
+                case DBTypeID_System_Char:
+                case DBTypeID_System_Enum:
+                case DBTypeID_System_Thread:
+                case DBTypeID_System_Exception:
+                case DBTypeID_System_IntPtr:
+                case DBTypeID_System_UIntPtr:
+                    [NSException raise:@"Not implemented" format:@"This feature is not yet implemented."];
+                    break;
+
+             }
+        }
+        
+    }
+    
+    return dbsArray;
 }
 
 @end

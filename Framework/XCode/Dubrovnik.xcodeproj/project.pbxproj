@@ -72,6 +72,10 @@
 		AB49E449178B2F1000D01244 /* DBEntityCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E447178B2F0F00D01244 /* DBEntityCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E448178B2F1000D01244 /* DBEntityCollection.m */; };
 		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
+		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; };
+		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
+		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; };
+		AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C617D7B380007214E1 /* DBTypeManager.m */; };
 		AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
@@ -223,6 +227,10 @@
 		AB49E448178B2F1000D01244 /* DBEntityCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityCollection.m; path = EntityFramework/DBEntityCollection.m; sourceTree = "<group>"; };
 		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB588DC4178308000000AAC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AB81D5C117D7B1B6007214E1 /* DBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBType.h; path = "Mono Environment/DBType.h"; sourceTree = "<group>"; };
+		AB81D5C217D7B1B6007214E1 /* DBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBType.m; path = "Mono Environment/DBType.m"; sourceTree = "<group>"; };
+		AB81D5C517D7B380007214E1 /* DBTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBTypeManager.h; path = "Mono Environment/DBTypeManager.h"; sourceTree = "<group>"; };
+		AB81D5C617D7B380007214E1 /* DBTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBTypeManager.m; path = "Mono Environment/DBTypeManager.m"; sourceTree = "<group>"; };
 		AB97FC0417C277D600CBE585 /* Extensions.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = Extensions.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/Extensions.cs; sourceTree = "<group>"; };
 		AB97FC0517C277D600CBE585 /* ReferenceObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = ReferenceObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs; sourceTree = "<group>"; };
 		AB97FC0617C277D600CBE585 /* TestObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/TestObject.cs; sourceTree = "<group>"; };
@@ -331,10 +339,10 @@
 		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
 			isa = PBXGroup;
 			children = (
-				AB00206117C653E900178AFC /* ManagedBinaries */,
 				08FB77AEFE84172EC02AAC07 /* Source */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
+				AB00206117C653E900178AFC /* ManagedBinaries */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				AB588DC3178308000000AAC1 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
@@ -365,7 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				9DF236C70875D58E008A199C /* Categories */,
-				9D69DC2A08B1842D008BB787 /* Environment */,
+				9D69DC2A08B1842D008BB787 /* Mono Environment */,
 				9D69DC2B08B1844D008BB787 /* Representations */,
 				9DA049F208C8DEAD00EEE149 /* Posing */,
 				9D021B3108810720003E48C1 /* Utility */,
@@ -412,13 +420,17 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		9D69DC2A08B1842D008BB787 /* Environment */ = {
+		9D69DC2A08B1842D008BB787 /* Mono Environment */ = {
 			isa = PBXGroup;
 			children = (
 				9D69DC4108B1851E008BB787 /* DBMonoEnvironment.h */,
 				9D69DC4208B1851E008BB787 /* DBMonoEnvironment.m */,
+				AB81D5C117D7B1B6007214E1 /* DBType.h */,
+				AB81D5C217D7B1B6007214E1 /* DBType.m */,
+				AB81D5C517D7B380007214E1 /* DBTypeManager.h */,
+				AB81D5C617D7B380007214E1 /* DBTypeManager.m */,
 			);
-			name = Environment;
+			name = "Mono Environment";
 			sourceTree = "<group>";
 		};
 		9D69DC2B08B1844D008BB787 /* Representations */ = {
@@ -548,7 +560,7 @@
 		AB00206117C653E900178AFC /* ManagedBinaries */ = {
 			isa = PBXGroup;
 			children = (
-				AB00206217C6549E00178AFC /* Debug */,
+				AB81D5C017D78C1B007214E1 /* Framework Hellper */,
 			);
 			name = ManagedBinaries;
 			sourceTree = "<group>";
@@ -616,6 +628,14 @@
 			children = (
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AB81D5C017D78C1B007214E1 /* Framework Hellper */ = {
+			isa = PBXGroup;
+			children = (
+				AB00206217C6549E00178AFC /* Debug */,
+			);
+			name = "Framework Hellper";
 			sourceTree = "<group>";
 		};
 		ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */ = {
@@ -707,6 +727,8 @@
 				9DA75F670A239104008EC2F7 /* DBArrayCategory.h in Headers */,
 				9DCD135D0A7ABFB900849E5C /* DBSystem.Convert.h in Headers */,
 				9DCD14300A7AE69900849E5C /* DBSystem.Enum.h in Headers */,
+				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
+				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,6 +897,8 @@
 				ABBF108217B25DE1006F6E93 /* System.IO.StringWriter.m in Sources */,
 				ABBF108617B26246006F6E93 /* System.EventArgs.m in Sources */,
 				ABBF108A17B29DD1006F6E93 /* System.Data.Entity.EntityState.m in Sources */,
+				AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */,
+				AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

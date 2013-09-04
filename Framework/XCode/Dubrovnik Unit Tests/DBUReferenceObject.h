@@ -131,12 +131,16 @@
 
 // array properties
 - (DBSystem_Array *)stringArray;
+- (void)setStringArray:(DBSystem_Array *)array;
 - (DBSystem_Array *)int64Array;
 - (void)setInt64Array:(DBSystem_Array *)array;
 - (DBSystem_Array *)int32Array;
+- (void)setInt32Array:(DBSystem_Array *)array;
 - (DBSystem_Array *)int16Array;
 - (DBSystem_Array *)floatArray;
+- (void)setFloatArray:(DBSystem_Array *)array;
 - (DBSystem_Array *)doubleArray;
+- (void)setDoubleArray:(DBSystem_Array *)array;
 - (DBSystem_Array *)boolArray;
 - (DBSystem_Collections_ArrayList *)stringArrayList;
 

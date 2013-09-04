@@ -352,6 +352,20 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([ms rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     [ms release];
     
+    // derive string mono array from NSArray
+    NSArray *stringNSArray = @[DBUTestString, @"1", @"2"];
+    stringArray = [stringNSArray dbsArrayWithTypeName:DBType_System_String];
+    [refObject setStringArray:stringArray];   // set
+    stringArray = [refObject stringArray];    // get
+    STAssertTrue([stringArray count] == 3, DBUCountTestFailed);
+    ms = [NSMutableString new];
+    for (uint32_t i = 0; i < [stringArray count]; i++) {
+        NSString * s = [stringArray objectAtIndex:i];
+        [ms appendFormat:@"%@ ", s];
+    }
+    STAssertTrue([ms rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    [ms release];
+    
     // int64 array
     DBSystem_Array *int64Array = [refObject int64Array];
     STAssertTrue([int64Array count] == 10, DBUCountTestFailed);
@@ -374,16 +388,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 1, DBUEqualityTestFailed);
     
     // derive 64 bit mono array from NSArray
-    /*NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @128L];
-    int64Array = [[int64NSArray monoArray];
-    STAssertTrue([int64Array count] == 10, DBUCountTestFailed)];
+    NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @128L];
+    int64Array = [int64NSArray dbsArrayWithTypeName:DBType_System_Int64];
+    [refObject setInt64Array:int64Array];   // set
+    int64Array = [refObject int64Array];    // get
+    STAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [int64Array count]; i++) {
       n += [int64Array int64AtIndex:i];
     }
     STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 128, DBUEqualityTestFailed);
-        */
-    
+
     // int32 array
     DBSystem_Array *int32Array = [refObject int32Array];
     STAssertTrue([int32Array count] == 10, DBUCountTestFailed);
@@ -394,6 +409,18 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
 
+    // derive 32 bit mono array from NSArray
+    NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @120];
+    int32Array = [int32NSArray dbsArrayWithTypeName:DBType_System_Int32];
+    [refObject setInt32Array:int32Array];   // set
+    int32Array = [refObject int32Array];    // get
+    STAssertTrue([int32Array count] == 10, DBUCountTestFailed);
+    n = 0;
+    for (uint32_t i = 0; i < [int32Array count]; i++) {
+        n += [int32Array int32AtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 120, DBUEqualityTestFailed);
+    
     // int16 array
     DBSystem_Array *int16Array = [refObject int16Array];
     STAssertTrue([int16Array count] == 10, DBUCountTestFailed);
@@ -403,7 +430,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         n += [int16Array int16AtIndex:i];
     }
     STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
- 
+    
     // float array
     DBSystem_Array *floatArray = [refObject floatArray];
     STAssertTrue([floatArray count] == 10, DBUCountTestFailed);
@@ -414,6 +441,18 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     STAssertTrue(f == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
 
+    // derive float mono array from NSArray
+    NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @116.0F];
+    floatArray = [floatNSArray dbsArrayWithTypeName:DBType_System_Single];
+    [refObject setFloatArray:floatArray];   // set
+    floatArray = [refObject floatArray];    // get
+    STAssertTrue([floatArray count] == 10, DBUCountTestFailed);
+    n = 0;
+    for (uint32_t i = 0; i < [floatArray count]; i++) {
+        n += [floatArray floatAtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 116, DBUEqualityTestFailed);
+    
     // double array
     DBSystem_Array *doubleArray = [refObject doubleArray];
     STAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
@@ -423,6 +462,18 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         d += [doubleArray doubleAtIndex:i];
     }
     STAssertTrue(d == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+
+    // derive double mono array from NSArray
+    NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0, @32.0, @64.0, @128.0, @110.0];
+    doubleArray = [doubleNSArray dbsArrayWithTypeName:DBType_System_Double];
+    [refObject setDoubleArray:doubleArray];   // set
+    doubleArray = [refObject doubleArray];    // get
+    STAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
+    n = 0;
+    for (uint32_t i = 0; i < [doubleArray count]; i++) {
+        n += [doubleArray doubleAtIndex:i];
+    }
+    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 110, DBUEqualityTestFailed);
     
     // bool array
     DBSystem_Array *boolArray = [refObject boolArray];
