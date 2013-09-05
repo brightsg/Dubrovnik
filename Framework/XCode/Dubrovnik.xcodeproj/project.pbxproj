@@ -72,9 +72,9 @@
 		AB49E449178B2F1000D01244 /* DBEntityCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E447178B2F0F00D01244 /* DBEntityCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E448178B2F1000D01244 /* DBEntityCollection.m */; };
 		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
-		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; };
+		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
-		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; };
+		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C617D7B380007214E1 /* DBTypeManager.m */; };
 		AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
@@ -677,6 +677,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
+				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
 				ABBF108917B29DD1006F6E93 /* System.Data.Entity.EntityState.h in Headers */,
 				ABBF108517B26246006F6E93 /* System.EventArgs.h in Headers */,
 				ABBF108117B25DE1006F6E93 /* System.IO.StringWriter.h in Headers */,
@@ -727,8 +729,6 @@
 				9DA75F670A239104008EC2F7 /* DBArrayCategory.h in Headers */,
 				9DCD135D0A7ABFB900849E5C /* DBSystem.Convert.h in Headers */,
 				9DCD14300A7AE69900849E5C /* DBSystem.Enum.h in Headers */,
-				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
-				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

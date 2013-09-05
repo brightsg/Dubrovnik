@@ -531,7 +531,10 @@ namespace Dubrovnik
             ObjCTypeAssociation typeAssoc = ObjCTypeAssociate(monoType);
             if (typeAssoc != null)
             {
-                 // use the unboxing format specifier if available
+                 // Use the getter format specifier if available.
+                 // This takes up to two arguments:
+                 // 1. a MonoObject * pointing to the underlying MonoObject.
+                 // 2. a Obj-C Class indicating the class to be used for types occurring in collections.
                 string GetterFormat = typeAssoc.GetterFormat;
                 if (GetterFormat != null)
                 {
@@ -542,6 +545,18 @@ namespace Dubrovnik
                     if (monoFacet.ObjCFacet.GenericArgumentTypes != null && monoFacet.ObjCFacet.GenericArgumentTypes.Count() > 0)
                     {
                         getterArgs.AddRange(monoFacet.ObjCFacet.GenericArgumentTypes);
+                    }
+
+                    // TODO: provide class representation for arrays.
+                    // Just as we provide a class rep for a generic the same will be required for an array.
+                    if (monoFacet.IsArray) {
+                        getterArgs.Add("DBMonoObjectRepresentation");
+                    }
+
+                    // We may require at least two arguments.
+                    if (getterArgs.Count < 2)
+                    {
+                        getterArgs.Add("DBMonoObjectRepresentation");
                     }
 
                     // add additional arguments
@@ -672,7 +687,16 @@ namespace Dubrovnik
             {
                 monoType = "Dubrovnik.Generic.Parameter";
             }
-            else
+            else if (monoFacet.IsArray) 
+            {
+                // We want System.Byte[] to associate with NSData
+                if (monoFacet.Type != "System.Byte[]")
+                {
+                    monoType = "System.Array";
+                }
+            }
+
+            if (monoType == null)
             {
                 monoType = monoFacet.Type;
 
@@ -699,6 +723,8 @@ namespace Dubrovnik
         ObjCTypeAssociation ObjCTypeAssociate(string monoType)
         {
             ObjCTypeAssociation typeAssoc = null;
+
+            // look for literal association
             if (monoType != null && ObjCTypeAssociations.ContainsKey(monoType))
             {
                 typeAssoc = ObjCTypeAssociations[monoType];
@@ -758,6 +784,16 @@ namespace Dubrovnik
             objcTA = new ObjCTypeAssociation { ObjCType = "NSString", GetterFormat = "[NSString stringWithMonoString:DB_STRING({0})]" };
             AssociateTypes(monoTA, objcTA);
 
+            // System.Array
+            monoTA = new MonoTypeAssociation { MonoType = "System.Array"};
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0}) withRepresentationClass:[{1} class]]" };
+            AssociateTypes(monoTA, objcTA);
+
+            // System.Byte[]
+            monoTA = new MonoTypeAssociation { MonoType = "System.Byte[]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "NSData", GetterFormat = "[NSData dataWithMonoArray:DB_ARRAY({0})]" };
+            AssociateTypes(monoTA, objcTA);
+
             // ObjectSet
             monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectSet" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBEntityObjectSet", GetterFormat = "[DBEntityObjectSet objectSetWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
@@ -790,11 +826,6 @@ namespace Dubrovnik
             // System.Void
             monoTA = new MonoTypeAssociation { MonoType = "System.Void", MonoTypeAlias = "void"};
             objcTA = new ObjCTypeAssociation { ObjCType = "void", GetterFormat = "" };
-            AssociateTypes(monoTA, objcTA);
-
-            // System.Byte[]
-            monoTA = new MonoTypeAssociation { MonoType = "System.Byte[]" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "NSData", GetterFormat = "[NSData dataWithMonoArray:DB_ARRAY({0})]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Int64
@@ -1032,7 +1063,6 @@ namespace Dubrovnik
         public void GenerateTypeWarnings(CodeFacet facet)
         {
             // in production quality code we should not have any warnings!
-            if (facet.IsArray) WriteLine("#warning Array type implementation is pending");
             if (facet.IsByRef && (facet.Type == "System.String&")) WriteLine("#warning object ref and out parameter implementation is pending");
             if (facet.IsPointer) WriteLine("#warning Pointer type implementation is pending");
         }
