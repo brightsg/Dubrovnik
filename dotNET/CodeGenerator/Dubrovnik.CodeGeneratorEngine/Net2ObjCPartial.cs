@@ -789,6 +789,11 @@ namespace Dubrovnik
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0}) withRepresentationClass:[{1} class]]" };
             AssociateTypes(monoTA, objcTA);
 
+            // System.Collections.ArrayList
+            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.ArrayList" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
+            AssociateTypes(monoTA, objcTA);
+
             // System.Byte[]
             monoTA = new MonoTypeAssociation { MonoType = "System.Byte[]" };
             objcTA = new ObjCTypeAssociation { ObjCType = "NSData", GetterFormat = "[NSData dataWithMonoArray:DB_ARRAY({0})]" };

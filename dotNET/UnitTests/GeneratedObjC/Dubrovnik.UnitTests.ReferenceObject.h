@@ -64,6 +64,10 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed type : System.Boolean[]
+    - (DBSystem_Array *)boolArray;
+    - (void)setBoolArray:(DBSystem_Array *)value;
+
 	// Managed type : System.String
     + (NSString *)classProperty;
     + (void)setClassProperty:(NSString *)value;
@@ -76,13 +80,33 @@
     - (NSDecimalNumber *)decimalNumber;
     - (void)setDecimalNumber:(NSDecimalNumber *)value;
 
+	// Managed type : System.Double[]
+    - (DBSystem_Array *)doubleArray;
+    - (void)setDoubleArray:(DBSystem_Array *)value;
+
+	// Managed type : System.Single[]
+    - (DBSystem_Array *)floatArray;
+    - (void)setFloatArray:(DBSystem_Array *)value;
+
 	// Managed type : Dubrovnik.UnitTests.GenericReferenceObject<System.Int32, System.String>
     - (Dubrovnik_UnitTests_GenericReferenceObject *)genericReferenceObject;
     - (void)setGenericReferenceObject:(Dubrovnik_UnitTests_GenericReferenceObject *)value;
 
+	// Managed type : System.Int16[]
+    - (DBSystem_Array *)int16Array;
+    - (void)setInt16Array:(DBSystem_Array *)value;
+
+	// Managed type : System.Int32[]
+    - (DBSystem_Array *)int32Array;
+    - (void)setInt32Array:(DBSystem_Array *)value;
+
 	// Managed type : System.Int32
     - (int32_t)int32Number;
     - (void)setInt32Number:(int32_t)value;
+
+	// Managed type : System.Int64[]
+    - (DBSystem_Array *)int64Array;
+    - (void)setInt64Array:(DBSystem_Array *)value;
 
 	// Managed type : System.Int64
     - (int64_t)int64Number;
@@ -122,6 +146,14 @@
 	// Managed type : Dubrovnik.UnitTests.ReferenceObject
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative;
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value;
+
+	// Managed type : System.String[]
+    - (DBSystem_Array *)stringArray;
+    - (void)setStringArray:(DBSystem_Array *)value;
+
+	// Managed type : System.Collections.ArrayList
+    - (DBSystem_Collections_ArrayList *)stringArrayList;
+    - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value;
 
 	// Managed type : System.Collections.Generic.List<System.String>
     - (System_Collections_Generic_List *)stringList;
@@ -195,12 +227,12 @@
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String
-	// Managed param types : System.String, System.Object
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2;
+	// Managed param types : System.String, System.Int32
+    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String
-	// Managed param types : System.String, System.Int32
-    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
+	// Managed param types : System.String, System.Object
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2;
 @end
 //--

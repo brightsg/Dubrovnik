@@ -150,6 +150,19 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed type : System.Boolean[]
+    - (DBSystem_Array *)boolArray
+    {
+		MonoObject * monoObject = [self getMonoProperty:"BoolArray"];
+		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setBoolArray:(DBSystem_Array *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"BoolArray" valueObject:monoObject];          
+	}
+
 	// Managed type : System.String
     + (NSString *)classProperty
     {
@@ -189,6 +202,32 @@
 		[self setMonoProperty:"DecimalNumber" valueObject:monoObject];          
 	}
 
+	// Managed type : System.Double[]
+    - (DBSystem_Array *)doubleArray
+    {
+		MonoObject * monoObject = [self getMonoProperty:"DoubleArray"];
+		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setDoubleArray:(DBSystem_Array *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"DoubleArray" valueObject:monoObject];          
+	}
+
+	// Managed type : System.Single[]
+    - (DBSystem_Array *)floatArray
+    {
+		MonoObject * monoObject = [self getMonoProperty:"FloatArray"];
+		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setFloatArray:(DBSystem_Array *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"FloatArray" valueObject:monoObject];          
+	}
+
 	// Managed type : Dubrovnik.UnitTests.GenericReferenceObject<System.Int32, System.String>
     - (Dubrovnik_UnitTests_GenericReferenceObject *)genericReferenceObject
     {
@@ -203,6 +242,32 @@
 		[self setMonoProperty:"genericReferenceObject" valueObject:monoObject];          
 	}
 
+	// Managed type : System.Int16[]
+    - (DBSystem_Array *)int16Array
+    {
+		MonoObject * monoObject = [self getMonoProperty:"Int16Array"];
+		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setInt16Array:(DBSystem_Array *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"Int16Array" valueObject:monoObject];          
+	}
+
+	// Managed type : System.Int32[]
+    - (DBSystem_Array *)int32Array
+    {
+		MonoObject * monoObject = [self getMonoProperty:"Int32Array"];
+		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setInt32Array:(DBSystem_Array *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"Int32Array" valueObject:monoObject];          
+	}
+
 	// Managed type : System.Int32
     - (int32_t)int32Number
     {
@@ -214,6 +279,19 @@
 	{
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Int32Number" valueObject:monoObject];          
+	}
+
+	// Managed type : System.Int64[]
+    - (DBSystem_Array *)int64Array
+    {
+		MonoObject * monoObject = [self getMonoProperty:"Int64Array"];
+		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setInt64Array:(DBSystem_Array *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"Int64Array" valueObject:monoObject];          
 	}
 
 	// Managed type : System.Int64
@@ -299,7 +377,7 @@
 	// Managed type : Dubrovnik.UnitTests.IMinimalReferenceObject
     - (Dubrovnik_UnitTests_IMinimalReferenceObject *)minimalReferenceObject
     {
-		MonoObject * monoObject = [self getMonoProperty:"minimalReferenceObject"];
+		MonoObject * monoObject = [self getMonoProperty:"MinimalReferenceObject"];
 		Dubrovnik_UnitTests_IMinimalReferenceObject * result = [Dubrovnik_UnitTests_IMinimalReferenceObject representationWithMonoObject:monoObject];
 		return result;
 	}
@@ -342,6 +420,32 @@
 	{
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"ReferenceObjectRelative" valueObject:monoObject];          
+	}
+
+	// Managed type : System.String[]
+    - (DBSystem_Array *)stringArray
+    {
+		MonoObject * monoObject = [self getMonoProperty:"StringArray"];
+		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setStringArray:(DBSystem_Array *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"StringArray" valueObject:monoObject];          
+	}
+
+	// Managed type : System.Collections.ArrayList
+    - (DBSystem_Collections_ArrayList *)stringArrayList
+    {
+		MonoObject * monoObject = [self getMonoProperty:"StringArrayList"];
+		DBSystem_Collections_ArrayList * result = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return result;
+	}
+    - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value
+	{
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"StringArrayList" valueObject:monoObject];          
 	}
 
 	// Managed type : System.Collections.Generic.List<System.String>
@@ -489,19 +593,19 @@
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String
-	// Managed param types : System.String, System.Object
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2
+	// Managed param types : System.String, System.Int32
+    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String
-	// Managed param types : System.String, System.Int32
-    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
+	// Managed param types : System.String, System.Object
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end

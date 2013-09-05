@@ -10,7 +10,7 @@
 #import "DBUReferenceObject.h"
 
 // toggle 0-1
-#define DB_RUN_AUTO_GENERATED_CODE_TEST 0
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 #define DB_REFTYPE_BY_REFERENCE_SUPPORT 0
 
@@ -40,7 +40,7 @@ static BOOL _setup = NO;
 - (void)doTestProperties:(id)refObject class:(Class)testClass;
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass;
 - (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass;
-- (void)doTestArrayRepresentation:(id)refObject class:(Class)testClass;
+- (void)doTestArrayProperties:(id)refObject class:(Class)testClass;
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass;
 @end
 
@@ -336,7 +336,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil(classDescription, DBUObjectIsNil);
 }
 
-- (void)doTestArrayRepresentation:(id)refObject class:(Class)testClass
+- (void)doTestArrayProperties:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
     
@@ -665,18 +665,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //===================================
     [self doTestMethods:refObject class:testClass];
     [self doTestExtensionMethods:refObject class:testClass];
+#warning array method test required ASAP
     
     //===================================
     // properties
     //===================================
     [self doTestProperties:refObject class:testClass];
+    [self doTestArrayProperties:refObject class:testClass];
     
     //===================================
     // representations
     //===================================
     [self doTestStructRepresentation:refObject class:testClass];
     [self doTestInterfaceRepresentation:refObject class:testClass];
-    [self doTestArrayRepresentation:refObject class:testClass];
     [self doTestArrayListRepresentation:refObject class:testClass];
 }
 
