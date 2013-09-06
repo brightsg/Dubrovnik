@@ -234,5 +234,30 @@
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2;
+
+	// Managed method name : Sum
+	// Managed return type : System.Int64
+	// Managed param types : System.Int64[]
+    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32[]
+    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Single
+	// Managed param types : System.Single[]
+    - (float)sum_withFloatArray:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Double
+	// Managed param types : System.Double[]
+    - (double)sum_withDoubleArray:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.String
+	// Managed param types : System.String[]
+    - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
 @end
 //--

@@ -549,14 +549,33 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		string objCParamTypeDecl = null;
 		bool objCParameterIsObject = true;
 
-		// get the associated ObjC type
+		//
+		// Get the ObjC type associated with the parameter.
+		//
 		ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(parameter);
 		MonoTypeAssociation monoTypeAssociate = null;
 		if (objCTypeAssociate != null) {
-			monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
+			//
+			// If the parameter is an array, say Int64[], then its Obj-C rep will be System.Array
+			// The mono type association however must reflect the represented type, Int64.
+			//
+			if (parameter.IsArray) {
+				ObjCTypeAssociation objCRepresentedTypeAssociate = ObjCTypeAssociate(parameter.ElementType);
+				if (objCRepresentedTypeAssociate != null) {
+					monoTypeAssociate = objCRepresentedTypeAssociate.MonoTypeAssociate;
+                }
+			}
+			
+			if (monoTypeAssociate == null) {
+				monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
+			}
+
 			objCParamTypeDecl =  objCTypeAssociate.ObjCTypeDecl;
 			objCParameterIsObject = objCTypeAssociate.IsNSObject;
 		} else {
+			//
+			// Generate default objC representations
+			//
 			objCParamTypeDecl = ObjCTypeDeclFromMonoFacet(parameter);
 			objCParameterIsObject = ObjCNonAssociatedTypeIsNSObject(parameter);
         }
@@ -565,14 +584,22 @@ public void WriteFacetAsMethod(MethodFacet facet)
         }
 
 		//
-		// build the mono method argument signature
+		// Build the mono method argument signature
 		// eg: int,long,string
-		// use a type associate if available.
-		// if not then default to the parameter type
+		// Use a type associate if available.
+		// If not then default to the parameter type
 		//
 		if (idx > 0) monoSigBuilder.Append(",");
 		string monoMethodParameterType = null;
-		if (monoTypeAssociate != null) monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
+
+		if (monoTypeAssociate != null) 
+		{
+			 monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
+			if (parameter.IsArray)  {
+				monoMethodParameterType += "[]";
+            }
+        }
+
 		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
 		monoSigBuilder.Append(monoMethodParameterType);
 		if (parameter.IsByRef) {

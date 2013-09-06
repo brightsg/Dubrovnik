@@ -30,9 +30,6 @@ namespace Dubrovnik.UnitTests
     public class ReferenceObject : IMinimalReferenceObject
 	{
 		// private fields
-		private DateTime _date;
-		private Int32 _int32;
-		private ReferenceObject _referenceObjectRelative;
 
 		//==============================
 		// statics
@@ -125,76 +122,9 @@ namespace Dubrovnik.UnitTests
 		//==============================
 
         // object properties
-        public string StringProperty
-		{ 
-			get; 
-			set;
-		}
-
-		public string Name
-		{ 
-			get; 
-			set;
-		}
-
-        // value type properties
-		public DateTime Date {
-			get { return _date; }
-			set { 
-				_date = value; 
-				DateTime now = DateTime.UtcNow;
-				Console.WriteLine ("Date property arguments : {0} ticks = {1}", value, value.Ticks);
-				Console.WriteLine ("DateTime Now : {0} ticks = {1}", now, now.Ticks);
-			}
-		}
-
-        // numeric properties
-		public int IntNumber {
-			get;
-			set;
-		}
-
-		public Int32 Int32Number {
-			get { return _int32; }
-			set 
-			{ 
-				_int32 = value; 
-				Console.WriteLine ("Int32Number setter : {0}", _int32);
-			}
-		}
-
-		public Int64 Int64Number {
-			get;
-			set;
-		}
-
-        public Decimal DecimalNumber
-        {
-            get;
-            set;
-        }
-
-/*
-		public Int32? Int32NullableNumber {
-			get;
-			set;
-		}
-
-		public Int64? Int64NullableNumber {
-			get;
-			set;
-		}
-*/
-        public ReferenceObject ReferenceObjectRelative
-        {
-			get { return _referenceObjectRelative;}
-			set
-			{ 
-				_referenceObjectRelative = value;
-                Console.WriteLine("ReferenceObjectRelative StringProperty: {0}", _referenceObjectRelative.StringProperty);
-			}
-		}
-
+        public string StringProperty { get; set; }
+		public string Name { get; set;}
+        public ReferenceObject ReferenceObjectRelative  { get; set;}
         public IMinimalReferenceObject MinimalReferenceObject
         {
             get
@@ -202,6 +132,13 @@ namespace Dubrovnik.UnitTests
                 return (IMinimalReferenceObject)this;
             }
         }
+
+        // value type properties
+		public DateTime Date { get; set;}
+		public int IntNumber  { get; set;}
+		public Int32 Int32Number { get; set;}
+		public Int64 Int64Number { get; set;}
+        public Decimal DecimalNumber { get; set;}
 
         // enumeration properties
 		public IntEnum IntEnumeration { get; set; }
@@ -231,7 +168,7 @@ namespace Dubrovnik.UnitTests
 		//==============================
 
 		//
-		// string methods
+		// string parameter methods
 		//
 		public string StringMethod()
 		{
@@ -299,7 +236,7 @@ namespace Dubrovnik.UnitTests
         }
 #endif
         //
-        // int methods
+        // int parameter methods
         //
         public Int32 DoubleIt(Int32 x)
         {
@@ -338,7 +275,7 @@ namespace Dubrovnik.UnitTests
 #endif
 
 		//
-		// date methods
+		// date parameter methods
 		//
 		public DateTime DateMethod(DateTime d1)
 		{
@@ -349,11 +286,67 @@ namespace Dubrovnik.UnitTests
 			return d1;
 		}
 
+        //
+        // mixed parameter method
+        //
 		public string MixedMethod1(int intarg, long longArg, float floatArg, double doubleArg, DateTime dateArg, string stringArg, ReferenceObject refObjectArg) {
 			string s = String.Format ("Dubrovnik.UnitTests.MixedMethod1 int: {0} long: {1} float:{2} double: {3} DateTime: {4} string: {5} ReferenceObject:{6}",
 			                          intarg, longArg, floatArg, doubleArg, dateArg, stringArg, refObjectArg);
 			return s;
 		}
+
+        //
+        // array parameter methods
+        //
+
+        public Int64 Sum(Int64[] int64Array)
+        {
+            Int64 sum = 0;
+            foreach (Int64 item in int64Array) {
+                sum += item;
+            }
+            return sum;
+        }
+
+        public Int32 Sum(Int32[] int32Array)
+        {
+            Int32 sum = 0;
+            foreach (Int32 item in int32Array)
+            {
+                sum += item;
+            }
+            return sum;
+        }
+
+        public float Sum(float[] floatArray)
+        {
+            float sum = 0;
+            foreach (float item in floatArray)
+            {
+                sum += item;
+            }
+            return sum;
+        }
+
+        public double Sum(double[] doubleArray)
+        {
+            double sum = 0;
+            foreach (double item in doubleArray)
+            {
+                sum += item;
+            }
+            return sum;
+        }
+
+        public string Sum(string[] stringArray)
+        {
+            string sum = "";
+            foreach (string item in stringArray)
+            {
+                sum += item;
+            }
+            return sum;
+        }
 	}
 
 

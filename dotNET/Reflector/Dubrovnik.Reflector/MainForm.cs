@@ -75,8 +75,6 @@ namespace Dubrovnik.Reflector {
             // that evaluate to true.
             xtw.WriteAttributeString("Type", type.GetFriendlyFullName());
             if (type.IsValueType) xtw.WriteAttributeString("IsValueType", Boolean.TrueString);
-            if (type.IsPointer) xtw.WriteAttributeString("IsPointer", Boolean.TrueString);
-            if (type.IsArray) xtw.WriteAttributeString("IsArray", Boolean.TrueString);
             if (type.IsPrimitive) xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString); 
             if (type.IsEnum)
             {
@@ -84,11 +82,35 @@ namespace Dubrovnik.Reflector {
                 xtw.WriteAttributeString("UnderlyingType", undertype.GetFriendlyFullName());
                 xtw.WriteAttributeString("IsEnum", Boolean.TrueString);
             }
+
+            // Base type
             Type baseType = type.BaseType;
             if (baseType != null)
             {
                 xtw.WriteAttributeString("BaseName", baseType.GetFriendlyName());
                 xtw.WriteAttributeString("BaseType", baseType.GetFriendlyFullName());
+            }
+
+            // Array
+            if (type.IsArray)
+            {
+                xtw.WriteAttributeString("IsArray", Boolean.TrueString);
+                xtw.WriteAttributeString("ArrayRank",type.GetArrayRank().ToString());
+            }
+
+            // Pointer
+            if (type.IsPointer) xtw.WriteAttributeString("IsPointer", Boolean.TrueString);
+
+            // Reference
+            if (type.IsByRef) xtw.WriteAttributeString("IsByRef", Boolean.TrueString);
+
+            // Element types
+            //
+            // Array[], pointer* and by ref types
+            //
+            if (type.HasElementType) {
+                Type elementType = type.GetElementType();
+                xtw.WriteAttributeString("ElementType", elementType.GetFriendlyFullName());
             }
 
             //
@@ -134,12 +156,6 @@ namespace Dubrovnik.Reflector {
             xtw.WriteStartElement("Parameter");
             xtw.WriteAttributeString("Name", parameterInfo.Name);
             WriteTypeAttributes(xtw, parameterInfo.ParameterType);
-
-            // determine if parameter is passed explictly by reference
-            if (parameterInfo.ParameterType.IsByRef)
-            {
-                xtw.WriteAttributeString("IsByRef", Boolean.TrueString);
-            }
             xtw.WriteEndElement();
         }
 

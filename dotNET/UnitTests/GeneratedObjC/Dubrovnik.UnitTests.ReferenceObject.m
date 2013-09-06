@@ -608,5 +608,50 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+	// Managed method name : Sum
+	// Managed return type : System.Int64
+	// Managed param types : System.Int64[]
+    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
+		return DB_UNBOX_INT64(monoObject);
+    }
+
+	// Managed method name : Sum
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32[]
+    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
+		return DB_UNBOX_INT32(monoObject);
+    }
+
+	// Managed method name : Sum
+	// Managed return type : System.Single
+	// Managed param types : System.Single[]
+    - (float)sum_withFloatArray:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoValue]];
+		return DB_UNBOX_FLOAT(monoObject);
+    }
+
+	// Managed method name : Sum
+	// Managed return type : System.Double
+	// Managed param types : System.Double[]
+    - (double)sum_withDoubleArray:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoValue]];
+		return DB_UNBOX_DOUBLE(monoObject);
+    }
+
+	// Managed method name : Sum
+	// Managed return type : System.String
+	// Managed param types : System.String[]
+    - (NSString *)sum_withStringArray:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
 @end
 //--

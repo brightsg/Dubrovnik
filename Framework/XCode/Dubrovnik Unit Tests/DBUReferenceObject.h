@@ -87,15 +87,22 @@
 - (NSString *)stringMethodByRef:(NSString **)p1;
 - (NSString *)stringMethod_withN:(int32_t)p1;
 
-// int methods
+// int parameter methods
 - (int32_t)doubleIt_withXInt:(int32_t)p1;
 - (int32_t)doubleIt_withXIntRef:(int32_t *)p1;
 
-// date methods
+// date parameter methods
 - (NSDate *)dateMethod_withD1:(NSDate *)p1;
 
-// mixed methods
+// mixed parameter methods
 - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7;
+
+// array parameter methods
+- (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
+- (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
+- (float)sum_withFloatArray:(DBSystem_Array *)p1;
+- (double)sum_withDoubleArray:(DBSystem_Array *)p1;
+- (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
 
 // string property implementation
 - (NSString *)stringProperty;

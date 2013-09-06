@@ -51,7 +51,9 @@ namespace Dubrovnik
             IsByRef = XElementAttributeBool(xelement, "IsByRef");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
             IsPointer = XElementAttributeBool(xelement, "IsPointer");
-            IsArray = XElementAttributeBool(xelement, "IsArray"); 
+            IsArray = XElementAttributeBool(xelement, "IsArray");
+            ElementType = XElementAttributeValue(xelement, "ElementType");
+            ArrayRank = Convert.ToInt32(XElementAttributeValue(xelement, "ArrayRank")); 
             HandlerType = XElementAttributeValue(xelement, "HandlerType");
             IsConstant = XElementAttributeBool(xelement, "IsConstant");
             IsStatic= XElementAttributeBool(xelement, "IsStatic");
@@ -97,6 +99,8 @@ namespace Dubrovnik
         public string[] GenericArgumentTypes { get; private set; }
         public string TypeNamespace { get; private set; }
         public string ConstantValue { get; private set; }
+        public string ElementType { get; private set; }
+        public Int32 ArrayRank { get; private set; }
 
         public bool IsStruct {
             get

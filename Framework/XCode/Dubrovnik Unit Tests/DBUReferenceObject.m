@@ -262,7 +262,7 @@
 }
 
 #pragma mark -
-#pragma mark Mono string methods
+#pragma mark Mono string parameter methods
 
 - (NSString *)stringMethod
 {
@@ -322,7 +322,7 @@
 }
 
 #pragma mark -
-#pragma mark Mono int methods
+#pragma mark Mono int parameter methods
 
 - (int32_t)doubleIt_withXInt:(int32_t)p1
 {
@@ -337,7 +337,7 @@
 }
 
 #pragma mark -
-#pragma mark Date methods
+#pragma mark Date parameter methods
 
 - (NSDate *)dateMethod_withD1:(NSDate *)p1
 {
@@ -345,6 +345,39 @@
     NSDate *value = [NSDate dateWithMonoDateTime:monoObject];
     
     return value;
+}
+
+#pragma mark -
+#pragma mark Array parameter methods
+
+- (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
+   return DB_UNBOX_INT64(monoObject);
+}
+
+- (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
+    return DB_UNBOX_INT32(monoObject);
+}
+
+- (float)sum_withFloatArray:(DBSystem_Array *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoValue]];
+    return DB_UNBOX_FLOAT(monoObject);
+}
+
+- (double)sum_withDoubleArray:(DBSystem_Array *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoValue]];
+    return DB_UNBOX_DOUBLE(monoObject);
+}
+
+- (NSString *)sum_withStringArray:(DBSystem_Array *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

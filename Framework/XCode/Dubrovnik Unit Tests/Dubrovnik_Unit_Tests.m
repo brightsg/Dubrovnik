@@ -42,6 +42,7 @@ static BOOL _setup = NO;
 - (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass;
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass;
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass;
+- (void)doTestArrayMethods:(id)refObject class:(Class)testClass;
 @end
 
 @implementation Dubrovnik_Unit_Tests
@@ -334,6 +335,42 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     NSString *classDescription = (NSString *)[refObject classDescription];
     STAssertNotNil(classDescription, DBUObjectIsNil);
+}
+
+- (void)doTestArrayMethods:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    // int 64 array
+    NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @256L];
+    DBSystem_Array *int64Array = [int64NSArray dbsArrayWithTypeName:DBType_System_Int64];
+    int64_t int64Total = [refObject sum_withInt64Array:int64Array];
+    STAssertTrue(int64Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    
+    // int 32 array
+    NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @257];
+    DBSystem_Array *int32Array = [int32NSArray dbsArrayWithTypeName:DBType_System_Int32];
+    int64_t int32Total = [refObject sum_withInt32Array:int32Array];
+    STAssertTrue(int32Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 257, DBUEqualityTestFailed);
+    
+    // float array
+    NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @258.0F];
+    DBSystem_Array *floatArray = [floatNSArray dbsArrayWithTypeName:DBType_System_Single];
+    float floatTotal = [refObject sum_withFloatArray:floatArray];
+    STAssertTrue(floatTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 258, DBUEqualityTestFailed);
+    
+    // double array
+    NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0F, @32.0, @64.0, @128.0, @259.0];
+    DBSystem_Array *doubleArray = [doubleNSArray dbsArrayWithTypeName:DBType_System_Double];
+    double doubleTotal = [refObject sum_withDoubleArray:doubleArray];
+    STAssertTrue(doubleTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 259, DBUEqualityTestFailed);
+    
+    // string array
+    NSArray *stringNSArray = @[DBUTestString, @" 1", @" 2"];
+    DBSystem_Array *stringArray = [stringNSArray dbsArrayWithTypeName:DBType_System_String];
+    NSString *stringTotal = [refObject sum_withStringArray:stringArray];
+    NSString *stringTest = [NSString stringWithFormat:@"%@ %@ %@", DBUTestString, @"1", @"2"];
+    STAssertTrue([stringTotal isEqual:stringTest], DBUEqualityTestFailed);
 }
 
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass
@@ -665,7 +702,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //===================================
     [self doTestMethods:refObject class:testClass];
     [self doTestExtensionMethods:refObject class:testClass];
-#warning array method test required ASAP
+    [self doTestArrayMethods:refObject class:testClass];
     
     //===================================
     // properties
