@@ -1,5 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
-//++AutoGen Dubrovnik.UnitTests.IMinimalReferenceObject.m
+//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.IMinimalReferenceObject.m
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed interface : IMinimalReferenceObject
 //
@@ -30,4 +31,4 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end
-//--
+//--Dubrovnik.CodeGenerator

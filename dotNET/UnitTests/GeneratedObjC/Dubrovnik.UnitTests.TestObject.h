@@ -1,4 +1,5 @@
-﻿//++AutoGen Dubrovnik.UnitTests.TestObject.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.TestObject.h
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed class : TestObject
 //
@@ -18,4 +19,4 @@
     - (NSString *)name;
     - (void)setName:(NSString *)value;
 @end
-//--
+//--Dubrovnik.CodeGenerator

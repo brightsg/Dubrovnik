@@ -1,6 +1,7 @@
-﻿//++AutoGen Dubrovnik.UnitTests.IntEnum.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.IntEnum.h
+// Date: 9/6/2013 12:37:50 PM
 //
-// Managed enumeration : Dubrovnik.UnitTests.IntEnum
+// Managed enumeration : IntEnum
 //
 typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
 	Dubrovnik_UnitTests_IntEnum_val1 = 1,
@@ -8,4 +9,4 @@ typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
 	Dubrovnik_UnitTests_IntEnum_val3 = 3,
 	Dubrovnik_UnitTests_IntEnum_val4 = 4,
 };
-//--
+//--Dubrovnik.CodeGenerator

@@ -1,4 +1,5 @@
-﻿//++AutoGen Dubrovnik.UnitTests.ReferenceObject.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.h
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed class : ReferenceObject
 //
@@ -260,4 +261,4 @@
 	// Managed param types : System.String[]
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
 @end
-//--
+//--Dubrovnik.CodeGenerator

@@ -24,8 +24,8 @@ namespace Dubrovnik
 
             // Xcode can choke on large single file assemblies.
             // Give it a break and split the content
-            string tagStart = "//++AutoGen";
-            string tagEnd = "//--";
+            string tagStart = "//++" + Net2ObjC.GenToolName;
+            string tagEnd = "//--" + Net2ObjC.GenToolName;
             List<string> fileList = new List<string>();
 
             int idxLimit = -1;
@@ -88,7 +88,7 @@ namespace Dubrovnik
             }
             else
             {
-                outputFormat = "// AutoGen : {0}";
+                outputFormat = "// " +  Net2ObjC.GenToolName + " made {0}";
             }
 
             foreach (string item in fileList) {

@@ -1,4 +1,5 @@
-﻿//++AutoGen Dubrovnik.UnitTests.GenericReferenceObject_T_U.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.GenericReferenceObject_T_U.h
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed class : GenericReferenceObject<T, U>
 //
@@ -35,4 +36,4 @@
 	// Managed param types : <T>, <U>
     - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2;
 @end
-//--
+//--Dubrovnik.CodeGenerator

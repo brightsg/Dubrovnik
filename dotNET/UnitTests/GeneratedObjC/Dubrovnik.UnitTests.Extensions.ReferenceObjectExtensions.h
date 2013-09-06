@@ -1,4 +1,5 @@
-﻿//++AutoGen Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed class : ReferenceObjectExtensions
 //
@@ -29,4 +30,4 @@
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
     - (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 @end
-//--
+//--Dubrovnik.CodeGenerator

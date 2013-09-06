@@ -1,5 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
-//++AutoGen Dubrovnik.UnitTests.ReferenceObject.m
+//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.m
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed class : ReferenceObject
 //
@@ -654,4 +655,4 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end
-//--
+//--Dubrovnik.CodeGenerator

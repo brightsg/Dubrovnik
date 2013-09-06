@@ -1,5 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
-//++AutoGen Dubrovnik.UnitTests.TestObject.m
+//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.TestObject.m
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed class : TestObject
 //
@@ -34,4 +35,4 @@
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 @end
-//--
+//--Dubrovnik.CodeGenerator

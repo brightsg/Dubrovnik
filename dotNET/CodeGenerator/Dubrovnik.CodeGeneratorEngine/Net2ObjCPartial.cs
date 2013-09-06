@@ -13,11 +13,14 @@ namespace Dubrovnik
     // VS will compile the template into a class named Net2ObjC.
     partial class Net2ObjC
     {
+        public static string GenToolName = "Dubrovnik.CodeGenerator";
+
         public string InterfaceOutput { get; private set; }
         public string ImplementationOutput { get; private set; }
         public string XMLFilePath { get; set; }
         public bool ImplementEnumerationsAsClasses { get; private set; }
         public bool AppendFirstArgSignatureToMethodName { get; private set; }
+        public string TimeStamp { get; private set; }
 
         public Net2ObjC() : base ()
         {
@@ -28,6 +31,7 @@ namespace Dubrovnik
             OutputFileType = OutputType.Interface;
             ImplementEnumerationsAsClasses = false;
             AppendFirstArgSignatureToMethodName = true;
+            TimeStamp = DateTime.Now.ToString();
         }
 
         //
@@ -776,8 +780,6 @@ namespace Dubrovnik
             monoTA = new MonoTypeAssociation { MonoType = "System.Object", MonoTypeAlias = "object" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
-
-            object s;
 
             // System.String
             monoTA = new MonoTypeAssociation { MonoType = "System.String", MonoTypeAlias = "string" };

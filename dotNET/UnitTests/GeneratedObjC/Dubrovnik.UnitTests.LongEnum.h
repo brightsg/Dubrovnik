@@ -1,6 +1,7 @@
-﻿//++AutoGen Dubrovnik.UnitTests.LongEnum.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.LongEnum.h
+// Date: 9/6/2013 12:37:50 PM
 //
-// Managed enumeration : Dubrovnik.UnitTests.LongEnum
+// Managed enumeration : LongEnum
 //
 typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	Dubrovnik_UnitTests_LongEnum_val1 = 1,
@@ -8,4 +9,4 @@ typedef NS_ENUM(int64_t, Dubrovnik_UnitTests_LongEnum) {
 	Dubrovnik_UnitTests_LongEnum_val3 = 3,
 	Dubrovnik_UnitTests_LongEnum_val4 = 4,
 };
-//--
+//--Dubrovnik.CodeGenerator

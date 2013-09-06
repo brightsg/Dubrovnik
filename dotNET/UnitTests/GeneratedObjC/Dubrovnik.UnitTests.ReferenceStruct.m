@@ -1,5 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
-//++AutoGen Dubrovnik.UnitTests.ReferenceStruct.m
+//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceStruct.m
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed struct : ReferenceStruct
 //
@@ -86,4 +87,4 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end
-//--
+//--Dubrovnik.CodeGenerator

@@ -51,8 +51,11 @@ namespace Dubrovnik
 
             LogText =  N2ObjC.TransformText();
 
+            bool saveLog = false;
+
             // save the logOutput if required
-            if (false) {
+            if (saveLog)
+            {
                 string outputFileName = Path.GetFileNameWithoutExtension(templateFileName);
                 outputFileName = Path.Combine(Path.GetDirectoryName(templateFileName), outputFileName);
                 outputFileName = outputFileName + "1" + templateHost.FileExtension;

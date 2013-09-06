@@ -1,4 +1,5 @@
-﻿//++AutoGen Dubrovnik.UnitTests.ReferenceStruct.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceStruct.h
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed struct : ReferenceStruct
 //
@@ -45,4 +46,4 @@
 	// Managed param types : System.String
     - (NSString *)stringMethod_withS1:(NSString *)p1;
 @end
-//--
+//--Dubrovnik.CodeGenerator

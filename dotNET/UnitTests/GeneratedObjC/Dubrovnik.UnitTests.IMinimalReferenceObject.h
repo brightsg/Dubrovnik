@@ -1,4 +1,5 @@
-﻿//++AutoGen Dubrovnik.UnitTests.IMinimalReferenceObject.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.IMinimalReferenceObject.h
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed interface : IMinimalReferenceObject
 //
@@ -19,4 +20,4 @@
 	// Managed param types : System.String, System.Int32
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
 @end
-//--
+//--Dubrovnik.CodeGenerator

@@ -1,5 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
-//++AutoGen Dubrovnik.UnitTests.GenericReferenceObject_T_U.m
+//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.GenericReferenceObject_T_U.m
+// Date: 9/6/2013 12:37:50 PM
 //
 // Managed class : GenericReferenceObject<T, U>
 //
@@ -68,4 +69,4 @@
 		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
     }
 @end
-//--
+//--Dubrovnik.CodeGenerator
