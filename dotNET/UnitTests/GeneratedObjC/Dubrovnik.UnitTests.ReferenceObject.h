@@ -1,5 +1,5 @@
 ﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.h
-// Date: 9/6/2013 12:37:50 PM
+// Date: 9/6/2013 1:46:17 PM
 //
 // Managed class : ReferenceObject
 //
@@ -245,6 +245,16 @@
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32[]
     - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Int16
+	// Managed param types : System.Int16[]
+    - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Byte
+	// Managed param types : System.Byte[]
+    - (uint8_t)sum_withByteArray:(NSData *)p1;
 
 	// Managed method name : Sum
 	// Managed return type : System.Single

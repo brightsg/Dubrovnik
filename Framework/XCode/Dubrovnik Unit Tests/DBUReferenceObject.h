@@ -100,6 +100,8 @@
 // array parameter methods
 - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
 - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
+- (int16_t)sum_withInt16Array:(DBSystem_Array *)p1;
+- (int8_t)sum_withByteArray:(DBSystem_Array *)p1;
 - (float)sum_withFloatArray:(DBSystem_Array *)p1;
 - (double)sum_withDoubleArray:(DBSystem_Array *)p1;
 - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;

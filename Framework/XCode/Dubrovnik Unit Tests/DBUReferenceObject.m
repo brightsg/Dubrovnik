@@ -362,6 +362,18 @@
     return DB_UNBOX_INT32(monoObject);
 }
 
+- (int16_t)sum_withInt16Array:(DBSystem_Array *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoValue]];
+    return DB_UNBOX_INT32(monoObject);
+}
+
+- (int8_t)sum_withByteArray:(DBSystem_Array *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoValue]];
+    return DB_UNBOX_INT8(monoObject);
+}
+
 - (float)sum_withFloatArray:(DBSystem_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoValue]];

@@ -318,6 +318,26 @@ namespace Dubrovnik.UnitTests
             return sum;
         }
 
+        public Int16 Sum(Int16[] int16Array)
+        {
+            Int16 sum = 0;
+            foreach (Int16 item in int16Array)
+            {
+                sum += item;
+            }
+            return sum;
+        }
+
+        public Byte Sum(Byte[] byteArray)
+        {
+            Byte sum = 0;
+            foreach (Byte item in byteArray)
+            {
+                sum += item;
+            }
+            return sum;
+        }
+
         public float Sum(float[] floatArray)
         {
             float sum = 0;

@@ -759,6 +759,13 @@ namespace Dubrovnik
         //
         // Provide associations between ObjC and mono types.
         //
+        // The managed built in types require that their aliases be used when
+        // constructing method signatures.
+        // Built in type list: http://msdn.microsoft.com/en-us/library/ya5y69ds.aspx
+        // 
+        // See source mono/metadata/debug-helpers.c find_system_class (const char *name)
+        // https://github.com/mono/mono/blob/master/mono/metadata/debug-helpers.c#L90
+        //
         void BuildTypeAssociations()
         {
             ObjCTypeAssociations = new Dictionary<string, ObjCTypeAssociation>();
@@ -846,7 +853,7 @@ namespace Dubrovnik
             AssociateTypes(monoTA, objcTA);
 
             // System.Int16
-            monoTA = new MonoTypeAssociation { MonoType = "System.Int16", MonoTypeAlias = "short"};
+            monoTA = new MonoTypeAssociation { MonoType = "System.Int16", MonoTypeAlias = "short", MonoTypeInvoke = "int16"};
             objcTA = new ObjCTypeAssociation { ObjCType = "int16_t", GetterFormat = "DB_UNBOX_INT16({0})" };
             AssociateTypes(monoTA, objcTA);
 
@@ -855,18 +862,22 @@ namespace Dubrovnik
             objcTA = new ObjCTypeAssociation { ObjCType = "int8_t", GetterFormat = "DB_UNBOX_INT8({0})" };
             AssociateTypes(monoTA, objcTA);
 
+            // System.IntPtr
+            monoTA = new MonoTypeAssociation { MonoType = "System.IntPtr", MonoTypeInvoke = "intptr" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "void *", GetterFormat = "DB_UNBOX_PTR({0})" };
+
             // System.UInt64
             monoTA = new MonoTypeAssociation { MonoType = "System.UInt64", MonoTypeAlias = "ulong"};
             objcTA = new ObjCTypeAssociation { ObjCType = "uint64_t", GetterFormat = "DB_UNBOX_UINT64({0})" };
             AssociateTypes(monoTA, objcTA);
-
+            
             // System.UInt32
             monoTA = new MonoTypeAssociation { MonoType = "System.UInt32", MonoTypeAlias = "uint"};
             objcTA = new ObjCTypeAssociation { ObjCType = "uint32_t", GetterFormat = "DB_UNBOX_UINT32({0})" };
             AssociateTypes(monoTA, objcTA);
 
             // System.UInt16
-            monoTA = new MonoTypeAssociation { MonoType = "System.UInt16", MonoTypeAlias = "ushort" };
+            monoTA = new MonoTypeAssociation { MonoType = "System.UInt16", MonoTypeAlias = "ushort", MonoTypeInvoke = "uint16" };
             objcTA = new ObjCTypeAssociation { ObjCType = "uint16_t", GetterFormat = "DB_UNBOX_UINT16({0})" };
             AssociateTypes(monoTA, objcTA);
 
@@ -875,8 +886,12 @@ namespace Dubrovnik
             objcTA = new ObjCTypeAssociation { ObjCType = "uint8_t", GetterFormat = "DB_UNBOX_UINT8({0})" };
             AssociateTypes(monoTA, objcTA);
 
+            // System.UIntPtr
+            monoTA = new MonoTypeAssociation { MonoType = "System.UIntPtr", MonoTypeInvoke = "uintptr" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "void *", GetterFormat = "DB_UNBOX_UPTR({0})" };
+
             // System.Char
-            monoTA = new MonoTypeAssociation { MonoType = "System.Char", MonoTypeAlias = "unichar" };
+            monoTA = new MonoTypeAssociation { MonoType = "System.Char", MonoTypeAlias = "char" };
             objcTA = new ObjCTypeAssociation { ObjCType = "uint16_t", GetterFormat = "DB_UNBOX_UINT16({0})" };
             AssociateTypes(monoTA, objcTA);
 

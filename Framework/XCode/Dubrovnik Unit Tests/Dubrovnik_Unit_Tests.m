@@ -350,8 +350,20 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // int 32 array
     NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @257];
     DBSystem_Array *int32Array = [int32NSArray dbsArrayWithTypeName:DBType_System_Int32];
-    int64_t int32Total = [refObject sum_withInt32Array:int32Array];
+    int32_t int32Total = [refObject sum_withInt32Array:int32Array];
     STAssertTrue(int32Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 257, DBUEqualityTestFailed);
+    
+    // int 16 array
+    NSArray *int16NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @255];
+    DBSystem_Array *int16Array = [int16NSArray dbsArrayWithTypeName:DBType_System_Int16];
+    int16_t int16Total = [refObject sum_withInt16Array:int16Array];
+    STAssertTrue(int16Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 255, DBUEqualityTestFailed);
+    
+    // byte array
+    NSArray *byteNSArray = @[@0, @1, @2, @4, @8, @16, @32, @64];
+    DBSystem_Array *byteArray = [byteNSArray dbsArrayWithTypeName:DBType_System_Byte];
+    int8_t byteTotal = [refObject sum_withByteArray:byteArray];
+    STAssertTrue(byteTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64, DBUEqualityTestFailed);
     
     // float array
     NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @258.0F];
