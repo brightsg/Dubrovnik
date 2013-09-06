@@ -54,6 +54,7 @@ namespace Dubrovnik.UnitTests
 		public const string ClassConstStringField = "Dubrovnik.UnitTests const field";
 		public readonly string ClassReadonlyStringField = "Dubrovnik.UnitTests readonly field";
 
+
 		//==============================
 		// constructors
 		//==============================
@@ -139,6 +140,8 @@ namespace Dubrovnik.UnitTests
 		public Int32 Int32Number { get; set;}
 		public Int64 Int64Number { get; set;}
         public Decimal DecimalNumber { get; set;}
+        public IntPtr Pointer { get; set; }
+        public unsafe int * Int32Pointer { get; set; }
 
         // enumeration properties
 		public IntEnum IntEnumeration { get; set; }
@@ -367,6 +370,54 @@ namespace Dubrovnik.UnitTests
             }
             return sum;
         }
+
+        //
+        // Pointer parameter methods
+        //
+        public unsafe Int32 SumAndSwitch(Int32* intPtrX, Int32* intPtrY)
+        {
+            Int32 sum = *intPtrX + *intPtrY;
+
+            Int32 temp = *intPtrX;
+            *intPtrX = *intPtrY;
+            *intPtrY = temp;
+
+            return sum;
+        }
+
+        public unsafe Int64 SumAndSwitch(Int64* int64PtrX, Int64* int64PtrY)
+        {
+            Int64 sum = *int64PtrX + *int64PtrY;
+
+            Int64 temp = *int64PtrX;
+            *int64PtrX = *int64PtrY;
+            *int64PtrY = temp;
+
+            return sum;
+        }
+
+        public unsafe float SumAndSwitch(float* floatPtrX, float* floatPtrY)
+        {
+            float sum = *floatPtrX + *floatPtrY;
+
+            float temp = *floatPtrX;
+            *floatPtrX = *floatPtrY;
+            *floatPtrY = temp;
+
+            return sum;
+        }
+
+        public unsafe double SumAndSwitch(double* doublePtrX, double* doublePtrY)
+        {
+            double sum = *doublePtrX + *doublePtrY;
+
+            double temp = *doublePtrX;
+            *doublePtrX = *doublePtrY;
+            *doublePtrY = temp;
+
+            return sum;
+        }
+
 	}
 
 

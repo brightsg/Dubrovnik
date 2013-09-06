@@ -43,6 +43,8 @@ static BOOL _setup = NO;
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass;
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass;
 - (void)doTestArrayMethods:(id)refObject class:(Class)testClass;
+- (void)doTestPointerProperties:(id)refObject class:(Class)testClass;
+- (void)doTestPointerMethods:(id)refObject class:(Class)testClass;
 @end
 
 @implementation Dubrovnik_Unit_Tests
@@ -337,6 +339,40 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil(classDescription, DBUObjectIsNil);
 }
 
+- (void)doTestPointerMethods:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    // int 32 pointer
+    int32_t x = 101, y = 202;
+    int32_t int32Sum = [refObject sumAndSwitch_withIntPtrX:&x intPtrY:&y];
+    STAssertTrue(int32Sum == x + y, DBUEqualityTestFailed);
+    STAssertTrue(x == 202, DBUEqualityTestFailed);
+    STAssertTrue(y == 101, DBUEqualityTestFailed);
+    
+    // int 64 pointer
+    int64_t x64 = 202, y64 = 303;
+    int64_t int64Sum = [refObject sumAndSwitch_withInt64PtrX:&x64 int64PtrY:&y64];
+    STAssertTrue(int64Sum == x64 + y64, DBUEqualityTestFailed);
+    STAssertTrue(x64 == 303, DBUEqualityTestFailed);
+    STAssertTrue(y64 == 202, DBUEqualityTestFailed);
+    
+    // float pointer
+    float xfloat = 404, yfloat = 505;
+    float floatSum = [refObject sumAndSwitch_withFloatPtrX:&xfloat floatPtrY:&yfloat];
+    STAssertTrue(floatSum == xfloat + yfloat, DBUEqualityTestFailed);
+    STAssertTrue(xfloat == 505, DBUEqualityTestFailed);
+    STAssertTrue(yfloat == 404, DBUEqualityTestFailed);
+    
+    // double pointer
+    double xdouble = 606, ydouble = 772;
+    double doubleSum = [refObject sumAndSwitch_withDoublePtrX:&xdouble doublePtrY:&ydouble];
+    STAssertTrue(doubleSum == xdouble + ydouble, DBUEqualityTestFailed);
+    STAssertTrue(xdouble == 772, DBUEqualityTestFailed);
+    STAssertTrue(ydouble == 606, DBUEqualityTestFailed);
+}
+
+
 - (void)doTestArrayMethods:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
@@ -383,6 +419,23 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *stringTotal = [refObject sum_withStringArray:stringArray];
     NSString *stringTest = [NSString stringWithFormat:@"%@ %@ %@", DBUTestString, @"1", @"2"];
     STAssertTrue([stringTotal isEqual:stringTest], DBUEqualityTestFailed);
+}
+
+- (void)doTestPointerProperties:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    // string pointer
+    NSString *stringPointer = @"It's okay to point at me like that.";
+    [refObject setPointer:stringPointer];
+    void * voidPtr = [refObject pointer];
+    STAssertTrue(voidPtr == stringPointer, DBUEqualityTestFailed);
+    
+    // int32 pointer
+    int32_t theInt = 10101;
+    [refObject setInt32Pointer:&theInt];
+    int32_t *int32Pointer = [refObject int32Pointer];
+    STAssertTrue(*int32Pointer == theInt, DBUEqualityTestFailed);
 }
 
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass
@@ -715,12 +768,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestMethods:refObject class:testClass];
     [self doTestExtensionMethods:refObject class:testClass];
     [self doTestArrayMethods:refObject class:testClass];
+    [self doTestPointerMethods:refObject class:testClass];
     
     //===================================
     // properties
     //===================================
     [self doTestProperties:refObject class:testClass];
     [self doTestArrayProperties:refObject class:testClass];
+    [self doTestPointerProperties:refObject class:testClass];
     
     //===================================
     // representations

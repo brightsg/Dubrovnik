@@ -1,6 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
 //++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.m
-// Date: 9/6/2013 1:46:17 PM
+// Date: 9/6/2013 9:58:56 PM
 //
 // Managed class : ReferenceObject
 //
@@ -282,6 +282,19 @@
 		[self setMonoProperty:"Int32Number" valueObject:monoObject];          
 	}
 
+	// Managed type : System.Int32*
+    - (int32_t *)int32Pointer
+    {
+		MonoObject * monoObject = [self getMonoProperty:"Int32Pointer"];
+		int32_t * result = DB_UNBOX_PTR(monoObject);
+		return result;
+	}
+    - (void)setInt32Pointer:(int32_t *)value
+	{
+		MonoObject *monoObject = DB_VALUE(value);
+		[self setMonoProperty:"Int32Pointer" valueObject:monoObject];          
+	}
+
 	// Managed type : System.Int64[]
     - (DBSystem_Array *)int64Array
     {
@@ -394,6 +407,19 @@
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
+	}
+
+	// Managed type : System.IntPtr
+    - (void *)pointer
+    {
+		MonoObject * monoObject = [self getMonoProperty:"Pointer"];
+		void * result = DB_UNBOX_PTR(monoObject);
+		return result;
+	}
+    - (void)setPointer:(void *)value
+	{
+		MonoObject *monoObject = DB_VALUE(value);
+		[self setMonoProperty:"Pointer" valueObject:monoObject];          
 	}
 
 	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
@@ -671,6 +697,42 @@
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32*, System.Int32*
+    - (int32_t)sumAndSwitch_withIntPtrX:(int32_t*)p1 intPtrY:(int32_t*)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(int*,int*)" withNumArgs:2, p1, p2];
+		return DB_UNBOX_INT32(monoObject);
+    }
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Int64
+	// Managed param types : System.Int64*, System.Int64*
+    - (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(long*,long*)" withNumArgs:2, p1, p2];
+		return DB_UNBOX_INT64(monoObject);
+    }
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Single
+	// Managed param types : System.Single*, System.Single*
+    - (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(single*,single*)" withNumArgs:2, p1, p2];
+		return DB_UNBOX_FLOAT(monoObject);
+    }
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Double
+	// Managed param types : System.Double*, System.Double*
+    - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(double*,double*)" withNumArgs:2, p1, p2];
+		return DB_UNBOX_DOUBLE(monoObject);
     }
 @end
 //--Dubrovnik.CodeGenerator

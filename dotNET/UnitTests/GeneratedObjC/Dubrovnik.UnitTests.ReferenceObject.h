@@ -1,5 +1,5 @@
 ﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.h
-// Date: 9/6/2013 1:46:17 PM
+// Date: 9/6/2013 9:58:56 PM
 //
 // Managed class : ReferenceObject
 //
@@ -105,6 +105,10 @@
     - (int32_t)int32Number;
     - (void)setInt32Number:(int32_t)value;
 
+	// Managed type : System.Int32*
+    - (int32_t *)int32Pointer;
+    - (void)setInt32Pointer:(int32_t *)value;
+
 	// Managed type : System.Int64[]
     - (DBSystem_Array *)int64Array;
     - (void)setInt64Array:(DBSystem_Array *)value;
@@ -139,6 +143,10 @@
 	// Managed type : System.String
     - (NSString *)name;
     - (void)setName:(NSString *)value;
+
+	// Managed type : System.IntPtr
+    - (void *)pointer;
+    - (void)setPointer:(void *)value;
 
 	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
     - (System_Collections_Generic_List *)referenceObjectList;
@@ -270,5 +278,25 @@
 	// Managed return type : System.String
 	// Managed param types : System.String[]
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32*, System.Int32*
+    - (int32_t)sumAndSwitch_withIntPtrX:(int32_t*)p1 intPtrY:(int32_t*)p2;
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Int64
+	// Managed param types : System.Int64*, System.Int64*
+    - (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2;
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Single
+	// Managed param types : System.Single*, System.Single*
+    - (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2;
+
+	// Managed method name : SumAndSwitch
+	// Managed return type : System.Double
+	// Managed param types : System.Double*, System.Double*
+    - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 @end
 //--Dubrovnik.CodeGenerator

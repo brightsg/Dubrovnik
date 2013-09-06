@@ -106,6 +106,12 @@
 - (double)sum_withDoubleArray:(DBSystem_Array *)p1;
 - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
 
+// pointer parameter methods
+- (int32_t)sumAndSwitch_withIntPtrX:(int32_t *)p1 intPtrY:(int32_t *)p2;
+- (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2;
+- (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2;
+- (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
+
 // string property implementation
 - (NSString *)stringProperty;
 - (void)setStringProperty:(NSString *)value;
@@ -137,6 +143,12 @@
 // long enumeration property implementation
 - (eDBULongEnum)longEnumeration;
 - (void)setLongEnumeration:(eDBULongEnum)value;
+
+// pointer properties
+- (void *)pointer;
+- (void)setPointer:(void *)value;
+- (int32_t *)int32Pointer;
+- (void)setInt32Pointer:(int32_t *)value;
 
 // array properties
 - (DBSystem_Array *)stringArray;

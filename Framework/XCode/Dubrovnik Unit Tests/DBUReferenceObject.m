@@ -189,6 +189,34 @@
 }
 
 #pragma mark -
+#pragma mark Mono pointer properties
+
+- (void *)pointer
+{
+    MonoObject * monoObject = [self getMonoProperty:"Pointer"];
+    void *result = DB_UNBOX_PTR(monoObject);
+    return result;
+}
+- (void)setPointer:(void *)value
+{
+    MonoObject *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"Pointer" valueObject:monoObject];
+}
+
+// Managed type : System.Int32*
+- (int32_t *)int32Pointer
+{
+    MonoObject * monoObject = [self getMonoProperty:"Int32Pointer"];
+    int32_t * result = DB_UNBOX_PTR(monoObject);
+    return result;
+}
+- (void)setInt32Pointer:(int32_t *)value
+{
+    MonoObject *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"Int32Pointer" valueObject:monoObject];
+}
+
+#pragma mark -
 #pragma mark Mono array properties
 
 - (DBSystem_Array *)int64Array
@@ -400,6 +428,34 @@
     MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
     return [DBUReferenceStruct representationWithMonoObject:monoObject];
 }
+
+#pragma mark -
+#pragma mark Pointer parameter methods
+
+- (int32_t)sumAndSwitch_withIntPtrX:(int32_t *)p1 intPtrY:(int32_t *)p2
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(int*,int*)" withNumArgs:2, p1, p2];
+    return DB_UNBOX_INT32(monoObject);
+}
+
+- (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(long*,long*)" withNumArgs:2, p1, p2];
+    return DB_UNBOX_INT64(monoObject);
+}
+
+- (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(single*,single*)" withNumArgs:2, p1, p2];
+    return DB_UNBOX_FLOAT(monoObject);
+}
+
+- (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(double*,double*)" withNumArgs:2, p1, p2];
+    return DB_UNBOX_DOUBLE(monoObject);
+}
+
 
 #pragma mark -
 #pragma mark Mono static methods

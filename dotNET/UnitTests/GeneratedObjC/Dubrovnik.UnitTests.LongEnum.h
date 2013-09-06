@@ -1,5 +1,5 @@
 ﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.LongEnum.h
-// Date: 9/6/2013 1:46:17 PM
+// Date: 9/6/2013 9:58:56 PM
 //
 // Managed enumeration : LongEnum
 //

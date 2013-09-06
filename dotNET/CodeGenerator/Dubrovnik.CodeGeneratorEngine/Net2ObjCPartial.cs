@@ -260,7 +260,12 @@ namespace Dubrovnik
                 {
                     if (_MonoTypeInvoke == null)
                     {
-                        return MonoTypeAlias;
+                        if (MonoTypeAlias != null)
+                        {
+                            return MonoTypeAlias;
+                        }
+
+                        return MonoType;
                     }
                     return _MonoTypeInvoke;
                 }
@@ -294,7 +299,11 @@ namespace Dubrovnik
             {
                 get
                 {
-                    return !(_NumericTypes.Contains<string>(ObjCType));
+                    // get element type for pointers
+                    string elementType = ObjCType.Replace("*", "");
+                    elementType = elementType.Replace(" ", "");
+
+                    return !(_NumericTypes.Contains<string>(elementType));
                 }
             }
 
@@ -398,14 +407,19 @@ namespace Dubrovnik
                 // If no explicit type found then return a canonical type name.
                 decl = ObjCTypeFromMonoType(monoType);
 
-                // if ObjC rep is NSObject then declare as a pointer.
-                if (ObjCNonAssociatedTypeIsNSObject(monoFacet)) {
+                // if ObjC rep is NSObject or pointer thern append deref operator.
+                if (ObjCNonAssociatedTypeIsNSObject(monoFacet) || monoFacet.IsPointer) {
                     decl += " *";
                 }
             }
             else
             {
                 decl = ObjCTypeAssociations[monoType].ObjCTypeDecl;
+
+                if (monoFacet.IsPointer)
+                {
+                    decl += " *";
+                }
             }
 
             return decl;
@@ -543,30 +557,39 @@ namespace Dubrovnik
                 if (GetterFormat != null)
                 {
                     List<string> getterArgs = new List<string>();
-                    getterArgs.Add(monoVarName);
-
-                    // add any child type arguments representing generic types
-                    if (monoFacet.ObjCFacet.GenericArgumentTypes != null && monoFacet.ObjCFacet.GenericArgumentTypes.Count() > 0)
+                    getterArgs.Add(monoVarName); 
+                    
+                    if (monoFacet.IsPointer)
                     {
-                        getterArgs.AddRange(monoFacet.ObjCFacet.GenericArgumentTypes);
+                        GetterFormat = "DB_UNBOX_PTR({0})";
                     }
-
-                    // TODO: provide class representation for arrays.
-                    // Just as we provide a class rep for a generic the same will be required for an array.
-                    if (monoFacet.IsArray) {
-                        getterArgs.Add("DBMonoObjectRepresentation");
-                    }
-
-                    // We may require at least two arguments.
-                    if (getterArgs.Count < 2)
+                    else
                     {
-                        getterArgs.Add("DBMonoObjectRepresentation");
-                    }
 
-                    // add additional arguments
-                    if (args != null)
-                    {
-                        getterArgs.AddRange(args);
+                        // add any child type arguments representing generic types
+                        if (monoFacet.ObjCFacet.GenericArgumentTypes != null && monoFacet.ObjCFacet.GenericArgumentTypes.Count() > 0)
+                        {
+                            getterArgs.AddRange(monoFacet.ObjCFacet.GenericArgumentTypes);
+                        }
+
+                        // TODO: provide class representation for arrays.
+                        // Just as we provide a class rep for a generic the same will be required for an array.
+                        if (monoFacet.IsArray)
+                        {
+                            getterArgs.Add("DBMonoObjectRepresentation");
+                        }
+
+                        // We may require at least two arguments.
+                        if (getterArgs.Count < 2)
+                        {
+                            getterArgs.Add("DBMonoObjectRepresentation");
+                        }
+
+                        // add additional arguments
+                        if (args != null)
+                        {
+                            getterArgs.AddRange(args);
+                        }
                     }
                     exp = string.Format(GetterFormat, getterArgs.ToArray<string>());
                 }
@@ -628,16 +651,19 @@ namespace Dubrovnik
                 ObjCTypeAssociation objCTypeAssoc = ObjCTypeAssociations[monoType];
 
                 // use the value object format specifier if available
-                string SetterFormat = objCTypeAssoc.SetterFormat;
-                if (SetterFormat != null)
+                string setterFormat = objCTypeAssoc.SetterFormat;
+                if (setterFormat != null)
                 {
-                    exp = string.Format(SetterFormat, objCVarName);
+                    if (monoFacet.IsPointer)
+                    {
+                        setterFormat = "DB_VALUE({0}";
+                    }
+                    exp = string.Format(setterFormat, objCVarName);
                 }
 
                 // use custom method 
                 else if (objCTypeAssoc.SetterMethod != null)
                 {
-
                     string methodName = objCTypeAssoc.SetterMethod;
                     Type type = GetType();
                     MethodInfo method = type.GetMethod(methodName);
@@ -651,7 +677,7 @@ namespace Dubrovnik
             // generate default object representation
             if (exp == null)
             {
-                if (monoFacet.IsValueType)
+                if (monoFacet.IsValueType || monoFacet.IsPointer)
                 {
                     exp = string.Format("DB_VALUE({0})", objCVarName);
                 }
@@ -702,11 +728,13 @@ namespace Dubrovnik
 
             if (monoType == null)
             {
-                monoType = monoFacet.Type;
-
-                if (monoFacet.IsByRef)
+                if (monoFacet.IsByRef || monoFacet.IsPointer)
                 {
-                    monoType = monoType.Replace("&", "");
+                    monoType = monoFacet.ElementType;
+                }
+                else
+                {
+                    monoType = monoFacet.Type;
                 }
             }
             return monoType;
@@ -865,6 +893,7 @@ namespace Dubrovnik
             // System.IntPtr
             monoTA = new MonoTypeAssociation { MonoType = "System.IntPtr", MonoTypeInvoke = "intptr" };
             objcTA = new ObjCTypeAssociation { ObjCType = "void *", GetterFormat = "DB_UNBOX_PTR({0})" };
+            AssociateTypes(monoTA, objcTA);
 
             // System.UInt64
             monoTA = new MonoTypeAssociation { MonoType = "System.UInt64", MonoTypeAlias = "ulong"};
@@ -889,6 +918,7 @@ namespace Dubrovnik
             // System.UIntPtr
             monoTA = new MonoTypeAssociation { MonoType = "System.UIntPtr", MonoTypeInvoke = "uintptr" };
             objcTA = new ObjCTypeAssociation { ObjCType = "void *", GetterFormat = "DB_UNBOX_UPTR({0})" };
+            AssociateTypes(monoTA, objcTA);
 
             // System.Char
             monoTA = new MonoTypeAssociation { MonoType = "System.Char", MonoTypeAlias = "char" };
@@ -1086,7 +1116,6 @@ namespace Dubrovnik
         {
             // in production quality code we should not have any warnings!
             if (facet.IsByRef && (facet.Type == "System.String&")) WriteLine("#warning object ref and out parameter implementation is pending");
-            if (facet.IsPointer) WriteLine("#warning Pointer type implementation is pending");
         }
 
         //
