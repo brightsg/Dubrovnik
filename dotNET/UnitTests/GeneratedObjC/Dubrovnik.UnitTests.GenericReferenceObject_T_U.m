@@ -1,6 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
 //++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.GenericReferenceObject_T_U.m
-// Date: 9/6/2013 9:58:56 PM
+// Date: 9/7/2013 6:12:03 PM
 //
 // Managed class : GenericReferenceObject<T, U>
 //
@@ -56,7 +56,7 @@
 	// Managed param types : <T>, <U>
     - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeT_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(T,U)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
     }
 
@@ -65,7 +65,7 @@
 	// Managed param types : <T>, <U>
     - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(T,U)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
     }
 @end

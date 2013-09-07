@@ -215,33 +215,35 @@ public void WriteImplementationFilePreliminaries()
 }
 
 //
-// WriteClass
+// WriteClassStart
 //
-public void WriteClass(ClassFacet @class)
+public void WriteClassStart(CodeFacet facet, string module)
 {
 	// prefix defines interface or implementation
 	string classPrefix = OutputDelarationPrefix();
-	string superClass = OutputDelarationSuffix(@class);
+	string superClass = OutputDelarationSuffix(facet);
 
-	WriteModuleBanner(@class, "class");
+	WriteModuleBanner(facet, module);
 #>
-@<#=classPrefix#> <#=@class.ObjCFacet.Type#><#=superClass#>
-<#+		
-	WriteFacetAsClassSetup(@class);
-	WriteConstructors(@class.Constructors);
-	WriteFields(@class.Fields);
-	WriteProperties(@class.Properties);
-	WriteMethods(@class.Methods);
+@<#=classPrefix#> <#=facet.ObjCFacet.Type#><#=superClass#>
+<#+	
+	WriteClassSetup(facet);	
+}
+
+//
+// WriteClassEnd
+//
+public void WriteClassEnd()
+{
 #>
 @end
 <#+
 	WriteModuleFooter();
 }
-
 //
-// WriteFacetAsClassSetup
+// WriteClassSetup
 // 
-public void WriteFacetAsClassSetup(CodeFacet facet)
+public void WriteClassSetup(CodeFacet facet)
 {
 	WritePragmaMark("Setup");
 #>
@@ -271,51 +273,6 @@ public void WriteFacetAsClassSetup(CodeFacet facet)
 
 }
 
-//
-// WriteStruct
-//
-public void WriteStruct(StructFacet @struct)
-{
-	// prefix defines interface or implementation
-	string classPrefix = OutputDelarationPrefix();
-	string superClass = OutputDelarationSuffix(@struct);
-
-	WriteModuleBanner(@struct, "struct");
-#>
-@<#=classPrefix#> <#=@struct.ObjCFacet.Type#><#=superClass#>
-<#+		
-	WriteFacetAsClassSetup(@struct);
-	WriteConstructors(@struct.Constructors);
-	WriteFields(@struct.Fields);
-	WriteProperties(@struct.Properties);
-	WriteMethods(@struct.Methods);
-#>
-@end
-<#+
-	WriteModuleFooter();
-}
-
-//
-// WriteInterface
-//
-public void WriteInterface(InterfaceFacet @interface)
-{
-	// prefix defines interface or implementation
-	string classPrefix = OutputDelarationPrefix();
-	string superClass = OutputDelarationSuffix(@interface);
-
-	WriteModuleBanner(@interface,  "interface");
-#>
-@<#=classPrefix#> <#=@interface.ObjCFacet.Type#><#=superClass#>
-<#+		
-	WriteFacetAsClassSetup(@interface);	
-	WriteProperties(@interface.Properties);
-	WriteMethods(@interface.Methods);
-#>
-@end
-<#+
-	WriteModuleFooter();
-}
 
 //
 // WriteEnumeration
@@ -549,9 +506,6 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		string monoParameterType = parameter.Type;
 		if (parameter.IsByRef || parameter.IsPointer) {
 			monoParameterType = parameter.ElementType;
-        }
-		if (monoParameterType == "System.Exception[]") {
-			int wait = 1;
         }
 
 		//

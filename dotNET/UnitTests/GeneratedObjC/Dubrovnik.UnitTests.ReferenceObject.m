@@ -1,6 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
 //++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.m
-// Date: 9/6/2013 9:58:56 PM
+// Date: 9/7/2013 6:12:03 PM
 //
 // Managed class : ReferenceObject
 //
@@ -560,7 +560,7 @@
 	// Managed param types : <U>
     - (DBMonoObjectRepresentation *)genericMethodReturningGenericArgument_withParameterU:(DBMonoObjectRepresentation *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningGenericArgument(U)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningGenericArgument(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
     }
 

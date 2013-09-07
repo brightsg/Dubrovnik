@@ -123,6 +123,43 @@ namespace Dubrovnik
         }
 
         //
+        // WriteClass
+        //
+        public void WriteClass(ClassFacet @class)
+        {
+            WriteClassStart(@class, "class");
+            WriteConstructors(@class.Constructors);
+            WriteFields(@class.Fields);
+            WriteProperties(@class.Properties);
+            WriteMethods(@class.Methods);
+            WriteClassEnd();
+        }
+
+        //
+        // WriteStruct
+        //
+        public void WriteStruct(StructFacet @struct)
+        {
+            WriteClassStart(@struct, "struct");
+            WriteConstructors(@struct.Constructors);
+            WriteFields(@struct.Fields);
+            WriteProperties(@struct.Properties);
+            WriteMethods(@struct.Methods);
+            WriteClassEnd();
+        }
+
+        //
+        // WriteInterface
+        //
+        public void WriteInterface(InterfaceFacet @interface)
+        {
+            WriteClassStart(@interface, "interface");
+            WriteProperties(@interface.Properties);
+            WriteMethods(@interface.Methods);
+            WriteClassEnd();
+        }
+
+        //
         // WriteFields
         //
         public void WriteFields(IList<FieldFacet> fields)

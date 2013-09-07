@@ -1,5 +1,5 @@
 ﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceStruct.h
-// Date: 9/6/2013 9:58:56 PM
+// Date: 9/7/2013 6:12:03 PM
 //
 // Managed struct : ReferenceStruct
 //
