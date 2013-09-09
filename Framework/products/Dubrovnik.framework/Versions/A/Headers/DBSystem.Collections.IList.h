@@ -1,5 +1,5 @@
 //
-//  DBIList.h
+//  DBSystem.Collections.IList.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -25,7 +25,7 @@
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoIncludes.h"
 
-@interface DBIList : DBMonoObjectRepresentation {
+@interface DBSystem_Collections_IList : DBMonoObjectRepresentation {
 	@protected
 	Class _representationClass;
 }
@@ -44,7 +44,7 @@
 
 //.NET IList wrapperstuff
 //properties
-- (int32_t)count;
+- (uint32_t)count;
 
 //methods
 - (int)addMonoObject:(MonoObject *)monoObject;

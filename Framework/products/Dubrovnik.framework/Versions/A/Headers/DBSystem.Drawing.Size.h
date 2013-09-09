@@ -1,7 +1,7 @@
-//
-//  DBStringCategory.h
+
 //  Dubrovnik
-//
+//  DBSystem.Drawing.Size.h
+//  Created by Dustin Mierau on 2/27/06
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
@@ -20,17 +20,17 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBMonoObjectRepresentation.h"
+#import "DBMonoIncludes.h"
 
-@interface NSString (Dubrovnik)
+@interface DBSystem_Drawing_Size : DBMonoObjectRepresentation
 
-+ (id)stringWithMonoString:(MonoString *)monoString;
++ (DBSystem_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject;
++ (NSSize)convertToNSSize:(MonoObject *)monoObject;
 
-- (id)initWithMonoString:(MonoString *)monoString;
+- (int)width;
+- (int)height;
 
-- (MonoString *)monoString;
-- (MonoObject *)monoValue;
-- (MonoObject *)monoObject;
+- (BOOL)isEmpty;
 
 @end

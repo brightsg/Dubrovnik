@@ -1,8 +1,7 @@
 //
-//  DBArray.h
+//  NSImage+Dubrovnik.h
 //  Dubrovnik
 //
-//  Created by Allan Hsu on 4/13/06.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
@@ -21,30 +20,13 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
 
-#import "DBMonoObjectRepresentation.h"
-#import "DBMonoIncludes.h"
+@interface NSImage (Dubrovnik)
 
-@interface DBArray : DBMonoObjectRepresentation {
-	@protected
-	Class _representationClass;
-	
-	uint32_t _arrayLength;
-}
++ (id)imageWithMonoArray:(MonoArray *)monoArray;
 
-+ (id)arrayWithMonoArray:(MonoArray *)monoArray withRepresentationClass:(Class)representationClass;
-
-- (id)initWithMonoArray:(MonoArray *)monoArray withRepresentationClass:(Class)representationClass;
-
-- (uint32_t)count;
-
-//Access
-- (MonoObject *)monoObjectAtIndex:(uint32_t)index;
-- (void)setMonoObject:(MonoObject *)monoObject forIndex:(uint32_t)index;
-
-//Wrapped Access
-- (id)objectAtIndex:(uint32_t)index;
-- (void)setObjectAtIndex:(uint32_t)index object:(DBMonoObjectRepresentation *)object;
+- (id)initWithMonoArray:(MonoArray *)monoArray;
 
 @end

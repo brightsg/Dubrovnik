@@ -1,7 +1,7 @@
-
+//
+//  DBSystem.Collections.ArrayList.h
 //  Dubrovnik
-//  DBSize.h
-//  Created by Dustin Mierau on 2/27/06
+//
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
@@ -20,17 +20,14 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBMonoObjectRepresentation.h"
-#import "DBMonoIncludes.h"
+#import <Foundation/Foundation.h>
 
-@interface DBSize : DBMonoObjectRepresentation
+#import "DBSystem.Collections.IList.h"
 
-+ (DBSize *)sizeWithMonoObject:(MonoObject *)monoObject;
-+ (NSSize)convertToNSSize:(MonoObject *)monoObject;
+@interface DBSystem_Collections_ArrayList : DBSystem_Collections_IList {
 
-- (int)width;
-- (int)height;
+}
 
-- (BOOL)isEmpty;
+- (void)sort:(DBMonoObjectRepresentation *)comparer;
 
 @end

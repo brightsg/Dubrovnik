@@ -1,6 +1,6 @@
 ﻿#import "Dubrovnik.UnitTests.h"
 //++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.m
-// Date: 9/7/2013 6:12:03 PM
+// Date: 9/9/2013 12:35:45 PM
 //
 // Managed class : ReferenceObject
 //
@@ -335,16 +335,16 @@
 	}
 
 	// Managed type : System.Collections.Generic.List<System.Int32>
-    - (System_Collections_Generic_List *)intList
+    - (DBSystem_Collections_Generic_List *)intList
     {
 		MonoObject * monoObject = [self getMonoProperty:"IntList"];
-		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_List * result = [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"int32_t";
 		return result;
 	}
-    - (void)setIntList:(System_Collections_Generic_List *)value
+    - (void)setIntList:(DBSystem_Collections_Generic_List *)value
 	{
-		MonoObject *monoObject = [value monoObject];
+		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"IntList" valueObject:monoObject];          
 	}
 
@@ -362,16 +362,16 @@
 	}
 
 	// Managed type : System.Collections.Generic.Dictionary<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    - (System_Collections_Generic_Dictionary *)intObjectDictionary
+    - (DBSystem_Collections_Generic_Dictionary *)intObjectDictionary
     {
 		MonoObject * monoObject = [self getMonoProperty:"IntObjectDictionary"];
-		System_Collections_Generic_Dictionary * result = [System_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_Dictionary * result = [DBSystem_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
 		return result;
 	}
-    - (void)setIntObjectDictionary:(System_Collections_Generic_Dictionary *)value
+    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_Dictionary *)value
 	{
-		MonoObject *monoObject = [value monoObject];
+		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"IntObjectDictionary" valueObject:monoObject];          
 	}
 
@@ -423,16 +423,16 @@
 	}
 
 	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
-    - (System_Collections_Generic_List *)referenceObjectList
+    - (DBSystem_Collections_Generic_List *)referenceObjectList
     {
 		MonoObject * monoObject = [self getMonoProperty:"ReferenceObjectList"];
-		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_List * result = [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"Dubrovnik_UnitTests_ReferenceObject";
 		return result;
 	}
-    - (void)setReferenceObjectList:(System_Collections_Generic_List *)value
+    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_List *)value
 	{
-		MonoObject *monoObject = [value monoObject];
+		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"ReferenceObjectList" valueObject:monoObject];          
 	}
 
@@ -476,16 +476,16 @@
 	}
 
 	// Managed type : System.Collections.Generic.List<System.String>
-    - (System_Collections_Generic_List *)stringList
+    - (DBSystem_Collections_Generic_List *)stringList
     {
 		MonoObject * monoObject = [self getMonoProperty:"StringList"];
-		System_Collections_Generic_List * result = [System_Collections_Generic_List representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_List * result = [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"NSString";
 		return result;
 	}
-    - (void)setStringList:(System_Collections_Generic_List *)value
+    - (void)setStringList:(DBSystem_Collections_Generic_List *)value
 	{
-		MonoObject *monoObject = [value monoObject];
+		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringList" valueObject:monoObject];          
 	}
 
@@ -503,16 +503,16 @@
 	}
 
 	// Managed type : System.Collections.Generic.Dictionary<System.String, System.String>
-    - (System_Collections_Generic_Dictionary *)stringStringDictionary
+    - (DBSystem_Collections_Generic_Dictionary *)stringStringDictionary
     {
 		MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
-		System_Collections_Generic_Dictionary * result = [System_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_Dictionary * result = [DBSystem_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"NSString,NSString";
 		return result;
 	}
-    - (void)setStringStringDictionary:(System_Collections_Generic_Dictionary *)value
+    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_Dictionary *)value
 	{
-		MonoObject *monoObject = [value monoObject];
+		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringStringDictionary" valueObject:monoObject];          
 	}
 

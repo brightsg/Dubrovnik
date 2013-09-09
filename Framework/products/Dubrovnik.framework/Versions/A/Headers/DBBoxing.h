@@ -40,6 +40,8 @@
 #define DB_UNBOX_UINT16( x ) ( *(uint16_t *)mono_object_unbox( x ) )
 #define DB_UNBOX_UINT8( x ) ( *(uint8_t *)mono_object_unbox( x ) )
 #define DB_UNBOX_BOOLEAN( x ) ( *(MonoBoolean *)mono_object_unbox( x ) )
+#define DB_UNBOX_PTR( x ) ( *(void **)mono_object_unbox( x ) )
+#define DB_UNBOX_UPTR( x ) ( *(void **)mono_object_unbox( x ) )
 
 #define DB_BOX_DOUBLE( x ) ( mono_value_box(mono_domain_get(), mono_get_double_class(), &x) )
 #define DB_BOX_FLOAT( x ) ( mono_value_box(mono_domain_get(), mono_get_single_class(), &x) )

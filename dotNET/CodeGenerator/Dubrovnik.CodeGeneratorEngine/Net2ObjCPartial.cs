@@ -762,6 +762,10 @@ namespace Dubrovnik
                     monoType = "System.Array";
                 }
             }
+            else if (monoFacet.IsGenericType)
+            {
+                monoType = monoFacet.GenericType;
+            }
 
             if (monoType == null)
             {
@@ -866,6 +870,16 @@ namespace Dubrovnik
             // System.Collections.ArrayList
             monoTA = new MonoTypeAssociation { MonoType = "System.Collections.ArrayList" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
+            AssociateTypes(monoTA, objcTA);
+
+            // System.Collections.Generic.List
+            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.List" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_List" };
+            AssociateTypes(monoTA, objcTA);
+
+            // System.Collections.Generic.Dictionary
+            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.Dictionary" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_Dictionary" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Byte[]

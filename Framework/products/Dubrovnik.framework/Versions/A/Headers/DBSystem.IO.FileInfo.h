@@ -1,5 +1,5 @@
 //
-//  DBStringCategory.h
+//  DBSystem.IO.FileInfo.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -21,16 +21,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Dubrovnik/Dubrovnik.h>
 
-@interface NSString (Dubrovnik)
+#import "DBMonoObjectRepresentation.h"
+#import "DBMonoIncludes.h"
 
-+ (id)stringWithMonoString:(MonoString *)monoString;
+@interface DBSystem_IO_FileInfo : DBMonoObjectRepresentation {
 
-- (id)initWithMonoString:(MonoString *)monoString;
+}
 
-- (MonoString *)monoString;
-- (MonoObject *)monoValue;
-- (MonoObject *)monoObject;
++ (id)fileInfoWithMonoObject:(MonoObject *)monoObject;
++ (id)fileInfoWithURL:(NSURL *)url;
++ (id)fileInfoWithPath:(NSString *)path;
+
+- (id)initWithURL:(NSURL *)url;
+- (id)initWithPath:(NSString *)path;
+
+- (NSString *)fullFilePath;
+- (NSString *)filename;
+- (NSString *)fileExtension;
 
 @end

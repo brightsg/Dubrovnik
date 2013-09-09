@@ -23,6 +23,7 @@
 
 @interface NSArray (Dubrovnik)
 
-- (DBArrayList *)arrayList;
+- (DBSystem_Collections_ArrayList *)dbscArrayList;
+- (DBSystem_Array *)dbsArrayWithTypeName:(NSString *)name;
 
 @end

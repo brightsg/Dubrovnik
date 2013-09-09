@@ -66,7 +66,20 @@ namespace Dubrovnik
             IsConstructedGenericType = XElementAttributeBool(xelement, "IsConstructedGenericType");
             IsGenericType = XElementAttributeBool(xelement, "IsGenericType");
             IsGenericTypeDefinition = XElementAttributeBool(xelement, "IsGenericTypeDefinition");
-            IsGenericParameter = XElementAttributeBool(xelement, "IsGenericParameter"); 
+            IsGenericParameter = XElementAttributeBool(xelement, "IsGenericParameter");
+
+            if (IsGenericType)
+            {
+                int idx = Type.IndexOf("<");
+                if (idx > -1)
+                {
+                    GenericType = Type.Substring(0, idx);
+                }
+                else
+                {
+                    throw new Exception("Generic type not found.");
+                }
+            }
 
             // define ObjC code facet
             ObjCFacet = new CodeFacet(this);
@@ -85,6 +98,7 @@ namespace Dubrovnik
         // For the low down on generic type reflection see :
         // http://msdn.microsoft.com/en-us/library/ms172334.aspx
         public bool IsConstructedGenericType { get; private set; }
+        public string GenericType { get; private set; }
         public bool IsGenericType { get; private set; }
         public bool IsGenericTypeDefinition { get; private set; }
         public bool IsGenericParameter { get; private set; }

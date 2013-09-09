@@ -1,5 +1,5 @@
 //
-//  DBStringCategory.h
+//  NSData+Dubrovnik.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -23,14 +23,13 @@
 #import <Foundation/Foundation.h>
 #import <Dubrovnik/Dubrovnik.h>
 
-@interface NSString (Dubrovnik)
+@interface NSData (Dubrovnik)
 
-+ (id)stringWithMonoString:(MonoString *)monoString;
++ (id)dataWithMonoArray:(MonoArray *)monoArray;
 
-- (id)initWithMonoString:(MonoString *)monoString;
+- (id)initWithMonoArray:(MonoArray *)monoArray;
 
-- (MonoString *)monoString;
+- (MonoArray *)monoArray;
 - (MonoObject *)monoValue;
-- (MonoObject *)monoObject;
 
 @end

@@ -1,5 +1,5 @@
 ﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.ReferenceObject.h
-// Date: 9/7/2013 6:12:03 PM
+// Date: 9/9/2013 12:35:45 PM
 //
 // Managed class : ReferenceObject
 //
@@ -122,16 +122,16 @@
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value;
 
 	// Managed type : System.Collections.Generic.List<System.Int32>
-    - (System_Collections_Generic_List *)intList;
-    - (void)setIntList:(System_Collections_Generic_List *)value;
+    - (DBSystem_Collections_Generic_List *)intList;
+    - (void)setIntList:(DBSystem_Collections_Generic_List *)value;
 
 	// Managed type : System.Int32
     - (int32_t)intNumber;
     - (void)setIntNumber:(int32_t)value;
 
 	// Managed type : System.Collections.Generic.Dictionary<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    - (System_Collections_Generic_Dictionary *)intObjectDictionary;
-    - (void)setIntObjectDictionary:(System_Collections_Generic_Dictionary *)value;
+    - (DBSystem_Collections_Generic_Dictionary *)intObjectDictionary;
+    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_Dictionary *)value;
 
 	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration;
@@ -149,8 +149,8 @@
     - (void)setPointer:(void *)value;
 
 	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
-    - (System_Collections_Generic_List *)referenceObjectList;
-    - (void)setReferenceObjectList:(System_Collections_Generic_List *)value;
+    - (DBSystem_Collections_Generic_List *)referenceObjectList;
+    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_List *)value;
 
 	// Managed type : Dubrovnik.UnitTests.ReferenceObject
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative;
@@ -165,16 +165,16 @@
     - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value;
 
 	// Managed type : System.Collections.Generic.List<System.String>
-    - (System_Collections_Generic_List *)stringList;
-    - (void)setStringList:(System_Collections_Generic_List *)value;
+    - (DBSystem_Collections_Generic_List *)stringList;
+    - (void)setStringList:(DBSystem_Collections_Generic_List *)value;
 
 	// Managed type : System.String
     - (NSString *)stringProperty;
     - (void)setStringProperty:(NSString *)value;
 
 	// Managed type : System.Collections.Generic.Dictionary<System.String, System.String>
-    - (System_Collections_Generic_Dictionary *)stringStringDictionary;
-    - (void)setStringStringDictionary:(System_Collections_Generic_Dictionary *)value;
+    - (DBSystem_Collections_Generic_Dictionary *)stringStringDictionary;
+    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_Dictionary *)value;
 
 #pragma mark -
 #pragma mark Methods

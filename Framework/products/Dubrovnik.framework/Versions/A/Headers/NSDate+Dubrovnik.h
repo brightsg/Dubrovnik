@@ -1,9 +1,9 @@
 //
-//  DBEnum.h
+//  NSDate+Dubrovnik.h
 //  Dubrovnik
 //
-//  Created by Allan Hsu on 7/28/06.
-//  Copyright 2006 imeem. All rights reserved.
+//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
+//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -21,23 +21,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Dubrovnik/Dubrovnik.h>
 
-#import "DBMonoIncludes.h"
+@interface NSDate (Dubrovnik)
 
-@interface DBEnum : NSObject {
++ (id)dateWithMonoDateTime:(MonoObject *)monoDateTime;
++ (id)dateWithMonoTicks:(int64_t)monoTicks;
++ (id)dateWithNullableMonoDateTime:(MonoObject *)monoDateTime;
++ (id)dateWithMonoTicks:(int64_t)monoTicks hasValue:(BOOL)hasValue;
 
-}
+- (id)initWithMonoDateTime:(MonoObject *)monoDateTime;
+- (id)initWithMonoTicks:(int64_t)monoTicks;
 
-+ (MonoReflectionType *)monoReflectionType;
+- (MonoObject *)monoDateTime;
+- (MonoObject *)monoValue;
+- (MonoObject *)nullableMonoDateTime;
+- (MonoObject *)nullableMonoValue;
 
-+ (MonoObject *)monoEnumFromInt8:(int8_t)value;
-+ (MonoObject *)monoEnumFromInt16:(int16_t)value;
-+ (MonoObject *)monoEnumFromInt32:(int32_t)value;
-+ (MonoObject *)monoEnumFromInt64:(int64_t)value;
-
-+ (MonoObject *)monoEnumFromUInt8:(uint8_t)value;
-+ (MonoObject *)monoEnumFromUInt16:(uint16_t)value;
-+ (MonoObject *)monoEnumFromUInt32:(uint32_t)value;
-+ (MonoObject *)monoEnumFromUInt64:(uint64_t)value;
-
+- (void)setHasValue:(BOOL)hasValue;
+- (BOOL)hasValue;
 @end

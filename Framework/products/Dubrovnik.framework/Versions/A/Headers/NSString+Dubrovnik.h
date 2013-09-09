@@ -1,5 +1,5 @@
 //
-//  DBArrayList.h
+//  NSString+Dubrovnik.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -21,13 +21,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Dubrovnik/Dubrovnik.h>
 
-#import "DBIList.h"
+@interface NSString (Dubrovnik)
 
-@interface DBArrayList : DBIList {
++ (id)stringWithMonoString:(MonoString *)monoString;
 
-}
+- (id)initWithMonoString:(MonoString *)monoString;
 
-- (void)sort:(DBMonoObjectRepresentation *)comparer;
+- (MonoString *)monoString;
+- (MonoObject *)monoValue;
+- (MonoObject *)monoObject;
 
 @end

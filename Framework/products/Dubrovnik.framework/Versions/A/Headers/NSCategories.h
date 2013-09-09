@@ -1,5 +1,5 @@
 //
-//  DBStringCategory.h
+//  NSCategories.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,17 +20,10 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-@interface NSString (Dubrovnik)
-
-+ (id)stringWithMonoString:(MonoString *)monoString;
-
-- (id)initWithMonoString:(MonoString *)monoString;
-
-- (MonoString *)monoString;
-- (MonoObject *)monoValue;
-- (MonoObject *)monoObject;
-
-@end
+#import "NSArray+Dubrovnik.h"
+#import "NSString+Dubrovnik.h"
+#import "NSData+Dubrovnik.h"
+#import "NSDate+Dubrovnik.h"
+#import "NSImage+Dubrovnik.h"
+#import "NSDecimalNumber+Dubrovnik.h"
+#import "NSNumber+Dubrovnik.h"

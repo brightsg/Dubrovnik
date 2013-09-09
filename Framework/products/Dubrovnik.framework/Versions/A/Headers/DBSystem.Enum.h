@@ -1,9 +1,9 @@
 //
-//  DBStringCategory.h
+//  DBSystem.Enum.h
 //  Dubrovnik
 //
-//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
-//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
+//  Created by Allan Hsu on 7/28/06.
+//  Copyright 2006 imeem. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -21,16 +21,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Dubrovnik/Dubrovnik.h>
 
-@interface NSString (Dubrovnik)
+#import "DBMonoIncludes.h"
 
-+ (id)stringWithMonoString:(MonoString *)monoString;
+@interface DBSystem_Enum : NSObject {
 
-- (id)initWithMonoString:(MonoString *)monoString;
+}
 
-- (MonoString *)monoString;
-- (MonoObject *)monoValue;
-- (MonoObject *)monoObject;
++ (MonoReflectionType *)monoReflectionType;
+
++ (MonoObject *)monoEnumFromInt8:(int8_t)value;
++ (MonoObject *)monoEnumFromInt16:(int16_t)value;
++ (MonoObject *)monoEnumFromInt32:(int32_t)value;
++ (MonoObject *)monoEnumFromInt64:(int64_t)value;
+
++ (MonoObject *)monoEnumFromUInt8:(uint8_t)value;
++ (MonoObject *)monoEnumFromUInt16:(uint16_t)value;
++ (MonoObject *)monoEnumFromUInt32:(uint32_t)value;
++ (MonoObject *)monoEnumFromUInt64:(uint64_t)value;
 
 @end

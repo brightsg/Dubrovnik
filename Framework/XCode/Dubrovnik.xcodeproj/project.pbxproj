@@ -72,6 +72,10 @@
 		AB49E449178B2F1000D01244 /* DBEntityCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E447178B2F0F00D01244 /* DBEntityCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E448178B2F1000D01244 /* DBEntityCollection.m */; };
 		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
+		AB5D608F17DDE2A000C53D7D /* DBSystem.Collections.Generic.List.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D608D17DDE29F00C53D7D /* DBSystem.Collections.Generic.List.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5D609017DDE2A000C53D7D /* DBSystem.Collections.Generic.List.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5D608E17DDE2A000C53D7D /* DBSystem.Collections.Generic.List.m */; };
+		AB5D609317DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D609117DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5D609417DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5D609217DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.m */; };
 		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,39 +85,10 @@
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
-		ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103917B11A9F006F6E93 /* System.Nullable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF103C17B11A9F006F6E93 /* System.Nullable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF103A17B11A9F006F6E93 /* System.Nullable.m */; };
-		ABBF103F17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF103D17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF104017B11C16006F6E93 /* System.Collections.Generic.Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF103E17B11C16006F6E93 /* System.Collections.Generic.Dictionary.m */; };
-		ABBF104317B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104117B11C9F006F6E93 /* System.Collections.Generic.IEnumerable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF104417B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104217B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m */; };
 		ABBF104717B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104517B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBF104817B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104617B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m */; };
-		ABBF104B17B11E23006F6E93 /* System.Collections.Generic.List.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104917B11E23006F6E93 /* System.Collections.Generic.List.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF104C17B11E23006F6E93 /* System.Collections.Generic.List.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */; };
-		ABBF104F17B11EA2006F6E93 /* System.Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF104D17B11EA2006F6E93 /* System.Exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF105017B11EA2006F6E93 /* System.Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF104E17B11EA2006F6E93 /* System.Exception.m */; };
-		ABBF105717B1371F006F6E93 /* System.Func.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF105517B1371E006F6E93 /* System.Func.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF105817B1371F006F6E93 /* System.Func.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF105617B1371F006F6E93 /* System.Func.m */; };
-		ABBF106517B147F4006F6E93 /* System.Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106317B147F3006F6E93 /* System.Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF106917B148A1006F6E93 /* System.Reflection.MethodInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106717B1489F006F6E93 /* System.Reflection.MethodInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF106A17B148A1006F6E93 /* System.Reflection.MethodInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF106817B148A0006F6E93 /* System.Reflection.MethodInfo.m */; };
-		ABBF106D17B14950006F6E93 /* System.Type.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106B17B1494E006F6E93 /* System.Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF106E17B14950006F6E93 /* System.Type.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF106C17B1494F006F6E93 /* System.Type.m */; };
-		ABBF107117B149DA006F6E93 /* System.Reflection.ConstructorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF106F17B149D6006F6E93 /* System.Reflection.ConstructorInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF107217B149DA006F6E93 /* System.Reflection.ConstructorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107017B149D8006F6E93 /* System.Reflection.ConstructorInfo.m */; };
-		ABBF107517B14A43006F6E93 /* System.Reflection.PropertyInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107317B14A3F006F6E93 /* System.Reflection.PropertyInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF107617B14A43006F6E93 /* System.Reflection.PropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107417B14A41006F6E93 /* System.Reflection.PropertyInfo.m */; };
-		ABBF107917B25B36006F6E93 /* System.Collections.IEnumerable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107717B25B32006F6E93 /* System.Collections.IEnumerable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF107D17B25D16006F6E93 /* System.Text.Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107B17B25D13006F6E93 /* System.Text.Encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF107E17B25D16006F6E93 /* System.Text.Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107C17B25D15006F6E93 /* System.Text.Encoding.m */; };
-		ABBF108117B25DE1006F6E93 /* System.IO.StringWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF107F17B25DE1006F6E93 /* System.IO.StringWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF108217B25DE1006F6E93 /* System.IO.StringWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF108017B25DE1006F6E93 /* System.IO.StringWriter.m */; };
-		ABBF108517B26246006F6E93 /* System.EventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF108317B26241006F6E93 /* System.EventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBF108617B26246006F6E93 /* System.EventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF108417B26243006F6E93 /* System.EventArgs.m */; };
 		ABBF108917B29DD1006F6E93 /* System.Data.Entity.EntityState.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBF108717B29DD1006F6E93 /* System.Data.Entity.EntityState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBF108A17B29DD1006F6E93 /* System.Data.Entity.EntityState.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF108817B29DD1006F6E93 /* System.Data.Entity.EntityState.m */; };
-		ABBF108B17B2C531006F6E93 /* System.Collections.IEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF107817B25B34006F6E93 /* System.Collections.IEnumerable.m */; };
 		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
 		ABBF10B317B3D2E1006F6E93 /* DBUIntEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A917B3D2E1006F6E93 /* DBUIntEnum.m */; };
 		ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AB17B3D2E1006F6E93 /* DBULongEnum.m */; };
@@ -227,6 +202,10 @@
 		AB49E448178B2F1000D01244 /* DBEntityCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBEntityCollection.m; path = EntityFramework/DBEntityCollection.m; sourceTree = "<group>"; };
 		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB588DC4178308000000AAC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AB5D608D17DDE29F00C53D7D /* DBSystem.Collections.Generic.List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Collections.Generic.List.h; sourceTree = "<group>"; };
+		AB5D608E17DDE2A000C53D7D /* DBSystem.Collections.Generic.List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Collections.Generic.List.m; sourceTree = "<group>"; };
+		AB5D609117DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Collections.Generic.Dictionary.h; sourceTree = "<group>"; };
+		AB5D609217DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Collections.Generic.Dictionary.m; sourceTree = "<group>"; };
 		AB81D5C117D7B1B6007214E1 /* DBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBType.h; path = "Mono Environment/DBType.h"; sourceTree = "<group>"; };
 		AB81D5C217D7B1B6007214E1 /* DBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBType.m; path = "Mono Environment/DBType.m"; sourceTree = "<group>"; };
 		AB81D5C517D7B380007214E1 /* DBTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBTypeManager.h; path = "Mono Environment/DBTypeManager.h"; sourceTree = "<group>"; };
@@ -239,38 +218,8 @@
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
 		ABB8CE4017BFF03E0015FFB0 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
-		ABBF103917B11A9F006F6E93 /* System.Nullable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Nullable.h; sourceTree = "<group>"; };
-		ABBF103A17B11A9F006F6E93 /* System.Nullable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Nullable.m; sourceTree = "<group>"; };
-		ABBF103D17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.Dictionary.h; sourceTree = "<group>"; };
-		ABBF103E17B11C16006F6E93 /* System.Collections.Generic.Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.Dictionary.m; sourceTree = "<group>"; };
-		ABBF104117B11C9F006F6E93 /* System.Collections.Generic.IEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.IEnumerable.h; sourceTree = "<group>"; };
-		ABBF104217B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.IEnumerable.m; sourceTree = "<group>"; };
 		ABBF104517B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Data.Entity.Core.Objects.DataClasses.EntityReference.h; sourceTree = "<group>"; };
 		ABBF104617B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Data.Entity.Core.Objects.DataClasses.EntityReference.m; sourceTree = "<group>"; };
-		ABBF104917B11E23006F6E93 /* System.Collections.Generic.List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.List.h; sourceTree = "<group>"; };
-		ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.List.m; sourceTree = "<group>"; };
-		ABBF104D17B11EA2006F6E93 /* System.Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Exception.h; sourceTree = "<group>"; };
-		ABBF104E17B11EA2006F6E93 /* System.Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Exception.m; sourceTree = "<group>"; };
-		ABBF105517B1371E006F6E93 /* System.Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Func.h; sourceTree = "<group>"; };
-		ABBF105617B1371F006F6E93 /* System.Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Func.m; sourceTree = "<group>"; };
-		ABBF106317B147F3006F6E93 /* System.Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.h; sourceTree = "<group>"; };
-		ABBF106417B147F3006F6E93 /* System.Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.m; sourceTree = "<group>"; };
-		ABBF106717B1489F006F6E93 /* System.Reflection.MethodInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.MethodInfo.h; sourceTree = "<group>"; };
-		ABBF106817B148A0006F6E93 /* System.Reflection.MethodInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.MethodInfo.m; sourceTree = "<group>"; };
-		ABBF106B17B1494E006F6E93 /* System.Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Type.h; sourceTree = "<group>"; };
-		ABBF106C17B1494F006F6E93 /* System.Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Type.m; sourceTree = "<group>"; };
-		ABBF106F17B149D6006F6E93 /* System.Reflection.ConstructorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.ConstructorInfo.h; sourceTree = "<group>"; };
-		ABBF107017B149D8006F6E93 /* System.Reflection.ConstructorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.ConstructorInfo.m; sourceTree = "<group>"; };
-		ABBF107317B14A3F006F6E93 /* System.Reflection.PropertyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.PropertyInfo.h; sourceTree = "<group>"; };
-		ABBF107417B14A41006F6E93 /* System.Reflection.PropertyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.PropertyInfo.m; sourceTree = "<group>"; };
-		ABBF107717B25B32006F6E93 /* System.Collections.IEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.IEnumerable.h; sourceTree = "<group>"; };
-		ABBF107817B25B34006F6E93 /* System.Collections.IEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.IEnumerable.m; sourceTree = "<group>"; };
-		ABBF107B17B25D13006F6E93 /* System.Text.Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Text.Encoding.h; sourceTree = "<group>"; };
-		ABBF107C17B25D15006F6E93 /* System.Text.Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Text.Encoding.m; sourceTree = "<group>"; };
-		ABBF107F17B25DE1006F6E93 /* System.IO.StringWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IO.StringWriter.h; sourceTree = "<group>"; };
-		ABBF108017B25DE1006F6E93 /* System.IO.StringWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.IO.StringWriter.m; sourceTree = "<group>"; };
-		ABBF108317B26241006F6E93 /* System.EventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.EventArgs.h; sourceTree = "<group>"; };
-		ABBF108417B26243006F6E93 /* System.EventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.EventArgs.m; sourceTree = "<group>"; };
 		ABBF108717B29DD1006F6E93 /* System.Data.Entity.EntityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.Data.Entity.EntityState.h; path = EntityFramework/System.Data.Entity.EntityState.h; sourceTree = "<group>"; };
 		ABBF108817B29DD1006F6E93 /* System.Data.Entity.EntityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.Data.Entity.EntityState.m; path = EntityFramework/System.Data.Entity.EntityState.m; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
@@ -468,8 +417,6 @@
 			children = (
 				9D8A17D4096A4085000477C0 /* DBSystem.IO.FileInfo.h */,
 				9D8A17D5096A4085000477C0 /* DBSystem.IO.FileInfo.m */,
-				ABBF107F17B25DE1006F6E93 /* System.IO.StringWriter.h */,
-				ABBF108017B25DE1006F6E93 /* System.IO.StringWriter.m */,
 			);
 			path = IO;
 			sourceTree = "<group>";
@@ -481,8 +428,10 @@
 				9D8BE8200885A57600D019A5 /* DBSystem.Collections.IList.m */,
 				9D10FF3E08B54E2F0066C2ED /* DBSystem.Collections.ArrayList.h */,
 				9D10FF3F08B54E2F0066C2ED /* DBSystem.Collections.ArrayList.m */,
-				ABBF104917B11E23006F6E93 /* System.Collections.Generic.List.h */,
-				ABBF104A17B11E23006F6E93 /* System.Collections.Generic.List.m */,
+				AB5D608D17DDE29F00C53D7D /* DBSystem.Collections.Generic.List.h */,
+				AB5D608E17DDE2A000C53D7D /* DBSystem.Collections.Generic.List.m */,
+				AB5D609117DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.h */,
+				AB5D609217DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.m */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -505,32 +454,6 @@
 				9DCD135C0A7ABFB900849E5C /* DBSystem.Convert.m */,
 				9DCD142E0A7AE69900849E5C /* DBSystem.Enum.h */,
 				9DCD142F0A7AE69900849E5C /* DBSystem.Enum.m */,
-				ABBF103917B11A9F006F6E93 /* System.Nullable.h */,
-				ABBF103A17B11A9F006F6E93 /* System.Nullable.m */,
-				ABBF103D17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h */,
-				ABBF103E17B11C16006F6E93 /* System.Collections.Generic.Dictionary.m */,
-				ABBF104117B11C9F006F6E93 /* System.Collections.Generic.IEnumerable.h */,
-				ABBF104217B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m */,
-				ABBF104D17B11EA2006F6E93 /* System.Exception.h */,
-				ABBF104E17B11EA2006F6E93 /* System.Exception.m */,
-				ABBF105517B1371E006F6E93 /* System.Func.h */,
-				ABBF105617B1371F006F6E93 /* System.Func.m */,
-				ABBF106317B147F3006F6E93 /* System.Reflection.h */,
-				ABBF106417B147F3006F6E93 /* System.Reflection.m */,
-				ABBF106717B1489F006F6E93 /* System.Reflection.MethodInfo.h */,
-				ABBF106817B148A0006F6E93 /* System.Reflection.MethodInfo.m */,
-				ABBF106B17B1494E006F6E93 /* System.Type.h */,
-				ABBF106C17B1494F006F6E93 /* System.Type.m */,
-				ABBF106F17B149D6006F6E93 /* System.Reflection.ConstructorInfo.h */,
-				ABBF107017B149D8006F6E93 /* System.Reflection.ConstructorInfo.m */,
-				ABBF107317B14A3F006F6E93 /* System.Reflection.PropertyInfo.h */,
-				ABBF107417B14A41006F6E93 /* System.Reflection.PropertyInfo.m */,
-				ABBF107717B25B32006F6E93 /* System.Collections.IEnumerable.h */,
-				ABBF107817B25B34006F6E93 /* System.Collections.IEnumerable.m */,
-				ABBF107B17B25D13006F6E93 /* System.Text.Encoding.h */,
-				ABBF107C17B25D15006F6E93 /* System.Text.Encoding.m */,
-				ABBF108317B26241006F6E93 /* System.EventArgs.h */,
-				ABBF108417B26243006F6E93 /* System.EventArgs.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -677,25 +600,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB5D608F17DDE2A000C53D7D /* DBSystem.Collections.Generic.List.h in Headers */,
+				AB5D609317DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.h in Headers */,
 				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
 				ABBF108917B29DD1006F6E93 /* System.Data.Entity.EntityState.h in Headers */,
-				ABBF108517B26246006F6E93 /* System.EventArgs.h in Headers */,
-				ABBF108117B25DE1006F6E93 /* System.IO.StringWriter.h in Headers */,
-				ABBF107D17B25D16006F6E93 /* System.Text.Encoding.h in Headers */,
-				ABBF107917B25B36006F6E93 /* System.Collections.IEnumerable.h in Headers */,
-				ABBF107517B14A43006F6E93 /* System.Reflection.PropertyInfo.h in Headers */,
-				ABBF107117B149DA006F6E93 /* System.Reflection.ConstructorInfo.h in Headers */,
-				ABBF106D17B14950006F6E93 /* System.Type.h in Headers */,
-				ABBF106917B148A1006F6E93 /* System.Reflection.MethodInfo.h in Headers */,
-				ABBF106517B147F4006F6E93 /* System.Reflection.h in Headers */,
-				ABBF105717B1371F006F6E93 /* System.Func.h in Headers */,
-				ABBF104F17B11EA2006F6E93 /* System.Exception.h in Headers */,
-				ABBF104B17B11E23006F6E93 /* System.Collections.Generic.List.h in Headers */,
 				ABBF104717B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.h in Headers */,
-				ABBF104317B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.h in Headers */,
-				ABBF103F17B11C16006F6E93 /* System.Collections.Generic.Dictionary.h in Headers */,
-				ABBF103B17B11A9F006F6E93 /* System.Nullable.h in Headers */,
 				ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */,
 				AB49E43C178B2D7B00D01244 /* System.Data.Entity.Core.Objects.ObjectSet.h in Headers */,
 				AB49E441178B2ED600D01244 /* DBEntityObjectContext.h in Headers */,
@@ -855,7 +765,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABBF108B17B2C531006F6E93 /* System.Collections.IEnumerable.m in Sources */,
 				93365A8E0872370700EC726F /* DBMonoClassRepresentation.m in Sources */,
 				93365A900872370700EC726F /* DBMonoObjectRepresentation.m in Sources */,
 				9DB4200C0873614E0045F939 /* NSString+Dubrovnik.m in Sources */,
@@ -882,23 +791,12 @@
 				AB49E446178B2EF400D01244 /* DBEntityObject.m in Sources */,
 				AB49E44A178B2F1000D01244 /* DBEntityCollection.m in Sources */,
 				ABF43FB9179FF4FC00BAB99E /* DBMonoMethodRepresentation.m in Sources */,
-				ABBF103C17B11A9F006F6E93 /* System.Nullable.m in Sources */,
-				ABBF104017B11C16006F6E93 /* System.Collections.Generic.Dictionary.m in Sources */,
-				ABBF104417B11CA0006F6E93 /* System.Collections.Generic.IEnumerable.m in Sources */,
 				ABBF104817B11D11006F6E93 /* System.Data.Entity.Core.Objects.DataClasses.EntityReference.m in Sources */,
-				ABBF104C17B11E23006F6E93 /* System.Collections.Generic.List.m in Sources */,
-				ABBF105017B11EA2006F6E93 /* System.Exception.m in Sources */,
-				ABBF105817B1371F006F6E93 /* System.Func.m in Sources */,
-				ABBF106A17B148A1006F6E93 /* System.Reflection.MethodInfo.m in Sources */,
-				ABBF106E17B14950006F6E93 /* System.Type.m in Sources */,
-				ABBF107217B149DA006F6E93 /* System.Reflection.ConstructorInfo.m in Sources */,
-				ABBF107617B14A43006F6E93 /* System.Reflection.PropertyInfo.m in Sources */,
-				ABBF107E17B25D16006F6E93 /* System.Text.Encoding.m in Sources */,
-				ABBF108217B25DE1006F6E93 /* System.IO.StringWriter.m in Sources */,
-				ABBF108617B26246006F6E93 /* System.EventArgs.m in Sources */,
 				ABBF108A17B29DD1006F6E93 /* System.Data.Entity.EntityState.m in Sources */,
 				AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */,
 				AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */,
+				AB5D609017DDE2A000C53D7D /* DBSystem.Collections.Generic.List.m in Sources */,
+				AB5D609417DDE2CB00C53D7D /* DBSystem.Collections.Generic.Dictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

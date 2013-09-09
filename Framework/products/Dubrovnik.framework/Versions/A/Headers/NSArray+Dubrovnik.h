@@ -1,9 +1,8 @@
-//
-//  DBFileInfo.h
+
 //  Dubrovnik
-//
-//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
-//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
+//  NSArray+Dubrovnik.h
+//  Created by Dustin Mierau on 5/22/06.
+//  Copyright 2006 imeem. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -20,24 +19,11 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
+#import <Dubrovnik/Dubrovnik.h>
 
-#import "DBMonoObjectRepresentation.h"
-#import "DBMonoIncludes.h"
+@interface NSArray (Dubrovnik)
 
-@interface DBFileInfo : DBMonoObjectRepresentation {
-
-}
-
-+ (id)fileInfoWithMonoObject:(MonoObject *)monoObject;
-+ (id)fileInfoWithURL:(NSURL *)url;
-+ (id)fileInfoWithPath:(NSString *)path;
-
-- (id)initWithURL:(NSURL *)url;
-- (id)initWithPath:(NSString *)path;
-
-- (NSString *)fullFilePath;
-- (NSString *)filename;
-- (NSString *)fileExtension;
+- (DBSystem_Collections_ArrayList *)dbscArrayList;
+- (DBSystem_Array *)dbsArrayWithTypeName:(NSString *)name;
 
 @end

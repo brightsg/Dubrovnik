@@ -40,32 +40,15 @@
 #import "DBSystem.Array.h"
 #import "DBSystem.Convert.h"
 #import "DBSystem.Enum.h"
-#import "System.Nullable.h"
-#import "System.Exception.h"
-#import "System.Func.h"
-#import "System.Type.h"
-#import "System.EventArgs.h"
-
-// System.Reflection
-#import "System.Reflection.h"
-#import "System.Reflection.MethodInfo.h"
-#import "System.Reflection.ConstructorInfo.h"
-#import "System.Reflection.PropertyInfo.h"
-
-// System.Text
-#import "System.Text.Encoding.h"
 
 // System.IO
 #import "DBSystem.IO.FileInfo.h"
-#import "System.IO.StringWriter.h"
 
 // System.Collections
 #import "DBSystem.Collections.IList.h"
 #import "DBSystem.Collections.ArrayList.h"
-#import "System.Collections.Generic.Dictionary.h"
-#import "System.Collections.Generic.IEnumerable.h"
-#import "System.Collections.Generic.List.h"
-#import "System.Collections.IEnumerable.h"
+#import "DBSystem.Collections.Generic.List.h"
+#import "DBSystem.Collections.Generic.Dictionary.h"
 
 // System.Drawing
 #import "DBSystem.Drawing.Size.h"
@@ -75,8 +58,6 @@
 #import "DBEntityObjectContext.h"
 #import "DBEntityObject.h"
 #import "DBEntityCollection.h"
-#import "System.Data.Entity.Core.Objects.DataClasses.EntityReference.h"
-#import "System.Data.Entity.EntityState.h"
 
 // categories
 #import "NSCategories.h"
