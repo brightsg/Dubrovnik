@@ -889,22 +889,12 @@ namespace Dubrovnik
 
             // ObjectSet
             monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectSet" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBEntityObjectSet", GetterFormat = "[DBEntityObjectSet objectSetWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSet", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSet objectSetWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
             AssociateTypes(monoTA, objcTA);
 
             // ObjectContext
             monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectContext" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBEntityObjectContext" };
-            AssociateTypes(monoTA, objcTA);
-
-            // EntityObject
-            monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.DataClasses.EntityObject" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBEntityObject" };
-            AssociateTypes(monoTA, objcTA);
-
-            // EntityCollection
-            monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.DataClasses.EntityCollection" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBEntityCollection" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectContext" };
             AssociateTypes(monoTA, objcTA);
 
             //===============================================================================================

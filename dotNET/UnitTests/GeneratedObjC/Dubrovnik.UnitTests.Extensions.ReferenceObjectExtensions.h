@@ -1,5 +1,4 @@
 ﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h
-// Date: 9/9/2013 12:35:45 PM
 //
 // Managed class : ReferenceObjectExtensions
 //

@@ -1,18 +1,18 @@
 //
-//  System_Data_Entity_Core_Objects_ObjectSet.m
+//  DBSystem_Data_Entity_Core_Objects_ObjectSet.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
 //
 //
 
-#import "System.Data.Entity.Core.Objects.ObjectSet.h"
+#import "DBSystem.Data.Entity.Core.Objects.ObjectSet.h"
 
-@interface System_Data_Entity_Core_Objects_ObjectSet()
+@interface DBSystem_Data_Entity_Core_Objects_ObjectSet()
 
 @end
 
-@implementation System_Data_Entity_Core_Objects_ObjectSet
+@implementation DBSystem_Data_Entity_Core_Objects_ObjectSet
 
 
 - (DBSystem_Collections_IList *)list

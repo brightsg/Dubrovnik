@@ -34,7 +34,7 @@
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoMethodRepresentation.h"
 
-// representaation subclasses
+// representation subclasses
 
 // System
 #import "DBSystem.Array.h"
@@ -54,10 +54,8 @@
 #import "DBSystem.Drawing.Size.h"
 
 // System.Data.Entity
-#import "System.Data.Entity.Core.Objects.ObjectSet.h"
-#import "DBEntityObjectContext.h"
-#import "DBEntityObject.h"
-#import "DBEntityCollection.h"
+#import "DBSystem.Data.Entity.Core.Objects.ObjectSet.h"
+#import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
 
 // categories
 #import "NSCategories.h"

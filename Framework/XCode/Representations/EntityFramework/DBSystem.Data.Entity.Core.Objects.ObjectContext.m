@@ -1,14 +1,14 @@
 //
-//  DBEntityObjectContext.m
+//  DBSystem.Data.Entity.Core.Objects.ObjectContext.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
 //
 //
 
-#import "DBEntityObjectContext.h"
+#import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
 
-@implementation DBEntityObjectContext
+@implementation DBSystem_Data_Entity_Core_Objects_ObjectContext
 
 - (void)DeleteObject:(DBMonoObjectRepresentation *)object
 {

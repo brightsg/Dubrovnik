@@ -332,88 +332,77 @@ public void WriteModuleBanner(CodeFacet facet, string module)
 {
 	string outputFile = facet.OutputFileName() + OutputFileSuffix();
 
+	// There is an argument that says - Lets add the date here!
+	// However this leads to what I think are excessively noisey commits.
+
         
         #line default
         #line hidden
         
-        #line 88 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 91 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n//++");
 
         
         #line default
         #line hidden
         
-        #line 90 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(GenToolName));
 
         
         #line default
         #line hidden
         
-        #line 90 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 90 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(outputFile));
 
         
         #line default
         #line hidden
         
-        #line 90 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write("\r\n// Date: ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 91 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(TimeStamp));
-
-        
-        #line default
-        #line hidden
-        
-        #line 91 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n//\r\n// Managed ");
 
         
         #line default
         #line hidden
         
-        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 95 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(module));
 
         
         #line default
         #line hidden
         
-        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 95 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" : ");
 
         
         #line default
         #line hidden
         
-        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 95 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.Name));
 
         
         #line default
         #line hidden
         
-        #line 93 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 95 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n//\r\n");
 
         
         #line default
         #line hidden
         
-        #line 95 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 97 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 }
 
@@ -427,28 +416,28 @@ public void WriteModuleFooter()
         #line default
         #line hidden
         
-        #line 103 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 105 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("//--");
 
         
         #line default
         #line hidden
         
-        #line 104 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 106 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(GenToolName));
 
         
         #line default
         #line hidden
         
-        #line 104 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 106 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 105 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 107 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 }
 //
@@ -464,7 +453,7 @@ public void WriteInterfaceFilePreliminaries()
         #line default
         #line hidden
         
-        #line 115 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 117 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("#import <Cocoa/Cocoa.h>\r\n#import <Dubrovnik/Dubrovnik.h>\r\n\r\n//\r\n// Extra include\r" +
         "\n//\r\n#ifdef ");
 
@@ -472,35 +461,35 @@ this.Write("#import <Cocoa/Cocoa.h>\r\n#import <Dubrovnik/Dubrovnik.h>\r\n\r\n//
         #line default
         #line hidden
         
-        #line 122 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 124 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(defineName));
 
         
         #line default
         #line hidden
         
-        #line 122 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 124 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n#import \"");
 
         
         #line default
         #line hidden
         
-        #line 123 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 125 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCAssemblyHeaderName));
 
         
         #line default
         #line hidden
         
-        #line 123 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 125 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(".__Extra__.h\"\t// Not auto generated. Add manually to project.\r\n#endif\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 126 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 128 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	if ( AssemblyFacet.References.Count() > 0) {
 
@@ -508,14 +497,14 @@ this.Write(".__Extra__.h\"\t// Not auto generated. Add manually to project.\r\n#
         #line default
         #line hidden
         
-        #line 128 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 130 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n//\r\n// Referenced assemblies\r\n//\r\n");
 
         
         #line default
         #line hidden
         
-        #line 133 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 135 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
     }
 
@@ -528,42 +517,42 @@ this.Write("\r\n//\r\n// Referenced assemblies\r\n//\r\n");
         #line default
         #line hidden
         
-        #line 140 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 142 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("#ifndef ");
 
         
         #line default
         #line hidden
         
-        #line 141 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 143 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(defineName));
 
         
         #line default
         #line hidden
         
-        #line 141 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 143 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n//#import \"");
 
         
         #line default
         #line hidden
         
-        #line 142 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 144 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(includeFile));
 
         
         #line default
         #line hidden
         
-        #line 142 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 144 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(".h\"\r\n#endif\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 145 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 147 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
   
 	}
 
@@ -586,14 +575,14 @@ this.Write(".h\"\r\n#endif\r\n\r\n");
         #line default
         #line hidden
         
-        #line 162 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 164 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n//\r\n// Forward class declarations and class aliases\r\n//\r\n");
 
         
         #line default
         #line hidden
         
-        #line 167 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 169 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
      
 			commentOutput = true;   
 		}
@@ -619,84 +608,84 @@ public void WriteClassPredeclaration(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 187 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 189 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("@class ");
 
         
         #line default
         #line hidden
         
-        #line 188 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 190 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(classObjCType));
 
         
         #line default
         #line hidden
         
-        #line 188 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 190 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n#ifdef ");
 
         
         #line default
         #line hidden
         
-        #line 189 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 191 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(classDefine));
 
         
         #line default
         #line hidden
         
-        #line 189 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 191 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n#warning ");
 
         
         #line default
         #line hidden
         
-        #line 190 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 192 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(classDefine));
 
         
         #line default
         #line hidden
         
-        #line 190 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 192 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" class name collision.\r\n#else\r\n#define ");
 
         
         #line default
         #line hidden
         
-        #line 192 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 194 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(@classDefine));
 
         
         #line default
         #line hidden
         
-        #line 192 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 194 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 192 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 194 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(@classObjCType));
 
         
         #line default
         #line hidden
         
-        #line 192 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 194 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n#endif\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 195 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 197 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 }
 
@@ -710,28 +699,28 @@ public void WritePragmaMark(string info)
         #line default
         #line hidden
         
-        #line 203 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 205 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n#pragma mark -\r\n#pragma mark ");
 
         
         #line default
         #line hidden
         
-        #line 206 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 208 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(info));
 
         
         #line default
         #line hidden
         
-        #line 206 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 208 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 207 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 209 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 }
 
@@ -757,49 +746,49 @@ public void WriteClassStart(CodeFacet facet, string module)
         #line default
         #line hidden
         
-        #line 227 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 229 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("@");
 
         
         #line default
         #line hidden
         
-        #line 228 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 230 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(classPrefix));
 
         
         #line default
         #line hidden
         
-        #line 228 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 230 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 228 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 230 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.ObjCFacet.Type));
 
         
         #line default
         #line hidden
         
-        #line 228 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 230 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(superClass));
 
         
         #line default
         #line hidden
         
-        #line 228 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 230 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 229 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 231 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 	WriteClassSetup(facet);	
 }
@@ -814,14 +803,14 @@ public void WriteClassEnd()
         #line default
         #line hidden
         
-        #line 238 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 240 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("@end\r\n");
 
         
         #line default
         #line hidden
         
-        #line 240 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 242 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	WriteModuleFooter();
 }
@@ -836,28 +825,28 @@ public void WriteClassSetup(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 249 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 251 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t// obligatory override\r\n\t+ (const char *)monoClassName");
 
         
         #line default
         #line hidden
         
-        #line 251 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 253 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 251 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 253 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 252 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 254 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	if (OutputFileType == OutputType.Implementation) 
 	{
@@ -866,42 +855,42 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 255 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 257 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t{\r\n\t\treturn \"");
 
         
         #line default
         #line hidden
         
-        #line 257 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 259 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.TypeNamespace));
 
         
         #line default
         #line hidden
         
-        #line 257 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 259 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 257 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 259 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.Name));
 
         
         #line default
         #line hidden
         
-        #line 257 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 259 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\";\r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 259 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 261 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
     }
 
@@ -909,28 +898,28 @@ this.Write("\";\r\n\t}\r\n");
         #line default
         #line hidden
         
-        #line 261 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 263 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t// obligatory override\r\n\t+ (const char *)monoAssemblyName");
 
         
         #line default
         #line hidden
         
-        #line 263 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 265 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 263 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 265 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 264 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 266 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 	if (OutputFileType == OutputType.Implementation) 
 	{
@@ -939,28 +928,28 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 267 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 269 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t{\r\n\t\treturn \"");
 
         
         #line default
         #line hidden
         
-        #line 269 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 271 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(AssemblyFacet.Name));
 
         
         #line default
         #line hidden
         
-        #line 269 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 271 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\";\r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 271 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 273 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
     }
 
@@ -988,42 +977,42 @@ public void WriteEnumeration(EnumerationFacet enumeration)
         #line default
         #line hidden
         
-        #line 293 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 295 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("typedef NS_ENUM(");
 
         
         #line default
         #line hidden
         
-        #line 294 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 296 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCEnumType));
 
         
         #line default
         #line hidden
         
-        #line 294 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 296 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(", ");
 
         
         #line default
         #line hidden
         
-        #line 294 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 296 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCType));
 
         
         #line default
         #line hidden
         
-        #line 294 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 296 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(") {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 295 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 297 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 			foreach (FieldFacet field in enumeration.Fields) {
 				string objCFieldName = ObjCNameFromMonoName(field.Name);
@@ -1032,56 +1021,56 @@ this.Write(") {\r\n");
         #line default
         #line hidden
         
-        #line 298 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 300 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t");
 
         
         #line default
         #line hidden
         
-        #line 299 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 301 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCType));
 
         
         #line default
         #line hidden
         
-        #line 299 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 301 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("_");
 
         
         #line default
         #line hidden
         
-        #line 299 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 301 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCFieldName));
 
         
         #line default
         #line hidden
         
-        #line 299 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 301 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 299 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 301 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(field.ConstantValue));
 
         
         #line default
         #line hidden
         
-        #line 299 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 301 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(",\r\n");
 
         
         #line default
         #line hidden
         
-        #line 300 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 302 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 			}
 
@@ -1089,14 +1078,14 @@ this.Write(",\r\n");
         #line default
         #line hidden
         
-        #line 302 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 304 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("};\r\n");
 
         
         #line default
         #line hidden
         
-        #line 304 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 306 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 			WriteModuleFooter();
 		}	else {
@@ -1158,77 +1147,77 @@ public void WriteFacetAsAccessor(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 360 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 362 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed type : ");
 
         
         #line default
         #line hidden
         
-        #line 362 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 364 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet)));
 
         
         #line default
         #line hidden
         
-        #line 362 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 364 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n    ");
 
         
         #line default
         #line hidden
         
-        #line 363 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 365 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 363 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 365 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" (");
 
         
         #line default
         #line hidden
         
-        #line 363 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 365 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 363 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 365 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 363 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 365 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getterName));
 
         
         #line default
         #line hidden
         
-        #line 363 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 365 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 363 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 365 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 364 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 366 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 		
 		if (OutputFileType == OutputType.Implementation) 
 		{
@@ -1237,14 +1226,14 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 367 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 369 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 369 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 371 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 			if (facet is PropertyFacet) {
 
@@ -1252,70 +1241,70 @@ this.Write("    {\r\n");
         #line default
         #line hidden
         
-        #line 371 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 373 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\tMonoObject * ");
 
         
         #line default
         #line hidden
         
-        #line 372 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 374 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
 
         
         #line default
         #line hidden
         
-        #line 372 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 374 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 372 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 374 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 372 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 374 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 373 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 375 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 373 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 375 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" result = ");
 
         
         #line default
         #line hidden
         
-        #line 373 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 375 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(monoValueToObjC));
 
         
         #line default
         #line hidden
         
-        #line 373 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 375 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 374 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 376 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 		
 				WriteFacetGenericsToObjCResult(facet);
 				
@@ -1324,14 +1313,14 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 377 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 379 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\treturn result;\r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 380 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 382 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
             } else if (facet is FieldFacet) {
 
@@ -1348,70 +1337,70 @@ this.Write("\t\treturn result;\r\n\t}\r\n");
         #line default
         #line hidden
         
-        #line 391 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 393 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 392 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 394 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(valueTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 392 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 394 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 392 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 394 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
 
         
         #line default
         #line hidden
         
-        #line 392 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 394 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 393 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 395 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 393 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 395 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 394 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 396 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnExpression));
 
         
         #line default
         #line hidden
         
-        #line 394 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 396 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 396 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 398 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 			}
 		} // if Implementation
     } // if IsReadable
@@ -1426,70 +1415,70 @@ this.Write(";\r\n\t}\r\n");
         #line default
         #line hidden
         
-        #line 405 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 407 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    ");
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" (void)");
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(setterName));
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(":(");
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(")value");
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 406 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 408 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 407 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 409 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		if (OutputFileType == OutputType.Implementation) 
 		{
@@ -1498,56 +1487,56 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 410 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 412 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t{\r\n\t\tMonoObject *");
 
         
         #line default
         #line hidden
         
-        #line 412 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 414 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
 
         
         #line default
         #line hidden
         
-        #line 412 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 414 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 412 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 414 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCValueToMono));
 
         
         #line default
         #line hidden
         
-        #line 412 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 414 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 413 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 415 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(setExpression));
 
         
         #line default
         #line hidden
         
-        #line 413 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 415 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";          \r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 415 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 417 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
         }  // if Implementation
     } // if IsWritable
@@ -1567,28 +1556,28 @@ public void WriteFacetGenericsToObjCResult(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 429 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 431 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\tresult.monoGenericTypeArgumentNames = @\"");
 
         
         #line default
         #line hidden
         
-        #line 430 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 432 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCGenericArgumentTypeNames));
 
         
         #line default
         #line hidden
         
-        #line 430 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 432 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 431 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 433 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
     }
 }
@@ -1822,112 +1811,112 @@ public void WriteFacetAsMethod(MethodFacet facet)
         #line default
         #line hidden
         
-        #line 659 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 661 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed method name : ");
 
         
         #line default
         #line hidden
         
-        #line 661 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 663 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(isConstructorMethod ? ".ctor" : monoMethodName));
 
         
         #line default
         #line hidden
         
-        #line 661 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 663 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed return type : ");
 
         
         #line default
         #line hidden
         
-        #line 662 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet)));
 
         
         #line default
         #line hidden
         
-        #line 662 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed param types : ");
 
         
         #line default
         #line hidden
         
-        #line 663 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 665 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet.Parameters)));
 
         
         #line default
         #line hidden
         
-        #line 663 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 665 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n    ");
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" (");
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodName));
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodParameters));
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 664 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 666 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 665 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 667 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 		
 	if (OutputFileType == OutputType.Implementation) 
 	{
@@ -1939,14 +1928,14 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 671 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 673 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 673 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 675 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		if (objCTypeDecl == "void") {
 
@@ -1954,28 +1943,28 @@ this.Write("    {\r\n");
         #line default
         #line hidden
         
-        #line 675 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 677 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 676 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 678 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 676 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 678 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 677 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 679 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		} else if (isConstructorMethod) {
 
@@ -1983,28 +1972,28 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 679 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 681 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 680 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 682 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 680 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 682 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 681 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 683 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		} else {
 			if (String.IsNullOrEmpty(monoValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
@@ -2013,56 +2002,56 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 684 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 686 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\tMonoObject *");
 
         
         #line default
         #line hidden
         
-        #line 685 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 687 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
 
         
         #line default
         #line hidden
         
-        #line 685 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 687 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 685 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 687 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 685 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 687 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 686 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 688 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(monoValueToObjC));
 
         
         #line default
         #line hidden
         
-        #line 686 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 688 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 687 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 689 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 		}// if objCTypeDecl
 
@@ -2070,14 +2059,14 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 689 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 691 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 691 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 693 "Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	} // if Implementation
 }

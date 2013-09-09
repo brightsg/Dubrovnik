@@ -85,10 +85,12 @@ void WriteFileBanner()
 public void WriteModuleBanner(CodeFacet facet, string module)
 {
 	string outputFile = facet.OutputFileName() + OutputFileSuffix();
+
+	// There is an argument that says - Lets add the date here!
+	// However this leads to what I think are excessively noisey commits.
 #>
 
 //++<#=GenToolName#> <#=outputFile#>
-// Date: <#=TimeStamp#>
 //
 // Managed <#=module#> : <#=facet.Name#>
 //

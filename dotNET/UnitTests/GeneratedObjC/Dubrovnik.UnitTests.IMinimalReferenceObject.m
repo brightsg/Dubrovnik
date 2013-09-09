@@ -1,6 +1,5 @@
 ﻿#import "Dubrovnik.UnitTests.h"
 //++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.IMinimalReferenceObject.m
-// Date: 9/9/2013 12:35:45 PM
 //
 // Managed interface : IMinimalReferenceObject
 //

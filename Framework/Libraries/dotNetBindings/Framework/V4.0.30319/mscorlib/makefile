@@ -5,6 +5,8 @@ CC=clang
 
 # compiler vars
 CINCLUDE:= -I/Library/Frameworks/Mono.framework/headers/mono-2.0 
+
+# note that we explicitly target frameworks in the products folder.
 CFRAMEWORKS:=  -F ../../../../../products -F/Library/Frameworks
 CVERBOSITY:= -v
 CDEBUG:= -g
