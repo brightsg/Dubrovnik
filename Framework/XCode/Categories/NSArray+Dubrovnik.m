@@ -1,6 +1,6 @@
 
 //  Dubrovnik
-//  DBArrayCategory.m
+//  NSArray+Dubrovnik.m
 //  Created by Dustin Mierau on 5/22/06.
 //  Copyright 2006 imeem, Inc. All rights reserved.
 //
@@ -19,7 +19,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBArrayCategory.h"
+#import "NSArray+Dubrovnik.h"
 
 @implementation NSArray (Dubrovnik)
 

@@ -1,5 +1,5 @@
 //
-//  DBImageCategory.h
+//  NSData+Dubrovnik.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,13 +20,39 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
+#import "NSData+Dubrovnik.h"
 
-@interface NSImage (Dubrovnik)
+#import "DBWrappers.h"
 
-+ (id)imageWithMonoArray:(MonoArray *)monoArray;
+@implementation NSData (Dubrovnik)
 
-- (id)initWithMonoArray:(MonoArray *)monoArray;
++ (id)dataWithMonoArray:(MonoArray *)monoArray {
 
+	DBWrappedData *wrappedData = [[DBWrappedData alloc] initWithMonoArray:monoArray];
+	
+	return([wrappedData autorelease]);	
+}
+
+- (id)initWithMonoArray:(MonoArray *)monoArray {
+	if(self) {
+		[self release];
+		self = [[DBWrappedData alloc] initWithMonoArray:monoArray];
+	}
+	
+	return(self);	
+}
+
+- (MonoArray *)monoArray {
+    MonoClass *arrayClass = mono_get_byte_class();
+	MonoArray *monoArray = mono_array_new(mono_domain_get(), arrayClass, [self length]);
+    int32_t elementSize = mono_array_element_size(arrayClass);
+    char *buffer = mono_array_addr_with_size(monoArray, elementSize, 0);
+    [self getBytes:buffer length:[self length]];
+	
+	return(monoArray);
+}
+
+- (MonoObject *)monoValue {
+    return DB_OBJECT([self monoArray]);
+}
 @end

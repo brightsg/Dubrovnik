@@ -79,7 +79,7 @@
 #import "System.Data.Entity.EntityState.h"
 
 // categories
-#import "DBCategories.h"
+#import "NSCategories.h"
 
 // wrappers
 #import "DBWrappers.h"

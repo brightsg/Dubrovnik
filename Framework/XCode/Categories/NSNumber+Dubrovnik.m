@@ -1,17 +1,17 @@
 //
-//  DBNumberCategory.m
+//  NSNumber+Dubrovnik.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
 //
 //
 
-#import "DBNumberCategory.h"
+#import "NSNumber+Dubrovnik.h"
 #import <objc/runtime.h>
 
 static const char hasValueKey = '0';
 
-@implementation NSNumber (DBNumberCategory_Nullable)
+@implementation NSNumber (Dubrovnik)
 
 #pragma mark -
 #pragma mark Factory methods

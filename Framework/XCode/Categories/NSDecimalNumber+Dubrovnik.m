@@ -1,12 +1,12 @@
 //
-//  DBDecimalNumberCategory.m
+//  NSDecimalNumber+Dubrovnik.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 07/07/2013.
 //
 //
 
-#import "DBDecimalNumberCategory.h"
+#import "NSDecimalNumber+Dubrovnik.h"
 #import <objc/runtime.h>
 
 static const char hasValueKey = '0';

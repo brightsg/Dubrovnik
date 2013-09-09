@@ -1,5 +1,5 @@
 //
-//  DBImageCategory.m
+//  NSCategories.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,27 +20,10 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBImageCategory.h"
-
-
-@implementation NSImage (Dubrovnik)
-
-+ (id)imageWithMonoArray:(MonoArray *)monoArray {
-	NSImage *image = [[NSImage alloc] initWithMonoArray:monoArray];
-	
-	return([image autorelease]);
-}
-
-- (id)initWithMonoArray:(MonoArray *)monoArray {
-	if(monoArray == NULL) {
-		[self release];
-		return(nil);
-	}
-	
-	NSData *data = [NSData dataWithMonoArray:monoArray];
-	self = [self initWithData:data];
-	
-	return(self);
-}
-
-@end
+#import "NSArray+Dubrovnik.h"
+#import "NSString+Dubrovnik.h"
+#import "NSData+Dubrovnik.h"
+#import "NSDate+Dubrovnik.h"
+#import "NSImage+Dubrovnik.h"
+#import "NSDecimalNumber+Dubrovnik.h"
+#import "NSNumber+Dubrovnik.h"

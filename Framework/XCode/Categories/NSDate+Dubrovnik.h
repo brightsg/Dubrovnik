@@ -1,5 +1,5 @@
 //
-//  DBDataCategory.m
+//  NSDate+Dubrovnik.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,39 +20,24 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBDataCategory.h"
+#import <Foundation/Foundation.h>
+#import <Dubrovnik/Dubrovnik.h>
 
-#import "DBWrappers.h"
+@interface NSDate (Dubrovnik)
 
-@implementation NSData (Dubrovnik)
++ (id)dateWithMonoDateTime:(MonoObject *)monoDateTime;
++ (id)dateWithMonoTicks:(int64_t)monoTicks;
++ (id)dateWithNullableMonoDateTime:(MonoObject *)monoDateTime;
++ (id)dateWithMonoTicks:(int64_t)monoTicks hasValue:(BOOL)hasValue;
 
-+ (id)dataWithMonoArray:(MonoArray *)monoArray {
+- (id)initWithMonoDateTime:(MonoObject *)monoDateTime;
+- (id)initWithMonoTicks:(int64_t)monoTicks;
 
-	DBWrappedData *wrappedData = [[DBWrappedData alloc] initWithMonoArray:monoArray];
-	
-	return([wrappedData autorelease]);	
-}
+- (MonoObject *)monoDateTime;
+- (MonoObject *)monoValue;
+- (MonoObject *)nullableMonoDateTime;
+- (MonoObject *)nullableMonoValue;
 
-- (id)initWithMonoArray:(MonoArray *)monoArray {
-	if(self) {
-		[self release];
-		self = [[DBWrappedData alloc] initWithMonoArray:monoArray];
-	}
-	
-	return(self);	
-}
-
-- (MonoArray *)monoArray {
-    MonoClass *arrayClass = mono_get_byte_class();
-	MonoArray *monoArray = mono_array_new(mono_domain_get(), arrayClass, [self length]);
-    int32_t elementSize = mono_array_element_size(arrayClass);
-    char *buffer = mono_array_addr_with_size(monoArray, elementSize, 0);
-    [self getBytes:buffer length:[self length]];
-	
-	return(monoArray);
-}
-
-- (MonoObject *)monoValue {
-    return DB_OBJECT([self monoArray]);
-}
+- (void)setHasValue:(BOOL)hasValue;
+- (BOOL)hasValue;
 @end

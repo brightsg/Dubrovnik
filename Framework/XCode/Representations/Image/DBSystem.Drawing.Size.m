@@ -22,7 +22,7 @@
 
 #import "DBSystem.Drawing.Size.h"
 #import "DBMonoEnvironment.h"
-#import "DBCategories.h"
+#import "NSCategories.h"
 
 @implementation DBSystem_Drawing_Size
 

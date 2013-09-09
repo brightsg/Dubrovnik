@@ -1,5 +1,5 @@
 //
-//  DBStringCategory.h
+//  NSImage+Dubrovnik.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,17 +20,13 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
-@interface NSString (Dubrovnik)
+@interface NSImage (Dubrovnik)
 
-+ (id)stringWithMonoString:(MonoString *)monoString;
++ (id)imageWithMonoArray:(MonoArray *)monoArray;
 
-- (id)initWithMonoString:(MonoString *)monoString;
-
-- (MonoString *)monoString;
-- (MonoObject *)monoValue;
-- (MonoObject *)monoObject;
+- (id)initWithMonoArray:(MonoArray *)monoArray;
 
 @end

@@ -24,7 +24,7 @@
 #import "Judy.h"
 
 #import "DBInvoke.h"
-#import "DBCategories.h"
+#import "NSCategories.h"
 
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
 	if(numArgs > 0) {

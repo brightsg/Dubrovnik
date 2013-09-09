@@ -1,5 +1,5 @@
 //
-//  DBDecimalNumberCategory.h
+//  NSDecimalNumber+Dubrovnik.h
 //  Dubrovnik
 //
 //  Created by Jonathan on 07/07/2013.

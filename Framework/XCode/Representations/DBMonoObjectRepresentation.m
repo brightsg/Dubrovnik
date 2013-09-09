@@ -24,7 +24,7 @@
 #import "DBMonoClassRepresentation.h"
 
 #import "DBSystem.Convert.h"
-#import "DBStringCategory.h"
+#import "NSString+Dubrovnik.h"
 
 @interface DBMonoObjectRepresentation()
 

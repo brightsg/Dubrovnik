@@ -1,5 +1,5 @@
 //
-//  DBDateCategory.m
+//  NSDate+Dubrovnik.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,7 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBDateCategory.h"
+#import "NSDate+Dubrovnik.h"
 #import <objc/runtime.h>
 
 //the number of .NET-equivalent ticks between 01-01-0001 and 01-01-2001

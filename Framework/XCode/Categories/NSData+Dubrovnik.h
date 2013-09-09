@@ -1,5 +1,5 @@
 //
-//  DBCategories.h
+//  NSData+Dubrovnik.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,10 +20,16 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBArrayCategory.h"
-#import "DBStringCategory.h"
-#import "DBDataCategory.h"
-#import "DBDateCategory.h"
-#import "DBImageCategory.h"
-#import "DBDecimalNumberCategory.h"
-#import "DBNumberCategory.h"
+#import <Foundation/Foundation.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+@interface NSData (Dubrovnik)
+
++ (id)dataWithMonoArray:(MonoArray *)monoArray;
+
+- (id)initWithMonoArray:(MonoArray *)monoArray;
+
+- (MonoArray *)monoArray;
+- (MonoObject *)monoValue;
+
+@end

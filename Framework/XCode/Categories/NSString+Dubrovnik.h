@@ -1,8 +1,9 @@
-
+//
+//  NSString+Dubrovnik.h
 //  Dubrovnik
-//  DBArrayCategory.h
-//  Created by Dustin Mierau on 5/22/06.
-//  Copyright 2006 imeem. All rights reserved.
+//
+//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
+//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -19,11 +20,17 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
+#import <Foundation/Foundation.h>
 #import <Dubrovnik/Dubrovnik.h>
 
-@interface NSArray (Dubrovnik)
+@interface NSString (Dubrovnik)
 
-- (DBSystem_Collections_ArrayList *)dbscArrayList;
-- (DBSystem_Array *)dbsArrayWithTypeName:(NSString *)name;
++ (id)stringWithMonoString:(MonoString *)monoString;
+
+- (id)initWithMonoString:(MonoString *)monoString;
+
+- (MonoString *)monoString;
+- (MonoObject *)monoValue;
+- (MonoObject *)monoObject;
 
 @end

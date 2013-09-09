@@ -1,5 +1,5 @@
 //
-//  DBStringCategory.m
+//  NSString+Dubrovnik.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,7 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBStringCategory.h"
+#import "NSString+Dubrovnik.h"
 
 #import "DBWrappers.h"
 

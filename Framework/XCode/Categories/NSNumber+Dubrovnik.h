@@ -1,5 +1,5 @@
 //
-//  DBNumberCategory.h
+//  NSNumber+Dubrovnik.h
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Dubrovnik/Dubrovnik.h>
 
-@interface NSNumber (DBNumberCategory_Nullable)
+@interface NSNumber (Dubrovnik)
 + (NSNumber *)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue;
 + (NSNumber *)numberWithNullableMonoBool:(MonoObject *)monoNullable;
 + (NSNumber *)numberWithLongLong:(long long)value hasValue:(BOOL)hasValue;

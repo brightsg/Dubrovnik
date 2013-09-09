@@ -22,7 +22,7 @@
 
 #import "DBSystem.IO.FileInfo.h"
 
-#import "DBCategories.h"
+#import "NSCategories.h"
 #import "DBMonoEnvironment.h"
 
 static MonoClass *_monoClass = NULL;

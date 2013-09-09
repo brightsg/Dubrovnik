@@ -1,5 +1,5 @@
 //
-//  DBDateCategory.h
+//  NSImage+Dubrovnik.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,24 +20,27 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
-#import <Dubrovnik/Dubrovnik.h>
+#import "NSImage+Dubrovnik.h"
 
-@interface NSDate (Dubrovnik)
 
-+ (id)dateWithMonoDateTime:(MonoObject *)monoDateTime;
-+ (id)dateWithMonoTicks:(int64_t)monoTicks;
-+ (id)dateWithNullableMonoDateTime:(MonoObject *)monoDateTime;
-+ (id)dateWithMonoTicks:(int64_t)monoTicks hasValue:(BOOL)hasValue;
+@implementation NSImage (Dubrovnik)
 
-- (id)initWithMonoDateTime:(MonoObject *)monoDateTime;
-- (id)initWithMonoTicks:(int64_t)monoTicks;
++ (id)imageWithMonoArray:(MonoArray *)monoArray {
+	NSImage *image = [[NSImage alloc] initWithMonoArray:monoArray];
+	
+	return([image autorelease]);
+}
 
-- (MonoObject *)monoDateTime;
-- (MonoObject *)monoValue;
-- (MonoObject *)nullableMonoDateTime;
-- (MonoObject *)nullableMonoValue;
+- (id)initWithMonoArray:(MonoArray *)monoArray {
+	if(monoArray == NULL) {
+		[self release];
+		return(nil);
+	}
+	
+	NSData *data = [NSData dataWithMonoArray:monoArray];
+	self = [self initWithData:data];
+	
+	return(self);
+}
 
-- (void)setHasValue:(BOOL)hasValue;
-- (BOOL)hasValue;
 @end
