@@ -10,7 +10,12 @@
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSet : DBMonoObjectRepresentation
 {
+@protected
+	Class _representationClass;
 }
+
++ (id)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
+- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
 
 - (DBSystem_Collections_IList *)list;
 - (void)addObject:(DBMonoObjectRepresentation *)object;

@@ -31,7 +31,6 @@
 }
 
 + (id)listWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
-
 - (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
 
 //Indexer Access

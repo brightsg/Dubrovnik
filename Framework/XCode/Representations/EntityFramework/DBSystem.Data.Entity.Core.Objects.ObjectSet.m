@@ -15,6 +15,21 @@
 @implementation DBSystem_Data_Entity_Core_Objects_ObjectSet
 
 
++ (id)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass
+{
+    id objectSet = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
+	return([objectSet autorelease]);
+}
+
+- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass
+{
+	self = [super initWithMonoObject:monoObject];
+	if(self) {
+		_representationClass = representationClass;
+	}
+	return(self);
+}
+
 - (DBSystem_Collections_IList *)list
 {
     // ToList is an extension method defined as a static method on System.Linq.Enumerable
