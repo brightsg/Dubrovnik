@@ -76,7 +76,7 @@
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C617D7B380007214E1 /* DBTypeManager.m */; };
-		AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
+		AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };

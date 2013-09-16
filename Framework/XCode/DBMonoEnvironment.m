@@ -39,6 +39,12 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 @synthesize DubrovnikAssembly = _DubrovnikAssembly;
 @synthesize monoSystemCoreAssembly = _monoSystemCoreAssembly;
 
++ (BOOL)monoIsAvailable
+{
+    void *f = mono_jit_exec;
+    return (f == NULL ? NO : YES);
+}
+
 + (DBMonoEnvironment *)defaultEnvironment {
 	if(!_defaultEnvironment) {
 		_defaultEnvironment = [[DBMonoEnvironment alloc] initWithDomainName:"Dubrovnik"];

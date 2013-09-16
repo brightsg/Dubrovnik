@@ -47,6 +47,15 @@
     NSMutableDictionary *_loadedAssemblies;
 }
 
+/*
+ * This framework is weakly linked to Mono.Framework. If Mono is not available at
+ * runtime then this method will return NO.
+ *
+ * If runtime checking is required then be sure to call this method and take appropriate
+ * before calling any other framework methods.
+ */
++ (BOOL)monoIsAvailable;
+
 + (DBMonoEnvironment *)defaultEnvironment;
 
 + (DBMonoEnvironment *)defaultEnvironmentWithName:(const char *)domainName;
