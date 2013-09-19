@@ -57,7 +57,6 @@
 		AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */ = {isa = PBXBuildFile; fileRef = AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */; };
 		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
-		AB30149B17A2A1FA001F7544 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB28C511178331010051A8D9 /* libJudy.a */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E431178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E42F178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m */; };
@@ -79,6 +78,7 @@
 		AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
+		ABA04BD117EB848200E5469C /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA04BD017EB848200E5469C /* libJudy.a */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
@@ -177,7 +177,6 @@
 		AB073EF117D24F2400C669D3 /* Dubrovnik.UnitTests.IntEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.IntEnum.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.IntEnum.h; sourceTree = "<group>"; };
 		AB073EF217D24F2400C669D3 /* Dubrovnik.UnitTests.LongEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.LongEnum.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.LongEnum.h; sourceTree = "<group>"; };
 		AB073EF317D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.IMinimalReferenceObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.IMinimalReferenceObject.m; sourceTree = "<group>"; };
-		AB28C511178331010051A8D9 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB2CD2FA178D74F20075CF6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
 		AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+Dubrovnik.h"; sourceTree = "<group>"; };
@@ -203,6 +202,8 @@
 		AB97FC0617C277D600CBE585 /* TestObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/TestObject.cs; sourceTree = "<group>"; };
 		AB97FC0B17C3957E00CBE585 /* DBUReferenceStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceStruct.h; sourceTree = "<group>"; };
 		AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceStruct.m; sourceTree = "<group>"; };
+		ABA04BD017EB848200E5469C /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
+		ABA04BD217EB8C6E00E5469C /* libJudy.README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = libJudy.README.txt; path = Docs/libJudy.README.txt; sourceTree = "<group>"; };
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
 		ABB8CE4017BFF03E0015FFB0 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
@@ -241,8 +242,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
-				AB30149B17A2A1FA001F7544 /* libJudy.a in Frameworks */,
 				AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */,
+				ABA04BD117EB848200E5469C /* libJudy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,8 +514,9 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABA04BD217EB8C6E00E5469C /* libJudy.README.txt */,
+				ABA04BD017EB848200E5469C /* libJudy.a */,
 				ABB8CE4017BFF03E0015FFB0 /* Mono.framework */,
-				AB28C511178331010051A8D9 /* libJudy.a */,
 				AB2CD2FA178D74F20075CF6A /* Cocoa.framework */,
 				AB588DC4178308000000AAC1 /* SenTestingKit.framework */,
 				AB588DC8178308000000AAC1 /* Other Frameworks */,
@@ -827,6 +829,9 @@
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug",
+					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode/Judy/build/Debug,
+					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"/**";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
@@ -852,6 +857,9 @@
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug",
+					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode/Judy/build/Debug,
+					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"/**";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";

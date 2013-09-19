@@ -37,12 +37,14 @@
 		9D12EAFE08CE43D700C6653E /* JudyL.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JudyL.h; sourceTree = "<group>"; };
 		9D12EB0308CE43F200C6653E /* JudySL.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudySL.c; sourceTree = "<group>"; };
 		9DA4F60208CE83CD008EE9FB /* libJudy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJudy.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA04BD317EB8E5E00E5469C /* Judy.README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Judy.README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		08FB7794FE84155DC02AAC07 /* Judy */ = {
 			isa = PBXGroup;
 			children = (
+				ABA04BD317EB8E5E00E5469C /* Judy.README.txt */,
 				08FB7795FE84155DC02AAC07 /* src */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
@@ -157,6 +159,8 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 9D12EAB108CE420700C6653E /* Build configuration list for PBXProject "Judy" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -200,7 +204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -x\ncd \"$PROJECT_DIR\"\n\nproduct=\"$TARGET_TEMP_DIR/$TARGET_NAME.$BUILD_STYLE.stamp\"\n\n# logic to determine whether to build; this is crapp-ay\nif [ -f \"$product\" ]\nthen\n\tfind_output=`find \"$PROJECT_DIR\"/src -maxdepth 3 -type f -newer \"$product\" ! -regex '.*\\.svn.*'`\n\n\tif [ \"x$find_output\" == \"x\" ]\n\tthen\n\t\techo \"Short circuiting build, looks like nothing's changed.\"\n\t\texit 0\n\tfi\nfi\n\nbuild_for_arch()\n{\n\tREL=`uname -r`\n\tTARGET_ARCH=\"$1\"\n\n\tif test \"x$TARGET_ARCH\" = \"xppc\"; then\n\t\tSYSROOT=\"/Developer/SDKs/MacOSX10.3.9.sdk\"\n\telse\n\t\tSYSROOT=\"/Developer/SDKs/MacOSX10.4u.sdk\"\n\tfi\n\n\tif test \"x$HOST_ARCH\" != \"x$TARGET_ARCH\"; then\n\t\tif test \"x$HOST_ARCH\" = \"xppc\"; then\n\t\t\tCONFIG_FLAGS=\"$CONFIG_FLAGS --host=powerpc-apple-darwin$REL --build=i686-apple-darwin$REL\"\n\t\telse\n\t\t\tCONFIG_FLAGS=\"$CONFIG_FLAGS --host=i686-apple-darwin$REL --build=powerpc-apple-darwin$REL\"\n\t\tfi\n\tfi\n\n\tmkdir -p \"$TARGET_TEMP_DIR/$TARGET_ARCH\"\n\trsync -avv --exclude=.svn \"$PROJECT_DIR\" \"$TARGET_TEMP_DIR/$TARGET_ARCH\"\n\n\tcd \"$TARGET_TEMP_DIR/$TARGET_ARCH/Judy\"\n\tenv CC=\"/usr/bin/gcc-4.0 -isysroot $SYSROOT\" \\\n\tCFLAGS=\"$CFLAGS -arch $TARGET_ARCH\" \\\n\t./configure --enable-32-bit --disable-dependency-tracking $CONFIG_FLAGS\n\tmake\n}\n\nif test \"x$BUILD_STYLE\" == \"xDebug\"; then\n\tCFLAGS=\"-O0 -gdwarf-2\"\nelse\n\tCFLAGS=\"-Os -gdwarf-2\"\nfi\n\nHOST_ARCH=`arch`\n\nmkdir -p \"$BUILT_PRODUCTS_DIR\"\nmkdir -p \"$TARGET_TEMP_DIR\"\n\nif test \"x$BUILD_STYLE\" == \"xRelease\"; then\n\tbuild_for_arch \"ppc\"\n\tbuild_for_arch \"i386\"\n\n\tlipo \"$TARGET_TEMP_DIR/ppc/Judy/src/obj/.libs/libJudy.a\" \"$TARGET_TEMP_DIR/i386/Judy/src/obj/.libs/libJudy.a\" -create -output \"$TARGET_TEMP_DIR/libJudy.a\" && touch \"$product\"\n\nelse\n# build_for_arch \"$HOST_ARCH\" # reinstate this when 64 bit mono is available\nbuild_for_arch \"i386\"\n\n\tcp -p \"$TARGET_TEMP_DIR/$HOST_ARCH/Judy/src/obj/.libs/libJudy.a\" \"$TARGET_TEMP_DIR\" && touch \"$product\"\nfi\n\nexit 0";
+			shellScript = "# list all defined variables and trace commnds\nset -x\n\n# take me to the project\ncd \"$PROJECT_DIR\"\n\n# product timetsamp\nproduct=\"$TARGET_TEMP_DIR/$TARGET_NAME.$BUILD_STYLE.stamp\"\n\n# logic to determine whether to build; this is crapp-ay\n# legacy!\n#if [ -f \"$product\" ]\n#then\n#\tfind_output=`find \"$PROJECT_DIR\"/src -maxdepth 3 -type f -newer \"$product\" ! -regex '.*\\.svn.*'`\n#\n#\tif [ \"x$find_output\" == \"x\" ]\n#\tthen\n#\t\techo \"Short circuiting build, looks like nothing's changed.\"\n#\t\texit 0\n#\tfi\n#fi\n\n# build for an architecture\nbuild_for_arch()\n{\n\tREL=`uname -r`\n    \n    # get the target architecture to build\n\tTARGET_ARCH=\"$1\"\n\n    SYSROOT=\"$SDK_DIR\"\n    \n    # target 32 or 64 bits\n    if test \"$TARGET_ARCH\" = \"i386\"; then\n        ENABLE_XX_BIT=\"--enable-32-bit\"\n        CFLAGS=\"$CFLAGS -m32 -UJU_64BIT\"\n    else\n        ENABLE_XX_BIT=\"--enable-64-bit\"\n        CFLAGS=\"$CFLAGS -DJU_64BIT\" \n    fi\n    \n\tmkdir -p \"$TARGET_TEMP_DIR/$TARGET_ARCH\"\n\trsync -avv --exclude .git --exclude build \"$PROJECT_DIR\" \"$TARGET_TEMP_DIR/$TARGET_ARCH\"\n\n\tcd \"$TARGET_TEMP_DIR/$TARGET_ARCH/Judy\"\n\n\tCC=\"clang -isysroot $SYSROOT\"\n\tCFLAGS=\"$CFLAGS -arch $TARGET_ARCH\"\n    \n    # configure it\n\t./configure $ENABLE_XX_BIT --disable-dependency-tracking $CONFIG_FLAGS CC=\"$CC\" CFLAGS=\"$CFLAGS\"\n    \n    # make it\n\tmake\n}\n\nif test \"$CONFIGURATION\" = \"Debug\"; then\n\tCFLAGS=\"-O0 -g\"\nelse\n\tCFLAGS=\"-Os -g\"\nfi\n\nmkdir -p \"$BUILT_PRODUCTS_DIR\"\nmkdir -p \"$TARGET_TEMP_DIR\"\n\n# hmm. This version of Judy builds 32 bit but fails 64 bit.\n# Judy 1.0.5 fails 32 bit but builds 63 bit!\nif test \"$CONFIGURATION\" = \"Impossible\"; then\n\tbuild_for_arch $NATIVE_ARCH_32_BIT\n\tbuild_for_arch $NATIVE_ARCH_64_BIT\n\n\tlipo \"$TARGET_TEMP_DIR/$NATIVE_ARCH_64_BIT/Judy/src/obj/.libs/libJudy.a\" \"$TARGET_TEMP_DIR/$NATIVE_ARCH_32_BIT/Judy/src/obj/.libs/libJudy.a\" -create -output \"$TARGET_TEMP_DIR/libJudy.a\" && touch \"$product\"\n\nelse\n# At present we build 32 bit only\n    #NATIVE_ARCH=$NATIVE_ARCH_ACTUAL\n    NATIVE_ARCH=$NATIVE_ARCH_32_BIT\n    build_for_arch $NATIVE_ARCH\n\tcp -p \"$TARGET_TEMP_DIR/$NATIVE_ARCH/Judy/src/obj/.libs/libJudy.a\" \"$TARGET_TEMP_DIR\" && touch \"$product\"\nfi\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -208,8 +212,7 @@
 		9D12EAB208CE420700C6653E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INSTALL_PATH = "@executable_path/../Libraries";
@@ -222,8 +225,7 @@
 		9D12EAB308CE420700C6653E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INSTALL_PATH = "@executable_path/../Libraries";
 				SDKROOT = macosx;

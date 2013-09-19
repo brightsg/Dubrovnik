@@ -1,0 +1,4 @@
+Dubrovnik does not have dependency on the Judy to improve build times.
+Instead we use a copy of the built archive.
+
+This should not be too much of a problem as Jusy should only need to be built occasionally.
