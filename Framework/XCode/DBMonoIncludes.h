@@ -20,6 +20,11 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
+// The project header search path must reference:
+// Library/Frameworks/Mono.framework/headers/mono-2.0
+// If the headers cannot be found then most likely the Mono Runtime Edition (MRE) has been
+// installed rather than the required Mono Development Kit (MDK).
+//
 #import <mono/jit/jit.h>
 #import <mono/metadata/metadata.h>
 #import <mono/metadata/debug-helpers.h>

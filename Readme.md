@@ -62,7 +62,7 @@ Project Map
 
 Prerequisites
 =============
-- [Mono Framework](http://www.mono-project.com/Downloads)  v3.2.0 or above
+- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.0 or above. Make sure to download the MDK framework version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`
 
 - The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK.
 
