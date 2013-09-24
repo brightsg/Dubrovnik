@@ -77,7 +77,7 @@ namespace Dubrovnik
                 }
                 else
                 {
-                    throw new Exception("Generic type not found.");
+                    //throw new Exception("Generic type not found.");
                 }
             }
 

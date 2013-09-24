@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:Framework/XCode/Dubrovnik.xcodeproj">
    </FileRef>
    <FileRef
@@ -11,6 +14,6 @@
       location = "group:Framework/examples/DBCommandLineExample/DBCommandLineExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Framework/Libraries/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj">
+      location = "group:Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj">
    </FileRef>
 </Workspace>

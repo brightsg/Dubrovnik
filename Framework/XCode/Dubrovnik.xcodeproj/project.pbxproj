@@ -843,7 +843,6 @@
 					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode,
 					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode/Libraries,
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"/**";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
 				WRAPPER_EXTENSION = framework;
@@ -871,7 +870,6 @@
 					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode,
 					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode/Libraries,
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"/**";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
 				WRAPPER_EXTENSION = framework;
