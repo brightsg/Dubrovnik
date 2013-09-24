@@ -949,7 +949,7 @@
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Library/Frameworks/Mono.framework/Versions/3.2.3/lib,
+					/Library/Frameworks/Mono.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -987,7 +987,7 @@
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Library/Frameworks/Mono.framework/Versions/3.2.3/lib,
+					/Library/Frameworks/Mono.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;

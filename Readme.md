@@ -62,15 +62,30 @@ Project Map
 
 Prerequisites
 =============
-- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.0 or above. Make sure to download the MDK framework version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`
+- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.3. Make sure to download the MDK framework version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`
 
 - The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK.
 
+Building It
+===========
+
+The framework should build out of the box.
+
+There are are a number of dependencies that ship pre-built in order to support an out of the box build. These are:
+
+1. The Judy library binary.
+2. The managed Dubrovnik.FrameworkHelper.dll.
+3. The managed Dubrovnik.UnitTests.exe. 
+
+Judy can be rebuilt on demand using the supplied Xcode project. VS solution files are proved for the managed projects.
+
+Testing it
+==========
 
 How Do I Use It?
 ===============
 
-Check out the provided examples and the framework unit tests.
+Check out the provided examples and the framework unit tests. The unit tests exercise all supported bindings and therefore should be considered definitive.
 
 Generating Binding Code
 ===============
