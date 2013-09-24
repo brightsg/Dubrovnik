@@ -57,7 +57,6 @@
 		AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */ = {isa = PBXBuildFile; fileRef = AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */; };
 		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
-		AB3FB5C617F08B3D003E5304 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
 		AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -92,6 +91,7 @@
 		ABC32E7F17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */; };
 		ABC32E8017CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */; };
 		ABC32E8117CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */; };
+		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
 		ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF43FB9179FF4FC00BAB99E /* DBMonoMethodRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF43FB7179FF4FC00BAB99E /* DBMonoMethodRepresentation.m */; };
 		DA4FDE7E09B38A1F00D16517 /* DBSystem.Drawing.Size.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4FDE7C09B38A1F00D16517 /* DBSystem.Drawing.Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -244,7 +244,7 @@
 			files = (
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */,
-				AB3FB5C617F08B3D003E5304 /* libJudy.a in Frameworks */,
+				ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,11 +837,7 @@
 				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug",
-					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode,
-					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode/Libraries,
+					/Users/jonathan/Documents/Thesaurus/xcode/Dubrovnik/Framework/XCode/Libraries,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
@@ -864,11 +860,7 @@
 				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug",
-					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode,
-					/Users/Jonathan/Documents/Thesaurus/Development/xcode/Dubrovnik/Framework/XCode/Libraries,
+					/Users/jonathan/Documents/Thesaurus/xcode/Dubrovnik/Framework/XCode/Libraries,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
