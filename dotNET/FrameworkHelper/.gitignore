@@ -1,0 +1,9 @@
+# to assist Xcode building out of the box retain our builds 
+![Bb]in/
+![Dd]ebug/
+![Rr]elease/
+
+# limit what the build retains
+*.mdb
+*.vshost.exe
+*.vshost.exe.manifest
