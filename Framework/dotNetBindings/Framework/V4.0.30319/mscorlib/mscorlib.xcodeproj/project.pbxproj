@@ -9,12 +9,14 @@
 /* Begin PBXFileReference section */
 		AB07F36D17D5F93A004A10D3 /* mscorlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mscorlib; sourceTree = "<group>"; };
 		AB58212617CBD71A00599DBB /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		AB952C3517F1B17100E604D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		AB58211B17CBD6B600599DBB = {
 			isa = PBXGroup;
 			children = (
+				AB952C3517F1B17100E604D3 /* README.md */,
 				AB07F36D17D5F93A004A10D3 /* mscorlib */,
 				AB58212617CBD71A00599DBB /* makefile */,
 			);
