@@ -836,8 +836,8 @@
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries",
 					"$(inherited)",
-					/Users/jonathan/Documents/Thesaurus/xcode/Dubrovnik/Framework/XCode/Libraries,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
@@ -859,8 +859,8 @@
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries",
 					"$(inherited)",
-					/Users/jonathan/Documents/Thesaurus/xcode/Dubrovnik/Framework/XCode/Libraries,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;

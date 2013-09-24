@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:Framework/XCode/Dubrovnik.xcodeproj">
    </FileRef>
    <FileRef
