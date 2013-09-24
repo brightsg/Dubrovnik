@@ -1,0 +1,116 @@
+﻿#import "mscorlib.h"
+//++Dubrovnik.CodeGenerator System.Diagnostics.SymbolStore.ISymbolReader.m
+//
+// Managed interface : ISymbolReader
+//
+@implementation System_Diagnostics_SymbolStore_ISymbolReader
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName
+	{
+		return "System.Diagnostics.SymbolStore.ISymbolReader";
+	}
+	// obligatory override
+	+ (const char *)monoAssemblyName
+	{
+		return "mscorlib";
+	}
+
+#pragma mark -
+#pragma mark Properties
+
+	// Managed type : System.Diagnostics.SymbolStore.SymbolToken
+    - (System_Diagnostics_SymbolStore_SymbolToken *)userEntryPoint
+    {
+		MonoObject * monoObject = [self getMonoProperty:"UserEntryPoint"];
+		System_Diagnostics_SymbolStore_SymbolToken * result = [System_Diagnostics_SymbolStore_SymbolToken representationWithMonoObject:monoObject];
+		return result;
+	}
+
+#pragma mark -
+#pragma mark Methods
+
+	// Managed method name : GetDocument
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolDocument
+	// Managed param types : System.String, System.Guid, System.Guid, System.Guid
+    - (System_Diagnostics_SymbolStore_ISymbolDocument *)getDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDocument(string,System.Guid,System.Guid,System.Guid)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		return [System_Diagnostics_SymbolStore_ISymbolDocument representationWithMonoObject:monoObject];
+    }
+
+	// Managed method name : GetDocuments
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolDocument[]
+	// Managed param types : 
+    - (DBSystem_Array *)getDocuments
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDocuments()" withNumArgs:0];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+    }
+
+	// Managed method name : GetGlobalVariables
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolVariable[]
+	// Managed param types : 
+    - (DBSystem_Array *)getGlobalVariables
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetGlobalVariables()" withNumArgs:0];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+    }
+
+	// Managed method name : GetMethod
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
+	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken
+    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:1, [p1 monoValue]];
+		return [System_Diagnostics_SymbolStore_ISymbolMethod representationWithMonoObject:monoObject];
+    }
+
+	// Managed method name : GetMethod
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
+	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Int32
+    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1 version:(int32_t)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(System.Diagnostics.SymbolStore.SymbolToken,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [System_Diagnostics_SymbolStore_ISymbolMethod representationWithMonoObject:monoObject];
+    }
+
+	// Managed method name : GetMethodFromDocumentPosition
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
+	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocument, System.Int32, System.Int32
+    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethodFromDocumentPosition_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocument *)p1 line:(int32_t)p2 column:(int32_t)p3
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodFromDocumentPosition(System.Diagnostics.SymbolStore.ISymbolDocument,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		return [System_Diagnostics_SymbolStore_ISymbolMethod representationWithMonoObject:monoObject];
+    }
+
+	// Managed method name : GetNamespaces
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolNamespace[]
+	// Managed param types : 
+    - (DBSystem_Array *)getNamespaces
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetNamespaces()" withNumArgs:0];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+    }
+
+	// Managed method name : GetSymAttribute
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.String
+    - (NSData *)getSymAttribute_withParent:(System_Diagnostics_SymbolStore_SymbolToken *)p1 name:(NSString *)p2
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetSymAttribute(System.Diagnostics.SymbolStore.SymbolToken,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	// Managed method name : GetVariables
+	// Managed return type : System.Diagnostics.SymbolStore.ISymbolVariable[]
+	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken
+    - (DBSystem_Array *)getVariables_withParent:(System_Diagnostics_SymbolStore_SymbolToken *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"GetVariables(System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:1, [p1 monoValue]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+    }
+@end
+//--Dubrovnik.CodeGenerator

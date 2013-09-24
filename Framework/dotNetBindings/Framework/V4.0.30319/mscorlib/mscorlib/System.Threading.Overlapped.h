@@ -1,0 +1,83 @@
+﻿//++Dubrovnik.CodeGenerator System.Threading.Overlapped.h
+//
+// Managed class : Overlapped
+//
+@interface System_Threading_Overlapped : DBMonoObjectRepresentation
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Constructors
+
+	// Managed method name : .ctor
+	// Managed return type : System.Threading.Overlapped
+	// Managed param types : System.Int32, System.Int32, System.IntPtr, System.IAsyncResult
+    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventIntptr:(void *)p3 arSIAsyncResult:(System_IAsyncResult *)p4;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Threading.Overlapped
+	// Managed param types : System.Int32, System.Int32, System.Int32, System.IAsyncResult
+    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventInt:(int32_t)p3 arSIAsyncResult:(System_IAsyncResult *)p4;
+
+#pragma mark -
+#pragma mark Properties
+
+	// Managed type : System.IAsyncResult
+    - (System_IAsyncResult *)asyncResult;
+    - (void)setAsyncResult:(System_IAsyncResult *)value;
+
+	// Managed type : System.Int32
+    - (int32_t)eventHandle;
+    - (void)setEventHandle:(int32_t)value;
+
+	// Managed type : System.IntPtr
+    - (void *)eventHandleIntPtr;
+    - (void)setEventHandleIntPtr:(void *)value;
+
+	// Managed type : System.Int32
+    - (int32_t)offsetHigh;
+    - (void)setOffsetHigh:(int32_t)value;
+
+	// Managed type : System.Int32
+    - (int32_t)offsetLow;
+    - (void)setOffsetLow:(int32_t)value;
+
+#pragma mark -
+#pragma mark Methods
+
+	// Managed method name : Free
+	// Managed return type : System.Void
+	// Managed param types : System.Threading.NativeOverlapped*
+    - (void)free_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1;
+
+	// Managed method name : Pack
+	// Managed return type : System.Threading.NativeOverlapped*
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(DBMonoObjectRepresentation *)p2;
+
+	// Managed method name : Pack
+	// Managed return type : System.Threading.NativeOverlapped*
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1;
+
+	// Managed method name : Unpack
+	// Managed return type : System.Threading.Overlapped
+	// Managed param types : System.Threading.NativeOverlapped*
+    - (System_Threading_Overlapped *)unpack_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1;
+
+	// Managed method name : UnsafePack
+	// Managed return type : System.Threading.NativeOverlapped*
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(DBMonoObjectRepresentation *)p2;
+
+	// Managed method name : UnsafePack
+	// Managed return type : System.Threading.NativeOverlapped*
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1;
+@end
+//--Dubrovnik.CodeGenerator

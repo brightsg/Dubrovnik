@@ -11,10 +11,15 @@ Version: 0.0.1 Alpha
 
 Production ready: No
 
-Experimental use only : Yes
-
 Dubrovnik is a work in progress and the API is still very mutable. It is currently 32 bit only as the [current OS X Mono framework](http://www.mono-project.com/Mono:OSX#32_and_64_bit_support) distributable is 32 bit. Mono does support 64bit operation and [building](http://www.mono-project.com/Compiling_Mono_on_OSX) a 64 bit Mono framework is straight forward.
 
+Project Goals
+=============
+
+The following project goals are outstanding:
+
+1. 64 bit support.
+2. 100% support for mscorlib.dll
 
 What's in the Bag?
 ================
@@ -42,7 +47,11 @@ Project Map
 
     * docs: docs from the original Dumbarton project
 
+	* dotNetBindings : pre generated ObjC -> dotNet bindings for some system frameworks
+
     * examples : example code samples
+
+	* products : pre built products
 
     * XCode : contains the Dubrovnik.xcodeproj file
 
@@ -83,6 +92,13 @@ Testing it
 
 To run the unit tests simply build and test the Dubrovnik target. The unit tests target the pre built managed binary Dubrovnik.UnitTests.exe.
 
+Two sets of bindings are referenced by the tests and both should pass:
+
+1. Manually generated.
+2. Auto generated.
+
+The manual bindings are used during development to establish a pattern to be used for auto generation. This has been found to be the best way of extending the auto binding support.
+
 How Do I Use It?
 ===============
 
@@ -92,6 +108,10 @@ Generating Binding Code
 ===============
 
 Th binding code will attempt to generate Obj-C bindings from a .NET managed exe or dll. The XML generator and code generator are both .NET apps and run under windows. Remember to install the Microsoft Visual Studio 2012 (or later) SDK.
+
+Note that these tools are GUI based at present. A command line based workflow sounds appealing and it should be possible to derive these from the existing tools fairly quickly.
+
+Windows Explorer may obfuscate browsing of the .NET assembly caches. If so, [help is at hand](http://geekswithblogs.net/pavelka/archive/2006/05/05/WindowsExplorerAndTheGlobalAssemblyCache.aspx).
 
 To generate bindings automatically:
 
@@ -108,6 +128,34 @@ To generate bindings automatically:
 The code generator will generate Obj-C declarations for all managed objects defined within the target assembly. References to managed objects not defined within the target assembly must have valid Obj-C declarations defined either by the Dubrovnik framework itself or in other linked files. Dependencies between multiple assemblies established using references can be resolved by auto generating bindings for each assembly and linking the resultant Obj-C representations.
 
 The .NET code may build with Xamarin Studio but the t4 template code has only been tested within Visual Studio.
+
+Generated Code Output
+======================
+
+The code generator will output the following for each target assembly, in this case say `Work.Data.dll`:
+
+1. Work.Data.h. The assembly header. This provides type class name collision detection (see below), class aliases and header imports. The header imports are ordered to support inter header dependencies. Extra headers may be included via #defines if required to aid type resolution.
+
+2. Work.Data.m. The assembly class file. This provides no actual type definitions but lists the assembles referenced by the target assembly and the .m and .h files that were generated.
+ 
+For each type defined in the target assembly the generator will output a .m and .h file. So if `Work.Data.dll` defines a class named `Work.Data.Utility.Analyser` then the generated output will include:
+	
+    // Work.Data.Utility.Analyser.h
+    @interface Work_Data_Utility_Analyser : DBMonoObjectRepresentation
+		// interface definition 
+    @end
+
+and:
+
+    // Work.Data.Utility.Analyser.m
+	#import "Work.Data.h"
+    @implementation Work_Data_Utility_Analyser
+		// implementation definition 
+    @end
+
+The period(.) is not valid within an Obj-C variable or type name hence the namespace separator is replaced with the underscore(_).
+
+Most managed types are represented as Obj-C classes. Managed enumerations however are represented as simple C enums.
 
 Code Generation and Managed Type Handling
 ==================
@@ -131,7 +179,40 @@ Obj-C has no concept of namespaces beyond simple class name prefixing. Given a m
 
 Either the explicit `MyWorld_UK_GoodStuff_Data_Addition` or short `MUGDAddition` forms can be used when referring to Obj-C types.
 
-The above also applies to system types. So a managed object reference to `System.Data.Entity` will generate an Obj-C reference to `System_Data_Entity`. If Dubrovnik already supplies a binding to the referenced system type the you are good to go. If not, then its time to fork, code and commit.  
+The above also applies to system types. So a managed object reference to `System.Data.Entity` will generate an Obj-C reference to `System_Data_Entity`. If Dubrovnik already supplies a binding to the referenced system type the you are good to go. If not, then see below.
+
+Resolving Types
+===============
+
+The code generator will try and output a unique Obj-C type for each managed type in a target assembly. So, if the public API for the target assembly only references types defined within that assembly then the binding should be complete. If, however, the API references a type defined in another assembly then an Obj-C representation for that type will be required. This applies to all types, regardless of whether they are user or system defined.
+
+The simple solution is use the code generator to target the referenced assembly and generate the required Obj-C type representation. Repeat as necessary until all type references are resolved. If a type representation cannot be generated automatically then a simple manual representation or stub can be produced by subclassing `DBMonoObjectRepresentation.m`.  
+
+Resolving System Types
+===============
+
+Assume that a target assembly returns a reference to a system type, say `System.DayOfWeek`. This needs to be resolved. However, `System.DayOfWeek` is defined in mscorlib.dll. That means we need to auto generate code for mscorlib.
+
+At present the code generator cannot produce a 100% functional Obj-C representation for mscorlib.dll (though this is a project goal). However the code generator does produce valid type representations for many of the types defined within mscorlib and the generator does run to completion. So individual types can be utilised even if the entire assembly is not as yet fully represented.
+
+The current Obj-C representation of mscorlib is included in the project at `Framework\dotNetBindings\Framework\V4.0.30319\mscorlib\mscorlib`. Browsing this for `System.DayOfWeek.h` reveals:
+
+    //++Dubrovnik.CodeGenerator System.DayOfWeek.h
+    //
+    // Managed enumeration : DayOfWeek
+    //
+    typedef NS_ENUM(int32_t, System_DayOfWeek) {
+	    System_DayOfWeek_Friday = 5,
+	    System_DayOfWeek_Monday = 1,
+	    System_DayOfWeek_Saturday = 6,
+	    System_DayOfWeek_Sunday = 0,
+	    System_DayOfWeek_Thursday = 4,
+	    System_DayOfWeek_Tuesday = 2,
+	    System_DayOfWeek_Wednesday = 3,
+    };
+    //--Dubrovnik.CodeGenerator
+
+This can be included in our project.
 
 Provided examples
 =================
@@ -146,7 +227,7 @@ DBCommandLineExample demonstrates a number of Dubrovnik features
 
 - Exception handling
   
-DBCocoaExample is the classic Currency Converter application; it demonstrates a simple frontend that uses mono for its backend.
+DBCocoaExample is the classic Currency Converter application; it demonstrates a simple front end that uses mono for its backend.
 
 Creating a new project
 ======================
@@ -157,30 +238,16 @@ To setup a new XCode project using Dubrovnik:
 
 - Add Mono.Framework and Dubrovnik.Framework as to your project
 
-- Add the output of the shell command "pkg-config mono --libs" to the
-  "Other Linker Flags" section of your project build settings.
-  Also, add "-bind_at_load" to the same setting if you want to supress
-  a linker warning. You may want to replace the explicit version number
-  from the pkg-config output with the word "Current" in order to avoid
-  build problems after upgrading your installation of Mono.
-  (example: /Library/Frameworks/Mono.framework/Versions/3.2.0/lib
-   becomes: /Library/Frameworks/Mono.framework/Versions/Current/lib)
-
-- Similarly, do the same with "pkg-config mono --cflags" and the
-  "Other C Flags" section of your project build settings. You should
-  also do the same Mono version replacement as described in the previous
-  step.
-
 - Add /Library/Frameworks to "Framework Search Paths"
 
 - enabled Objective C exceptions in your project build settings. Dubrovnik
   catches managed exceptions and rethrows them as ObjC exceptions.
 
-- Add any build steps required for compiling your .cs files. The examples
-  just use a simple shell script build step that compiles the C# code into
-  a dll. Depending on your project, you may want to create a separate target
-  for your managed .dll(s) and make your application target depends on the
-  managed .dll targets.
+- Add generated Obj-C representations of the managed target assemblies (ie.: the output of the code generator) .
+
+- Add compiled managed target assemblies as bundle resources.
+
+The unit test bundle `- (void)setUp` method illustrates how to load and call a managed assembly from a bundle.
 
 Licence
 =======

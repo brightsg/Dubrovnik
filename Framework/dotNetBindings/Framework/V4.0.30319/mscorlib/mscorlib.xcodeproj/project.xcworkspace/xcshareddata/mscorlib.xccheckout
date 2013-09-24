@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9BADE280-5171-4FF5-8556-ACF576E068CA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>mscorlib</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F807DEE0-E6CF-4283-8D32-7F6B9AA2BFBF</key>
+		<string>ssh://github.com/ThesaurusSoftware/Dubrovnik.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Framework/Libraries/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F807DEE0-E6CF-4283-8D32-7F6B9AA2BFBF</key>
+		<string>../../../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ThesaurusSoftware/Dubrovnik.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F807DEE0-E6CF-4283-8D32-7F6B9AA2BFBF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F807DEE0-E6CF-4283-8D32-7F6B9AA2BFBF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dubrovnik</string>
+		</dict>
+	</array>
+</dict>
+</plist>
