@@ -7,14 +7,13 @@ Dubrovnik is intended to provide a means of interfacing a Cocoa GUI to a .NET ba
 Status
 ======
 
-
 Version: 0.0.1 Alpha
 
 Production ready: No
 
 Experimental use only : Yes
 
-Dubrovnik is a work in progress and the API is still very mutable. It is currently 32 bit but will likely soon support 64 bit soon.
+Dubrovnik is a work in progress and the API is still very mutable. It is currently 32 bit only as the [current OS X Mono framework](http://www.mono-project.com/Mono:OSX#32_and_64_bit_support) distributable is 32 bit. Mono does support 64bit operation and [building](http://www.mono-project.com/Compiling_Mono_on_OSX) a 64 bit Mono framework is straight forward.
 
 
 What's in the Bag?
@@ -62,7 +61,7 @@ Project Map
 
 Prerequisites
 =============
-- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.3. Make sure to download the MDK framework version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`
+- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.3 and above. Make sure to download the MDK framework version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`
 
 - The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK.
 
@@ -77,10 +76,12 @@ There are are a number of dependencies that ship pre-built in order to support a
 2. The managed Dubrovnik.FrameworkHelper.dll.
 3. The managed Dubrovnik.UnitTests.exe. 
 
-Judy can be rebuilt on demand using the supplied Xcode project. VS solution files are proved for the managed projects.
+Judy can be rebuilt on demand using the supplied Xcode project. VS solution files are provided for the managed projects.
 
 Testing it
 ==========
+
+To run the unit tests simply build and test the Dubrovnik target. The unit tests target the pre built managed binary Dubrovnik.UnitTests.exe.
 
 How Do I Use It?
 ===============
@@ -90,7 +91,11 @@ Check out the provided examples and the framework unit tests. The unit tests exe
 Generating Binding Code
 ===============
 
+Th binding code will attempt to generate Obj-C bindings from a .NET managed exe or dll. The XML generator and code generator are both .NET apps and run under windows. Remember to install the Microsoft Visual Studio 2012 (or later) SDK.
+
 To generate bindings automatically:
+
+* Fire up (typically) a Windows VM
 
 * With Visual Studio build solution `dotNet/Reflector/Dubrovnik.Reflector`
 
