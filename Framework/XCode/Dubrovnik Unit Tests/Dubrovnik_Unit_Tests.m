@@ -335,8 +335,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // static methods
     //
-    NSString *classDescription = (NSString *)[refObject classDescription];
-    STAssertNotNil(classDescription, DBUObjectIsNil);
+    NSString *classDescription = (NSString *)[testClass classDescription];
+    STAssertTrue([classDescription rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
 }
 
 - (void)doTestPointerMethods:(id)refObject class:(Class)testClass

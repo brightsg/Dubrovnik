@@ -73,6 +73,9 @@
 + (int32_t)classIntField;
 + (void)setClassIntField:(int32_t)value;
 
+// class methods
++ (NSString *)classDescription;
+
 // fields
 - (int32_t)intField;
 - (void)setIntField:(int32_t)value;
@@ -170,6 +173,5 @@
 
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 
-- (NSString *)classDescription;
 - (NSString *)extensionString;
 @end

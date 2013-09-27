@@ -1629,7 +1629,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		if (!facet.IsStatic) {
 			objCMethodFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
 		} else {
-			objCMethodFormat = "[[self class] invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{1}]";
+			objCMethodFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
 		}
 	} else {
 

@@ -521,9 +521,9 @@
 	// Managed method name : ClassDescription
 	// Managed return type : System.String
 	// Managed param types : 
-    - (NSString *)classDescription
+    + (NSString *)classDescription
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ClassDescription()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ClassDescription()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

@@ -24,27 +24,27 @@
 	// Managed method name : ExtensionString
 	// Managed return type : System.String
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
+    + (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : StaticString
 	// Managed return type : System.String
 	// Managed param types : 
-    - (NSString *)staticString
+    + (NSString *)staticString
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"StaticString()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"StaticString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : StaticString
 	// Managed return type : System.String
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    - (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
+    + (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 @end

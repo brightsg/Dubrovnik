@@ -181,7 +181,7 @@
 	// Managed method name : ClassDescription
 	// Managed return type : System.String
 	// Managed param types : 
-    - (NSString *)classDescription;
+    + (NSString *)classDescription;
 
 	// Managed method name : DateMethod
 	// Managed return type : System.DateTime

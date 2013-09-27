@@ -460,9 +460,9 @@
 #pragma mark -
 #pragma mark Mono static methods
 
-- (NSString *)classDescription
++ (NSString *)classDescription
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"ClassDescription()" withNumArgs:0, NULL];
+    MonoObject *monoObject = [self invokeMonoClassMethod:"ClassDescription()" withNumArgs:0, NULL];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
