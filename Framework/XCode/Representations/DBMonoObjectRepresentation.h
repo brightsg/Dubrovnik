@@ -99,6 +99,7 @@
 - (void)logMonoClassInfo;
 - (const char *)monoClassName;
 - (const char *)monoClassNamespace;
++ (void)logMonoClassInfo;
 + (void)logMonoClassInfo:(MonoClass *)klass;
 + (int)monoMethodCount:(MonoClass *)klass;
 + (const char *)monoClassName:(MonoClass *)klass;
