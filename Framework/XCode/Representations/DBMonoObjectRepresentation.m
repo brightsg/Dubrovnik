@@ -453,8 +453,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)logMonoClassInfo
 {
-    MonoClass *klass = [self monoClass];
-    [[self class] logMonoClassInfo:klass];
+    [[self class] logMonoClassInfo];
 }
 
 - (int)monoMethodCount
@@ -491,6 +490,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 {
     const char *value = mono_class_get_namespace(klass);
     return value;
+}
+
++ (void)logMonoClassInfo
+{
+    [self logMonoClassInfo:[self monoClass]];
 }
 
 + (void)logMonoClassInfo:(MonoClass *)klass
