@@ -47,14 +47,14 @@
 // System.Collections
 #import "DBSystem.Collections.IList.h"
 #import "DBSystem.Collections.ArrayList.h"
-#import "DBSystem.Collections.Generic.List.h"
-#import "DBSystem.Collections.Generic.Dictionary.h"
+#import "DBSystem.Collections.Generic.ListA1.h"
+#import "DBSystem.Collections.Generic.DictionaryA2.h"
 
 // System.Drawing
 #import "DBSystem.Drawing.Size.h"
 
 // System.Data.Entity
-#import "DBSystem.Data.Entity.Core.Objects.ObjectSet.h"
+#import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
 #import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
 
 // categories

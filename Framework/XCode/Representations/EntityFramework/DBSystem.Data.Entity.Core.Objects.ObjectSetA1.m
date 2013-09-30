@@ -1,18 +1,18 @@
 //
-//  DBSystem_Data_Entity_Core_Objects_ObjectSet.m
+//  DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
 //
 //
 
-#import "DBSystem.Data.Entity.Core.Objects.ObjectSet.h"
+#import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectSet()
+@interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1()
 
 @end
 
-@implementation DBSystem_Data_Entity_Core_Objects_ObjectSet
+@implementation DBSystem_Data_Entity_Core_Objects_ObjectSetA1
 
 
 + (id)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass

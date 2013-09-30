@@ -1,5 +1,5 @@
 //
-//  DBSystem_Data_Entity_Core_Objects_ObjectSet.h
+//  DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
@@ -8,7 +8,7 @@
 
 #import <Dubrovnik/Dubrovnik.h>
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectSet : DBMonoObjectRepresentation
+@interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1 : DBMonoObjectRepresentation
 {
 @protected
 	Class _representationClass;
