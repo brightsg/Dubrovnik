@@ -236,7 +236,6 @@ namespace Dubrovnik.Reflector {
                             xtw.WriteAttributeString("Name", type.GetFriendlyName());
                             WriteTypeAttributes(xtw, type);
 
-
                             //
                             // write fields
                             //

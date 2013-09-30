@@ -223,7 +223,7 @@ namespace Dubrovnik
                 name = name.Replace("<", "_"); // start of generic type parameter identifier
                 name = name.Replace(",", "_"); // generic type parameter separator
                 name = name.Replace(">", ""); // end of generic type parameter identifier
-                name = name.Replace("`", "_P"); // generic arity indicates parameter count
+                name = name.Replace("`", "A"); // arity indicates generic parameter count
                 name = name.Replace("&", ""); // indicates that a parameter type is being passed by reference - detect with IsByRef
                 name = name.Replace("[]", ""); // an array of types - detect with IsArray
                 name = name.Replace("*", ""); // type is a pointer such as System.Void*, System.Char* - detect with IsPointer
