@@ -873,13 +873,13 @@ namespace Dubrovnik
             AssociateTypes(monoTA, objcTA);
 
             // System.Collections.Generic.List
-            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.List" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_List" };
+            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.List`1" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_ListA1" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Collections.Generic.Dictionary
-            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.Dictionary" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_Dictionary" };
+            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.Dictionary`2" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_DictionaryA2" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Byte[]
@@ -888,8 +888,8 @@ namespace Dubrovnik
             AssociateTypes(monoTA, objcTA);
 
             // ObjectSet
-            monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectSet" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSet", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSet objectSetWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
+            monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectSet`1"};
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
             AssociateTypes(monoTA, objcTA);
 
             // ObjectContext
