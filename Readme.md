@@ -181,6 +181,20 @@ Either the explicit `MyWorld_UK_GoodStuff_Data_Addition` or short `MUGDAddition`
 
 The above also applies to system types. So a managed object reference to `System.Data.Entity` will generate an Obj-C reference to `System_Data_Entity`. If Dubrovnik already supplies a binding to the referenced system type the you are good to go. If not, then see below.
 
+Generic Type Handling
+=====================
+
+Generic types include the number of generic parameters (or arity) as part of their managed name. The arity is represented by an appended back tick (`) followed by the number of generic parameters. It is necessary to retain the arity representation in order to ensure type uniqueness.
+
+
+Obj-C generated types represent the generic arity as an appended A followed by the number of generic parameters.
+
+    // Managed type name
+    System.Collections.Generic.Dictionary`2
+    
+    // Obj-C type name
+    System_Collections_Generic_DictionaryA2
+
 Resolving Types
 ===============
 
