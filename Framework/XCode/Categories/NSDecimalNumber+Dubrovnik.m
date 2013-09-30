@@ -69,7 +69,7 @@ static const char hasValueKey = '0';
     
     if(_decimalMonoClassRepresentation == NULL) {
         MonoClass *monoClass = [DBMonoEnvironment corlibMonoClassWithName:"System.Decimal"];
-        _decimalMonoClassRepresentation = [DBMonoClassRepresentation representationWithMonoClass:monoClass];
+        _decimalMonoClassRepresentation = [[DBMonoClassRepresentation representationWithMonoClass:monoClass] retain];
     }
     
     return _decimalMonoClassRepresentation;

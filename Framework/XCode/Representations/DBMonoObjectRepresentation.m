@@ -81,7 +81,7 @@
 {
     static DBMonoClassRepresentation *classRep = nil;
     if (!classRep) {
-        classRep =  [DBMonoClassRepresentation representationWithMonoClass:[self monoClass]];
+        classRep =  [[DBMonoClassRepresentation representationWithMonoClass:[self monoClass]] retain];
     }
     return classRep;
 }
