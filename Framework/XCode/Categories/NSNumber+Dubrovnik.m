@@ -97,13 +97,6 @@ static const char hasValueKey = '0';
     return monoObject;
 }
 
-- (MonoObject *)monoValue
-{
-    // unbox value type for use in invocation
-    return DB_OBJECT(mono_object_unbox([self monoDateTime]));
-}
-
-
 #pragma mark -
 #pragma mark Nullable implementation methods
 - (void)setHasValue:(BOOL)hasValue
