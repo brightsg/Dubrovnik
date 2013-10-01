@@ -88,10 +88,6 @@
     - (DBSystem_Array *)floatArray;
     - (void)setFloatArray:(DBSystem_Array *)value;
 
-	// Managed type : Dubrovnik.UnitTests.GenericReferenceObject<System.Int32, System.String>
-    - (Dubrovnik_UnitTests_GenericReferenceObject *)genericReferenceObject;
-    - (void)setGenericReferenceObject:(Dubrovnik_UnitTests_GenericReferenceObject *)value;
-
 	// Managed type : System.Int16[]
     - (DBSystem_Array *)int16Array;
     - (void)setInt16Array:(DBSystem_Array *)value;
@@ -120,17 +116,17 @@
     - (Dubrovnik_UnitTests_IntEnum)intEnumeration;
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value;
 
-	// Managed type : System.Collections.Generic.List<System.Int32>
-    - (DBSystem_Collections_Generic_List *)intList;
-    - (void)setIntList:(DBSystem_Collections_Generic_List *)value;
+	// Managed type : System.Collections.Generic.List`1<System.Int32>
+    - (DBSystem_Collections_Generic_ListA1 *)intList;
+    - (void)setIntList:(DBSystem_Collections_Generic_ListA1 *)value;
 
 	// Managed type : System.Int32
     - (int32_t)intNumber;
     - (void)setIntNumber:(int32_t)value;
 
-	// Managed type : System.Collections.Generic.Dictionary<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    - (DBSystem_Collections_Generic_Dictionary *)intObjectDictionary;
-    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_Dictionary *)value;
+	// Managed type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
+    - (DBSystem_Collections_Generic_DictionaryA2 *)intObjectDictionary;
+    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value;
 
 	// Managed type : Dubrovnik.UnitTests.LongEnum
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration;
@@ -147,9 +143,9 @@
     - (void *)pointer;
     - (void)setPointer:(void *)value;
 
-	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
-    - (DBSystem_Collections_Generic_List *)referenceObjectList;
-    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_List *)value;
+	// Managed type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
+    - (DBSystem_Collections_Generic_ListA1 *)referenceObjectList;
+    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_ListA1 *)value;
 
 	// Managed type : Dubrovnik.UnitTests.ReferenceObject
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative;
@@ -163,17 +159,17 @@
     - (DBSystem_Collections_ArrayList *)stringArrayList;
     - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value;
 
-	// Managed type : System.Collections.Generic.List<System.String>
-    - (DBSystem_Collections_Generic_List *)stringList;
-    - (void)setStringList:(DBSystem_Collections_Generic_List *)value;
+	// Managed type : System.Collections.Generic.List`1<System.String>
+    - (DBSystem_Collections_Generic_ListA1 *)stringList;
+    - (void)setStringList:(DBSystem_Collections_Generic_ListA1 *)value;
 
 	// Managed type : System.String
     - (NSString *)stringProperty;
     - (void)setStringProperty:(NSString *)value;
 
-	// Managed type : System.Collections.Generic.Dictionary<System.String, System.String>
-    - (DBSystem_Collections_Generic_Dictionary *)stringStringDictionary;
-    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_Dictionary *)value;
+	// Managed type : System.Collections.Generic.Dictionary`2<System.String, System.String>
+    - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
+    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value;
 
 #pragma mark -
 #pragma mark Methods
@@ -197,11 +193,6 @@
 	// Managed return type : System.Int32
 	// Managed param types : ref System.Int32&
     - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
-
-	// Managed method name : GenericMethodReturningGenericArgument
-	// Managed return type : <U>
-	// Managed param types : <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningGenericArgument_withParameterU:(DBMonoObjectRepresentation *)p1;
 
 	// Managed method name : MixedMethod1
 	// Managed return type : System.String

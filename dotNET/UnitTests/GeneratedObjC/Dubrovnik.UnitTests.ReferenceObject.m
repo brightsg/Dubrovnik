@@ -228,20 +228,6 @@
 		[self setMonoProperty:"FloatArray" valueObject:monoObject];          
 	}
 
-	// Managed type : Dubrovnik.UnitTests.GenericReferenceObject<System.Int32, System.String>
-    - (Dubrovnik_UnitTests_GenericReferenceObject *)genericReferenceObject
-    {
-		MonoObject * monoObject = [self getMonoProperty:"genericReferenceObject"];
-		Dubrovnik_UnitTests_GenericReferenceObject * result = [Dubrovnik_UnitTests_GenericReferenceObject representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"int32_t,NSString";
-		return result;
-	}
-    - (void)setGenericReferenceObject:(Dubrovnik_UnitTests_GenericReferenceObject *)value
-	{
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"genericReferenceObject" valueObject:monoObject];          
-	}
-
 	// Managed type : System.Int16[]
     - (DBSystem_Array *)int16Array
     {
@@ -333,15 +319,15 @@
 		[self setMonoProperty:"IntEnumeration" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.List<System.Int32>
-    - (DBSystem_Collections_Generic_List *)intList
+	// Managed type : System.Collections.Generic.List`1<System.Int32>
+    - (DBSystem_Collections_Generic_ListA1 *)intList
     {
 		MonoObject * monoObject = [self getMonoProperty:"IntList"];
-		DBSystem_Collections_Generic_List * result = [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_ListA1 * result = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"int32_t";
 		return result;
 	}
-    - (void)setIntList:(DBSystem_Collections_Generic_List *)value
+    - (void)setIntList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"IntList" valueObject:monoObject];          
@@ -360,15 +346,15 @@
 		[self setMonoProperty:"IntNumber" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.Dictionary<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    - (DBSystem_Collections_Generic_Dictionary *)intObjectDictionary
+	// Managed type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
+    - (DBSystem_Collections_Generic_DictionaryA2 *)intObjectDictionary
     {
 		MonoObject * monoObject = [self getMonoProperty:"IntObjectDictionary"];
-		DBSystem_Collections_Generic_Dictionary * result = [DBSystem_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_DictionaryA2 * result = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
 		return result;
 	}
-    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_Dictionary *)value
+    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"IntObjectDictionary" valueObject:monoObject];          
@@ -421,15 +407,15 @@
 		[self setMonoProperty:"Pointer" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.List<Dubrovnik.UnitTests.ReferenceObject>
-    - (DBSystem_Collections_Generic_List *)referenceObjectList
+	// Managed type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
+    - (DBSystem_Collections_Generic_ListA1 *)referenceObjectList
     {
 		MonoObject * monoObject = [self getMonoProperty:"ReferenceObjectList"];
-		DBSystem_Collections_Generic_List * result = [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_ListA1 * result = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"Dubrovnik_UnitTests_ReferenceObject";
 		return result;
 	}
-    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_List *)value
+    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"ReferenceObjectList" valueObject:monoObject];          
@@ -474,15 +460,15 @@
 		[self setMonoProperty:"StringArrayList" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.List<System.String>
-    - (DBSystem_Collections_Generic_List *)stringList
+	// Managed type : System.Collections.Generic.List`1<System.String>
+    - (DBSystem_Collections_Generic_ListA1 *)stringList
     {
 		MonoObject * monoObject = [self getMonoProperty:"StringList"];
-		DBSystem_Collections_Generic_List * result = [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_ListA1 * result = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"NSString";
 		return result;
 	}
-    - (void)setStringList:(DBSystem_Collections_Generic_List *)value
+    - (void)setStringList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringList" valueObject:monoObject];          
@@ -501,15 +487,15 @@
 		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.Dictionary<System.String, System.String>
-    - (DBSystem_Collections_Generic_Dictionary *)stringStringDictionary
+	// Managed type : System.Collections.Generic.Dictionary`2<System.String, System.String>
+    - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
     {
 		MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
-		DBSystem_Collections_Generic_Dictionary * result = [DBSystem_Collections_Generic_Dictionary representationWithMonoObject:monoObject];
+		DBSystem_Collections_Generic_DictionaryA2 * result = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
 		result.monoGenericTypeArgumentNames = @"NSString,NSString";
 		return result;
 	}
-    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_Dictionary *)value
+    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringStringDictionary" valueObject:monoObject];          
@@ -552,15 +538,6 @@
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT32(monoObject);
-    }
-
-	// Managed method name : GenericMethodReturningGenericArgument
-	// Managed return type : <U>
-	// Managed param types : <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningGenericArgument_withParameterU:(DBMonoObjectRepresentation *)p1
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningGenericArgument(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
     }
 
 	// Managed method name : MixedMethod1

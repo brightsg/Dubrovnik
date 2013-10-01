@@ -527,14 +527,16 @@ void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObj
 void DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject) {
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
 	MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
-	
+    mono_runtime_class_init(vtable);
+    
 	mono_field_static_get_value(vtable, field, valueObject);
 }
 
 void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject) {
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
 	MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
-	
+	mono_runtime_class_init(vtable);
+    
 	mono_field_static_set_value(vtable, field, valueObject);
 }
 

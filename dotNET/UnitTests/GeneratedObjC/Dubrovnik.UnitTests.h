@@ -9,11 +9,11 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     9/27/2013 5:37:30 PM
+// Date:     10/1/2013 2:23:10 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.4997.37744, Culture=neutral, PublicKeyToken=null
-// Path:     Z:\Documents\Thesaurus\Development\xcode\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5022.24073, Culture=neutral, PublicKeyToken=null
+// Path:     Z:\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
 // OS Arch:  64 bit
@@ -51,13 +51,6 @@
 //
 // Forward class declarations and class aliases
 //
-@class Dubrovnik_UnitTests_GenericReferenceObject;
-#ifdef DUGenericReferenceObject_T_U_
-#warning DUGenericReferenceObject_T_U_ class name collision.
-#else
-#define DUGenericReferenceObject_T_U_ Dubrovnik_UnitTests_GenericReferenceObject
-#endif
-
 @class Dubrovnik_UnitTests_ReferenceObject;
 #ifdef DUReferenceObject_
 #warning DUReferenceObject_ class name collision.
@@ -97,7 +90,6 @@
 #import "Dubrovnik.UnitTests.IntEnum.h"
 #import "Dubrovnik.UnitTests.LongEnum.h"
 #import "Dubrovnik.UnitTests.ReferenceStruct.h"
-#import "Dubrovnik.UnitTests.GenericReferenceObject_T_U.h"
 #import "Dubrovnik.UnitTests.ReferenceObject.h"
 #import "Dubrovnik.UnitTests.TestObject.h"
 #import "Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h"

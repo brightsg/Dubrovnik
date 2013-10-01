@@ -87,7 +87,6 @@
 		ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */; };
 		ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */; };
 		ABC32E7917CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7817CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */; };
-		ABC32E7E17CBBBDB004A3684 /* Dubrovnik.UnitTests.GenericReferenceObject_T_U.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7A17CBBBDB004A3684 /* Dubrovnik.UnitTests.GenericReferenceObject_T_U.m */; };
 		ABC32E7F17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */; };
 		ABC32E8017CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */; };
 		ABC32E8117CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */; };
@@ -791,7 +790,6 @@
 				ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */,
 				AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */,
 				ABC32E7917CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m in Sources */,
-				ABC32E7E17CBBBDB004A3684 /* Dubrovnik.UnitTests.GenericReferenceObject_T_U.m in Sources */,
 				ABC32E7F17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m in Sources */,
 				ABC32E8017CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */,
 				ABC32E8117CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m in Sources */,
