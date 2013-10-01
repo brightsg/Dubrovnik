@@ -228,6 +228,31 @@ The current Obj-C representation of mscorlib is included in the project at `Fram
 
 This can be included in our project.
 
+Threading Support
+=============
+
+Any thread that calls into managed code must pre-attach itself to the Mono environment. It doesn't matter whether the calling thread is created explicitly or via GCD or NSOperationQueue.
+
+    dispatch_queue_t globalConcurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    // create the data file asynchronously
+    dispatch_async(globalConcurrentQueue, ^{
+        
+        // Any thread that accesses Mono must be attached. Failure to do so is fatal.
+        MonoThread *monoThread = [[DBMonoEnvironment currentEnvironment] attachCurrentThread];
+        
+        // create the data file
+        [TUBDEntities_ createDataFile_withFileName:fileName];
+        
+        // detach the thread before it terminates
+        [[DBMonoEnvironment currentEnvironment] detachMonoThread:monoThread];
+        
+        // dispatch onto the main thread
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self openFilenName:fileName];
+        });
+    });
+
 Provided examples
 =================
 

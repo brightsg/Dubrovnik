@@ -76,8 +76,6 @@
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C617D7B380007214E1 /* DBTypeManager.m */; };
-		AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4017BFF03E0015FFB0 /* Mono.framework */; };
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
@@ -91,6 +89,8 @@
 		ABC32E8017CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */; };
 		ABC32E8117CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */; };
 		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
+		ABD836FA17FB121F008A0871 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
+		ABD836FB17FB1250008A0871 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
 		ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF43FB9179FF4FC00BAB99E /* DBMonoMethodRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF43FB7179FF4FC00BAB99E /* DBMonoMethodRepresentation.m */; };
 		DA4FDE7E09B38A1F00D16517 /* DBSystem.Drawing.Size.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4FDE7C09B38A1F00D16517 /* DBSystem.Drawing.Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -206,7 +206,6 @@
 		AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceStruct.m; sourceTree = "<group>"; };
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
-		ABB8CE4017BFF03E0015FFB0 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
 		ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceObject.m; sourceTree = "<group>"; };
 		ABBF10A817B3D2E1006F6E93 /* DBUIntEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIntEnum.h; sourceTree = "<group>"; };
@@ -219,15 +218,15 @@
 		ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_Unit_Tests.m; sourceTree = "<group>"; };
 		ABBF10B117B3D2E1006F6E93 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABC32E7317CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h; sourceTree = "<group>"; };
-		ABC32E7417CBBBC4004A3684 /* Dubrovnik.UnitTests.GenericReferenceObject_T_U.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.GenericReferenceObject_T_U.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObject_T_U.h; sourceTree = "<group>"; };
 		ABC32E7517CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.ReferenceObject.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceObject.h; sourceTree = "<group>"; };
 		ABC32E7617CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.ReferenceStruct.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceStruct.h; sourceTree = "<group>"; };
 		ABC32E7717CBBBC4004A3684 /* Dubrovnik.UnitTests.TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.TestObject.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.TestObject.h; sourceTree = "<group>"; };
 		ABC32E7817CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m; sourceTree = "<group>"; };
-		ABC32E7A17CBBBDB004A3684 /* Dubrovnik.UnitTests.GenericReferenceObject_T_U.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.GenericReferenceObject_T_U.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObject_T_U.m; sourceTree = "<group>"; };
 		ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.ReferenceObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceObject.m; sourceTree = "<group>"; };
 		ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.ReferenceStruct.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceStruct.m; sourceTree = "<group>"; };
 		ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.TestObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.TestObject.m; sourceTree = "<group>"; };
+		ABD836F717FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h; sourceTree = "<group>"; };
+		ABD836F817FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m; sourceTree = "<group>"; };
 		ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.h; sourceTree = "<group>"; };
 		ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.m; sourceTree = "<group>"; };
 		ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoMethodRepresentation.h; sourceTree = "<group>"; };
@@ -241,8 +240,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD836FA17FB121F008A0871 /* Mono.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
-				AB97FC0017C26DF800CBE585 /* Mono.framework in Frameworks */,
 				ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB97FC0117C26ED000CBE585 /* Mono.framework in Frameworks */,
+				ABD836FB17FB1250008A0871 /* Mono.framework in Frameworks */,
 				AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */,
 				AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */,
 				AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */,
@@ -477,16 +476,16 @@
 		AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */ = {
 			isa = PBXGroup;
 			children = (
+				ABD836F717FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h */,
+				ABD836F817FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m */,
 				AB073EF017D24F2300C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.h */,
 				AB073EF317D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */,
 				AB073EF117D24F2400C669D3 /* Dubrovnik.UnitTests.IntEnum.h */,
 				AB073EF217D24F2400C669D3 /* Dubrovnik.UnitTests.LongEnum.h */,
-				ABC32E7A17CBBBDB004A3684 /* Dubrovnik.UnitTests.GenericReferenceObject_T_U.m */,
 				ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */,
 				ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */,
 				ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */,
 				ABC32E7317CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */,
-				ABC32E7417CBBBC4004A3684 /* Dubrovnik.UnitTests.GenericReferenceObject_T_U.h */,
 				ABC32E7517CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceObject.h */,
 				ABC32E7617CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.h */,
 				ABC32E7717CBBBC4004A3684 /* Dubrovnik.UnitTests.TestObject.h */,
@@ -524,7 +523,6 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8CE4017BFF03E0015FFB0 /* Mono.framework */,
 				AB2CD2FA178D74F20075CF6A /* Cocoa.framework */,
 				AB588DC4178308000000AAC1 /* SenTestingKit.framework */,
 				AB588DC8178308000000AAC1 /* Other Frameworks */,
@@ -826,6 +824,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Dubrovnik_Prefix.pch;
@@ -849,6 +851,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Dubrovnik_Prefix.pch;
@@ -919,7 +925,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -963,7 +970,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

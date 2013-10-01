@@ -535,6 +535,9 @@ void DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valu
 void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject) {
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
 	MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
+    
+    // Much like mono_runtime_object_init, mono_runtime_class_init must have been called prior
+    // to accessing a static field.
 	mono_runtime_class_init(vtable);
     
 	mono_field_static_set_value(vtable, field, valueObject);

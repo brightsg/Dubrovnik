@@ -90,8 +90,14 @@
 - (int)executeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args;
 - (int)invokeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args;
 
-- (void)prepareThreading;
+
 - (BOOL)isAssemblyLoaded:(NSString *)assemblyString;
+
+- (void)prepareThreading;
+- (MonoThread *)attachCurrentThread;
++ (MonoThread *)attachCurrentThreadForMonoDomain:(MonoDomain *)monoDomain;
+- (void)detachMonoThread:(MonoThread *)monoThread;
++ (void)detachMonoThread:(MonoThread *)monoThread;
 
 @property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;

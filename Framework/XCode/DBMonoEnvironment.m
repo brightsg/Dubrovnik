@@ -266,11 +266,35 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 	return(retVal);
 }
 
+#pragma mark -
+#pragma mark Thread management
+
 - (void)prepareThreading {
 	//this thread is launched just to force cocoa into multithreaded mode.
 	[NSThread detachNewThreadSelector:@selector(nothingThread:) toTarget:self withObject:nil];
-	//get DBMonoRegisteredThread to pose as NSThread.
+	// get DBMonoRegisteredThread to pose as NSThread.
+    // Note that -poseAsClass: is deprecated and not available in the 64bit API.
 	[DBMonoRegisteredThread poseAsClass:[NSThread class]];	
+}
+
+- (MonoThread *)attachCurrentThread
+{
+    return [[self class] attachCurrentThreadForMonoDomain:[self monoDomain]];
+}
+
++ (MonoThread *)attachCurrentThreadForMonoDomain:(MonoDomain *)monoDomain
+{
+    return mono_thread_attach(monoDomain);
+}
+
+- (void)detachMonoThread:(MonoThread *)monoThread
+{
+    [[self class] detachMonoThread:monoThread];
+}
+
++ (void)detachMonoThread:(MonoThread *)monoThread
+{
+    mono_thread_detach(monoThread);
 }
 
 //this thread is launched just to force cocoa into multithreaded mode.
