@@ -18,6 +18,7 @@
 #import "Dubrovnik.UnitTests.h"
 #endif
 
+
 NSString *DBUTestString = @"Dubrovnik";
 
 // test failure notices
@@ -46,6 +47,8 @@ static BOOL _setup = NO;
 - (void)doTestPointerProperties:(id)refObject class:(Class)testClass;
 - (void)doTestPointerMethods:(id)refObject class:(Class)testClass;
 @end
+
+#warning NSData implementaion is not tested
 
 @implementation Dubrovnik_Unit_Tests
 
