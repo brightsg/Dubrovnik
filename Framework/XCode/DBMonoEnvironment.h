@@ -93,11 +93,15 @@
 
 - (BOOL)isAssemblyLoaded:(NSString *)assemblyString;
 
+// threading
 - (void)prepareThreading;
 - (MonoThread *)attachCurrentThread;
 + (MonoThread *)attachCurrentThreadForMonoDomain:(MonoDomain *)monoDomain;
 - (void)detachMonoThread:(MonoThread *)monoThread;
 + (void)detachMonoThread:(MonoThread *)monoThread;
+
+// termination
+- (void)terminate;
 
 @property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;

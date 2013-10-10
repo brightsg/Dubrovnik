@@ -267,6 +267,14 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 }
 
 #pragma mark -
+#pragma mark Termination
+
+- (void)terminate
+{
+	mono_jit_cleanup([self monoDomain]);
+}
+
+#pragma mark -
 #pragma mark Thread management
 
 - (void)prepareThreading {
