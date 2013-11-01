@@ -12,5 +12,5 @@
 
 - (int32_t)saveChanges;
 - (void)DeleteObject:(DBMonoObjectRepresentation *)object;
-
+//- (DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery:(NSString *)eSQLQueryString queryTypeName:(NSString *)typeName;
 @end

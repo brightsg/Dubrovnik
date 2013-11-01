@@ -21,4 +21,14 @@
     int32_t result = DB_UNBOX_INT32(monoObject);
     return result;
 }
+
+
+- (DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery:(NSString *)eSQLQueryString queryTypeName:(NSString *)typeName
+{
+    MonoObject * monoObject = [self invokeMonoMethod:"SaveChanges" withNumArgs:1, eSQLQueryString];
+    
+    DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *result = [DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+    result.monoGenericTypeArgumentNames = typeName;
+    return result;
+}
 @end

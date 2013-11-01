@@ -219,7 +219,7 @@ inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass,
 	*valuePointer = (Word_t)nameToMethodsArray;
 }
 
-static MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName) {
+MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName) {
 	MonoMethod *meth;
 	
 	pthread_mutex_lock(&methodCacheMutex);
@@ -261,7 +261,7 @@ static MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodNa
 	return(meth);
 }
 
-static MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName) {
+MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName) {
 	MonoClass *monoClass = mono_object_get_class(monoObject);
 	MonoMethod *meth;
 	

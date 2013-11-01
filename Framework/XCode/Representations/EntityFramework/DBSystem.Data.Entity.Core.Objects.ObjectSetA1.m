@@ -8,6 +8,7 @@
 
 #import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
 
+
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1()
 
 @end
@@ -36,17 +37,16 @@
     // public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
     // note that the generic parameter type must be obtained from the source
     DBMonoMethodRepresentation *methodRep = [DBMonoMethodRepresentation
-                                             representationWithMonoMethodNamed:":ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
+                                             representationWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
                                                                     className:"System.Linq.Enumerable"
                                                                 assemblyName:"System.Core"];
     
-    // invoke the extension method passing mono object as first argument
+    // Invoke the extension method passing mono object as first argument
     // NOTE: we could invoke this as a class method but it is clean to invoke against self.
-    MonoObject * mo = [self monoObject];
-    MonoObject *monoObject = [self invokeMethodRepresentation:methodRep withNumArgs:1, mo];
+    MonoObject *monoListObject = [self invokeMethodRepresentation:methodRep withNumArgs:1, [self monoObject]];
     
-    // wrap the list
-    DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoObject withRepresentationClass:self.monoPrimaryGenericTypeArgument];
+    // Wrap the list
+    DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoListObject withRepresentationClass:self.monoPrimaryGenericTypeArgument];
     return list;
 }
 
@@ -79,4 +79,5 @@
 {
     return [[self list] array];
 }
+
 @end

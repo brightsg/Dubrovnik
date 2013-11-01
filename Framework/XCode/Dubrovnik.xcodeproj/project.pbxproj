@@ -91,6 +91,8 @@
 		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
 		ABD836FA17FB121F008A0871 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
 		ABD836FB17FB1250008A0871 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
+		ABDB2FE618240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDB2FE418240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDB2FE718240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDB2FE518240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m */; };
 		ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF43FB9179FF4FC00BAB99E /* DBMonoMethodRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF43FB7179FF4FC00BAB99E /* DBMonoMethodRepresentation.m */; };
 		DA4FDE7E09B38A1F00D16517 /* DBSystem.Drawing.Size.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4FDE7C09B38A1F00D16517 /* DBSystem.Drawing.Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -229,6 +231,8 @@
 		ABD836F817FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m; sourceTree = "<group>"; };
 		ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.h; sourceTree = "<group>"; };
 		ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.m; sourceTree = "<group>"; };
+		ABDB2FE418240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h; path = EntityFramework/DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h; sourceTree = "<group>"; };
+		ABDB2FE518240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m; path = EntityFramework/DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m; sourceTree = "<group>"; };
 		ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoMethodRepresentation.h; sourceTree = "<group>"; };
 		ABF43FB7179FF4FC00BAB99E /* DBMonoMethodRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMonoMethodRepresentation.m; sourceTree = "<group>"; };
 		DA4FDE7C09B38A1F00D16517 /* DBSystem.Drawing.Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSystem.Drawing.Size.h; path = Image/DBSystem.Drawing.Size.h; sourceTree = "<group>"; };
@@ -516,6 +520,8 @@
 				AB49E43B178B2D7A00D01244 /* DBSystem.Data.Entity.Core.Objects.ObjectSetA1.m */,
 				AB49E43F178B2ED600D01244 /* DBSystem.Data.Entity.Core.Objects.ObjectContext.h */,
 				AB49E440178B2ED600D01244 /* DBSystem.Data.Entity.Core.Objects.ObjectContext.m */,
+				ABDB2FE418240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h */,
+				ABDB2FE518240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m */,
 			);
 			name = EntityFramework;
 			sourceTree = "<group>";
@@ -584,6 +590,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDB2FE618240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h in Headers */,
 				AB5D608F17DDE2A000C53D7D /* DBSystem.Collections.Generic.ListA1.h in Headers */,
 				AB5D609317DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.h in Headers */,
 				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
@@ -759,6 +766,7 @@
 				9D496B3009082F6700CD26AF /* NSImage+Dubrovnik.m in Sources */,
 				9D8A17D7096A4085000477C0 /* DBSystem.IO.FileInfo.m in Sources */,
 				9D88634A0974F55500365976 /* DBWrappedString.m in Sources */,
+				ABDB2FE718240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m in Sources */,
 				9D6335AF09750DAD00FB76DF /* DBWrappedData.m in Sources */,
 				DA4FDE7F09B38A1F00D16517 /* DBSystem.Drawing.Size.m in Sources */,
 				9DA8F08E09EF2BE0000EE2DE /* DBSystem.Array.m in Sources */,

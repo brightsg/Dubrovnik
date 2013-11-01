@@ -60,6 +60,9 @@ namespace Dubrovnik.FrameworkHelper
 			return ptrTypes;
 		}
 
+        //
+        // Generic type instantiation helpers
+        //
 	}
 }
 

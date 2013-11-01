@@ -61,3 +61,7 @@ MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const ch
 //Nullable access
 BOOL DBMonoNullableObjectHasValue(MonoObject *monoNullable);
 MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable);
+
+//Method lookup
+MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName);
+MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName);
