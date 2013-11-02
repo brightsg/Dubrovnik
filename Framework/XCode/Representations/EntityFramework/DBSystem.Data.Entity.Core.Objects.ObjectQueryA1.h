@@ -17,4 +17,9 @@
 + (id)objectQueryWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
 - (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
 
+- (DBSystem_Collections_IList *)list;
+
+- (NSMutableArray *)mutableArray;
+- (NSArray *)array;
+
 @end

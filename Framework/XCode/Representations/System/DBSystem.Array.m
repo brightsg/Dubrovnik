@@ -26,6 +26,11 @@
 
 @implementation DBSystem_Array
 
++ (MonoArray *)monoArrayWithNoObjects
+{
+    return [self monoArrayWithTypeName:DBType_System_Object length:0];
+}
+
 + (MonoArray *)monoArrayWithTypeName:(NSString *)name length:(uintptr_t)length
 {
     DBType *type = [[DBTypeManager sharedManager] typeWithName:name];
@@ -47,6 +52,11 @@
 + (MonoArray *)monoArrayWithMonoClass:(MonoClass *)klass length:(uintptr_t)length
 {
     return mono_array_new(mono_domain_get(), klass, length);
+}
+
++ (id)arrayWithNoObjects
+{
+    return [self arrayWithMonoArray:[self monoArrayWithNoObjects] withRepresentationClass:nil];
 }
 
 + (id)arrayWithMonoArray:(MonoArray *)monoArray withRepresentationClass:(Class)representationClass {

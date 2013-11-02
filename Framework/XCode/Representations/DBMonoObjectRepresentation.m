@@ -261,7 +261,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
     // The presence of a class name indicates that the method is an extension method
     // implemented as a static method on the indicated class
-    if (methodRepresentation.className != NULL) {
+    if (methodRepresentation.monoClassName != NULL) {
         
         // The first argument must be the represented mono object in the case of an extension method.
         // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
@@ -296,14 +296,19 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // Get object representing C# MethodInfo class
     MonoReflectionMethod* methodInfo = mono_method_get_object(monoEnv.monoDomain, monoMethod, monoClass);
         
-    // If method is generic then the method needs to be regenerated with real types instead of T placeholders
+    // If method is generic then the method needs to be regenerated with real types instead of type T placeholders
     BOOL isGenericMethod = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
     if (isGenericMethod) {
-        monoMethod = [self makeGenericMethod:methodInfo monoArgs:monoArgs];
+        monoMethod = [self makeGenericMethod:methodInfo genericParameterType:methodRepresentation.genericMonoType];
     }
         
     MonoObject *monoException = NULL;
     MonoObject *retVal = mono_runtime_invoke(monoMethod, invokeObj, monoArgs, &monoException);
+    
+    if(monoException != NULL) {
+        NSException *e = NSExceptionFromMonoException(monoException);
+        [e raise];
+    }
     
 #ifdef TRACE
     MonoClass *resultMonoClass = mono_object_get_class(retVal);
@@ -314,38 +319,15 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return retVal;
 }
 
-- (MonoMethod *)makeGenericMethod:(MonoReflectionMethod*)methodInfo monoArgs:(void **)monoArgs
+- (MonoMethod *)makeGenericMethod:(MonoReflectionMethod*)methodInfo genericParameterType:(MonoType *)genericParameterType
 {
     // TODO: Allow calling of methods with multiple generic arguments.
-    
-    MonoObject *monoException = NULL;
     DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
-    
-    MonoType *argumentType = mono_class_get_type(mono_object_get_class(monoArgs[0]));
-    MonoType *genericParameterType = argumentType;
-    void *hargs [2];
     
     // get generic helper class
     MonoClass *helpMonoClass = [DBMonoEnvironment DubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
     if (!helpMonoClass) {
         [NSException raise:@"MakeGenericMethodException" format: @"GenericHelper class not found."];
-    }
-    
-    // get method to retrieve generic argument types
-    MonoMethod *genericArgTypehelperMethod = mono_class_get_method_from_name(helpMonoClass, "GenericTypeArguments", 1);
-    if (!genericArgTypehelperMethod) {
-        [NSException raise:@"MakeGenericMethodException" format: @"GenericHelper method GenericTypeArguments not found."];
-    }
-    
-    // get generic method parameter type info for the method argument.
-    hargs [0] = mono_type_get_object(monoEnv.monoDomain, argumentType);
-    hargs [1] = NULL;
-    MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(genericArgTypehelperMethod, NULL, hargs, &monoException);
-    
-    // get number of generic type arguments
-    uintptr_t genericArgumentCount = mono_array_length(genericArgArray);
-    if (genericArgumentCount > 0) {
-        genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), 0);
     }
     
     // get the generic method helper method
@@ -356,7 +338,8 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     // invoke the generic helper method to assign specific types to the type parameters in the generic method definition
     // see http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.makegenericmethod.aspx
-    monoException = NULL;
+    MonoObject *monoException = NULL;
+    void *hargs [2];
     hargs [0] = methodInfo;
     hargs [1] = mono_type_get_object(monoEnv.monoDomain, genericParameterType);
     MonoObject *boxedGenericMethod = mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
@@ -370,8 +353,49 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         [NSException raise:@"MakeGenericMethodException" format: @"Generic method not found."];
     }
     
-   return genericMethod;
+    return genericMethod;
 }
+
+
+- (MonoType *)getMonoGenericType:(MonoClass *)monoClass
+{
+    // Get the generic type of an object eg: for list<employee> the type employee is returned.
+    
+    // TODO: Allow calling of methods with multiple generic arguments.
+    
+    MonoObject *monoException = NULL;
+    DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
+    
+    // get generic helper class
+    MonoClass *helpMonoClass = [DBMonoEnvironment DubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
+    if (!helpMonoClass) {
+        [NSException raise:@"GetGenericTypeException" format: @"GenericHelper class not found."];
+    }
+    
+    // get method to retrieve generic argument types
+    MonoMethod *genericArgTypehelperMethod = mono_class_get_method_from_name(helpMonoClass, "GenericTypeArguments", 1);
+    if (!genericArgTypehelperMethod) {
+        [NSException raise:@"GetGenericTypeException" format: @"GenericHelper method GenericTypeArguments not found."];
+    }
+    
+    // get generic method parameter type info for the method argument.
+    MonoType *objectType = mono_class_get_type(monoClass);
+    void *hargs [2];
+    hargs [0] = mono_type_get_object(monoEnv.monoDomain, objectType);
+    hargs [1] = NULL;
+    MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(genericArgTypehelperMethod, NULL, hargs, &monoException);
+    
+    // get number of generic type arguments
+    uintptr_t genericArgumentCount = mono_array_length(genericArgArray);
+    MonoType *genericParameterType = NULL;
+    if (genericArgumentCount == 1) {
+        genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), 0);
+    } else {
+        [NSException raise:@"GetGenericTypeException" format: @"Invalid number of generic type arguments: %ld", genericArgumentCount];
+    }
+    
+    return genericParameterType;
+ }
 
 #pragma mark -
 #pragma mark Indexer Access
@@ -515,21 +539,27 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
     // methods
     NSLog(@"Method count : %d", [self monoMethodCount:klass]);
-    void *iter = NULL;
-    while (YES) {
-        MonoMethod *availableMethod = mono_class_get_methods (klass, &iter);
-        if (iter == NULL || availableMethod == NULL) break;
-        char *methodName = mono_method_full_name(availableMethod, YES);
-        NSLog(@"Method name: %s", methodName);
-    }
+    
+    while (klass != NULL) {
+        void *iter = NULL;
+        
+        while (YES) {
+            MonoMethod *availableMethod = mono_class_get_methods (klass, &iter);
+            if (iter == NULL || availableMethod == NULL) break;
+            char *methodName = mono_method_full_name(availableMethod, YES);
+            NSLog(@"Method name: %s", methodName);
+        }
 
-    // interfaces
-    iter = NULL;
-    while (YES) {
-        MonoClass *interface = mono_class_get_interfaces (klass, &iter);
-        if (iter == NULL || interface == NULL) break;
-        const char *interfaceName = mono_class_get_name(interface);
-        NSLog(@"Interface name: %s", interfaceName);
+        // interfaces
+        iter = NULL;
+        while (YES) {
+            MonoClass *interface = mono_class_get_interfaces (klass, &iter);
+            if (iter == NULL || interface == NULL) break;
+            const char *interfaceName = mono_class_get_name(interface);
+            NSLog(@"Interface name: %s", interfaceName);
+        }
+        
+        klass = mono_class_get_parent(klass);
     }
 }
 

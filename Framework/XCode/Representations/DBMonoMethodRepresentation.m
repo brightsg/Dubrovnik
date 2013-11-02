@@ -19,6 +19,7 @@
 @synthesize methodName = _methodName;
 @synthesize monoClassName = _monoClassName;
 @synthesize assemblyName = _assemblyName;
+@synthesize genericMonoType = _genericMonoType;
 
 + (DBMonoMethodRepresentation *)representationWithMonoMethodNamed:(const char *)methodName
 {

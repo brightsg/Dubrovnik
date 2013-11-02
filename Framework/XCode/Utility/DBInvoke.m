@@ -35,10 +35,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 	}
 }
 
-static NSException *NSExceptionFromMonoException(MonoObject *monoException) {
+NSException *NSExceptionFromMonoException(MonoObject *monoException)
+{
 	NSString *exceptionMessage = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Message")];
 	NSString *exceptionStackTrace = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "StackTrace")];
-	return([NSException exceptionWithName:exceptionMessage reason:exceptionStackTrace userInfo:nil]);
+    NSException *e = [NSException exceptionWithName:exceptionMessage reason:exceptionStackTrace userInfo:nil];
+    
+	return(e);
 }
 
 #pragma mark -

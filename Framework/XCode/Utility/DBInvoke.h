@@ -65,3 +65,6 @@ MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable);
 //Method lookup
 MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName);
 MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName);
+
+// Exception handling
+NSException *NSExceptionFromMonoException(MonoObject *monoException);

@@ -33,6 +33,8 @@
 
 - (DBSystem_Collections_IList *)list
 {
+    // NOTE: perhaps a C# helper method could achieve this more simply.
+    
     // ToList is an extension method defined as a static method on System.Linq.Enumerable
     // public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
     // note that the generic parameter type must be obtained from the source
@@ -40,6 +42,9 @@
                                              representationWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
                                                                     className:"System.Linq.Enumerable"
                                                                 assemblyName:"System.Core"];
+    
+    // The generic type for the list equals the generic type of this object
+    methodRep.genericMonoType = [self getMonoGenericType:[self monoClass]];
     
     // Invoke the extension method passing mono object as first argument
     // NOTE: we could invoke this as a class method but it is clean to invoke against self.

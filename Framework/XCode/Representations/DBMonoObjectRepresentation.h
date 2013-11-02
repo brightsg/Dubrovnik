@@ -94,6 +94,9 @@
 - (uint32_t)unsigned32Value;
 - (uint64_t)unsigned64Value;
 
+// Mono type info
+- (MonoType *)getMonoGenericType:(MonoClass *)monoClass;
+
 // Mono info
 - (int)monoMethodCount;
 - (void)logMonoClassInfo;

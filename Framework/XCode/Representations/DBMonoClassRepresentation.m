@@ -76,6 +76,10 @@
 	return _klass;
 }
 
+- (MonoType *)monoType {
+	return mono_class_get_type([self monoClass]);
+}
+
 #pragma mark Method Invocation
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
