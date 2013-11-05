@@ -23,8 +23,8 @@
 - (DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)queryString
                                                       parameters:(DBSystem_Array *)dbsaParameters
                                                    className:(NSString *)className
-                                                   monoClassName:(char *)monoClassName
-                                                    assemblyName:(char *)assemblyName;
+                                                   monoClassName:(const char *)monoClassName
+                                                    assemblyName:(const char *)assemblyName;
 
 
 @end

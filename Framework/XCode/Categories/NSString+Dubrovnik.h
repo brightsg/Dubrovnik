@@ -33,4 +33,18 @@
 - (MonoObject *)monoValue;
 - (MonoObject *)monoObject;
 
+/*!
+ 
+ Converts an ObjC representation of a simple Mono class name back to its original Mono form.
+ 
+ The class name mangling that occurs to transform a Mono class name to its ObjC equivalent is not reversible
+ except in simple cases.
+ 
+ This method is not suitable for use on generic or pointer types.
+ 
+ See CodeFacet.ObjCNameFromMonoName in Dubrovnik.CodeGenerator
+ 
+ */
+- (NSString *)simpleObjCToMonoClassNameString;
+
 @end

@@ -22,6 +22,18 @@
 
 #import <Foundation/Foundation.h>
 
+// Expand a token
+#define DB_STR_EXPAND(tok) #tok
+
+// Expand a token as a C string
+#define DB_CSTR(tok) DB_STR_EXPAND(tok)
+
+// Expand a token as an NSString
+#define DB_NSSTR(tok) @DB_STR_EXPAND(tok)
+
+// Friendly face to convert interface name to NSString *
+#define DB_INTERFACE_TO_NSSTR(tok) DB_NSSTR(tok)
+
 #import "DBMonoIncludes.h"
 
 // Environment

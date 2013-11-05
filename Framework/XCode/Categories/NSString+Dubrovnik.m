@@ -70,4 +70,13 @@
     return [self monoValue];
 }
 
+- (NSString *)simpleObjCToMonoClassNameString
+{
+    NSMutableString *s = [NSMutableString stringWithString:self];
+    [s replaceOccurrencesOfString:@"__" withString:@"+" options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
+    [s replaceOccurrencesOfString:@"_" withString:@"." options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
+    
+    return s;
+}
+
 @end

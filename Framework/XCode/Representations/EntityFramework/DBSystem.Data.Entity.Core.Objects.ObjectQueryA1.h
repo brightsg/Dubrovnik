@@ -8,6 +8,7 @@
 
 #import <Dubrovnik/Dubrovnik.h>
 
+#define SDECOObjectQueryA1_ DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
 @interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : DBMonoObjectRepresentation
 {
 @protected
