@@ -280,9 +280,14 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 - (void)prepareThreading {
 	//this thread is launched just to force cocoa into multithreaded mode.
 	[NSThread detachNewThreadSelector:@selector(nothingThread:) toTarget:self withObject:nil];
+    
 	// get DBMonoRegisteredThread to pose as NSThread.
     // Note that -poseAsClass: is deprecated and not available in the 64bit API.
-	[DBMonoRegisteredThread poseAsClass:[NSThread class]];	
+#ifdef __LP64__
+    NSAssert(NO, @"-poseAsClass not available in 64bit API");
+#else
+	[DBMonoRegisteredThread poseAsClass:[NSThread class]];
+#endif
 }
 
 - (MonoThread *)attachCurrentThread

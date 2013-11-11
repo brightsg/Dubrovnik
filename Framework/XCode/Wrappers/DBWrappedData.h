@@ -28,7 +28,7 @@
 	MonoArray *_monoArray;
 	int32_t _gcHandle;
 	
-	unsigned _dataLength;
+	uintptr_t _dataLength;
 	const void *_dataBytes;
 }
 

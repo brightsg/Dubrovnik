@@ -48,7 +48,7 @@ static BOOL _setup = NO;
 - (void)doTestPointerMethods:(id)refObject class:(Class)testClass;
 @end
 
-#warning NSData implementaion is not tested
+#warning NSData implementation is not tested
 
 @implementation Dubrovnik_Unit_Tests
 

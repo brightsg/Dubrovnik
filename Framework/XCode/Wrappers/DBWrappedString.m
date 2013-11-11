@@ -59,12 +59,12 @@
 #pragma mark -
 #pragma mark Primitive Method Overrides
 
-- (unsigned int)length {
-	return(_stringLength);
+- (NSUInteger)length {
+	return (NSUInteger)_stringLength;
 }
 
-- (unichar)characterAtIndex:(unsigned)index {
-	if(index >= _stringLength)
+- (unichar)characterAtIndex:(NSUInteger)index {
+	if(index >= (NSUInteger)_stringLength)
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Character index beyond string bounds." userInfo:nil]);
 
 	unichar *stringCharacters = mono_string_chars(_monoString);
@@ -94,7 +94,7 @@
 }
 
 - (void)getCharacters:(unichar *)buffer range:(NSRange)range {
-	if(range.location + range.length > _stringLength)
+	if(range.location + range.length > (NSUInteger)_stringLength)
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Character range beyond string bounds." userInfo:nil]);
 	
 	unichar *stringCharacters = mono_string_chars(_monoString);

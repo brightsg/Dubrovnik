@@ -88,8 +88,8 @@
 		ABC32E8017CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */; };
 		ABC32E8117CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */; };
 		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
-		ABD836FA17FB121F008A0871 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
-		ABD836FB17FB1250008A0871 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
+		ABD02CAF183180C400885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
+		ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
 		ABDB2FE618240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDB2FE418240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABDB2FE718240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDB2FE518240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m */; };
 		ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF43FB6179FF4FC00BAB99E /* DBMonoMethodRepresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -225,6 +225,7 @@
 		ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.ReferenceObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceObject.m; sourceTree = "<group>"; };
 		ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.ReferenceStruct.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceStruct.m; sourceTree = "<group>"; };
 		ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.TestObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.TestObject.m; sourceTree = "<group>"; };
+		ABD02CAE183180C400885CDC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
 		ABD836F717FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h; sourceTree = "<group>"; };
 		ABD836F817FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m; sourceTree = "<group>"; };
 		ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.h; sourceTree = "<group>"; };
@@ -242,7 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABD836FA17FB121F008A0871 /* Mono.framework in Frameworks */,
+				ABD02CAF183180C400885CDC /* Mono64.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */,
 			);
@@ -252,7 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABD836FB17FB1250008A0871 /* Mono.framework in Frameworks */,
+				ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */,
 				AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */,
 				AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */,
 				AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */,
@@ -526,6 +527,7 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABD02CAE183180C400885CDC /* Mono64.framework */,
 				AB2CD2FA178D74F20075CF6A /* Cocoa.framework */,
 				AB588DC4178308000000AAC1 /* SenTestingKit.framework */,
 				AB588DC8178308000000AAC1 /* Other Frameworks */,
@@ -879,12 +881,12 @@
 		93A417DA087230B000352242 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/headers/mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/headers/mono-2.0";
 				OTHER_CFLAGS = (
 					"-Wextra",
 					"-Wall",
@@ -900,11 +902,11 @@
 		93A417DB087230B000352242 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/headers/mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/headers/mono-2.0";
 				OTHER_CFLAGS = (
 					"-Wextra",
 					"-Wall",
@@ -948,7 +950,7 @@
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Library/Frameworks/Mono.framework/Versions/Current/lib,
+					/Library/Frameworks/Mono64.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -987,7 +989,7 @@
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Library/Frameworks/Mono.framework/Versions/Current/lib,
+					/Library/Frameworks/Mono64.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;

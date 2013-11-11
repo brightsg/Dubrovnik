@@ -66,7 +66,7 @@
 	return(_dataBytes);
 }
 
-- (unsigned)length {
+- (uintptr_t)length {
 	return(_dataLength);
 }
 
@@ -89,7 +89,7 @@
 	memcpy(buffer, _dataBytes, _dataLength);
 }
 
-- (void)getBytes:(void *)buffer length:(unsigned)length {
+- (void)getBytes:(void *)buffer length:(NSUInteger)length {
 	memcpy(buffer, _dataBytes, MIN(_dataLength, length));
 }
 

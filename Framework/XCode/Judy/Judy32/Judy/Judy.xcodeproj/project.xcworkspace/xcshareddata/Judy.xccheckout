@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>637FBA67-DD84-431E-A562-DEB0F04D04A3</string>
+	<string>C9923DE8-080F-48DF-A1E0-1686E15FB81A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Judy</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E7D512E4-107D-47C2-B075-78FB062F2EA7</key>
+		<key>4382D73A-AD0D-42EE-AD33-F3DF28AA0562</key>
 		<string>https://github.com/ThesaurusSoftware/Dubrovnik.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Framework/XCode/Judy/Judy32/Judy/Judy.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E7D512E4-107D-47C2-B075-78FB062F2EA7</key>
+		<key>4382D73A-AD0D-42EE-AD33-F3DF28AA0562</key>
 		<string>../../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E7D512E4-107D-47C2-B075-78FB062F2EA7</string>
+	<string>4382D73A-AD0D-42EE-AD33-F3DF28AA0562</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E7D512E4-107D-47C2-B075-78FB062F2EA7</string>
+			<string>4382D73A-AD0D-42EE-AD33-F3DF28AA0562</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Dubrovnik</string>
 		</dict>

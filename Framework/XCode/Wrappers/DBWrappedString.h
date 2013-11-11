@@ -28,7 +28,7 @@
 	MonoString *_monoString;
 	uint32_t _gcHandle;
 	
-	unsigned int _stringLength;
+	int _stringLength;
 }
 
 - (id)initWithMonoString:(MonoString *)monoString;
