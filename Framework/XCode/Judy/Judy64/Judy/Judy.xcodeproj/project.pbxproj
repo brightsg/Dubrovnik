@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXFileReference section */
+		9D12EABA08CE423200C6653E /* JudyByCount.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyByCount.c; sourceTree = "<group>"; };
+		9D12EABB08CE423200C6653E /* JudyCascade.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyCascade.c; sourceTree = "<group>"; };
+		9D12EABC08CE423200C6653E /* JudyCount.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyCount.c; sourceTree = "<group>"; };
+		9D12EABD08CE423200C6653E /* JudyCreateBranch.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyCreateBranch.c; sourceTree = "<group>"; };
+		9D12EABE08CE423200C6653E /* JudyDecascade.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyDecascade.c; sourceTree = "<group>"; };
+		9D12EABF08CE423200C6653E /* JudyDel.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyDel.c; sourceTree = "<group>"; };
+		9D12EAC008CE423200C6653E /* JudyFirst.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyFirst.c; sourceTree = "<group>"; };
+		9D12EAC108CE423200C6653E /* JudyFreeArray.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyFreeArray.c; sourceTree = "<group>"; };
+		9D12EAC208CE423200C6653E /* JudyGet.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyGet.c; sourceTree = "<group>"; };
+		9D12EAC308CE423200C6653E /* JudyIns.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyIns.c; sourceTree = "<group>"; };
+		9D12EAC408CE423200C6653E /* JudyInsArray.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyInsArray.c; sourceTree = "<group>"; };
+		9D12EAC508CE423200C6653E /* JudyInsertBranch.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyInsertBranch.c; sourceTree = "<group>"; };
+		9D12EAC608CE423200C6653E /* JudyMalloc.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyMalloc.c; sourceTree = "<group>"; };
+		9D12EAC708CE423200C6653E /* JudyMallocIF.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyMallocIF.c; sourceTree = "<group>"; };
+		9D12EAC808CE423200C6653E /* JudyMemActive.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyMemActive.c; sourceTree = "<group>"; };
+		9D12EAC908CE423200C6653E /* JudyMemUsed.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyMemUsed.c; sourceTree = "<group>"; };
+		9D12EACA08CE423200C6653E /* JudyPrevNext.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyPrevNext.c; sourceTree = "<group>"; };
+		9D12EACB08CE423200C6653E /* JudyPrevNextEmpty.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyPrevNextEmpty.c; sourceTree = "<group>"; };
+		9D12EACC08CE423200C6653E /* JudyPrintJP.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyPrintJP.c; sourceTree = "<group>"; };
+		9D12EACD08CE423200C6653E /* JudyPrivate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JudyPrivate.h; sourceTree = "<group>"; };
+		9D12EACE08CE423200C6653E /* JudyPrivate1L.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JudyPrivate1L.h; sourceTree = "<group>"; };
+		9D12EACF08CE423200C6653E /* JudyPrivateBranch.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JudyPrivateBranch.h; sourceTree = "<group>"; };
+		9D12EAD008CE423200C6653E /* JudyTables.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyTables.c; sourceTree = "<group>"; };
+		9D12EAEF08CE432A00C6653E /* Judy.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Judy.h; sourceTree = "<group>"; };
+		9D12EAF208CE436B00C6653E /* Judy1.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Judy1.h; sourceTree = "<group>"; };
+		9D12EAF708CE43BB00C6653E /* JudyHS.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudyHS.c; sourceTree = "<group>"; };
+		9D12EAF808CE43BB00C6653E /* JudyHS.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JudyHS.h; sourceTree = "<group>"; };
+		9D12EAFE08CE43D700C6653E /* JudyL.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JudyL.h; sourceTree = "<group>"; };
+		9D12EB0308CE43F200C6653E /* JudySL.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = JudySL.c; sourceTree = "<group>"; };
+		9DA4F60208CE83CD008EE9FB /* libJudy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJudy.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA04BD317EB8E5E00E5469C /* Judy.README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Judy.README.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* Judy */ = {
+			isa = PBXGroup;
+			children = (
+				ABA04BD317EB8E5E00E5469C /* Judy.README.txt */,
+				08FB7795FE84155DC02AAC07 /* src */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = Judy;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9D12EB0008CE43DC00C6653E /* JudySL */,
+				9D12EAFB08CE43BF00C6653E /* JudyL */,
+				9D12EAF408CE439F00C6653E /* JudyHS */,
+				9D12EAF108CE434F00C6653E /* Judy1 */,
+				9D12EAB708CE421200C6653E /* JudyCommon */,
+				9D12EAEF08CE432A00C6653E /* Judy.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DA4F60208CE83CD008EE9FB /* libJudy.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D12EAB708CE421200C6653E /* JudyCommon */ = {
+			isa = PBXGroup;
+			children = (
+				9D12EABA08CE423200C6653E /* JudyByCount.c */,
+				9D12EABB08CE423200C6653E /* JudyCascade.c */,
+				9D12EABC08CE423200C6653E /* JudyCount.c */,
+				9D12EABD08CE423200C6653E /* JudyCreateBranch.c */,
+				9D12EABE08CE423200C6653E /* JudyDecascade.c */,
+				9D12EABF08CE423200C6653E /* JudyDel.c */,
+				9D12EAC008CE423200C6653E /* JudyFirst.c */,
+				9D12EAC108CE423200C6653E /* JudyFreeArray.c */,
+				9D12EAC208CE423200C6653E /* JudyGet.c */,
+				9D12EAC308CE423200C6653E /* JudyIns.c */,
+				9D12EAC408CE423200C6653E /* JudyInsArray.c */,
+				9D12EAC508CE423200C6653E /* JudyInsertBranch.c */,
+				9D12EAC608CE423200C6653E /* JudyMalloc.c */,
+				9D12EAC708CE423200C6653E /* JudyMallocIF.c */,
+				9D12EAC808CE423200C6653E /* JudyMemActive.c */,
+				9D12EAC908CE423200C6653E /* JudyMemUsed.c */,
+				9D12EACA08CE423200C6653E /* JudyPrevNext.c */,
+				9D12EACB08CE423200C6653E /* JudyPrevNextEmpty.c */,
+				9D12EACC08CE423200C6653E /* JudyPrintJP.c */,
+				9D12EACD08CE423200C6653E /* JudyPrivate.h */,
+				9D12EACE08CE423200C6653E /* JudyPrivate1L.h */,
+				9D12EACF08CE423200C6653E /* JudyPrivateBranch.h */,
+				9D12EAD008CE423200C6653E /* JudyTables.c */,
+			);
+			path = JudyCommon;
+			sourceTree = "<group>";
+		};
+		9D12EAF108CE434F00C6653E /* Judy1 */ = {
+			isa = PBXGroup;
+			children = (
+				9D12EAF208CE436B00C6653E /* Judy1.h */,
+			);
+			path = Judy1;
+			sourceTree = "<group>";
+		};
+		9D12EAF408CE439F00C6653E /* JudyHS */ = {
+			isa = PBXGroup;
+			children = (
+				9D12EAF708CE43BB00C6653E /* JudyHS.c */,
+				9D12EAF808CE43BB00C6653E /* JudyHS.h */,
+			);
+			path = JudyHS;
+			sourceTree = "<group>";
+		};
+		9D12EAFB08CE43BF00C6653E /* JudyL */ = {
+			isa = PBXGroup;
+			children = (
+				9D12EAFE08CE43D700C6653E /* JudyL.h */,
+			);
+			path = JudyL;
+			sourceTree = "<group>";
+		};
+		9D12EB0008CE43DC00C6653E /* JudySL */ = {
+			isa = PBXGroup;
+			children = (
+				9D12EB0308CE43F200C6653E /* JudySL.c */,
+			);
+			path = JudySL;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DA4F60108CE83CD008EE9FB /* libJudy.a */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DA4F60D08CE841C008EE9FB /* Build configuration list for PBXNativeTarget "libJudy.a" */;
+			buildPhases = (
+				9DC576EB08CF751F00897270 /* make Judy */,
+				9DA4F60508CE83FE008EE9FB /* Copy to BUILT_PRODUCTS_DIR */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libJudy.a;
+			productName = libJudy.a;
+			productReference = 9DA4F60208CE83CD008EE9FB /* libJudy.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 9D12EAB108CE420700C6653E /* Build configuration list for PBXProject "Judy" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* Judy */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DA4F60108CE83CD008EE9FB /* libJudy.a */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9DA4F60508CE83FE008EE9FB /* Copy to BUILT_PRODUCTS_DIR */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy to BUILT_PRODUCTS_DIR";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$TARGET_TEMP_DIR\"\ncp -p libJudy.a \"$BUILT_PRODUCTS_DIR\"\n";
+		};
+		9DC576EB08CF751F00897270 /* make Judy */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "make Judy";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# list all defined variables and trace commnds\nset -x\n\n# take me to the project\ncd \"$PROJECT_DIR\"\n\n# build for an architecture\nbuild_for_arch()\n{\n\tREL=`uname -r`\n    \n    # get the target architecture to build\n\tTARGET_ARCH=\"$1\"\n\n    SYSROOT=\"$SDK_DIR\"\n    \n    # target 32 or 64 bits\n    if test \"$TARGET_ARCH\" = \"i386\"; then\n        ENABLE_XX_BIT=\"--enable-32-bit\"\n        CFLAGS=\"$CFLAGS -m32 -UJU_64BIT\"\n        \n        echo \"32 bit build not supported\"\n        exit 0\n    else\n        ENABLE_XX_BIT=\"--enable-64-bit\"\n        CFLAGS=\"$CFLAGS -DJU_64BIT\" \n    fi\n    \n\tmkdir -p \"$TARGET_TEMP_DIR/$TARGET_ARCH\"\n\n\trsync -avv --exclude .git --exclude build \"$PROJECT_DIR\" \"$TARGET_TEMP_DIR/$TARGET_ARCH\"\n\n\tcd \"$TARGET_TEMP_DIR/$TARGET_ARCH/Judy\"\n\n\n\tCC=\"clang -isysroot $SYSROOT\"\n\tCFLAGS=\"$CFLAGS -arch $TARGET_ARCH\"\n    \n    # configure it\n\t./configure $ENABLE_XX_BIT --disable-dependency-tracking $CONFIG_FLAGS CC=\"$CC\" CFLAGS=\"$CFLAGS\"\n\n    # make it\n\tmake\n}\n\nif test \"$CONFIGURATION\" = \"Debug\"; then\n\tCFLAGS=\"-O0 -g\"\nelse\n\tCFLAGS=\"-Os -g\"\nfi\n\nmkdir -p \"$BUILT_PRODUCTS_DIR\"\nmkdir -p \"$TARGET_TEMP_DIR\"\n\nNATIVE_ARCH=$NATIVE_ARCH_64_BIT\nbuild_for_arch $NATIVE_ARCH\ncp -p \"$TARGET_TEMP_DIR/$NATIVE_ARCH/Judy/src/obj/.libs/libJudy.a\" \"$TARGET_TEMP_DIR\"\n\ncd \"$TARGET_TEMP_DIR\"\ncp -p libJudy.a \"$BUILT_PRODUCTS_DIR/libJudy.a\"\n\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9D12EAB208CE420700C6653E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INSTALL_PATH = "@executable_path/../Libraries";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SYMROOT = build;
+			};
+			name = Debug;
+		};
+		9D12EAB308CE420700C6653E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INSTALL_PATH = "@executable_path/../Libraries";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9DA4F60E08CE841C008EE9FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_STYLE = STATIC;
+				PRODUCT_NAME = Judy;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		9DA4F60F08CE841C008EE9FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_STYLE = STATIC;
+				PRODUCT_NAME = Judy;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D12EAB108CE420700C6653E /* Build configuration list for PBXProject "Judy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D12EAB208CE420700C6653E /* Debug */,
+				9D12EAB308CE420700C6653E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9DA4F60D08CE841C008EE9FB /* Build configuration list for PBXNativeTarget "libJudy.a" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DA4F60E08CE841C008EE9FB /* Debug */,
+				9DA4F60F08CE841C008EE9FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

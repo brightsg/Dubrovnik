@@ -1,0 +1,1 @@
+Judy 1.0.5 version seems to build 64 bit only on OS X.

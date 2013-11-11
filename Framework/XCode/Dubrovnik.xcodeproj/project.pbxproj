@@ -45,7 +45,6 @@
 		9DA8F08E09EF2BE0000EE2DE /* DBSystem.Array.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8F08C09EF2BDF000EE2DE /* DBSystem.Array.m */; };
 		9DB4200B0873614E0045F939 /* NSString+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DB420090873614E0045F939 /* NSString+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DB4200C0873614E0045F939 /* NSString+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4200A0873614E0045F939 /* NSString+Dubrovnik.m */; };
-		9DC576B108CF65C900897270 /* Judy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC576B008CF65C900897270 /* Judy.h */; };
 		9DCD135D0A7ABFB900849E5C /* DBSystem.Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DCD135B0A7ABFB900849E5C /* DBSystem.Convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DCD135E0A7ABFB900849E5C /* DBSystem.Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCD135C0A7ABFB900849E5C /* DBSystem.Convert.m */; };
 		9DCD14300A7AE69900849E5C /* DBSystem.Enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DCD142E0A7AE69900849E5C /* DBSystem.Enum.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -167,7 +166,6 @@
 		9DA8F08C09EF2BDF000EE2DE /* DBSystem.Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Array.m; sourceTree = "<group>"; };
 		9DB420090873614E0045F939 /* NSString+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Dubrovnik.h"; sourceTree = "<group>"; };
 		9DB4200A0873614E0045F939 /* NSString+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Dubrovnik.m"; sourceTree = "<group>"; };
-		9DC576B008CF65C900897270 /* Judy.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Judy.h; path = Judy/src/Judy.h; sourceTree = "<group>"; };
 		9DCD135B0A7ABFB900849E5C /* DBSystem.Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Convert.h; sourceTree = "<group>"; };
 		9DCD135C0A7ABFB900849E5C /* DBSystem.Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Convert.m; sourceTree = "<group>"; };
 		9DCD142E0A7AE69900849E5C /* DBSystem.Enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Enum.h; sourceTree = "<group>"; };
@@ -341,7 +339,6 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9DC576B008CF65C900897270 /* Judy.h */,
 				32DBCF5E0370ADEE00C91783 /* Dubrovnik_Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -614,7 +611,6 @@
 				9D69DC4308B1851E008BB787 /* DBMonoEnvironment.h in Headers */,
 				9D10FF4008B54E2F0066C2ED /* DBSystem.Collections.ArrayList.h in Headers */,
 				9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */,
-				9DC576B108CF65C900897270 /* Judy.h in Headers */,
 				9D68AF5408EA1569002C7AB0 /* NSDate+Dubrovnik.h in Headers */,
 				9D496B2F09082F6700CD26AF /* NSImage+Dubrovnik.h in Headers */,
 				9D8A17D6096A4085000477C0 /* DBSystem.IO.FileInfo.h in Headers */,

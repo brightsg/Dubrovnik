@@ -21,7 +21,14 @@
 //
 
 #import <pthread.h>
-#import "Judy.h"
+
+// The 32 and 64 bit libs differ as the more modern 64 bit source
+// won't build in 64 bit
+#ifdef __LP64__
+#import "../Judy/Judy64/Judy/src/Judy.h"
+#else
+#import "../Judy/Judy32/Judy/src/Judy.h"
+#endif
 
 #import "DBInvoke.h"
 #import "NSCategories.h"
