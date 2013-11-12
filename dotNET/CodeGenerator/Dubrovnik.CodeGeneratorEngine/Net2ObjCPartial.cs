@@ -714,7 +714,8 @@ namespace Dubrovnik
             // generate default object representation
             if (exp == null)
             {
-                if (monoFacet.IsValueType || monoFacet.IsPointer)
+                // NOTE: System.Nullable<T> is a generic nullable. 
+                if ((monoFacet.IsValueType || monoFacet.IsPointer) && !monoFacet.IsGenericType)
                 {
                     exp = string.Format("DB_VALUE({0})", objCVarName);
                 }
