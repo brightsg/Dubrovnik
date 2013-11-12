@@ -61,7 +61,7 @@
 //
 //Wrapped Indexer Access
 //
-- (id)objectAtIndex:(int)index {
+- (id)objectAtIndex:(NSUInteger)index {
 	if(_representationClass != nil) {
 		id retID = nil;
 		

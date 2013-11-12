@@ -106,9 +106,9 @@
 #pragma mark -
 #pragma mark Wrapped Object Access
 
-- (id)objectAtIndex:(uint32_t)index {
+- (id)objectAtIndex:(NSUInteger)index {
 	if(_representationClass != nil) {
-		MonoObject *monoObject = [self monoObjectAtIndex:index];
+		MonoObject *monoObject = [self monoObjectAtIndex:(uint32_t)index];
 		return([_representationClass representationWithMonoObject:monoObject]);
 	} else {
 		@throw([NSException exceptionWithName:@"DBNoRepresentationClass" reason:@"objectAtIndex called on a DBArray without specified Representation Class" userInfo:nil]);

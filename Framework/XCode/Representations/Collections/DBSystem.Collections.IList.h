@@ -38,7 +38,7 @@
 - (void)setMonoObject:(MonoObject *)monoObject forIndex:(int)index;
 
 //Wrapped Indexer Access
-- (id)objectAtIndex:(int)index;
+- (id)objectAtIndex:(NSUInteger)index;
 - (void)setObjectAtIndex:(int)index object:(DBMonoObjectRepresentation *)object;
 
 //.NET IList wrapperstuff

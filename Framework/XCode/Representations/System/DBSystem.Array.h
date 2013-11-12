@@ -51,7 +51,7 @@
 - (void)setMonoObject:(MonoObject *)monoObject forIndex:(uint32_t)index;
 
 //Wrapped Access
-- (id)objectAtIndex:(uint32_t)index;
+- (id)objectAtIndex:(NSUInteger)index;
 - (void)setObjectAtIndex:(uint32_t)index object:(DBMonoObjectRepresentation *)object;
 
 //
