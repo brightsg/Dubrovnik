@@ -840,7 +840,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
+				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/Libraries",
 					"$(inherited)",
@@ -867,7 +867,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/Dubrovnik.framework/Versions/A/Dubrovnik";
+				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/Libraries",
 					"$(inherited)",
