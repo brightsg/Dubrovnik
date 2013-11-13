@@ -89,7 +89,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
             _monoDomain = mono_jit_init(domainName);
         }
         NSAssert(_monoDomain, @"Cannot initialise application domain : %s %s", domainName, version);
-		mono_config_parse(NULL);
+		//mono_config_parse(NULL);
         _loadedAssemblies = [[NSMutableDictionary dictionaryWithCapacity:10] retain];
 	}
 	
@@ -223,7 +223,8 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 }
 
 + (void)setAssemblyRoot:(NSString *)assemblyRoot {
-	mono_assembly_setrootdir([assemblyRoot fileSystemRepresentation]);
+    const char *rootDir = [assemblyRoot fileSystemRepresentation];
+	mono_assembly_setrootdir(rootDir);
 }
 
 + (void)setConfigDir:(NSString *)configDir {

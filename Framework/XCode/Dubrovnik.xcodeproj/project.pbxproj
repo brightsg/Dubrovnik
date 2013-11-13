@@ -895,7 +895,7 @@
 					"-DJUDYERROR_NOTEST",
 					"-D_THREAD_SAFE",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-lpthread";
 			};
 			name = Debug;
 		};
@@ -913,7 +913,7 @@
 					"-DJUDYERROR_NOTEST",
 					"-D_THREAD_SAFE",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-lpthread";
 			};
 			name = Release;
 		};
