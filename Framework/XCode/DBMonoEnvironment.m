@@ -45,6 +45,15 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     return (f == NULL ? NO : YES);
 }
 
++ (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
+{
+    const char *rootFolder = [monoAssemblyRootFolder fileSystemRepresentation];
+    const char *configFolder = [monoConfigFolder fileSystemRepresentation];
+    
+    mono_set_dirs(rootFolder, configFolder);
+    mono_config_parse(NULL);
+}
+
 + (DBMonoEnvironment *)defaultEnvironment {
 	if(!_defaultEnvironment) {
 		_defaultEnvironment = [[DBMonoEnvironment alloc] initWithDomainName:"Dubrovnik"];
@@ -89,7 +98,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
             _monoDomain = mono_jit_init(domainName);
         }
         NSAssert(_monoDomain, @"Cannot initialise application domain : %s %s", domainName, version);
-		//mono_config_parse(NULL);
+
         _loadedAssemblies = [[NSMutableDictionary dictionaryWithCapacity:10] retain];
 	}
 	

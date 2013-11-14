@@ -47,14 +47,23 @@
     NSMutableDictionary *_loadedAssemblies;
 }
 
-/*
- * This framework is weakly linked to Mono.Framework. If Mono is not available at
- * runtime then this method will return NO.
- *
- * If runtime checking is required then be sure to call this method and take appropriate
- * before calling any other framework methods.
+/*!
+ 
+ This framework is weakly linked to Mono.Framework. If Mono is not available at
+ runtime then this method will return NO.
+ 
+ If runtime checking is required then be sure to call this method and take appropriate
+ before calling any other framework methods.
+ 
  */
 + (BOOL)monoIsAvailable;
+
+/*!
+ 
+ Configure the environment to load mono from a non default location.
+ 
+ */
++ (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder;
 
 + (DBMonoEnvironment *)defaultEnvironment;
 
@@ -62,7 +71,11 @@
 
 - (id)initWithDomainName:(const char *)domainName;
 
-// designated intialiser
+/*!
+ 
+ Designated intialiser
+ 
+ */
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version;
 
 - (void)setDelegate:(id <DBEnvironmentDelegate>)object;
