@@ -92,7 +92,8 @@ static BOOL _setup = NO;
 
 - (void)tearDown
 {
-    // Tear-down code here.
+    // Terminate the environment
+    [[DBMonoEnvironment currentEnvironment] terminate];
     
     [super tearDown];
 }

@@ -62,8 +62,45 @@
  
  Configure the environment to load mono from a non default location.
  
+ Required when loading Mono from the application bundle as opposed to from /Library/Frameworks
+ 
  */
 + (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder;
+
+/*!
+ 
+ Set the mono trace level. Trace info will appear in the Xcode console.
+ 
+ Valid values are @"error", @"critical", @"warning", @"message", @"info", @"debug", @"none, nil.
+ This method raises when passed an invalid trace level.
+ 
+ */
++ (void)setTraceLevelString:(NSString *)traceLevel;
+
+/*!
+ 
+ Set the mono trace mask.
+ 
+ Valid values are a comma separated string containing one or more of @"asm", @"type", @"dll", @"gc", @"cfg", @"aot", @"security"
+ 
+ The folowing values should be used singly and not combined: @"all", @"none", nil
+ 
+ This method raises when passed an invalid trace level.
+ 
+ @"asm"         - Assembly loading acitivty
+ @"type"        - Type related activity
+ @"dll"         - DLLImport activity
+ @"gc"          - Carbage collector activity
+ @"cfg"         - .config file parsing activity
+ @"aot"         - Ahead of time compilation activity
+ @"security"    - Seurity related activity
+ 
+ @"all"         - All activity
+ @"non"         - same as nil
+ nil            - no mask
+ 
+ */
++ (void)setTraceMaskString:(NSString *)traceMask;
 
 + (DBMonoEnvironment *)defaultEnvironment;
 
@@ -87,7 +124,8 @@
 + (MonoClass *)corlibMonoClassWithName:(char *)className;
 + (DBMonoEnvironment *)currentEnvironment;
 + (void)setCurrentEnvironment:(DBMonoEnvironment *)environment;
-+ (MonoClass *)DubrovnikMonoClassWithName:(char *)className;
++ (MonoClass *)dubrovnikMonoClassWithName:(char *)className;
++ (MonoMethod *)dubrovnikMonoMethodWithName:(char *)methodName className:(char *)className argCount:(int)argCount;
 
 - (MonoDomain *)monoDomain;
 - (MonoAssembly *)loadedAssemblyWithName:(const char *)name;
@@ -113,8 +151,20 @@
 - (void)detachMonoThread:(MonoThread *)monoThread;
 + (void)detachMonoThread:(MonoThread *)monoThread;
 
-// termination
+/*!
+ 
+ Terminate and cleanup the session. Once mono has been termonated it cannot be reloaded.
+ 
+ */
 - (void)terminate;
+
+/*!
+ 
+ Issue a garbage collection and wait for finalizers to be called.
+ In general this method is only required to support a Mono bug that causes -terminate to crash unpredictably.
+ 
+ */
+- (void)collectAndWaitForPendingFinalizers;
 
 @property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;

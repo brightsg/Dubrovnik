@@ -45,8 +45,41 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     return (f == NULL ? NO : YES);
 }
 
-+ (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
++ (void)setTraceLevelString:(NSString *)traceLevel
 {
+    if ([traceLevel isEqualToString:@"none"]) {
+        traceLevel = nil;
+    }
+    
+    if (traceLevel) {
+        NSArray *traceLevels = @[@"error", @"critical", @"warning", @"message", @"info", @"debug"];
+        NSAssert([traceLevels containsObject:traceLevel], @"Invalid trace level: %@", traceLevel);
+    }
+    
+    mono_trace_set_level_string ([traceLevel UTF8String]);
+}
+
++ (void)setTraceMaskString:(NSString *)traceMask
+{
+    if ([traceMask isEqualToString:@"none"]) {
+        traceMask = nil;
+    }
+    
+    if (traceMask) {
+        NSArray *traceMasks = @[@"asm", @"type", @"dll", @"gc", @"cfg", @"aot", @"security", @"all"];
+        NSAssert([traceMasks containsObject:traceMask], @"Invalid trace mask: %@", traceMask);
+    }
+    
+    mono_trace_set_mask_string ([traceMask UTF8String]);
+}
+
++ (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
+{    // Enable dugger connection
+    //mono_debug_init (MONO_DEBUG_FORMAT_MONO);
+    
+
+    
+
     const char *rootFolder = [monoAssemblyRootFolder fileSystemRepresentation];
     const char *configFolder = [monoConfigFolder fileSystemRepresentation];
     
@@ -175,8 +208,26 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     return klass;
 }
 
-+ (MonoClass *)DubrovnikMonoClassWithName:(char *)className {
++ (MonoClass *)dubrovnikMonoClassWithName:(char *)className {
     return [self monoClassWithName:className fromAssembly:[self currentEnvironment].DubrovnikAssembly];
+}
+
++ (MonoMethod *)dubrovnikMonoMethodWithName:(char *)methodName className:(char *)className argCount:(int)argCount
+{
+    
+    // get helper class
+    MonoClass *monoClass = [self dubrovnikMonoClassWithName:className];
+    if (!monoClass) {
+        [NSException raise:@"DubrovnikHelperException" format: @"%s helper class not found.", className];
+    }
+    
+    // get helper method
+    MonoMethod *monoMethod = mono_class_get_method_from_name(monoClass, methodName, argCount);
+    if (!monoMethod) {
+        [NSException raise:@"DubrovnikHelperException" format: @"%s helper method %s not found.", className, methodName];
+    }
+    
+    return monoMethod;
 }
 
 - (MonoDomain *)monoDomain {
@@ -281,7 +332,27 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 
 - (void)terminate
 {
-	mono_jit_cleanup([self monoDomain]);
+    // mono_jit_cleanup crashes on occasion as per:
+    // http://mono.1490590.n4.nabble.com/mono-jit-cleanup-gets-EXC-BAD-ACCESS-td4659226.html
+    //
+    // For workaround see:
+    // http://mono.1490590.n4.nabble.com/crash-in-mono-jit-cleanup-td4661326.html
+    //
+    BOOL terminateJIT = NO;
+    
+    if (terminateJIT) {
+        mono_jit_cleanup([self monoDomain]);
+    } else {
+        // This is the suggested workaround
+        [self collectAndWaitForPendingFinalizers];
+    }
+}
+
+- (void)collectAndWaitForPendingFinalizers
+{
+    MonoObject *monoException = NULL;
+    MonoMethod *helperMethod = [[self class] dubrovnikMonoMethodWithName:"CollectAndWaitForPendingFinalizers" className:"Dubrovnik.FrameworkHelper.GCHelper" argCount:0];
+    mono_runtime_invoke(helperMethod, NULL, NULL, &monoException);
 }
 
 #pragma mark -

@@ -28,7 +28,7 @@
 
 + (DBMonoMethodRepresentation *)representationWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
 {
-    return [[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName];
+    return [[[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName] autorelease];
 }
 
 - (id)initWithMonoMethodNamed:(const char *)methodName

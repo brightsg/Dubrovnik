@@ -34,3 +34,5 @@
 #import <mono/metadata/assembly.h>
 #import <mono/metadata/mono-config.h>
 #import <mono/metadata/environment.h>
+
+#import <mono/utils/mono-logger.h>

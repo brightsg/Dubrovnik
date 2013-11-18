@@ -325,7 +325,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
     
     // get generic helper class
-    MonoClass *helpMonoClass = [DBMonoEnvironment DubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
+    MonoClass *helpMonoClass = [DBMonoEnvironment dubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
     if (!helpMonoClass) {
         [NSException raise:@"MakeGenericMethodException" format: @"GenericHelper class not found."];
     }
@@ -367,7 +367,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
     
     // get generic helper class
-    MonoClass *helpMonoClass = [DBMonoEnvironment DubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
+    MonoClass *helpMonoClass = [DBMonoEnvironment dubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
     if (!helpMonoClass) {
         [NSException raise:@"GetGenericTypeException" format: @"GenericHelper class not found."];
     }
