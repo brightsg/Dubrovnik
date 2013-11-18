@@ -1,8 +1,10 @@
 Overview
 ========
-Dubrovnik is an Objective-C framework that provides a series of bindings between Obj-C and the Mono open source implementation of .NET. Functionally, it works like an ObjC<->C# language bridge. Dubrovnik is a fork of [Dumbarton](https://github.com/mono/Dumbarton). Dubrovnik retains the Dumbarton core but has better weather.
+Dubrovnik is an Objective-C framework that provides a series of bindings between Obj-C and the Mono open source implementation of .NET. Functionally, it works like an ObjC<->C# language bridge. 
 
 Dubrovnik is intended to provide a means of interfacing a Cocoa GUI to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
+
+Dubrovnik is a fork of [Dumbarton](https://github.com/mono/Dumbarton). Dubrovnik utilises an extended Dumbarton core and links to the modern Obj-C runtime.
 
 Status
 ======
