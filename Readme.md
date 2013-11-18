@@ -175,7 +175,7 @@ Check out the provided examples and the framework unit tests. The unit tests exe
 Generating Binding Code
 ===============
 
-Th binding code will attempt to generate Obj-C bindings from a .NET managed exe or dll. The XML generator and code generator are both .NET apps and run under windows. Remember to install the Microsoft Visual Studio 2012 (or later) SDK.
+The binding generator code will attempt to generate Obj-C bindings from a .NET managed exe or dll. The XML generator and code generator are both .NET apps and run under Windows. Remember to install the Microsoft Visual Studio 2012 (or later) SDK.
 
 Note that these tools are GUI based at present. A command line based workflow sounds appealing and it should be possible to derive these from the existing tools fairly quickly.
 
