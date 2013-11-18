@@ -136,6 +136,25 @@ There are are a number of dependencies that ship pre-built in order to support e
 
 Judy 32/64 can be rebuilt on demand using the supplied Xcode projects and shell scripts. VS solution files are provided for the managed projects.
 
+Linking to It
+=============
+
+In order to use the framework you need to link to it. Running `otool -L` against the framework reveals:
+
+	otool -L Dubrovnik.framework/Versions/A/Dubrovnik 
+
+	Dubrovnik.framework/Versions/A/Dubrovnik:
+	@rpath/Dubrovnik.framework/Versions/A/Dubrovnik (compatibility version 1.0.0, current version 1.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 169.3.0)
+	/Library/Frameworks/Mono64.framework/Versions/3.2.3/lib/libmonoboehm-2.0.1.dylib (compatibility version 2.0.0, current version 2.0.0)
+	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa (compatibility version 1.0.0, current version 19.0.0)
+	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 945.16.0)
+	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)
+	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (compatibility version 45.0.0, current version 1187.37.0)
+	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 744.18.0)
+
+Note that the Dubrovnik install name makes use of `@rpath` so the linking app will require the Xcode *Runpath Search Paths* build setting to be configured correctly. If Dubrovnik has been installed in the bundle frameworks folder then the correct setting will be `@executable_path/../frameworks`.
+
 Testing it
 ==========
 
@@ -236,7 +255,7 @@ Generic Type Handling
 Generic types include the number of generic parameters (or arity) as part of their managed name. The arity is represented by an appended back tick (`) followed by the number of generic parameters. It is necessary to retain the arity representation in order to ensure type uniqueness.
 
 
-Obj-C generated types represent the generic arity as an appended A followed by the number of generic parameters.
+Obj-C generated types represent the generic arity as an appended A (for arity) followed by the number of generic parameters.
 
     // Managed type name
     System.Collections.Generic.Dictionary`2
