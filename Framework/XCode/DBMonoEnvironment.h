@@ -124,6 +124,7 @@
 + (MonoClass *)corlibMonoClassWithName:(char *)className;
 + (DBMonoEnvironment *)currentEnvironment;
 + (void)setCurrentEnvironment:(DBMonoEnvironment *)environment;
++ (MonoDomain *)currentDomain;
 + (MonoClass *)dubrovnikMonoClassWithName:(char *)className;
 + (MonoMethod *)dubrovnikMonoMethodWithName:(char *)methodName className:(char *)className argCount:(int)argCount;
 

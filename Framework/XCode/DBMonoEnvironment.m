@@ -74,12 +74,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 }
 
 + (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
-{    // Enable dugger connection
-    //mono_debug_init (MONO_DEBUG_FORMAT_MONO);
-    
-
-    
-
+{    
     const char *rootFolder = [monoAssemblyRootFolder fileSystemRepresentation];
     const char *configFolder = [monoConfigFolder fileSystemRepresentation];
     
@@ -115,6 +110,11 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 + (void)setCurrentEnvironment:(DBMonoEnvironment *)environment
 {
     _currentEnvironment = environment;
+}
+
++ (MonoDomain *)currentDomain
+{
+    return [self currentEnvironment].monoDomain;
 }
 
 - (id)initWithDomainName:(const char *)domainName {

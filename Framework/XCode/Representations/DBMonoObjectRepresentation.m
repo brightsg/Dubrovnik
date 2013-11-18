@@ -306,8 +306,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     MonoObject *retVal = mono_runtime_invoke(monoMethod, invokeObj, monoArgs, &monoException);
     
     if(monoException != NULL) {
-        NSException *e = NSExceptionFromMonoException(monoException);
-        [e raise];
+        NSRaiseExceptionFromMonoException(monoException);
     }
     
 #ifdef TRACE
@@ -321,31 +320,23 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (MonoMethod *)makeGenericMethod:(MonoReflectionMethod*)methodInfo genericParameterType:(MonoType *)genericParameterType
 {
-    // TODO: Allow calling of methods with multiple generic arguments.
-    DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
     
-    // get generic helper class
-    MonoClass *helpMonoClass = [DBMonoEnvironment dubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
-    if (!helpMonoClass) {
-        [NSException raise:@"MakeGenericMethodException" format: @"GenericHelper class not found."];
-    }
+    // TODO: Allow calling of methods with multiple generic arguments.
     
     // get the generic method helper method
-    MonoMethod *helperMethod = mono_class_get_method_from_name(helpMonoClass, "MakeGenericMethod_1", 2);
-    if (!helperMethod) {
-        [NSException raise:@"MakeGenericMethodException" format: @"GenericHelper method MakeGenericMethod_1 not found."];
-    }
+    MonoMethod *helperMethod = [DBMonoEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod_1" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
     
     // invoke the generic helper method to assign specific types to the type parameters in the generic method definition
     // see http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.makegenericmethod.aspx
-    MonoObject *monoException = NULL;
     void *hargs [2];
     hargs [0] = methodInfo;
-    hargs [1] = mono_type_get_object(monoEnv.monoDomain, genericParameterType);
+    hargs [1] = mono_type_get_object([DBMonoEnvironment currentDomain], genericParameterType);
+    MonoObject *monoException = NULL;
     MonoObject *boxedGenericMethod = mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
+    if (monoException) NSRaiseExceptionFromMonoException(monoException);
     
     /*
-     mono_runtime_invoke always a returns a MonoObject *. Un-boxing gives us a pointer to the value, a MonoMethod*.
+     mono_runtime_invoke always returns a MonoObject *. Un-boxing gives us a pointer to the value, a MonoMethod*.
      De-referencing this gives the method pointer.
      */
     MonoMethod *genericMethod =  *(MonoMethod**) mono_object_unbox (boxedGenericMethod);
@@ -363,27 +354,17 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     // TODO: Allow calling of methods with multiple generic arguments.
     
-    MonoObject *monoException = NULL;
-    DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
-    
-    // get generic helper class
-    MonoClass *helpMonoClass = [DBMonoEnvironment dubrovnikMonoClassWithName:"Dubrovnik.FrameworkHelper.GenericHelper"];
-    if (!helpMonoClass) {
-        [NSException raise:@"GetGenericTypeException" format: @"GenericHelper class not found."];
-    }
-    
-    // get method to retrieve generic argument types
-    MonoMethod *genericArgTypehelperMethod = mono_class_get_method_from_name(helpMonoClass, "GenericTypeArguments", 1);
-    if (!genericArgTypehelperMethod) {
-        [NSException raise:@"GetGenericTypeException" format: @"GenericHelper method GenericTypeArguments not found."];
-    }
+    // get helper method to retrieve generic argument types
+    MonoMethod *helperMethod = [DBMonoEnvironment dubrovnikMonoMethodWithName:"GenericTypeArguments" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:1];
     
     // get generic method parameter type info for the method argument.
     MonoType *objectType = mono_class_get_type(monoClass);
     void *hargs [2];
-    hargs [0] = mono_type_get_object(monoEnv.monoDomain, objectType);
+    hargs [0] = mono_type_get_object([DBMonoEnvironment currentDomain], objectType);
     hargs [1] = NULL;
-    MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(genericArgTypehelperMethod, NULL, hargs, &monoException);
+    MonoObject *monoException = NULL;
+    MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
+    if (monoException) NSRaiseExceptionFromMonoException(monoException);
     
     // get number of generic type arguments
     uintptr_t genericArgumentCount = mono_array_length(genericArgArray);

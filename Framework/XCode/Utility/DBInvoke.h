@@ -67,4 +67,5 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName);
 MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName);
 
 // Exception handling
+void NSRaiseExceptionFromMonoException(MonoObject *monoException);
 NSException *NSExceptionFromMonoException(MonoObject *monoException);

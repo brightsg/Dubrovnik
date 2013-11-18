@@ -42,6 +42,12 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 	}
 }
 
+void NSRaiseExceptionFromMonoException(MonoObject *monoException)
+{
+    NSException *e = NSExceptionFromMonoException(monoException);
+    [e raise];
+}
+
 NSException *NSExceptionFromMonoException(MonoObject *monoException)
 {
 	NSString *exceptionMessage = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Message")];

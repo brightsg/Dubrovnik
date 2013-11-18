@@ -7,19 +7,25 @@ Dubrovnik is intended to provide a means of interfacing a Cocoa GUI to a .NET ba
 Status
 ======
 
-Version: 0.0.1 Alpha
+Version: 0.0.2 Alpha
 
 Production ready: No
 
-Dubrovnik is a work in progress and the API is still very mutable. It is currently 32 bit only as the [current OS X Mono framework](http://www.mono-project.com/Mono:OSX#32_and_64_bit_support) distributable is 32 bit. Mono does support 64bit operation and [building](http://www.mono-project.com/Compiling_Mono_on_OSX) a 64 bit Mono framework is straight forward.
+Dubrovnik is a work in progress and the API is still very mutable. 
 
-Project Goals
+Outsanding Project Goals
 =============
 
 The following project goals are outstanding:
 
-1. 64 bit support.
-2. 100% support for mscorlib.dll
+1. 100% support for mscorlib.dll
+
+Accomplished Project Goals
+==========================
+
+1. Obj-C code generation based on binary .NET assembly reflection.
+2. 64 bit support.
+3. Generic method calling.
 
 What's in the Bag?
 ================
@@ -67,10 +73,51 @@ Project Map
 
 
 
+64 Bit Operation
+================
+
+Dubrovnik defaults to building as a 64 bit framework in order to enable linking with the modern runtime.
+
+At present Mono ships as 32 only on OS X. Hence it is necessary to build a 64 bit version of Mono from source.
+
+Building 64 Bit Mono Framework
+=============================
+
+To build 64 bit see http://www.mono-project.com/Compiling_Mono_on_OSX
+
+The build does not produce a framework bundle, rather it produces the content of a framework/Versions folder.
+We want to build a `/Library/Frameworks/Mono64.framework` bundle that mimics `/Library/Frameworks/Mono.framework`.
+Note that we cannot simply update `/Library/Frameworks/Mono` to 64bit as this will kill, among other things, the MonoDevelop IDE which requires the 32 bit build
+
+In order to build a 64 bit version of mono 3.2.3:
+
+- Duplicate /Library/Frameworks/Mono as /Library/Frameworks/Mono64
+- Delete and recreate the soft links within the Mono bundle to point to /Library/Frameworks/Mono64 as follows:
+
+Soft links:
+
+	Commands -> /Library/Frameworks/Mono64.framework/Versions/Current/bin
+	Headers -> /Library/Frameworks/Mono64.framework/Versions/Current/include
+	Home -> /Library/Frameworks/Mono64.framework/Versions/Current/
+	Libraries -> /Library/Frameworks/Mono64.framework/Versions/Current/lib
+	Mono64 -> /Library/Frameworks/Mono64.framework/Versions/Current/lib/libmono-2.0.dylib
+
+NOTE: The main library link is Mono64 not Mono.
+
+- Delete /Library/Frameworks/Mono64.framework/Versions/Current/3.2.3
+
+- Download the mono source and build. The following should install Mono into /Library/Frameworks/Mono64.framework/Versions/Current/3.2.3
+
+Build:
+
+    ./configure --prefix=/Library/Frameworks/Mono64.framework/Versions/3.2.3 --enable-nls=no
+    make
+	sudo make install
+
 
 Prerequisites
 =============
-- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.3 and above. Make sure to download the MDK framework version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`
+- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.3 and above. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`. A 64 bit build of Mono will be required in order to support the modern Obj-C runtime.
 
 - The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK.
 
@@ -140,7 +187,7 @@ The code generator will output the following for each target assembly, in this c
  
 For each type defined in the target assembly the generator will output a .m and .h file. So if `Work.Data.dll` defines a class named `Work.Data.Utility.Analyser` then the generated output will include:
 	
-    // Work.Data.Utility.Analyser.h
+	// Work.Data.Utility.Analyser.h
     @interface Work_Data_Utility_Analyser : DBMonoObjectRepresentation
 		// interface definition 
     @end
