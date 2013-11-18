@@ -124,15 +124,15 @@ Prerequisites
 Building It
 ===========
 
-The framework should build out of the box.
+The framework requires `/Library/Frameworks/Mono64.framework` to be present before it will build. If a 32 bit build is required then change the Mono linked framework to `/Library/Frameworks/Mono.framework`.
 
-There are are a number of dependencies that ship pre-built in order to support an out of the box build. These are:
+There are are a number of dependencies that ship pre-built in order to support easier building. These are:
 
 1. The Judy library binary.
 2. The managed Dubrovnik.FrameworkHelper.dll.
 3. The managed Dubrovnik.UnitTests.exe. 
 
-Judy can be rebuilt on demand using the supplied Xcode project. VS solution files are provided for the managed projects.
+Judy 32/64 can be rebuilt on demand using the supplied Xcode projects and shell scripts. VS solution files are provided for the managed projects.
 
 Testing it
 ==========
