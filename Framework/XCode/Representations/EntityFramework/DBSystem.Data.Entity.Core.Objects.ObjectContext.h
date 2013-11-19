@@ -17,7 +17,9 @@
 
 /*!
  
- Parameters cannot be NULL.
+ Query the object context with entity SQL format query string.
+ 
+ Note that the parameters array cannot be NULL.
  
  */
 - (DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)queryString

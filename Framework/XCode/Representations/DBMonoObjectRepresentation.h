@@ -50,11 +50,28 @@
 + (id)representationWithNumArgs:(int)numArgs, ...;
 
 // Initialisation methods
+
+/*!
+ 
+ Initialise the object representation with a MonoObject.
+ 
+ This method is the designated initialiser.
+ 
+ */
 - (id)initWithMonoObject:(MonoObject *)obj;
+
+/*
+ 
+ Initialise the object representation with a signature indicating the argument types to be passed to the Mono constructor.
+ 
+ The actual number of arguments is followed by the argument list.
+ 
+ */
 - (id)initWithSignature:(const char *)constructorSignature withNumArgs:(int)numArgs, ...;
 
 // Mono types
 - (MonoClass *)monoClass;
+- (MonoType *)monoType;
 - (MonoObject *)monoObject;
 - (MonoObject *)monoValue;
 - (MonoAssembly *)monoAssembly;

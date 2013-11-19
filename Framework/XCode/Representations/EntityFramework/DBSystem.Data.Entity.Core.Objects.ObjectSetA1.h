@@ -19,6 +19,7 @@
 
 - (DBSystem_Collections_IList *)list;
 - (void)addObject:(DBMonoObjectRepresentation *)object;
+- (DBMonoObjectRepresentation *)createObject;
 
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;

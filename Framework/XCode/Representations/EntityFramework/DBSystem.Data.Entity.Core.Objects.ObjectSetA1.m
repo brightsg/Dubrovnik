@@ -15,6 +15,16 @@
 
 @implementation DBSystem_Data_Entity_Core_Objects_ObjectSetA1
 
+// obligatory override
++ (const char *)monoClassName
+{
+    return "System.Data.Entity.Core.Objects.ObjectSet`1";
+}
+// obligatory override
++ (const char *)monoAssemblyName
+{
+    return "EntityFramework";
+}
 
 + (id)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass
 {
@@ -52,13 +62,23 @@
     
     // Wrap the list
     DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoListObject withRepresentationClass:self.monoPrimaryGenericTypeArgument];
+    
     return list;
 }
 
 - (void)addObject:(DBMonoObjectRepresentation *)object
 {
-    MonoObject *monoObject = [object monoObject];
-    [self invokeMonoMethod:"AddObject(TEntity)" withNumArgs:1, monoObject];
+    // AddObject() is defined as AddObject(TEntity entity) and as such it is not a generic method
+    // (a generic definition would be AddObject<TEntity>(TEntity entity)) but
+    // a method that takes a generic type parameter.
+    //
+    // This object is a closed constructed type and the method signature will match
+    // the object generic type.
+    //
+    NSString *inflatedMethodName = [NSString stringWithFormat:@"AddObject(%s)", [[object class] monoClassName]];
+    DBMonoMethodRepresentation *methodRep = [DBMonoMethodRepresentation
+                                             representationWithMonoMethodNamed:[inflatedMethodName UTF8String]];
+    [self invokeMethodRepresentation:methodRep withNumArgs:1, [object monoObject]];
 }
 
 - (DBMonoObjectRepresentation *)createObject
@@ -70,8 +90,10 @@
 
 - (void)deleteObject:(DBMonoObjectRepresentation *)object
 {
-    MonoObject *monoObject = [object monoObject];
-    [self invokeMonoMethod:"DeleteObject(TEntity)" withNumArgs:1, monoObject];
+    NSString *inflatedMethodName = [NSString stringWithFormat:@"DeleteObject(%s)", [[object class] monoClassName]];
+    DBMonoMethodRepresentation *methodRep = [DBMonoMethodRepresentation
+                                             representationWithMonoMethodNamed:[inflatedMethodName UTF8String]];
+    [self invokeMethodRepresentation:methodRep withNumArgs:1, [object monoObject]];
 }
 
 // array representations

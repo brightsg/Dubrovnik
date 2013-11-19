@@ -333,9 +333,12 @@ namespace Dubrovnik.Reflector {
                                 xtw.WriteAttributeString("Name", methodInfo.Name);
                                 
                                 WriteTypeAttributes(xtw, methodInfo.ReturnType);
-                                if (methodInfo.IsStatic) xtw.WriteAttributeString("IsStatic", Boolean.TrueString); 
+                                if (methodInfo.IsStatic) xtw.WriteAttributeString("IsStatic", Boolean.TrueString);
+
+                                // See the Remarks section here http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
                                 if (methodInfo.IsGenericMethod) xtw.WriteAttributeString("IsGenericMethod", Boolean.TrueString);
                                 if (methodInfo.IsGenericMethodDefinition) xtw.WriteAttributeString("IsGenericMethodDefinition", Boolean.TrueString);
+                                if (methodInfo.ContainsGenericParameters) xtw.WriteAttributeString("ContainsGenericParameters", Boolean.TrueString);
 
                                 WriteGenericTypeElements(xtw, methodInfo.ReturnType);
 

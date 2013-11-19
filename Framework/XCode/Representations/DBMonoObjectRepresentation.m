@@ -112,6 +112,7 @@
 
 - (id)init
 {
+    // Passing an empty signature equates to calling the default constructor
 	return([self initWithSignature:"" withNumArgs:0]);
 }
 
@@ -143,8 +144,6 @@
 	self = [self initWithMonoObject:newObject];
 	
 	va_end(va_args);
-
-    self.monoEnvironment = [DBMonoEnvironment currentEnvironment];
     
 	return(self);
 }
@@ -176,6 +175,11 @@
 
 - (MonoClass *)monoClass {
 	return mono_object_get_class(_monoObj);
+}
+
+- (MonoType *)monoType
+{
+    return mono_class_get_type([self monoClass]);
 }
 
 - (MonoObject *)monoObject {
@@ -295,11 +299,28 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     // Get object representing C# MethodInfo class
     MonoReflectionMethod* methodInfo = mono_method_get_object(monoEnv.monoDomain, monoMethod, monoClass);
-        
-    // If method is generic then the method needs to be regenerated with real types instead of type T placeholders
+    
+    // Is the method generic?
+    //
+    // For insight into various properties used in this statement see the remarks here
+    // http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
+    //
     BOOL isGenericMethod = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
     if (isGenericMethod) {
-        monoMethod = [self makeGenericMethod:methodInfo genericParameterType:methodRepresentation.genericMonoType];
+
+        // If generic method has unassigned generic parameters then the method needs to be
+        // inflated with real types instead of generic type placeholders.
+
+        BOOL containsGenericParameters = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "ContainsGenericParameters"));
+        BOOL isGenericMethodDefinition = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethodDefinition"));
+
+        // If method is a generic method definition then we can inflate the method
+        if (isGenericMethodDefinition) {
+            monoMethod = [self makeGenericMethod:methodInfo genericParameterType:methodRepresentation.genericMonoType];
+        } else if (containsGenericParameters) {
+            // What to do, what to do...
+            NSAssert(NO, @"GenericMethod with generic parameters not yet supported");
+        }
     }
         
     MonoObject *monoException = NULL;
