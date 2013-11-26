@@ -20,6 +20,9 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
+// To enable trace uncomment this line
+//#define DB_INVOCATION_TRACE
+
 #import <pthread.h>
 
 // The 32 and 64 bit libs differ as the more modern 64 bit source
@@ -40,6 +43,39 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 			args[i] = va_arg(va_args, void *);
 		}
 	}
+}
+
+/*inline */ static void DBValidateMethodSignature(const char *methodName)
+{
+    // If method name does not specify an exact signature by includng matching parenthesis
+    // then exact method name matching may not occur.
+    //
+    // eg:
+    // Class A defines SaveChanges()
+    // Class B : A defines overload SaveChanges(C)
+    // Searching for say B.SaveChanges (rather than B.SaveChanges()) may return B.SaveChanges(C)!
+    //
+    // Note: there is a valid case for allowing or flexible method name matching
+    // but it can also be a source of bugs.
+
+    int parenthesisMatch = 0;
+    
+    // Trivial match
+    if (strchr(methodName, '(')) parenthesisMatch++;
+    if (strchr(methodName, ')')) parenthesisMatch++;
+    
+    switch (parenthesisMatch)
+    {        
+            // Matched
+        case 2:
+            break;
+
+            // Mismatched parenthesis
+        default:
+            @throw([NSException exceptionWithName:@"DBBadMethodName" reason:[NSString stringWithFormat:@"Full signature not provided for method name : %s. Method name must include parenthesis and type names (if appropriate).", methodName] userInfo:nil]);
+            
+    }
+    
 }
 
 void NSRaiseExceptionFromMonoException(MonoObject *monoException)
@@ -235,12 +271,15 @@ inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass,
 	*valuePointer = (Word_t)nameToMethodsArray;
 }
 
-MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName) {
-	MonoMethod *meth;
-	
+MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature) {
+
+    if (requireSignature) {
+        DBValidateMethodSignature(methodName);
+    }
+    
 	pthread_mutex_lock(&methodCacheMutex);
 
-	meth = GetCachedMonoMethod(monoClass, methodName);
+    MonoMethod *meth = GetCachedMonoMethod(monoClass, methodName);
 		
 	if(meth == NULL) {
 		MonoClass *klass = monoClass;
@@ -271,19 +310,25 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName) {
 	
 	pthread_mutex_unlock(&methodCacheMutex);
 
-	if(meth == NULL)
+	if(meth == NULL) {
 		@throw([NSException exceptionWithName:@"DBMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", methodName] userInfo:nil]);
-
+    }
+    
 	return(meth);
 }
 
-MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName) {
+
+MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature) {
+    
+    if (requireSignature) {
+        DBValidateMethodSignature(methodName);
+    }
+    
 	MonoClass *monoClass = mono_object_get_class(monoObject);
-	MonoMethod *meth;
 	
-	pthread_mutex_lock(&methodCacheMutex);
-	
-	meth = GetCachedMonoMethod(monoClass, methodName);
+    pthread_mutex_lock(&methodCacheMutex);
+    
+	MonoMethod *meth = GetCachedMonoMethod(monoClass, methodName);
 	
 	if(meth == NULL) {
 		MonoClass *klass = monoClass;
@@ -300,8 +345,13 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName) 
         
 		while(klass != NULL) {
 			meth = mono_method_desc_search_in_class(methodDesc, klass);
-			
+            
 			if(meth != NULL) {
+
+#ifdef DB_INVOCATION_TRACE
+                char *foundMethodName = mono_method_full_name (meth, (int32_t)1);
+                NSLog(@"Method name query:%s Method name: %s", methodName, foundMethodName);
+#endif
 				meth = mono_object_get_virtual_method(monoObject, meth);
 				SetCachedMonoMethod(meth, monoClass, methodName);
 				break;
@@ -353,7 +403,11 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertySetMethod(Mo
 		//meth = mono_property_get_set_method(monoProperty);
 		char methodName[strlen(propertyName) + 6]; // + "set_"
 		sprintf(methodName, ":set_%s", propertyName);
-		meth = GetMonoClassMethod(monoClass, methodName);
+        
+        // Note: Exact name matching requirement is set to NO.
+        // This enables searching for property setter methods by name only.
+        // TODO: Require full method signature ?
+		meth = GetMonoClassMethod(monoClass, methodName, NO);
 
 		SetPropertySetMethod(monoClass, propertyName, meth);
 	}
@@ -394,9 +448,14 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(Mo
 	if(meth == NULL) {
 //		MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
 //		meth = mono_property_get_get_method(monoProperty);
-		char methodName[strlen(propertyName) + 6]; // + "get_"
-		sprintf(methodName, ":get_%s", propertyName);
-		meth = GetMonoClassMethod(monoClass, methodName);
+		char methodName[strlen(propertyName) + 8]; // + ":get_\0"
+        char *fmt = ":get_%s";
+        sprintf(methodName, fmt, propertyName);
+        
+        // Note: Exact name matching requirement is set to NO.
+        // This enables searching for property getter methods by name only.
+        // TODO: Require full method signature ?
+		meth = GetMonoClassMethod(monoClass, methodName, NO);
 
 		SetPropertyGetMethod(monoClass, propertyName, meth);
 	}
@@ -412,7 +471,7 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(Mo
 MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int numArgs, va_list va_args) {
 	MonoObject *monoException = NULL;
 	MonoObject *retval = NULL;
-	MonoMethod *meth = GetMonoClassMethod(monoClass, methodName);
+	MonoMethod *meth = GetMonoClassMethod(monoClass, methodName, YES);
 	
 	if (meth != NULL) {
 		void *monoArgs[numArgs];
@@ -430,7 +489,7 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, i
 	MonoObject *monoException = NULL;
 	MonoObject *retval = NULL;
 	MonoClass *klass = mono_object_get_class(monoObject);
-	MonoMethod *meth = GetMonoObjectMethod(monoObject, methodName);
+	MonoMethod *meth = GetMonoObjectMethod(monoObject, methodName, YES);
 
 	if(meth != NULL) {
 		void *invokeObj = mono_class_is_valuetype(klass)

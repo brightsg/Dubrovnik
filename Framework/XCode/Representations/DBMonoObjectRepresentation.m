@@ -285,11 +285,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         monoClass  = [classRepresentation monoClass];
         
         // get the class method
-        monoMethod = GetMonoClassMethod(monoClass, methodRepresentation.methodName);  
+        monoMethod = GetMonoClassMethod(monoClass, methodRepresentation.methodName, YES);
           
     } else {
         monoClass = self.monoClass;
-        monoMethod = GetMonoObjectMethod(self.monoObject, methodRepresentation.methodName);
+        monoMethod = GetMonoObjectMethod(self.monoObject, methodRepresentation.methodName, YES);
         invokeObj = mono_class_is_valuetype(monoClass) ? mono_object_unbox(self.monoObject) : self.monoObject;
     }
     

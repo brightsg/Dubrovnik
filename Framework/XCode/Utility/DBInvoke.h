@@ -63,8 +63,8 @@ BOOL DBMonoNullableObjectHasValue(MonoObject *monoNullable);
 MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable);
 
 //Method lookup
-MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName);
-MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName);
+MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature);
+MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature);
 
 // Exception handling
 void NSRaiseExceptionFromMonoException(MonoObject *monoException);

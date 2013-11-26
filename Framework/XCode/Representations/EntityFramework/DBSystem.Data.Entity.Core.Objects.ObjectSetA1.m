@@ -76,9 +76,7 @@
     // the object generic type.
     //
     NSString *inflatedMethodName = [NSString stringWithFormat:@"AddObject(%s)", [[object class] monoClassName]];
-    DBMonoMethodRepresentation *methodRep = [DBMonoMethodRepresentation
-                                             representationWithMonoMethodNamed:[inflatedMethodName UTF8String]];
-    [self invokeMethodRepresentation:methodRep withNumArgs:1, [object monoObject]];
+    [self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
 }
 
 - (DBMonoObjectRepresentation *)createObject
@@ -91,9 +89,7 @@
 - (void)deleteObject:(DBMonoObjectRepresentation *)object
 {
     NSString *inflatedMethodName = [NSString stringWithFormat:@"DeleteObject(%s)", [[object class] monoClassName]];
-    DBMonoMethodRepresentation *methodRep = [DBMonoMethodRepresentation
-                                             representationWithMonoMethodNamed:[inflatedMethodName UTF8String]];
-    [self invokeMethodRepresentation:methodRep withNumArgs:1, [object monoObject]];
+    [self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
 }
 
 // array representations

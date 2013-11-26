@@ -29,6 +29,17 @@
 
 @implementation DBSystem_Collections_IList
 
+// obligatory override
++ (const char *)monoClassName
+{
+    return "System.Collections.IList";
+}
+// obligatory override
++ (const char *)monoAssemblyName
+{
+    return "mscorlib";
+}
+
 + (id)listWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass {
 	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
 	return([list autorelease]);
@@ -144,6 +155,8 @@
 // array representations
 - (NSMutableArray *)mutableArray
 {
+    [self logMonoClassInfo];
+    
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (uint32_t i = 0; i < [self count]; i++) {
