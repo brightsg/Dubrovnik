@@ -13,7 +13,7 @@
 @interface DBSystem_Data_Entity_Core_Objects_ObjectContext : DBMonoObjectRepresentation
 
 - (int32_t)saveChanges;
-- (void)DeleteObject:(DBMonoObjectRepresentation *)object;
+- (void)deleteObject:(DBMonoObjectRepresentation *)object;
 
 /*!
  

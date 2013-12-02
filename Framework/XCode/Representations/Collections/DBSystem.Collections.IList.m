@@ -154,9 +154,7 @@
 
 // array representations
 - (NSMutableArray *)mutableArray
-{
-    [self logMonoClassInfo];
-    
+{    
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (uint32_t i = 0; i < [self count]; i++) {

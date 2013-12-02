@@ -21,9 +21,9 @@
     return "EntityFramework";
 }
 
-- (void)DeleteObject:(DBMonoObjectRepresentation *)object
+- (void)deleteObject:(DBMonoObjectRepresentation *)object
 {
-    [self invokeMonoMethod:"DeleteObject()" withNumArgs:1, [object monoObject]];
+    [self invokeMonoMethod:"DeleteObject(object)" withNumArgs:1, [object monoObject]];
 }
 
 - (int32_t)saveChanges
