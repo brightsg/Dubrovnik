@@ -65,13 +65,15 @@
     - (NSString *)stringProperty
     {
 		MonoObject * monoObject = [self getMonoProperty:"StringProperty"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		NSString * value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		[self setCacheValue:value forMonoProperty:"StringProperty"];
+		return value;
 	}
     - (void)setStringProperty:(NSString *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
+		[self setCacheValue:value forMonoProperty:"StringProperty"];
 	}
 
 #pragma mark -

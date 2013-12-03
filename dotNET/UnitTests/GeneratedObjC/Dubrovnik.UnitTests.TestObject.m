@@ -25,13 +25,15 @@
     - (NSString *)name
     {
 		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		NSString * value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		[self setCacheValue:value forMonoProperty:"Name"];
+		return value;
 	}
     - (void)setName:(NSString *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
+		[self setCacheValue:value forMonoProperty:"Name"];
 	}
 @end
 //--Dubrovnik.CodeGenerator

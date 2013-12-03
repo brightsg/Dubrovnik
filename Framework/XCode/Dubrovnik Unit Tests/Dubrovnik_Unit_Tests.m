@@ -25,6 +25,7 @@ NSString *DBUTestString = @"Dubrovnik";
 NSString *DBUObjectNotCreated = @"Object not created";
 NSString *DBUObjectIsNil = @"Object is nil";
 NSString *DBUEqualityTestFailed = @"Equality test failed";
+NSString *DBUInequalityTestFailed = @"Inequality test failed";
 NSString *DBULessThanTestFailed = @"Less than test failed";
 NSString *DBUGreaterThanTestFailed = @"Greater than test failed";
 NSString *DBUSubstringTestFailed = @"Substring not found";
@@ -442,6 +443,46 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue(*int32Pointer == theInt, DBUEqualityTestFailed);
 }
 
+- (void)doTestPropertyCache:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    // non cached property access.
+    // different objects, same content
+    NSString *stringProperty = @"Cached property value";
+    [refObject setStringProperty:stringProperty];
+    
+    NSString *stringProperty2 = [refObject stringProperty];
+    STAssertTrue(stringProperty != stringProperty2, DBUInequalityTestFailed);
+    STAssertTrue([stringProperty isEqualToString:stringProperty2], DBUEqualityTestFailed);
+    
+    NSString *stringProperty3 = [refObject stringProperty];
+    STAssertTrue(stringProperty2 != stringProperty3, DBUInequalityTestFailed);
+    STAssertTrue([stringProperty2 isEqualToString:stringProperty3], DBUEqualityTestFailed);
+    
+    // cached property access.
+    // same object same content.
+    // caching is use when binding key paths such as a.b.c.
+    // a one to many binding using a keypath of a.b+.c ensures that b gets cached.
+    // the reference held by the cache stops the binding from disintegrating.
+    NSString *stringProperty4 = [refObject valueForKey:@"stringProperty+"];
+    NSString *stringProperty5 = [refObject valueForKey:@"stringProperty+"];
+    STAssertTrue(stringProperty4 == stringProperty5, DBUEqualityTestFailed);
+    STAssertTrue([stringProperty4 isEqualToString:stringProperty5], DBUEqualityTestFailed);
+    
+    // reading the instance property may refresh the cached value.
+    // code generated properties will automatically update the cache when read.
+    NSString *stringProperty7 = [refObject stringProperty];
+    NSString *stringProperty6 = [refObject valueForKey:@"stringProperty+"];
+    if (stringProperty6 != stringProperty7) {
+        NSLog(@"Cached property was NOT automatically updated");
+    } else {
+        NSLog(@"Cached property was automatically updated");
+    }
+    STAssertTrue([stringProperty6 isEqualToString:stringProperty7], DBUEqualityTestFailed);
+
+}
+
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
@@ -780,6 +821,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestProperties:refObject class:testClass];
     [self doTestArrayProperties:refObject class:testClass];
     [self doTestPointerProperties:refObject class:testClass];
+    [self doTestPropertyCache:refObject class:testClass];
     
     //===================================
     // representations

@@ -26,9 +26,13 @@
 #import "DBSystem.Convert.h"
 #import "NSString+Dubrovnik.h"
 
+char DBCacheSuffixChar = '+';
+
 @interface DBMonoObjectRepresentation()
 
 @property (retain, readwrite) DBMonoEnvironment *monoEnvironment;
+@property (retain, nonatomic) NSMutableDictionary *propertyCache;
+
 @end
 
 @implementation DBMonoObjectRepresentation
@@ -36,6 +40,7 @@
 @synthesize monoEnvironment = _monoEnvironment;
 @synthesize monoGenericTypeArgumentNames = _monoGenericTypeArgumentNames;
 @synthesize monoPrimaryGenericTypeArgument = _monoPrimaryGenericTypeArgument;
+@synthesize propertyCache = _propertyCache;
 
 #pragma mark -
 #pragma mark class methods for overriding
@@ -153,6 +158,10 @@
 		mono_gchandle_free(_mono_gchandle);
 	}
 	
+    if (_propertyCache) {
+        [_propertyCache removeAllObjects];
+        [_propertyCache release];
+    }
 	[super dealloc];
 }
 
@@ -447,6 +456,99 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 - (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
 	DBMonoObjectSetProperty(_monoObj, propertyName, valueObject);
 }
+
+#pragma mark -
+#pragma mark Property cache
+
+- (NSMutableDictionary *)propertyCache
+{
+    if (!_propertyCache) {
+        _propertyCache = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+    return _propertyCache;
+
+}
+
+- (void)setCacheValue:(id)value forMonoProperty:(const char *)propertyName
+{
+    // Only cache values if the cache has been previously accessed.
+    if (_propertyCache) {
+        char firstChar = propertyName[0];
+        NSString *key = [NSString stringWithFormat:@"%c%s%c", tolower(firstChar), ++propertyName, DBCacheSuffixChar];
+        [self setCacheValue:value forKey:key];
+    }
+}
+
+- (void)setCacheValue:(id)value forKey:(NSString *)key
+{
+    if (!value) {
+        [self.propertyCache removeObjectForKey:key];
+    } else {
+        [self.propertyCache setValue:value forKey:key];
+    }
+}
+
+- (id)cacheValueForKey:(NSString *)key
+{
+    return [self.propertyCache valueForKey:key];
+}
+
+- (BOOL)isCacheKey:(NSString *)cacheKey
+{
+    return [self keyFromCacheKey:cacheKey] ? YES : NO;
+}
+
+- (NSString *)keyFromCacheKey:(NSString *)cacheKey
+{
+    NSString * key = nil;
+    NSInteger lastCharIndex = [cacheKey length] - 1;
+    if ([cacheKey length] > 1 && [cacheKey characterAtIndex:lastCharIndex] == DBCacheSuffixChar) {
+        key = [cacheKey substringToIndex:lastCharIndex];
+        
+        /* Well?
+         if (![self respondsToSelector:NSSelectorFromString(key)]) {
+            key = nil;
+        }
+         */
+    }
+    
+    return key;
+}
+
+#pragma mark -
+#pragma mark KVC support
+
+- (id)valueForUndefinedKey:(NSString *)key
+{
+    if (![self isCacheKey:key]) {
+        return [super valueForUndefinedKey:key];
+    }
+    
+    id value = [self cacheValueForKey:key];
+    if (!value) {
+        NSString *instanceKey = [self keyFromCacheKey:key];
+        if (instanceKey) {
+            value = [self valueForKey:instanceKey];
+            // Generated properties automatically update the cache.
+            // The above -valueForKey: should cause the cache to be updated for generated properties.
+            // If auto generated properties are not used then an update will be required
+            if ([self cacheValueForKey:key] != value) {
+                [self setCacheValue:value forKey:key];
+            }
+        }
+    }
+    return value;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    if (![self isCacheKey:key]) {
+        [super setValue:value forUndefinedKey:key];
+    } else {
+        [self setCacheValue:value forKey:key];
+    }
+}
+
 
 #pragma mark -
 #pragma mark System.IConvertible convenience

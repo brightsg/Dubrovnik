@@ -296,6 +296,24 @@ The current Obj-C representation of mscorlib is included in the project at `Fram
 
 This can be included in our project.
 
+Property Support
+================
+
+A managed object property is exposed as an explicit Obj-C setter/getter pair to emphasise the fact that the exposed property does not act like a native NSObject property. Every call to a `DBMonoObjectRepresentation` object value property will return a new NSObject instance that references the underlying managed property (this is the case even if the underlying managed property has not changed). Automatic property caching does not occur as the underlying managed property can change at any time.
+
+However, in some cases, where the underlying property can be assumed to remain constant, it is useful to have `DBMonoObjectRepresentation` return the same object for a given property. One to many bindings in particular require this.
+
+So, for any given object property `foo` a cached version will be available at `[self valueForKey:@"foo+"]`. Repeated access to the key `@"foo+"` will always return the same cached object until the cache is refreshed. The cached value can be refreshed by calling `[self setCacheValue:newValue forKey:@"foo+"]`. Auto generated Obj-C classes also update the cache whenever `self.foo` is read. 
+
+Note: so far only managed object instance properties are cached. Fields and class property/fields are not currently cached.
+
+Properties and Bindings
+======================
+
+Cocoa bindings observe all parts of a bound object's key path which requires that all traversed objects remain valid. In order to support this bindings to `DBMonoObjectRepresentation` properties should reference the cached property name in the key path.
+
+    [subView bind: NSValueBinding toObject:cellView withKeyPath:@"objectValue.type+.shortName" options: nil];
+
 Threading Support
 =============
 

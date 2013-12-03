@@ -329,11 +329,15 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
 
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
-	string getFormat, setFormat;
+	string getFormat, setFormat, cacheFormat = null;
 	if (facet is PropertyFacet) {
 		if (!facet.IsStatic) {
 			getFormat = "[self getMonoProperty:\"{0}\"]";
 			setFormat = "[self setMonoProperty:\"{0}\" valueObject:{1}]";
+			// todo: make this a facet property
+			if (!((facet.IsValueType || facet.IsPointer) && !facet.IsGenericType)) {
+				cacheFormat = "[self setCacheValue:value forMonoProperty:\"{0}\"]";
+            }
 		} else {
 			getFormat = "[[self class] getMonoClassProperty:\"{0}\"]";
 			setFormat = "[[self class] setMonoClassProperty:\"{0}\" valueObject:{1}]";
@@ -354,6 +358,10 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 
 	string getExpression = String.Format(getFormat, accessorName, MonoVariableName);
 	string setExpression = String.Format(setFormat, accessorName, MonoVariableName);
+	string cacheExpression = null;
+	if (cacheFormat != null) {
+		cacheExpression = String.Format(cacheFormat, accessorName);
+    }
 
 	//
 	// write getter
@@ -372,12 +380,18 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 			if (facet is PropertyFacet) {
 #>
 		MonoObject * <#=MonoVariableName#> = <#=getExpression#>;
-		<#=objCTypeDecl#> result = <#=monoValueToObjC#>;
+		<#=objCTypeDecl#> value = <#=monoValueToObjC#>;
 <#+		
 				WriteFacetGenericsToObjCResult(facet);
 				
+				if (cacheExpression != null) 
+				{
 #>
-		return result;
+		<#=cacheExpression#>;
+<#+
+				} // if cacheExpression
+#>
+		return value;
 	}
 <#+	
             } else if (facet is FieldFacet) {
@@ -413,6 +427,14 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	{
 		MonoObject *<#=MonoVariableName#> = <#=objCValueToMono#>;
 		<#=setExpression#>;          
+<#+
+			if (cacheExpression != null) 
+			{
+#>
+		<#=cacheExpression#>;
+<#+
+            } // if cacheExpression
+#>
 	}
 <#+
         }  // if Implementation
@@ -429,7 +451,7 @@ public void WriteFacetGenericsToObjCResult(CodeFacet facet)
 	if (facet.IsConstructedGenericType) {
 		string objCGenericArgumentTypeNames = ObjCGenericArgumentTypeNamesStringFromMonoFacet(facet);
 #>
-		result.monoGenericTypeArgumentNames = @"<#=objCGenericArgumentTypeNames#>";
+		value.monoGenericTypeArgumentNames = @"<#=objCGenericArgumentTypeNames#>";
 <#+
     }
 }
@@ -639,7 +661,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		idx++;
     }
 
-	// finalize arugment list representations
+	// finalize argument list representations
 	string monoMethodSig = monoSigBuilder.ToString();
 	string objCMethodParameters = objCParameterBuilder.ToString();
 	string invokeArgs = facet.Parameters.Count().ToString();

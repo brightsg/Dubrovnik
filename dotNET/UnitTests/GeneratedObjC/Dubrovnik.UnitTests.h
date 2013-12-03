@@ -9,11 +9,11 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     10/1/2013 2:23:10 PM
+// Date:     12/3/2013 9:10:23 AM
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.5022.24073, Culture=neutral, PublicKeyToken=null
-// Path:     Z:\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
+// Path:     \\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
 // OS Arch:  64 bit

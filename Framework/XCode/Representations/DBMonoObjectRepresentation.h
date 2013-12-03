@@ -26,6 +26,8 @@
 #import "DBMonoMethodRepresentation.h"
 #import "DBMonoClassRepresentation.h"
 
+extern char DBCacheSuffixChar;
+
 @class DBMonoEnvironment;
 
 @interface DBMonoObjectRepresentation : NSObject <NSCopying> {
@@ -37,6 +39,7 @@
 	uint32_t _mono_gchandle;
     NSString *_monoGenericTypeArgumentNames;
     Class _monoPrimaryGenericTypeArgument;
+    NSMutableDictionary *_propertyCache;
 }
 
 // Subclasses must override these
@@ -124,6 +127,13 @@
 + (int)monoMethodCount:(MonoClass *)klass;
 + (const char *)monoClassName:(MonoClass *)klass;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
+
+// Property cache
+- (void)setCacheValue:(id)value forMonoProperty:(const char *)propertyName;
+- (void)setCacheValue:(id)value forKey:(NSString *)key;
+- (id)cacheValueForKey:(NSString *)key;
+- (BOOL)isCacheKey:(NSString *)cacheKey;
+- (NSString *)keyFromCacheKey:(NSString *)cacheKey;
 
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
 @property (retain, readwrite) NSString *monoGenericTypeArgumentNames;
