@@ -26,7 +26,7 @@
 #import "DBSystem.Convert.h"
 #import "NSString+Dubrovnik.h"
 
-char DBCacheSuffixChar = '+';
+char DBCacheSuffixChar = '_';
 
 @interface DBMonoObjectRepresentation()
 
@@ -504,15 +504,75 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     NSInteger lastCharIndex = [cacheKey length] - 1;
     if ([cacheKey length] > 1 && [cacheKey characterAtIndex:lastCharIndex] == DBCacheSuffixChar) {
         key = [cacheKey substringToIndex:lastCharIndex];
-        
-        /* Well?
-         if (![self respondsToSelector:NSSelectorFromString(key)]) {
-            key = nil;
-        }
-         */
     }
     
     return key;
+}
+
+- (NSString *)cacheKeyFromKey:(NSString *)key
+{
+    return [NSString stringWithFormat:@"%@%c", key, DBCacheSuffixChar];
+}
+
+#pragma mark -
+#pragma mark Dynamic property support
+
+/*
+ 
+ A managed object property prop will be represnted as
+ 
+ // Non cached property
+ @property (retain, nonatomic) id prop;
+ - (void)setProp:(id)value;
+ - (id)prop;
+ 
+ // Cached property
+ @property (retain) id prop_;
+ @dynamic prop_;
+ 
+ Dynamic properties are routed to:
+ 
+ setter : [self setValue:forUndefinedKey:]
+ getter : [self valueForUndefinedKey:]
+ 
+ */
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
+{
+    NSString *sel = NSStringFromSelector(selector);
+    
+    // process property cache keys
+    if ([self isCacheKey:sel]) {
+        if ([sel rangeOfString:@"set"].location == 0) {
+            return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+        } else {
+            return [NSMethodSignature signatureWithObjCTypes:"@@:"];
+        }
+    } else {
+        return [super methodSignatureForSelector:selector];
+    }
+}
+
+- (void)forwardInvocation:(NSInvocation *)invocation
+{
+    NSString *cacheKey = NSStringFromSelector([invocation selector]);
+    
+    // process property cache keys
+    if ([self isCacheKey:cacheKey]) {
+        //NSString *key =[self keyFromCacheKey:cacheKey];
+        
+        if ([cacheKey rangeOfString:@"set"].location == 0) {
+
+            //key = [[key substringWithRange:NSMakeRange(3, [key length]-4)] lowercaseString];
+            NSString *obj = nil;
+            [invocation getArgument:&obj atIndex:2];
+            [self setValue:obj forUndefinedKey:cacheKey];
+        } else {
+            NSString *obj = [self valueForUndefinedKey:cacheKey];
+            [invocation setReturnValue:&obj];
+        }
+    } else {
+        [super forwardInvocation:invocation];
+    }
 }
 
 #pragma mark -

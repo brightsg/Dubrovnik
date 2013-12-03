@@ -134,6 +134,7 @@ extern char DBCacheSuffixChar;
 - (id)cacheValueForKey:(NSString *)key;
 - (BOOL)isCacheKey:(NSString *)cacheKey;
 - (NSString *)keyFromCacheKey:(NSString *)cacheKey;
+- (NSString *)cacheKeyFromKey:(NSString *)key;
 
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
 @property (retain, readwrite) NSString *monoGenericTypeArgumentNames;

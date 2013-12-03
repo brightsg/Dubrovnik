@@ -11,6 +11,8 @@
 
 @implementation DBUReferenceObject
 
+@dynamic stringProperty_;
+
 + (const char *)monoClassName
 {
     return "Dubrovnik.UnitTests.ReferenceObject";

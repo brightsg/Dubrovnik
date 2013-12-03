@@ -20,7 +20,9 @@ Outsanding Project Goals
 
 The following project goals are outstanding:
 
-1. 100% support for mscorlib.dll
+1. Add code generator support for dynamic cached properties
+2. 100% support for mscorlib.dll
+
 
 Accomplished Project Goals
 ==========================
@@ -303,7 +305,18 @@ A managed object property is exposed as an explicit Obj-C setter/getter pair to 
 
 However, in some cases, where the underlying property can be assumed to remain constant, it is useful to have `DBMonoObjectRepresentation` return the same object for a given property. One to many bindings in particular require this.
 
-So, for any given object property `foo` a cached version will be available at `[self valueForKey:@"foo+"]`. Repeated access to the key `@"foo+"` will always return the same cached object until the cache is refreshed. The cached value can be refreshed by calling `[self setCacheValue:newValue forKey:@"foo+"]`. Auto generated Obj-C classes also update the cache whenever `self.foo` is read. 
+So, for any given object property `foo` a cached version will be available at `[self valueForKey:@"foo_"]`. Repeated access to the key `@"foo_` will always return the same cached object until the cache is refreshed. The cached value can be refreshed by calling `[self setCacheValue:newValue forKey:@"foo_"]`. Auto generated Obj-C classes also update the cache whenever `self.foo` is read. 
+
+Dynamic resolution of cached properties is also supported. This enables the cached copy of property `self.type` to be accessed as `self.type_`. To support this feature the cached property must be declared as dynamic:
+
+Header:
+
+	@property (retain, nonatomic) id type;	// non cached property
+	@property (retain) id type_;			// cached property
+
+Implementation:
+
+	@dynamic type_;
 
 Note: so far only managed object instance properties are cached. Fields and class property/fields are not currently cached.
 
@@ -312,7 +325,7 @@ Properties and Bindings
 
 Cocoa bindings observe all parts of a bound object's key path which requires that all traversed objects remain valid. In order to support this bindings to `DBMonoObjectRepresentation` properties should reference the cached property name in the key path.
 
-    [subView bind: NSValueBinding toObject:cellView withKeyPath:@"objectValue.type+.shortName" options: nil];
+    [subView bind: NSValueBinding toObject:cellView withKeyPath:@"objectValue.type_.shortName" options: nil];
 
 Threading Support
 =============
@@ -350,7 +363,7 @@ DBCommandLineExample demonstrates a number of Dubrovnik features
 
 - Writing a Dubrovnik wrapper for a C# class
 
-- Exception handling
+- Exception handling/Users/jonathan/Documents/Thesaurus/Development/xcode.OLD
   
 DBCocoaExample is the classic Currency Converter application; it demonstrates a simple front end that uses mono for its backend.
 

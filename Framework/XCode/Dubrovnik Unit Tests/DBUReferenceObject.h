@@ -116,6 +116,8 @@
 - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 
 // string property implementation
+@property (retain, nonatomic) NSString *stringProperty;
+@property (retain) NSString *stringProperty_; // cached property
 - (NSString *)stringProperty;
 - (void)setStringProperty:(NSString *)value;
 

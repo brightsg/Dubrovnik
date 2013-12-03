@@ -447,6 +447,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
 #pragma unused(testClass)
     
+    //
+    // dynamic cached property access
+    //
+    DBUReferenceObject *obj = [DBUReferenceObject new_withValue:@"Init value"];
+    NSString * s1 = obj.stringProperty_; // dynamic cached property
+    NSString *cacheKey = [obj cacheKeyFromKey:@"stringProperty"];
+    NSString * s2 = [obj valueForKey:cacheKey];
+    STAssertTrue(s1 == s2, DBUEqualityTestFailed);
+
+    //
+    // KVC cached property access
+    //
+    
     // non cached property access.
     // different objects, same content
     NSString *stringProperty = @"Cached property value";
@@ -465,15 +478,15 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // caching is use when binding key paths such as a.b.c.
     // a one to many binding using a keypath of a.b+.c ensures that b gets cached.
     // the reference held by the cache stops the binding from disintegrating.
-    NSString *stringProperty4 = [refObject valueForKey:@"stringProperty+"];
-    NSString *stringProperty5 = [refObject valueForKey:@"stringProperty+"];
+    NSString *stringProperty4 = [refObject valueForKey:cacheKey];
+    NSString *stringProperty5 = [refObject valueForKey:cacheKey];
     STAssertTrue(stringProperty4 == stringProperty5, DBUEqualityTestFailed);
     STAssertTrue([stringProperty4 isEqualToString:stringProperty5], DBUEqualityTestFailed);
     
     // reading the instance property may refresh the cached value.
     // code generated properties will automatically update the cache when read.
     NSString *stringProperty7 = [refObject stringProperty];
-    NSString *stringProperty6 = [refObject valueForKey:@"stringProperty+"];
+    NSString *stringProperty6 = [refObject valueForKey:cacheKey];
     if (stringProperty6 != stringProperty7) {
         NSLog(@"Cached property was NOT automatically updated");
     } else {
