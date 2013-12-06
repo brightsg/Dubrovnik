@@ -478,26 +478,26 @@
 		AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */ = {
 			isa = PBXGroup;
 			children = (
+				AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */,
+				ABC32E7317CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */,
+				ABC32E7817CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */,
 				ABD836F717FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h */,
 				ABD836F817FB05D8008A0871 /* Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.m */,
+				ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */,
 				AB073EF017D24F2300C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.h */,
 				AB073EF317D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */,
 				AB073EF117D24F2400C669D3 /* Dubrovnik.UnitTests.IntEnum.h */,
 				AB073EF217D24F2400C669D3 /* Dubrovnik.UnitTests.LongEnum.h */,
-				ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */,
-				ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */,
-				ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */,
-				ABC32E7317CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */,
+				ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */,
 				ABC32E7517CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceObject.h */,
+				ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */,
 				ABC32E7617CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.h */,
+				ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */,
 				ABC32E7717CBBBC4004A3684 /* Dubrovnik.UnitTests.TestObject.h */,
-				ABC32E7817CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */,
+				ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */,
 				AB97FC0417C277D600CBE585 /* Extensions.cs */,
 				AB97FC0517C277D600CBE585 /* ReferenceObject.cs */,
 				AB97FC0617C277D600CBE585 /* TestObject.cs */,
-				ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */,
-				ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */,
-				AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */,
 			);
 			name = "Dubrovnik.UnitTests assembly";
 			sourceTree = "<group>";
@@ -923,6 +923,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -968,6 +969,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;

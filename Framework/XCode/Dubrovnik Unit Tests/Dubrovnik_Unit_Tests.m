@@ -432,9 +432,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // string pointer
     NSString *stringPointer = @"It's okay to point at me like that.";
-    [refObject setPointer:stringPointer];
+    [refObject setPointer:(__bridge void *)(stringPointer)];
     void * voidPtr = [refObject pointer];
-    STAssertTrue(voidPtr == stringPointer, DBUEqualityTestFailed);
+    STAssertTrue(voidPtr == (__bridge void *)stringPointer, DBUEqualityTestFailed);
     
     // int32 pointer
     int32_t theInt = 10101;
@@ -443,57 +443,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue(*int32Pointer == theInt, DBUEqualityTestFailed);
 }
 
-- (void)doTestPropertyCache:(id)refObject class:(Class)testClass
+- (void)doTestPropertyPersistence:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
-    
-    //
-    // dynamic cached property access
-    //
-    DBUReferenceObject *obj = [DBUReferenceObject new_withValue:@"Init value"];
-    NSString * s1 = obj.stringProperty_; // dynamic cached property
-    NSString *cacheKey = [obj cacheKeyFromKey:@"stringProperty"];
-    NSString * s2 = [obj valueForKey:cacheKey];
-    STAssertTrue(s1 == s2, DBUEqualityTestFailed);
 
-    //
-    // KVC cached property access
-    //
-    
-    // non cached property access.
-    // different objects, same content
-    NSString *stringProperty = @"Cached property value";
-    [refObject setStringProperty:stringProperty];
-    
-    NSString *stringProperty2 = [refObject stringProperty];
-    STAssertTrue(stringProperty != stringProperty2, DBUInequalityTestFailed);
-    STAssertTrue([stringProperty isEqualToString:stringProperty2], DBUEqualityTestFailed);
-    
-    NSString *stringProperty3 = [refObject stringProperty];
-    STAssertTrue(stringProperty2 != stringProperty3, DBUInequalityTestFailed);
-    STAssertTrue([stringProperty2 isEqualToString:stringProperty3], DBUEqualityTestFailed);
-    
-    // cached property access.
-    // same object same content.
-    // caching is use when binding key paths such as a.b.c.
-    // a one to many binding using a keypath of a.b+.c ensures that b gets cached.
-    // the reference held by the cache stops the binding from disintegrating.
-    NSString *stringProperty4 = [refObject valueForKey:cacheKey];
-    NSString *stringProperty5 = [refObject valueForKey:cacheKey];
-    STAssertTrue(stringProperty4 == stringProperty5, DBUEqualityTestFailed);
-    STAssertTrue([stringProperty4 isEqualToString:stringProperty5], DBUEqualityTestFailed);
-    
-    // reading the instance property may refresh the cached value.
-    // code generated properties will automatically update the cache when read.
-    NSString *stringProperty7 = [refObject stringProperty];
-    NSString *stringProperty6 = [refObject valueForKey:cacheKey];
-    if (stringProperty6 != stringProperty7) {
-        NSLog(@"Cached property was NOT automatically updated");
-    } else {
-        NSLog(@"Cached property was automatically updated");
-    }
-    STAssertTrue([stringProperty6 isEqualToString:stringProperty7], DBUEqualityTestFailed);
-
+    // repeated calls to a property should return the same object
+    // unless the setter has been called or the property has been changed
+    // by a managed code, most likely as a side effect
 }
 
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass
@@ -510,7 +466,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         [ms appendFormat:@"%@ ", s];
     }
     STAssertTrue([ms rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    [ms release];
     
     // derive string mono array from NSArray
     NSArray *stringNSArray = @[DBUTestString, @"1", @"2"];
@@ -524,7 +479,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         [ms appendFormat:@"%@ ", s];
     }
     STAssertTrue([ms rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    [ms release];
     
     // int64 array
     DBSystem_Array *int64Array = [refObject int64Array];
@@ -834,7 +788,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestProperties:refObject class:testClass];
     [self doTestArrayProperties:refObject class:testClass];
     [self doTestPointerProperties:refObject class:testClass];
-    [self doTestPropertyCache:refObject class:testClass];
+    [self doTestPropertyPersistence:refObject class:testClass];
     
     //===================================
     // representations

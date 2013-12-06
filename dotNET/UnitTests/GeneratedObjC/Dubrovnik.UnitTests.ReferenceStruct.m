@@ -32,28 +32,37 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : intField
+	// Managed field type : System.Int32
+    @synthesize intField = _intField;
     - (int32_t)intField
     {
 		int32_t monoObject;
 		[self getMonoField:"intField" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_intField = monoObject;
+		return _intField;
 	}
     - (void)setIntField:(int32_t)value
 	{
+		_intField = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"intField" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed field name : StringField
+	// Managed field type : System.String
+    @synthesize stringField = _stringField;
     - (NSString *)stringField
     {
 		MonoObject * monoObject;
 		[self getMonoField:"StringField" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_stringField isEqualToMonoObject:monoObject]) return _stringField;					
+		_stringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _stringField;
 	}
     - (void)setStringField:(NSString *)value
 	{
+		_stringField = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"StringField" valueObject:monoObject];          
 	}
@@ -61,19 +70,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : StringProperty
+	// Managed property type : System.String
+    @synthesize stringProperty = _stringProperty;
     - (NSString *)stringProperty
     {
-		MonoObject * monoObject = [self getMonoProperty:"StringProperty"];
-		NSString * value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		[self setCacheValue:value forMonoProperty:"StringProperty"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
+		if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;					
+		_stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _stringProperty;
 	}
     - (void)setStringProperty:(NSString *)value
 	{
+		_stringProperty = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"StringProperty"];
 	}
 
 #pragma mark -

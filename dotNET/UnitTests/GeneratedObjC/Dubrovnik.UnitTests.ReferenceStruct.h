@@ -22,20 +22,20 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
-    - (int32_t)intField;
-    - (void)setIntField:(int32_t)value;
+	// Managed field name : intField
+	// Managed field type : System.Int32
+    @property int32_t intField;
 
-	// Managed type : System.String
-    - (NSString *)stringField;
-    - (void)setStringField:(NSString *)value;
+	// Managed field name : StringField
+	// Managed field type : System.String
+    @property (retain, nonatomic) NSString * stringField;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)stringProperty;
-    - (void)setStringProperty:(NSString *)value;
+	// Managed property name : StringProperty
+	// Managed property type : System.String
+    @property (retain, nonatomic) NSString * stringProperty;
 
 #pragma mark -
 #pragma mark Methods

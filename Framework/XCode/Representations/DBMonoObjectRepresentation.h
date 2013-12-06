@@ -87,6 +87,12 @@ extern char DBCacheSuffixChar;
 - (MonoObject *)invokeMonoMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 - (MonoObject *)invokeMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs, ...;
 
+// Equality testing
++ (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;
++ (BOOL)object:(id)object isEqualToMonoObject:(MonoObject *)monoObject;
+- (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;
+- (BOOL)object:(id)object isEqualToMonoObject:(MonoObject *)monoObject;
+
 // Indexer Access
 - (MonoObject *)monoObjectForIndexObject:(void *)indexObject;
 - (void)setMonoObject:(MonoObject *)valueObject forIndexObject:(void *)indexObject;
@@ -127,14 +133,6 @@ extern char DBCacheSuffixChar;
 + (int)monoMethodCount:(MonoClass *)klass;
 + (const char *)monoClassName:(MonoClass *)klass;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
-
-// Property cache
-- (void)setCacheValue:(id)value forMonoProperty:(const char *)propertyName;
-- (void)setCacheValue:(id)value forKey:(NSString *)key;
-- (id)cacheValueForKey:(NSString *)key;
-- (BOOL)isCacheKey:(NSString *)cacheKey;
-- (NSString *)keyFromCacheKey:(NSString *)cacheKey;
-- (NSString *)cacheKeyFromKey:(NSString *)key;
 
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
 @property (retain, readwrite) NSString *monoGenericTypeArgumentNames;

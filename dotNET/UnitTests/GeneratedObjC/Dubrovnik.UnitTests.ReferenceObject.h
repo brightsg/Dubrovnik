@@ -27,149 +27,155 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : ClassConstStringField
+	// Managed field type : System.String
     + (NSString *)classConstStringField;
 
-	// Managed type : System.Int32
+	// Managed field name : ClassIntField
+	// Managed field type : System.Int32
     + (int32_t)classIntField;
     + (void)setClassIntField:(int32_t)value;
 
-	// Managed type : System.String
-    - (NSString *)classReadonlyStringField;
+	// Managed field name : ClassReadonlyStringField
+	// Managed field type : System.String
+    @property (retain, nonatomic, readonly) NSString * classReadonlyStringField;
 
-	// Managed type : System.String
+	// Managed field name : ClassStringField
+	// Managed field type : System.String
     + (NSString *)classStringField;
     + (void)setClassStringField:(NSString *)value;
 
-	// Managed type : System.DateTime
-    - (NSDate *)dateField;
-    - (void)setDateField:(NSDate *)value;
+	// Managed field name : DateField
+	// Managed field type : System.DateTime
+    @property (retain, nonatomic) NSDate * dateField;
 
-	// Managed type : Dubrovnik.UnitTests.IntEnum
-    - (Dubrovnik_UnitTests_IntEnum)intEnumField;
-    - (void)setIntEnumField:(Dubrovnik_UnitTests_IntEnum)value;
+	// Managed field name : IntEnumField
+	// Managed field type : Dubrovnik.UnitTests.IntEnum
+    @property Dubrovnik_UnitTests_IntEnum intEnumField;
 
-	// Managed type : System.Int32
-    - (int32_t)intField;
-    - (void)setIntField:(int32_t)value;
+	// Managed field name : IntField
+	// Managed field type : System.Int32
+    @property int32_t intField;
 
-	// Managed type : Dubrovnik.UnitTests.LongEnum
-    - (Dubrovnik_UnitTests_LongEnum)longEnumField;
-    - (void)setLongEnumField:(Dubrovnik_UnitTests_LongEnum)value;
+	// Managed field name : LongEnumField
+	// Managed field type : Dubrovnik.UnitTests.LongEnum
+    @property Dubrovnik_UnitTests_LongEnum longEnumField;
 
-	// Managed type : System.String
-    - (NSString *)stringField;
-    - (void)setStringField:(NSString *)value;
+	// Managed field name : StringField
+	// Managed field type : System.String
+    @property (retain, nonatomic) NSString * stringField;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean[]
-    - (DBSystem_Array *)boolArray;
-    - (void)setBoolArray:(DBSystem_Array *)value;
+	// Managed property name : BoolArray
+	// Managed property type : System.Boolean[]
+    @property (retain, nonatomic) DBSystem_Array * boolArray;
 
-	// Managed type : System.String
+	// Managed property name : ClassProperty
+	// Managed property type : System.String
     + (NSString *)classProperty;
     + (void)setClassProperty:(NSString *)value;
 
-	// Managed type : System.DateTime
-    - (NSDate *)date;
-    - (void)setDate:(NSDate *)value;
+	// Managed property name : Date
+	// Managed property type : System.DateTime
+    @property (retain, nonatomic) NSDate * date;
 
-	// Managed type : System.Decimal
-    - (NSDecimalNumber *)decimalNumber;
-    - (void)setDecimalNumber:(NSDecimalNumber *)value;
+	// Managed property name : DecimalNumber
+	// Managed property type : System.Decimal
+    @property (retain, nonatomic) NSDecimalNumber * decimalNumber;
 
-	// Managed type : System.Double[]
-    - (DBSystem_Array *)doubleArray;
-    - (void)setDoubleArray:(DBSystem_Array *)value;
+	// Managed property name : DoubleArray
+	// Managed property type : System.Double[]
+    @property (retain, nonatomic) DBSystem_Array * doubleArray;
 
-	// Managed type : System.Single[]
-    - (DBSystem_Array *)floatArray;
-    - (void)setFloatArray:(DBSystem_Array *)value;
+	// Managed property name : FloatArray
+	// Managed property type : System.Single[]
+    @property (retain, nonatomic) DBSystem_Array * floatArray;
 
-	// Managed type : System.Int16[]
-    - (DBSystem_Array *)int16Array;
-    - (void)setInt16Array:(DBSystem_Array *)value;
+	// Managed property name : Int16Array
+	// Managed property type : System.Int16[]
+    @property (retain, nonatomic) DBSystem_Array * int16Array;
 
-	// Managed type : System.Int32[]
-    - (DBSystem_Array *)int32Array;
-    - (void)setInt32Array:(DBSystem_Array *)value;
+	// Managed property name : Int32Array
+	// Managed property type : System.Int32[]
+    @property (retain, nonatomic) DBSystem_Array * int32Array;
 
-	// Managed type : System.Int32
-    - (int32_t)int32Number;
-    - (void)setInt32Number:(int32_t)value;
+	// Managed property name : Int32Number
+	// Managed property type : System.Int32
+    @property int32_t int32Number;
 
-	// Managed type : System.Int32*
-    - (int32_t *)int32Pointer;
-    - (void)setInt32Pointer:(int32_t *)value;
+	// Managed property name : Int32Pointer
+	// Managed property type : System.Int32*
+    @property int32_t * int32Pointer;
 
-	// Managed type : System.Int64[]
-    - (DBSystem_Array *)int64Array;
-    - (void)setInt64Array:(DBSystem_Array *)value;
+	// Managed property name : Int64Array
+	// Managed property type : System.Int64[]
+    @property (retain, nonatomic) DBSystem_Array * int64Array;
 
-	// Managed type : System.Int64
-    - (int64_t)int64Number;
-    - (void)setInt64Number:(int64_t)value;
+	// Managed property name : Int64Number
+	// Managed property type : System.Int64
+    @property int64_t int64Number;
 
-	// Managed type : Dubrovnik.UnitTests.IntEnum
-    - (Dubrovnik_UnitTests_IntEnum)intEnumeration;
-    - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value;
+	// Managed property name : IntEnumeration
+	// Managed property type : Dubrovnik.UnitTests.IntEnum
+    @property Dubrovnik_UnitTests_IntEnum intEnumeration;
 
-	// Managed type : System.Collections.Generic.List`1<System.Int32>
-    - (DBSystem_Collections_Generic_ListA1 *)intList;
-    - (void)setIntList:(DBSystem_Collections_Generic_ListA1 *)value;
+	// Managed property name : IntList
+	// Managed property type : System.Collections.Generic.List`1<System.Int32>
+    @property (retain, nonatomic) DBSystem_Collections_Generic_ListA1 * intList;
 
-	// Managed type : System.Int32
-    - (int32_t)intNumber;
-    - (void)setIntNumber:(int32_t)value;
+	// Managed property name : IntNumber
+	// Managed property type : System.Int32
+    @property int32_t intNumber;
 
-	// Managed type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    - (DBSystem_Collections_Generic_DictionaryA2 *)intObjectDictionary;
-    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value;
+	// Managed property name : IntObjectDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
+    @property (retain, nonatomic) DBSystem_Collections_Generic_DictionaryA2 * intObjectDictionary;
 
-	// Managed type : Dubrovnik.UnitTests.LongEnum
-    - (Dubrovnik_UnitTests_LongEnum)longEnumeration;
-    - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value;
+	// Managed property name : LongEnumeration
+	// Managed property type : Dubrovnik.UnitTests.LongEnum
+    @property Dubrovnik_UnitTests_LongEnum longEnumeration;
 
-	// Managed type : Dubrovnik.UnitTests.IMinimalReferenceObject
-    - (Dubrovnik_UnitTests_IMinimalReferenceObject *)minimalReferenceObject;
+	// Managed property name : MinimalReferenceObject
+	// Managed property type : Dubrovnik.UnitTests.IMinimalReferenceObject
+    @property (retain, nonatomic, readonly) Dubrovnik_UnitTests_IMinimalReferenceObject * minimalReferenceObject;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (retain, nonatomic) NSString * name;
 
-	// Managed type : System.IntPtr
-    - (void *)pointer;
-    - (void)setPointer:(void *)value;
+	// Managed property name : Pointer
+	// Managed property type : System.IntPtr
+    @property void * pointer;
 
-	// Managed type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
-    - (DBSystem_Collections_Generic_ListA1 *)referenceObjectList;
-    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_ListA1 *)value;
+	// Managed property name : ReferenceObjectList
+	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
+    @property (retain, nonatomic) DBSystem_Collections_Generic_ListA1 * referenceObjectList;
 
-	// Managed type : Dubrovnik.UnitTests.ReferenceObject
-    - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative;
-    - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value;
+	// Managed property name : ReferenceObjectRelative
+	// Managed property type : Dubrovnik.UnitTests.ReferenceObject
+    @property (retain, nonatomic) Dubrovnik_UnitTests_ReferenceObject * referenceObjectRelative;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)stringArray;
-    - (void)setStringArray:(DBSystem_Array *)value;
+	// Managed property name : StringArray
+	// Managed property type : System.String[]
+    @property (retain, nonatomic) DBSystem_Array * stringArray;
 
-	// Managed type : System.Collections.ArrayList
-    - (DBSystem_Collections_ArrayList *)stringArrayList;
-    - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value;
+	// Managed property name : StringArrayList
+	// Managed property type : System.Collections.ArrayList
+    @property (retain, nonatomic) DBSystem_Collections_ArrayList * stringArrayList;
 
-	// Managed type : System.Collections.Generic.List`1<System.String>
-    - (DBSystem_Collections_Generic_ListA1 *)stringList;
-    - (void)setStringList:(DBSystem_Collections_Generic_ListA1 *)value;
+	// Managed property name : StringList
+	// Managed property type : System.Collections.Generic.List`1<System.String>
+    @property (retain, nonatomic) DBSystem_Collections_Generic_ListA1 * stringList;
 
-	// Managed type : System.String
-    - (NSString *)stringProperty;
-    - (void)setStringProperty:(NSString *)value;
+	// Managed property name : StringProperty
+	// Managed property type : System.String
+    @property (retain, nonatomic) NSString * stringProperty;
 
-	// Managed type : System.Collections.Generic.Dictionary`2<System.String, System.String>
-    - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
-    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value;
+	// Managed property name : StringStringDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
+    @property (retain, nonatomic) DBSystem_Collections_Generic_DictionaryA2 * stringStringDictionary;
 
 #pragma mark -
 #pragma mark Methods

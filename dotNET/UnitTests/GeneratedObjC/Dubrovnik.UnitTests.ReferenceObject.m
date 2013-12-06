@@ -5,7 +5,6 @@
 //
 @implementation Dubrovnik_UnitTests_ReferenceObject
 
-
 #pragma mark -
 #pragma mark Setup
 	// obligatory override
@@ -41,109 +40,148 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : ClassConstStringField
+	// Managed field type : System.String
+    static NSString * m_classConstStringField;
     + (NSString *)classConstStringField
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"ClassConstStringField" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_classConstStringField isEqualToMonoObject:monoObject]) return m_classConstStringField;					
+		m_classConstStringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_classConstStringField;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : ClassIntField
+	// Managed field type : System.Int32
+    static int32_t m_classIntField;
     + (int32_t)classIntField
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"ClassIntField" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_classIntField = monoObject;
+		return m_classIntField;
 	}
     + (void)setClassIntField:(int32_t)value
 	{
+		m_classIntField = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassField:"ClassIntField" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed field name : ClassReadonlyStringField
+	// Managed field type : System.String
+    @synthesize classReadonlyStringField = _classReadonlyStringField;
     - (NSString *)classReadonlyStringField
     {
 		MonoObject * monoObject;
 		[self getMonoField:"ClassReadonlyStringField" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_classReadonlyStringField isEqualToMonoObject:monoObject]) return _classReadonlyStringField;					
+		_classReadonlyStringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _classReadonlyStringField;
 	}
 
-	// Managed type : System.String
+	// Managed field name : ClassStringField
+	// Managed field type : System.String
+    static NSString * m_classStringField;
     + (NSString *)classStringField
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"ClassStringField" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_classStringField isEqualToMonoObject:monoObject]) return m_classStringField;					
+		m_classStringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_classStringField;
 	}
     + (void)setClassStringField:(NSString *)value
 	{
+		m_classStringField = value;
 		MonoObject *monoObject = [value monoValue];
 		[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];          
 	}
 
-	// Managed type : System.DateTime
+	// Managed field name : DateField
+	// Managed field type : System.DateTime
+    @synthesize dateField = _dateField;
     - (NSDate *)dateField
     {
 		MonoObject * monoObject;
 		[self getMonoField:"DateField" valuePtr:DB_PTR(monoObject)];
-		return [NSDate dateWithMonoDateTime:monoObject];
+		if ([self object:_dateField isEqualToMonoObject:monoObject]) return _dateField;					
+		_dateField = [NSDate dateWithMonoDateTime:monoObject];
+		return _dateField;
 	}
     - (void)setDateField:(NSDate *)value
 	{
+		_dateField = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"DateField" valueObject:monoObject];          
 	}
 
-	// Managed type : Dubrovnik.UnitTests.IntEnum
+	// Managed field name : IntEnumField
+	// Managed field type : Dubrovnik.UnitTests.IntEnum
+    @synthesize intEnumField = _intEnumField;
     - (Dubrovnik_UnitTests_IntEnum)intEnumField
     {
-		MonoObject * monoObject;
+		Dubrovnik_UnitTests_IntEnum monoObject;
 		[self getMonoField:"IntEnumField" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT32(monoObject);
+		_intEnumField = monoObject;
+		return _intEnumField;
 	}
     - (void)setIntEnumField:(Dubrovnik_UnitTests_IntEnum)value
 	{
+		_intEnumField = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"IntEnumField" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : IntField
+	// Managed field type : System.Int32
+    @synthesize intField = _intField;
     - (int32_t)intField
     {
 		int32_t monoObject;
 		[self getMonoField:"IntField" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_intField = monoObject;
+		return _intField;
 	}
     - (void)setIntField:(int32_t)value
 	{
+		_intField = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"IntField" valueObject:monoObject];          
 	}
 
-	// Managed type : Dubrovnik.UnitTests.LongEnum
+	// Managed field name : LongEnumField
+	// Managed field type : Dubrovnik.UnitTests.LongEnum
+    @synthesize longEnumField = _longEnumField;
     - (Dubrovnik_UnitTests_LongEnum)longEnumField
     {
-		MonoObject * monoObject;
+		Dubrovnik_UnitTests_LongEnum monoObject;
 		[self getMonoField:"LongEnumField" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT64(monoObject);
+		_longEnumField = monoObject;
+		return _longEnumField;
 	}
     - (void)setLongEnumField:(Dubrovnik_UnitTests_LongEnum)value
 	{
+		_longEnumField = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"LongEnumField" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed field name : StringField
+	// Managed field type : System.String
+    @synthesize stringField = _stringField;
     - (NSString *)stringField
     {
 		MonoObject * monoObject;
 		[self getMonoField:"StringField" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_stringField isEqualToMonoObject:monoObject]) return _stringField;					
+		_stringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _stringField;
 	}
     - (void)setStringField:(NSString *)value
 	{
+		_stringField = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"StringField" valueObject:monoObject];          
 	}
@@ -151,388 +189,455 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean[]
+	// Managed property name : BoolArray
+	// Managed property type : System.Boolean[]
+    @synthesize boolArray = _boolArray;
     - (DBSystem_Array *)boolArray
     {
-		MonoObject * monoObject = [self getMonoProperty:"BoolArray"];
-		DBSystem_Array * value = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"BoolArray"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"BoolArray"];
+		if ([self object:_boolArray isEqualToMonoObject:monoObject]) return _boolArray;					
+		_boolArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _boolArray;
 	}
     - (void)setBoolArray:(DBSystem_Array *)value
 	{
+		_boolArray = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"BoolArray" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"BoolArray"];
 	}
 
-	// Managed type : System.String
+	// Managed property name : ClassProperty
+	// Managed property type : System.String
+    static NSString * m_classProperty;
     + (NSString *)classProperty
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ClassProperty"];
-		NSString * value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return value;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassProperty"];
+		if ([self object:m_classProperty isEqualToMonoObject:monoObject]) return m_classProperty;					
+		m_classProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_classProperty;
 	}
     + (void)setClassProperty:(NSString *)value
 	{
+		m_classProperty = value;
 		MonoObject *monoObject = [value monoValue];
 		[[self class] setMonoClassProperty:"ClassProperty" valueObject:monoObject];          
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : Date
+	// Managed property type : System.DateTime
+    @synthesize date = _date;
     - (NSDate *)date
     {
-		MonoObject * monoObject = [self getMonoProperty:"Date"];
-		NSDate * value = [NSDate dateWithMonoDateTime:monoObject];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Date"];
+		if ([self object:_date isEqualToMonoObject:monoObject]) return _date;					
+		_date = [NSDate dateWithMonoDateTime:monoObject];
+		return _date;
 	}
     - (void)setDate:(NSDate *)value
 	{
+		_date = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Date" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Decimal
+	// Managed property name : DecimalNumber
+	// Managed property type : System.Decimal
+    @synthesize decimalNumber = _decimalNumber;
     - (NSDecimalNumber *)decimalNumber
     {
-		MonoObject * monoObject = [self getMonoProperty:"DecimalNumber"];
-		NSDecimalNumber * value = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"DecimalNumber"];
+		if ([self object:_decimalNumber isEqualToMonoObject:monoObject]) return _decimalNumber;					
+		_decimalNumber = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		return _decimalNumber;
 	}
     - (void)setDecimalNumber:(NSDecimalNumber *)value
 	{
+		_decimalNumber = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"DecimalNumber" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Double[]
+	// Managed property name : DoubleArray
+	// Managed property type : System.Double[]
+    @synthesize doubleArray = _doubleArray;
     - (DBSystem_Array *)doubleArray
     {
-		MonoObject * monoObject = [self getMonoProperty:"DoubleArray"];
-		DBSystem_Array * value = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"DoubleArray"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"DoubleArray"];
+		if ([self object:_doubleArray isEqualToMonoObject:monoObject]) return _doubleArray;					
+		_doubleArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _doubleArray;
 	}
     - (void)setDoubleArray:(DBSystem_Array *)value
 	{
+		_doubleArray = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"DoubleArray" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"DoubleArray"];
 	}
 
-	// Managed type : System.Single[]
+	// Managed property name : FloatArray
+	// Managed property type : System.Single[]
+    @synthesize floatArray = _floatArray;
     - (DBSystem_Array *)floatArray
     {
-		MonoObject * monoObject = [self getMonoProperty:"FloatArray"];
-		DBSystem_Array * value = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"FloatArray"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"FloatArray"];
+		if ([self object:_floatArray isEqualToMonoObject:monoObject]) return _floatArray;					
+		_floatArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _floatArray;
 	}
     - (void)setFloatArray:(DBSystem_Array *)value
 	{
+		_floatArray = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"FloatArray" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"FloatArray"];
 	}
 
-	// Managed type : System.Int16[]
+	// Managed property name : Int16Array
+	// Managed property type : System.Int16[]
+    @synthesize int16Array = _int16Array;
     - (DBSystem_Array *)int16Array
     {
-		MonoObject * monoObject = [self getMonoProperty:"Int16Array"];
-		DBSystem_Array * value = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"Int16Array"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Int16Array"];
+		if ([self object:_int16Array isEqualToMonoObject:monoObject]) return _int16Array;					
+		_int16Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _int16Array;
 	}
     - (void)setInt16Array:(DBSystem_Array *)value
 	{
+		_int16Array = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Int16Array" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"Int16Array"];
 	}
 
-	// Managed type : System.Int32[]
+	// Managed property name : Int32Array
+	// Managed property type : System.Int32[]
+    @synthesize int32Array = _int32Array;
     - (DBSystem_Array *)int32Array
     {
-		MonoObject * monoObject = [self getMonoProperty:"Int32Array"];
-		DBSystem_Array * value = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"Int32Array"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Int32Array"];
+		if ([self object:_int32Array isEqualToMonoObject:monoObject]) return _int32Array;					
+		_int32Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _int32Array;
 	}
     - (void)setInt32Array:(DBSystem_Array *)value
 	{
+		_int32Array = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Int32Array" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"Int32Array"];
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Int32Number
+	// Managed property type : System.Int32
+    @synthesize int32Number = _int32Number;
     - (int32_t)int32Number
     {
-		MonoObject * monoObject = [self getMonoProperty:"Int32Number"];
-		int32_t value = DB_UNBOX_INT32(monoObject);
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Int32Number"];
+		_int32Number = DB_UNBOX_INT32(monoObject);
+		return _int32Number;
 	}
     - (void)setInt32Number:(int32_t)value
 	{
+		_int32Number = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Int32Number" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32*
+	// Managed property name : Int32Pointer
+	// Managed property type : System.Int32*
+    @synthesize int32Pointer = _int32Pointer;
     - (int32_t *)int32Pointer
     {
-		MonoObject * monoObject = [self getMonoProperty:"Int32Pointer"];
-		int32_t * value = DB_UNBOX_PTR(monoObject);
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Int32Pointer"];
+		_int32Pointer = DB_UNBOX_PTR(monoObject);
+		return _int32Pointer;
 	}
     - (void)setInt32Pointer:(int32_t *)value
 	{
+		_int32Pointer = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Int32Pointer" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int64[]
+	// Managed property name : Int64Array
+	// Managed property type : System.Int64[]
+    @synthesize int64Array = _int64Array;
     - (DBSystem_Array *)int64Array
     {
-		MonoObject * monoObject = [self getMonoProperty:"Int64Array"];
-		DBSystem_Array * value = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"Int64Array"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Int64Array"];
+		if ([self object:_int64Array isEqualToMonoObject:monoObject]) return _int64Array;					
+		_int64Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _int64Array;
 	}
     - (void)setInt64Array:(DBSystem_Array *)value
 	{
+		_int64Array = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Int64Array" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"Int64Array"];
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : Int64Number
+	// Managed property type : System.Int64
+    @synthesize int64Number = _int64Number;
     - (int64_t)int64Number
     {
-		MonoObject * monoObject = [self getMonoProperty:"Int64Number"];
-		int64_t value = DB_UNBOX_INT64(monoObject);
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Int64Number"];
+		_int64Number = DB_UNBOX_INT64(monoObject);
+		return _int64Number;
 	}
     - (void)setInt64Number:(int64_t)value
 	{
+		_int64Number = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Int64Number" valueObject:monoObject];          
 	}
 
-	// Managed type : Dubrovnik.UnitTests.IntEnum
+	// Managed property name : IntEnumeration
+	// Managed property type : Dubrovnik.UnitTests.IntEnum
+    @synthesize intEnumeration = _intEnumeration;
     - (Dubrovnik_UnitTests_IntEnum)intEnumeration
     {
-		MonoObject * monoObject = [self getMonoProperty:"IntEnumeration"];
-		Dubrovnik_UnitTests_IntEnum value = DB_UNBOX_INT32(monoObject);
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"IntEnumeration"];
+		_intEnumeration = DB_UNBOX_INT32(monoObject);
+		return _intEnumeration;
 	}
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value
 	{
+		_intEnumeration = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IntEnumeration" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.List`1<System.Int32>
+	// Managed property name : IntList
+	// Managed property type : System.Collections.Generic.List`1<System.Int32>
+    @synthesize intList = _intList;
     - (DBSystem_Collections_Generic_ListA1 *)intList
     {
-		MonoObject * monoObject = [self getMonoProperty:"IntList"];
-		DBSystem_Collections_Generic_ListA1 * value = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
-		value.monoGenericTypeArgumentNames = @"int32_t";
-		[self setCacheValue:value forMonoProperty:"IntList"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"IntList"];
+		if ([self object:_intList isEqualToMonoObject:monoObject]) return _intList;					
+		_intList = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
+		_intList.monoGenericTypeArgumentNames = @"int32_t";
+		return _intList;
 	}
     - (void)setIntList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
+		_intList = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"IntList" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"IntList"];
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : IntNumber
+	// Managed property type : System.Int32
+    @synthesize intNumber = _intNumber;
     - (int32_t)intNumber
     {
-		MonoObject * monoObject = [self getMonoProperty:"IntNumber"];
-		int32_t value = DB_UNBOX_INT32(monoObject);
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"IntNumber"];
+		_intNumber = DB_UNBOX_INT32(monoObject);
+		return _intNumber;
 	}
     - (void)setIntNumber:(int32_t)value
 	{
+		_intNumber = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IntNumber" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
+	// Managed property name : IntObjectDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
+    @synthesize intObjectDictionary = _intObjectDictionary;
     - (DBSystem_Collections_Generic_DictionaryA2 *)intObjectDictionary
     {
-		MonoObject * monoObject = [self getMonoProperty:"IntObjectDictionary"];
-		DBSystem_Collections_Generic_DictionaryA2 * value = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
-		value.monoGenericTypeArgumentNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
-		[self setCacheValue:value forMonoProperty:"IntObjectDictionary"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"IntObjectDictionary"];
+		if ([self object:_intObjectDictionary isEqualToMonoObject:monoObject]) return _intObjectDictionary;					
+		_intObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
+		_intObjectDictionary.monoGenericTypeArgumentNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
+		return _intObjectDictionary;
 	}
     - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
+		_intObjectDictionary = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"IntObjectDictionary" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"IntObjectDictionary"];
 	}
 
-	// Managed type : Dubrovnik.UnitTests.LongEnum
+	// Managed property name : LongEnumeration
+	// Managed property type : Dubrovnik.UnitTests.LongEnum
+    @synthesize longEnumeration = _longEnumeration;
     - (Dubrovnik_UnitTests_LongEnum)longEnumeration
     {
-		MonoObject * monoObject = [self getMonoProperty:"LongEnumeration"];
-		Dubrovnik_UnitTests_LongEnum value = DB_UNBOX_INT64(monoObject);
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"LongEnumeration"];
+		_longEnumeration = DB_UNBOX_INT64(monoObject);
+		return _longEnumeration;
 	}
     - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value
 	{
+		_longEnumeration = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"LongEnumeration" valueObject:monoObject];          
 	}
 
-	// Managed type : Dubrovnik.UnitTests.IMinimalReferenceObject
+	// Managed property name : MinimalReferenceObject
+	// Managed property type : Dubrovnik.UnitTests.IMinimalReferenceObject
+    @synthesize minimalReferenceObject = _minimalReferenceObject;
     - (Dubrovnik_UnitTests_IMinimalReferenceObject *)minimalReferenceObject
     {
-		MonoObject * monoObject = [self getMonoProperty:"MinimalReferenceObject"];
-		Dubrovnik_UnitTests_IMinimalReferenceObject * value = [Dubrovnik_UnitTests_IMinimalReferenceObject representationWithMonoObject:monoObject];
-		[self setCacheValue:value forMonoProperty:"MinimalReferenceObject"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"MinimalReferenceObject"];
+		if ([self object:_minimalReferenceObject isEqualToMonoObject:monoObject]) return _minimalReferenceObject;					
+		_minimalReferenceObject = [Dubrovnik_UnitTests_IMinimalReferenceObject representationWithMonoObject:monoObject];
+		return _minimalReferenceObject;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		[self setCacheValue:value forMonoProperty:"Name"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _name;
 	}
     - (void)setName:(NSString *)value
 	{
+		_name = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"Name"];
 	}
 
-	// Managed type : System.IntPtr
+	// Managed property name : Pointer
+	// Managed property type : System.IntPtr
+    @synthesize pointer = _pointer;
     - (void *)pointer
     {
-		MonoObject * monoObject = [self getMonoProperty:"Pointer"];
-		void * value = DB_UNBOX_PTR(monoObject);
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Pointer"];
+		_pointer = DB_UNBOX_PTR(monoObject);
+		return _pointer;
 	}
     - (void)setPointer:(void *)value
 	{
+		_pointer = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Pointer" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
+	// Managed property name : ReferenceObjectList
+	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
+    @synthesize referenceObjectList = _referenceObjectList;
     - (DBSystem_Collections_Generic_ListA1 *)referenceObjectList
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReferenceObjectList"];
-		DBSystem_Collections_Generic_ListA1 * value = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
-		value.monoGenericTypeArgumentNames = @"Dubrovnik_UnitTests_ReferenceObject";
-		[self setCacheValue:value forMonoProperty:"ReferenceObjectList"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectList"];
+		if ([self object:_referenceObjectList isEqualToMonoObject:monoObject]) return _referenceObjectList;					
+		_referenceObjectList = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
+		_referenceObjectList.monoGenericTypeArgumentNames = @"Dubrovnik_UnitTests_ReferenceObject";
+		return _referenceObjectList;
 	}
     - (void)setReferenceObjectList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
+		_referenceObjectList = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"ReferenceObjectList" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"ReferenceObjectList"];
 	}
 
-	// Managed type : Dubrovnik.UnitTests.ReferenceObject
+	// Managed property name : ReferenceObjectRelative
+	// Managed property type : Dubrovnik.UnitTests.ReferenceObject
+    @synthesize referenceObjectRelative = _referenceObjectRelative;
     - (Dubrovnik_UnitTests_ReferenceObject *)referenceObjectRelative
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
-		Dubrovnik_UnitTests_ReferenceObject * value = [Dubrovnik_UnitTests_ReferenceObject representationWithMonoObject:monoObject];
-		[self setCacheValue:value forMonoProperty:"ReferenceObjectRelative"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
+		if ([self object:_referenceObjectRelative isEqualToMonoObject:monoObject]) return _referenceObjectRelative;					
+		_referenceObjectRelative = [Dubrovnik_UnitTests_ReferenceObject representationWithMonoObject:monoObject];
+		return _referenceObjectRelative;
 	}
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value
 	{
+		_referenceObjectRelative = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"ReferenceObjectRelative" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"ReferenceObjectRelative"];
 	}
 
-	// Managed type : System.String[]
+	// Managed property name : StringArray
+	// Managed property type : System.String[]
+    @synthesize stringArray = _stringArray;
     - (DBSystem_Array *)stringArray
     {
-		MonoObject * monoObject = [self getMonoProperty:"StringArray"];
-		DBSystem_Array * value = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"StringArray"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"StringArray"];
+		if ([self object:_stringArray isEqualToMonoObject:monoObject]) return _stringArray;					
+		_stringArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _stringArray;
 	}
     - (void)setStringArray:(DBSystem_Array *)value
 	{
+		_stringArray = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringArray" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"StringArray"];
 	}
 
-	// Managed type : System.Collections.ArrayList
+	// Managed property name : StringArrayList
+	// Managed property type : System.Collections.ArrayList
+    @synthesize stringArrayList = _stringArrayList;
     - (DBSystem_Collections_ArrayList *)stringArrayList
     {
-		MonoObject * monoObject = [self getMonoProperty:"StringArrayList"];
-		DBSystem_Collections_ArrayList * value = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
-		[self setCacheValue:value forMonoProperty:"StringArrayList"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"StringArrayList"];
+		if ([self object:_stringArrayList isEqualToMonoObject:monoObject]) return _stringArrayList;					
+		_stringArrayList = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return _stringArrayList;
 	}
     - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value
 	{
+		_stringArrayList = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringArrayList" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"StringArrayList"];
 	}
 
-	// Managed type : System.Collections.Generic.List`1<System.String>
+	// Managed property name : StringList
+	// Managed property type : System.Collections.Generic.List`1<System.String>
+    @synthesize stringList = _stringList;
     - (DBSystem_Collections_Generic_ListA1 *)stringList
     {
-		MonoObject * monoObject = [self getMonoProperty:"StringList"];
-		DBSystem_Collections_Generic_ListA1 * value = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
-		value.monoGenericTypeArgumentNames = @"NSString";
-		[self setCacheValue:value forMonoProperty:"StringList"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"StringList"];
+		if ([self object:_stringList isEqualToMonoObject:monoObject]) return _stringList;					
+		_stringList = [DBSystem_Collections_Generic_ListA1 representationWithMonoObject:monoObject];
+		_stringList.monoGenericTypeArgumentNames = @"NSString";
+		return _stringList;
 	}
     - (void)setStringList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
+		_stringList = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringList" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"StringList"];
 	}
 
-	// Managed type : System.String
+	// Managed property name : StringProperty
+	// Managed property type : System.String
+    @synthesize stringProperty = _stringProperty;
     - (NSString *)stringProperty
     {
-		MonoObject * monoObject = [self getMonoProperty:"StringProperty"];
-		NSString * value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		[self setCacheValue:value forMonoProperty:"StringProperty"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
+		if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;					
+		_stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _stringProperty;
 	}
     - (void)setStringProperty:(NSString *)value
 	{
+		_stringProperty = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"StringProperty"];
 	}
 
-	// Managed type : System.Collections.Generic.Dictionary`2<System.String, System.String>
+	// Managed property name : StringStringDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
+    @synthesize stringStringDictionary = _stringStringDictionary;
     - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
     {
-		MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
-		DBSystem_Collections_Generic_DictionaryA2 * value = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
-		value.monoGenericTypeArgumentNames = @"NSString,NSString";
-		[self setCacheValue:value forMonoProperty:"StringStringDictionary"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"StringStringDictionary"];
+		if ([self object:_stringStringDictionary isEqualToMonoObject:monoObject]) return _stringStringDictionary;					
+		_stringStringDictionary = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
+		_stringStringDictionary.monoGenericTypeArgumentNames = @"NSString,NSString";
+		return _stringStringDictionary;
 	}
     - (void)setStringStringDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
+		_stringStringDictionary = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringStringDictionary" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"StringStringDictionary"];
 	}
 
 #pragma mark -

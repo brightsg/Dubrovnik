@@ -132,7 +132,7 @@ namespace Dubrovnik
             WriteFields(@class.Fields);
             WriteProperties(@class.Properties);
             WriteMethods(@class.Methods);
-            WriteClassEnd();
+            WriteClassEnd(@class);
         }
 
         //
@@ -145,7 +145,7 @@ namespace Dubrovnik
             WriteFields(@struct.Fields);
             WriteProperties(@struct.Properties);
             WriteMethods(@struct.Methods);
-            WriteClassEnd();
+            WriteClassEnd(@struct);
         }
 
         //
@@ -156,7 +156,7 @@ namespace Dubrovnik
             WriteClassStart(@interface, "interface");
             WriteProperties(@interface.Properties);
             WriteMethods(@interface.Methods);
-            WriteClassEnd();
+            WriteClassEnd(@interface);
         }
 
         //
@@ -401,16 +401,16 @@ namespace Dubrovnik
         //
         // ObjCNonAssociatedTypeIsNSObject
         //
-        public static bool ObjCNonAssociatedTypeIsNSObject(CodeFacet facet)
-        {
+        //public static bool ObjCNonAssociatedTypeIsNSObject(CodeFacet facet)
+        //{
             // This assessment is only valid for non associated types.
             // ie: System.String will fail this test even though its ObjC rep is NSString.
             // Only call this method if associated type info cannot be found.
             // TODO: determine if association can be tested for in this method.
             // Logic :
             // Managed structs are value types, ObjC rep is an NSObject
-            return (!facet.IsValueType || facet.IsStruct);
-        }
+          //  return (!facet.IsValueType || facet.IsStruct);
+        //}
 
         //
         // ObjCTypeNameFromMonoTypeName
@@ -445,7 +445,7 @@ namespace Dubrovnik
                 decl = ObjCTypeFromMonoType(monoType);
 
                 // if ObjC rep is NSObject or pointer thern append deref operator.
-                if (ObjCNonAssociatedTypeIsNSObject(monoFacet) || monoFacet.IsPointer) {
+                if (ObjCRepresentationIsObject(monoFacet) || monoFacet.IsPointer) {
                     decl += " *";
                 }
             }
@@ -673,6 +673,7 @@ namespace Dubrovnik
         {
             string exp = null;
 
+            // extract type info in a format suitable for association
             string monoType = MonoTypeForAssociation(monoFacet);
 
             // if type is an enum then use its underlying type
@@ -681,6 +682,7 @@ namespace Dubrovnik
                 monoType = monoFacet.UnderlyingType;
             }
 
+            // retrieve an ObjCTypeAssociation for the given monoType
             string key = ObjCTypeAssociation.UniqueTypeName(objCTypeDecl, monoType);
             if (MonoTypeAssociations.ContainsKey(key))
             {
@@ -711,11 +713,11 @@ namespace Dubrovnik
                 }
            }
 
-            // generate default object representation
+            // no ObjC expression defined.
+            // generate default object representation expression.
             if (exp == null)
             {
-                // NOTE: System.Nullable<T> is a generic nullable. 
-                if ((monoFacet.IsValueType || monoFacet.IsPointer) && !monoFacet.IsGenericType)
+                if (ObjCRepresentationIsPrimitive(monoFacet))
                 {
                     exp = string.Format("DB_VALUE({0})", objCVarName);
                 }
@@ -725,6 +727,51 @@ namespace Dubrovnik
                 }
             }
             return exp;
+        }
+
+        //
+        // ObjCRepresentationIsPrimitive
+        //
+        // Returns true if ObjC repesentation of facet is a primitive.
+        // Returns false if ObjC repesentation of facet is an object.
+        //
+        public bool ObjCRepresentationIsPrimitive(CodeFacet facet)
+        {
+            // if a type association exits then query it
+            ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
+            if (objCTypeAssociate != null)
+            {
+                if (objCTypeAssociate.IsNSObject)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            // Order is important here
+            if (facet.IsGenericType) return false;
+            if (facet.IsStruct) return false;
+
+            if (facet.IsValueType || facet.IsPointer)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        //
+        // ObjCRepresentationIsObject
+        //
+        // Returns true if ObjC repesentation of facet is an object.
+        // Returns false if ObjC repesentation of facet is a primitive.
+        //
+        public bool ObjCRepresentationIsObject(CodeFacet facet)
+        {
+            return !ObjCRepresentationIsPrimitive(facet);
         }
 
         //

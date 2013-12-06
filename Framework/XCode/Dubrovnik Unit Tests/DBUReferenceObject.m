@@ -88,17 +88,28 @@
 #pragma mark -
 #pragma mark Mono properties
 
+// If the ivar argument maintains a reference to the monoObject argument the return the
+#define IF_IVAR_EQ_MONO_RETURN(__ivar, __monoObject) if ([self object:__ivar isEqualToMonoObject:__monoObject]) return __ivar;
+
+// Managed type : System.String
+@synthesize stringProperty = _stringProperty;
 - (NSString *)stringProperty
 {
-    MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
-    NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-    
-    return value;
+    MonoObject * monoObject = [self getMonoProperty:"StringProperty"];
+    if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;
+    _stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+    return _stringProperty;
 }
+
 - (void)setStringProperty:(NSString *)value
 {
-    [self setMonoProperty:"StringProperty" valueObject:[value monoValue]];
+    _stringProperty = value;
+    
+    MonoObject *monoObject = [value monoValue];
+    [self setMonoProperty:"StringProperty" valueObject:monoObject];
 }
+
+
 
 - (NSDate *)date
 {

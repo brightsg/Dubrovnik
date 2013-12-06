@@ -21,19 +21,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		[self setCacheValue:value forMonoProperty:"Name"];
-		return value;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _name;
 	}
     - (void)setName:(NSString *)value
 	{
+		_name = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
-		[self setCacheValue:value forMonoProperty:"Name"];
 	}
 @end
 //--Dubrovnik.CodeGenerator

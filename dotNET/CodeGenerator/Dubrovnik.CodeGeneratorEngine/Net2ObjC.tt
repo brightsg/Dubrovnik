@@ -126,7 +126,8 @@ public void WriteInterfaceFilePreliminaries()
 #endif
 
 <#+
-	if ( AssemblyFacet.References.Count() > 0) {
+	if ( AssemblyFacet.References.Count() > 0) 
+	{
 #>
 
 //
@@ -155,12 +156,14 @@ public void WriteInterfaceFilePreliminaries()
 		facets.AddRange(@namespace.Classes);
 		facets.AddRange(@namespace.Interfaces);
 		facets.AddRange(@namespace.Structs);
-		if (ImplementEnumerationsAsClasses) {
+		if (ImplementEnumerationsAsClasses) 
+		{
 			facets.AddRange(@namespace.Enumerations);
         }
 
 		// write class predeclarations 
-		if (facets.Count() > 0 && !commentOutput) {
+		if (facets.Count() > 0 && !commentOutput) 
+		{
 #>
 
 //
@@ -232,16 +235,7 @@ public void WriteClassStart(CodeFacet facet, string module)
 	WriteClassSetup(facet);	
 }
 
-//
-// WriteClassEnd
-//
-public void WriteClassEnd()
-{
-#>
-@end
-<#+
-	WriteModuleFooter();
-}
+
 //
 // WriteClassSetup
 // 
@@ -272,10 +266,36 @@ public void WriteClassSetup(CodeFacet facet)
 	}
 <#+
     }
-
 }
 
+//
+// WriteClassEnd
+//
+public void WriteClassEnd(CodeFacet facet)
+{
+	WriteClassTeardown(facet);	
+#>
+@end
+<#+
+	WriteModuleFooter();
+}
 
+//
+// WriteClassTeardown
+// 
+public void WriteClassTeardown(CodeFacet facet)
+{
+	if (OutputFileType == OutputType.Implementation) 
+	{
+	WritePragmaMark("Teardown");
+#warning dealloc static objects here
+#>
+	- (void)dealloc<#=LT#>
+	{
+	}
+<#+
+    }
+}
 //
 // WriteEnumeration
 //
@@ -289,13 +309,15 @@ public void WriteEnumeration(EnumerationFacet enumeration)
 	// it remains to be seen whether this is necessary.
 	if (OutputFileType == OutputType.Interface) 
 	{
-		if (!ImplementEnumerationsAsClasses) {
+		if (!ImplementEnumerationsAsClasses) 
+		{
 
 			WriteModuleBanner(enumeration, "enumeration");
 #>
 typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 <#+
-			foreach (FieldFacet field in enumeration.Fields) {
+			foreach (FieldFacet field in enumeration.Fields) 
+			{
 				string objCFieldName = ObjCNameFromMonoName(field.Name);
 #>
 	<#=objCType#>_<#=objCFieldName#> = <#=field.ConstantValue#>,
@@ -305,7 +327,9 @@ typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 };
 <#+
 			WriteModuleFooter();
-		}	else {
+		}	
+		else 
+		{
 			throw new Exception("Enumerations as classes not implemented");
 		}
     } 
@@ -314,14 +338,49 @@ typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 
 //
 // WriteFacetAsAccessor
-//
+// 
 public void WriteFacetAsAccessor(CodeFacet facet)
 {
+	// define getters and setters
 	string accessorName = facet.Name;
+	string accessorDescription = facet is PropertyFacet ? "property" : "field";
 	string getterName = accessorName.FirstCharacterToLower();
 	string setterName = "set" + accessorName.FirstCharacterToUpper();
 	string accessorType = facet.Type;
 	string objCTypeDecl = ObjCTypeDeclFromMonoFacet(facet);
+	bool isObjectProperty = ObjCRepresentationIsObject(facet);
+	string monoObjectPtr = "MonoObject *";
+
+	// property storage and evaluation
+	string propertyAttributes = "";
+	string propertyStorage = "_" + getterName;
+	if (facet.IsStatic) propertyStorage = "m" + propertyStorage;
+	string doPropertyEqualityTest = "";
+	if (isObjectProperty) 
+	{
+		// test if mono object pointer and property storage reference the same managed object
+		doPropertyEqualityTest = string.Format("if ([self object:{0} isEqualToMonoObject:{1}]) return {0};", propertyStorage, MonoVariableName);
+    }
+
+	// field access
+	string fieldAccessExpression ="", fieldAccessTypeDecl = "";
+
+	// instance property.
+	if (!facet.IsStatic) 
+	{
+		string attributes = "nonatomic";
+
+		// object property attributes
+		if (ObjCRepresentationIsObject(facet)) 
+		{
+			attributes += ", strong";
+		}
+		if (!facet.IsWritable) 
+		{
+			attributes += ", readonly";
+		} 
+		propertyAttributes =  String.Format("({0}) ", attributes);
+    }
 
 	// create Obj-C representation of mono object
 	string monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
@@ -330,46 +389,106 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
 	string getFormat, setFormat, cacheFormat = null;
-	if (facet is PropertyFacet) {
-		if (!facet.IsStatic) {
+
+	// property
+	if (facet is PropertyFacet) 
+	{
+		if (!facet.IsStatic)
+		{
 			getFormat = "[self getMonoProperty:\"{0}\"]";
 			setFormat = "[self setMonoProperty:\"{0}\" valueObject:{1}]";
-			// todo: make this a facet property
-			if (!((facet.IsValueType || facet.IsPointer) && !facet.IsGenericType)) {
-				cacheFormat = "[self setCacheValue:value forMonoProperty:\"{0}\"]";
-            }
-		} else {
+		} 
+		else 
+		{
 			getFormat = "[[self class] getMonoClassProperty:\"{0}\"]";
 			setFormat = "[[self class] setMonoClassProperty:\"{0}\" valueObject:{1}]";
         }
-	} else if (facet is FieldFacet) {
+
+	} 
+	// field
+	else if (facet is FieldFacet) 
+	{
 		// note different field getter signature.
 		// valueObject is a pointer to storage for both value and reference types.
-		if (!facet.IsStatic) {
+		if (!facet.IsStatic) 
+		{
 			getFormat = "[self getMonoField:\"{0}\" valuePtr:DB_PTR({1})]";
 			setFormat = "[self setMonoField:\"{0}\" valueObject:{1}]";
-		} else {
+		} 
+		else 
+		{
 			getFormat = "[[self class] getMonoClassField:\"{0}\" valuePtr:DB_PTR({1})]";
 			setFormat = "[[self class] setMonoClassField:\"{0}\" valueObject:{1}]";
         }
-    } else {
+
+		// field access
+		if (isObjectProperty) 
+		{
+			fieldAccessTypeDecl = monoObjectPtr;
+			fieldAccessExpression = monoValueToObjC;
+		} 
+		else 
+		{
+			fieldAccessTypeDecl = objCTypeDecl;
+			fieldAccessExpression = MonoVariableName;
+        }
+
+    } 
+	// invalid facet
+	else 
+	{
 		throw new Exception("Cannot write facet as accessor");
     }
 
 	string getExpression = String.Format(getFormat, accessorName, MonoVariableName);
 	string setExpression = String.Format(setFormat, accessorName, MonoVariableName);
-	string cacheExpression = null;
-	if (cacheFormat != null) {
-		cacheExpression = String.Format(cacheFormat, accessorName);
+
+	// Info comment
+#>
+
+	// Managed <#=accessorDescription#> name : <#=accessorName#>
+	// Managed <#=accessorDescription#> type : <#=WriteFacetTypeInfo(facet)#>
+<#+	
+	// Interface 
+	if (OutputFileType == OutputType.Interface) 
+	{
+
+		// instance property
+		if (!facet.IsStatic) 
+		{
+#>
+    @property <#=propertyAttributes#><#=objCTypeDecl#> <#=getterName#>;
+<#+	  
+			return;
+        }    
+	} 
+	else 
+	{
+		// implementation
+
+		// instance property
+		if (!facet.IsStatic) 
+		{
+			// synthesize ivar property storage
+#>
+    @synthesize <#=getterName#> = <#=propertyStorage#>;
+<#+		
+		} 
+		else 
+		{
+			// declare static property storage
+#>
+    static <#=objCTypeDecl#> <#=propertyStorage#>;
+<#+      
+		}
     }
 
 	//
-	// write getter
+	// write getter method
 	//
-	if (facet.IsReadable) {
+	if (facet.IsReadable) 
+	{
 #>
-
-	// Managed type : <#=WriteFacetTypeInfo(facet)#>
     <#=objCMethodType#> (<#=objCTypeDecl#>)<#=getterName#><#=LT#>
 <#+		
 		if (OutputFileType == OutputType.Implementation) 
@@ -377,64 +496,61 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 #>
     {
 <#+
-			if (facet is PropertyFacet) {
+			if (facet is PropertyFacet) 
+			{
 #>
-		MonoObject * <#=MonoVariableName#> = <#=getExpression#>;
-		<#=objCTypeDecl#> value = <#=monoValueToObjC#>;
-<#+		
-				WriteFacetGenericsToObjCResult(facet);
-				
-				if (cacheExpression != null) 
+		<#=monoObjectPtr#><#=MonoVariableName#> = <#=getExpression#>;
+<#+	
+				if (isObjectProperty)
 				{
 #>
-		<#=cacheExpression#>;
-<#+
-				} // if cacheExpression
+		<#=doPropertyEqualityTest#>					
+<#+	
+				}
 #>
-		return value;
+		<#=propertyStorage#> = <#=monoValueToObjC#>;
+<#+		
+				WriteFacetGenericsToObjCResult(propertyStorage, facet);
+#>
+		return <#=propertyStorage#>;
 	}
 <#+	
-            } else if (facet is FieldFacet) {
-
-				string returnExpression;
-				string valueTypeDecl = objCTypeDecl;
-				if (objCTypeAssociate == null || objCTypeAssociate.IsNSObject) {
-					returnExpression = monoValueToObjC;
-					valueTypeDecl = "MonoObject *";
-				} else {
-					returnExpression = MonoVariableName;
-                }
+            } 
+			else if (facet is FieldFacet) 
+			{
  #>
-		<#=valueTypeDecl#> <#=MonoVariableName#>;
+		<#=fieldAccessTypeDecl#> <#=MonoVariableName#>;
 		<#=getExpression#>;
-		return <#=returnExpression#>;
+<#+	
+				if (isObjectProperty)
+				{
+#>
+		<#=doPropertyEqualityTest#>					
+<#+	
+				}
+#>
+		<#=propertyStorage#> = <#=fieldAccessExpression#>;
+		return <#=propertyStorage#>;
 	}
 <#+			}
 		} // if Implementation
     } // if IsReadable
 
 	//
-	// write setter
+	// write setter method
 	//
-	if (facet.IsWritable) {
-
+	if (facet.IsWritable) 
+	{
 #>
-    <#=objCMethodType#> (void)<#=setterName#>:(<#=objCTypeDecl#>)value<#=LT#>
+    <#=objCMethodType#> (void)<#=setterName#>:(<#=objCTypeDecl#>)<#=ObjCVariableName#><#=LT#>
 <#+
 		if (OutputFileType == OutputType.Implementation) 
 		{
 #>
 	{
-		MonoObject *<#=MonoVariableName#> = <#=objCValueToMono#>;
+		<#=propertyStorage#> = <#=ObjCVariableName#>;
+		<#=monoObjectPtr#><#=MonoVariableName#> = <#=objCValueToMono#>;
 		<#=setExpression#>;          
-<#+
-			if (cacheExpression != null) 
-			{
-#>
-		<#=cacheExpression#>;
-<#+
-            } // if cacheExpression
-#>
 	}
 <#+
         }  // if Implementation
@@ -444,14 +560,15 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 //
 // WriteFacetGenericsToObjCResult
 //
-public void WriteFacetGenericsToObjCResult(CodeFacet facet)
+public void WriteFacetGenericsToObjCResult(string propertyStorage, CodeFacet facet)
 {
 
 #warning All code paths that return results need this processing
-	if (facet.IsConstructedGenericType) {
+	if (facet.IsConstructedGenericType)
+	{
 		string objCGenericArgumentTypeNames = ObjCGenericArgumentTypeNamesStringFromMonoFacet(facet);
 #>
-		value.monoGenericTypeArgumentNames = @"<#=objCGenericArgumentTypeNames#>";
+		<#=propertyStorage#>.monoGenericTypeArgumentNames = @"<#=objCGenericArgumentTypeNames#>";
 <#+
     }
 }
@@ -470,7 +587,8 @@ public void WriteFacetAsMethod(MethodFacet facet)
 
 	// if the method is a duplicate (ie: name, parameter types, return type) 
 	// then we have no option but to omit it
-	if (facet.IsDuplicateSignatureMethod) {
+	if (facet.IsDuplicateSignatureMethod) 
+	{
 		this.Warning("Duplicate method omitted : " + facet.Name);
 		return;
 	}
@@ -479,7 +597,8 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	// return type then omit it.
 	// This can occur with explicit operators.
 	// At present it is unknown if these can be called via the embedded API.
-	if (facet.IsOverloadedSignatureMethod) {
+	if (facet.IsOverloadedSignatureMethod) 
+	{
 		this.Warning("Overloaded signature method omitted : " + facet.Name);
 		return;
     }
@@ -493,22 +612,29 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	string monoValueToObjC = null;
 
 	// instance method requires a name and type
-	if (!isConstructorMethod) {
+	if (!isConstructorMethod) 
+	{
 
 		objCMethodName = monoMethodName.FirstCharacterToLower();
 
 		// create Obj-C representation of mono object
 		monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
 
-		if (!facet.IsStatic) {
+		if (!facet.IsStatic) 
+		{
 			objCMethodFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
-		} else {
+		} 
+		else 
+		{
 			objCMethodFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
 		}
-	} else {
+	}
+	 else 
+	{
 
 		// this looks like a default constructor
-		if (facet.Parameters.Count() == 0) {
+		if (facet.Parameters.Count() == 0) 
+		{
 			return;
         }
 
@@ -523,12 +649,14 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	StringBuilder objCParameterBuilder = new StringBuilder();
 	StringBuilder invokeArgsBuilder = new StringBuilder();
 	int idx = 0;
-	foreach (ParameterFacet parameter in facet.Parameters) {
+	foreach (ParameterFacet parameter in facet.Parameters) 
+	{
 
 		// if the mono parameters is passed by ref then strip
 		// the suffix to enable type association
 		string monoParameterType = parameter.Type;
-		if (parameter.IsByRef || parameter.IsPointer) {
+		if (parameter.IsByRef || parameter.IsPointer) 
+		{
 			monoParameterType = parameter.ElementType;
         }
 
@@ -544,32 +672,39 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		//
 		ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(parameter);
 		MonoTypeAssociation monoTypeAssociate = null;
-		if (objCTypeAssociate != null) {
+		if (objCTypeAssociate != null) 
+		{
 			//
 			// If the parameter is an array, say Int64[], then its Obj-C rep will be System.Array
 			// The mono type association however must reflect the represented type, Int64.
 			//
-			if (parameter.IsArray) {
+			if (parameter.IsArray) 
+			{
 				ObjCTypeAssociation objCRepresentedTypeAssociate = ObjCTypeAssociate(parameter.ElementType);
-				if (objCRepresentedTypeAssociate != null) {
+				if (objCRepresentedTypeAssociate != null) 
+				{
 					monoTypeAssociate = objCRepresentedTypeAssociate.MonoTypeAssociate;
                 }
 			}
 			
-			if (monoTypeAssociate == null) {
+			if (monoTypeAssociate == null) 
+			{
 				monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
 			}
 
 			objCParamTypeDecl =  objCTypeAssociate.ObjCTypeDecl;
 			objCParameterIsObject = objCTypeAssociate.IsNSObject;
-		} else {
+		} 
+		else 
+		{
 			//
 			// Generate default objC representations
 			//
 			objCParamTypeDecl = ObjCTypeDeclFromMonoFacet(parameter);
-			objCParameterIsObject = ObjCNonAssociatedTypeIsNSObject(parameter);
+			objCParameterIsObject = ObjCRepresentationIsObject(parameter);
         }
-		if (parameter.IsByRef || parameter.IsPointer) {
+		if (parameter.IsByRef || parameter.IsPointer) 
+		{
 			objCParamTypeDecl += "*";	// add additional indirection
         }
 
@@ -585,17 +720,20 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		if (monoTypeAssociate != null) 
 		{
 			 monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
-			if (parameter.IsArray)  {
+			if (parameter.IsArray)  
+			{
 				monoMethodParameterType += "[]";
             }
         }
 
 		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
 		monoSigBuilder.Append(monoMethodParameterType);
-		if (parameter.IsPointer) {
+		if (parameter.IsPointer) 
+		{
 			monoSigBuilder.Append("*");
         }
-		if (parameter.IsByRef) {
+		if (parameter.IsByRef) 
+		{
 			monoSigBuilder.Append("&");	// the signature needs to express by ref
         }
 
@@ -616,27 +754,34 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// (the managed method name, parameter count and parameter names all being equal)
 		// then the Obj-C interleaved parameters will include type info.
 		string objCParamOverloadSuffix = "";
-		if (facet.IsOverloadedParameterMethod) {
+		if (facet.IsOverloadedParameterMethod) 
+		{
 			// We adopt a minimal as opposed to a full type repesentation here in order
 			// to minimize the parameter length.
 			// Time will tell how it flies.
 			objCParamOverloadSuffix = ObjCMinimalNameFromMonoName(monoMethodParameterType);
         }
-		if (parameter.IsByRef) {
+		if (parameter.IsByRef) 
+		{
 			objCParamOverloadSuffix += "Ref";
         }
-		if (objCParamOverloadSuffix.Length > 0) {
+		if (objCParamOverloadSuffix.Length > 0) 
+		{
 			objCParamName += objCParamOverloadSuffix.FirstCharacterToUpper();
         }
 
 		// append the complete interleaved parameter expression
-		if (idx == 0) {
-			if (AppendFirstArgSignatureToMethodName) {
+		if (idx == 0) 
+		{
+			if (AppendFirstArgSignatureToMethodName) 
+			{
 				// the leading underscore helps identify the preceding characters as the managed method name
 				objCMethodName += "_with";
 				objCParameterBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
             } 
-        } else {
+        } 
+		else 
+		{
 			objCParameterBuilder.AppendFormat(" {0}", objCParamName.FirstCharacterToLower());
         }
 		objCParameterBuilder.AppendFormat(":({0})p{1}", objCParamTypeDecl, idx + 1);
@@ -647,12 +792,18 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		//
 		string argFormat = null;
 		if (idx > 0) invokeArgsBuilder.Append(", ");
-		if (objCParameterIsObject) {
+		if (objCParameterIsObject) 
+		{
 			argFormat = "[p{0} monoValue]";
-        } else {
-			if (parameter.IsByRef || parameter.IsPointer) {
+        } 
+		else 
+		{
+			if (parameter.IsByRef || parameter.IsPointer) 
+			{
 				argFormat = "p{0}";	// just pass the pointer
-            } else {
+            } 
+			else 
+			{
 				argFormat = "DB_VALUE(p{0})";	// DB_VALUE equates to &
             }
 		}
@@ -665,7 +816,8 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	string monoMethodSig = monoSigBuilder.ToString();
 	string objCMethodParameters = objCParameterBuilder.ToString();
 	string invokeArgs = facet.Parameters.Count().ToString();
-	if (facet.Parameters.Count() > 0) {
+	if (facet.Parameters.Count() > 0) 
+	{
 		invokeArgs += ", " + invokeArgsBuilder.ToString();
     }
 
@@ -695,15 +847,20 @@ public void WriteFacetAsMethod(MethodFacet facet)
 #>
     {
 <#+
-		if (objCTypeDecl == "void") {
+		if (objCTypeDecl == "void") 
+		{
 #>
 		<#=getExpression#>;
 <#+
-		} else if (isConstructorMethod) {
+		} 
+		else if (isConstructorMethod) 
+		{
 #>
 		return <#=getExpression#>;
 <#+
-		} else {
+		} 
+		else 
+		{
 			if (String.IsNullOrEmpty(monoValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
 #>
 		MonoObject *<#=MonoVariableName#> = <#=getExpression#>;
