@@ -95,6 +95,10 @@ public void WriteModuleBanner(CodeFacet facet, string module)
 // Managed <#=module#> : <#=facet.Name#>
 //
 <#+	
+	if (OutputFileType == OutputType.Implementation)
+    {
+		WriteModuleFeatureRequirements();
+    }
 }
 
 //
@@ -217,6 +221,22 @@ public void WritePragmaMark(string info)
 //
 public void WriteImplementationFilePreliminaries()
 {
+	WriteModuleFeatureRequirements();
+}
+
+//
+// WriteModuleFeatureRequirements
+//
+public void WriteModuleFeatureRequirements()
+{
+#>
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
+<#+
 }
 
 //
@@ -224,6 +244,9 @@ public void WriteImplementationFilePreliminaries()
 //
 public void WriteClassStart(CodeFacet facet, string module)
 {
+	// Allocate property name list
+	this.StaticObjectPropertyStorageNames = new List<string>();
+
 	// prefix defines interface or implementation
 	string classPrefix = OutputDelarationPrefix();
 	string superClass = OutputDelarationSuffix(facet);
@@ -288,12 +311,21 @@ public void WriteClassTeardown(CodeFacet facet)
 	if (OutputFileType == OutputType.Implementation) 
 	{
 	WritePragmaMark("Teardown");
-#warning dealloc static objects here
 #>
-	- (void)dealloc<#=LT#>
+	- (void)dealloc
 	{
+<#+
+		foreach (string staticObjectPropertyName in StaticObjectPropertyStorageNames)
+        {
+#>
+		<#=staticObjectPropertyName#> = nil;
+<#+
+        }
+#>
 	}
 <#+
+
+	this.StaticObjectPropertyStorageNames = null;
     }
 }
 //
@@ -354,7 +386,14 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	// property storage and evaluation
 	string propertyAttributes = "";
 	string propertyStorage = "_" + getterName;
-	if (facet.IsStatic) propertyStorage = "m" + propertyStorage;
+	if (facet.IsStatic) 
+	{
+		propertyStorage = "m" + propertyStorage;
+		if (isObjectProperty) 
+        {
+			this.StaticObjectPropertyStorageNames.Add(propertyStorage);
+        }
+    }
 	string doPropertyEqualityTest = "";
 	if (isObjectProperty) 
 	{
@@ -388,7 +427,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
 
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
-	string getFormat, setFormat, cacheFormat = null;
+	string getFormat, setFormat;
 
 	// property
 	if (facet is PropertyFacet) 

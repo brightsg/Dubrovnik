@@ -3,6 +3,12 @@
 //
 // Managed class : ReferenceObjectExtensions
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions
 
 #pragma mark -
@@ -47,5 +53,11 @@
 		MonoObject *monoObject = [self invokeMonoClassMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

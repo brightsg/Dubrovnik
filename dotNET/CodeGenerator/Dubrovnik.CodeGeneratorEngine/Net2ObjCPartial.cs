@@ -21,7 +21,7 @@ namespace Dubrovnik
         public bool ImplementEnumerationsAsClasses { get; private set; }
         public bool AppendFirstArgSignatureToMethodName { get; private set; }
         public string TimeStamp { get; private set; }
-
+        public IList<String> StaticObjectPropertyStorageNames { get; set; }
         public Net2ObjC() : base ()
         {
             // build associations between Mono and ObjC types
@@ -32,7 +32,7 @@ namespace Dubrovnik
             ImplementEnumerationsAsClasses = false;
             AppendFirstArgSignatureToMethodName = true;
             TimeStamp = DateTime.Now.ToString();
-        }
+         }
 
         //
         // GenerateObjC

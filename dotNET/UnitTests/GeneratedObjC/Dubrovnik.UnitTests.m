@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/6/2013 7:11:33 PM
+// Date:     12/9/2013 1:29:33 PM
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.5022.24073, Culture=neutral, PublicKeyToken=null
@@ -30,6 +30,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #import "Dubrovnik.UnitTests.h"
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 
 // Dubrovnik.CodeGenerator made Dubrovnik.UnitTests.ReferenceStruct.m
 // Dubrovnik.CodeGenerator made Dubrovnik.UnitTests.ReferenceObject.m

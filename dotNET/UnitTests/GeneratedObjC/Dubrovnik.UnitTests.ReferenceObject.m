@@ -3,6 +3,12 @@
 //
 // Managed class : ReferenceObject
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation Dubrovnik_UnitTests_ReferenceObject
 
 #pragma mark -
@@ -849,5 +855,14 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(double*,double*)" withNumArgs:2, p1, p2];
 		return DB_UNBOX_DOUBLE(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_classConstStringField = nil;
+		m_classStringField = nil;
+		m_classProperty = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

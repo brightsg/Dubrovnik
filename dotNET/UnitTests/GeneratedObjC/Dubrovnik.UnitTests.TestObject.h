@@ -16,6 +16,6 @@
 
 	// Managed property name : Name
 	// Managed property type : System.String
-    @property (retain, nonatomic) NSString * name;
+    @property (nonatomic, strong) NSString * name;
 @end
 //--Dubrovnik.CodeGenerator

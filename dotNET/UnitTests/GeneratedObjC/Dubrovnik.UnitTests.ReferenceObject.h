@@ -38,7 +38,7 @@
 
 	// Managed field name : ClassReadonlyStringField
 	// Managed field type : System.String
-    @property (retain, nonatomic, readonly) NSString * classReadonlyStringField;
+    @property (nonatomic, strong, readonly) NSString * classReadonlyStringField;
 
 	// Managed field name : ClassStringField
 	// Managed field type : System.String
@@ -47,30 +47,30 @@
 
 	// Managed field name : DateField
 	// Managed field type : System.DateTime
-    @property (retain, nonatomic) NSDate * dateField;
+    @property (nonatomic, strong) NSDate * dateField;
 
 	// Managed field name : IntEnumField
 	// Managed field type : Dubrovnik.UnitTests.IntEnum
-    @property Dubrovnik_UnitTests_IntEnum intEnumField;
+    @property (nonatomic) Dubrovnik_UnitTests_IntEnum intEnumField;
 
 	// Managed field name : IntField
 	// Managed field type : System.Int32
-    @property int32_t intField;
+    @property (nonatomic) int32_t intField;
 
 	// Managed field name : LongEnumField
 	// Managed field type : Dubrovnik.UnitTests.LongEnum
-    @property Dubrovnik_UnitTests_LongEnum longEnumField;
+    @property (nonatomic) Dubrovnik_UnitTests_LongEnum longEnumField;
 
 	// Managed field name : StringField
 	// Managed field type : System.String
-    @property (retain, nonatomic) NSString * stringField;
+    @property (nonatomic, strong) NSString * stringField;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : BoolArray
 	// Managed property type : System.Boolean[]
-    @property (retain, nonatomic) DBSystem_Array * boolArray;
+    @property (nonatomic, strong) DBSystem_Array * boolArray;
 
 	// Managed property name : ClassProperty
 	// Managed property type : System.String
@@ -79,103 +79,103 @@
 
 	// Managed property name : Date
 	// Managed property type : System.DateTime
-    @property (retain, nonatomic) NSDate * date;
+    @property (nonatomic, strong) NSDate * date;
 
 	// Managed property name : DecimalNumber
 	// Managed property type : System.Decimal
-    @property (retain, nonatomic) NSDecimalNumber * decimalNumber;
+    @property (nonatomic, strong) NSDecimalNumber * decimalNumber;
 
 	// Managed property name : DoubleArray
 	// Managed property type : System.Double[]
-    @property (retain, nonatomic) DBSystem_Array * doubleArray;
+    @property (nonatomic, strong) DBSystem_Array * doubleArray;
 
 	// Managed property name : FloatArray
 	// Managed property type : System.Single[]
-    @property (retain, nonatomic) DBSystem_Array * floatArray;
+    @property (nonatomic, strong) DBSystem_Array * floatArray;
 
 	// Managed property name : Int16Array
 	// Managed property type : System.Int16[]
-    @property (retain, nonatomic) DBSystem_Array * int16Array;
+    @property (nonatomic, strong) DBSystem_Array * int16Array;
 
 	// Managed property name : Int32Array
 	// Managed property type : System.Int32[]
-    @property (retain, nonatomic) DBSystem_Array * int32Array;
+    @property (nonatomic, strong) DBSystem_Array * int32Array;
 
 	// Managed property name : Int32Number
 	// Managed property type : System.Int32
-    @property int32_t int32Number;
+    @property (nonatomic) int32_t int32Number;
 
 	// Managed property name : Int32Pointer
 	// Managed property type : System.Int32*
-    @property int32_t * int32Pointer;
+    @property (nonatomic) int32_t * int32Pointer;
 
 	// Managed property name : Int64Array
 	// Managed property type : System.Int64[]
-    @property (retain, nonatomic) DBSystem_Array * int64Array;
+    @property (nonatomic, strong) DBSystem_Array * int64Array;
 
 	// Managed property name : Int64Number
 	// Managed property type : System.Int64
-    @property int64_t int64Number;
+    @property (nonatomic) int64_t int64Number;
 
 	// Managed property name : IntEnumeration
 	// Managed property type : Dubrovnik.UnitTests.IntEnum
-    @property Dubrovnik_UnitTests_IntEnum intEnumeration;
+    @property (nonatomic) Dubrovnik_UnitTests_IntEnum intEnumeration;
 
 	// Managed property name : IntList
 	// Managed property type : System.Collections.Generic.List`1<System.Int32>
-    @property (retain, nonatomic) DBSystem_Collections_Generic_ListA1 * intList;
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * intList;
 
 	// Managed property name : IntNumber
 	// Managed property type : System.Int32
-    @property int32_t intNumber;
+    @property (nonatomic) int32_t intNumber;
 
 	// Managed property name : IntObjectDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    @property (retain, nonatomic) DBSystem_Collections_Generic_DictionaryA2 * intObjectDictionary;
+    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intObjectDictionary;
 
 	// Managed property name : LongEnumeration
 	// Managed property type : Dubrovnik.UnitTests.LongEnum
-    @property Dubrovnik_UnitTests_LongEnum longEnumeration;
+    @property (nonatomic) Dubrovnik_UnitTests_LongEnum longEnumeration;
 
 	// Managed property name : MinimalReferenceObject
 	// Managed property type : Dubrovnik.UnitTests.IMinimalReferenceObject
-    @property (retain, nonatomic, readonly) Dubrovnik_UnitTests_IMinimalReferenceObject * minimalReferenceObject;
+    @property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IMinimalReferenceObject * minimalReferenceObject;
 
 	// Managed property name : Name
 	// Managed property type : System.String
-    @property (retain, nonatomic) NSString * name;
+    @property (nonatomic, strong) NSString * name;
 
 	// Managed property name : Pointer
 	// Managed property type : System.IntPtr
-    @property void * pointer;
+    @property (nonatomic) void * pointer;
 
 	// Managed property name : ReferenceObjectList
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
-    @property (retain, nonatomic) DBSystem_Collections_Generic_ListA1 * referenceObjectList;
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * referenceObjectList;
 
 	// Managed property name : ReferenceObjectRelative
 	// Managed property type : Dubrovnik.UnitTests.ReferenceObject
-    @property (retain, nonatomic) Dubrovnik_UnitTests_ReferenceObject * referenceObjectRelative;
+    @property (nonatomic, strong) Dubrovnik_UnitTests_ReferenceObject * referenceObjectRelative;
 
 	// Managed property name : StringArray
 	// Managed property type : System.String[]
-    @property (retain, nonatomic) DBSystem_Array * stringArray;
+    @property (nonatomic, strong) DBSystem_Array * stringArray;
 
 	// Managed property name : StringArrayList
 	// Managed property type : System.Collections.ArrayList
-    @property (retain, nonatomic) DBSystem_Collections_ArrayList * stringArrayList;
+    @property (nonatomic, strong) DBSystem_Collections_ArrayList * stringArrayList;
 
 	// Managed property name : StringList
 	// Managed property type : System.Collections.Generic.List`1<System.String>
-    @property (retain, nonatomic) DBSystem_Collections_Generic_ListA1 * stringList;
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * stringList;
 
 	// Managed property name : StringProperty
 	// Managed property type : System.String
-    @property (retain, nonatomic) NSString * stringProperty;
+    @property (nonatomic, strong) NSString * stringProperty;
 
 	// Managed property name : StringStringDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
-    @property (retain, nonatomic) DBSystem_Collections_Generic_DictionaryA2 * stringStringDictionary;
+    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * stringStringDictionary;
 
 #pragma mark -
 #pragma mark Methods
