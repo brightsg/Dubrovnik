@@ -20,7 +20,8 @@ Outsanding Project Goals
 
 The following project goals are outstanding:
 
-1. 100% support for mscorlib.dll
+1. Generate binding friendly proxy accessors for System.Nullable
+2. 100% support for mscorlib.dll
 
 Accomplished Project Goals
 ==========================

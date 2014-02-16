@@ -32,15 +32,6 @@
 	return([objectQuery autorelease]);
 }
 
-- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass
-{
-	self = [super initWithMonoObject:monoObject];
-	if(self) {
-		_representationClass = representationClass;
-	}
-	return(self);
-}
-
 - (DBSystem_Collections_IList *)list
 {
     // NOTE: perhaps a C# helper method could achieve this more simply.

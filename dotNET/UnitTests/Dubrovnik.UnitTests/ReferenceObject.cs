@@ -91,6 +91,18 @@ namespace Dubrovnik.UnitTests
 
             // initialize lists
 
+			// initialze dictionarys
+			StringStringDictionary = new Dictionary<string, string> {
+				{ "keyForString1", "String value1" },
+				{ "keyForString2", "String value2" },
+			};
+
+			StringObjectDictionary = new Dictionary<string, object> {
+				{ "keyForString", "String value" },
+				{ "keyForInteger", 100 },
+				{ "keyForFloat", 100.111 }
+			};
+
             // Initialize statics
 			ClassProperty = "Dubrovnik.UnitTests static property";
 			ClassStringField = "Dubrovnik.UnitTests static field";
@@ -165,6 +177,7 @@ namespace Dubrovnik.UnitTests
         public List<ReferenceObject> ReferenceObjectList { get; set; }
         public Dictionary<string, string> StringStringDictionary { get; set; }
         public Dictionary<int, ReferenceObject> IntObjectDictionary { get; set; }
+		public Dictionary<string, object> StringObjectDictionary { get; set; }
         
 		//==============================
 		// methods
@@ -276,7 +289,6 @@ namespace Dubrovnik.UnitTests
             return parameterU;
         }
 #endif
-
 		//
 		// date parameter methods
 		//

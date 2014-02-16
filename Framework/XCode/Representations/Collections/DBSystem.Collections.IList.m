@@ -45,14 +45,6 @@
 	return([list autorelease]);
 }
 
-- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass {
-	self = [super initWithMonoObject:monoObject];
-	if(self) {
-		_representationClass = representationClass;
-	}
-	return(self);
-}
-
 - (int)addMonoObject:(MonoObject *)monoObject {
 	MonoObject *retBox = [self invokeMonoMethod:"Add(object)" withNumArgs:1, monoObject];
 	return(DB_UNBOX_INT32(retBox));
@@ -73,13 +65,12 @@
 //Wrapped Indexer Access
 //
 - (id)objectAtIndex:(NSUInteger)index {
-	if(_representationClass != nil) {
-		id retID = nil;
+    
+	if (self.representationClass) {
 		
-		if(_representationClass != nil) {
-			MonoObject *monoObject = [self monoObjectForIndexObject:&index];
-			retID = [_representationClass representationWithMonoObject:monoObject];
-		}
+        MonoObject *monoObject = [self monoObjectForIndexObject:&index];
+        Class representationClass = [self.representationClasses objectAtIndex:0];
+        id retID = [representationClass representationWithMonoObject:monoObject];
 		
 		return(retID);
 	} else {

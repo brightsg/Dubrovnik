@@ -503,6 +503,18 @@
     
     return value;
 }
+
+#pragma mark -
+#pragma mark Generic types
+
+- (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
+{
+    MonoObject *monoObject = [self getMonoProperty:"StringStringDictionary"];
+
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
+    dict.monoGenericTypeArgumentNames = @"NSString,NSString";
+    return dict;
+}
 @end
 
 

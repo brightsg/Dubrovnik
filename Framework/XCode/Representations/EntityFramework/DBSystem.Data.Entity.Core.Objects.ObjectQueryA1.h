@@ -12,11 +12,9 @@
 @interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : DBMonoObjectRepresentation
 {
 @protected
-	Class _representationClass;
 }
 
 + (id)objectQueryWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
-- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
 
 - (DBSystem_Collections_IList *)list;
 

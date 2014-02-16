@@ -38,6 +38,7 @@
 @synthesize monoEnvironment = _monoEnvironment;
 @synthesize monoGenericTypeArgumentNames = _monoGenericTypeArgumentNames;
 @synthesize monoPrimaryGenericTypeArgument = _monoPrimaryGenericTypeArgument;
+@synthesize representationClasses = _representationClasses;
 
 #pragma mark -
 #pragma mark class methods for overriding
@@ -118,21 +119,43 @@
 	return([self initWithSignature:"" withNumArgs:0]);
 }
 
-- (id)initWithMonoObject:(MonoObject *)obj {
-	self = [super init];
+- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClasses:(NSArray *)representationClasses
+{
+    self = [super init];
 	if(self) {
 		_monoObj = obj;
 		
 		if(obj != NULL) {
 			_mono_gchandle = mono_gchandle_new(obj, FALSE);
             self.monoEnvironment = [DBMonoEnvironment currentEnvironment];
-		} else {
+
+		    if (representationClasses) {
+                self.representationClasses = [NSMutableArray arrayWithArray:representationClasses];
+            } else {
+                self.representationClasses = nil;
+            }
+            
+        } else {
 			[self release];
 			self = nil;
 		}
 	}
 	
 	return self;
+}
+
+- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClass:(Class)representationClass
+{
+    NSArray *classes = nil;
+    if (representationClass) {
+        classes = [NSArray arrayWithObject:representationClass];
+    }
+    
+    return [self initWithMonoObject:obj withRepresentationClasses:classes];
+}
+
+- (id)initWithMonoObject:(MonoObject *)obj {
+    return [self initWithMonoObject:obj withRepresentationClass:nil];
 }
 
 - (id)initWithSignature:(const char *)signature withNumArgs:(int)numArgs, ... {
@@ -166,6 +189,11 @@
 	MonoString *monoString = (MonoString *)[self invokeMonoMethod:"System.Object:ToString()" withNumArgs:0];
 	
 	return([NSString stringWithMonoString:monoString]);
+}
+
+- (Class)representationClass
+{
+    return self.representationClasses.firstObject;
 }
 
 #pragma mark -

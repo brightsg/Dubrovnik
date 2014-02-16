@@ -29,8 +29,6 @@
 
 @interface DBSystem_Array : DBMonoObjectRepresentation {
 	@protected
-	Class _representationClass;
-	
 	uint32_t _arrayLength;
 }
 

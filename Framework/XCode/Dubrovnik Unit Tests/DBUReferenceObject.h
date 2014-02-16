@@ -176,4 +176,8 @@
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 
 - (NSString *)extensionString;
+
+// generic types
+- (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
+
 @end

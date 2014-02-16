@@ -27,11 +27,9 @@
 
 @interface DBSystem_Collections_IList : DBMonoObjectRepresentation {
 	@protected
-	Class _representationClass;
 }
 
 + (id)listWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
-- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
 
 //Indexer Access
 - (MonoObject *)monoObjectAtIndex:(int)index;

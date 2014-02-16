@@ -20,6 +20,7 @@
 {
     return "System.Data.Entity.Core.Objects.ObjectSet`1";
 }
+
 // obligatory override
 + (const char *)monoAssemblyName
 {
@@ -30,15 +31,6 @@
 {
     id objectSet = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
 	return([objectSet autorelease]);
-}
-
-- (id)initWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass
-{
-	self = [super initWithMonoObject:monoObject];
-	if(self) {
-		_representationClass = representationClass;
-	}
-	return(self);
 }
 
 - (DBSystem_Collections_IList *)list

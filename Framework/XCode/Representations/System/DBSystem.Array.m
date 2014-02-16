@@ -65,10 +65,9 @@
 }
 
 - (id)initWithMonoArray:(MonoArray *)monoArray withRepresentationClass:(Class)representationClass {
-	self = [super initWithMonoObject:(MonoObject *)monoArray];
+	self = [super initWithMonoObject:(MonoObject *)monoArray withRepresentationClass:representationClass];
 	
 	if(self) {
-		_representationClass = representationClass;
 		_arrayLength = mono_array_length(monoArray);
 	}
 	
@@ -107,9 +106,9 @@
 #pragma mark Wrapped Object Access
 
 - (id)objectAtIndex:(NSUInteger)index {
-	if(_representationClass != nil) {
+	if(self.representationClass) {
 		MonoObject *monoObject = [self monoObjectAtIndex:(uint32_t)index];
-		return([_representationClass representationWithMonoObject:monoObject]);
+		return([self.representationClass representationWithMonoObject:monoObject]);
 	} else {
 		@throw([NSException exceptionWithName:@"DBNoRepresentationClass" reason:@"objectAtIndex called on a DBArray without specified Representation Class" userInfo:nil]);
 	}

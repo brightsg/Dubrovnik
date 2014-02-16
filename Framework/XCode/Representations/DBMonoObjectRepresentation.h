@@ -38,6 +38,7 @@ extern char DBCacheSuffixChar;
 	@private
 	uint32_t _mono_gchandle;
     NSString *_monoGenericTypeArgumentNames;
+    NSMutableArray *_representationClasses;
     Class _monoPrimaryGenericTypeArgument;
     NSMutableDictionary *_propertyCache;
 }
@@ -71,6 +72,8 @@ extern char DBCacheSuffixChar;
  
  */
 - (id)initWithSignature:(const char *)constructorSignature withNumArgs:(int)numArgs, ...;
+- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClasses:(NSArray *)representationClasses;
+- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClass:(Class)representationClass;
 
 // Mono types
 - (MonoClass *)monoClass;
@@ -134,8 +137,11 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassName:(MonoClass *)klass;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
 
+- (Class)representationClass;
+
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
 @property (retain, readwrite) NSString *monoGenericTypeArgumentNames;
 @property (retain, readonly, nonatomic) Class monoPrimaryGenericTypeArgument;
+@property (retain, readwrite) NSMutableArray *representationClasses;
 
 @end
