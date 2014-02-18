@@ -16,8 +16,8 @@
     const char *_assemblyName;
     MonoType *_genericMonoType;
 }
-+ (DBMonoMethodRepresentation *)representationWithMonoMethodNamed:(const char *)methodName;
-+ (DBMonoMethodRepresentation *)representationWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
++ (instancetype)representationWithMonoMethodNamed:(const char *)methodName;
++ (instancetype)representationWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
 
 - (id)initWithMonoMethodNamed:(const char *)methodName;
 - (id)initWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;

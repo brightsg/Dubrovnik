@@ -24,22 +24,22 @@
 
 @implementation DBMonoClassRepresentation
 
-+ (DBMonoClassRepresentation *)representationWithMonoClass:(MonoClass *)monoClass {
++ (instancetype)representationWithMonoClass:(MonoClass *)monoClass {
 	DBMonoClassRepresentation *classRep = [[DBMonoClassRepresentation alloc] initWithMonoClass:monoClass];
 	return([classRep autorelease]);
 }
 
-+ (DBMonoClassRepresentation *)representationWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
++ (instancetype)representationWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
 	DBMonoClassRepresentation *classRep = [[DBMonoClassRepresentation alloc] initWithMonoClassNamed:className fromMonoAssembly:assembly];
 	return([classRep autorelease]);
 }
 
-+ (DBMonoClassRepresentation *)representationWithMonoClassNamed:(const char *)className {
++ (instancetype)representationWithMonoClassNamed:(const char *)className {
 	DBMonoClassRepresentation *classRep = [[DBMonoClassRepresentation alloc] initWithMonoClassNamed:className];
 	return([classRep autorelease]);	
 }
 
-- (DBMonoClassRepresentation *)initWithMonoClass:(MonoClass *)klass {
+- (id)initWithMonoClass:(MonoClass *)klass {
 	self = [super init];
 
 	if(self) {
@@ -49,13 +49,13 @@
 	return self;
 }
 
-- (DBMonoClassRepresentation *)initWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
+- (id)initWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
 	MonoType *type = mono_reflection_type_from_name((char *)className, (MonoImage *)mono_assembly_get_image(assembly));
     NSAssert(type, @"Mono type %s not found in assembly ", className);
 	return [self initWithMonoClass:mono_class_from_mono_type(type)];
 }
 
-- (DBMonoClassRepresentation *)initWithMonoClassNamed:(const char *)className {
+- (id)initWithMonoClassNamed:(const char *)className {
 	MonoType *type = mono_reflection_type_from_name((char *)className, mono_get_corlib());
     NSAssert(type, @"Mono type %s not found in corlib", className);
     MonoClass *klass = mono_class_from_mono_type(type);

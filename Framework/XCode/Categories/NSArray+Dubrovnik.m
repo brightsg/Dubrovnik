@@ -67,7 +67,7 @@
         }
         
         // create System.Array
-        dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray withRepresentationClass:klass];
+        dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray withItemClass:klass];
         
         // copy items to system array
         for (NSUInteger i = 0; i < [self count]; i++) {

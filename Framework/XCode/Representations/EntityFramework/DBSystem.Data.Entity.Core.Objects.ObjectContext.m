@@ -6,7 +6,7 @@
 //
 //
 
-#import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
+#import <Dubrovnik/Dubrovnik.h>
 
 @implementation DBSystem_Data_Entity_Core_Objects_ObjectContext
 
@@ -57,7 +57,7 @@
     
     // Wrap the query
     DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *objectQuery = [DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoQueryObject
-                                                                                                                withRepresentationClass:[DBMonoObjectRepresentation class]];
+                                                                                                                withItemClass:[DBMonoObjectRepresentation class]];
     objectQuery.monoGenericTypeArgumentNames = className;
     return objectQuery;
 }

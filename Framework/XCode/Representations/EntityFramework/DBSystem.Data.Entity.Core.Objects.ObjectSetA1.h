@@ -6,21 +6,23 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import <Foundation/Foundation.h>
+#import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1 : DBMonoObjectRepresentation
+@class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1;
+@class DBSystem_Collections_IList;
+@class DBMonoObjectRepresentation;
+
+@interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1 : DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
 {
 @protected
 }
 
-+ (id)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
++ (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 
-- (DBSystem_Collections_IList *)list;
 - (void)addObject:(DBMonoObjectRepresentation *)object;
 - (void)deleteObject:(DBMonoObjectRepresentation *)object;
 - (DBMonoObjectRepresentation *)createObject;
 
-- (NSMutableArray *)mutableArray;
-- (NSArray *)array;
 
 @end

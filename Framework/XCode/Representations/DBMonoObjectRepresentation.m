@@ -20,12 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBMonoObjectRepresentation.h"
-#import "DBMonoClassRepresentation.h"
-
-#import "DBSystem.Convert.h"
-#import "NSString+Dubrovnik.h"
-
+#import <Dubrovnik/Dubrovnik.h>
 
 @interface DBMonoObjectRepresentation()
 
@@ -37,8 +32,7 @@
 
 @synthesize monoEnvironment = _monoEnvironment;
 @synthesize monoGenericTypeArgumentNames = _monoGenericTypeArgumentNames;
-@synthesize monoPrimaryGenericTypeArgument = _monoPrimaryGenericTypeArgument;
-@synthesize representationClasses = _representationClasses;
+@synthesize itemClasses = _itemClasses;
 
 #pragma mark -
 #pragma mark class methods for overriding
@@ -64,15 +58,6 @@
     @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class must provide a value for +[DBMonoObjectRepresentation monoClassName]" userInfo:nil]);
 }
 
-//
-// monoPrimaryGenericTypeArgument
-//
-- (Class)monoPrimaryGenericTypeArgument
-{
-#warning fails if more than one generic type parameter
-    return NSClassFromString(self.monoGenericTypeArgumentNames);
-}
-
 #pragma mark -
 #pragma mark class methods
 
@@ -89,12 +74,12 @@
     return classRep;
 }
 
-+ (id)representationWithMonoObject:(MonoObject *)obj {
++ (instancetype)representationWithMonoObject:(MonoObject *)obj {
 	DBMonoObjectRepresentation *rep = [[[self class] alloc] initWithMonoObject:obj];
 	return([rep autorelease]);
 }
 
-+ (id)representationWithNumArgs:(int)numArgs, ... {
++ (instancetype)representationWithNumArgs:(int)numArgs, ... {
 	Class class = [self class];
 	MonoClass *monoClass = [class monoClass];
 	if(monoClass == NULL) return(nil);
@@ -110,6 +95,23 @@
 	return(rep);
 }
 
++ (id)bestRepresentationWithMonoObject:(MonoObject *)obj {
+    
+    // logging
+    if (1) {
+        MonoClass *monoClass = mono_object_get_class(obj);
+        [[self class] logMonoClassNameInfo:monoClass];
+    }
+    
+    // determine the best subclass to represent the mono object
+    Class bestClass = self;
+    
+    // instantiate an instance of the best class
+    id object = [[bestClass alloc] initWithMonoObject:obj];
+    
+    return([object autorelease]);
+}
+
 #pragma mark -
 #pragma mark instance methods
 
@@ -119,7 +121,7 @@
 	return([self initWithSignature:"" withNumArgs:0]);
 }
 
-- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClasses:(NSArray *)representationClasses
+- (id)initWithMonoObject:(MonoObject *)obj withItemClasses:(NSArray *)itemClasses
 {
     self = [super init];
 	if(self) {
@@ -129,10 +131,10 @@
 			_mono_gchandle = mono_gchandle_new(obj, FALSE);
             self.monoEnvironment = [DBMonoEnvironment currentEnvironment];
 
-		    if (representationClasses) {
-                self.representationClasses = [NSMutableArray arrayWithArray:representationClasses];
+		    if (itemClasses) {
+                self.itemClasses = [NSMutableArray arrayWithArray:itemClasses];
             } else {
-                self.representationClasses = nil;
+                self.itemClasses = nil;
             }
             
         } else {
@@ -144,18 +146,18 @@
 	return self;
 }
 
-- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClass:(Class)representationClass
+- (id)initWithMonoObject:(MonoObject *)obj withItemClass:(Class)itemClass
 {
     NSArray *classes = nil;
-    if (representationClass) {
-        classes = [NSArray arrayWithObject:representationClass];
+    if (itemClass) {
+        classes = [NSArray arrayWithObject:itemClass];
     }
     
-    return [self initWithMonoObject:obj withRepresentationClasses:classes];
+    return [self initWithMonoObject:obj withItemClasses:classes];
 }
 
 - (id)initWithMonoObject:(MonoObject *)obj {
-    return [self initWithMonoObject:obj withRepresentationClass:nil];
+    return [self initWithMonoObject:obj withItemClass:nil];
 }
 
 - (id)initWithSignature:(const char *)signature withNumArgs:(int)numArgs, ... {
@@ -191,9 +193,9 @@
 	return([NSString stringWithMonoString:monoString]);
 }
 
-- (Class)representationClass
+- (Class)itemClass
 {
-    return self.representationClasses.firstObject;
+    return self.itemClasses.firstObject;
 }
 
 #pragma mark -
@@ -439,12 +441,68 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return genericMethod;
 }
 
+#pragma mark -
+#pragma mark Generic type info
 
-- (MonoType *)getMonoGenericType:(MonoClass *)monoClass
+- (MonoType *)getMonoGenericType
 {
-    // Get the generic type of an object eg: for list<employee> the type employee is returned.
+    return [[self class] getMonoGenericType:[self monoClass] atIndex:0];
+}
+
+- (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx
+{
+    return [[self class] getMonoGenericType:[self monoClass] atIndex:idx];
+}
+
+- (MonoArray *)getMonoGenericTypes
+{
+    return [[self class] getMonoGenericTypes:[self monoClass]];
+}
+
+- (uintptr_t *)getMonoGenericTypeCount
+{
+    MonoArray *array = [self getMonoGenericTypes];
     
-    // TODO: Allow calling of methods with multiple generic arguments.
+    uintptr_t count = mono_array_length(array);
+    
+    return count;
+}
+
++ (uintptr_t *)getMonoGenericTypeCount:(MonoClass *)monoClass
+{
+    MonoArray *array = [self getMonoGenericTypes:monoClass];
+    
+    uintptr_t count = mono_array_length(array);
+    
+    return count;
+}
+
++ (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx
+{
+    // get array of generic types
+    MonoArray *genericArgArray = [self getMonoGenericTypes:monoClass];
+    
+    // get required type
+    uintptr_t genericArgumentCount = mono_array_length(genericArgArray);
+    MonoType *genericParameterType = NULL;
+    if (genericArgumentCount > 0) {
+        
+        // get the type at the index
+        if (idx < genericArgumentCount) {
+            genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), idx);
+        } else {
+            [NSException raise:@"GetGenericTypeException" format: @"Invalid index: %ld. Number of generic type arguments: %ld", (long)idx, genericArgumentCount];
+        }
+    }
+            
+    return genericParameterType;
+}
+
++ (MonoArray *)getMonoGenericTypes:(MonoClass *)monoClass
+{
+    // Get the generic types of an object
+    // eg: for list<employee> the type employee is returned.
+    //     for dictionary<string,employee> the string employee types are returned
     
     // get helper method to retrieve generic argument types
     MonoMethod *helperMethod = [DBMonoEnvironment dubrovnikMonoMethodWithName:"GenericTypeArguments" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:1];
@@ -458,17 +516,8 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
     if (monoException) NSRaiseExceptionFromMonoException(monoException);
     
-    // get number of generic type arguments
-    uintptr_t genericArgumentCount = mono_array_length(genericArgArray);
-    MonoType *genericParameterType = NULL;
-    if (genericArgumentCount == 1) {
-        genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), 0);
-    } else {
-        [NSException raise:@"GetGenericTypeException" format: @"Invalid number of generic type arguments: %ld", genericArgumentCount];
-    }
-    
-    return genericParameterType;
- }
+    return genericArgArray;
+}
 
 #pragma mark -
 #pragma mark Indexer Access
@@ -574,6 +623,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return value;
 }
 
+- (char *)monoTypeName
+{
+    return mono_type_get_name([self monoType]);
+}
+
 - (const char *)monoClassNamespace
 {
     const char *value = [[self class] monoClassNamespace:[self monoClass]];
@@ -584,6 +638,14 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 {
     int methodCount = mono_class_num_methods(klass);
     return methodCount;
+}
+
++ (const char *)monoClassTypeName:(MonoClass *)klass
+{
+    MonoType *monoType = mono_class_get_type(klass);
+    const char *value = mono_type_get_name(monoType);
+    
+    return value;
 }
 
 + (const char *)monoClassName:(MonoClass *)klass
@@ -603,13 +665,15 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     [self logMonoClassInfo:[self monoClass]];
 }
 
-+ (void)logMonoClassInfo:(MonoClass *)klass
++ (void)logMonoClassNameInfo:(MonoClass *)klass
 {
-    NSLog(@"\n\n============== Mono Class Info ========================\n\n");
-    // derived from https://github.com/mono/mono/blob/master/samples/embed/test-metadata.c
     NSLog(@"Class namespace : %s", [self monoClassNamespace:klass]);
     NSLog(@"Class name : %s", [self monoClassName:klass]);
+    NSLog(@"Class type name : %s", [self monoClassTypeName:klass]);
+}
 
++ (void)logMonoClassMethodInfo:(MonoClass *)klass
+{
     // methods
     NSLog(@"Method count : %d", [self monoMethodCount:klass]);
     
@@ -622,7 +686,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
             char *methodName = mono_method_full_name(availableMethod, YES);
             NSLog(@"Method name: %s", methodName);
         }
-
+        
         // interfaces
         iter = NULL;
         while (YES) {
@@ -633,6 +697,41 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         }
         
         klass = mono_class_get_parent(klass);
+    }
+}
+
++ (void)logMonoClassInfo:(MonoClass *)klass
+{
+    NSLog(@"\n\n============== Mono Class Info ========================\n\n");
+    // derived from https://github.com/mono/mono/blob/master/samples/embed/test-metadata.c
+    
+    [self logMonoClassNameInfo:klass];
+    [self logMonoClassMethodInfo:klass];
+}
+
+#pragma mark -
+#pragma mark Generics support
+
+- (void)setMonoGenericTypeArgumentNames:(NSString *)typeNamesList
+{
+    // a CSV list of type names.
+    // types may be class names or primitive types
+    _monoGenericTypeArgumentNames = typeNamesList;
+    NSArray *typeNames = [typeNamesList componentsSeparatedByString:@","];
+    
+    // create an array of class names representing the generic items handled by this type
+    self.itemClasses = [NSMutableArray arrayWithCapacity:[typeNames count]];
+    for (NSString *typeName in typeNames) {
+        
+        // convert typename to class
+        Class typeClass = NSClassFromString(typeName);
+        
+        // if typename is not a valid classname then it's a primitive type
+        if (!typeClass) {
+            typeClass = [NSNumber class];
+        }
+        
+        [self.itemClasses addObject:typeClass];
     }
 }
 

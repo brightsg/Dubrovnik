@@ -6,8 +6,7 @@
 //
 //
 
-#import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
-
+#import <Dubrovnik/Dubrovnik.h>
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1()
 
@@ -15,48 +14,26 @@
 
 @implementation DBSystem_Data_Entity_Core_Objects_ObjectSetA1
 
+#pragma mark -
+#pragma mark - Identification
+
 // obligatory override
 + (const char *)monoClassName
 {
     return "System.Data.Entity.Core.Objects.ObjectSet`1";
 }
 
-// obligatory override
-+ (const char *)monoAssemblyName
-{
-    return "EntityFramework";
-}
+#pragma mark -
+#pragma mark - Factory
 
-+ (id)objectSetWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass
++ (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
 {
-    id objectSet = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
+    id objectSet = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
 	return([objectSet autorelease]);
 }
 
-- (DBSystem_Collections_IList *)list
-{
-    // NOTE: perhaps a C# helper method could achieve this more simply.
-    
-    // ToList is an extension method defined as a static method on System.Linq.Enumerable
-    // public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
-    // note that the generic parameter type must be obtained from the source
-    DBMonoMethodRepresentation *methodRep = [DBMonoMethodRepresentation
-                                             representationWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
-                                                                    className:"System.Linq.Enumerable"
-                                                                assemblyName:"System.Core"];
-    
-    // The generic type for the list equals the generic type of this object
-    methodRep.genericMonoType = [self getMonoGenericType:[self monoClass]];
-    
-    // Invoke the extension method passing mono object as first argument
-    // NOTE: we could invoke this as a class method but it is clean to invoke against self.
-    MonoObject *monoListObject = [self invokeMethodRepresentation:methodRep withNumArgs:1, [self monoObject]];
-    
-    // Wrap the list
-    DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoListObject withRepresentationClass:self.monoPrimaryGenericTypeArgument];
-    
-    return list;
-}
+#pragma mark -
+#pragma mark - Collection management
 
 - (void)addObject:(DBMonoObjectRepresentation *)object
 {
@@ -74,7 +51,7 @@
 - (DBMonoObjectRepresentation *)createObject
 {
     MonoObject *monoObject = [self invokeMonoMethod:"CreateObject()" withNumArgs:0, NULL];
-    DBMonoObjectRepresentation *object = [self.monoPrimaryGenericTypeArgument representationWithMonoObject:monoObject];
+    DBMonoObjectRepresentation *object = [self.itemClass representationWithMonoObject:monoObject];
     return object;
 }
 
@@ -82,17 +59,6 @@
 {
     NSString *inflatedMethodName = [NSString stringWithFormat:@"DeleteObject(%s)", [[object class] monoClassName]];
     [self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
-}
-
-// array representations
-- (NSMutableArray *)mutableArray
-{
-    return [[self list] mutableArray];
-}
-
-- (NSArray *)array
-{
-    return [[self list] array];
 }
 
 @end

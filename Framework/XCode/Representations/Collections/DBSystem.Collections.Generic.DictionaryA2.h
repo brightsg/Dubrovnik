@@ -6,9 +6,11 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBMonoObjectRepresentation.h"
 
 @interface DBSystem_Collections_Generic_DictionaryA2 : DBMonoObjectRepresentation
 
-
+- (NSArray *)keys;
+- (id)objectForKey:(id)key;
+- (id)valueForKey:(id)key;
 @end

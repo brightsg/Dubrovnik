@@ -6,7 +6,7 @@
 //
 //
 
-#import "NSDecimalNumber+Dubrovnik.h"
+#import <Dubrovnik/Dubrovnik.h>
 #import <objc/runtime.h>
 
 static const char hasValueKey = '0';

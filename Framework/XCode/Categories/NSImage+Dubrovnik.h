@@ -21,7 +21,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBMonoIncludes.h"
 
 @interface NSImage (Dubrovnik)
 

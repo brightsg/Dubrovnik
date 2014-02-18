@@ -30,13 +30,13 @@
 	MonoClass *_klass;
 }
 
-+ (DBMonoClassRepresentation *)representationWithMonoClass:(MonoClass *)monoClass;
-+ (DBMonoClassRepresentation *)representationWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;
-+ (DBMonoClassRepresentation *)representationWithMonoClassNamed:(const char *)className;
++ (instancetype)representationWithMonoClass:(MonoClass *)monoClass;
++ (instancetype)representationWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;
++ (instancetype)representationWithMonoClassNamed:(const char *)className;
 
-- (DBMonoClassRepresentation *)initWithMonoClass:(MonoClass *)klass;
-- (DBMonoClassRepresentation *)initWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;
-- (DBMonoClassRepresentation *)initWithMonoClassNamed:(const char *)className;
+- (id)initWithMonoClass:(MonoClass *)klass;
+- (id)initWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;
+- (id)initWithMonoClassNamed:(const char *)className;
 
 - (MonoObject *)constructMonoObjectWithNumArgs:(int)numArgs, ...;
 

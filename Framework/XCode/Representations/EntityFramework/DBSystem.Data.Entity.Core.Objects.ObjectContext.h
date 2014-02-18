@@ -6,7 +6,8 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import <Foundation/Foundation.h>
+#import "DBMonoObjectRepresentation.h"
 
 @class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1;
 

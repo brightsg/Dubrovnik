@@ -21,12 +21,12 @@
 @synthesize assemblyName = _assemblyName;
 @synthesize genericMonoType = _genericMonoType;
 
-+ (DBMonoMethodRepresentation *)representationWithMonoMethodNamed:(const char *)methodName
++ (instancetype)representationWithMonoMethodNamed:(const char *)methodName
 {
     return [self representationWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
 }
 
-+ (DBMonoMethodRepresentation *)representationWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
++ (instancetype)representationWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
 {
     return [[[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName] autorelease];
 }

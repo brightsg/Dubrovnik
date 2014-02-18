@@ -38,8 +38,7 @@ extern char DBCacheSuffixChar;
 	@private
 	uint32_t _mono_gchandle;
     NSString *_monoGenericTypeArgumentNames;
-    NSMutableArray *_representationClasses;
-    Class _monoPrimaryGenericTypeArgument;
+    NSMutableArray *_itemClasses;
     NSMutableDictionary *_propertyCache;
 }
 
@@ -50,8 +49,9 @@ extern char DBCacheSuffixChar;
 // Class methods
 + (MonoClass *)monoClass;
 + (DBMonoClassRepresentation *)monoClassRepresentation;
-+ (id)representationWithMonoObject:(MonoObject *)obj;
-+ (id)representationWithNumArgs:(int)numArgs, ...;
++ (instancetype)representationWithMonoObject:(MonoObject *)obj;
++ (instancetype)representationWithNumArgs:(int)numArgs, ...;
++ (id)bestRepresentationWithMonoObject:(MonoObject *)obj;
 
 // Initialisation methods
 
@@ -72,12 +72,13 @@ extern char DBCacheSuffixChar;
  
  */
 - (id)initWithSignature:(const char *)constructorSignature withNumArgs:(int)numArgs, ...;
-- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClasses:(NSArray *)representationClasses;
-- (id)initWithMonoObject:(MonoObject *)obj withRepresentationClass:(Class)representationClass;
+- (id)initWithMonoObject:(MonoObject *)obj withItemClasses:(NSArray *)itemClasses;
+- (id)initWithMonoObject:(MonoObject *)obj withItemClass:(Class)itemClass;
 
 // Mono types
 - (MonoClass *)monoClass;
 - (MonoType *)monoType;
+- (char *)monoTypeName;
 - (MonoObject *)monoObject;
 - (MonoObject *)monoValue;
 - (MonoAssembly *)monoAssembly;
@@ -117,18 +118,27 @@ extern char DBCacheSuffixChar;
 - (int16_t)int16Value;
 - (int32_t)int32Value;
 - (int64_t)int64Value;
-
+   
 - (uint8_t)unsigned8Value;
 - (uint16_t)unsigned16Value;
 - (uint32_t)unsigned32Value;
 - (uint64_t)unsigned64Value;
 
 // Mono type info
-- (MonoType *)getMonoGenericType:(MonoClass *)monoClass;
+- (uintptr_t *)getMonoGenericTypeCount;
+- (MonoType *)getMonoGenericType;
+- (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx;
+- (MonoArray *)getMonoGenericTypes;
+
++ (uintptr_t *)getMonoGenericTypeCount:(MonoClass *)monoClass;
++ (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx;
++ (MonoArray *)getMonoGenericTypes:(MonoClass *)monoClass;
 
 // Mono info
 - (int)monoMethodCount;
 - (void)logMonoClassInfo;
++ (void)logMonoClassNameInfo:(MonoClass *)klass;
++ (void)logMonoClassMethodInfo:(MonoClass *)klass;
 - (const char *)monoClassName;
 - (const char *)monoClassNamespace;
 + (void)logMonoClassInfo;
@@ -136,12 +146,12 @@ extern char DBCacheSuffixChar;
 + (int)monoMethodCount:(MonoClass *)klass;
 + (const char *)monoClassName:(MonoClass *)klass;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
++ (const char *)monoClassTypeName:(MonoClass *)klass;
 
-- (Class)representationClass;
+- (Class)itemClass;
 
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
-@property (retain, readwrite) NSString *monoGenericTypeArgumentNames;
-@property (retain, readonly, nonatomic) Class monoPrimaryGenericTypeArgument;
-@property (retain, readwrite) NSMutableArray *representationClasses;
+@property (retain, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;
+@property (retain, readwrite) NSMutableArray *itemClasses;
 
 @end

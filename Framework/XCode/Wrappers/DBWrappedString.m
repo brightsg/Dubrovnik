@@ -21,6 +21,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
+#import <Dubrovnik/Dubrovnik.h>
 #import "DBWrappedString.h"
 
 @implementation DBWrappedString

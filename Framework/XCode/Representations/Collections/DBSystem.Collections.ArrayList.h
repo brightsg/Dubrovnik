@@ -20,8 +20,6 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
-
 #import "DBSystem.Collections.IList.h"
 
 @interface DBSystem_Collections_ArrayList : DBSystem_Collections_IList {

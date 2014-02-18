@@ -22,7 +22,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBMonoIncludes.h"
 
 @interface DBWrappedString : NSString {
 	MonoString *_monoString;

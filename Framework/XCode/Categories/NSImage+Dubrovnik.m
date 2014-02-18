@@ -20,8 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "NSImage+Dubrovnik.h"
-
+#import <Dubrovnik/Dubrovnik.h>
 
 @implementation NSImage (Dubrovnik)
 

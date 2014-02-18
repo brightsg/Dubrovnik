@@ -40,8 +40,8 @@
     return "mscorlib";
 }
 
-+ (id)listWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass {
-	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject withRepresentationClass:representationClass];
++ (id)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass {
+	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
 	return([list autorelease]);
 }
 
@@ -66,15 +66,14 @@
 //
 - (id)objectAtIndex:(NSUInteger)index {
     
-	if (self.representationClass) {
+	if (self.itemClass) {
 		
         MonoObject *monoObject = [self monoObjectForIndexObject:&index];
-        Class representationClass = [self.representationClasses objectAtIndex:0];
-        id retID = [representationClass representationWithMonoObject:monoObject];
+        id retID = [self.itemClass representationWithMonoObject:monoObject];
 		
 		return(retID);
 	} else {
-		@throw([NSException exceptionWithName:@"DBNoRepresentationClass" reason:@"objectAtIndex called on a DBIList without specified Representation Class" userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBNoItemClass" reason:@"objectAtIndex called on a DBIList without specified Item Class" userInfo:nil]);
 	}
 }
 

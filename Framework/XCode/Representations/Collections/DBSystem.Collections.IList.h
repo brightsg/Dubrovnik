@@ -20,8 +20,6 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
-
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoIncludes.h"
 
@@ -29,7 +27,7 @@
 	@protected
 }
 
-+ (id)listWithMonoObject:(MonoObject *)monoObject withRepresentationClass:(Class)representationClass;
++ (id)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 
 //Indexer Access
 - (MonoObject *)monoObjectAtIndex:(int)index;

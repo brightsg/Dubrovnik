@@ -20,7 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "NSDate+Dubrovnik.h"
+#import <Dubrovnik/Dubrovnik.h>
 #import <objc/runtime.h>
 
 //the number of .NET-equivalent ticks between 01-01-0001 and 01-01-2001
