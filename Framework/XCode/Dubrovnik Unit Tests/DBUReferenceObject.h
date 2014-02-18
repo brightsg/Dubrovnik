@@ -179,5 +179,7 @@
 
 // generic types
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
+- (DBSystem_Collections_Generic_ListA1 *)stringList;
+- (DBSystem_Collections_Generic_ListA1 *)intList;
 
 @end

@@ -348,7 +348,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         }
         
         // get the extension assembly
-        MonoAssembly *monoAssembly = [monoEnv loadedAssemblyWithName:methodRepresentation.assemblyName];
+        MonoAssembly *monoAssembly = [monoEnv openAssemblyWithName:methodRepresentation.assemblyName];
         if (!monoAssembly) {
             [NSException raise:@"InvokeMonoMethodException" format: @"Assembly %s not found for extension method : %s.", methodRepresentation.assemblyName, methodRepresentation.methodName];
         }

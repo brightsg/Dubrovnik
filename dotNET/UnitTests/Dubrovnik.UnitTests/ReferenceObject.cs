@@ -90,15 +90,24 @@ namespace Dubrovnik.UnitTests
             StringArrayList = new ArrayList { "Dubrovnik.UnitTests", "string", "array" };
 
             // initialize lists
+			StringList = new List<string> {
+				"Dubrovnik.UnitTests 1",
+				"Dubrovnik.UnitTests 2",
+			};
+			IntList = new List<int> {
+				1,
+				10,
+				100
+			};
 
 			// initialze dictionarys
 			StringStringDictionary = new Dictionary<string, string> {
-				{ "keyForString1", "String value1" },
-				{ "keyForString2", "String value2" },
+				{ "keyForString1", "Dubrovnik.UnitTests 1" },
+				{ "keyForString2", "Dubrovnik.UnitTests 2" },
 			};
 
 			StringObjectDictionary = new Dictionary<string, object> {
-				{ "keyForString", "String value" },
+				{ "keyForString", "Dubrovnik.UnitTests" },
 				{ "keyForInteger", 100 },
 				{ "keyForFloat", 100.111 }
 			};
@@ -226,6 +235,7 @@ namespace Dubrovnik.UnitTests
             return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, n);
         }
 
+
         //
         // string methods with ref arg
         //
@@ -289,6 +299,7 @@ namespace Dubrovnik.UnitTests
             return parameterU;
         }
 #endif
+
 		//
 		// date parameter methods
 		//

@@ -213,6 +213,7 @@
 		AB99495018B3693F00FAC62D /* DBSystem.Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Linq.m; sourceTree = "<group>"; };
 		AB99495518B36C5500FAC62D /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
 		AB99495618B36C7C00FAC62D /* DBProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBProtocols.h; sourceTree = "<group>"; };
+		AB99495718B3F4D200FAC62D /* Interface_IList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
@@ -568,6 +569,7 @@
 			children = (
 				AB99495518B36C5500FAC62D /* Interface_IEnumerable_T.h */,
 				AB99495618B36C7C00FAC62D /* DBProtocols.h */,
+				AB99495718B3F4D200FAC62D /* Interface_IList.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";

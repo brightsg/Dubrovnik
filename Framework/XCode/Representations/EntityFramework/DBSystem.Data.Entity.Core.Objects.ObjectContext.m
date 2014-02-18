@@ -48,7 +48,7 @@
                                              assemblyName:NULL];
     
     // Get the type to be returned by this query
-    MonoAssembly *monoAssembly = [[DBMonoEnvironment currentEnvironment] loadedAssemblyWithName:assemblyName];
+    MonoAssembly *monoAssembly = [[DBMonoEnvironment currentEnvironment] openAssemblyWithName:assemblyName];
     DBMonoClassRepresentation *classRepresentation = [DBMonoClassRepresentation representationWithMonoClassNamed:monoClassName fromMonoAssembly:monoAssembly];
     methodRep.genericMonoType = [classRepresentation monoType];
     

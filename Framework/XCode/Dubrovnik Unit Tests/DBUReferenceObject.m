@@ -303,6 +303,23 @@
 }
 
 #pragma mark -
+#pragma mark Mono List<T> properties
+
+- (DBSystem_Collections_Generic_ListA1 *)stringList
+{
+    MonoObject * monoObject = [self getMonoProperty:"StringList"];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSString class]];
+    return object;
+}
+
+- (DBSystem_Collections_Generic_ListA1 *)intList
+{
+    MonoObject * monoObject = [self getMonoProperty:"IntList"];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    return object;
+}
+
+#pragma mark -
 #pragma mark Mono string parameter methods
 
 - (NSString *)stringMethod

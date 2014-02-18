@@ -127,13 +127,18 @@
 + (MonoDomain *)currentDomain;
 + (MonoClass *)dubrovnikMonoClassWithName:(char *)className;
 + (MonoMethod *)dubrovnikMonoMethodWithName:(char *)methodName className:(char *)className argCount:(int)argCount;
++ (NSString *)monoAssemblyRootFolder;
++ (NSString *)monoConfigFolder;
 
 - (MonoDomain *)monoDomain;
 - (MonoAssembly *)loadedAssemblyWithName:(const char *)name;
 - (MonoAssembly *)loadedAssembly:(NSString *)name;
+
+- (MonoAssembly *)openAssemblyWithName:(const char *)name;
 - (MonoAssembly *)openAssemblyWithPath:(NSString *)assemblyPath;
 - (MonoAssembly *)openAssembly:(NSString *)name path:(NSString *)assemblyPath;
 - (MonoAssembly *)openAssemblyWithName:(const char *)name path:(NSString *)path;
+
 + (void)setAssemblyRoot:(NSString *)assemblyRoot;
 + (void)setConfigDir:(NSString *)configDir;
 - (void)mapDLL:(const char *)dllName dllPath:(NSString *)dllPath;

@@ -25,9 +25,13 @@
 #import "DBInvoke.h"
 #import "DBMonoRegisteredThread.h"
 
+
 static DBMonoEnvironment *_defaultEnvironment = nil;
 static DBMonoEnvironment *_currentEnvironment = nil;
-
+static NSString *_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
+static NSString *_monoAssembledefaultSearchPath = @"mono/4.5";
+static NSString *_monoAssemblyRootFolder = nil;
+static NSString *_monoConfigFolder = nil;
 
 @interface DBMonoEnvironment()
 @property (readwrite) MonoAssembly *DubrovnikAssembly;
@@ -73,8 +77,27 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     mono_trace_set_mask_string ([traceMask UTF8String]);
 }
 
++ (NSString *)monoAssemblyRootFolder
+{
+    if (!_monoAssemblyRootFolder) {
+        _monoAssemblyRootFolder = [[_monoFrameworkPathVersionCurrent stringByAppendingPathComponent:@"lib"] stringByResolvingSymlinksInPath];
+    }
+    return _monoAssemblyRootFolder;
+}
+
++ (NSString *)monoConfigFolder
+{
+    if (!_monoConfigFolder) {
+        _monoConfigFolder = [[_monoFrameworkPathVersionCurrent stringByAppendingPathComponent:@"etc"] stringByResolvingSymlinksInPath];
+    }
+    return _monoAssemblyRootFolder;
+}
+
 + (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
-{    
+{
+    _monoAssemblyRootFolder = [monoAssemblyRootFolder stringByResolvingSymlinksInPath];
+    _monoConfigFolder = [monoConfigFolder stringByResolvingSymlinksInPath];
+    
     const char *rootFolder = [monoAssemblyRootFolder fileSystemRepresentation];
     const char *configFolder = [monoConfigFolder fileSystemRepresentation];
     
@@ -165,21 +188,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     MonoClass *klass = NULL;
     
     // retrieve loaded assembly
-    MonoAssembly *monoAssembly = [self loadedAssemblyWithName:name];
-    
-    if (!monoAssembly) {
-        
-        if ([self delegate]) {
-            
-            // query delegate for assembly path
-            NSString *path = [[self delegate] monoEnvironment:self pathToAssemblyName:name];
-            if (path) {
-                monoAssembly = [self openAssemblyWithName:name path:path];
-            }
-        } else {
-            [NSException raise:@"Environment delegate is nil" format:@"An environment delegate must be set in order to create classes from assembly named : %s", name];
-        }
-    }
+    MonoAssembly *monoAssembly = [self openAssemblyWithName:name];
     
     if (monoAssembly) {
         klass = [[self class] monoClassWithName:className fromAssembly:monoAssembly];
@@ -234,6 +243,43 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 	return(_monoDomain);
 }
 
+- (MonoAssembly *)openAssemblyWithName:(const char *)name
+{
+    // check assembly cache
+    MonoAssembly *monoAssembly = [self loadedAssemblyWithName:name];
+    
+    // if assembly not found then initiate a search
+    if (!monoAssembly) {
+        NSString *path = nil;
+        
+        // query delegate for assembly path
+        if ([self delegate]) {
+            path = [[self delegate] monoEnvironment:self pathToAssemblyName:name];
+        }
+        
+        if (!path) {
+            
+            // delegate has no path suggestion hence try and load dll from default location
+            NSString *monoPath = [[DBMonoEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:_monoAssembledefaultSearchPath];
+            
+            path = [monoPath stringByResolvingSymlinksInPath];
+            path = [path stringByAppendingPathComponent:[NSString stringWithUTF8String:name]];
+            path = [path stringByAppendingPathExtension:@"dll"];
+        }
+        
+        if (path) {
+            monoAssembly = [self openAssemblyWithName:name path:path];
+        }
+        
+        if (!monoAssembly) {
+            [NSException raise:@"Cannot open assembly" format:@"Cannot open assembly named : %s path: %@", name, path];
+        }
+        
+    }
+
+    return monoAssembly;
+}
+
 - (MonoAssembly *)openAssemblyWithName:(const char *)name path:(NSString *)path
 {
     NSString *assemblyName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
@@ -245,6 +291,8 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     MonoAssembly *monoAssembly = [self loadedAssembly:name];
     
     if (!monoAssembly) {
+        
+        // path must be full path to the assembly
         monoAssembly = [self openAssemblyWithPath:path];
         if (monoAssembly) {
             

@@ -10,7 +10,8 @@
 #import "DBUReferenceObject.h"
 
 // toggle 0-1
-#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
+// it may be useful to disable certain tests when adding support for new features
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 0
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 #define DB_REFTYPE_BY_REFERENCE_SUPPORT 0
 
@@ -599,6 +600,23 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
 }
 
+- (void)doTestGenericProperties:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    // List<string>
+    DBSystem_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
+    NSArray *arrayOfStrings = [listOfStrings array];
+    STAssertTrue([[arrayOfStrings objectAtIndex:0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[arrayOfStrings objectAtIndex:0] rangeOfString:@" 1"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[arrayOfStrings objectAtIndex:1] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[arrayOfStrings objectAtIndex:1] rangeOfString:@" 2"].location != NSNotFound, DBUSubstringTestFailed);
+    
+    // List<int>
+    DBSystem_Collections_Generic_ListA1 *listOfInts = [refObject intList];
+    //NSArray *arrayOfInts = [listOfInts array];
+}
+
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
@@ -787,6 +805,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //===================================
     [self doTestProperties:refObject class:testClass];
     [self doTestArrayProperties:refObject class:testClass];
+    [self doTestGenericProperties:refObject class:testClass];
     [self doTestPointerProperties:refObject class:testClass];
     [self doTestPropertyPersistence:refObject class:testClass];
     
@@ -805,9 +824,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
 #pragma unused(monoEnv)
 #pragma unused(name)
+    NSString *path = nil;
+
+    // Provide a path to the named assembly dll.
+    // If nil is returned then the environment will attempt to load the assembly from the default mono version on the assembly root path.
     
-    // this method will not be called but if it were we would return the path to the named assembly
-    return nil;
+    return path;
 }
 
 @end

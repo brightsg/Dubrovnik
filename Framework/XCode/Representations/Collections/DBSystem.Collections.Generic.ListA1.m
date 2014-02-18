@@ -11,11 +11,34 @@
 @implementation DBSystem_Collections_Generic_ListA1
 
 #pragma mark -
+#pragma mark - Factory
+
++ (instancetype)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
+{
+	DBSystem_Collections_Generic_ListA1 *list = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
+	return([list autorelease]);
+}
+
+#pragma mark -
 #pragma mark - List and array representations
 
 - (DBSystem_Collections_IList *)list
 {
-    return [DBSystem_Linq toList:self];
+    DBSystem_Collections_IList *list = nil;
+    
+    BOOL useLinq = NO;
+    
+    if (useLinq) {
+        
+        // construct a new IList via linq
+        list = [DBSystem_Linq toList:self];
+    } else {
+        
+        // However List<T> itself implements IList so we can act on it directly
+        list = [DBSystem_Collections_IList listWithMonoObject:[self monoObject] withItemClass:self.itemClass];
+    }
+    
+    return list;
 }
 
 - (NSMutableArray *)mutableArray
