@@ -26,12 +26,13 @@
 #import "DBMonoRegisteredThread.h"
 
 
-static DBMonoEnvironment *_defaultEnvironment = nil;
-static DBMonoEnvironment *_currentEnvironment = nil;
 static NSString *_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
-static NSString *_monoAssembledefaultSearchPath = @"mono/4.5";
+static NSString *_monoAssemblyDefaultSearchPath = @"mono/4.5";
+static NSString *_monoDefaultVersion = @"v4.0.30319";
 static NSString *_monoAssemblyRootFolder = nil;
 static NSString *_monoConfigFolder = nil;
+static DBMonoEnvironment *_defaultEnvironment = nil;
+static DBMonoEnvironment *_currentEnvironment = nil;
 
 @interface DBMonoEnvironment()
 @property (readwrite) MonoAssembly *DubrovnikAssembly;
@@ -141,7 +142,7 @@ static NSString *_monoConfigFolder = nil;
 }
 
 - (id)initWithDomainName:(const char *)domainName {
-    return [self initWithDomainName:domainName version:"v4.0.30319"];
+    return [self initWithDomainName:domainName version:[_monoDefaultVersion UTF8String]];
 }
 
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version {
@@ -260,7 +261,7 @@ static NSString *_monoConfigFolder = nil;
         if (!path) {
             
             // delegate has no path suggestion hence try and load dll from default location
-            NSString *monoPath = [[DBMonoEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:_monoAssembledefaultSearchPath];
+            NSString *monoPath = [[DBMonoEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:_monoAssemblyDefaultSearchPath];
             
             path = [monoPath stringByResolvingSymlinksInPath];
             path = [path stringByAppendingPathComponent:[NSString stringWithUTF8String:name]];
