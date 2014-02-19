@@ -446,11 +446,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)doTestPropertyPersistence:(id)refObject class:(Class)testClass
 {
-#pragma unused(testClass)
+#pragma unused(refObject, testClass)
 
     // repeated calls to a property should return the same object
     // unless the setter has been called or the property has been changed
     // by a managed code, most likely as a side effect
+#warning TODO: test property persistence for generated code
+    
 }
 
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass
@@ -643,6 +645,58 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([arrayOfDoubles count] == 2, DBUCountTestFailed);
     STAssertTrue([[arrayOfDoubles objectAtIndex:0] doubleValue] == 11., DBUEqualityTestFailed);
     STAssertTrue([[arrayOfDoubles objectAtIndex:1] doubleValue] == 22., DBUEqualityTestFailed);
+    
+    //============================
+    // Dictionary<string,string>
+    //=============================
+    DBSystem_Collections_Generic_DictionaryA2 *stringStringDictA2 = [refObject stringStringDictionary];
+    
+    // test all keys
+    NSArray *stringStringDictKeys = [stringStringDictA2 allKeys];
+    STAssertTrue([stringStringDictKeys count] == 2, DBUCountTestFailed);
+    STAssertTrue([[stringStringDictKeys objectAtIndex:0] rangeOfString:@"String1"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[stringStringDictKeys objectAtIndex:1] rangeOfString:@"String2"].location != NSNotFound, DBUSubstringTestFailed);
+    
+    // test all values
+    NSArray *stringStringDictValues = [stringStringDictA2 allValues];
+    STAssertTrue([stringStringDictValues count] == 2, DBUCountTestFailed);
+    STAssertTrue([[stringStringDictValues objectAtIndex:0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[stringStringDictValues objectAtIndex:1] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    
+    // test keys and values
+    id key = [stringStringDictKeys objectAtIndex:0];
+    id value = [stringStringDictA2 objectForKey:key];
+    STAssertTrue([value rangeOfString:@"1"].location != NSNotFound, DBUSubstringTestFailed);
+    key = [stringStringDictKeys objectAtIndex:1];
+    STAssertTrue([[stringStringDictA2 objectForKey:key] rangeOfString:@"2"].location != NSNotFound, DBUSubstringTestFailed);
+    
+    // test NSDictionary representation
+    NSDictionary *stringStringDict = [stringStringDictA2 dictionary];
+    STAssertTrue([[stringStringDict objectForKey:@"keyForString1"] rangeOfString:@"Dubrovnik.UnitTests 1"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[stringStringDict objectForKey:@"keyForString2"] rangeOfString:@"Dubrovnik.UnitTests 2"].location != NSNotFound, DBUSubstringTestFailed);
+
+    //============================
+    // Dictionary<int,int>
+    //=============================
+    DBSystem_Collections_Generic_DictionaryA2 *intIntDictA2 = [refObject intIntDictionary];
+    
+    // test all keys
+    NSArray *intIntDictKeys = [intIntDictA2 allKeys];
+    STAssertTrue([intIntDictKeys count] == 2, DBUCountTestFailed);
+    STAssertTrue([[intIntDictKeys objectAtIndex:0] intValue] == 1, DBUEqualityTestFailed);
+    STAssertTrue([[intIntDictKeys objectAtIndex:1] intValue] == 3, DBUEqualityTestFailed);
+
+    // test all values
+    NSArray *intIntDictValues = [intIntDictA2 allValues];
+    STAssertTrue([intIntDictValues count] == 2, DBUCountTestFailed);
+    STAssertTrue([[intIntDictValues objectAtIndex:0] intValue] == 2, DBUEqualityTestFailed);
+    STAssertTrue([[intIntDictValues objectAtIndex:1] intValue] == 6, DBUEqualityTestFailed);
+
+    // test NSDictionary representation
+    NSDictionary *intIntDict = [intIntDictA2 dictionary];
+    STAssertTrue([[intIntDict objectForKey:@(1)] intValue] == 2, DBUEqualityTestFailed);
+    STAssertTrue([[intIntDict objectForKey:@(3)] intValue] == 6, DBUEqualityTestFailed);
+
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass

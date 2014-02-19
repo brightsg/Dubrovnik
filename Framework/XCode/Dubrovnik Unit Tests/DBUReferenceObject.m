@@ -341,6 +341,25 @@
 }
 
 #pragma mark -
+#pragma mark Mono Dictionary<TKey, TValue> properties
+
+- (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
+{
+    MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    dict.monoGenericTypeArgumentNames = @"NSString,NSString";
+    return dict;
+}
+
+- (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary
+{
+    MonoObject * monoObject = [self getMonoProperty:"IntIntDictionary"];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    dict.monoGenericTypeArgumentNames = @"NSNumber,NSNumber";
+    return dict;
+}
+
+#pragma mark -
 #pragma mark Mono string parameter methods
 
 - (NSString *)stringMethod
@@ -542,17 +561,6 @@
     return value;
 }
 
-#pragma mark -
-#pragma mark Generic types
-
-- (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
-{
-    MonoObject *monoObject = [self getMonoProperty:"StringStringDictionary"];
-
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 representationWithMonoObject:monoObject];
-    dict.monoGenericTypeArgumentNames = @"NSString,NSString";
-    return dict;
-}
 @end
 
 

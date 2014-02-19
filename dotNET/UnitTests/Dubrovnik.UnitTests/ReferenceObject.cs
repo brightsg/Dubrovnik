@@ -124,6 +124,10 @@ namespace Dubrovnik.UnitTests
 				{ "keyForInteger", 100 },
 				{ "keyForFloat", 100.111 }
 			};
+			IntIntDictionary = new Dictionary<int, int> {
+				{ 1, 2 },
+				{ 3, 6 },
+			};
 
             // Initialize statics
 			ClassProperty = "Dubrovnik.UnitTests static property";
@@ -201,9 +205,9 @@ namespace Dubrovnik.UnitTests
 		public List<double> DoubleList { get; set; }
 		public List<ReferenceObject> ReferenceObjectList { get; set; }
         public Dictionary<string, string> StringStringDictionary { get; set; }
-        public Dictionary<int, ReferenceObject> IntObjectDictionary { get; set; }
 		public Dictionary<string, object> StringObjectDictionary { get; set; }
-        
+		public Dictionary<int, int> IntIntDictionary { get; set; }
+
 		//==============================
 		// methods
 		//==============================

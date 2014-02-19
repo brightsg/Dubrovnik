@@ -198,6 +198,16 @@
     return self.itemClasses.firstObject;
 }
 
+- (Class)firstItemClass
+{
+    return self.itemClass;
+}
+
+- (Class)secondItemClass
+{
+    return [self.itemClasses objectAtIndex:1];;
+}
+
 #pragma mark -
 #pragma mark Equality testing
 

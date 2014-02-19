@@ -9,8 +9,10 @@
 #import "DBMonoObjectRepresentation.h"
 
 @interface DBSystem_Collections_Generic_DictionaryA2 : DBMonoObjectRepresentation
-
-- (NSArray *)keys;
++ (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
+- (NSArray *)allKeys;
+- (NSArray *)allValues;
 - (id)objectForKey:(id)key;
 - (id)valueForKey:(id)key;
+- (NSDictionary *)dictionary;
 @end

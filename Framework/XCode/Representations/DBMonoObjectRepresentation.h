@@ -149,6 +149,8 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassTypeName:(MonoClass *)klass;
 
 - (Class)itemClass;
+- (Class)firstItemClass;
+- (Class)secondItemClass;
 
 @property (retain, readonly) DBMonoEnvironment *monoEnvironment;
 @property (retain, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;

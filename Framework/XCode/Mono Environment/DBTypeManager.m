@@ -7,6 +7,27 @@
 //
 #import <Dubrovnik/Dubrovnik.h>
 
+/*
+ Mono type aliases:
+ 
+ object:  System.Object
+ string:  System.String
+ bool:    System.Boolean
+ byte:    System.Byte
+ sbyte:   System.SByte
+ short:   System.Int16
+ ushort:  System.UInt16
+ int:     System.Int32
+ uint:    System.UInt32
+ long:    System.Int64
+ ulong:   System.UInt64
+ float:   System.Single
+ double:  System.Double
+ decimal: System.Decimal
+ char:    System.Char
+ 
+ */
+
 NSString * DBType_System_Object =  @"System.Object";
 NSString * DBType_System_Byte =  @"System.Byte";
 NSString * DBType_System_Void =  @"System.Void";
@@ -61,6 +82,18 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return monoClass;
 }
 
++ (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject
+{
+    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
+    const char *monoClassName = mono_class_get_name(monoClass);
+    NSString *className = nil;
+    if (monoClassName) {
+        className = [NSString stringWithUTF8String:monoClassName];
+    }
+    
+    return className;
+}
+
 + (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject
 {
     MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
@@ -77,15 +110,15 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return monoUnderlingType;
 }
 
-+ (NSString *)typeNameForMonoObject:(MonoObject *)monoObject
++ (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject
 {
     MonoType* monoType = [self monoTypeForMonoObject:monoObject];
-    NSString *typeName = [self typeNameForMonoType:monoType];
+    NSString *typeName = [self monoTypeNameForMonoType:monoType];
     
     return typeName;
 }
 
-+ (NSString *)typeNameForMonoType:(MonoType *)monoType
++ (NSString *)monoTypeNameForMonoType:(MonoType *)monoType
 {
     const char *monoTypeName = mono_type_get_name(monoType);
     NSString *typeName = nil;
@@ -146,9 +179,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return klass;
 }
 
-- (NSString *)typeNameForMonoObject:(MonoObject *)monoObject
+- (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject
 {
-    return [[self class] typeNameForMonoObject:monoObject];
+    return [[self class] monoTypeNameForMonoObject:monoObject];
 }
 
 #pragma mark -
@@ -157,7 +190,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 - (id)objectForMonoObject:(MonoObject *)monoObject
 {
     id object = nil;
-    NSString *typeName = [self typeNameForMonoObject:monoObject];
+    NSString *typeName = [self monoTypeNameForMonoObject:monoObject];
 
     DBType *type = [self typeWithName:typeName];
     
@@ -172,7 +205,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
             case DBTypeID_System_Object:
             {
-                object = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+                object = [DBMonoObjectRepresentation bestRepresentationWithMonoObject:monoObject];
                 break;
             }
             
@@ -252,7 +285,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
             case DBTypeID_System_Enum:
             {
                 MonoType *underlyingMonoType = [[self class] monoUnderlyingTypeForMonoObject:monoObject];
-                NSString *underlyingTypeName = [[self class] typeNameForMonoType:underlyingMonoType];
+                NSString *underlyingTypeName = [[self class] monoTypeNameForMonoType:underlyingMonoType];
 
                 (void)underlyingTypeName;
                 
@@ -303,9 +336,6 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return object;
 }
 
-- (id)objectForMonoTYpeName:(NSString *)typeName
-{
-}
 
 #pragma mark -
 #pragma mark Collection methods

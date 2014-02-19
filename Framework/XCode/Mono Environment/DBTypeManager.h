@@ -60,15 +60,16 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 }
 
 + (id)sharedManager;
-+ (NSString *)typeNameForMonoObject:(MonoObject *)monoObject;
++ (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject;
 + (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject;
 + (MonoType *)monoUnderlyingTypeForMonoObject:(MonoObject *)monoObject;
-+ (NSString *)typeNameForMonoType:(MonoType *)monoType;
++ (NSString *)monoTypeNameForMonoType:(MonoType *)monoType;
 + (MonoClass *)monoClassForMonoObject:(MonoObject *)monoObject;
++ (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject;
 
 - (id)typeWithName:(NSString *)name;
 - (MonoClass *)monoClassWithName:(NSString *)name;
 - (id)objectForMonoObject:(MonoObject *)monoObject;
-- (NSString *)typeNameForMonoObject:(MonoObject *)monoObject;
+- (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject;
 
 @end

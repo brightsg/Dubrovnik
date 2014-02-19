@@ -21,19 +21,37 @@
     return "mscorlib";
 }
 
+#pragma mark -
+#pragma mark - Factory
+
++ (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
+{
+	DBSystem_Collections_Generic_DictionaryA2 *dict = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
+	return([dict autorelease]);
+}
 
 #pragma mark -
 #pragma mark Keys and values
 
-- (NSArray *)keys
+- (NSArray *)allKeys
 {
+    // an array of objects of type self.firstItemClass
     MonoObject *monoObject = [self getMonoProperty:"Keys"];
+    DBMonoObjectRepresentation *object = [[[DBMonoObjectRepresentation alloc] initWithMonoObject:monoObject withItemClass:self.firstItemClass] autorelease];
+    NSArray *keys = [[DBSystem_Linq toList:(DBMonoObjectRepresentation <Interface_IEnumerable_T> *)object] array];
     
-    //get list and array
-    
-    NSArray *keys = nil;
-    // an array of objects of type self.itemClasses[0]
     return keys;
+}
+
+- (NSArray *)allValues
+{
+    // an array of objects of type self.secondItemClass
+    MonoObject *monoObject = [self getMonoProperty:"Values"];
+    DBMonoObjectRepresentation *object = [[[DBMonoObjectRepresentation alloc] initWithMonoObject:monoObject withItemClass:self.secondItemClass] autorelease];
+    
+    NSArray *values = [[DBSystem_Linq toList:(DBMonoObjectRepresentation <Interface_IEnumerable_T> *)object] array];
+    
+    return values;
 }
 
 - (id)objectForKey:(id)key
@@ -44,13 +62,10 @@
     if ([self containsKey:key]) {
         
         // get the value for the key
-        MonoObject *arg = [self monoObjectForKey:key];
-        MonoObject *monoObject = [self invokeMonoMethod:"Item(string)" withNumArgs:1, arg];
-        
+        MonoObject *monoKey = [self monoObjectForKey:key];
+        MonoObject *monoObject = DBMonoObjectGetIndexedObject(self.monoObject, monoKey);
         if (monoObject) {
-            
-            // get the best representation sublass for the given object
-            object = [DBMonoObjectRepresentation bestRepresentationWithMonoObject:monoObject];
+            object = [[DBTypeManager sharedManager] objectForMonoObject:monoObject];
         }
     }
     
@@ -59,11 +74,18 @@
 
 - (BOOL)containsKey:(id)key
 {
-    // check if object contains the key
-    MonoObject *arg = [self monoObjectForKey:key];
-    MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(string)" withNumArgs:1, arg];
-    BOOL containsKey = DB_UNBOX_BOOLEAN(monoObject);
- 
+    BOOL containsKey = NO;
+
+    // the key must have a monoObject.
+    // typically the key will have been obtained from [self allKeys]
+    MonoObject *monoKey = [self monoObjectForKey:key];
+    if (monoKey) {
+        NSString *monoClassName = [[DBTypeManager monoClassNameForMonoObject:monoKey] lowercaseString];
+        NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoClassName];
+        MonoObject *monoObject = [self invokeMonoMethod:[methodName UTF8String] withNumArgs:1, monoKey];
+        containsKey = DB_UNBOX_BOOLEAN(monoObject);
+    }
+    
     return containsKey;
 }
 
@@ -85,6 +107,16 @@
 - (id)valueForKey:(id)key
 {
     return [self objectForKey:key];
+}
+
+#pragma mark -
+#pragma mark - Dictionary representation
+
+- (NSDictionary *)dictionary
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:self.allValues forKeys:self.allKeys];
+    
+    return dict;
 }
 
 @end
