@@ -7,26 +7,27 @@
 //
 #import <Dubrovnik/Dubrovnik.h>
 
-/*
- Mono type aliases:
+ // Built in type aliases
+ // http://msdn.microsoft.com/en-us/library/ya5y69ds.aspx
  
- object:  System.Object
- string:  System.String
- bool:    System.Boolean
- byte:    System.Byte
- sbyte:   System.SByte
- short:   System.Int16
- ushort:  System.UInt16
- int:     System.Int32
- uint:    System.UInt32
- long:    System.Int64
- ulong:   System.UInt64
- float:   System.Single
- double:  System.Double
- decimal: System.Decimal
- char:    System.Char
- 
- */
+NSString * DBAlias_System_Object =  @"object";
+NSString * DBAlias_System_String =  @"string";
+NSString * DBAlias_System_Boolean =  @"bool";
+NSString * DBAlias_System_Byte =  @"byte";
+NSString * DBAlias_System_SByte =  @"sbyte";
+NSString * DBAlias_System_Int16 =  @"short";
+NSString * DBAlias_System_UInt16 =  @"ushort";
+NSString * DBAlias_System_Int32 =  @"int";
+NSString * DBAlias_System_UInt32 =  @"uint";
+NSString * DBAlias_System_Int64 =  @"int64";
+NSString * DBAlias_System_UInt64 =  @"uint64";
+NSString * DBAlias_System_Single =  @"float";
+NSString * DBAlias_System_Double =  @"double";
+NSString * DBAlias_System_Decimal =  @"decimal";
+NSString * DBAlias_System_Char =  @"char";
+
+
+/* System types */
 
 NSString * DBType_System_Object =  @"System.Object";
 NSString * DBType_System_Byte =  @"System.Byte";
@@ -43,6 +44,7 @@ NSString * DBType_System_Int64 =  @"System.Int64";
 NSString * DBType_System_UInt64 =  @"System.UInt64";
 NSString * DBType_System_Single =  @"System.Single";
 NSString * DBType_System_Double =  @"System.Double";
+NSString * DBType_System_Decimal =  @"System.Decimal";
 NSString * DBType_System_Char =  @"System.Char";
 NSString * DBType_System_String =  @"System.String";
 NSString * DBType_System_Enum =  @"System.Enum";
@@ -137,27 +139,154 @@ NSString * DBType_System_Exception =  @"System.Exception";
     self = [super init];
     if (self) {
         self.monoTypes = [NSMutableDictionary dictionaryWithCapacity:22];
-        [self add:[DBType typeWithName:DBType_System_Object id:DBTypeID_System_Object monoClass:mono_get_object_class()]];
-        [self add:[DBType typeWithName:DBType_System_Byte id:DBTypeID_System_Byte monoClass:mono_get_byte_class()]];
-        [self add:[DBType typeWithName:DBType_System_Void id:DBTypeID_System_Void monoClass:mono_get_void_class()]];
-        [self add:[DBType typeWithName:DBType_System_Boolean id:DBTypeID_System_Boolean monoClass:mono_get_boolean_class()]];
-        [self add:[DBType typeWithName:DBType_System_SByte id:DBTypeID_System_SByte monoClass:mono_get_sbyte_class()]];
-        [self add:[DBType typeWithName:DBType_System_Int16 id:DBTypeID_System_Int16 monoClass:mono_get_int16_class()]];
-        [self add:[DBType typeWithName:DBType_System_UInt16 id:DBTypeID_System_Int16 monoClass:mono_get_uint16_class()]];
-        [self add:[DBType typeWithName:DBType_System_Int32 id:DBTypeID_System_Int32 monoClass:mono_get_int32_class()]];
-        [self add:[DBType typeWithName:DBType_System_UInt32 id:DBTypeID_System_UInt32 monoClass:mono_get_uint32_class()]];
-        [self add:[DBType typeWithName:DBType_System_IntPtr id:DBTypeID_System_IntPtr monoClass:mono_get_intptr_class()]];
-        [self add:[DBType typeWithName:DBType_System_UIntPtr id:DBTypeID_System_UIntPtr monoClass:mono_get_uintptr_class()]];
-        [self add:[DBType typeWithName:DBType_System_Int64 id:DBTypeID_System_Int64 monoClass:mono_get_int64_class()]];
-        [self add:[DBType typeWithName:DBType_System_UInt64 id:DBTypeID_System_UInt64 monoClass:mono_get_uint64_class()]];
-        [self add:[DBType typeWithName:DBType_System_Single id:DBTypeID_System_Single monoClass:mono_get_single_class()]];
-        [self add:[DBType typeWithName:DBType_System_Double id:DBTypeID_System_Double monoClass:mono_get_double_class()]];
-        [self add:[DBType typeWithName:DBType_System_Char id:DBTypeID_System_Char monoClass:mono_get_char_class()]];
-        [self add:[DBType typeWithName:DBType_System_String id:DBTypeID_System_String monoClass:mono_get_string_class()]];
-        [self add:[DBType typeWithName:DBType_System_Enum id:DBTypeID_System_Enum monoClass:mono_get_enum_class()]];
-        [self add:[DBType typeWithName:DBType_System_Array id:DBTypeID_System_Array monoClass:mono_get_array_class()]];
-        [self add:[DBType typeWithName:DBType_System_Thread id:DBTypeID_System_Thread monoClass:mono_get_thread_class()]];
-        [self add:[DBType typeWithName:DBType_System_Exception id:DBTypeID_System_Exception monoClass:mono_get_exception_class()]];
+        
+        [self add:[DBType typeWithName:DBType_System_Object
+                                 alias:DBAlias_System_Object
+                                    id:DBTypeID_System_Object
+                             monoClass:mono_get_object_class()
+                   ]
+         ];
+
+        [self add:[DBType typeWithName:DBType_System_String
+                                 alias:DBAlias_System_String
+                                    id:DBTypeID_System_String
+                             monoClass:mono_get_string_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Byte
+                                 alias:DBAlias_System_Byte
+                                    id:DBTypeID_System_Byte
+                             monoClass:mono_get_byte_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Void
+                                    id:DBTypeID_System_Void
+                             monoClass:mono_get_void_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Boolean
+                                 alias:DBAlias_System_Boolean
+                                    id:DBTypeID_System_Boolean
+                             monoClass:mono_get_boolean_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_SByte
+                                 alias:DBAlias_System_SByte
+                                    id:DBTypeID_System_SByte
+                             monoClass:mono_get_sbyte_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Int16
+                                 alias:DBAlias_System_Int16
+                                    id:DBTypeID_System_Int16
+                             monoClass:mono_get_int16_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_UInt16
+                                 alias:DBAlias_System_UInt16
+                                    id:DBTypeID_System_UInt16
+                             monoClass:mono_get_uint16_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Int32
+                                 alias:DBAlias_System_Int32
+                                    id:DBTypeID_System_Int32
+                             monoClass:mono_get_int32_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_UInt32
+                                 alias:DBAlias_System_UInt32
+                                    id:DBTypeID_System_UInt32
+                             monoClass:mono_get_uint32_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Int64
+                                 alias:DBAlias_System_Int64
+                                    id:DBTypeID_System_Int64
+                             monoClass:mono_get_int64_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_UInt64
+                                 alias:DBAlias_System_UInt64
+                                   id:DBTypeID_System_UInt64
+                             monoClass:mono_get_uint64_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Single
+                                 alias:DBAlias_System_Single
+                                    id:DBTypeID_System_Single
+                             monoClass:mono_get_single_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Double
+                                 alias:DBAlias_System_Double
+                                    id:DBTypeID_System_Double
+                             monoClass:mono_get_double_class()
+                   ]
+         ];
+
+        /* TODO: decimal
+         [self add:[DBType typeWithName:DBType_System_Decimal
+                                    alias:DBAlias_System_Decimal
+                                    id:DBTypeID_System_Decimal
+                             monoClass:mono_get_double_class()
+                   ]
+         ]; */
+
+        [self add:[DBType typeWithName:DBType_System_Char
+                                 alias:DBAlias_System_Char
+                                    id:DBTypeID_System_Char
+                             monoClass:mono_get_char_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Enum
+                                    id:DBTypeID_System_Enum
+                             monoClass:mono_get_enum_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Array
+                                    id:DBTypeID_System_Array
+                             monoClass:mono_get_array_class()
+                   ]
+         ];
+
+        [self add:[DBType typeWithName:DBType_System_IntPtr
+                                    id:DBTypeID_System_IntPtr
+                             monoClass:mono_get_intptr_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_UIntPtr
+                                    id:DBTypeID_System_UIntPtr
+                             monoClass:mono_get_uintptr_class()
+                   ]
+         ];
+
+        [self add:[DBType typeWithName:DBType_System_Thread
+                                    id:DBTypeID_System_Thread
+                             monoClass:mono_get_thread_class()
+                   ]
+         ];
+        
+        [self add:[DBType typeWithName:DBType_System_Exception
+                                    id:DBTypeID_System_Exception
+                             monoClass:mono_get_exception_class()
+                   ]
+         ];
     }
     
     return self;
@@ -165,6 +294,13 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 #pragma mark -
 #pragma mark Type support
+
+- (NSString *)aliasForName:(NSString *)name
+{
+    DBType *type = [self.monoTypes objectForKey:name];
+    
+    return type.alias;
+}
 
 - (DBType *)typeWithName:(NSString *)name
 {
@@ -182,6 +318,22 @@ NSString * DBType_System_Exception =  @"System.Exception";
 - (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject
 {
     return [[self class] monoTypeNameForMonoObject:monoObject];
+}
+
+- (NSString *)monoAliasNameForMonoObject:(MonoObject *)monoObject
+{
+    NSString *typeName = [[self class] monoTypeNameForMonoObject:monoObject];
+    DBType *type = [self typeWithName:typeName];
+    return type.alias;
+}
+
+- (NSString *)monoArgumentTypeNameForMonoObject:(MonoObject *)monoObject
+{
+    NSString *typeName = [self monoAliasNameForMonoObject:monoObject];
+    if (!typeName) {
+        typeName = [self monoTypeNameForMonoObject:monoObject];
+    }
+    return typeName;
 }
 
 #pragma mark -
@@ -276,6 +428,13 @@ NSString * DBType_System_Exception =  @"System.Exception";
                 break;
             }
 
+            case DBTypeID_System_Decimal:
+            {
+                [NSException raise:@"Feature not yet implemented" format:@"object for System.Enum"];
+                break;
+            }
+
+                
             case DBTypeID_System_String:
             {
                 object = [NSString stringWithMonoString:DB_STRING(monoObject)];

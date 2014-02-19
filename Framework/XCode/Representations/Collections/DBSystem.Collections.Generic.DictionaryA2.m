@@ -80,8 +80,8 @@
     // typically the key will have been obtained from [self allKeys]
     MonoObject *monoKey = [self monoObjectForKey:key];
     if (monoKey) {
-        NSString *monoClassName = [[DBTypeManager monoClassNameForMonoObject:monoKey] lowercaseString];
-        NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoClassName];
+        NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoObject:monoKey];
+        NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoArgumentTypeName];
         MonoObject *monoObject = [self invokeMonoMethod:[methodName UTF8String] withNumArgs:1, monoKey];
         containsKey = DB_UNBOX_BOOLEAN(monoObject);
     }

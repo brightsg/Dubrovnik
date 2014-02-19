@@ -23,12 +23,29 @@ extern NSString * DBType_System_Int64;
 extern NSString * DBType_System_UInt64;
 extern NSString * DBType_System_Single;
 extern NSString * DBType_System_Double;
+extern NSString * DBType_System_Decimal;
 extern NSString * DBType_System_Char;
 extern NSString * DBType_System_String;
 extern NSString * DBType_System_Enum;
 extern NSString * DBType_System_Array;
 extern NSString * DBType_System_Thread;
 extern NSString * DBType_System_Exception;
+
+extern NSString * DBAlias_System_Object;
+extern NSString * DBAlias_System_String;
+extern NSString * DBAlias_System_Boolean;
+extern NSString * DBAlias_System_Byte;
+extern NSString * DBAlias_System_SByte;
+extern NSString * DBAlias_System_Int16;
+extern NSString * DBAlias_System_UInt16;
+extern NSString * DBAlias_System_Int32;
+extern NSString * DBAlias_System_UInt32;
+extern NSString * DBAlias_System_Int64;
+extern NSString * DBAlias_System_UInt64;
+extern NSString * DBAlias_System_Single;
+extern NSString * DBAlias_System_Double;
+extern NSString * DBAlias_System_Decimal;
+extern NSString * DBAlias_System_Char;
 
 typedef NS_ENUM(NSUInteger, DBTypeId) {
     DBTypeID_System_Object,
@@ -46,6 +63,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
     DBTypeID_System_UInt64,
     DBTypeID_System_Single,
     DBTypeID_System_Double,
+    DBTypeID_System_Decimal,
     DBTypeID_System_Char,
     DBTypeID_System_String,
     DBTypeID_System_Enum,
@@ -68,8 +86,10 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 + (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject;
 
 - (id)typeWithName:(NSString *)name;
+- (NSString *)aliasForName:(NSString *)name;
 - (MonoClass *)monoClassWithName:(NSString *)name;
 - (id)objectForMonoObject:(MonoObject *)monoObject;
 - (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject;
-
+- (NSString *)monoAliasNameForMonoObject:(MonoObject *)monoObject;
+- (NSString *)monoArgumentTypeNameForMonoObject:(MonoObject *)monoObject;
 @end
