@@ -319,6 +319,27 @@
     return object;
 }
 
+- (DBSystem_Collections_Generic_ListA1 *)uIntList
+{
+    MonoObject * monoObject = [self getMonoProperty:"UIntList"];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    return object;
+}
+
+- (DBSystem_Collections_Generic_ListA1 *)floatList
+{
+    MonoObject * monoObject = [self getMonoProperty:"FloatList"];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    return object;
+}
+
+- (DBSystem_Collections_Generic_ListA1 *)doubleList
+{
+    MonoObject * monoObject = [self getMonoProperty:"DoubleList"];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    return object;
+}
+
 #pragma mark -
 #pragma mark Mono string parameter methods
 

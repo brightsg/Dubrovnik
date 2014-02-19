@@ -6,7 +6,6 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "DBType.h"
 
 extern NSString * DBType_System_Object;
@@ -61,7 +60,15 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 }
 
 + (id)sharedManager;
++ (NSString *)typeNameForMonoObject:(MonoObject *)monoObject;
++ (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject;
++ (MonoType *)monoUnderlyingTypeForMonoObject:(MonoObject *)monoObject;
++ (NSString *)typeNameForMonoType:(MonoType *)monoType;
++ (MonoClass *)monoClassForMonoObject:(MonoObject *)monoObject;
+
 - (id)typeWithName:(NSString *)name;
 - (MonoClass *)monoClassWithName:(NSString *)name;
+- (id)objectForMonoObject:(MonoObject *)monoObject;
+- (NSString *)typeNameForMonoObject:(MonoObject *)monoObject;
 
 @end

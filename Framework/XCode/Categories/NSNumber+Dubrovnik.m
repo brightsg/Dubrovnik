@@ -14,15 +14,26 @@ static const char hasValueKey = '0';
 @implementation NSNumber (Dubrovnik)
 
 #pragma mark -
+
+// This method is here so that we can get NSNumbers right out of ILists and Arrays by specifying NSNumber as the representation class.
+
++ (instancetype)representationWithMonoObject:(MonoObject *)monoObject
+{
+	id number = [[DBTypeManager sharedManager] objectForMonoObject:monoObject];
+    
+	return number;
+}
+
+#pragma mark -
 #pragma mark Factory methods
-+ (NSNumber *)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue
++ (instancetype)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue
 {
     NSNumber *number = [self numberWithBool:value];
     [number setHasValue:hasValue];
     return number;
 }
 
-+ (NSNumber *)numberWithNullableMonoBool:(MonoObject *)monoNullable
++ (instancetype)numberWithNullableMonoBool:(MonoObject *)monoNullable
 {
     BOOL value = NO;
     BOOL hasValue = DBMonoNullableObjectHasValue(monoNullable);
@@ -34,7 +45,7 @@ static const char hasValueKey = '0';
     return number;
 }
 
-+ (NSNumber *)numberWithLongLong:(long long)value hasValue:(BOOL)hasValue
++ (instancetype)numberWithLongLong:(long long)value hasValue:(BOOL)hasValue
 {
     // 64 bit on 32 + 64 bit systems
     NSNumber *number = [self numberWithLongLong:value];
@@ -42,7 +53,7 @@ static const char hasValueKey = '0';
     return number;
 }
 
-+ (NSNumber *)numberWithNullableMonoInt64:(MonoObject *)monoNullable
++ (instancetype)numberWithNullableMonoInt64:(MonoObject *)monoNullable
 {
     int64_t value = 0;
     BOOL hasValue = DBMonoNullableObjectHasValue(monoNullable);
@@ -54,7 +65,7 @@ static const char hasValueKey = '0';
     return number;
 }
 
-+ (NSNumber *)numberWithInt:(int)value hasValue:(BOOL)hasValue
++ (instancetype)numberWithInt:(int)value hasValue:(BOOL)hasValue
 {
     // 32 bit on 32 + 64 bit systems
     NSNumber *number = [self numberWithInt:value];
@@ -62,7 +73,7 @@ static const char hasValueKey = '0';
     return number;
 }
 
-+ (NSNumber *)numberWithNullableMonoInt32:(MonoObject *)monoNullable
++ (instancetype)numberWithNullableMonoInt32:(MonoObject *)monoNullable
 {
     int32_t value = 0;
     BOOL hasValue = DBMonoNullableObjectHasValue(monoNullable);

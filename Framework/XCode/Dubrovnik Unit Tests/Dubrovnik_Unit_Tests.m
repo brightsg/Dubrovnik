@@ -604,6 +604,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
 #pragma unused(testClass)
     
+#warning TODO: add tests for all possible List<T> types
+    
     // List<string>
     DBSystem_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
     NSArray *arrayOfStrings = [listOfStrings array];
@@ -614,7 +616,33 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // List<int>
     DBSystem_Collections_Generic_ListA1 *listOfInts = [refObject intList];
-    //NSArray *arrayOfInts = [listOfInts array];
+    NSArray *arrayOfInts = [listOfInts array];
+    STAssertTrue([arrayOfInts count] == 3, DBUCountTestFailed);
+    STAssertTrue([[arrayOfInts objectAtIndex:0] intValue] == 1, DBUEqualityTestFailed);
+    STAssertTrue([[arrayOfInts objectAtIndex:1] intValue] == -10, DBUEqualityTestFailed);
+    STAssertTrue([[arrayOfInts objectAtIndex:2] intValue] == 100, DBUEqualityTestFailed);
+
+    // List<uint>
+    DBSystem_Collections_Generic_ListA1 *listOfUInts = [refObject uIntList];
+    NSArray *arrayOfUInts = [listOfUInts array];
+    STAssertTrue([arrayOfUInts count] == 2, DBUCountTestFailed);
+    STAssertTrue([[arrayOfUInts objectAtIndex:0] unsignedIntValue] == 2, DBUEqualityTestFailed);
+    STAssertTrue([[arrayOfUInts objectAtIndex:1] unsignedIntValue] == 20, DBUEqualityTestFailed);
+
+    // List<float>
+    DBSystem_Collections_Generic_ListA1 *listOfFloats = [refObject floatList];
+    NSArray *arrayOfFloats = [listOfFloats array];
+    STAssertTrue([arrayOfFloats count] == 3, DBUCountTestFailed);
+    STAssertTrue([[arrayOfFloats objectAtIndex:0] floatValue] == 1., DBUEqualityTestFailed);
+    STAssertTrue([[arrayOfFloats objectAtIndex:1] floatValue] == 2., DBUEqualityTestFailed);
+    STAssertTrue([[arrayOfFloats objectAtIndex:2] floatValue] == 3., DBUEqualityTestFailed);
+    
+    // List<double>
+    DBSystem_Collections_Generic_ListA1 *listOfDoubles = [refObject doubleList];
+    NSArray *arrayOfDoubles = [listOfDoubles array];
+    STAssertTrue([arrayOfDoubles count] == 2, DBUCountTestFailed);
+    STAssertTrue([[arrayOfDoubles objectAtIndex:0] doubleValue] == 11., DBUEqualityTestFailed);
+    STAssertTrue([[arrayOfDoubles objectAtIndex:1] doubleValue] == 22., DBUEqualityTestFailed);
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass

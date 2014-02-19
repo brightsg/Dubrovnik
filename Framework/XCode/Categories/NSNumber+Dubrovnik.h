@@ -10,12 +10,13 @@
 #import "DBMonoIncludes.h"
 
 @interface NSNumber (Dubrovnik)
-+ (NSNumber *)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue;
-+ (NSNumber *)numberWithNullableMonoBool:(MonoObject *)monoNullable;
-+ (NSNumber *)numberWithLongLong:(long long)value hasValue:(BOOL)hasValue;
-+ (NSNumber *)numberWithNullableMonoInt64:(MonoObject *)monoNullable;
-+ (NSNumber *)numberWithInt:(int)value hasValue:(BOOL)hasValue;
-+ (NSNumber *)numberWithNullableMonoInt32:(MonoObject *)monoNullable;
++ (instancetype)representationWithMonoObject:(MonoObject *)monoObject;
++ (instancetype)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue;
++ (instancetype)numberWithNullableMonoBool:(MonoObject *)monoNullable;
++ (instancetype)numberWithLongLong:(long long)value hasValue:(BOOL)hasValue;
++ (instancetype)numberWithNullableMonoInt64:(MonoObject *)monoNullable;
++ (instancetype)numberWithInt:(int)value hasValue:(BOOL)hasValue;
++ (instancetype)numberWithNullableMonoInt32:(MonoObject *)monoNullable;
 
 - (MonoObject *)nullableMonoInt64;
 - (MonoObject *)nullableMonoInt32;

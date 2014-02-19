@@ -38,6 +38,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 @synthesize monoTypes = _monoTypes;
 
+#pragma mark -
+#pragma mark Singleton
+
 + (id)sharedManager
 {
     static dispatch_once_t once;
@@ -48,10 +51,53 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return sharedInstance;
 }
 
-- (void)add:(DBType *)monoType
+#pragma mark -
+#pragma mark Type support
+
++ (MonoClass *)monoClassForMonoObject:(MonoObject *)monoObject
 {
-    [self.monoTypes setObject:monoType forKey:monoType.name];
+    MonoClass *monoClass = mono_object_get_class(monoObject);
+    
+    return monoClass;
 }
+
++ (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject
+{
+    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
+    MonoType* monoType = mono_class_get_type(monoClass);
+    
+    return monoType;
+}
+
++ (MonoType *)monoUnderlyingTypeForMonoObject:(MonoObject *)monoObject
+{
+    MonoType* monoType = [self monoTypeForMonoObject:monoObject];
+    MonoType* monoUnderlingType = mono_type_get_underlying_type(monoType);
+    
+    return monoUnderlingType;
+}
+
++ (NSString *)typeNameForMonoObject:(MonoObject *)monoObject
+{
+    MonoType* monoType = [self monoTypeForMonoObject:monoObject];
+    NSString *typeName = [self typeNameForMonoType:monoType];
+    
+    return typeName;
+}
+
++ (NSString *)typeNameForMonoType:(MonoType *)monoType
+{
+    const char *monoTypeName = mono_type_get_name(monoType);
+    NSString *typeName = nil;
+    if (monoTypeName) {
+        typeName = [NSString stringWithUTF8String:monoTypeName];
+    }
+    
+    return typeName;
+}
+
+#pragma mark -
+#pragma mark Setup
 
 - (id)init
 {
@@ -84,6 +130,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return self;
 }
 
+#pragma mark -
+#pragma mark Type support
+
 - (DBType *)typeWithName:(NSString *)name
 {
     return [self.monoTypes objectForKey:name];
@@ -96,4 +145,174 @@ NSString * DBType_System_Exception =  @"System.Exception";
     
     return klass;
 }
+
+- (NSString *)typeNameForMonoObject:(MonoObject *)monoObject
+{
+    return [[self class] typeNameForMonoObject:monoObject];
+}
+
+#pragma mark -
+#pragma mark Object factory
+
+- (id)objectForMonoObject:(MonoObject *)monoObject
+{
+    id object = nil;
+    NSString *typeName = [self typeNameForMonoObject:monoObject];
+
+    DBType *type = [self typeWithName:typeName];
+    
+    if (type) {
+        switch ([type typeID]) {
+                
+            case DBTypeID_System_Void:
+            {
+                object = [NSNull null];
+                break;
+            }
+
+            case DBTypeID_System_Object:
+            {
+                object = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+                break;
+            }
+            
+            case DBTypeID_System_Boolean:
+            {
+                object = [NSNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_Byte:
+            case DBTypeID_System_Char:
+            {
+                object = [NSNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_SByte:
+            {
+                object = [NSNumber numberWithChar:DB_UNBOX_INT8(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_Int16:
+            {
+                object = [NSNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_UInt16:
+            {
+                object = [NSNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_Int32:
+            {
+                object = [NSNumber numberWithInt:DB_UNBOX_INT32(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_UInt32:
+            {
+                object = [NSNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_Int64:
+            {
+                object = [NSNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
+                break;
+            }
+                
+            case DBTypeID_System_UInt64:
+            {
+                object = [NSNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_Single:
+            {
+                object = [NSNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_Double:
+            {
+                object = [NSNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
+                break;
+            }
+
+            case DBTypeID_System_String:
+            {
+                object = [NSString stringWithMonoString:DB_STRING(monoObject)];
+                break;
+            }
+                
+            case DBTypeID_System_Enum:
+            {
+                MonoType *underlyingMonoType = [[self class] monoUnderlyingTypeForMonoObject:monoObject];
+                NSString *underlyingTypeName = [[self class] typeNameForMonoType:underlyingMonoType];
+
+                (void)underlyingTypeName;
+                
+                [NSException raise:@"Feature not yet implemented" format:@"object for System.Enum"];
+
+                break;
+            }
+                
+            case DBTypeID_System_Array:
+            {
+                [NSException raise:@"Feature not yet implemented" format:@"object for System.Array"];
+
+                 break;
+            }
+                
+            case DBTypeID_System_Thread:
+            {
+                [NSException raise:@"Feature not yet implemented" format:@"object for System.Thread"];
+
+                break;
+            }
+                
+            case DBTypeID_System_Exception:
+            {
+                object = NSExceptionFromMonoException(monoObject);
+                break;
+            }
+            
+            case DBTypeID_System_IntPtr:
+            {
+                object = [NSValue valueWithPointer:DB_UNBOX_PTR(monoObject)];
+                break;
+            }
+                
+            case DBTypeID_System_UIntPtr:
+            {
+                object = [NSValue valueWithPointer:DB_UNBOX_UPTR(monoObject)];
+                break;
+            }
+
+            default:
+            {
+                [NSException exceptionWithName:@"Mono object representation exception" reason:@"Invalid type ID" userInfo:nil];
+            }
+        }
+    }
+    
+    return object;
+}
+
+- (id)objectForMonoTYpeName:(NSString *)typeName
+{
+}
+
+#pragma mark -
+#pragma mark Collection methods
+
+- (void)add:(DBType *)monoType
+{
+    [self.monoTypes setObject:monoType forKey:monoType.name];
+}
+
 @end

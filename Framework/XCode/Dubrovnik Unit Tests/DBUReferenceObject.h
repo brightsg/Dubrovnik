@@ -181,5 +181,8 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
 - (DBSystem_Collections_Generic_ListA1 *)stringList;
 - (DBSystem_Collections_Generic_ListA1 *)intList;
+- (DBSystem_Collections_Generic_ListA1 *)uIntList;
+- (DBSystem_Collections_Generic_ListA1 *)floatList;
+- (DBSystem_Collections_Generic_ListA1 *)doubleList;
 
 @end

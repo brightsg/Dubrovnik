@@ -96,8 +96,21 @@ namespace Dubrovnik.UnitTests
 			};
 			IntList = new List<int> {
 				1,
-				10,
+				-10,
 				100
+			};
+			UIntList = new List<uint> {
+				2,
+				20,
+			};
+			FloatList = new List<float> {
+				1.0F,
+				2.0F,
+				3.0F,
+			};
+			DoubleList = new List<double> {
+				11.0D,
+				22.0D,
 			};
 
 			// initialze dictionarys
@@ -183,7 +196,10 @@ namespace Dubrovnik.UnitTests
         // generic properties
         public List<string> StringList { get; set; }
         public List<int> IntList { get; set; }
-        public List<ReferenceObject> ReferenceObjectList { get; set; }
+		public List<uint> UIntList { get; set; }
+		public List<float> FloatList { get; set; }
+		public List<double> DoubleList { get; set; }
+		public List<ReferenceObject> ReferenceObjectList { get; set; }
         public Dictionary<string, string> StringStringDictionary { get; set; }
         public Dictionary<int, ReferenceObject> IntObjectDictionary { get; set; }
 		public Dictionary<string, object> StringObjectDictionary { get; set; }
