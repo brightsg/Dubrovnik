@@ -7,7 +7,6 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import <Dubrovnik/Dubrovnik.h>
 
 @interface Dubrovnik_Unit_Tests : SenTestCase <DBEnvironmentDelegate>
 {

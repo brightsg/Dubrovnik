@@ -21,6 +21,7 @@
 //
 
 #import "DBMonoClassRepresentation.h"
+#import "DBInvoke.h"
 
 @implementation DBMonoClassRepresentation
 

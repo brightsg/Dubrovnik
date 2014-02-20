@@ -20,7 +20,10 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "NSData+Dubrovnik.h"
+#import "DBMonoIncludes.h"
+#import "DBWrappedData.h"
+#import "DBInvoke.h"
 
 @implementation NSData (Dubrovnik)
 

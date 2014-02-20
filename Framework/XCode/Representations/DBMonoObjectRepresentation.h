@@ -19,16 +19,12 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-
-#import <Foundation/Foundation.h>
-
-#import "DBUtility.h"
-#import "DBMonoMethodRepresentation.h"
-#import "DBMonoClassRepresentation.h"
-
 extern char DBCacheSuffixChar;
 
-@class DBMonoEnvironment;
+#import <Foundation/Foundation.h>
+#import "DBMonoIncludes.h"
+
+@class DBMonoEnvironment, DBMonoClassRepresentation, DBMonoMethodRepresentation;
 
 @interface DBMonoObjectRepresentation : NSObject <NSCopying> {
 	

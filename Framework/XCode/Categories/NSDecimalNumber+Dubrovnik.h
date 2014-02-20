@@ -5,9 +5,10 @@
 //  Created by Jonathan on 07/07/2013.
 //
 //
-
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+
+@class DBMonoClassRepresentation;
 
 @interface NSDecimalNumber (Dubrovnik)
 

@@ -5,8 +5,9 @@
 //  Created by Jonathan on 09/09/2013.
 //
 //
-
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Collections.Generic.ListA1.h"
+#import "DBSystem.Collections.IList.h"
+#import "DBSystem.Linq.h"
 
 @implementation DBSystem_Collections_Generic_ListA1
 

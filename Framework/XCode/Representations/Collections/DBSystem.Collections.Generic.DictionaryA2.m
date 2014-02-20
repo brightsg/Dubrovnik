@@ -5,7 +5,11 @@
 //  Created by Jonathan on 09/09/2013.
 //
 //
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Collections.Generic.DictionaryA2.h"
+#import "DBSystem.Linq.h"
+#import "DBInvoke.h"
+#import "DBTypeManager.h"
+#import "DBBoxing.h"
 
 @implementation DBSystem_Collections_Generic_DictionaryA2
 

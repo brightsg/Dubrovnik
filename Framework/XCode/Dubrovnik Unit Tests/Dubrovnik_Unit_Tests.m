@@ -5,9 +5,10 @@
 //  Created by Jonathan on 02/07/2013.
 //
 //
-
+#import <Dubrovnik/Dubrovnik.h>
 #import "Dubrovnik_Unit_Tests.h"
 #import "DBUReferenceObject.h"
+#import "DBUIReferenceObject.h"
 
 // toggle 0-1
 // it may be useful to disable certain tests when adding support for new features
@@ -709,6 +710,24 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[intIntDict objectForKey:@(1)] intValue] == 2, DBUEqualityTestFailed);
     STAssertTrue([[intIntDict objectForKey:@(3)] intValue] == 6, DBUEqualityTestFailed);
 
+    //============================
+    // Dictionary<string,object>
+    //=============================
+    DBSystem_Collections_Generic_DictionaryA2 *stringObjectDictA2 = [refObject stringObjectDictionary];
+    
+    // test all keys
+    NSArray *stringObjectDictKeys = [stringObjectDictA2 allKeys];
+    STAssertTrue([stringObjectDictKeys count] == 3, DBUCountTestFailed);
+    STAssertTrue([[stringObjectDictKeys objectAtIndex:0] rangeOfString:@"keyForString"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[stringObjectDictKeys objectAtIndex:1] rangeOfString:@"keyForInteger"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([[stringObjectDictKeys objectAtIndex:2] rangeOfString:@"keyForFloat"].location != NSNotFound, DBUSubstringTestFailed);
+
+    // test all values
+    /*NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
+    STAssertTrue([intIntDictValues count] == 3, DBUCountTestFailed);
+    STAssertTrue([[stringObjectDictValues objectAtIndex:1] intValue] == 100, DBUEqualityTestFailed);
+    STAssertTrue([[stringObjectDictValues objectAtIndex:2] floatValue] == 1001, DBUEqualityTestFailed);
+     */
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass

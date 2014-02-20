@@ -19,12 +19,8 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #import "DBMonoEnvironment.h"
-#import "DBInvoke.h"
-#import "DBMonoRegisteredThread.h"
-
 
 static NSString *_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
 static NSString *_monoAssemblyDefaultSearchPath = @"mono/4.5";

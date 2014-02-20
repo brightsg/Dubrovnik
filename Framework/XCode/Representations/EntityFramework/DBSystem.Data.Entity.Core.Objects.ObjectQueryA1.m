@@ -5,8 +5,8 @@
 //  Created by Jonathan Mitchell on 01/11/2013.
 //
 //
-
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
+#import "DBSystem.Linq.h"
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1()
 @end

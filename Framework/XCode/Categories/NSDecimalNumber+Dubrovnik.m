@@ -6,8 +6,12 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "NSDecimalNumber+Dubrovnik.h"
 #import <objc/runtime.h>
+#import "DBInvoke.h"
+#import "NSString+Dubrovnik.h"
+#import "DBMonoClassRepresentation.h"
+#import "DBMonoEnvironment.h"
 
 static const char hasValueKey = '0';
 

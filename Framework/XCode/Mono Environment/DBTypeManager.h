@@ -5,7 +5,7 @@
 //  Created by Jonathan on 04/09/2013.
 //
 //
-
+#import <Cocoa/Cocoa.h>
 #import "DBType.h"
 
 extern NSString * DBType_System_Object;

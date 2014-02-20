@@ -19,8 +19,15 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-
-#import <Dubrovnik/Dubrovnik.h>
+#import <Cocoa/Cocoa.h>
+#import "DBMonoObjectRepresentation.h"
+#import "DBMonoEnvironment.h"
+#import "DBMonoClassRepresentation.h"
+#import "DBInvoke.h"
+#import "DBBoxing.h"
+#import "NSString+Dubrovnik.h"
+#import "DBMonoMethodRepresentation.h"
+#import "DBSystem.Convert.h"
 
 @interface DBMonoObjectRepresentation()
 

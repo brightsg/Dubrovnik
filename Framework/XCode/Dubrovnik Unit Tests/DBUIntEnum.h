@@ -6,8 +6,7 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
-
+#import "DBSystem.Enum.h"
 typedef int32_t eDBUIntEnum;
 
 @interface DBUIntEnum : DBSystem_Enum

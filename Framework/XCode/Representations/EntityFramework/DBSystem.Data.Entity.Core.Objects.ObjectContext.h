@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoObjectRepresentation.h"
 
-@class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1;
+@class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1, DBSystem_Array;
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectContext : DBMonoObjectRepresentation
 

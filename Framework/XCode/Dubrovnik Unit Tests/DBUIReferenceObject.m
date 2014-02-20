@@ -6,6 +6,7 @@
 //
 //
 
+#import "Dubrovnik/Dubrovnik.h"
 #import "DBUIReferenceObject.h"
 
 @implementation DBUIReferenceObject

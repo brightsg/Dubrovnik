@@ -1,5 +1,5 @@
 //
-//  DBSystem.Enum.h
+//  DBSystem.Enum.m
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 7/28/06.
@@ -19,11 +19,8 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-
 #import "DBSystem.Enum.h"
-
 #import "DBMonoClassRepresentation.h"
-#import "DBMonoEnvironment.h"
 
 static DBMonoClassRepresentation *_classRep = nil;
 

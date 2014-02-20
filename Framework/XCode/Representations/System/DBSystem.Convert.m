@@ -20,10 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBSystem.Convert.h"
-
-#import "DBMonoClassRepresentation.h"
-#import "DBMonoEnvironment.h"
+#import <Dubrovnik/Dubrovnik.h>
 
 static DBMonoClassRepresentation *_classRep = nil;
 

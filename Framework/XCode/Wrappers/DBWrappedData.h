@@ -21,9 +21,6 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
-#import "DBMonoIncludes.h"
-
 @interface DBWrappedData : NSData {
 	MonoArray *_monoArray;
 	int32_t _gcHandle;

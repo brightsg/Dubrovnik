@@ -5,9 +5,8 @@
 //  Created by Jonathan on 10/07/2013.
 //
 //
-
-
 #import "DBUReferenceObject.h"
+#import "DBUIReferenceObject.h"
 
 @implementation DBUReferenceObject
 
@@ -346,7 +345,7 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSString class]];
     dict.monoGenericTypeArgumentNames = @"NSString,NSString";
     return dict;
 }
@@ -356,6 +355,14 @@
     MonoObject * monoObject = [self getMonoProperty:"IntIntDictionary"];
     DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSNumber class]];
     dict.monoGenericTypeArgumentNames = @"NSNumber,NSNumber";
+    return dict;
+}
+
+- (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary
+{
+    MonoObject * monoObject = [self getMonoProperty:"StringObjectDictionary"];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSString class]];
+    dict.monoGenericTypeArgumentNames = @"NSString,DBMonoObjectRepresentation";
     return dict;
 }
 

@@ -5,8 +5,14 @@
 //  Created by Jonathan on 08/07/2013.
 //
 //
-
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
+#import "DBBoxing.h"
+#import "DBMonoMethodRepresentation.h"
+#import "DBMonoEnvironment.h"
+#import "DBMonoClassRepresentation.h"
+#import "NSString+Dubrovnik.h"
+#import "DBSystem.Array.h"
+#import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
 
 @implementation DBSystem_Data_Entity_Core_Objects_ObjectContext
 

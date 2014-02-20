@@ -79,6 +79,8 @@
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
 		AB99495118B3693F00FAC62D /* DBSystem.Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = AB99494F18B3693F00FAC62D /* DBSystem.Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB99495218B3693F00FAC62D /* DBSystem.Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = AB99495018B3693F00FAC62D /* DBSystem.Linq.m */; };
+		AB99495B18B625C800FAC62D /* System.Class.h in Headers */ = {isa = PBXBuildFile; fileRef = AB99495918B625C800FAC62D /* System.Class.h */; };
+		AB99495C18B625C800FAC62D /* System.Class.m in Sources */ = {isa = PBXBuildFile; fileRef = AB99495A18B625C800FAC62D /* System.Class.m */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
@@ -214,6 +216,8 @@
 		AB99495518B36C5500FAC62D /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
 		AB99495618B36C7C00FAC62D /* DBProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBProtocols.h; sourceTree = "<group>"; };
 		AB99495718B3F4D200FAC62D /* Interface_IList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
+		AB99495918B625C800FAC62D /* System.Class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Class.h; sourceTree = "<group>"; };
+		AB99495A18B625C800FAC62D /* System.Class.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Class.m; sourceTree = "<group>"; };
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 		08FB77AEFE84172EC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AB99495818B6258300FAC62D /* Mono Classes */,
 				AB99495418B36BFD00FAC62D /* Include */,
 				AB99495318B36BF500FAC62D /* Protocols */,
 				9DF236C70875D58E008A199C /* Categories */,
@@ -583,6 +588,16 @@
 			path = Include;
 			sourceTree = "<group>";
 		};
+		AB99495818B6258300FAC62D /* Mono Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AB99495918B625C800FAC62D /* System.Class.h */,
+				AB99495A18B625C800FAC62D /* System.Class.m */,
+			);
+			name = "Mono Classes";
+			path = "../Mono Classes";
+			sourceTree = "<group>";
+		};
 		ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,6 +644,7 @@
 				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
 				ABF43FB8179FF4FC00BAB99E /* DBMonoMethodRepresentation.h in Headers */,
+				AB99495B18B625C800FAC62D /* System.Class.h in Headers */,
 				AB49E43C178B2D7B00D01244 /* DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h in Headers */,
 				AB49E441178B2ED600D01244 /* DBSystem.Data.Entity.Core.Objects.ObjectContext.h in Headers */,
 				AB49E434178ABAAE00D01244 /* NSNumber+Dubrovnik.h in Headers */,
@@ -803,6 +819,7 @@
 				ABDB2FE718240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m in Sources */,
 				9D6335AF09750DAD00FB76DF /* DBWrappedData.m in Sources */,
 				DA4FDE7F09B38A1F00D16517 /* DBSystem.Drawing.Size.m in Sources */,
+				AB99495C18B625C800FAC62D /* System.Class.m in Sources */,
 				9DA8F08E09EF2BE0000EE2DE /* DBSystem.Array.m in Sources */,
 				9DA75F680A239104008EC2F7 /* NSArray+Dubrovnik.m in Sources */,
 				9DCD135E0A7ABFB900849E5C /* DBSystem.Convert.m in Sources */,

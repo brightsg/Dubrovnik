@@ -122,7 +122,7 @@ namespace Dubrovnik.UnitTests
 			StringObjectDictionary = new Dictionary<string, object> {
 				{ "keyForString", "Dubrovnik.UnitTests" },
 				{ "keyForInteger", 100 },
-				{ "keyForFloat", 100.111 }
+				{ "keyForFloat", 1001F }
 			};
 			IntIntDictionary = new Dictionary<int, int> {
 				{ 1, 2 },

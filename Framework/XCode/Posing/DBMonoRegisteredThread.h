@@ -21,6 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DBMonoIncludes.h"
 
 @interface DBMonoRegisteredThread : NSThread {
 

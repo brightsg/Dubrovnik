@@ -19,8 +19,10 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
+#import <Cocoa/Cocoa.h>
 
-#import <Foundation/Foundation.h>
+#import "DBMonoIncludes.h"
+#import "DBProtocols.h"
 
 // Expand a token
 #define DB_STR_EXPAND(tok) #tok
@@ -34,10 +36,6 @@
 // Friendly face to convert interface name to NSString *
 #define DB_INTERFACE_TO_NSSTR(tok) DB_NSSTR(tok)
 
-#import "DBMonoIncludes.h"
-
-#import "DBProtocols.h"
-
 // Environment
 #import "DBMonoEnvironment.h"
 #import "DBType.h"
@@ -47,6 +45,9 @@
 #import "DBMonoClassRepresentation.h"
 #import "DBMonoObjectRepresentation.h"
 #import "DBMonoMethodRepresentation.h"
+
+// Mono classes
+#import "System.Class.h"
 
 // representation subclasses
 
@@ -78,6 +79,8 @@
 
 // wrappers
 #import "DBWrappers.h"
+
+#import "DBMonoRegisteredThread.h"
 
 // utility functions
 #import "DBUtility.h"

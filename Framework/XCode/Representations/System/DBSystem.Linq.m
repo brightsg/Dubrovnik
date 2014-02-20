@@ -6,7 +6,10 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Linq.h"
+#import "DBMonoMethodRepresentation.h"
+#import "DBMonoObjectRepresentation.h"
+#import "DBSystem.Collections.IList.h"
 
 @implementation DBSystem_Linq
 

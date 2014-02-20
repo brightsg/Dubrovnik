@@ -5,7 +5,8 @@
 //  Created by Jonathan on 03/09/2013.
 //
 //
-#import <Dubrovnik/Dubrovnik.h>
+
+#import <Dubrovnik/DBMonoObjectRepresentation.h>
 
 @interface DBUIReferenceObject : DBMonoObjectRepresentation
 

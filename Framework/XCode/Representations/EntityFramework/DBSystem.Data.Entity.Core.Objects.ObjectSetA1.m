@@ -6,7 +6,7 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1()
 

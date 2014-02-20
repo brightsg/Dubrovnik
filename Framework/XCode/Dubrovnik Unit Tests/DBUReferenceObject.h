@@ -5,6 +5,11 @@
 //  Created by Jonathan on 10/07/2013.
 //
 //
+#import <Dubrovnik/Dubrovnik.h>
+#import "DBUIntEnum.h"
+#import "DBULongEnum.h"
+
+@class DBUIReferenceObject;
 
 /*
  * This file is mantained manually and serves as
@@ -12,11 +17,6 @@
  *
  * The generated version of this file is Dubrovnik.UnitTests.exe.h
  */
-
-#import <Dubrovnik/Dubrovnik.h>
-#import "DBUIntEnum.h"
-#import "DBULongEnum.h"
-#import "DBUIReferenceObject.h"
 
 //
 // Mono struct ReferenceStruct
@@ -187,5 +187,6 @@
 
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
 - (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary;
+- (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary;
 
 @end

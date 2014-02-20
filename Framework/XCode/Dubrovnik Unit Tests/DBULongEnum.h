@@ -6,7 +6,7 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Enum.h"
 
 typedef NS_ENUM(int64_t, eDBULongEnum) {
     eDBULongEnum_Val1 = 1,

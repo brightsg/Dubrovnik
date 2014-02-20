@@ -5,7 +5,7 @@
 //  Created by Jonathan on 04/09/2013.
 //
 //
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBType.h"
 
 @implementation DBType
 
