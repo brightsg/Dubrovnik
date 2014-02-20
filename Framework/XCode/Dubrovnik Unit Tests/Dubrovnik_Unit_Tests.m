@@ -693,14 +693,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[intIntDictValues objectAtIndex:1] intValue] == 6, DBUEqualityTestFailed);
 
     // test keys and values
-    /*
-    
-     TODO: some  more thought required here.
-     Should it be possible to retrieve the value using a newly constructed MonoObject * key value?
-     
     int intKey = [[intIntDictKeys objectAtIndex:0] intValue];
     value = [intIntDictA2 objectForKey:[DBMonoObjectRepresentation representationWithMonoObject:DB_BOX_INT32(intKey)]];
     STAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
+    
+    /*
+    Need a wrapped NSNUmber instance that responds to monoObject.
     key = [intIntDictKeys objectAtIndex:1];
     value = [intIntDictA2 objectForKey:key];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);

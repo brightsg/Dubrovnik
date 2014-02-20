@@ -271,8 +271,10 @@
 
 - (MonoObject *)monoValue {
     
-    // pointer to an object that can be used as a property value or invocation argument
-    void *valueObject = mono_class_is_valuetype([self monoClass]) ? mono_object_unbox(_monoObj) : _monoObj;
+    // pointer to an object that can be used as a property value or invocation argument.
+    // this is a hot method so use ivar access
+    MonoClass *klass = mono_object_get_class(_monoObj);
+    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(_monoObj) : _monoObj;
     return valueObject;
 }
 

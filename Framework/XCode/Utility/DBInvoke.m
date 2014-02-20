@@ -492,9 +492,7 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, i
 	MonoMethod *meth = GetMonoObjectMethod(monoObject, methodName, YES);
 
 	if(meth != NULL) {
-		void *invokeObj = mono_class_is_valuetype(klass)
-        ? mono_object_unbox(monoObject)
-        : monoObject;
+		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
 		void *monoArgs[numArgs];
 		DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
 		
@@ -504,6 +502,14 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, i
 	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
 	
 	return(retval);	
+}
+
+void *DBMonoObjectValue(MonoObject *monoObject)
+{
+    // returns a pointer to an address that can be used as a property value or invocation argument
+    MonoClass *klass = mono_object_get_class(monoObject);
+    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
+    return valueObject;
 }
 
 #pragma mark -
@@ -549,10 +555,7 @@ void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, M
 	args[0] = valueObject;
 	
 	if(monoMethod != NULL) {
-		void *invokeObj = monoObject;
-        if (mono_class_is_valuetype(klass)) {
-            invokeObj = mono_object_unbox(monoObject);
-        }
+		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
 		mono_runtime_invoke(monoMethod, invokeObj, args, &monoException);
 	}
 	

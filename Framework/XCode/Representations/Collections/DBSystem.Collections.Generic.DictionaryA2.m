@@ -62,8 +62,7 @@
     if ([self containsKey:key]) {
         
         // get the value for the key
-        MonoObject *monoKey = [self monoObjectForKey:key];
-        MonoObject *monoObject = DBMonoObjectGetIndexedObject(self.monoObject, monoKey);
+        MonoObject *monoObject = DBMonoObjectGetIndexedObject(self.monoObject, [key monoValue]);
         if (monoObject) {
             object = [[DBTypeManager sharedManager] objectForMonoObject:monoObject];
         }
@@ -75,33 +74,23 @@
 - (BOOL)containsKey:(id)key
 {
     BOOL containsKey = NO;
-
-    // the key must have a monoObject.
-    // typically the key will have been obtained from [self allKeys]
-    MonoObject *monoKey = [self monoObjectForKey:key];
-    if (monoKey) {
-        NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoObject:monoKey];
+    
+    // TODO: use -confromsToProtocol?
+    if ([key respondsToSelector:@selector(monoObject)] && [key respondsToSelector:@selector(monoValue)]) {
+        
+        // form the method name
+        // TODO: perform method name caching
+        NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoObject:[key monoObject]];
         NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoArgumentTypeName];
-        MonoObject *monoObject = [self invokeMonoMethod:[methodName UTF8String] withNumArgs:1, monoKey];
+        
+        // invoke the method
+        MonoObject *monoObject = [self invokeMonoMethod:[methodName UTF8String] withNumArgs:1, [key monoValue]];
         containsKey = DB_UNBOX_BOOLEAN(monoObject);
+    } else {
+        [NSException raise:@"Invalid key" format:@"Key %@ must respond to -monoObject and -monoValue", key];
     }
     
     return containsKey;
-}
-
-- (void *)monoObjectForKey:(id)key
-{
-    MonoObject *arg = NULL;
-    
-    if ([key respondsToSelector:@selector(monoObject)]) {
-        arg = [key monoObject];
-    }
-    
-    if (!arg) {
-        [NSException raise:@"Invalid key" format:@"Key %@ must respond to -monoObject", key];
-    }
-
-    return arg;
 }
 
 - (id)valueForKey:(id)key
