@@ -19,7 +19,7 @@ static const char hasValueKey = '0';
 
 // This method is here so that we can get NSNumbers right out of ILists and Arrays by specifying NSNumber as the representation class.
 
-+ (instancetype)representationWithMonoObject:(MonoObject *)monoObject
++ (instancetype)objectWithMonoObject:(MonoObject *)monoObject
 {
 	id number = [[DBTypeManager sharedManager] objectForMonoObject:monoObject];
     

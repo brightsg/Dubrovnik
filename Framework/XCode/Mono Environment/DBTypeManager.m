@@ -7,7 +7,7 @@
 //
 
 #import "DBTypeManager.h"
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 #import "DBBoxing.h"
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
@@ -362,7 +362,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
             case DBTypeID_System_Object:
             {
-                object = [DBMonoObjectRepresentation bestRepresentationWithMonoObject:monoObject];
+                object = [DBObject bestObjectWithMonoObject:monoObject];
                 break;
             }
             

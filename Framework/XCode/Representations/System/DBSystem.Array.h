@@ -20,11 +20,11 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 
 @class DBType;
 
-@interface DBSystem_Array : DBMonoObjectRepresentation {
+@interface DBSystem_Array : DBObject {
 	@protected
 	uint32_t _arrayLength;
 }
@@ -47,7 +47,7 @@
 
 //Wrapped Access
 - (id)objectAtIndex:(NSUInteger)index;
-- (void)setObjectAtIndex:(uint32_t)index object:(DBMonoObjectRepresentation *)object;
+- (void)setObjectAtIndex:(uint32_t)index object:(DBObject *)object;
 
 //
 // Numeric convenience accessors

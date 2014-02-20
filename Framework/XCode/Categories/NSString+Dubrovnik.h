@@ -25,6 +25,7 @@
 @interface NSString (Dubrovnik)
 
 + (id)stringWithMonoString:(MonoString *)monoString;
++ (id)objectWithMonoObject:(MonoString *)monoString;
 
 - (id)initWithMonoString:(MonoString *)monoString;
 

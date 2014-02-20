@@ -75,7 +75,7 @@ extern MonoAssembly* sampleAssembly;
 
 - (DBSystem_Collections_ArrayList*)getSpecialArray {
 	MonoObject* monoArrayList = [self invokeMonoMethod:"GetSpecialArray()" withNumArgs:0];
-	return [DBSystem_Collections_ArrayList listWithMonoObject:monoArrayList withRepresentationClass:[DBMonoObjectRepresentation class]];
+	return [DBSystem_Collections_ArrayList listWithMonoObject:monoArrayList withRepresentationClass:[DBObject class]];
 }
 
 - (void)throwAwesomeException:(NSString*)message {

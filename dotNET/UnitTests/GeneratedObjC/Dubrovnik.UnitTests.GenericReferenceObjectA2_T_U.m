@@ -22,26 +22,26 @@
 #pragma mark Properties
 
 	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterT
+    - (DBObject *)genericPropertyWithTypeParameterT
     {
 		MonoObject * monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterT"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		DBObject * result = [DBObject objectWithMonoObject:monoObject];
 		return result;
 	}
-    - (void)setGenericPropertyWithTypeParameterT:(DBMonoObjectRepresentation *)value
+    - (void)setGenericPropertyWithTypeParameterT:(DBObject *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"GenericPropertyWithTypeParameterT" valueObject:monoObject];          
 	}
 
 	// Managed type : <U>
-    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterU
+    - (DBObject *)genericPropertyWithTypeParameterU
     {
 		MonoObject * monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterU"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		DBObject * result = [DBObject objectWithMonoObject:monoObject];
 		return result;
 	}
-    - (void)setGenericPropertyWithTypeParameterU:(DBMonoObjectRepresentation *)value
+    - (void)setGenericPropertyWithTypeParameterU:(DBObject *)value
 	{
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"GenericPropertyWithTypeParameterU" valueObject:monoObject];          
@@ -53,19 +53,19 @@
 	// Managed method name : GenericMethodReturningParameterTypeT
 	// Managed return type : <T>
 	// Managed param types : <T>, <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeT_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2
+    - (DBObject *)genericMethodReturningParameterTypeT_withParameterT:(DBObject *)p1 parameterU:(DBObject *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenericMethodReturningParameterTypeU
 	// Managed return type : <U>
 	// Managed param types : <T>, <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2
+    - (DBObject *)genericMethodReturningParameterTypeU_withParameterT:(DBObject *)p1 parameterU:(DBObject *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBObject objectWithMonoObject:monoObject];
     }
 @end
 //--Dubrovnik.CodeGenerator

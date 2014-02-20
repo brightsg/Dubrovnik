@@ -6,8 +6,8 @@
 //
 //
 
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 
-@interface System_Class : DBMonoObjectRepresentation
+@interface System_Class : DBObject
 
 @end

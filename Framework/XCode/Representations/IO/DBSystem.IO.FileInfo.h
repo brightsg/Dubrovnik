@@ -22,9 +22,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 
-@interface DBSystem_IO_FileInfo : DBMonoObjectRepresentation {
+@interface DBSystem_IO_FileInfo : DBObject {
 
 }
 

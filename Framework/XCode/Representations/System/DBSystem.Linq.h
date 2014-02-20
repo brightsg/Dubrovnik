@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class DBMonoObjectRepresentation;
+@class DBObject;
 @class DBSystem_Collections_IList;
 
 @protocol Interface_IEnumerable_T;
 
 @interface DBSystem_Linq : NSObject
 
-+ (DBSystem_Collections_IList *)toList:(DBMonoObjectRepresentation <Interface_IEnumerable_T> *)monoRep;
++ (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep;
 
 @end

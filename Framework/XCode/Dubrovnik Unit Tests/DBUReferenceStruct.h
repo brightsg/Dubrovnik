@@ -18,7 +18,7 @@
 //
 // Mono struct ReferenceStruct
 //
-@interface DBUReferenceStruct : DBMonoObjectRepresentation
+@interface DBUReferenceStruct : DBObject
 
 #pragma mark -
 #pragma mark Setup

@@ -20,9 +20,9 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 
-@interface DBSystem_Collections_IList : DBMonoObjectRepresentation {
+@interface DBSystem_Collections_IList : DBObject {
 	@protected
 }
 
@@ -34,7 +34,7 @@
 
 //Wrapped Indexer Access
 - (id)objectAtIndex:(NSUInteger)index;
-- (void)setObjectAtIndex:(int)index object:(DBMonoObjectRepresentation *)object;
+- (void)setObjectAtIndex:(int)index object:(DBObject *)object;
 
 //.NET IList wrapperstuff
 //properties

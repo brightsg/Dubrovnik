@@ -41,8 +41,8 @@
 {
     // an array of objects of type self.firstItemClass
     MonoObject *monoObject = [self getMonoProperty:"Keys"];
-    DBMonoObjectRepresentation *object = [[[DBMonoObjectRepresentation alloc] initWithMonoObject:monoObject withItemClass:self.firstItemClass] autorelease];
-    NSArray *keys = [[DBSystem_Linq toList:(DBMonoObjectRepresentation <Interface_IEnumerable_T> *)object] array];
+    DBObject *object = [[[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.firstItemClass] autorelease];
+    NSArray *keys = [[DBSystem_Linq toList:(DBObject <Interface_IEnumerable_T> *)object] array];
     
     return keys;
 }
@@ -51,9 +51,9 @@
 {
     // an array of objects of type self.secondItemClass
     MonoObject *monoObject = [self getMonoProperty:"Values"];
-    DBMonoObjectRepresentation *object = [[[DBMonoObjectRepresentation alloc] initWithMonoObject:monoObject withItemClass:self.secondItemClass] autorelease];
+    DBObject *object = [[[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.secondItemClass] autorelease];
     
-    NSArray *values = [[DBSystem_Linq toList:(DBMonoObjectRepresentation <Interface_IEnumerable_T> *)object] array];
+    NSArray *values = [[DBSystem_Linq toList:(DBObject <Interface_IEnumerable_T> *)object] array];
     
     return values;
 }

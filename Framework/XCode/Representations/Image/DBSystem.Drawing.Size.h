@@ -20,10 +20,10 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 #import "DBMonoIncludes.h"
 
-@interface DBSystem_Drawing_Size : DBMonoObjectRepresentation
+@interface DBSystem_Drawing_Size : DBObject
 
 + (DBSystem_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject;
 + (NSSize)convertToNSSize:(MonoObject *)monoObject;

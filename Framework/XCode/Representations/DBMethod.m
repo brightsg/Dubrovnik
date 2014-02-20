@@ -1,32 +1,32 @@
 //
-//  DBMonoMethodRepresentation.m
+//  DBMethod.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 24/07/2013.
 //
 //
 
-#import "DBMonoMethodRepresentation.h"
+#import "DBMethod.h"
 
-@interface DBMonoMethodRepresentation()
+@interface DBMethod()
 @property (assign, readwrite) const char *methodName;
 @property (assign, readwrite) const char *monoClassName;
 @property (assign, readwrite) const char *assemblyName;
 @end
 
-@implementation DBMonoMethodRepresentation
+@implementation DBMethod
 
 @synthesize methodName = _methodName;
 @synthesize monoClassName = _monoClassName;
 @synthesize assemblyName = _assemblyName;
 @synthesize genericMonoType = _genericMonoType;
 
-+ (instancetype)representationWithMonoMethodNamed:(const char *)methodName
++ (instancetype)methodWithMonoMethodNamed:(const char *)methodName
 {
-    return [self representationWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
+    return [self methodWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
 }
 
-+ (instancetype)representationWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
++ (instancetype)methodWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
 {
     return [[[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName] autorelease];
 }

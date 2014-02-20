@@ -6,9 +6,9 @@
 //
 //
 
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 
-@interface DBSystem_Collections_Generic_DictionaryA2 : DBMonoObjectRepresentation
+@interface DBSystem_Collections_Generic_DictionaryA2 : DBObject
 + (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 - (NSArray *)allKeys;
 - (NSArray *)allValues;

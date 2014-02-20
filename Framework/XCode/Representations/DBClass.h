@@ -1,5 +1,5 @@
 //
-//  DBMonoClassRepresentation.h
+//  DBClass.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -22,14 +22,14 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@interface DBMonoClassRepresentation : NSObject {
+@interface DBClass : NSObject {
 	@private
 	MonoClass *_klass;
 }
 
-+ (instancetype)representationWithMonoClass:(MonoClass *)monoClass;
-+ (instancetype)representationWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;
-+ (instancetype)representationWithMonoClassNamed:(const char *)className;
++ (instancetype)classWithMonoClass:(MonoClass *)monoClass;
++ (instancetype)classWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;
++ (instancetype)classWithMonoClassNamed:(const char *)className;
 
 - (id)initWithMonoClass:(MonoClass *)klass;
 - (id)initWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;

@@ -1,5 +1,5 @@
 //
-//  DBMonoObjectRepresentation.m
+//  DBObject.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,22 +20,22 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import <Cocoa/Cocoa.h>
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 #import "DBMonoEnvironment.h"
-#import "DBMonoClassRepresentation.h"
+#import "DBClass.h"
 #import "DBInvoke.h"
 #import "DBBoxing.h"
 #import "NSString+Dubrovnik.h"
-#import "DBMonoMethodRepresentation.h"
+#import "DBMethod.h"
 #import "DBSystem.Convert.h"
 
-@interface DBMonoObjectRepresentation()
+@interface DBObject()
 
 @property (retain, readwrite) DBMonoEnvironment *monoEnvironment;
 
 @end
 
-@implementation DBMonoObjectRepresentation
+@implementation DBObject
 
 @synthesize monoEnvironment = _monoEnvironment;
 @synthesize monoGenericTypeArgumentNames = _monoGenericTypeArgumentNames;
@@ -51,7 +51,7 @@
 //
 + (const char *)monoAssemblyName
 {
-        @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class must provide a value for +[DBMonoObjectRepresentation monoAssemblyName]" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class must provide a value for +[DBObject monoAssemblyName]" userInfo:nil]);
 }
 
 //
@@ -62,7 +62,7 @@
 
 + (const char *)monoClassName
 {
-    @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class must provide a value for +[DBMonoObjectRepresentation monoClassName]" userInfo:nil]);
+    @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class must provide a value for +[DBObject monoClassName]" userInfo:nil]);
 }
 
 #pragma mark -
@@ -72,21 +72,21 @@
     return [[DBMonoEnvironment currentEnvironment] monoClassWithName:(char *)[self monoClassName] fromAssemblyName:(char *)[self monoAssemblyName]];
 }
 
-+ (DBMonoClassRepresentation *)monoClassRepresentation
++ (DBClass *)dbClass
 {
-    static DBMonoClassRepresentation *classRep = nil;
+    static DBClass *classRep = nil;
     if (!classRep) {
-        classRep =  [[DBMonoClassRepresentation representationWithMonoClass:[self monoClass]] retain];
+        classRep =  [[DBClass classWithMonoClass:[self monoClass]] retain];
     }
     return classRep;
 }
 
-+ (instancetype)representationWithMonoObject:(MonoObject *)obj {
-	DBMonoObjectRepresentation *rep = [[[self class] alloc] initWithMonoObject:obj];
++ (instancetype)objectWithMonoObject:(MonoObject *)obj {
+	DBObject *rep = [[[self class] alloc] initWithMonoObject:obj];
 	return([rep autorelease]);
 }
 
-+ (instancetype)representationWithNumArgs:(int)numArgs, ... {
++ (instancetype)objectWithNumArgs:(int)numArgs, ... {
 	Class class = [self class];
 	MonoClass *monoClass = [class monoClass];
 	if(monoClass == NULL) return(nil);
@@ -95,14 +95,14 @@
 	va_start(va_args, numArgs);
 	
 	MonoObject *newObject = DBMonoObjectVarArgsConstruct(monoClass, numArgs, va_args);
-	DBMonoObjectRepresentation *rep = [class representationWithMonoObject:newObject];
+	DBObject *rep = [class objectWithMonoObject:newObject];
 	
 	va_end(va_args);
 	
 	return(rep);
 }
 
-+ (id)bestRepresentationWithMonoObject:(MonoObject *)obj {
++ (id)bestObjectWithMonoObject:(MonoObject *)obj {
     
     // logging
     if (1) {
@@ -333,18 +333,18 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 }
 
 
-- (MonoObject *)invokeMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs, ... {
+- (MonoObject *)invokeMethod:(DBMethod *)methodRepresentation withNumArgs:(int)numArgs, ... {
     va_list va_args;
 	va_start(va_args, numArgs);
 
-    MonoObject *ret = [self invokeMonoMethodRepresentation:methodRepresentation withNumArgs:numArgs varArgList:va_args];
+    MonoObject *ret = [self invokeMethod:methodRepresentation withNumArgs:numArgs varArgList:va_args];
 
 	va_end(va_args);
 	
 	return ret;
 }
 
-- (MonoObject *)invokeMonoMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args
+- (MonoObject *)invokeMethod:(DBMethod *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args
 {
     MonoMethod *monoMethod = NULL;
     MonoClass *monoClass = NULL;
@@ -373,7 +373,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         }
         
         // get the extension mono class
-        DBMonoClassRepresentation *classRepresentation = [DBMonoClassRepresentation representationWithMonoClassNamed:methodRepresentation.monoClassName fromMonoAssembly:monoAssembly];
+        DBClass *classRepresentation = [DBClass classWithMonoClassNamed:methodRepresentation.monoClassName fromMonoAssembly:monoAssembly];
         monoClass  = [classRepresentation monoClass];
         
         // get the class method

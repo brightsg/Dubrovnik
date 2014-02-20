@@ -35,7 +35,7 @@
 #pragma mark -
 #pragma mark - Collection management
 
-- (void)addObject:(DBMonoObjectRepresentation *)object
+- (void)addObject:(DBObject *)object
 {
     // AddObject() is defined as AddObject(TEntity entity) and as such it is not a generic method
     // (a generic definition would be AddObject<TEntity>(TEntity entity)) but
@@ -48,14 +48,14 @@
     [self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
 }
 
-- (DBMonoObjectRepresentation *)createObject
+- (DBObject *)createObject
 {
     MonoObject *monoObject = [self invokeMonoMethod:"CreateObject()" withNumArgs:0, NULL];
-    DBMonoObjectRepresentation *object = [self.itemClass representationWithMonoObject:monoObject];
+    DBObject *object = [self.itemClass objectWithMonoObject:monoObject];
     return object;
 }
 
-- (void)deleteObject:(DBMonoObjectRepresentation *)object
+- (void)deleteObject:(DBObject *)object
 {
     NSString *inflatedMethodName = [NSString stringWithFormat:@"DeleteObject(%s)", [[object class] monoClassName]];
     [self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];

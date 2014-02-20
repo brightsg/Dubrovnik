@@ -6,9 +6,9 @@
 //
 //
 
-#import <Dubrovnik/DBMonoObjectRepresentation.h>
+#import <Dubrovnik/DBObject.h>
 
-@interface DBUIReferenceObject : DBMonoObjectRepresentation
+@interface DBUIReferenceObject : DBObject
 
 #pragma mark -
 #pragma mark Setup

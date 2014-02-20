@@ -10,7 +10,7 @@
 #import "DBMonoIncludes.h"
 
 @interface NSNumber (Dubrovnik)
-+ (instancetype)representationWithMonoObject:(MonoObject *)monoObject;
++ (instancetype)objectWithMonoObject:(MonoObject *)monoObject;
 + (instancetype)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue;
 + (instancetype)numberWithNullableMonoBool:(MonoObject *)monoNullable;
 + (instancetype)numberWithLongLong:(long long)value hasValue:(BOOL)hasValue;

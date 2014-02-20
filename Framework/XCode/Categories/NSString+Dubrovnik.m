@@ -42,7 +42,7 @@
 #pragma mark -
 
 // This method is here so that we can get NSStrings right out of ILists and Arrays by specifying NSString as the representation class.
-+ (id)representationWithMonoObject:(MonoString *)monoString {
++ (id)objectWithMonoObject:(MonoString *)monoString {
 	DBWrappedString *wrappedString = [[DBWrappedString alloc] initWithMonoString:monoString];
 	
 	return([wrappedString autorelease]);	

@@ -2,7 +2,7 @@
 //
 // Managed class : GenericReferenceObject`2<T, U>
 //
-@interface Dubrovnik_UnitTests_GenericReferenceObjectA2 : DBMonoObjectRepresentation
+@interface Dubrovnik_UnitTests_GenericReferenceObjectA2 : DBObject
 
 #pragma mark -
 #pragma mark Setup
@@ -15,12 +15,12 @@
 #pragma mark Properties
 
 	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterT;
-    - (void)setGenericPropertyWithTypeParameterT:(DBMonoObjectRepresentation *)value;
+    - (DBObject *)genericPropertyWithTypeParameterT;
+    - (void)setGenericPropertyWithTypeParameterT:(DBObject *)value;
 
 	// Managed type : <U>
-    - (DBMonoObjectRepresentation *)genericPropertyWithTypeParameterU;
-    - (void)setGenericPropertyWithTypeParameterU:(DBMonoObjectRepresentation *)value;
+    - (DBObject *)genericPropertyWithTypeParameterU;
+    - (void)setGenericPropertyWithTypeParameterU:(DBObject *)value;
 
 #pragma mark -
 #pragma mark Methods
@@ -28,11 +28,11 @@
 	// Managed method name : GenericMethodReturningParameterTypeT
 	// Managed return type : <T>
 	// Managed param types : <T>, <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeT_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2;
+    - (DBObject *)genericMethodReturningParameterTypeT_withParameterT:(DBObject *)p1 parameterU:(DBObject *)p2;
 
 	// Managed method name : GenericMethodReturningParameterTypeU
 	// Managed return type : <U>
 	// Managed param types : <T>, <U>
-    - (DBMonoObjectRepresentation *)genericMethodReturningParameterTypeU_withParameterT:(DBMonoObjectRepresentation *)p1 parameterU:(DBMonoObjectRepresentation *)p2;
+    - (DBObject *)genericMethodReturningParameterTypeU_withParameterT:(DBObject *)p1 parameterU:(DBObject *)p2;
 @end
 //--Dubrovnik.CodeGenerator

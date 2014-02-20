@@ -42,9 +42,9 @@
 #import "DBTypeManager.h"
 
 // Mono representation
-#import "DBMonoClassRepresentation.h"
-#import "DBMonoObjectRepresentation.h"
-#import "DBMonoMethodRepresentation.h"
+#import "DBClass.h"
+#import "DBObject.h"
+#import "DBMethod.h"
 
 // Mono classes
 #import "System.Class.h"

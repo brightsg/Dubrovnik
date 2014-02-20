@@ -1,5 +1,5 @@
 //
-//  DBMonoClassRepresentation.m
+//  DBClass.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,23 +20,23 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBMonoClassRepresentation.h"
+#import "DBClass.h"
 #import "DBInvoke.h"
 
-@implementation DBMonoClassRepresentation
+@implementation DBClass
 
-+ (instancetype)representationWithMonoClass:(MonoClass *)monoClass {
-	DBMonoClassRepresentation *classRep = [[DBMonoClassRepresentation alloc] initWithMonoClass:monoClass];
++ (instancetype)classWithMonoClass:(MonoClass *)monoClass {
+	DBClass *classRep = [[DBClass alloc] initWithMonoClass:monoClass];
 	return([classRep autorelease]);
 }
 
-+ (instancetype)representationWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
-	DBMonoClassRepresentation *classRep = [[DBMonoClassRepresentation alloc] initWithMonoClassNamed:className fromMonoAssembly:assembly];
++ (instancetype)classWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
+	DBClass *classRep = [[DBClass alloc] initWithMonoClassNamed:className fromMonoAssembly:assembly];
 	return([classRep autorelease]);
 }
 
-+ (instancetype)representationWithMonoClassNamed:(const char *)className {
-	DBMonoClassRepresentation *classRep = [[DBMonoClassRepresentation alloc] initWithMonoClassNamed:className];
++ (instancetype)classWithMonoClassNamed:(const char *)className {
+	DBClass *classRep = [[DBClass alloc] initWithMonoClassNamed:className];
 	return([classRep autorelease]);	
 }
 

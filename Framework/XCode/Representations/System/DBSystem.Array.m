@@ -107,13 +107,13 @@
 - (id)objectAtIndex:(NSUInteger)index {
 	if(self.itemClass) {
 		MonoObject *monoObject = [self monoObjectAtIndex:(uint32_t)index];
-		return([self.itemClass representationWithMonoObject:monoObject]);
+		return([self.itemClass objectWithMonoObject:monoObject]);
 	} else {
 		@throw([NSException exceptionWithName:@"DBNoItemClass" reason:@"objectAtIndex called on a DBArray without specified Item Class" userInfo:nil]);
 	}
 }
 
-- (void)setObjectAtIndex:(uint32_t)index object:(DBMonoObjectRepresentation *)object {
+- (void)setObjectAtIndex:(uint32_t)index object:(DBObject *)object {
 	[self setMonoObject:[object monoObject] forIndex:index];
 }
 

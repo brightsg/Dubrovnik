@@ -11,7 +11,7 @@
 
 @class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1;
 @class DBSystem_Collections_IList;
-@class DBMonoObjectRepresentation;
+@class DBObject;
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1 : DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
 {
@@ -20,9 +20,9 @@
 
 + (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 
-- (void)addObject:(DBMonoObjectRepresentation *)object;
-- (void)deleteObject:(DBMonoObjectRepresentation *)object;
-- (DBMonoObjectRepresentation *)createObject;
+- (void)addObject:(DBObject *)object;
+- (void)deleteObject:(DBObject *)object;
+- (DBObject *)createObject;
 
 
 @end

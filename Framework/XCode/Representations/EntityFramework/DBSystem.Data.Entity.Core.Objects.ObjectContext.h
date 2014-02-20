@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 
 @class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1, DBSystem_Array;
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectContext : DBMonoObjectRepresentation
+@interface DBSystem_Data_Entity_Core_Objects_ObjectContext : DBObject
 
 - (int32_t)saveChanges;
-- (void)deleteObject:(DBMonoObjectRepresentation *)object;
+- (void)deleteObject:(DBObject *)object;
 
 /*!
  

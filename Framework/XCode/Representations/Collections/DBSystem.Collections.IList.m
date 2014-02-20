@@ -70,7 +70,7 @@
 	if (self.itemClass) {
 		
         MonoObject *monoObject = [self monoObjectForIndexObject:&index];
-        id retID = [self.itemClass representationWithMonoObject:monoObject];
+        id retID = [self.itemClass objectWithMonoObject:monoObject];
 		
 		return(retID);
 	} else {
@@ -78,7 +78,7 @@
 	}
 }
 
-- (void)setObjectAtIndex:(int)index object:(DBMonoObjectRepresentation *)object {
+- (void)setObjectAtIndex:(int)index object:(DBObject *)object {
 	[self setMonoObject:[object monoObject] forIndexObject:&index];
 }
 

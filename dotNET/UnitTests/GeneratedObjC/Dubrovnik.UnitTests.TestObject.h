@@ -2,7 +2,7 @@
 //
 // Managed class : TestObject
 //
-@interface Dubrovnik_UnitTests_TestObject : DBMonoObjectRepresentation
+@interface Dubrovnik_UnitTests_TestObject : DBObject
 
 #pragma mark -
 #pragma mark Setup

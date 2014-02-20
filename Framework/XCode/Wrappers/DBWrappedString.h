@@ -22,12 +22,14 @@
 //
 #import <Cocoa/Cocoa.h>
 #import "DBMonoIncludes.h"
+@class DBObject;
 
 @interface DBWrappedString : NSString {
 	MonoString *_monoString;
 	uint32_t _gcHandle;
 	
 	int _stringLength;
+    DBObject *_monoObjectRepresentation;
 }
 
 - (id)initWithMonoString:(MonoString *)monoString;

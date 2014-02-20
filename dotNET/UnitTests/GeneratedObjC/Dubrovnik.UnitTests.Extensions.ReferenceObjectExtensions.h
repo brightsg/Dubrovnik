@@ -2,7 +2,7 @@
 //
 // Managed class : ReferenceObjectExtensions
 //
-@interface Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions : DBMonoObjectRepresentation
+@interface Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions : DBObject
 
 #pragma mark -
 #pragma mark Setup

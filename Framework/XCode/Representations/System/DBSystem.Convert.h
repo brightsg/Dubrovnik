@@ -20,7 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-@class DBMonoObjectRepresentation;
+@class DBObject;
 
 @interface DBSystem_Convert : NSObject {
 
@@ -36,14 +36,14 @@
 + (uint32_t)convertMonoObjectToUInt32:(MonoObject *)monoObject;
 + (uint64_t)convertMonoObjectToUInt64:(MonoObject *)monoObject;
 
-+ (int8_t)convertToInt8:(DBMonoObjectRepresentation *)objRep;
-+ (int16_t)convertToInt16:(DBMonoObjectRepresentation *)objRep;
-+ (int32_t)convertToInt32:(DBMonoObjectRepresentation *)objRep;
-+ (int64_t)convertToInt64:(DBMonoObjectRepresentation *)objRep;
++ (int8_t)convertToInt8:(DBObject *)objRep;
++ (int16_t)convertToInt16:(DBObject *)objRep;
++ (int32_t)convertToInt32:(DBObject *)objRep;
++ (int64_t)convertToInt64:(DBObject *)objRep;
 
-+ (uint8_t)convertToUInt8:(DBMonoObjectRepresentation *)objRep;
-+ (uint16_t)convertToUInt16:(DBMonoObjectRepresentation *)objRep;
-+ (uint32_t)convertToUInt32:(DBMonoObjectRepresentation *)objRep;
-+ (uint64_t)convertToUInt64:(DBMonoObjectRepresentation *)objRep;
++ (uint8_t)convertToUInt8:(DBObject *)objRep;
++ (uint16_t)convertToUInt16:(DBObject *)objRep;
++ (uint32_t)convertToUInt32:(DBObject *)objRep;
++ (uint64_t)convertToUInt64:(DBObject *)objRep;
 
 @end

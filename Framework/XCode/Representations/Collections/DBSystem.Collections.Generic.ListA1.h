@@ -6,13 +6,13 @@
 //
 //
 
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 #import "Interface_IList.h"
 #import "Interface_IEnumerable_T.h"
 
 @class DBSystem_Collections_IList;
 
-@interface DBSystem_Collections_Generic_ListA1 : DBMonoObjectRepresentation <Interface_IList, Interface_IEnumerable_T>
+@interface DBSystem_Collections_Generic_ListA1 : DBObject <Interface_IList, Interface_IEnumerable_T>
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 - (DBSystem_Collections_IList *)list;

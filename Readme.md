@@ -211,7 +211,7 @@ The code generator will output the following for each target assembly, in this c
 For each type defined in the target assembly the generator will output a .m and .h file. So if `Work.Data.dll` defines a class named `Work.Data.Utility.Analyser` then the generated output will include:
 	
 	// Work.Data.Utility.Analyser.h
-    @interface Work_Data_Utility_Analyser : DBMonoObjectRepresentation
+    @interface Work_Data_Utility_Analyser : DBObject
 		// interface definition 
     @end
 
@@ -270,7 +270,7 @@ Resolving Types
 
 The code generator will try and output a unique Obj-C type for each managed type in a target assembly. So, if the public API for the target assembly only references types defined within that assembly then the binding should be complete. If, however, the API references a type defined in another assembly then an Obj-C representation for that type will be required. This applies to all types, regardless of whether they are user or system defined.
 
-The simple solution is use the code generator to target the referenced assembly and generate the required Obj-C type representation. Repeat as necessary until all type references are resolved. If a type representation cannot be generated automatically then a simple manual representation or stub can be produced by subclassing `DBMonoObjectRepresentation.m`.  
+The simple solution is use the code generator to target the referenced assembly and generate the required Obj-C type representation. Repeat as necessary until all type references are resolved. If a type representation cannot be generated automatically then a simple manual representation or stub can be produced by subclassing `DBObject.m`.  
 
 Resolving System Types
 ===============

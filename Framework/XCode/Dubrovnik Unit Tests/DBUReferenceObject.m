@@ -196,7 +196,7 @@
 - (DBUIReferenceObject *)minimalReferenceObject
 {
     MonoObject * monoObject = [self getMonoProperty:"MinimalReferenceObject"];
-    DBUIReferenceObject * result = [DBUIReferenceObject representationWithMonoObject:monoObject];
+    DBUIReferenceObject * result = [DBUIReferenceObject objectWithMonoObject:monoObject];
     return result;
 }
 
@@ -234,7 +234,7 @@
 - (DBSystem_Array *)int64Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int64Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBMonoObjectRepresentation class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
 }
 - (void)setInt64Array:(DBSystem_Array *)array
 {
@@ -244,7 +244,7 @@
 - (DBSystem_Array *)int32Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int32Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBMonoObjectRepresentation class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
 }
 - (void)setInt32Array:(DBSystem_Array *)array
 {
@@ -254,13 +254,13 @@
 - (DBSystem_Array *)int16Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int16Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBMonoObjectRepresentation class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
 }
 
 - (DBSystem_Array *)floatArray
 {
     MonoObject * monoObject = [self getMonoProperty:"FloatArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBMonoObjectRepresentation class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
 }
 - (void)setFloatArray:(DBSystem_Array *)array
 {
@@ -270,7 +270,7 @@
 - (DBSystem_Array *)doubleArray
 {
     MonoObject * monoObject = [self getMonoProperty:"DoubleArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBMonoObjectRepresentation class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
 }
 - (void)setDoubleArray:(DBSystem_Array *)array
 {
@@ -280,7 +280,7 @@
 - (DBSystem_Array *)boolArray
 {
     MonoObject * monoObject = [self getMonoProperty:"BoolArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBMonoObjectRepresentation class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
 }
 - (DBSystem_Array *)stringArray
 {
@@ -362,7 +362,7 @@
 {
     MonoObject * monoObject = [self getMonoProperty:"StringObjectDictionary"];
     DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSString class]];
-    dict.monoGenericTypeArgumentNames = @"NSString,DBMonoObjectRepresentation";
+    dict.monoGenericTypeArgumentNames = @"NSString,DBObject";
     return dict;
 }
 
@@ -398,7 +398,7 @@
     return value;
 }
 
-- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBMonoObjectRepresentation *)p2
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBObject *)p2
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -503,7 +503,7 @@
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
-    return [DBUReferenceStruct representationWithMonoObject:monoObject];
+    return [DBUReferenceStruct objectWithMonoObject:monoObject];
 }
 
 #pragma mark -
@@ -559,7 +559,7 @@
     MonoAssembly *monoAssembly = self.monoAssembly;
   
     // our extension method happens to be in the same assembly
-    DBMonoClassRepresentation *monoClassRep = [DBMonoClassRepresentation representationWithMonoClassNamed:"Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions" fromMonoAssembly:monoAssembly];
+    DBClass *monoClassRep = [DBClass classWithMonoClassNamed:"Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions" fromMonoAssembly:monoAssembly];
 
     // call static extension method
     MonoObject *monoObject = [monoClassRep invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [self monoValue]];

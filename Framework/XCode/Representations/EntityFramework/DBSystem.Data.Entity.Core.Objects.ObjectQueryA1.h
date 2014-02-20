@@ -6,13 +6,13 @@
 //
 //
 #import <Foundation/Foundation.h>
-#import "DBMonoObjectRepresentation.h"
+#import "DBObject.h"
 #import "Interface_IEnumerable_T.h"
 
 @class DBSystem_Collections_IList;
 
 #define SDECOObjectQueryA1_ DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
-@interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : DBMonoObjectRepresentation <Interface_IEnumerable_T>
+@interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : DBObject <Interface_IEnumerable_T>
 {
 @protected
 }

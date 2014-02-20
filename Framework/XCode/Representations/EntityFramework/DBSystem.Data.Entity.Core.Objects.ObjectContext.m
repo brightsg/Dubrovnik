@@ -7,9 +7,9 @@
 //
 #import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
 #import "DBBoxing.h"
-#import "DBMonoMethodRepresentation.h"
+#import "DBMethod.h"
 #import "DBMonoEnvironment.h"
-#import "DBMonoClassRepresentation.h"
+#import "DBClass.h"
 #import "NSString+Dubrovnik.h"
 #import "DBSystem.Array.h"
 #import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
@@ -27,7 +27,7 @@
     return "EntityFramework";
 }
 
-- (void)deleteObject:(DBMonoObjectRepresentation *)object
+- (void)deleteObject:(DBObject *)object
 {
     [self invokeMonoMethod:"DeleteObject(object)" withNumArgs:1, [object monoObject]];
 }
@@ -48,22 +48,22 @@
 {
     
     // ObjectQuery<T> CreateQuery<T>
-    DBMonoMethodRepresentation *methodRep = [DBMonoMethodRepresentation
-                                             representationWithMonoMethodNamed:"CreateQuery(string,System.Data.Entity.Core.Objects.ObjectParameter[])"
+    DBMethod *methodRep = [DBMethod
+                                             methodWithMonoMethodNamed:"CreateQuery(string,System.Data.Entity.Core.Objects.ObjectParameter[])"
                                              className:NULL
                                              assemblyName:NULL];
     
     // Get the type to be returned by this query
     MonoAssembly *monoAssembly = [[DBMonoEnvironment currentEnvironment] openAssemblyWithName:assemblyName];
-    DBMonoClassRepresentation *classRepresentation = [DBMonoClassRepresentation representationWithMonoClassNamed:monoClassName fromMonoAssembly:monoAssembly];
+    DBClass *classRepresentation = [DBClass classWithMonoClassNamed:monoClassName fromMonoAssembly:monoAssembly];
     methodRep.genericMonoType = [classRepresentation monoType];
     
     // Invoke
-    MonoObject *monoQueryObject = [self invokeMethodRepresentation:methodRep withNumArgs:2, [queryString monoString], [dbsaParameters monoArray] ];
+    MonoObject *monoQueryObject = [self invokeMethod:methodRep withNumArgs:2, [queryString monoString], [dbsaParameters monoArray] ];
     
     // Wrap the query
     DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *objectQuery = [DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoQueryObject
-                                                                                                                withItemClass:[DBMonoObjectRepresentation class]];
+                                                                                                                withItemClass:[DBObject class]];
     objectQuery.monoGenericTypeArgumentNames = className;
     return objectQuery;
 }

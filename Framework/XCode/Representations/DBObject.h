@@ -1,5 +1,5 @@
 //
-//  DBMonoObjectRepresentation.h
+//  DBObject.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -24,9 +24,9 @@ extern char DBCacheSuffixChar;
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@class DBMonoEnvironment, DBMonoClassRepresentation, DBMonoMethodRepresentation;
+@class DBMonoEnvironment, DBClass, DBMethod;
 
-@interface DBMonoObjectRepresentation : NSObject <NSCopying> {
+@interface DBObject : NSObject <NSCopying> {
 	
 	@protected
 	MonoObject *_monoObj;
@@ -44,10 +44,10 @@ extern char DBCacheSuffixChar;
 
 // Class methods
 + (MonoClass *)monoClass;
-+ (DBMonoClassRepresentation *)monoClassRepresentation;
-+ (instancetype)representationWithMonoObject:(MonoObject *)obj;
-+ (instancetype)representationWithNumArgs:(int)numArgs, ...;
-+ (id)bestRepresentationWithMonoObject:(MonoObject *)obj;
++ (DBClass *)dbClass;
++ (instancetype)objectWithMonoObject:(MonoObject *)obj;
++ (instancetype)objectWithNumArgs:(int)numArgs, ...;
++ (id)bestObjectWithMonoObject:(MonoObject *)obj;
 
 // Initialisation methods
 
@@ -84,8 +84,8 @@ extern char DBCacheSuffixChar;
 + (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
-- (MonoObject *)invokeMonoMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args;
-- (MonoObject *)invokeMethodRepresentation:(DBMonoMethodRepresentation *)methodRepresentation withNumArgs:(int)numArgs, ...;
+- (MonoObject *)invokeMethod:(DBMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args;
+- (MonoObject *)invokeMethod:(DBMethod *)method withNumArgs:(int)numArgs, ...;
 
 // Equality testing
 + (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;

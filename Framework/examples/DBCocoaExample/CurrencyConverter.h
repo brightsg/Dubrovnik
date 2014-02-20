@@ -24,7 +24,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
-@interface CurrencyConverter : DBMonoObjectRepresentation {
+@interface CurrencyConverter : DBObject {
 
 }
 
