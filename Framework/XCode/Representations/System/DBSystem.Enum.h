@@ -19,10 +19,10 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import <Foundation/Foundation.h>
+#import "System.Enum.h"
 #import "DBMonoIncludes.h"
 
-@interface DBSystem_Enum : NSObject {
+@interface DBSystem_Enum : System_Enum {
 
 }
 

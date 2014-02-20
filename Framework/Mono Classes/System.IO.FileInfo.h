@@ -1,11 +1,13 @@
 //
-//  System.Class.m
+//  System.IO.FileInfo.h
 //  Dubrovnik
 //
 //  Created by Jonathan Mitchell on 20/02/2014.
 //
 //
+
 #import "System.Class.h"
-@implementation System_Class
+
+@interface System_IO_FileInfo : System_Class
 
 @end

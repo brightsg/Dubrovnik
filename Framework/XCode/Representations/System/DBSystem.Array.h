@@ -20,11 +20,11 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "DBObject.h"
+#import "System.Array.h"
 
 @class DBType;
 
-@interface DBSystem_Array : DBObject {
+@interface DBSystem_Array : System_Array {
 	@protected
 	uint32_t _arrayLength;
 }

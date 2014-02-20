@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DBObject.h"
+#import "System.Data.Entity.Core.Objects.ObjectContext.h"
 
 @class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1, DBSystem_Array;
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectContext : DBObject
+@interface DBSystem_Data_Entity_Core_Objects_ObjectContext : System_Data_Entity_Core_Objects_ObjectContext
 
 - (int32_t)saveChanges;
 - (void)deleteObject:(DBObject *)object;

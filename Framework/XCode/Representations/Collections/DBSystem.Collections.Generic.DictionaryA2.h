@@ -6,9 +6,9 @@
 //
 //
 
-#import "DBObject.h"
+#import "System.Collections.Generic.DictionaryA2.h"
 
-@interface DBSystem_Collections_Generic_DictionaryA2 : DBObject
+@interface DBSystem_Collections_Generic_DictionaryA2 : System_Collections_Generic_DictionaryA2
 + (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 - (NSArray *)allKeys;
 - (NSArray *)allValues;

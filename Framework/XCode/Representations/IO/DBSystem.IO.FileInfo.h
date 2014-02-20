@@ -20,11 +20,9 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Foundation/Foundation.h>
+#import "System.IO.FileInfo.h"
 
-#import "DBObject.h"
-
-@interface DBSystem_IO_FileInfo : DBObject {
+@interface DBSystem_IO_FileInfo : System_IO_FileInfo {
 
 }
 
