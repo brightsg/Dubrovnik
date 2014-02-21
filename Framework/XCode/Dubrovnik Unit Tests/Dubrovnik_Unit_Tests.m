@@ -147,13 +147,33 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
     // test
     NSNumber *n1 = @((int)1);
+    STAssertTrue(*(int *)[n1 pointerToShadowValue] == 1, DBUEqualityTestFailed);
     STAssertTrue([n1 pointerToShadowValue] == [n1 pointerToShadowValue], DBUEqualityTestFailed);
     STAssertTrue(*(int *)[n1 pointerToShadowValue] == *(int *)[n1 pointerToShadowValue], DBUEqualityTestFailed);
     
     // remember that NSNumber uses tagged pointers - &n1 and &n2 should be equal
     NSNumber *n2 = @((int)1);
+    STAssertTrue(*(int *)[n2 pointerToShadowValue] == 1, DBUEqualityTestFailed);
     STAssertTrue([n2 pointerToShadowValue] == [n1 pointerToShadowValue], DBUEqualityTestFailed);
     STAssertTrue(*(int *)[n2 pointerToShadowValue] == *(int *)[n1 pointerToShadowValue], DBUEqualityTestFailed);
+    
+    // create int from MonoObject
+    int intValue = 10289;
+    NSNumber *nInt = [[DBTypeManager sharedManager] objectForMonoObject:DB_BOX_INT32(intValue)];
+    STAssertTrue(strcmp([nInt objCType], @encode(int)) == 0, DBUEqualityTestFailed);
+    STAssertTrue(*(int *)[nInt pointerToShadowValue] == intValue, DBUEqualityTestFailed);
+    
+    // create long long from MonoObject
+    long long longLongValue = LONG_LONG_MAX;
+    NSNumber *nLongLong = [[DBTypeManager sharedManager] objectForMonoObject:DB_BOX_INT64(longLongValue)];
+    STAssertTrue(strcmp([nLongLong objCType], @encode(long long)) == 0, DBUEqualityTestFailed);
+    STAssertTrue(*(long long *)[nLongLong pointerToShadowValue] == longLongValue, DBUEqualityTestFailed);
+
+    // create double from MonoObject
+    double doubleValue = 13245456.;
+    NSNumber *nDouble = [[DBTypeManager sharedManager] objectForMonoObject:DB_BOX_DOUBLE(doubleValue)];
+    STAssertTrue(strcmp([nDouble objCType], @encode(double)) == 0, DBUEqualityTestFailed);
+    STAssertTrue(*(double *)[nDouble pointerToShadowValue] == doubleValue, DBUEqualityTestFailed);
 }
 
 - (void)testStringRepresentation
@@ -162,7 +182,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     DBWrappedString *string2 = [DBWrappedString objectWithMonoObject:[string1 monoString]];
     STAssertTrue([string1 isEqualToString:string2], DBUEqualityTestFailed);
     
-    // ccreate string from mono object
+    // create string from mono object
     NSString *string3 = [[DBTypeManager sharedManager] objectForMonoObject:[string2 representedMonoObject]];
     STAssertTrue([string1 isEqualToString:string3], DBUEqualityTestFailed);
 }
