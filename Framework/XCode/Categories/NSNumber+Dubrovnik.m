@@ -30,24 +30,32 @@ static const char valueShadowKey = '0';
 #pragma mark -
 #pragma mark - Shadow value
 
-- (void *)pointerToShadowValue
+- (const void *)pointerToShadowValue
 {
-    // get the size of the encoded type
-    NSUInteger typeSize;
-    NSGetSizeAndAlignment([self objCType], &typeSize, NULL);
+    NSData *shadowData = [self valueShadowData];
     
-    // allocate data storage copy value into it
-    NSMutableData *data = [NSMutableData dataWithLength:typeSize];
-    [self getValue:[data mutableBytes]];
-    [self setValueShadowData:data];
+    if (!shadowData) {
+        // get the size of the encoded type
+        NSUInteger typeSize;
+        NSGetSizeAndAlignment([self objCType], &typeSize, NULL);
+        
+        // allocate data storage and copy value into it
+        NSMutableData *data = [NSMutableData dataWithLength:typeSize];
+        [self getValue:[data mutableBytes]];
+        shadowData = [NSData dataWithData:data];
+        
+        // persist the data
+        [self setValueShadowData:shadowData];
+    }
     
     // return interior pointer
-    return [data mutableBytes];
+    return [shadowData bytes];
 }
 
 - (void)setValueShadowData:(NSData *)data
 {
     if ([self valueShadowData]) {
+        NSLog(@"Unexpected call to %@ - %@", self, NSStringFromSelector(_cmd));
         objc_setAssociatedObject(self, &valueShadowKey, nil, OBJC_ASSOCIATION_RETAIN);
     }
     objc_setAssociatedObject(self, &valueShadowKey, data, OBJC_ASSOCIATION_RETAIN);
@@ -55,7 +63,7 @@ static const char valueShadowKey = '0';
 
 - (NSData *)valueShadowData
 {
-    NSData *shadowData = objc_getAssociatedObject(self, &valueShadowKey);
+    NSMutableData *shadowData = objc_getAssociatedObject(self, &valueShadowKey);
     
     return shadowData;
 }
@@ -65,7 +73,7 @@ static const char valueShadowKey = '0';
 
 - (void *)monoValue
 {
-    return [self pointerToShadowValue];
+    return (void *)[self pointerToShadowValue];
 }
 
 - (MonoObject *)monoObject

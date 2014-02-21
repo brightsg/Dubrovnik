@@ -11,7 +11,7 @@
 
 @interface NSNumber (Dubrovnik)
 + (instancetype)objectWithMonoObject:(MonoObject *)monoObject;
-
+- (const void *)pointerToShadowValue;
 /*
 + (instancetype)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue;
 + (instancetype)numberWithNullableMonoBool:(MonoObject *)monoNullable;

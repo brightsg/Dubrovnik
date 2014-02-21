@@ -84,13 +84,13 @@ static BOOL _setup = NO;
          
     // open the assembly 
 	MonoAssembly *monoAssembly = [monoEnv openAssembly:assemblyName path:assemblyFile];
-    NSAssert(monoAssembly, @"Cannot open assembly : %@", assemblyFile);
+    STAssertTrue(monoAssembly, @"Cannot open assembly : %@", assemblyFile);
     
     // invoke the assembly static main
     int argc = 1;
     char *argv[] = {(char *)assemblyFile.UTF8String};
     int retval = [monoEnv invokeAssembly:monoAssembly prepareThreading:NO argCount:argc arguments:argv];
-    NSAssert(retval == 0, @"Call to assembly entry point failed");
+    STAssertTrue(retval == 0, @"Call to assembly entry point failed");
 }
 
 - (void)tearDown
@@ -132,7 +132,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSDate *dateFromMonoObject = [NSDate dateWithMonoDateTime:monoDateTime];
     
     // validate the NSDate representation
-    NSAssert(fabs([dateFromMonoObject timeIntervalSinceDate:dateNow]) < 0.1, @"bad date");  // sanity check
+    STAssertTrue(fabs([dateFromMonoObject timeIntervalSinceDate:dateNow]) < 0.1, @"bad date");  // sanity check
     
     // validate the Mono representatiom
     int64_t ticks = DB_UNBOX_INT64(DBMonoObjectGetProperty(monoDateTime, "Ticks"));
@@ -141,6 +141,30 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"NSDate date = %@ Mono DateTime = %@ ticks = %lld", dateNow, dateString, ticks);
     
     //[DBObject logMonoClassInfo:mono_object_get_class(monoObject)];
+}
+
+- (void)testNumberRepresentation
+{
+    // test
+    NSNumber *n1 = @((int)1);
+    STAssertTrue([n1 pointerToShadowValue] == [n1 pointerToShadowValue], DBUEqualityTestFailed);
+    STAssertTrue(*(int *)[n1 pointerToShadowValue] == *(int *)[n1 pointerToShadowValue], DBUEqualityTestFailed);
+    
+    // remember that NSNumber uses tagged pointers - &n1 and &n2 should be equal
+    NSNumber *n2 = @((int)1);
+    STAssertTrue([n2 pointerToShadowValue] == [n1 pointerToShadowValue], DBUEqualityTestFailed);
+    STAssertTrue(*(int *)[n2 pointerToShadowValue] == *(int *)[n1 pointerToShadowValue], DBUEqualityTestFailed);
+}
+
+- (void)testStringRepresentation
+{
+    NSString *string1 = @"I am the test string";
+    DBWrappedString *string2 = [DBWrappedString objectWithMonoObject:[string1 monoString]];
+    STAssertTrue([string1 isEqualToString:string2], DBUEqualityTestFailed);
+    
+    // ccreate string from mono object
+    NSString *string3 = [[DBTypeManager sharedManager] objectForMonoObject:[string2 representedMonoObject]];
+    STAssertTrue([string1 isEqualToString:string3], DBUEqualityTestFailed);
 }
 
 - (void)testReferenceClass
@@ -710,7 +734,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // key is a literal number representing an int
     NSNumber *literalNumberKey = @((int)intKey);
     const char *typeEncoding = [literalNumberKey objCType];
-    NSAssert(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
+    STAssertTrue(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
     value = [intIntDictA2 objectForKey:literalNumberKey];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
