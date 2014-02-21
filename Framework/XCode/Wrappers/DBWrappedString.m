@@ -21,10 +21,12 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import "DBWrappedString.h"
+#import "DBObject.h"
 
 @implementation DBWrappedString
 
-- (id)initWithMonoString:(MonoString *)monoString {
+- (id)initWithMonoString:(MonoString *)monoString
+{
 	self = [super init];
 	
 	if(self) {
@@ -41,28 +43,40 @@
 	return(self);
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
 	if(_monoString != NULL) {
 		mono_gchandle_free(_gcHandle);
 	}
-	
 	[super dealloc];
 }
 
-- (MonoString *)monoString {
-    
-    // return reference type
-	return(_monoString);
+- (MonoString *)representedMonoString
+{
+    /*
+     
+     Note: we do not want to implement -monoString here as it will clash with 
+     NSString+Dubrovnik -monoString
+     
+     */
+	return _monoString;
+}
+
+- (MonoObject *)representedMonoObject
+{
+	return (MonoObject *)[self representedMonoString];
 }
 
 #pragma mark -
 #pragma mark Primitive Method Overrides
 
-- (NSUInteger)length {
+- (NSUInteger)length
+{
 	return (NSUInteger)_stringLength;
 }
 
-- (unichar)characterAtIndex:(NSUInteger)index {
+- (unichar)characterAtIndex:(NSUInteger)index
+{
 	if(index >= (NSUInteger)_stringLength)
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Character index beyond string bounds." userInfo:nil]);
 
@@ -75,24 +89,28 @@
 #pragma mark -
 #pragma mark Other Overrides
 
-- (id)copy {
+- (id)copy
+{
 	DBWrappedString *copy = [[DBWrappedString alloc] initWithMonoString:_monoString];
 	
 	return(copy);
 }
 
-- (id)copyWithZone:(NSZone *)zone {
+- (id)copyWithZone:(NSZone *)zone
+{
 	DBWrappedString *copy = [[DBWrappedString allocWithZone:zone] initWithMonoString:_monoString];
 	
 	return(copy);
 }
 
-- (void)getCharacters:(unichar *)buffer {
+- (void)getCharacters:(unichar *)buffer
+{
 	unichar *stringCharacters = mono_string_chars(_monoString);
 	memcpy(buffer, stringCharacters, (_stringLength * sizeof(unichar)));
 }
 
-- (void)getCharacters:(unichar *)buffer range:(NSRange)range {
+- (void)getCharacters:(unichar *)buffer range:(NSRange)range
+{
 	if(range.location + range.length > (NSUInteger)_stringLength)
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Character range beyond string bounds." userInfo:nil]);
 	

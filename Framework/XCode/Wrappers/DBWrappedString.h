@@ -29,11 +29,11 @@
 	uint32_t _gcHandle;
 	
 	int _stringLength;
-    DBObject *_monoObjectRepresentation;
 }
 
 - (id)initWithMonoString:(MonoString *)monoString;
 
-- (MonoString *)monoString;
+- (MonoString *)representedMonoString;
+- (MonoObject *)representedMonoObject;
 
 @end

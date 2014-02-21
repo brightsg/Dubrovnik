@@ -694,16 +694,25 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[intIntDictValues objectAtIndex:1] intValue] == 6, DBUEqualityTestFailed);
 
     // test keys and values
-    int intKey = [[intIntDictKeys objectAtIndex:0] intValue];
-    value = [intIntDictA2 objectForKey:[DBObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
-    STAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
-    
-    /*
-    Need a wrapped NSNUmber instance that responds to monoObject.
-    key = [intIntDictKeys objectAtIndex:1];
+    key = [intIntDictKeys objectAtIndex:0];
     value = [intIntDictA2 objectForKey:key];
+    STAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
+
+    // key is a DBObject containing a boxed int
+    int intKey = [[intIntDictKeys objectAtIndex:1] intValue];
+    value = [intIntDictA2 objectForKey:[DBObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
-    */
+    
+    // key is an NSNumber representing an int
+    value = [intIntDictA2 objectForKey:[NSNumber numberWithInt:intKey]];
+    STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
+
+    // key is a literal number representing an int
+    NSNumber *literalNumberKey = @((int)intKey);
+    const char *typeEncoding = [literalNumberKey objCType];
+    NSAssert(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
+    value = [intIntDictA2 objectForKey:literalNumberKey];
+    STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
     // test NSDictionary representation
     NSDictionary *intIntDict = [intIntDictA2 dictionary];

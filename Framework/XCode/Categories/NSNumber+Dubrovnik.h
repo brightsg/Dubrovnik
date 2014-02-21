@@ -11,6 +11,8 @@
 
 @interface NSNumber (Dubrovnik)
 + (instancetype)objectWithMonoObject:(MonoObject *)monoObject;
+
+/*
 + (instancetype)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue;
 + (instancetype)numberWithNullableMonoBool:(MonoObject *)monoNullable;
 + (instancetype)numberWithLongLong:(long long)value hasValue:(BOOL)hasValue;
@@ -21,5 +23,6 @@
 - (MonoObject *)nullableMonoInt64;
 - (MonoObject *)nullableMonoInt32;
 - (MonoObject *)nullableMonoBool;
+*/
 
 @end
