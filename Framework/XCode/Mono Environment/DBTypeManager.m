@@ -344,7 +344,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 #pragma mark -
 #pragma mark Object factory
 
-- (id)objectForMonoObject:(MonoObject *)monoObject
+- (id)objectWithMonoObject:(MonoObject *)monoObject
 {
     id object = nil;
     NSString *typeName = [self monoTypeNameForMonoObject:monoObject];

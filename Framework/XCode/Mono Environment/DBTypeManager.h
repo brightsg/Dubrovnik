@@ -88,7 +88,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 - (id)typeWithName:(NSString *)name;
 - (NSString *)aliasForName:(NSString *)name;
 - (MonoClass *)monoClassWithName:(NSString *)name;
-- (id)objectForMonoObject:(MonoObject *)monoObject;
+- (id)objectWithMonoObject:(MonoObject *)monoObject;
 - (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject;
 - (NSString *)monoAliasNameForMonoObject:(MonoObject *)monoObject;
 - (NSString *)monoArgumentTypeNameForMonoObject:(MonoObject *)monoObject;

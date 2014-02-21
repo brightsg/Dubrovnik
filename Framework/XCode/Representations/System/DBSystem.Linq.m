@@ -10,10 +10,16 @@
 #import "DBMethod.h"
 #import "DBObject.h"
 #import "DBSystem.Collections.IList.h"
+#import "DBTypeManager.h"
 
 @implementation DBSystem_Linq
 
 + (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep
+{
+    return [self toList:monoRep genericTypeIndex:0];
+}
+
++ (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep genericTypeIndex:(NSUInteger)typeIndex
 {
     // NOTE: perhaps a C# helper method could achieve this more simply.
     
@@ -22,13 +28,15 @@
     // note that the generic parameter type must be obtained from the source.
     // the method obtained here cannot be called directly but must be inflated with a type (see below)
     DBMethod *methodRep = [DBMethod
-                                             methodWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
-                                             className:"System.Linq.Enumerable"
-                                             assemblyName:"System.Core"];
+                           methodWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
+                           className:"System.Linq.Enumerable"
+                           assemblyName:"System.Core"];
     
     // Get the type with which to inflate the method.
-    // The generic type for the list equals the generic type of this object.
-    methodRep.genericMonoType = [monoRep getMonoGenericType];
+    // The generic type for the method equals the generic type of this object at the given index
+    methodRep.genericMonoType = [monoRep getMonoGenericTypeAtIndex:typeIndex];
+    
+    NSString *typeName = [DBTypeManager monoTypeNameForMonoType:methodRep.genericMonoType];
     
     // Invoke the extension method passing mono object as first argument
     // NOTE: we could invoke this as a class method but it is clean to invoke against self.
@@ -39,5 +47,4 @@
     
     return list;
 }
-
 @end

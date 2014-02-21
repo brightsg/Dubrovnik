@@ -22,9 +22,14 @@ static const char valueShadowKey = '0';
 
 + (instancetype)objectWithMonoObject:(MonoObject *)monoObject
 {
-	id number = [[DBTypeManager sharedManager] objectForMonoObject:monoObject];
+	id number = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
     
 	return number;
+}
+
++ (instancetype)numberWithMonoObject:(MonoObject *)monoObject
+{
+	return [self objectWithMonoObject:monoObject];
 }
 
 #pragma mark -

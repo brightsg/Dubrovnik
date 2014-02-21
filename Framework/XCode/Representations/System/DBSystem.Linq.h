@@ -16,5 +16,5 @@
 @interface DBSystem_Linq : System_Linq
 
 + (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep;
-
++ (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep genericTypeIndex:(NSUInteger)typeIndex;
 @end

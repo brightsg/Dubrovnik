@@ -46,4 +46,9 @@
     }
     return self;
 }
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ methodName: %s", [super description], self.methodName];
+}
 @end

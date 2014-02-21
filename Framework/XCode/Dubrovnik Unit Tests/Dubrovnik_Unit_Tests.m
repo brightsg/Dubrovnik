@@ -159,19 +159,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // create int from MonoObject
     int intValue = 10289;
-    NSNumber *nInt = [[DBTypeManager sharedManager] objectForMonoObject:DB_BOX_INT32(intValue)];
+    NSNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
     STAssertTrue(strcmp([nInt objCType], @encode(int)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(int *)[nInt pointerToShadowValue] == intValue, DBUEqualityTestFailed);
     
     // create long long from MonoObject
     long long longLongValue = LONG_LONG_MAX;
-    NSNumber *nLongLong = [[DBTypeManager sharedManager] objectForMonoObject:DB_BOX_INT64(longLongValue)];
+    NSNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
     STAssertTrue(strcmp([nLongLong objCType], @encode(long long)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(long long *)[nLongLong pointerToShadowValue] == longLongValue, DBUEqualityTestFailed);
 
     // create double from MonoObject
     double doubleValue = 13245456.;
-    NSNumber *nDouble = [[DBTypeManager sharedManager] objectForMonoObject:DB_BOX_DOUBLE(doubleValue)];
+    NSNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
     STAssertTrue(strcmp([nDouble objCType], @encode(double)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(double *)[nDouble pointerToShadowValue] == doubleValue, DBUEqualityTestFailed);
 }
@@ -183,7 +183,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([string1 isEqualToString:string2], DBUEqualityTestFailed);
     
     // create string from mono object
-    NSString *string3 = [[DBTypeManager sharedManager] objectForMonoObject:[string2 representedMonoObject]];
+    NSString *string3 = [[DBTypeManager sharedManager] objectWithMonoObject:[string2 representedMonoObject]];
     STAssertTrue([string1 isEqualToString:string3], DBUEqualityTestFailed);
 }
 
@@ -776,11 +776,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[stringObjectDictKeys objectAtIndex:2] rangeOfString:@"keyForFloat"].location != NSNotFound, DBUSubstringTestFailed);
 
     // test all values
-    /*NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
-    STAssertTrue([intIntDictValues count] == 3, DBUCountTestFailed);
+    NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
+    STAssertTrue([stringObjectDictValues count] == 3, DBUCountTestFailed);
+    
+    /*
+    STAssertTrue([[stringObjectDictValues objectAtIndex:0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([[stringObjectDictValues objectAtIndex:1] intValue] == 100, DBUEqualityTestFailed);
     STAssertTrue([[stringObjectDictValues objectAtIndex:2] floatValue] == 1001, DBUEqualityTestFailed);
-     */
+    */
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass

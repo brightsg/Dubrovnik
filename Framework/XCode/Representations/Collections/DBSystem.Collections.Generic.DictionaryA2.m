@@ -42,6 +42,8 @@
     // an array of objects of type self.firstItemClass
     MonoObject *monoObject = [self getMonoProperty:"Keys"];
     DBObject *object = [[[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.firstItemClass] autorelease];
+    
+    // toList defaults to using the first generic type
     NSArray *keys = [[DBSystem_Linq toList:(DBObject <Interface_IEnumerable_T> *)object] array];
     
     return keys;
@@ -51,9 +53,13 @@
 {
     // an array of objects of type self.secondItemClass
     MonoObject *monoObject = [self getMonoProperty:"Values"];
+    
+    // Returns object of type System.Collections.Generic.Dictionary<TKey, TValue>.ValueCollection.
+    // In order to obtain the values for this we need to request Values(TValue)
     DBObject *object = [[[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.secondItemClass] autorelease];
     
-    NSArray *values = [[DBSystem_Linq toList:(DBObject <Interface_IEnumerable_T> *)object] array];
+    // obtain a list of objects of the 2nd generic type
+    NSArray *values = [[DBSystem_Linq toList:(DBObject <Interface_IEnumerable_T> *)object genericTypeIndex:1] array];
     
     return values;
 }
@@ -68,7 +74,7 @@
         // get the value for the key
         MonoObject *monoObject = DBMonoObjectGetIndexedObject(self.monoObject, [key monoValue]);
         if (monoObject) {
-            object = [[DBTypeManager sharedManager] objectForMonoObject:monoObject];
+            object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
         }
     }
     

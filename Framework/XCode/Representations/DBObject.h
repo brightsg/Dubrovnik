@@ -122,7 +122,8 @@ extern char DBCacheSuffixChar;
 
 // Mono type info
 - (uintptr_t *)getMonoGenericTypeCount;
-- (MonoType *)getMonoGenericType;
+- (MonoType *)getFirstMonoGenericType;
+- (MonoType *)getLastMonoGenericType;
 - (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx;
 - (MonoArray *)getMonoGenericTypes;
 

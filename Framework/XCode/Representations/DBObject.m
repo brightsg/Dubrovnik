@@ -463,9 +463,16 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark -
 #pragma mark Generic type info
 
-- (MonoType *)getMonoGenericType
+- (MonoType *)getFirstMonoGenericType
 {
     return [[self class] getMonoGenericType:[self monoClass] atIndex:0];
+}
+
+- (MonoType *)getLastMonoGenericType
+{
+    uintptr_t count = [self getMonoGenericTypeCount];
+    
+    return [[self class] getMonoGenericType:[self monoClass] atIndex:count - 1];
 }
 
 - (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx
