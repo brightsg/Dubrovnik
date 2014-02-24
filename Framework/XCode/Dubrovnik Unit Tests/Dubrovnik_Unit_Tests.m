@@ -672,40 +672,40 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // List<string>
     DBSystem_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
     NSArray *arrayOfStrings = [listOfStrings array];
-    STAssertTrue([[arrayOfStrings objectAtIndex:0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[arrayOfStrings objectAtIndex:0] rangeOfString:@" 1"].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[arrayOfStrings objectAtIndex:1] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[arrayOfStrings objectAtIndex:1] rangeOfString:@" 2"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([arrayOfStrings[0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([arrayOfStrings[0] rangeOfString:@" 1"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([arrayOfStrings[1] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([arrayOfStrings[1] rangeOfString:@" 2"].location != NSNotFound, DBUSubstringTestFailed);
     
     // List<int>
     DBSystem_Collections_Generic_ListA1 *listOfInts = [refObject intList];
     NSArray *arrayOfInts = [listOfInts array];
     STAssertTrue([arrayOfInts count] == 3, DBUCountTestFailed);
-    STAssertTrue([[arrayOfInts objectAtIndex:0] intValue] == 1, DBUEqualityTestFailed);
-    STAssertTrue([[arrayOfInts objectAtIndex:1] intValue] == -10, DBUEqualityTestFailed);
-    STAssertTrue([[arrayOfInts objectAtIndex:2] intValue] == 100, DBUEqualityTestFailed);
+    STAssertTrue([arrayOfInts[0] intValue] == 1, DBUEqualityTestFailed);
+    STAssertTrue([arrayOfInts[1] intValue] == -10, DBUEqualityTestFailed);
+    STAssertTrue([arrayOfInts[2] intValue] == 100, DBUEqualityTestFailed);
 
     // List<uint>
     DBSystem_Collections_Generic_ListA1 *listOfUInts = [refObject uIntList];
     NSArray *arrayOfUInts = [listOfUInts array];
     STAssertTrue([arrayOfUInts count] == 2, DBUCountTestFailed);
-    STAssertTrue([[arrayOfUInts objectAtIndex:0] unsignedIntValue] == 2, DBUEqualityTestFailed);
-    STAssertTrue([[arrayOfUInts objectAtIndex:1] unsignedIntValue] == 20, DBUEqualityTestFailed);
+    STAssertTrue([arrayOfUInts[0] unsignedIntValue] == 2, DBUEqualityTestFailed);
+    STAssertTrue([arrayOfUInts[1] unsignedIntValue] == 20, DBUEqualityTestFailed);
 
     // List<float>
     DBSystem_Collections_Generic_ListA1 *listOfFloats = [refObject floatList];
     NSArray *arrayOfFloats = [listOfFloats array];
     STAssertTrue([arrayOfFloats count] == 3, DBUCountTestFailed);
-    STAssertTrue([[arrayOfFloats objectAtIndex:0] floatValue] == 1., DBUEqualityTestFailed);
-    STAssertTrue([[arrayOfFloats objectAtIndex:1] floatValue] == 2., DBUEqualityTestFailed);
-    STAssertTrue([[arrayOfFloats objectAtIndex:2] floatValue] == 3., DBUEqualityTestFailed);
+    STAssertTrue([arrayOfFloats[0] floatValue] == 1., DBUEqualityTestFailed);
+    STAssertTrue([arrayOfFloats[1] floatValue] == 2., DBUEqualityTestFailed);
+    STAssertTrue([arrayOfFloats[2] floatValue] == 3., DBUEqualityTestFailed);
     
     // List<double>
     DBSystem_Collections_Generic_ListA1 *listOfDoubles = [refObject doubleList];
     NSArray *arrayOfDoubles = [listOfDoubles array];
     STAssertTrue([arrayOfDoubles count] == 2, DBUCountTestFailed);
-    STAssertTrue([[arrayOfDoubles objectAtIndex:0] doubleValue] == 11., DBUEqualityTestFailed);
-    STAssertTrue([[arrayOfDoubles objectAtIndex:1] doubleValue] == 22., DBUEqualityTestFailed);
+    STAssertTrue([arrayOfDoubles[0] doubleValue] == 11., DBUEqualityTestFailed);
+    STAssertTrue([arrayOfDoubles[1] doubleValue] == 22., DBUEqualityTestFailed);
     
     //============================
     // Dictionary<string,string>
@@ -715,26 +715,26 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // test all keys
     NSArray *stringStringDictKeys = [stringStringDictA2 allKeys];
     STAssertTrue([stringStringDictKeys count] == 2, DBUCountTestFailed);
-    STAssertTrue([[stringStringDictKeys objectAtIndex:0] rangeOfString:@"String1"].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[stringStringDictKeys objectAtIndex:1] rangeOfString:@"String2"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringStringDictKeys[0] rangeOfString:@"String1"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringStringDictKeys[1] rangeOfString:@"String2"].location != NSNotFound, DBUSubstringTestFailed);
     
     // test all values
     NSArray *stringStringDictValues = [stringStringDictA2 allValues];
     STAssertTrue([stringStringDictValues count] == 2, DBUCountTestFailed);
-    STAssertTrue([[stringStringDictValues objectAtIndex:0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[stringStringDictValues objectAtIndex:1] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringStringDictValues[0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringStringDictValues[1] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     
     // test keys and values
-    id key = [stringStringDictKeys objectAtIndex:0];
+    id key = stringStringDictKeys[0];
     id value = [stringStringDictA2 objectForKey:key];
     STAssertTrue([value rangeOfString:@"1"].location != NSNotFound, DBUSubstringTestFailed);
-    key = [stringStringDictKeys objectAtIndex:1];
+    key = stringStringDictKeys[1];
     STAssertTrue([[stringStringDictA2 objectForKey:key] rangeOfString:@"2"].location != NSNotFound, DBUSubstringTestFailed);
     
     // test NSDictionary representation
     NSDictionary *stringStringDict = [stringStringDictA2 dictionary];
-    STAssertTrue([[stringStringDict objectForKey:@"keyForString1"] rangeOfString:@"Dubrovnik.UnitTests 1"].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[stringStringDict objectForKey:@"keyForString2"] rangeOfString:@"Dubrovnik.UnitTests 2"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringStringDict[@"keyForString1"] rangeOfString:@"Dubrovnik.UnitTests 1"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringStringDict[@"keyForString2"] rangeOfString:@"Dubrovnik.UnitTests 2"].location != NSNotFound, DBUSubstringTestFailed);
 
     //============================
     // Dictionary<int,int>
@@ -744,22 +744,22 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // test all keys
     NSArray *intIntDictKeys = [intIntDictA2 allKeys];
     STAssertTrue([intIntDictKeys count] == 2, DBUCountTestFailed);
-    STAssertTrue([[intIntDictKeys objectAtIndex:0] intValue] == 1, DBUEqualityTestFailed);
-    STAssertTrue([[intIntDictKeys objectAtIndex:1] intValue] == 3, DBUEqualityTestFailed);
+    STAssertTrue([intIntDictKeys[0] intValue] == 1, DBUEqualityTestFailed);
+    STAssertTrue([intIntDictKeys[1] intValue] == 3, DBUEqualityTestFailed);
 
     // test all values
     NSArray *intIntDictValues = [intIntDictA2 allValues];
     STAssertTrue([intIntDictValues count] == 2, DBUCountTestFailed);
-    STAssertTrue([[intIntDictValues objectAtIndex:0] intValue] == 2, DBUEqualityTestFailed);
-    STAssertTrue([[intIntDictValues objectAtIndex:1] intValue] == 6, DBUEqualityTestFailed);
+    STAssertTrue([intIntDictValues[0] intValue] == 2, DBUEqualityTestFailed);
+    STAssertTrue([intIntDictValues[1] intValue] == 6, DBUEqualityTestFailed);
 
     // test keys and values
-    key = [intIntDictKeys objectAtIndex:0];
+    key = intIntDictKeys[0];
     value = [intIntDictA2 objectForKey:key];
     STAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
 
     // key is a DBObject containing a boxed int
-    int intKey = [[intIntDictKeys objectAtIndex:1] intValue];
+    int intKey = [intIntDictKeys[1] intValue];
     value = [intIntDictA2 objectForKey:[DBObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
@@ -770,7 +770,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // object for key requires a type that represnts a mono type
     BOOL numberTypeExceptionRaised = NO;
     @try {
-        value = [intIntDictA2 objectForKey:[NSNumber numberWithInt:intKey]];
+        value = [intIntDictA2 objectForKey:@(intKey)];
     }
     @catch (NSException *e) {
         numberTypeExceptionRaised = YES;
@@ -788,8 +788,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test NSDictionary representation
     NSDictionary *intIntDict = [intIntDictA2 dictionary];
-    STAssertTrue([[intIntDict objectForKey:@(1)] intValue] == 2, DBUEqualityTestFailed);
-    STAssertTrue([[intIntDict objectForKey:@(3)] intValue] == 6, DBUEqualityTestFailed);
+    STAssertTrue([intIntDict[@(1)] intValue] == 2, DBUEqualityTestFailed);
+    STAssertTrue([intIntDict[@(3)] intValue] == 6, DBUEqualityTestFailed);
 
     //============================
     // Dictionary<string,object>
@@ -799,17 +799,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // test all keys
     NSArray *stringObjectDictKeys = [stringObjectDictA2 allKeys];
     STAssertTrue([stringObjectDictKeys count] == 3, DBUCountTestFailed);
-    STAssertTrue([[stringObjectDictKeys objectAtIndex:0] rangeOfString:@"keyForString"].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[stringObjectDictKeys objectAtIndex:1] rangeOfString:@"keyForInteger"].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[stringObjectDictKeys objectAtIndex:2] rangeOfString:@"keyForFloat"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringObjectDictKeys[0] rangeOfString:@"keyForString"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringObjectDictKeys[1] rangeOfString:@"keyForInteger"].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringObjectDictKeys[2] rangeOfString:@"keyForFloat"].location != NSNotFound, DBUSubstringTestFailed);
 
     // test all values
     NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
     STAssertTrue([stringObjectDictValues count] == 3, DBUCountTestFailed);
     
-    STAssertTrue([[stringObjectDictValues objectAtIndex:0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
-    STAssertTrue([[stringObjectDictValues objectAtIndex:1] intValue] == 100, DBUEqualityTestFailed);
-    STAssertTrue([[stringObjectDictValues objectAtIndex:2] floatValue] == 1001, DBUEqualityTestFailed);
+    STAssertTrue([stringObjectDictValues[0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    STAssertTrue([stringObjectDictValues[1] intValue] == 100, DBUEqualityTestFailed);
+    STAssertTrue([stringObjectDictValues[2] floatValue] == 1001, DBUEqualityTestFailed);
 
     //============================
     // Dictionary<object,object>
@@ -837,7 +837,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     NSDictionary *d = [objectObjectDictA2 dictionary];
     
-    int h;
+    int h = 2;
+    long l = 3;
+    
+    NSString * sh = @("hello");
+    NSString * slh = @([@(l) objCType]);
 
 }
 

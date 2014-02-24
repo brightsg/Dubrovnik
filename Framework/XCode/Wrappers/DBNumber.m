@@ -130,19 +130,19 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     static NSDictionary *dict = nil;
     if (!dict) {
         dict = @{
-                   [NSString stringWithUTF8String:@encode(BOOL)]: @(DBNumberTypeBool),
-                   [NSString stringWithUTF8String:@encode(char)]: @(DBNumberTypeChar),
-                   [NSString stringWithUTF8String:@encode(unsigned char)]: @(DBNumberTypeUnsignedChar),
-                   [NSString stringWithUTF8String:@encode(short)]: @(DBNumberTypeShort),
-                   [NSString stringWithUTF8String:@encode(unsigned short)]: @(DBNumberTypeUnsignedShort),
-                   [NSString stringWithUTF8String:@encode(int)]: @(DBNumberTypeInt),
-                   [NSString stringWithUTF8String:@encode(unsigned int)]: @(DBNumberTypeUnsignedInt),
-                   [NSString stringWithUTF8String:@encode(long)]: @(DBNumberTypeLong),
-                   [NSString stringWithUTF8String:@encode(unsigned long)]: @(DBNumberTypeUnsignedLong),
-                   [NSString stringWithUTF8String:@encode(long long)]: @(DBNumberTypeLongLong),
-                   [NSString stringWithUTF8String:@encode(unsigned long long)]: @(DBNumberTypeUnsignedLongLong),
-                   [NSString stringWithUTF8String:@encode(float)]: @(DBNumberTypeFloat),
-                   [NSString stringWithUTF8String:@encode(double)]: @(DBNumberTypeDouble),
+                   @(@encode(BOOL)): @(DBNumberTypeBool),
+                   @(@encode(char)): @(DBNumberTypeChar),
+                   @(@encode(unsigned char)): @(DBNumberTypeUnsignedChar),
+                   @(@encode(short)): @(DBNumberTypeShort),
+                   @(@encode(unsigned short)): @(DBNumberTypeUnsignedShort),
+                   @(@encode(int)): @(DBNumberTypeInt),
+                   @(@encode(unsigned int)): @(DBNumberTypeUnsignedInt),
+                   @(@encode(long)): @(DBNumberTypeLong),
+                   @(@encode(unsigned long)): @(DBNumberTypeUnsignedLong),
+                   @(@encode(long long)): @(DBNumberTypeLongLong),
+                   @(@encode(unsigned long long)): @(DBNumberTypeUnsignedLongLong),
+                   @(@encode(float)): @(DBNumberTypeFloat),
+                   @(@encode(double)): @(DBNumberTypeDouble),
                 };
         [dict retain];
     }
@@ -151,7 +151,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 
 + (DBNumberTypeID)numberTypeIDForTypeName:(NSString *)typeName
 {
-    NSNumber *typeID = [[self typeIndexDictionary] objectForKey:typeName];
+    NSNumber *typeID = [self typeIndexDictionary][typeName];
     if (!typeID) {
         [NSException raise:@"Type exception" format:@"Invalid type name encoding: %@", typeName];
     }
@@ -257,7 +257,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(char);
-        self.number = [NSNumber numberWithChar:value];
+        self.number = @(value);
     }
     
     return self;
@@ -268,7 +268,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(unsigned char);
-        self.number = [NSNumber numberWithUnsignedChar:value];
+        self.number = @(value);
     }
     
     return self;
@@ -279,7 +279,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(short);
-        self.number = [NSNumber numberWithShort:value];
+        self.number = @(value);
     }
     
     return self;
@@ -290,7 +290,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(unsigned short);
-        self.number = [NSNumber numberWithUnsignedShort:value];
+        self.number = @(value);
     }
     
     return self;
@@ -301,7 +301,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(int);
-        self.number = [NSNumber numberWithInt:value];
+        self.number = @(value);
     }
     
     return self;
@@ -312,7 +312,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(unsigned int);
-        self.number = [NSNumber numberWithUnsignedInt:value];
+        self.number = @(value);
     }
     
     return self;
@@ -323,7 +323,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(long);
-        self.number = [NSNumber numberWithLong:value];
+        self.number = @(value);
     }
     
     return self;
@@ -334,7 +334,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(unsigned long);
-        self.number = [NSNumber numberWithUnsignedLong:value];
+        self.number = @(value);
     }
     
     return self;
@@ -345,7 +345,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(long long);
-        self.number = [NSNumber numberWithLongLong:value];
+        self.number = @(value);
     }
     
     return self;
@@ -356,7 +356,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(unsigned long long);
-        self.number = [NSNumber numberWithUnsignedLongLong:value];
+        self.number = @(value);
     }
     
     return self;
@@ -367,7 +367,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(float);
-        self.number = [NSNumber numberWithFloat:value];
+        self.number = @(value);
     }
     
     return self;
@@ -378,7 +378,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(double);
-        self.number = [NSNumber numberWithDouble:value];
+        self.number = @(value);
     }
     
     return self;
@@ -389,7 +389,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(BOOL);
-        self.number = [NSNumber numberWithBool:value];
+        self.number = @(value);
     }
     
     return self;
@@ -400,7 +400,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(NSInteger);
-        self.number = [NSNumber numberWithInteger:value];
+        self.number = @(value);
     }
     
     return self;
@@ -411,7 +411,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self = [super init];
     if (self) {
         self.monoObjCType = @encode(NSUInteger);
-        self.number = [NSNumber numberWithUnsignedInteger:value];
+        self.number = @(value);
     }
     
     return self;
@@ -702,7 +702,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 -(void)setMonoObjCType:(const char *)monoObjCType
 {
     _monoObjCType = monoObjCType;
-    self.typeName = [[NSString stringWithUTF8String:_monoObjCType] retain];
+    self.typeName = [@(_monoObjCType) retain];
 }
 
 @end

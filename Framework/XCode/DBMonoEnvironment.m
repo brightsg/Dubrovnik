@@ -260,7 +260,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
             NSString *monoPath = [[DBMonoEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:_monoAssemblyDefaultSearchPath];
             
             path = [monoPath stringByResolvingSymlinksInPath];
-            path = [path stringByAppendingPathComponent:[NSString stringWithUTF8String:name]];
+            path = [path stringByAppendingPathComponent:@(name)];
             path = [path stringByAppendingPathExtension:@"dll"];
         }
         
@@ -279,7 +279,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 
 - (MonoAssembly *)openAssemblyWithName:(const char *)name path:(NSString *)path
 {
-    NSString *assemblyName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+    NSString *assemblyName = @(name);
     return [self openAssembly:assemblyName path:path];
 }
 
@@ -294,7 +294,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
         if (monoAssembly) {
             
             // cache the loaded assembly
-            [_loadedAssemblies setObject:[NSValue valueWithPointer:monoAssembly] forKey:name];
+            _loadedAssemblies[name] = [NSValue valueWithPointer:monoAssembly];
         }
     }
 	return monoAssembly;
@@ -302,14 +302,14 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 
 - (MonoAssembly *)loadedAssemblyWithName:(const char *)name
 {
-    NSString *assemblyName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+    NSString *assemblyName = @(name);
     return [self loadedAssembly:assemblyName];
 }
 
 - (MonoAssembly *)loadedAssembly:(NSString *)name
 {
     MonoAssembly *monoAssembly = nil;
-    NSValue *value = [_loadedAssemblies objectForKey:name];
+    NSValue *value = _loadedAssemblies[name];
     if (value) {
         monoAssembly  = value.pointerValue;
     } else {

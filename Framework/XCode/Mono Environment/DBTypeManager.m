@@ -247,19 +247,19 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (NSString *)aliasForName:(NSString *)name
 {
-    DBType *type = [self.monoTypes objectForKey:name];
+    DBType *type = (self.monoTypes)[name];
     
     return type.alias;
 }
 
 - (DBType *)typeWithName:(NSString *)name
 {
-    return [self.monoTypes objectForKey:name];
+    return (self.monoTypes)[name];
 }
 
 - (MonoClass *)monoClassWithName:(NSString *)name
 {
-    DBType *type =  [self.monoTypes objectForKey:name];
+    DBType *type =  (self.monoTypes)[name];
     MonoClass *klass = (type ? type.monoClass : nil);
     
     return klass;
@@ -481,7 +481,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (void)add:(DBType *)monoType
 {
-    [self.monoTypes setObject:monoType forKey:monoType.name];
+    (self.monoTypes)[monoType.name] = monoType;
 }
 
 @end

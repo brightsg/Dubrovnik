@@ -140,7 +140,7 @@
 {
     NSArray *classes = nil;
     if (itemClass) {
-        classes = [NSArray arrayWithObject:itemClass];
+        classes = @[itemClass];
     }
     
     return [self initWithMonoObject:obj withItemClasses:classes];
@@ -195,7 +195,7 @@
 
 - (Class)secondItemClass
 {
-    return [self.itemClasses objectAtIndex:1];;
+    return (self.itemClasses)[1];;
 }
 
 #pragma mark -

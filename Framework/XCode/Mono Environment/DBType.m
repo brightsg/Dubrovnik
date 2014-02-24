@@ -47,7 +47,7 @@
     const char *monoClassName = mono_class_get_name(monoClass);
     NSString *className = nil;
     if (monoClassName) {
-        className = [NSString stringWithUTF8String:monoClassName];
+        className = @(monoClassName);
     }
     
     return className;
@@ -82,7 +82,7 @@
     const char *monoTypeName = mono_type_get_name(monoType);
     NSString *typeName = nil;
     if (monoTypeName) {
-        typeName = [NSString stringWithUTF8String:monoTypeName];
+        typeName = @(monoTypeName);
     }
     
     return typeName;

@@ -62,7 +62,7 @@
             case DBTypeID_System_Object:
             case DBTypeID_System_String:
             case DBTypeID_System_Array:
-                klass = [[self objectAtIndex:0] class];
+                klass = [self[0] class];
                 break;
         }
         
@@ -71,7 +71,7 @@
         
         // copy items to system array
         for (NSUInteger i = 0; i < [self count]; i++) {
-            id item = [self objectAtIndex:i];
+            id item = self[i];
             
             switch (type.typeID) {
                     
