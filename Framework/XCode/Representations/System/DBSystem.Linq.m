@@ -35,9 +35,7 @@
     // Get the type with which to inflate the method.
     // The generic type for the method equals the generic type of this object at the given index
     methodRep.genericMonoType = [monoRep getMonoGenericTypeAtIndex:typeIndex];
-    
-    NSString *typeName = [DBTypeManager monoTypeNameForMonoType:methodRep.genericMonoType];
-    
+        
     // Invoke the extension method passing mono object as first argument
     // NOTE: we could invoke this as a class method but it is clean to invoke against self.
     MonoObject *monoListObject = [monoRep invokeMethod:methodRep withNumArgs:1, [monoRep monoObject]];

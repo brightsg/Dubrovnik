@@ -76,6 +76,8 @@
 		AB120D9F18B67CC400461FA2 /* System.Data.Entity.Core.Objects.ObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = AB120D9D18B67CC400461FA2 /* System.Data.Entity.Core.Objects.ObjectContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB120DA018B67CC400461FA2 /* System.Data.Entity.Core.Objects.ObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AB120D9E18B67CC400461FA2 /* System.Data.Entity.Core.Objects.ObjectContext.m */; };
 		AB120DA218B67D6E00461FA2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AB120DA118B67D6E00461FA2 /* README.md */; };
+		AB120DA518BB47F300461FA2 /* DBNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = AB120DA318BB47F300461FA2 /* DBNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB120DA618BB47F300461FA2 /* DBNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = AB120DA418BB47F300461FA2 /* DBNumber.m */; };
 		AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */ = {isa = PBXBuildFile; fileRef = AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */; };
 		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
@@ -228,6 +230,8 @@
 		AB120D9D18B67CC400461FA2 /* System.Data.Entity.Core.Objects.ObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Data.Entity.Core.Objects.ObjectContext.h; sourceTree = "<group>"; };
 		AB120D9E18B67CC400461FA2 /* System.Data.Entity.Core.Objects.ObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Data.Entity.Core.Objects.ObjectContext.m; sourceTree = "<group>"; };
 		AB120DA118B67D6E00461FA2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		AB120DA318BB47F300461FA2 /* DBNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNumber.h; sourceTree = "<group>"; };
+		AB120DA418BB47F300461FA2 /* DBNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNumber.m; sourceTree = "<group>"; };
 		AB2CD2FA178D74F20075CF6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		AB322C9C18B29DFD003E808A /* DBObject+Enumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBObject+Enumerable.h"; sourceTree = "<group>"; };
 		AB322C9D18B29DFD003E808A /* DBObject+Enumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBObject+Enumerable.m"; sourceTree = "<group>"; };
@@ -458,6 +462,8 @@
 				9D8863480974F55500365976 /* DBWrappedString.m */,
 				9D6335AC09750DAD00FB76DF /* DBWrappedData.h */,
 				9D6335AD09750DAD00FB76DF /* DBWrappedData.m */,
+				AB120DA318BB47F300461FA2 /* DBNumber.h */,
+				AB120DA418BB47F300461FA2 /* DBNumber.m */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -706,6 +712,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB120DA518BB47F300461FA2 /* DBNumber.h in Headers */,
 				AB120D7B18B6796200461FA2 /* System.Enum.h in Headers */,
 				AB120D7718B6792000461FA2 /* System.Convert.h in Headers */,
 				AB99495B18B625C800FAC62D /* System.Class.h in Headers */,
@@ -882,6 +889,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB120DA618BB47F300461FA2 /* DBNumber.m in Sources */,
 				93365A8E0872370700EC726F /* DBClass.m in Sources */,
 				93365A900872370700EC726F /* DBObject.m in Sources */,
 				9DB4200C0873614E0045F939 /* NSString+Dubrovnik.m in Sources */,

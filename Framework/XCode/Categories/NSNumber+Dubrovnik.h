@@ -9,11 +9,28 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@interface NSNumber (Dubrovnik)
-+ (instancetype)objectWithMonoObject:(MonoObject *)monoObject;
-+ (instancetype)numberWithMonoObject:(MonoObject *)monoObject;
+@class DBNumber;
 
-- (const void *)pointerToShadowValue;
+@interface NSNumber (Dubrovnik)
++ (id)objectWithMonoObject:(MonoObject *)monoObject;
++ (id)numberWithMonoObject:(MonoObject *)monoObject;
+
+- (DBNumber *)dbNumberFromCharValue;
+- (DBNumber *)dbNumberFromUnsignedCharValue;
+- (DBNumber *)dbNumberFromShortValue;
+- (DBNumber *)dbNumberFromUnsignedShortValue;
+- (DBNumber *)dbNumberFromIntValue;
+- (DBNumber *)dbNumberFromUnsignedIntValue;
+- (DBNumber *)dbNumberFromLongValue;
+- (DBNumber *)dbNumberFromUnsignedLongValue;
+- (DBNumber *)dbNumberFromLongLongValue;
+- (DBNumber *)dbNumberFromUnsignedLongLongValue;
+- (DBNumber *)dbNumberFromFloatValue;
+- (DBNumber *)dbNumberFromDoubleValue;
+- (DBNumber *)dbNumberFromIntegerValue;
+- (DBNumber *)dbNumberFromUnsignedIntegerValue;
+
+// - (const void *)pointerToShadowValue;
 /*
 + (instancetype)numberWithBool:(BOOL)value hasValue:(BOOL)hasValue;
 + (instancetype)numberWithNullableMonoBool:(MonoObject *)monoNullable;

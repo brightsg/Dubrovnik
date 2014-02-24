@@ -8,6 +8,7 @@
 
 #import "DBTypeManager.h"
 #import "DBObject.h"
+#import "DBNumber.h"
 #import "DBBoxing.h"
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
@@ -79,62 +80,6 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return sharedInstance;
 }
 
-#pragma mark -
-#pragma mark Type support
-
-+ (MonoClass *)monoClassForMonoObject:(MonoObject *)monoObject
-{
-    MonoClass *monoClass = mono_object_get_class(monoObject);
-    
-    return monoClass;
-}
-
-+ (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject
-{
-    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
-    const char *monoClassName = mono_class_get_name(monoClass);
-    NSString *className = nil;
-    if (monoClassName) {
-        className = [NSString stringWithUTF8String:monoClassName];
-    }
-    
-    return className;
-}
-
-+ (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject
-{
-    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
-    MonoType* monoType = mono_class_get_type(monoClass);
-    
-    return monoType;
-}
-
-+ (MonoType *)monoUnderlyingTypeForMonoObject:(MonoObject *)monoObject
-{
-    MonoType* monoType = [self monoTypeForMonoObject:monoObject];
-    MonoType* monoUnderlingType = mono_type_get_underlying_type(monoType);
-    
-    return monoUnderlingType;
-}
-
-+ (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject
-{
-    MonoType* monoType = [self monoTypeForMonoObject:monoObject];
-    NSString *typeName = [self monoTypeNameForMonoType:monoType];
-    
-    return typeName;
-}
-
-+ (NSString *)monoTypeNameForMonoType:(MonoType *)monoType
-{
-    const char *monoTypeName = mono_type_get_name(monoType);
-    NSString *typeName = nil;
-    if (monoTypeName) {
-        typeName = [NSString stringWithUTF8String:monoTypeName];
-    }
-    
-    return typeName;
-}
 
 #pragma mark -
 #pragma mark Setup
@@ -320,14 +265,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return klass;
 }
 
-- (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject
-{
-    return [[self class] monoTypeNameForMonoObject:monoObject];
-}
-
 - (NSString *)monoAliasNameForMonoObject:(MonoObject *)monoObject
 {
-    NSString *typeName = [[self class] monoTypeNameForMonoObject:monoObject];
+    NSString *typeName = [DBType monoTypeNameForMonoObject:monoObject];
     DBType *type = [self typeWithName:typeName];
     return type.alias;
 }
@@ -336,9 +276,25 @@ NSString * DBType_System_Exception =  @"System.Exception";
 {
     NSString *typeName = [self monoAliasNameForMonoObject:monoObject];
     if (!typeName) {
-        typeName = [self monoTypeNameForMonoObject:monoObject];
+        typeName = [DBType monoTypeNameForMonoObject:monoObject];
     }
     return typeName;
+}
+
+- (NSString *)monoArgumentTypeNameForMonoType:(MonoType *)monoType
+{
+    NSString *typeName = [self monoAliasNameForMonoType:monoType];
+    if (!typeName) {
+        typeName = [DBType monoTypeNameForMonoType:monoType];
+    }
+    return typeName;
+}
+
+- (NSString *)monoAliasNameForMonoType:(MonoType *)MonoType
+{
+    NSString *typeName = [DBType monoTypeNameForMonoType:MonoType];
+    DBType *type = [self typeWithName:typeName];
+    return type.alias;
 }
 
 #pragma mark -
@@ -347,7 +303,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 - (id)objectWithMonoObject:(MonoObject *)monoObject
 {
     id object = nil;
-    NSString *typeName = [self monoTypeNameForMonoObject:monoObject];
+    NSString *typeName = [DBType monoTypeNameForMonoObject:monoObject];
 
     DBType *type = [self typeWithName:typeName];
     
@@ -362,74 +318,74 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
             case DBTypeID_System_Object:
             {
-                object = [DBObject bestObjectWithMonoObject:monoObject];
+                object = [self subclassObjectWithMonoObject:monoObject];
                 break;
             }
             
             case DBTypeID_System_Boolean:
             {
-                object = [NSNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
+                object = [DBNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Byte:
             case DBTypeID_System_Char:
             {
-                object = [NSNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
+                object = [DBNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
                 break;
             }
 
             case DBTypeID_System_SByte:
             {
-                object = [NSNumber numberWithChar:DB_UNBOX_INT8(monoObject)];
+                object = [DBNumber numberWithChar:DB_UNBOX_INT8(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Int16:
             {
-                object = [NSNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
+                object = [DBNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
                 break;
             }
 
             case DBTypeID_System_UInt16:
             {
-                object = [NSNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
+                object = [DBNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Int32:
             {
-                object = [NSNumber numberWithInt:DB_UNBOX_INT32(monoObject)];
+                object = [DBNumber numberWithInt:DB_UNBOX_INT32(monoObject)];
                 break;
             }
 
             case DBTypeID_System_UInt32:
             {
-                object = [NSNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
+                object = [DBNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Int64:
             {
-                object = [NSNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
+                object = [DBNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
                 break;
             }
                 
             case DBTypeID_System_UInt64:
             {
-                object = [NSNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
+                object = [DBNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Single:
             {
-                object = [NSNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
+                object = [DBNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Double:
             {
-                object = [NSNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
+                object = [DBNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
                 break;
             }
 
@@ -448,8 +404,8 @@ NSString * DBType_System_Exception =  @"System.Exception";
                 
             case DBTypeID_System_Enum:
             {
-                MonoType *underlyingMonoType = [[self class] monoUnderlyingTypeForMonoObject:monoObject];
-                NSString *underlyingTypeName = [[self class] monoTypeNameForMonoType:underlyingMonoType];
+                MonoType *underlyingMonoType = [DBType monoUnderlyingTypeForMonoObject:monoObject];
+                NSString *underlyingTypeName = [DBType monoTypeNameForMonoType:underlyingMonoType];
 
                 (void)underlyingTypeName;
                 
@@ -500,6 +456,25 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return object;
 }
 
+- (id)subclassObjectWithMonoObject:(MonoObject *)obj
+{
+    // contract
+    NSAssert([DBType monoClassForMonoObject:obj] == mono_get_object_class(), @"Mono object required");
+
+    // logging
+    if (1) {
+        MonoClass *monoClass = mono_object_get_class(obj);
+        [[self class] logMonoClassNameInfo:monoClass];
+    }
+    
+    // determine the best subclass to represent the mono object
+    Class bestClass = [DBObject class];
+    
+    // instantiate an instance of the best class
+    id object = [[bestClass alloc] initWithMonoObject:obj];
+    
+    return([object autorelease]);
+}
 
 #pragma mark -
 #pragma mark Collection methods

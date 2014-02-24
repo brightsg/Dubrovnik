@@ -122,11 +122,19 @@ namespace Dubrovnik.UnitTests
 			StringObjectDictionary = new Dictionary<string, object> {
 				{ "keyForString", "Dubrovnik.UnitTests" },
 				{ "keyForInteger", 100 },
-				{ "keyForFloat", 1001F }
+				{ "keyForFloat", 1001F },
+				//{ "keyForArray", new List<string>{"Dubrovnik1", "Dubrovnik2"}}
 			};
 			IntIntDictionary = new Dictionary<int, int> {
 				{ 1, 2 },
 				{ 3, 6 },
+			};
+			ObjectObjectDictionary = new Dictionary<object, object> {
+				{ "keyForString", "Dubrovnik.UnitTests" },
+				{ "keyForInteger", 100 },
+				{ "keyForFloat", 1001F },
+				{ 1, 8 },
+				{ 1F,  "Dubrovnik.UnitTests" },
 			};
 
             // Initialize statics
@@ -207,6 +215,7 @@ namespace Dubrovnik.UnitTests
         public Dictionary<string, string> StringStringDictionary { get; set; }
 		public Dictionary<string, object> StringObjectDictionary { get; set; }
 		public Dictionary<int, int> IntIntDictionary { get; set; }
+		public Dictionary<object, object> ObjectObjectDictionary { get; set; }
 
 		//==============================
 		// methods

@@ -10,31 +10,102 @@
 #import "DBTypeManager.h"
 #import "DBInvoke.h"
 #import "DBBoxing.h"
-
-static const char valueShadowKey = '0';
+#import "DBNumber.h"
 
 @implementation NSNumber (Dubrovnik)
 
 #pragma mark -
 #pragma mark - Factory
 
-// This method is here so that we can get NSNumbers right out of ILists and Arrays by specifying NSNumber as the representation class.
-
-+ (instancetype)objectWithMonoObject:(MonoObject *)monoObject
++ (id)objectWithMonoObject:(MonoObject *)monoObject
 {
-	id number = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+	id object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
     
-	return number;
+	return object;
 }
 
-+ (instancetype)numberWithMonoObject:(MonoObject *)monoObject
++ (id)numberWithMonoObject:(MonoObject *)monoObject
 {
 	return [self objectWithMonoObject:monoObject];
 }
 
 #pragma mark -
+#pragma mark - DBNumber creation
+
+- (DBNumber *)dbNumberFromCharValue
+{
+    return [DBNumber dbNumberWithChar:[self charValue]];
+}
+
+- (DBNumber *)dbNumberFromUnsignedCharValue
+{
+    return [DBNumber dbNumberWithUnsignedChar:[self unsignedCharValue]];
+}
+
+- (DBNumber *)dbNumberFromShortValue
+{
+    return [DBNumber dbNumberWithShort:[self shortValue]];
+}
+
+- (DBNumber *)dbNumberFromUnsignedShortValue
+{
+    return [DBNumber dbNumberWithUnsignedShort:[self unsignedShortValue]];
+}
+
+- (DBNumber *)dbNumberFromIntValue
+{
+    return [DBNumber dbNumberWithInt:[self intValue]];
+}
+
+- (DBNumber *)dbNumberFromUnsignedIntValue
+{
+    return [DBNumber dbNumberWithUnsignedInt:[self unsignedIntValue]];
+}
+
+- (DBNumber *)dbNumberFromLongValue
+{
+    return [DBNumber dbNumberWithLong:[self longValue]];
+}
+
+- (DBNumber *)dbNumberFromUnsignedLongValue
+{
+    return [DBNumber dbNumberWithUnsignedLong:[self unsignedLongValue]];
+}
+
+- (DBNumber *)dbNumberFromLongLongValue
+{
+    return [DBNumber dbNumberWithLongLong:[self longLongValue]];
+}
+
+- (DBNumber *)dbNumberFromUnsignedLongLongValue
+{
+    return [DBNumber dbNumberWithUnsignedLongLong:[self unsignedLongLongValue]];
+}
+
+- (DBNumber *)dbNumberFromFloatValue
+{
+    return [DBNumber dbNumberWithFloat:[self floatValue]];
+}
+
+- (DBNumber *)dbNumberFromDoubleValue
+{
+    return [DBNumber dbNumberWithDouble:[self doubleValue]];
+}
+
+- (DBNumber *)dbNumberFromIntegerValue
+{
+    return [DBNumber dbNumberWithInteger:[self integerValue]];
+}
+
+- (DBNumber *)dbNumberFromUnsignedIntegerValue
+{
+    return [DBNumber dbNumberWithUnsignedInteger:[self unsignedIntegerValue]];
+}
+
+#pragma mark -
 #pragma mark - Shadow value
 
+/*
 - (const void *)pointerToShadowValue
 {
     NSData *shadowData = [self valueShadowData];
@@ -72,10 +143,12 @@ static const char valueShadowKey = '0';
     
     return shadowData;
 }
+*/
 
 #pragma mark -
 #pragma mark MonoObject representations
 
+/*
 - (void *)monoValue
 {
     return (void *)[self pointerToShadowValue];
@@ -160,6 +233,7 @@ static const char valueShadowKey = '0';
     
     return monoObject;
 }
+*/
 
 #pragma mark -
 #pragma mark Factory methods

@@ -71,8 +71,20 @@
     id object = nil;
     if ([self containsKey:key]) {
         
+        MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+        MonoClass * monoClass = mono_class_from_mono_type(monoType);
+        void *invokeObj = NULL;
+        
+        // If the method signature has value type then invoke by value.
+        // If not, then invoke by reference.
+        if (mono_class_is_valuetype(monoClass)) {
+            invokeObj = [key monoValue];
+        } else {
+            invokeObj = [key monoObject];
+        }
+
         // get the value for the key
-        MonoObject *monoObject = DBMonoObjectGetIndexedObject(self.monoObject, [key monoValue]);
+        MonoObject *monoObject = DBMonoObjectGetIndexedObject(self.monoObject, invokeObj);
         if (monoObject) {
             object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
         }
@@ -85,19 +97,36 @@
 {
     BOOL containsKey = NO;
     
-    // TODO: use -confromsToProtocol?
+    // TODO: use -confromsToProtocol? YES: and apply to key id too.
     if ([key respondsToSelector:@selector(monoObject)] && [key respondsToSelector:@selector(monoValue)]) {
         
-        // form the method name
+        // form the method signature using key generic type
         // TODO: perform method name caching
-        NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoObject:[key monoObject]];
+        MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+        NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoType:monoType];
         NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoArgumentTypeName];
         
+        MonoClass * monoClass = mono_class_from_mono_type(monoType);
+        void *invokeObj = NULL;
+        
+        // If the method signature has value type then invoke by value.
+        // If not, then invoke by reference.
+        if (mono_class_is_valuetype(monoClass)) {
+            invokeObj = [key monoValue];
+        } else {
+            invokeObj = [key monoObject];
+        }
+        
         // invoke the method
-        MonoObject *monoObject = [self invokeMonoMethod:[methodName UTF8String] withNumArgs:1, [key monoValue]];
+        MonoObject *monoObject = [self invokeMonoMethod:[methodName UTF8String] withNumArgs:1, invokeObj];
         containsKey = DB_UNBOX_BOOLEAN(monoObject);
     } else {
-        [NSException raise:@"Invalid key" format:@"Key %@ must respond to -monoObject and -monoValue", key];
+        if ([key isKindOfClass:[NSNumber class]]) {
+            [NSException raise:@"Invalid numeric key object" format:@"%@ numeric key %@ (%@) must be a subclass of NSNumber that responds to -monoObject and -monoValue. Dubrovnik provides DBNumber for just this purpose.", [self class], key, [key class]];
+            
+        } else {
+            [NSException raise:@"Invalid key object" format:@"%@ Key %@ (%@) must respond to -monoObject and -monoValue.", [self class], key, [key class]];
+        }
     }
     
     return containsKey;

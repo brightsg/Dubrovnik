@@ -32,6 +32,63 @@
 }
 
 #pragma mark -
+#pragma mark Mono type support
+
++ (MonoClass *)monoClassForMonoObject:(MonoObject *)monoObject
+{
+    MonoClass *monoClass = mono_object_get_class(monoObject);
+    
+    return monoClass;
+}
+
++ (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject
+{
+    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
+    const char *monoClassName = mono_class_get_name(monoClass);
+    NSString *className = nil;
+    if (monoClassName) {
+        className = [NSString stringWithUTF8String:monoClassName];
+    }
+    
+    return className;
+}
+
++ (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject
+{
+    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
+    MonoType* monoType = mono_class_get_type(monoClass);
+    
+    return monoType;
+}
+
++ (MonoType *)monoUnderlyingTypeForMonoObject:(MonoObject *)monoObject
+{
+    MonoType* monoType = [self monoTypeForMonoObject:monoObject];
+    MonoType* monoUnderlingType = mono_type_get_underlying_type(monoType);
+    
+    return monoUnderlingType;
+}
+
++ (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject
+{
+    MonoType* monoType = [self monoTypeForMonoObject:monoObject];
+    NSString *typeName = [self monoTypeNameForMonoType:monoType];
+    
+    return typeName;
+}
+
++ (NSString *)monoTypeNameForMonoType:(MonoType *)monoType
+{
+    const char *monoTypeName = mono_type_get_name(monoType);
+    NSString *typeName = nil;
+    if (monoTypeName) {
+        typeName = [NSString stringWithUTF8String:monoTypeName];
+    }
+    
+    return typeName;
+}
+
+#pragma mark -
 #pragma mark Setup
 
 - (id)initWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass

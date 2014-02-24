@@ -102,23 +102,6 @@
 	return(rep);
 }
 
-+ (id)bestObjectWithMonoObject:(MonoObject *)obj {
-    
-    // logging
-    if (1) {
-        MonoClass *monoClass = mono_object_get_class(obj);
-        [[self class] logMonoClassNameInfo:monoClass];
-    }
-    
-    // determine the best subclass to represent the mono object
-    Class bestClass = self;
-    
-    // instantiate an instance of the best class
-    id object = [[bestClass alloc] initWithMonoObject:obj];
-    
-    return([object autorelease]);
-}
-
 #pragma mark -
 #pragma mark instance methods
 

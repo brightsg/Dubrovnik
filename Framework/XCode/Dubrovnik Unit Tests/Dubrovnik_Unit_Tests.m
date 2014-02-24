@@ -32,6 +32,8 @@ NSString *DBULessThanTestFailed = @"Less than test failed";
 NSString *DBUGreaterThanTestFailed = @"Greater than test failed";
 NSString *DBUSubstringTestFailed = @"Substring not found";
 NSString *DBUCountTestFailed = @"Count test failed";
+NSString *DBUNotNilTestFailed = @"Not nil test failed";
+NSString *DBUExceptionTestFailed = @"An exception test failed";
 
 static BOOL _setup = NO;
 
@@ -146,34 +148,46 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)testNumberRepresentation
 {
     // test
-    NSNumber *n1 = @((int)1);
-    STAssertTrue(*(int *)[n1 pointerToShadowValue] == 1, DBUEqualityTestFailed);
-    STAssertTrue([n1 pointerToShadowValue] == [n1 pointerToShadowValue], DBUEqualityTestFailed);
-    STAssertTrue(*(int *)[n1 pointerToShadowValue] == *(int *)[n1 pointerToShadowValue], DBUEqualityTestFailed);
+    DBNumber *n1 = [@((int)1) dbNumberFromIntValue];
+    STAssertTrue(*(int *)[n1 valuePointer] == 1, DBUEqualityTestFailed);
+    STAssertTrue([n1 valuePointer] == [n1 valuePointer], DBUEqualityTestFailed);
+    STAssertTrue(*(int *)[n1 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
-    // remember that NSNumber uses tagged pointers - &n1 and &n2 should be equal
-    NSNumber *n2 = @((int)1);
-    STAssertTrue(*(int *)[n2 pointerToShadowValue] == 1, DBUEqualityTestFailed);
-    STAssertTrue([n2 pointerToShadowValue] == [n1 pointerToShadowValue], DBUEqualityTestFailed);
-    STAssertTrue(*(int *)[n2 pointerToShadowValue] == *(int *)[n1 pointerToShadowValue], DBUEqualityTestFailed);
+    // basic equality
+    DBNumber *n2 = [DBNumber dbNumberWithInt:1];
+    STAssertTrue(*(int *)[n2 valuePointer] == 1, DBUEqualityTestFailed);
+    STAssertTrue(*(int *)[n2 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
     // create int from MonoObject
     int intValue = 10289;
-    NSNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
+    DBNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
     STAssertTrue(strcmp([nInt objCType], @encode(int)) == 0, DBUEqualityTestFailed);
-    STAssertTrue(*(int *)[nInt pointerToShadowValue] == intValue, DBUEqualityTestFailed);
+    STAssertTrue(*(int *)[nInt valuePointer] == intValue, DBUEqualityTestFailed);
     
     // create long long from MonoObject
     long long longLongValue = LONG_LONG_MAX;
-    NSNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
+    DBNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
     STAssertTrue(strcmp([nLongLong objCType], @encode(long long)) == 0, DBUEqualityTestFailed);
-    STAssertTrue(*(long long *)[nLongLong pointerToShadowValue] == longLongValue, DBUEqualityTestFailed);
+    STAssertTrue(*(long long *)[nLongLong valuePointer] == longLongValue, DBUEqualityTestFailed);
 
     // create double from MonoObject
     double doubleValue = 13245456.;
-    NSNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
+    DBNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
     STAssertTrue(strcmp([nDouble objCType], @encode(double)) == 0, DBUEqualityTestFailed);
-    STAssertTrue(*(double *)[nDouble pointerToShadowValue] == doubleValue, DBUEqualityTestFailed);
+    STAssertTrue(*(double *)[nDouble valuePointer] == doubleValue, DBUEqualityTestFailed);
+    
+    // test DBNumber
+    DBNumber *dn = [[DBNumber alloc] initWithInt:100];
+    DBNumber *dn1 = [DBNumber dbNumberWithInt:100];
+    STAssertTrue([[dn stringValue] isEqualToString:@"100"], DBUEqualityTestFailed);
+    
+    // test NSNumber methods
+    STAssertTrue([dn compare:@((int)100)] == NSOrderedSame, DBUEqualityTestFailed);
+    STAssertTrue([dn compare:@((float)100)] == NSOrderedSame, DBUEqualityTestFailed);
+    STAssertTrue([dn isEqualToNumber:dn1], DBUEqualityTestFailed);
+    STAssertTrue([dn isEqualToNumber:@((int)100)], DBUEqualityTestFailed);
+    STAssertNotNil([dn descriptionWithLocale:nil], DBUNotNilTestFailed);
+    
 }
 
 - (void)testStringRepresentation
@@ -234,7 +248,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil(refObject, DBUObjectNotCreated);
     
     // log the class
-    [refObject logMonoClassInfo];
+    if (0) {
+        [refObject logMonoClassInfo];
+    }
     
     //
     // constructor overloads
@@ -747,12 +763,24 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [intIntDictA2 objectForKey:[DBObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
-    // key is an NSNumber representing an int
-    value = [intIntDictA2 objectForKey:[NSNumber numberWithInt:intKey]];
+    // key is a DSNumber representing an int
+    value = [intIntDictA2 objectForKey:[DBNumber numberWithInt:intKey]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
 
+    // object for key requires a type that represnts a mono type
+    BOOL numberTypeExceptionRaised = NO;
+    @try {
+        value = [intIntDictA2 objectForKey:[NSNumber numberWithInt:intKey]];
+    }
+    @catch (NSException *e) {
+        numberTypeExceptionRaised = YES;
+    }
+    @finally {
+        STAssertTrue(numberTypeExceptionRaised, DBUExceptionTestFailed);
+    }
+
     // key is a literal number representing an int
-    NSNumber *literalNumberKey = @((int)intKey);
+    NSNumber *literalNumberKey = [@((int)intKey) dbNumberFromIntValue];
     const char *typeEncoding = [literalNumberKey objCType];
     STAssertTrue(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
     value = [intIntDictA2 objectForKey:literalNumberKey];
@@ -779,11 +807,38 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
     STAssertTrue([stringObjectDictValues count] == 3, DBUCountTestFailed);
     
-    /*
     STAssertTrue([[stringObjectDictValues objectAtIndex:0] rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     STAssertTrue([[stringObjectDictValues objectAtIndex:1] intValue] == 100, DBUEqualityTestFailed);
     STAssertTrue([[stringObjectDictValues objectAtIndex:2] floatValue] == 1001, DBUEqualityTestFailed);
-    */
+
+    //============================
+    // Dictionary<object,object>
+    //=============================
+    DBSystem_Collections_Generic_DictionaryA2 *objectObjectDictA2 = [refObject objectObjectDictionary];
+    
+    // test all keys
+    NSArray *objectObjectDictKeys = [objectObjectDictA2 allKeys];
+   // STAssertTrue([objectObjectDictKeys count] == 5, DBUCountTestFailed);
+   // STAssertTrue([[objectObjectDictKeys objectAtIndex:0] rangeOfString:@"keyForString"].location != NSNotFound, DBUSubstringTestFailed);
+   // STAssertTrue([[objectObjectDictKeys objectAtIndex:1] rangeOfString:@"keyForInteger"].location != NSNotFound, DBUSubstringTestFailed);
+   // STAssertTrue([[objectObjectDictKeys objectAtIndex:2] rangeOfString:@"keyForFloat"].location != NSNotFound, DBUSubstringTestFailed);
+    
+    // test all values
+    NSArray *objectObjectDictValues = [objectObjectDictA2 allValues];
+    // STAssertTrue([objectObjectDictValues count] == 5, DBUCountTestFailed);
+    
+
+    value = [objectObjectDictA2 objectForKey:[DBNumber numberWithInt:1]];
+    STAssertTrue([value intValue] == 8, DBUEqualityTestFailed);
+    
+    value = [objectObjectDictA2 objectForKey:[@((float)1) dbNumberFromFloatValue]];
+    STAssertNotNil(value, DBUObjectIsNil);
+    STAssertTrue([value rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
+    
+    NSDictionary *d = [objectObjectDictA2 dictionary];
+    
+    int h;
+
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass
@@ -819,7 +874,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([refStructStringMethod rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     
     // log the struct
-    [refStruct logMonoClassInfo];
+    if (0) {
+        [refStruct logMonoClassInfo];
+    }
 }
 
 - (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass

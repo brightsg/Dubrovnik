@@ -366,6 +366,14 @@
     return dict;
 }
 
+- (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary
+{
+    MonoObject * monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    dict.monoGenericTypeArgumentNames = @"NSObject,NSObject";
+    return dict;
+}
+
 #pragma mark -
 #pragma mark Mono string parameter methods
 

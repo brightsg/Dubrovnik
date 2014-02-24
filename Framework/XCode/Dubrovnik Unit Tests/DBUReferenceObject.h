@@ -188,5 +188,6 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
 - (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary;
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary;
+- (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary;
 
 @end

@@ -47,7 +47,6 @@ extern char DBCacheSuffixChar;
 + (DBClass *)dbClass;
 + (instancetype)objectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
-+ (id)bestObjectWithMonoObject:(MonoObject *)obj;
 
 // Initialisation methods
 

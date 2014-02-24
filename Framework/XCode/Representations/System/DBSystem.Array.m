@@ -107,7 +107,7 @@
 - (id)objectAtIndex:(NSUInteger)index {
 	if(self.itemClass) {
 		MonoObject *monoObject = [self monoObjectAtIndex:(uint32_t)index];
-		return([self.itemClass objectWithMonoObject:monoObject]);
+		return([[DBTypeManager sharedManager] objectWithMonoObject:monoObject]);
 	} else {
 		@throw([NSException exceptionWithName:@"DBNoItemClass" reason:@"objectAtIndex called on a DBArray without specified Item Class" userInfo:nil]);
 	}

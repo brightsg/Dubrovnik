@@ -7,6 +7,7 @@
 //
 
 #import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
+#import "DBTypeManager.h"
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1()
 
@@ -51,7 +52,7 @@
 - (DBObject *)createObject
 {
     MonoObject *monoObject = [self invokeMonoMethod:"CreateObject()" withNumArgs:0, NULL];
-    DBObject *object = [self.itemClass objectWithMonoObject:monoObject];
+    DBObject *object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
     return object;
 }
 

@@ -27,6 +27,7 @@
 #import "DBMonoIncludes.h"
 #import "DBInvoke.h"
 #import "DBBoxing.h"
+#import "DBTypeManager.h"
 
 @implementation DBSystem_Collections_IList
 
@@ -70,9 +71,9 @@
 	if (self.itemClass) {
 		
         MonoObject *monoObject = [self monoObjectForIndexObject:&index];
-        id retID = [self.itemClass objectWithMonoObject:monoObject];
-		
-		return(retID);
+        id retID = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+        
+		return retID;
 	} else {
 		@throw([NSException exceptionWithName:@"DBNoItemClass" reason:@"objectAtIndex called on a DBIList without specified Item Class" userInfo:nil]);
 	}
