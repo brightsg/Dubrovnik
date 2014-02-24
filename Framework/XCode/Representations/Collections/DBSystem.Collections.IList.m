@@ -44,7 +44,7 @@
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass {
 	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
-	return([list autorelease]);
+	return(list);
 }
 
 - (int)addMonoObject:(MonoObject *)monoObject {

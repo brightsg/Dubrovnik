@@ -31,15 +31,13 @@
 
 @interface DBObject()
 
-@property (retain, readwrite) DBMonoEnvironment *monoEnvironment;
+@property (strong, readwrite) DBMonoEnvironment *monoEnvironment;
+@property (assign) MonoObject *monoObj;
+@property (assign) uint32_t mono_gchandle;
 
 @end
 
 @implementation DBObject
-
-@synthesize monoEnvironment = _monoEnvironment;
-@synthesize monoGenericTypeArgumentNames = _monoGenericTypeArgumentNames;
-@synthesize itemClasses = _itemClasses;
 
 #pragma mark -
 #pragma mark class methods for overriding
@@ -76,14 +74,14 @@
 {
     static DBClass *classRep = nil;
     if (!classRep) {
-        classRep =  [[DBClass classWithMonoClass:[self monoClass]] retain];
+        classRep =  [DBClass classWithMonoClass:[self monoClass]];
     }
     return classRep;
 }
 
 + (instancetype)objectWithMonoObject:(MonoObject *)obj {
 	DBObject *rep = [[[self class] alloc] initWithMonoObject:obj];
-	return([rep autorelease]);
+	return(rep);
 }
 
 + (instancetype)objectWithNumArgs:(int)numArgs, ... {
@@ -115,7 +113,7 @@
 {
     self = [super init];
 	if(self) {
-		_monoObj = obj;
+		self.monoObj = obj;
 		
 		if(obj != NULL) {
 			_mono_gchandle = mono_gchandle_new(obj, FALSE);
@@ -128,7 +126,6 @@
             }
             
         } else {
-			[self release];
 			self = nil;
 		}
 	}
@@ -166,15 +163,9 @@
 }
 
 - (void)dealloc {
-	if(_monoObj != NULL) {
+	if(self.monoObj != NULL) {
 		mono_gchandle_free(_mono_gchandle);
 	}
-	
-    if (_propertyCache) {
-        [_propertyCache removeAllObjects];
-        [_propertyCache release];
-    }
-	[super dealloc];
 }
 
 - (NSString *)description {
@@ -239,7 +230,7 @@
 #pragma mark NSCopying Protocol
 
 - (id)copyWithZone:(NSZone *)zone {
-	id copy = [[[self class] allocWithZone:zone] initWithMonoObject:_monoObj];
+	id copy = [[[self class] allocWithZone:zone] initWithMonoObject:self.monoObj];
 	
 	return(copy);
 }
@@ -247,7 +238,7 @@
 #pragma mark -
 
 - (MonoClass *)monoClass {
-	return mono_object_get_class(_monoObj);
+	return mono_object_get_class(self.monoObj);
 }
 
 - (MonoType *)monoType
@@ -256,15 +247,15 @@
 }
 
 - (MonoObject *)monoObject {
-	return _monoObj;
+	return self.monoObj;
 }
 
 - (MonoObject *)monoValue {
     
     // pointer to an object that can be used as a property value or invocation argument.
     // this is a hot method so use ivar access
-    MonoClass *klass = mono_object_get_class(_monoObj);
-    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(_monoObj) : _monoObj;
+    MonoClass *klass = mono_object_get_class(self.monoObj);
+    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(self.monoObj) : self.monoObj;
     return valueObject;
 }
 
@@ -292,14 +283,14 @@
 }
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
-	return(DBMonoObjectInvoke(_monoObj, methodName, numArgs, va_args));
+	return(DBMonoObjectInvoke(self.monoObj, methodName, numArgs, va_args));
 }
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
 	va_list va_args;
 	va_start(va_args, numArgs);
 	
-	MonoObject *ret = DBMonoObjectInvoke(_monoObj, methodName, numArgs, va_args);
+	MonoObject *ret = DBMonoObjectInvoke(self.monoObj, methodName, numArgs, va_args);
 	
 	va_end(va_args);
 	
@@ -532,11 +523,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark Indexer Access
 
 - (MonoObject *)monoObjectForIndexObject:(void *)indexObject {
-	return(DBMonoObjectGetIndexedObject(_monoObj, indexObject));
+	return(DBMonoObjectGetIndexedObject(self.monoObj, indexObject));
 }
 
 - (void)setMonoObject:(MonoObject *)valueObject forIndexObject:(void *)indexObject {
-	DBMonoObjectSetIndexedObject(_monoObj, indexObject, valueObject);
+	DBMonoObjectSetIndexedObject(self.monoObj, indexObject, valueObject);
 }
 
 #pragma mark -
@@ -551,11 +542,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 }
 
 - (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr {
-	DBMonoObjectGetField(_monoObj, fieldName, valuePtr);
+	DBMonoObjectGetField(self.monoObj, fieldName, valuePtr);
 }
 
 - (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject {
-	DBMonoObjectSetField(_monoObj, fieldName, valueObject);
+	DBMonoObjectSetField(self.monoObj, fieldName, valueObject);
 }
 
 #pragma mark -
@@ -570,46 +561,46 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 }
 
 - (MonoObject *)getMonoProperty:(const char *)propertyName {
-	return(DBMonoObjectGetProperty(_monoObj, propertyName));
+	return(DBMonoObjectGetProperty(self.monoObj, propertyName));
 }
 
 - (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
-	DBMonoObjectSetProperty(_monoObj, propertyName, valueObject);
+	DBMonoObjectSetProperty(self.monoObj, propertyName, valueObject);
 }
 
 #pragma mark -
 #pragma mark System.IConvertible convenience
 
 - (int8_t)int8Value {
-	return([DBSystem_Convert convertMonoObjectToInt8:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt8:self.monoObj]);
 }
 
 - (int16_t)int16Value {
-	return([DBSystem_Convert convertMonoObjectToInt16:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt16:self.monoObj]);
 }
 
 - (int32_t)int32Value {
-	return([DBSystem_Convert convertMonoObjectToInt32:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt32:self.monoObj]);
 }
 
 - (int64_t)int64Value {
-	return([DBSystem_Convert convertMonoObjectToInt64:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToInt64:self.monoObj]);
 }
 
 - (uint8_t)unsigned8Value {
-	return([DBSystem_Convert convertMonoObjectToUInt8:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt8:self.monoObj]);
 }
 
 - (uint16_t)unsigned16Value {
-	return([DBSystem_Convert convertMonoObjectToUInt16:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt16:self.monoObj]);
 }
 
 - (uint32_t)unsigned32Value {
-	return([DBSystem_Convert convertMonoObjectToUInt32:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt32:self.monoObj]);
 }
 
 - (uint64_t)unsigned64Value {
-	return([DBSystem_Convert convertMonoObjectToUInt64:_monoObj]);
+	return([DBSystem_Convert convertMonoObjectToUInt64:self.monoObj]);
 }
 
 #pragma mark -

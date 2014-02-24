@@ -60,7 +60,7 @@
 
 + (id)arrayWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass {
 	DBSystem_Array *dbArray = [[self alloc] initWithMonoArray:monoArray withItemClass:itemClass];
-	return([dbArray autorelease]);
+	return(dbArray);
 }
 
 - (id)initWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass {

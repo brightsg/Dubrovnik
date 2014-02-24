@@ -836,13 +836,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([value rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     
     NSDictionary *d = [objectObjectDictA2 dictionary];
-    
-    int h = 2;
-    long l = 3;
-    
-    NSString * sh = @("hello");
-    NSString * slh = @([@(l) objCType]);
-
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass

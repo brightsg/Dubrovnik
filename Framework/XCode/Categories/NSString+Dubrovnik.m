@@ -27,12 +27,11 @@
 + (id)stringWithMonoString:(MonoString *)monoString {
 	DBWrappedString *wrappedString = [[DBWrappedString alloc] initWithMonoString:monoString];
 	
-	return([wrappedString autorelease]);
+	return(wrappedString);
 }
 
 - (id)initWithMonoString:(MonoString *)monoString {
 	if(self) {
-		[self release];
 		self = [[DBWrappedString alloc] initWithMonoString:monoString];
 	}
 	
@@ -45,7 +44,7 @@
 + (id)objectWithMonoObject:(MonoString *)monoString {
 	DBWrappedString *wrappedString = [[DBWrappedString alloc] initWithMonoString:monoString];
 	
-	return([wrappedString autorelease]);	
+	return(wrappedString);	
 }
 
 #pragma mark -

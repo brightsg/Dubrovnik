@@ -16,11 +16,6 @@
 
 @implementation DBMethod
 
-@synthesize methodName = _methodName;
-@synthesize monoClassName = _monoClassName;
-@synthesize assemblyName = _assemblyName;
-@synthesize genericMonoType = _genericMonoType;
-
 + (instancetype)methodWithMonoMethodNamed:(const char *)methodName
 {
     return [self methodWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
@@ -28,7 +23,7 @@
 
 + (instancetype)methodWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
 {
-    return [[[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName] autorelease];
+    return [[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName];
 }
 
 - (id)initWithMonoMethodNamed:(const char *)methodName

@@ -59,13 +59,13 @@ NSString * DBType_System_Thread =  @"System.Thread";
 NSString * DBType_System_Exception =  @"System.Exception";
 
 @interface DBTypeManager()
-    @property (retain) NSMutableDictionary *monoTypes;
-    - (void)add:(DBType *)monoType;
+
+@property (strong) NSMutableDictionary *monoTypes;
+- (void)add:(DBType *)monoType;
+
 @end
 
 @implementation DBTypeManager
-
-@synthesize monoTypes = _monoTypes;
 
 #pragma mark -
 #pragma mark Singleton
@@ -473,7 +473,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
     // instantiate an instance of the best class
     id object = [[bestClass alloc] initWithMonoObject:obj];
     
-    return([object autorelease]);
+    return(object);
 }
 
 #pragma mark -

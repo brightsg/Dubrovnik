@@ -24,6 +24,13 @@
 #import <Dubrovnik/Dubrovnik.h>
 #import "DBWrappedData.h"
 
+@interface DBWrappedData()
+@property (assign) MonoArray *monoArray;
+@property (assign) int32_t gcHandle;
+@property (assign) uintptr_t dataLength;
+@property (assign) const void *dataBytes;
+@end
+
 @implementation DBWrappedData
 
 - (id)initWithMonoArray:(MonoArray *)monoArray {
@@ -32,7 +39,6 @@
 	if(self) {
 		_monoArray = monoArray;
 		if(monoArray == NULL) {
-			[self release];
 			self = nil;
 		} else {
 			_gcHandle = mono_gchandle_new((MonoObject *)monoArray, FALSE);
@@ -53,52 +59,47 @@
 		mono_gchandle_free(_gcHandle);
 	}
 	
-	[super dealloc];
-}
-
-- (MonoArray *)monoArray {
-	return(_monoArray);
 }
 
 #pragma mark -
 #pragma mark Primitive Method Overrides
 
 - (const void *)bytes {
-	return(_dataBytes);
+	return(self.dataBytes);
 }
 
 - (uintptr_t)length {
-	return(_dataLength);
+	return(self.dataLength);
 }
 
 #pragma mark -
 #pragma mark Other Overrides
 
 - (id)copy {
-	DBWrappedData *copy = [[DBWrappedData alloc] initWithMonoArray:_monoArray];
+	DBWrappedData *copy = [[DBWrappedData alloc] initWithMonoArray:self.monoArray];
 	
 	return(copy);
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-	DBWrappedData *copy = [[DBWrappedData allocWithZone:zone] initWithMonoArray:_monoArray];
+	DBWrappedData *copy = [[DBWrappedData allocWithZone:zone] initWithMonoArray:self.monoArray];
 	
 	return(copy);
 }
 
 - (void)getBytes:(void *)buffer {
-	memcpy(buffer, _dataBytes, _dataLength);
+	memcpy(buffer, self.dataBytes, self.dataLength);
 }
 
 - (void)getBytes:(void *)buffer length:(NSUInteger)length {
-	memcpy(buffer, _dataBytes, MIN(_dataLength, length));
+	memcpy(buffer, self.dataBytes, MIN(self.dataLength, length));
 }
 
 - (void)getBytes:(void *)buffer range:(NSRange)range {
-	if(range.location + range.length > _dataLength)
+	if(range.location + range.length > self.dataLength)
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Byte range beyond data bounds." userInfo:nil]);
 	
-	memcpy(buffer, _dataBytes + range.location, range.length);
+	memcpy(buffer, self.dataBytes + range.location, range.length);
 }
 
 @end

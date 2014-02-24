@@ -30,7 +30,7 @@
 + (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
 {
     id objectSet = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
-	return([objectSet autorelease]);
+	return(objectSet);
 }
 
 #pragma mark -

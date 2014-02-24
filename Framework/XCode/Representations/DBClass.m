@@ -23,21 +23,25 @@
 #import "DBClass.h"
 #import "DBInvoke.h"
 
+@interface DBClass()
+@property (assign) MonoClass *klass;
+@end
+
 @implementation DBClass
 
 + (instancetype)classWithMonoClass:(MonoClass *)monoClass {
 	DBClass *classRep = [[DBClass alloc] initWithMonoClass:monoClass];
-	return([classRep autorelease]);
+	return(classRep);
 }
 
 + (instancetype)classWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
 	DBClass *classRep = [[DBClass alloc] initWithMonoClassNamed:className fromMonoAssembly:assembly];
-	return([classRep autorelease]);
+	return(classRep);
 }
 
 + (instancetype)classWithMonoClassNamed:(const char *)className {
 	DBClass *classRep = [[DBClass alloc] initWithMonoClassNamed:className];
-	return([classRep autorelease]);	
+	return(classRep);	
 }
 
 - (id)initWithMonoClass:(MonoClass *)klass {

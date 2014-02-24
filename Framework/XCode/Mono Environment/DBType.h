@@ -9,15 +9,9 @@
 #import "DBMonoIncludes.h"
 
 @interface DBType : NSObject
-{
-    NSString *_name;
-    MonoClass *_monoClass;
-    NSUInteger _typeID;
-    NSString *_alias;
-}
 
-@property (retain) NSString *name;
-@property (retain) NSString *alias;
+@property (strong) NSString *name;
+@property (strong) NSString *alias;
 @property (assign) MonoClass *monoClass;
 @property (assign) NSUInteger typeID;
 

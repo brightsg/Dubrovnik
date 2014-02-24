@@ -14,9 +14,7 @@
 @class DBObject;
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1 : DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
-{
-@protected
-}
+
 
 + (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 

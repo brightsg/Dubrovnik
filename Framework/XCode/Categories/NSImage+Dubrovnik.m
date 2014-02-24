@@ -27,12 +27,11 @@
 + (id)imageWithMonoArray:(MonoArray *)monoArray {
 	NSImage *image = [[NSImage alloc] initWithMonoArray:monoArray];
 	
-	return([image autorelease]);
+	return(image);
 }
 
 - (id)initWithMonoArray:(MonoArray *)monoArray {
 	if(monoArray == NULL) {
-		[self release];
 		return(nil);
 	}
 	

@@ -9,11 +9,6 @@
 
 @implementation DBType
 
-@synthesize name = _name;
-@synthesize monoClass = _monoClass;
-@synthesize typeID = _typeID;
-@synthesize alias = _alias;
-
 #pragma mark -
 #pragma mark Factory
 
@@ -28,7 +23,7 @@
 {
     DBType *type = [[self alloc] initWithName:name alias:alias id:typeID monoClass:monoClass];
     
-    return [type autorelease];
+    return type;
 }
 
 #pragma mark -

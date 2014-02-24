@@ -24,12 +24,7 @@
 #import "DBMonoIncludes.h"
 @class DBObject;
 
-@interface DBWrappedString : NSString {
-	MonoString *_monoString;
-	uint32_t _gcHandle;
-	
-	int _stringLength;
-}
+@interface DBWrappedString : NSString
 
 - (id)initWithMonoString:(MonoString *)monoString;
 

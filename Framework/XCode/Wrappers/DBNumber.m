@@ -35,15 +35,6 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 
 @implementation DBNumber
 
-- (void)dealloc
-{
-    [self.number release];
-    [self.typeName release];
-    [self. valueData release];
-    
-    [super dealloc];
-}
-
 #pragma mark +
 #pragma mark Factory
 
@@ -144,7 +135,6 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                    @(@encode(float)): @(DBNumberTypeFloat),
                    @(@encode(double)): @(DBNumberTypeDouble),
                 };
-        [dict retain];
     }
     return dict;
 }
@@ -560,7 +550,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
         // copy to buffer
         NSUInteger typeSize;
         NSGetSizeAndAlignment(self.monoObjCType, &typeSize, NULL);
-        self.valueData = [[NSData dataWithBytes:valuePtr length:typeSize] retain];
+        self.valueData = [NSData dataWithBytes:valuePtr length:typeSize];
     }
     
     // return interior pointer
@@ -702,7 +692,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 -(void)setMonoObjCType:(const char *)monoObjCType
 {
     _monoObjCType = monoObjCType;
-    self.typeName = [@(_monoObjCType) retain];
+    self.typeName = @(_monoObjCType);
 }
 
 @end

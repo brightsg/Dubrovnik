@@ -12,9 +12,6 @@
 
 #define SDECOObjectQueryA1_ DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
 @interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : System_Data_Entity_Core_Objects_ObjectQueryA1 <Interface_IEnumerable_T>
-{
-@protected
-}
 
 + (instancetype)objectQueryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 

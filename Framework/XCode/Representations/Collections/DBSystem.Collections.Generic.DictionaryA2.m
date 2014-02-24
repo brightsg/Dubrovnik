@@ -10,6 +10,7 @@
 #import "DBInvoke.h"
 #import "DBTypeManager.h"
 #import "DBBoxing.h"
+#import "DBSystem.Collections.IList.h"
 
 @implementation DBSystem_Collections_Generic_DictionaryA2
 
@@ -31,7 +32,7 @@
 + (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
 {
 	DBSystem_Collections_Generic_DictionaryA2 *dict = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
-	return([dict autorelease]);
+	return(dict);
 }
 
 #pragma mark -
@@ -41,7 +42,7 @@
 {
     // an array of objects of type self.firstItemClass
     MonoObject *monoObject = [self getMonoProperty:"Keys"];
-    DBObject *object = [[[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.firstItemClass] autorelease];
+    DBObject *object = [[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.firstItemClass];
     
     // toList defaults to using the first generic type
     NSArray *keys = [[DBSystem_Linq toList:(DBObject <Interface_IEnumerable_T> *)object] array];
@@ -56,7 +57,7 @@
     
     // Returns object of type System.Collections.Generic.Dictionary<TKey, TValue>.ValueCollection.
     // In order to obtain the values for this we need to request Values(TValue)
-    DBObject *object = [[[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.secondItemClass] autorelease];
+    DBObject *object = [[DBObject alloc] initWithMonoObject:monoObject withItemClass:self.secondItemClass];
     
     // obtain a list of objects of the 2nd generic type
     NSArray *values = [[DBSystem_Linq toList:(DBObject <Interface_IEnumerable_T> *)object genericTypeIndex:1] array];

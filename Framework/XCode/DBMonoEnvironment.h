@@ -38,14 +38,13 @@
 
 @end
 
-@interface DBMonoEnvironment : NSObject {
-	@private
-	MonoDomain *_monoDomain;
-    MonoAssembly *_DubrovnikAssembly;
-    MonoAssembly *_monoSystemCoreAssembly;
-    id <DBEnvironmentDelegate> _delegate;
-    NSMutableDictionary *_loadedAssemblies;
-}
+@interface DBMonoEnvironment : NSObject
+
+@property (weak) id <DBEnvironmentDelegate> delegate;
+@property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
+@property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;
+@property (assign, readonly) MonoDomain *monoDomain;
+
 
 /*!
  
@@ -172,6 +171,5 @@
  */
 - (void)collectAndWaitForPendingFinalizers;
 
-@property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
-@property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;
+
 @end

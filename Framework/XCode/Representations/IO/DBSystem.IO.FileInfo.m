@@ -41,19 +41,19 @@ static MonoClass *_monoClass = NULL;
 + (id)fileInfoWithMonoObject:(MonoObject *)monoObject {
 	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithMonoObject:monoObject];
 	
-	return([fileInfo autorelease]);
+	return(fileInfo);
 }
 
 + (id)fileInfoWithURL:(NSURL *)url {
 	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithURL:url];
 	
-	return([fileInfo autorelease]);
+	return(fileInfo);
 }
 
 + (id)fileInfoWithPath:(NSString *)path {
 	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithPath:path];
 	
-	return([fileInfo autorelease]);
+	return(fileInfo);
 }
 
 #pragma mark -

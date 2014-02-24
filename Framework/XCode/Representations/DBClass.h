@@ -22,10 +22,7 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@interface DBClass : NSObject {
-	@private
-	MonoClass *_klass;
-}
+@interface DBClass : NSObject
 
 + (instancetype)classWithMonoClass:(MonoClass *)monoClass;
 + (instancetype)classWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;

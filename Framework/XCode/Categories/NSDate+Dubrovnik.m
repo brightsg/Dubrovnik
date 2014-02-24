@@ -41,19 +41,19 @@ static const char hasValueKey = '0';
 + (id)dateWithMonoDateTime:(MonoObject *)monoDateTime {
 	NSDate *date = [[self alloc] initWithMonoDateTime:monoDateTime];
 	
-	return([date autorelease]);
+	return(date);
 }
 
 + (id)dateWithMonoTicks:(int64_t)monoTicks {
 	NSDate *date = [[self alloc] initWithMonoTicks:monoTicks];
 	
-	return([date autorelease]);
+	return(date);
 }
 
 + (id)dateWithMonoTicks:(int64_t)monoTicks hasValue:(BOOL)hasValue {
 	NSDate *date = [[self alloc] initWithMonoTicks:monoTicks];
 	[date setHasValue:hasValue];
-	return([date autorelease]);
+	return(date);
 }
 
 + (id)dateWithNullableMonoDateTime:(MonoObject *)monoDateTime {

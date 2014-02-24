@@ -26,14 +26,14 @@ static const char hasValueKey = '0';
 + (NSDecimalNumber *)decimalNumberWithMonoDecimal:(MonoObject *)monoDecimal {
 	NSDecimalNumber *decimalNumber = [[self alloc] initWithMonoDecimal:monoDecimal];
 	
-	return([decimalNumber autorelease]);
+	return(decimalNumber);
 }
 
 + (NSDecimalNumber *)decimalNumberWithString:(NSString *)decimalString hasValue:(BOOL)hasValue {
     NSDecimalNumber *number = [[self alloc] initWithString:decimalString];
     [number setHasValue:hasValue];
     
-    return ([number autorelease]);
+    return (number);
 }
 
 + (NSDecimalNumber *)decimalNumberWithNullableMonoDecimal:(MonoObject *)monoDecimal {
@@ -73,7 +73,7 @@ static const char hasValueKey = '0';
     
     if(_decimalMonoClassRepresentation == NULL) {
         MonoClass *monoClass = [DBMonoEnvironment corlibMonoClassWithName:"System.Decimal"];
-        _decimalMonoClassRepresentation = [[DBClass classWithMonoClass:monoClass] retain];
+        _decimalMonoClassRepresentation = [DBClass classWithMonoClass:monoClass];
     }
     
     return _decimalMonoClassRepresentation;

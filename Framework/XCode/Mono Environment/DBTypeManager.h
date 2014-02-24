@@ -73,9 +73,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 };
 
 @interface DBTypeManager : NSObject
-{
-    NSMutableDictionary *_monoTypes;
-}
+
 
 + (id)sharedManager;
 

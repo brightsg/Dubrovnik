@@ -25,7 +25,7 @@
 
 - (DBSystem_Collections_ArrayList *)dbscArrayList
 {
-	DBSystem_Collections_ArrayList *monoArrayList = [[[DBSystem_Collections_ArrayList alloc] init] autorelease];
+	DBSystem_Collections_ArrayList *monoArrayList = [[DBSystem_Collections_ArrayList alloc] init];
 	NSEnumerator *enumerator = [self objectEnumerator];
 	id object = nil;
 	

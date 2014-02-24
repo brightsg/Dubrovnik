@@ -49,12 +49,12 @@
 	
 	if(args) {
 		args->_selector = selector;
-		args->_target = [target retain];
-		args->_argument = [argument retain];
+		args->_target = target;
+		args->_argument = argument;
 		args->_monoDomain = monoDomain;
 	}
 	
-	return([args autorelease]);
+	return(args);
 }
 
 - (id)initWithSelector:(SEL)selector withTarget:(id)target withObject:(id)argument withMonoDomain:(MonoDomain *)monoDomain {
@@ -62,20 +62,14 @@
 	
 	if(self) {
 		_selector = selector;
-		_target = [target retain];
-		_argument = [argument retain];
+		_target = target;
+		_argument = argument;
 		_monoDomain = monoDomain;
 	}
 	
 	return(self);
 }
 
-- (void)dealloc {
-	[_target release];
-	[_argument release];
-	
-	[super dealloc];
-}
 
 #pragma mark - 
 

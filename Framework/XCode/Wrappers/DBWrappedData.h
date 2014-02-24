@@ -21,13 +21,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-@interface DBWrappedData : NSData {
-	MonoArray *_monoArray;
-	int32_t _gcHandle;
-	
-	uintptr_t _dataLength;
-	const void *_dataBytes;
-}
+@interface DBWrappedData : NSData
 
 - (id)initWithMonoArray:(MonoArray *)monoArray;
 

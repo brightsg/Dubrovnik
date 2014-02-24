@@ -33,12 +33,10 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 @interface DBMonoEnvironment()
 @property (readwrite) MonoAssembly *DubrovnikAssembly;
 @property (readwrite) MonoAssembly *monoSystemCoreAssembly;
+@property (strong, readwrite) NSMutableDictionary *loadedAssemblies;
 @end
 
 @implementation DBMonoEnvironment
-
-@synthesize DubrovnikAssembly = _DubrovnikAssembly;
-@synthesize monoSystemCoreAssembly = _monoSystemCoreAssembly;
 
 + (BOOL)monoIsAvailable
 {
@@ -152,27 +150,12 @@ static DBMonoEnvironment *_currentEnvironment = nil;
         }
         NSAssert(_monoDomain, @"Cannot initialise application domain : %s %s", domainName, version);
 
-        _loadedAssemblies = [[NSMutableDictionary dictionaryWithCapacity:10] retain];
+        _loadedAssemblies = [NSMutableDictionary dictionaryWithCapacity:10];
 	}
 	
     [[self class] setCurrentEnvironment:self];
     
 	return(self);
-}
-
-- (void)dealloc {	
-	[super dealloc];
-}
-
-- (void)setDelegate:(id <DBEnvironmentDelegate>)object
-{
-    [_delegate release];
-    _delegate = [object retain];
-}
-
-- (id <DBEnvironmentDelegate>)delegate
-{
-    return _delegate;
 }
 
 + (MonoClass *)monoClassWithName:(char *)className fromAssemblyName:(const char *)name
@@ -236,10 +219,6 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     return monoMethod;
 }
 
-- (MonoDomain *)monoDomain {
-	return(_monoDomain);
-}
-
 - (MonoAssembly *)openAssemblyWithName:(const char *)name
 {
     // check assembly cache
@@ -294,7 +273,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
         if (monoAssembly) {
             
             // cache the loaded assembly
-            _loadedAssemblies[name] = [NSValue valueWithPointer:monoAssembly];
+            self.loadedAssemblies[name] = [NSValue valueWithPointer:monoAssembly];
         }
     }
 	return monoAssembly;
@@ -309,7 +288,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 - (MonoAssembly *)loadedAssembly:(NSString *)name
 {
     MonoAssembly *monoAssembly = nil;
-    NSValue *value = _loadedAssemblies[name];
+    NSValue *value = self.loadedAssemblies[name];
     if (value) {
         monoAssembly  = value.pointerValue;
     } else {
@@ -323,7 +302,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 - (MonoAssembly *)openAssemblyWithPath:(NSString *)assemblyPath {
     // mono_assembly_open opens the PE-image pointed by filename, and loads any external assemblies referenced by it.
     // note that the implementation calls mono_assembly_open_from_bundle or mono_image_open_full
-    MonoAssembly *assembly = mono_domain_assembly_open(_monoDomain, [assemblyPath fileSystemRepresentation]);
+    MonoAssembly *assembly = mono_domain_assembly_open(self.monoDomain, [assemblyPath fileSystemRepresentation]);
 	return assembly;
 }
 
@@ -349,11 +328,11 @@ static DBMonoEnvironment *_currentEnvironment = nil;
 		[self prepareThreading];
 	}
 		
-	mono_jit_exec(_monoDomain, assembly, argCount, args);
+	mono_jit_exec(self.monoDomain, assembly, argCount, args);
 	int retVal = mono_environment_exitcode_get();
     
     // once cleanup is called the runtime cannot be loaded into the same process again.
-	mono_jit_cleanup(_monoDomain);
+	mono_jit_cleanup(self.monoDomain);
 	
 	return(retVal);
 }

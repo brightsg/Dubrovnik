@@ -26,17 +26,11 @@ extern char DBCacheSuffixChar;
 
 @class DBMonoEnvironment, DBClass, DBMethod;
 
-@interface DBObject : NSObject <NSCopying> {
-	
-	@protected
-	MonoObject *_monoObj;
-	DBMonoEnvironment *_monoEnvironment;
-	@private
-	uint32_t _mono_gchandle;
-    NSString *_monoGenericTypeArgumentNames;
-    NSMutableArray *_itemClasses;
-    NSMutableDictionary *_propertyCache;
-}
+@interface DBObject : NSObject <NSCopying>
+
+@property (strong, readonly) DBMonoEnvironment *monoEnvironment;
+@property (strong, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;
+@property (strong, readwrite) NSMutableArray *itemClasses;
 
 // Subclasses must override these
 + (const char *)monoAssemblyName;
@@ -148,8 +142,6 @@ extern char DBCacheSuffixChar;
 - (Class)firstItemClass;
 - (Class)secondItemClass;
 
-@property (retain, readonly) DBMonoEnvironment *monoEnvironment;
-@property (retain, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;
-@property (retain, readwrite) NSMutableArray *itemClasses;
+
 
 @end

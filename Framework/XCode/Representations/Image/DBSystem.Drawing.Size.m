@@ -27,14 +27,13 @@
 + (DBSystem_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject {
 	DBSystem_Drawing_Size *size = [[[self class] alloc] initWithMonoObject:monoObject];
 	
-	return([size autorelease]);
+	return(size);
 }
 
 + (NSSize)convertToNSSize:(MonoObject *)monoObject {
 	DBSystem_Drawing_Size *monoSize = [[DBSystem_Drawing_Size alloc] initWithMonoObject:monoObject];
 	NSSize size = NSMakeSize((float)[monoSize width],(float)[monoSize height]);
 	
-	[monoSize release];
 	
 	return(size);
 }

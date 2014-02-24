@@ -31,12 +31,11 @@
 
 	DBWrappedData *wrappedData = [[DBWrappedData alloc] initWithMonoArray:monoArray];
 	
-	return([wrappedData autorelease]);	
+	return(wrappedData);	
 }
 
 - (id)initWithMonoArray:(MonoArray *)monoArray {
 	if(self) {
-		[self release];
 		self = [[DBWrappedData alloc] initWithMonoArray:monoArray];
 	}
 	
