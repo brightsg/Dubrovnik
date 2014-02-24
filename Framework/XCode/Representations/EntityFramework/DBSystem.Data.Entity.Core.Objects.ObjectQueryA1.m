@@ -7,6 +7,7 @@
 //
 #import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
 #import "DBSystem.Linq.h"
+#import "DBSystem.Collections.IList.h"
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1()
 @end
