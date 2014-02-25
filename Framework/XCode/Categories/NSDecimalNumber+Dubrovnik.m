@@ -10,8 +10,8 @@
 #import <objc/runtime.h>
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
-#import "DBClass.h"
-#import "DBMonoEnvironment.h"
+#import "DBManagedClass.h"
+#import "DBManagedEnvironment.h"
 
 static const char hasValueKey = '0';
 
@@ -66,14 +66,14 @@ static const char hasValueKey = '0';
 #pragma mark -
 #pragma mark MonoObject representations
 
-- (DBClass *)monoClassRepresentation
+- (DBManagedClass *)monoClassRepresentation
 {
     // NOTE: we don't define this in +initialize as it causes unit test issues
-    static DBClass *_decimalMonoClassRepresentation;
+    static DBManagedClass *_decimalMonoClassRepresentation;
     
     if(_decimalMonoClassRepresentation == NULL) {
-        MonoClass *monoClass = [DBMonoEnvironment corlibMonoClassWithName:"System.Decimal"];
-        _decimalMonoClassRepresentation = [DBClass classWithMonoClass:monoClass];
+        MonoClass *monoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.Decimal"];
+        _decimalMonoClassRepresentation = [DBManagedClass classWithMonoClass:monoClass];
     }
     
     return _decimalMonoClassRepresentation;

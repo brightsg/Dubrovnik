@@ -8,7 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface Dubrovnik_Unit_Tests : SenTestCase <DBEnvironmentDelegate>
+@interface Dubrovnik_Unit_Tests : SenTestCase <DBManagedEnvironmentDelegate>
 {
     BOOL _verbose;
 }

@@ -567,7 +567,7 @@
     MonoAssembly *monoAssembly = self.monoAssembly;
   
     // our extension method happens to be in the same assembly
-    DBClass *monoClassRep = [DBClass classWithMonoClassNamed:"Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions" fromMonoAssembly:monoAssembly];
+    DBManagedClass *monoClassRep = [DBManagedClass classWithMonoClassNamed:"Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions" fromMonoAssembly:monoAssembly];
 
     // call static extension method
     MonoObject *monoObject = [monoClassRep invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [self monoValue]];

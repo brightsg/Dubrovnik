@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@class DBClass;
+@class DBManagedClass;
 
 @interface NSDecimalNumber (Dubrovnik)
 
@@ -25,5 +25,5 @@
 - (MonoObject *)nullableMonoValue;
 
 - (BOOL)hasValue;
-- (DBClass *)monoClassRepresentation;
+- (DBManagedClass *)monoClassRepresentation;
 @end

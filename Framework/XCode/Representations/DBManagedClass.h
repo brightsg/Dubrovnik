@@ -1,5 +1,5 @@
 //
-//  DBClass.h
+//  DBManagedClass.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -22,7 +22,7 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@interface DBClass : NSObject
+@interface DBManagedClass : NSObject
 
 + (instancetype)classWithMonoClass:(MonoClass *)monoClass;
 + (instancetype)classWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly;

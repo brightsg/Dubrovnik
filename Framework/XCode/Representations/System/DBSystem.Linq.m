@@ -7,7 +7,7 @@
 //
 
 #import "DBSystem.Linq.h"
-#import "DBMethod.h"
+#import "DBManagedMethod.h"
 #import "DBManagedObject.h"
 #import "DBSystem.Collections.IList.h"
 #import "DBTypeManager.h"
@@ -27,7 +27,7 @@
     // public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
     // note that the generic parameter type must be obtained from the source.
     // the method obtained here cannot be called directly but must be inflated with a type (see below)
-    DBMethod *methodRep = [DBMethod
+    DBManagedMethod *methodRep = [DBManagedMethod
                            methodWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
                            className:"System.Linq.Enumerable"
                            assemblyName:"System.Core"];

@@ -1,5 +1,5 @@
 //
-//  DBMonoEnvironment.h
+//  DBManagedEnvironment.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -22,25 +22,25 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@class DBMonoEnvironment;
+@class DBManagedEnvironment;
 
 /*
- * DBMonoEnvironment mach handler stuff
+ * DBManagedEnvironment mach handler stuff
  */
 
-@protocol DBEnvironmentDelegate <NSObject>
+@protocol DBManagedEnvironmentDelegate <NSObject>
 
 @required
 
-- (NSString *)monoEnvironment:(DBMonoEnvironment *)monoEnv pathToAssemblyName:(const char *)name;
+- (NSString *)managedEnvironment:(DBManagedEnvironment *)monoEnv pathToAssemblyName:(const char *)name;
 
 @optional
 
 @end
 
-@interface DBMonoEnvironment : NSObject
+@interface DBManagedEnvironment : NSObject
 
-@property (weak) id <DBEnvironmentDelegate> delegate;
+@property (weak) id <DBManagedEnvironmentDelegate> delegate;
 @property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;
 @property (assign, readonly) MonoDomain *monoDomain;
@@ -101,9 +101,9 @@
  */
 + (void)setTraceMaskString:(NSString *)traceMask;
 
-+ (DBMonoEnvironment *)defaultEnvironment;
++ (DBManagedEnvironment *)defaultEnvironment;
 
-+ (DBMonoEnvironment *)defaultEnvironmentWithName:(const char *)domainName;
++ (DBManagedEnvironment *)defaultEnvironmentWithName:(const char *)domainName;
 
 - (id)initWithDomainName:(const char *)domainName;
 
@@ -114,15 +114,15 @@
  */
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version;
 
-- (void)setDelegate:(id <DBEnvironmentDelegate>)object;
-- (id <DBEnvironmentDelegate>)delegate;
+- (void)setDelegate:(id <DBManagedEnvironmentDelegate>)object;
+- (id <DBManagedEnvironmentDelegate>)delegate;
 
 + (MonoClass *)monoClassWithName:(char *)className fromAssemblyName:(const char *)assemblyName;
 - (MonoClass *)monoClassWithName:(char *)className fromAssemblyName:(const char *)name;
 + (MonoClass *)monoClassWithName:(char *)className fromAssembly:(MonoAssembly *)assembly;
 + (MonoClass *)corlibMonoClassWithName:(char *)className;
-+ (DBMonoEnvironment *)currentEnvironment;
-+ (void)setCurrentEnvironment:(DBMonoEnvironment *)environment;
++ (DBManagedEnvironment *)currentEnvironment;
++ (void)setCurrentEnvironment:(DBManagedEnvironment *)environment;
 + (MonoDomain *)currentDomain;
 + (MonoClass *)dubrovnikMonoClassWithName:(char *)className;
 + (MonoMethod *)dubrovnikMonoMethodWithName:(char *)methodName className:(char *)className argCount:(int)argCount;

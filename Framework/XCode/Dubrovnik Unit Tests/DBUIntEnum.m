@@ -14,7 +14,7 @@
 	
     // TODO:
     /*
-    DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
+    DBManagedEnvironment *monoEnv = [DBManagedEnvironment currentEnvironment];
     
     MonoImage *monoImage  = mono_assembly_get_image(monoAssembly);
     NSAssert(monoImage, @"invalid");

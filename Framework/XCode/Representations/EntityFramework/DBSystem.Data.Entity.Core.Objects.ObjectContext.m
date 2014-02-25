@@ -7,9 +7,9 @@
 //
 #import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
 #import "DBBoxing.h"
-#import "DBMethod.h"
-#import "DBMonoEnvironment.h"
-#import "DBClass.h"
+#import "DBManagedMethod.h"
+#import "DBManagedEnvironment.h"
+#import "DBManagedClass.h"
 #import "NSString+Dubrovnik.h"
 #import "DBSystem.Array.h"
 #import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
@@ -48,14 +48,14 @@
 {
     
     // ObjectQuery<T> CreateQuery<T>
-    DBMethod *methodRep = [DBMethod
+    DBManagedMethod *methodRep = [DBManagedMethod
                                              methodWithMonoMethodNamed:"CreateQuery(string,System.Data.Entity.Core.Objects.ObjectParameter[])"
                                              className:NULL
                                              assemblyName:NULL];
     
     // Get the type to be returned by this query
-    MonoAssembly *monoAssembly = [[DBMonoEnvironment currentEnvironment] openAssemblyWithName:assemblyName];
-    DBClass *classRepresentation = [DBClass classWithMonoClassNamed:monoClassName fromMonoAssembly:monoAssembly];
+    MonoAssembly *monoAssembly = [[DBManagedEnvironment currentEnvironment] openAssemblyWithName:assemblyName];
+    DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:monoClassName fromMonoAssembly:monoAssembly];
     methodRep.genericMonoType = [classRepresentation monoType];
     
     // Invoke

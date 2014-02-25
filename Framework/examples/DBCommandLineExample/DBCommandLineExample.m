@@ -30,7 +30,7 @@ int main (int argc, char * argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
 	// Initialize the mono env
-	DBMonoEnvironment *monoEnvironment = [DBMonoEnvironment defaultEnvironment];
+	DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
 	// This assumes current working path contains SampleObject.dll
 	sampleAssembly = [monoEnvironment openAssemblyWithPath:@"SampleObject.dll"];
 

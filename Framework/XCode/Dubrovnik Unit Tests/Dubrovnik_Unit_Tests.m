@@ -79,7 +79,7 @@ static BOOL _setup = NO;
     }
     
     // use the default mono environment
-    DBMonoEnvironment *monoEnv = [DBMonoEnvironment defaultEnvironment];
+    DBManagedEnvironment *monoEnv = [DBManagedEnvironment defaultEnvironment];
 
     // the environment delegate must be able to load assemblies on demand
     [monoEnv setDelegate:self];
@@ -98,7 +98,7 @@ static BOOL _setup = NO;
 - (void)tearDown
 {
     // Terminate the environment
-    [[DBMonoEnvironment currentEnvironment] terminate];
+    [[DBManagedEnvironment currentEnvironment] terminate];
     
     [super tearDown];
 }
@@ -1041,9 +1041,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 }
 
 #pragma mark -
-#pragma mark DBEnvironmentDelegate methods
+#pragma mark DBManagedEnvironmentDelegate methods
 
-- (NSString *)monoEnvironment:(DBMonoEnvironment *)monoEnv pathToAssemblyName:(const char *)name
+- (NSString *)managedEnvironment:(DBManagedEnvironment *)monoEnv pathToAssemblyName:(const char *)name
 {
 #pragma unused(monoEnv)
 #pragma unused(name)

@@ -21,17 +21,17 @@
 //
 #import <Cocoa/Cocoa.h>
 #import "DBManagedObject.h"
-#import "DBMonoEnvironment.h"
-#import "DBClass.h"
+#import "DBManagedEnvironment.h"
+#import "DBManagedClass.h"
 #import "DBInvoke.h"
 #import "DBBoxing.h"
 #import "NSString+Dubrovnik.h"
-#import "DBMethod.h"
+#import "DBManagedMethod.h"
 #import "DBSystem.Convert.h"
 
 @interface DBManagedObject()
 
-@property (strong, readwrite) DBMonoEnvironment *monoEnvironment;
+@property (strong, readwrite) DBManagedEnvironment *monoEnvironment;
 @property (assign) MonoObject *monoObj;
 @property (assign) uint32_t mono_gchandle;
 
@@ -67,14 +67,14 @@
 #pragma mark class methods
 
 + (MonoClass *)monoClass {
-    return [[DBMonoEnvironment currentEnvironment] monoClassWithName:(char *)[self monoClassName] fromAssemblyName:(char *)[self monoAssemblyName]];
+    return [[DBManagedEnvironment currentEnvironment] monoClassWithName:(char *)[self monoClassName] fromAssemblyName:(char *)[self monoAssemblyName]];
 }
 
-+ (DBClass *)dbClass
++ (DBManagedClass *)dbClass
 {
-    static DBClass *classRep = nil;
+    static DBManagedClass *classRep = nil;
     if (!classRep) {
-        classRep =  [DBClass classWithMonoClass:[self monoClass]];
+        classRep =  [DBManagedClass classWithMonoClass:[self monoClass]];
     }
     return classRep;
 }
@@ -117,7 +117,7 @@
 		
 		if(obj != NULL) {
 			_mono_gchandle = mono_gchandle_new(obj, FALSE);
-            self.monoEnvironment = [DBMonoEnvironment currentEnvironment];
+            self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
 
 		    if (itemClasses) {
                 self.itemClasses = [NSMutableArray arrayWithArray:itemClasses];
@@ -307,7 +307,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 }
 
 
-- (MonoObject *)invokeMethod:(DBMethod *)methodRepresentation withNumArgs:(int)numArgs, ... {
+- (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs, ... {
     va_list va_args;
 	va_start(va_args, numArgs);
 
@@ -318,13 +318,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 	return ret;
 }
 
-- (MonoObject *)invokeMethod:(DBMethod *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args
+- (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args
 {
     MonoMethod *monoMethod = NULL;
     MonoClass *monoClass = NULL;
     void *invokeObj = NULL;
     
-    DBMonoEnvironment *monoEnv = [DBMonoEnvironment currentEnvironment];
+    DBManagedEnvironment *monoEnv = [DBManagedEnvironment currentEnvironment];
 
     void *monoArgs[numArgs];
     DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
@@ -347,7 +347,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         }
         
         // get the extension mono class
-        DBClass *classRepresentation = [DBClass classWithMonoClassNamed:methodRepresentation.monoClassName fromMonoAssembly:monoAssembly];
+        DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:methodRepresentation.monoClassName fromMonoAssembly:monoAssembly];
         monoClass  = [classRepresentation monoClass];
         
         // get the class method
@@ -411,13 +411,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // TODO: Allow calling of methods with multiple generic arguments.
     
     // get the generic method helper method
-    MonoMethod *helperMethod = [DBMonoEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod_1" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
+    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod_1" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
     
     // invoke the generic helper method to assign specific types to the type parameters in the generic method definition
     // see http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.makegenericmethod.aspx
     void *hargs [2];
     hargs [0] = methodInfo;
-    hargs [1] = mono_type_get_object([DBMonoEnvironment currentDomain], genericParameterType);
+    hargs [1] = mono_type_get_object([DBManagedEnvironment currentDomain], genericParameterType);
     MonoObject *monoException = NULL;
     MonoObject *boxedGenericMethod = mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
     if (monoException) NSRaiseExceptionFromMonoException(monoException);
@@ -505,12 +505,12 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     //     for dictionary<string,employee> the string employee types are returned
     
     // get helper method to retrieve generic argument types
-    MonoMethod *helperMethod = [DBMonoEnvironment dubrovnikMonoMethodWithName:"GenericTypeArguments" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:1];
+    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GenericTypeArguments" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:1];
     
     // get generic method parameter type info for the method argument.
     MonoType *objectType = mono_class_get_type(monoClass);
     void *hargs [2];
-    hargs [0] = mono_type_get_object([DBMonoEnvironment currentDomain], objectType);
+    hargs [0] = mono_type_get_object([DBManagedEnvironment currentDomain], objectType);
     hargs [1] = NULL;
     MonoObject *monoException = NULL;
     MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);

@@ -23,7 +23,7 @@
 #import <objc/runtime.h>
 #import "DBInvoke.h"
 #import "DBBoxing.h"
-#import "DBMonoEnvironment.h"
+#import "DBManagedEnvironment.h"
 
 //the number of .NET-equivalent ticks between 01-01-0001 and 01-01-2001
 #define EPOCH_START_DIFFERENCE 631139040000000000LL
@@ -88,7 +88,7 @@ static const char hasValueKey = '0';
 
 - (MonoObject *)monoDateTime {
 	if(_dateTimeMonoClass == NULL) {
-		_dateTimeMonoClass = [DBMonoEnvironment corlibMonoClassWithName:"System.DateTime"];
+		_dateTimeMonoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.DateTime"];
 	}
 	int64_t ticks = ([self timeIntervalSinceReferenceDate] * NET_TICKS_PER_SECOND) + EPOCH_START_DIFFERENCE;
 	MonoObject *monoDateTime = DBMonoObjectSignatureConstruct(_dateTimeMonoClass, "long", 1, &ticks);

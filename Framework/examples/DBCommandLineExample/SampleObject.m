@@ -28,7 +28,7 @@ extern MonoAssembly* sampleAssembly;
 
 // Dubrovnik wrappers need to override this if they need to construct a managed object from native code
 + (MonoClass *)monoClass {
-	return [DBMonoEnvironment monoClassWithName:"DBCommandLineExample.SampleObject" fromAssembly:sampleAssembly];
+	return [DBManagedEnvironment monoClassWithName:"DBCommandLineExample.SampleObject" fromAssembly:sampleAssembly];
 }
 
 + (SampleObject*)sampleObjectWithMagicNumber:(int32_t)magicNumber specialString:(NSString *)specialString {

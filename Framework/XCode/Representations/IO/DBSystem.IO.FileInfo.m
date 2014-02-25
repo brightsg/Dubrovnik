@@ -23,7 +23,7 @@
 #import "DBSystem.IO.FileInfo.h"
 
 #import "NSCategories.h"
-#import "DBMonoEnvironment.h"
+#import "DBManagedEnvironment.h"
 
 static MonoClass *_monoClass = NULL;
 
@@ -31,7 +31,7 @@ static MonoClass *_monoClass = NULL;
 
 + (MonoClass *)monoClass {
 	if(_monoClass == NULL)
-		_monoClass = [DBMonoEnvironment corlibMonoClassWithName:"System.IO.FileInfo"];
+		_monoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.IO.FileInfo"];
 	
 	return(_monoClass);
 }

@@ -20,12 +20,12 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import "DBSystem.Enum.h"
-#import "DBClass.h"
+#import "DBManagedClass.h"
 
-static DBClass *_classRep = nil;
+static DBManagedClass *_classRep = nil;
 
 @interface DBSystem_Enum()
-+ (DBClass *)classRep;
++ (DBManagedClass *)classRep;
 @end
 
 @implementation DBSystem_Enum
@@ -35,9 +35,9 @@ static DBClass *_classRep = nil;
     // before mono is configured, especially in the case of OCUnit
 }
 
-+ (DBClass *)classRep {
++ (DBManagedClass *)classRep {
 	if (!_classRep) {
-        _classRep = [[DBClass alloc] initWithMonoClassNamed:"System.Enum"];
+        _classRep = [[DBManagedClass alloc] initWithMonoClassNamed:"System.Enum"];
         NSAssert(_classRep, @"invalid");
     }
     return _classRep;

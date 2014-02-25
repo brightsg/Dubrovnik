@@ -32,14 +32,14 @@ static MonoAssembly *_sampleAssembly = NULL;
 	if([self class] != [MainController class])
 		return;
 
-	DBMonoEnvironment *monoEnvironment = [DBMonoEnvironment defaultEnvironment];
+	DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
 	
 	NSString *libraryPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents/Libraries"];
 	NSString *sampleAssemblyPath = [libraryPath stringByAppendingPathComponent:@"sample.dll"];
     
     // This method will open the assembly and cache it using the given name.
     // A DBMonoObjectRepresentation subclass can target this assembly by returning the assembly name from + monoAssemblyName.
-    // If the target assembly has not been already loaded then the DBMonoEnvironment instance delegate will be queried for the assembly path.
+    // If the target assembly has not been already loaded then the DBManagedEnvironment instance delegate will be queried for the assembly path.
 	MonoAssembly *sampleAssembly = [monoEnvironment openAssembly:@"sample" path:sampleAssemblyPath];
 	
 	NSLog(@"Assembly Path: %@", sampleAssemblyPath);

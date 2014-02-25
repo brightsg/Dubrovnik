@@ -21,7 +21,7 @@
 //
 
 #import "DBSystem.Collections.ArrayList.h"
-#import "DBMonoEnvironment.h"
+#import "DBManagedEnvironment.h"
 
 static MonoClass *_monoClass = NULL;
 
@@ -29,7 +29,7 @@ static MonoClass *_monoClass = NULL;
 
 + (MonoClass *)monoClass {
 	if(_monoClass == NULL)
-		_monoClass = [DBMonoEnvironment corlibMonoClassWithName:"System.Collections.ArrayList"];
+		_monoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.Collections.ArrayList"];
 	
 	return(_monoClass);
 }

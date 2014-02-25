@@ -1,5 +1,5 @@
 //
-//  DBMethod.h
+//  DBManagedMethod.h
 //  Dubrovnik
 //
 //  Created by Jonathan on 24/07/2013.
@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@interface DBMethod : NSObject
+@interface DBManagedMethod : NSObject
 
 @property (assign, readonly) const char *methodName;
 @property (assign, readonly) const char *monoClassName;

@@ -37,14 +37,14 @@
 #define DB_INTERFACE_TO_NSSTR(tok) DB_NSSTR(tok)
 
 // Environment
-#import "DBMonoEnvironment.h"
+#import "DBManagedEnvironment.h"
 #import "DBType.h"
 #import "DBTypeManager.h"
 
 // Mono representation
-#import "DBClass.h"
+#import "DBManagedClass.h"
 #import "DBManagedObject.h"
-#import "DBMethod.h"
+#import "DBManagedMethod.h"
 
 // Mono classes
 #import "System.Class.h"

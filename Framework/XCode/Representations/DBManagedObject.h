@@ -24,11 +24,11 @@ extern char DBCacheSuffixChar;
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@class DBMonoEnvironment, DBClass, DBMethod;
+@class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
 
 @interface DBManagedObject : NSObject <NSCopying>
 
-@property (strong, readonly) DBMonoEnvironment *monoEnvironment;
+@property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (strong, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;
 @property (strong, readwrite) NSMutableArray *itemClasses;
 
@@ -38,7 +38,7 @@ extern char DBCacheSuffixChar;
 
 // Class methods
 + (MonoClass *)monoClass;
-+ (DBClass *)dbClass;
++ (DBManagedClass *)dbClass;
 + (instancetype)objectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
@@ -77,8 +77,8 @@ extern char DBCacheSuffixChar;
 + (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
-- (MonoObject *)invokeMethod:(DBMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args;
-- (MonoObject *)invokeMethod:(DBMethod *)method withNumArgs:(int)numArgs, ...;
+- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args;
+- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
 
 // Equality testing
 + (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;

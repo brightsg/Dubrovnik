@@ -1,5 +1,5 @@
 //
-//  DBMonoEnvironment.m
+//  DBManagedEnvironment.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,23 +20,23 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import <Cocoa/Cocoa.h>
-#import "DBMonoEnvironment.h"
+#import "DBManagedEnvironment.h"
 
 static NSString *_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
 static NSString *_monoAssemblyDefaultSearchPath = @"mono/4.5";
 static NSString *_monoDefaultVersion = @"v4.0.30319";
 static NSString *_monoAssemblyRootFolder = nil;
 static NSString *_monoConfigFolder = nil;
-static DBMonoEnvironment *_defaultEnvironment = nil;
-static DBMonoEnvironment *_currentEnvironment = nil;
+static DBManagedEnvironment *_defaultEnvironment = nil;
+static DBManagedEnvironment *_currentEnvironment = nil;
 
-@interface DBMonoEnvironment()
+@interface DBManagedEnvironment()
 @property (readwrite) MonoAssembly *DubrovnikAssembly;
 @property (readwrite) MonoAssembly *monoSystemCoreAssembly;
 @property (strong, readwrite) NSMutableDictionary *loadedAssemblies;
 @end
 
-@implementation DBMonoEnvironment
+@implementation DBManagedEnvironment
 
 + (BOOL)monoIsAvailable
 {
@@ -100,23 +100,23 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     mono_config_parse(NULL);
 }
 
-+ (DBMonoEnvironment *)defaultEnvironment {
++ (DBManagedEnvironment *)defaultEnvironment {
 	if(!_defaultEnvironment) {
-		_defaultEnvironment = [[DBMonoEnvironment alloc] initWithDomainName:"Dubrovnik"];
+		_defaultEnvironment = [[DBManagedEnvironment alloc] initWithDomainName:"Dubrovnik"];
 	}
 		
 	return(_defaultEnvironment);
 }
 
-+ (DBMonoEnvironment *)defaultEnvironmentWithName:(const char *)domainName {
++ (DBManagedEnvironment *)defaultEnvironmentWithName:(const char *)domainName {
 	if(!_defaultEnvironment) {
-		_defaultEnvironment = [[DBMonoEnvironment alloc] initWithDomainName:(domainName == NULL ? "Dubrovnik" : domainName)];
+		_defaultEnvironment = [[DBManagedEnvironment alloc] initWithDomainName:(domainName == NULL ? "Dubrovnik" : domainName)];
 	}
 	
 	return(_defaultEnvironment);
 }
 
-+ (DBMonoEnvironment *)currentEnvironment
++ (DBManagedEnvironment *)currentEnvironment
 {
     if (!_currentEnvironment) {
         [self setCurrentEnvironment:[self defaultEnvironment]];
@@ -125,7 +125,7 @@ static DBMonoEnvironment *_currentEnvironment = nil;
     
 }
 
-+ (void)setCurrentEnvironment:(DBMonoEnvironment *)environment
++ (void)setCurrentEnvironment:(DBManagedEnvironment *)environment
 {
     _currentEnvironment = environment;
 }
@@ -230,13 +230,13 @@ static DBMonoEnvironment *_currentEnvironment = nil;
         
         // query delegate for assembly path
         if ([self delegate]) {
-            path = [[self delegate] monoEnvironment:self pathToAssemblyName:name];
+            path = [[self delegate] managedEnvironment:self pathToAssemblyName:name];
         }
         
         if (!path) {
             
             // delegate has no path suggestion hence try and load dll from default location
-            NSString *monoPath = [[DBMonoEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:_monoAssemblyDefaultSearchPath];
+            NSString *monoPath = [[DBManagedEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:_monoAssemblyDefaultSearchPath];
             
             path = [monoPath stringByResolvingSymlinksInPath];
             path = [path stringByAppendingPathComponent:@(name)];

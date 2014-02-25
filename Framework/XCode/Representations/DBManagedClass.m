@@ -1,5 +1,5 @@
 //
-//  DBClass.m
+//  DBManagedClass.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,27 +20,27 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBClass.h"
+#import "DBManagedClass.h"
 #import "DBInvoke.h"
 
-@interface DBClass()
+@interface DBManagedClass()
 @property (assign) MonoClass *klass;
 @end
 
-@implementation DBClass
+@implementation DBManagedClass
 
 + (instancetype)classWithMonoClass:(MonoClass *)monoClass {
-	DBClass *classRep = [[DBClass alloc] initWithMonoClass:monoClass];
+	DBManagedClass *classRep = [[DBManagedClass alloc] initWithMonoClass:monoClass];
 	return(classRep);
 }
 
 + (instancetype)classWithMonoClassNamed:(const char *)className fromMonoAssembly:(MonoAssembly *)assembly {
-	DBClass *classRep = [[DBClass alloc] initWithMonoClassNamed:className fromMonoAssembly:assembly];
+	DBManagedClass *classRep = [[DBManagedClass alloc] initWithMonoClassNamed:className fromMonoAssembly:assembly];
 	return(classRep);
 }
 
 + (instancetype)classWithMonoClassNamed:(const char *)className {
-	DBClass *classRep = [[DBClass alloc] initWithMonoClassNamed:className];
+	DBManagedClass *classRep = [[DBManagedClass alloc] initWithMonoClassNamed:className];
 	return(classRep);	
 }
 

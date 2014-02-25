@@ -311,7 +311,7 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOO
 	pthread_mutex_unlock(&methodCacheMutex);
 
 	if(meth == NULL) {
-		@throw([NSException exceptionWithName:@"DBMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", methodName] userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", methodName] userInfo:nil]);
     }
     
 	return(meth);
@@ -366,7 +366,7 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, 
 	pthread_mutex_unlock(&methodCacheMutex);
 	
 	if(meth == NULL)
-		@throw([NSException exceptionWithName:@"DBMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", methodName] userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", methodName] userInfo:nil]);
 	
 	return(meth);	
 }

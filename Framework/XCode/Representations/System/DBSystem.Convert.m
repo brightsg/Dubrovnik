@@ -22,10 +22,10 @@
 
 #import <Dubrovnik/Dubrovnik.h>
 
-static DBClass *_classRep = nil;
+static DBManagedClass *_classRep = nil;
 
 @interface DBSystem_Convert()
-+ (DBClass *)classRep;
++ (DBManagedClass *)classRep;
 @end
 
 @implementation DBSystem_Convert
@@ -35,9 +35,9 @@ static DBClass *_classRep = nil;
     // before mono is configured, especially in the case of OCUnit
 }
 
-+ (DBClass *)classRep {
++ (DBManagedClass *)classRep {
 	if (!_classRep) {
-        _classRep = [[DBClass alloc] initWithMonoClassNamed:"System.Convert"];
+        _classRep = [[DBManagedClass alloc] initWithMonoClassNamed:"System.Convert"];
     }
     return _classRep;
 }

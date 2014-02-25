@@ -1,20 +1,20 @@
 //
-//  DBMethod.m
+//  DBManagedMethod.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 24/07/2013.
 //
 //
 
-#import "DBMethod.h"
+#import "DBManagedMethod.h"
 
-@interface DBMethod()
+@interface DBManagedMethod()
 @property (assign, readwrite) const char *methodName;
 @property (assign, readwrite) const char *monoClassName;
 @property (assign, readwrite) const char *assemblyName;
 @end
 
-@implementation DBMethod
+@implementation DBManagedMethod
 
 + (instancetype)methodWithMonoMethodNamed:(const char *)methodName
 {
