@@ -9,6 +9,12 @@
 #import "DBNumber.h"
 #import "DBBoxing.h"
 
+#define DB_INIT_INSTANCE \
+self = [super init]; \
+if (self) { self.monoObjCType = @encode(typeof(value)); self.number = @(value);}\
+return self;
+
+
 typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     DBNumberTypeBool,
     DBNumberTypeChar,
@@ -27,10 +33,10 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 
 @interface DBNumber()
 @property (strong) NSNumber *number;
-@property (strong) NSString *typeName;
 @property (strong) NSData *valueData;
 @property (assign, nonatomic, readwrite) const char *monoObjCType;
 @property (assign, nonatomic, readwrite) MonoObject *monoObject;
+@property (assign) uint32_t gcHandle;
 @end
 
 @implementation DBNumber
@@ -244,168 +250,81 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 
 - (id)initWithChar:(char)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(char);
-        self.number = @(value);
-    }
-    
-    return self;
+   DB_INIT_INSTANCE
 }
 
 - (id)initWithUnsignedChar:(unsigned char)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(unsigned char);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithShort:(short)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(short);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithUnsignedShort:(unsigned short)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(unsigned short);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithInt:(int)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(int);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithUnsignedInt:(unsigned int)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(unsigned int);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithLong:(long)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(long);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithUnsignedLong:(unsigned long)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(unsigned long);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithLongLong:(long long)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(long long);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithUnsignedLongLong:(unsigned long long)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(unsigned long long);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithFloat:(float)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(float);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithDouble:(double)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(double);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithBool:(BOOL)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(BOOL);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithInteger:(NSInteger)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(NSInteger);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
 
 - (id)initWithUnsignedInteger:(NSUInteger)value
 {
-    self = [super init];
-    if (self) {
-        self.monoObjCType = @encode(NSUInteger);
-        self.number = @(value);
-    }
-    
-    return self;
+    DB_INIT_INSTANCE
 }
+
+#pragma mark -
+#pragma mark NSNumber primitives
 
 - (NSComparisonResult)compare:(NSNumber *)otherNumber
 {
@@ -562,6 +481,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     return (void *)[self valuePointer];
 }
 
+@synthesize monoObject = _monoObject;   // need synthesis when override both getter and setter
 - (MonoObject *)monoObject
 {
     if (!_monoObject) {
@@ -676,7 +596,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 
             default:
             {
-                [NSException raise:@"Type exception" format:@"Cannot create MonoObject for type name: %@", self.typeName];
+                [NSException raise:@"Type exception" format:@"Cannot create MonoObject for type encoding: %@", self.typeName];
             }
                 
         }
@@ -686,13 +606,31 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     return _monoObject;
 }
 
-#pragma mark -
-#pragma mark Accessors
-
--(void)setMonoObjCType:(const char *)monoObjCType
+-(void)setMonoObject:(MonoObject *)monoObject
 {
-    _monoObjCType = monoObjCType;
-    self.typeName = @(_monoObjCType);
+    if (_monoObject) {
+        mono_gchandle_free(self.gcHandle);
+        self.gcHandle = 0;
+    }
+    _monoObject = monoObject;
+    self.gcHandle = mono_gchandle_new(_monoObject, FALSE);
 }
 
+#pragma mark -
+#pragma mark Type support
+
+- (NSString *)typeName
+{
+    return @(self.monoObjCType);
+}
+
+#pragma mark -
+#pragma mark Lifecycle
+
+- (void)dealloc
+{
+    if (_monoObject) {
+        mono_gchandle_free(_gcHandle);
+    }
+}
 @end
