@@ -1,5 +1,5 @@
 //
-//  DBWrappedData.m
+//  DBManagedData.m
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 1/11/06.
@@ -22,16 +22,16 @@
 //
 
 #import <Dubrovnik/Dubrovnik.h>
-#import "DBWrappedData.h"
+#import "DBManagedData.h"
 
-@interface DBWrappedData()
+@interface DBManagedData()
 @property (assign) MonoArray *monoArray;
 @property (assign) int32_t gcHandle;
 @property (assign) uintptr_t dataLength;
 @property (assign) const void *dataBytes;
 @end
 
-@implementation DBWrappedData
+@implementation DBManagedData
 
 - (id)initWithMonoArray:(MonoArray *)monoArray {
 	self = [super init];
@@ -76,13 +76,13 @@
 #pragma mark Other Overrides
 
 - (id)copy {
-	DBWrappedData *copy = [[DBWrappedData alloc] initWithMonoArray:self.monoArray];
+	DBManagedData *copy = [[DBManagedData alloc] initWithMonoArray:self.monoArray];
 	
 	return(copy);
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-	DBWrappedData *copy = [[DBWrappedData allocWithZone:zone] initWithMonoArray:self.monoArray];
+	DBManagedData *copy = [[DBManagedData allocWithZone:zone] initWithMonoArray:self.monoArray];
 	
 	return(copy);
 }

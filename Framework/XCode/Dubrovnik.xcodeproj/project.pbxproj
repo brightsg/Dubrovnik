@@ -21,8 +21,8 @@
 		9D13A6EE08833E74008ACA37 /* DBBoxing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13A6EC08833E74008ACA37 /* DBBoxing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D496B2F09082F6700CD26AF /* NSImage+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D496B2D09082F6700CD26AF /* NSImage+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D496B3009082F6700CD26AF /* NSImage+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D496B2E09082F6700CD26AF /* NSImage+Dubrovnik.m */; };
-		9D6335AE09750DAD00FB76DF /* DBWrappedData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6335AC09750DAD00FB76DF /* DBWrappedData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D6335AF09750DAD00FB76DF /* DBWrappedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6335AD09750DAD00FB76DF /* DBWrappedData.m */; };
+		9D6335AE09750DAD00FB76DF /* DBManagedData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6335AC09750DAD00FB76DF /* DBManagedData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D6335AF09750DAD00FB76DF /* DBManagedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6335AD09750DAD00FB76DF /* DBManagedData.m */; };
 		9D68AF5408EA1569002C7AB0 /* NSDate+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D68AF5208EA1569002C7AB0 /* NSDate+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D68AF5508EA1569002C7AB0 /* NSDate+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68AF5308EA1569002C7AB0 /* NSDate+Dubrovnik.m */; };
 		9D69DC4308B1851E008BB787 /* DBMonoEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D69DC4108B1851E008BB787 /* DBMonoEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,8 +172,8 @@
 		9D13A6EC08833E74008ACA37 /* DBBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBBoxing.h; sourceTree = "<group>"; };
 		9D496B2D09082F6700CD26AF /* NSImage+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Dubrovnik.h"; sourceTree = "<group>"; };
 		9D496B2E09082F6700CD26AF /* NSImage+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Dubrovnik.m"; sourceTree = "<group>"; };
-		9D6335AC09750DAD00FB76DF /* DBWrappedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWrappedData.h; sourceTree = "<group>"; };
-		9D6335AD09750DAD00FB76DF /* DBWrappedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBWrappedData.m; sourceTree = "<group>"; };
+		9D6335AC09750DAD00FB76DF /* DBManagedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedData.h; sourceTree = "<group>"; };
+		9D6335AD09750DAD00FB76DF /* DBManagedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedData.m; sourceTree = "<group>"; };
 		9D68AF5208EA1569002C7AB0 /* NSDate+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Dubrovnik.h"; sourceTree = "<group>"; };
 		9D68AF5308EA1569002C7AB0 /* NSDate+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Dubrovnik.m"; sourceTree = "<group>"; };
 		9D69DC4108B1851E008BB787 /* DBMonoEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoEnvironment.h; sourceTree = "<group>"; };
@@ -460,8 +460,8 @@
 				9D8863680974F59A00365976 /* DBWrappers.h */,
 				9D8863470974F55500365976 /* DBWrappedString.h */,
 				9D8863480974F55500365976 /* DBWrappedString.m */,
-				9D6335AC09750DAD00FB76DF /* DBWrappedData.h */,
-				9D6335AD09750DAD00FB76DF /* DBWrappedData.m */,
+				9D6335AC09750DAD00FB76DF /* DBManagedData.h */,
+				9D6335AD09750DAD00FB76DF /* DBManagedData.m */,
 				AB120DA318BB47F300461FA2 /* DBManagedNumber.h */,
 				AB120DA418BB47F300461FA2 /* DBManagedNumber.m */,
 			);
@@ -755,7 +755,7 @@
 				9D8A17D6096A4085000477C0 /* DBSystem.IO.FileInfo.h in Headers */,
 				9D8863490974F55500365976 /* DBWrappedString.h in Headers */,
 				9D88636A0974F59A00365976 /* DBWrappers.h in Headers */,
-				9D6335AE09750DAD00FB76DF /* DBWrappedData.h in Headers */,
+				9D6335AE09750DAD00FB76DF /* DBManagedData.h in Headers */,
 				DA4FDE7E09B38A1F00D16517 /* DBSystem.Drawing.Size.h in Headers */,
 				9DA8F08D09EF2BDF000EE2DE /* DBSystem.Array.h in Headers */,
 				9DA75F670A239104008EC2F7 /* NSArray+Dubrovnik.h in Headers */,
@@ -912,7 +912,7 @@
 				AB120D9C18B67C5F00461FA2 /* System.Data.Entity.Core.Objects.ObjectQueryA1.m in Sources */,
 				AB120D7818B6792000461FA2 /* System.Convert.m in Sources */,
 				AB120D8818B67ACD00461FA2 /* System.Drawing.Size.m in Sources */,
-				9D6335AF09750DAD00FB76DF /* DBWrappedData.m in Sources */,
+				9D6335AF09750DAD00FB76DF /* DBManagedData.m in Sources */,
 				DA4FDE7F09B38A1F00D16517 /* DBSystem.Drawing.Size.m in Sources */,
 				AB99495C18B625C800FAC62D /* System.Class.m in Sources */,
 				9DA8F08E09EF2BE0000EE2DE /* DBSystem.Array.m in Sources */,

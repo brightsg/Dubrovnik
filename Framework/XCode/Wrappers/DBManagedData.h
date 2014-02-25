@@ -1,5 +1,5 @@
 //
-//  DBWrappedData.h
+//  DBManagedData.h
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 1/11/06.
@@ -21,7 +21,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-@interface DBWrappedData : NSData
+@interface DBManagedData : NSData
 
 - (id)initWithMonoArray:(MonoArray *)monoArray;
 

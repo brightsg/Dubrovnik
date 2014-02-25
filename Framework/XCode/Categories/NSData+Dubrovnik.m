@@ -22,21 +22,21 @@
 
 #import "NSData+Dubrovnik.h"
 #import "DBMonoIncludes.h"
-#import "DBWrappedData.h"
+#import "DBManagedData.h"
 #import "DBInvoke.h"
 
 @implementation NSData (Dubrovnik)
 
 + (id)dataWithMonoArray:(MonoArray *)monoArray {
 
-	DBWrappedData *wrappedData = [[DBWrappedData alloc] initWithMonoArray:monoArray];
+	DBManagedData *wrappedData = [[DBManagedData alloc] initWithMonoArray:monoArray];
 	
 	return(wrappedData);	
 }
 
 - (id)initWithMonoArray:(MonoArray *)monoArray {
 	if(self) {
-		self = [[DBWrappedData alloc] initWithMonoArray:monoArray];
+		self = [[DBManagedData alloc] initWithMonoArray:monoArray];
 	}
 	
 	return(self);	
