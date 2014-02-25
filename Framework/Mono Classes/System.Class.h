@@ -6,8 +6,8 @@
 //
 //
 
-#import "DBObject.h"
+#import "DBManagedObject.h"
 
-@interface System_Class : DBObject
+@interface System_Class : DBManagedObject
 
 @end

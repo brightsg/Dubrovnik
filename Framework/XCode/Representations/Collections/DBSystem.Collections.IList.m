@@ -79,7 +79,7 @@
 	}
 }
 
-- (void)setObjectAtIndex:(int)index object:(DBObject *)object {
+- (void)setObjectAtIndex:(int)index object:(DBManagedObject *)object {
 	[self setMonoObject:[object monoObject] forIndexObject:&index];
 }
 

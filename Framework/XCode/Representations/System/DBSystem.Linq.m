@@ -8,18 +8,18 @@
 
 #import "DBSystem.Linq.h"
 #import "DBMethod.h"
-#import "DBObject.h"
+#import "DBManagedObject.h"
 #import "DBSystem.Collections.IList.h"
 #import "DBTypeManager.h"
 
 @implementation DBSystem_Linq
 
-+ (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep
++ (DBSystem_Collections_IList *)toList:(DBManagedObject <Interface_IEnumerable_T> *)monoRep
 {
     return [self toList:monoRep genericTypeIndex:0];
 }
 
-+ (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep genericTypeIndex:(NSUInteger)typeIndex
++ (DBSystem_Collections_IList *)toList:(DBManagedObject <Interface_IEnumerable_T> *)monoRep genericTypeIndex:(NSUInteger)typeIndex
 {
     // NOTE: perhaps a C# helper method could achieve this more simply.
     

@@ -8,13 +8,13 @@
 
 #import "System.Linq.h"
 
-@class DBObject;
+@class DBManagedObject;
 @class DBSystem_Collections_IList;
 
 @protocol Interface_IEnumerable_T;
 
 @interface DBSystem_Linq : System_Linq
 
-+ (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep;
-+ (DBSystem_Collections_IList *)toList:(DBObject <Interface_IEnumerable_T> *)monoRep genericTypeIndex:(NSUInteger)typeIndex;
++ (DBSystem_Collections_IList *)toList:(DBManagedObject <Interface_IEnumerable_T> *)monoRep;
++ (DBSystem_Collections_IList *)toList:(DBManagedObject <Interface_IEnumerable_T> *)monoRep genericTypeIndex:(NSUInteger)typeIndex;
 @end

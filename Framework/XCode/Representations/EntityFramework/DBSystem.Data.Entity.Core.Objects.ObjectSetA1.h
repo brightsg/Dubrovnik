@@ -11,16 +11,16 @@
 
 @class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1;
 @class DBSystem_Collections_IList;
-@class DBObject;
+@class DBManagedObject;
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1 : DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
 
 
 + (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
 
-- (void)addObject:(DBObject *)object;
-- (void)deleteObject:(DBObject *)object;
-- (DBObject *)createObject;
+- (void)addObject:(DBManagedObject *)object;
+- (void)deleteObject:(DBManagedObject *)object;
+- (DBManagedObject *)createObject;
 
 
 @end

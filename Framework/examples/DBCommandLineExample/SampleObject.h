@@ -31,7 +31,7 @@
 
 
 // When creating a Dubrovnik wrapper for a Mono object, subclass from DBMonoObjectRepresentation
-@interface SampleObject : DBObject {
+@interface SampleObject : DBManagedObject {
 }
 
 + (SampleObject*)sampleObjectWithMagicNumber:(int32_t)magicNumber specialString:(NSString*)specialString;

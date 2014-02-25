@@ -20,9 +20,9 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBObject.h"
+#import "DBManagedObject.h"
 
-@interface DBSystem_Collections_IList : DBObject {
+@interface DBSystem_Collections_IList : DBManagedObject {
 	@protected
 }
 
@@ -34,7 +34,7 @@
 
 //Wrapped Indexer Access
 - (id)objectAtIndex:(NSUInteger)index;
-- (void)setObjectAtIndex:(int)index object:(DBObject *)object;
+- (void)setObjectAtIndex:(int)index object:(DBManagedObject *)object;
 
 //.NET IList wrapperstuff
 //properties

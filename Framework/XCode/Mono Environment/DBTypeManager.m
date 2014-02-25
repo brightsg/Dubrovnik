@@ -7,7 +7,7 @@
 //
 
 #import "DBTypeManager.h"
-#import "DBObject.h"
+#import "DBManagedObject.h"
 #import "DBManagedNumber.h"
 #import "DBBoxing.h"
 #import "DBInvoke.h"
@@ -468,7 +468,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
     }
     
     // determine the best subclass to represent the mono object
-    Class bestClass = [DBObject class];
+    Class bestClass = [DBManagedObject class];
     
     // instantiate an instance of the best class
     id object = [[bestClass alloc] initWithMonoObject:obj];

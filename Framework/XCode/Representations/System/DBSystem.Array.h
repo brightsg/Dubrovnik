@@ -47,7 +47,7 @@
 
 //Wrapped Access
 - (id)objectAtIndex:(NSUInteger)index;
-- (void)setObjectAtIndex:(uint32_t)index object:(DBObject *)object;
+- (void)setObjectAtIndex:(uint32_t)index object:(DBManagedObject *)object;
 
 //
 // Numeric convenience accessors

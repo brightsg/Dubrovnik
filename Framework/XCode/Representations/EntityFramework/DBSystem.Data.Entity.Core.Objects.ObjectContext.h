@@ -14,7 +14,7 @@
 @interface DBSystem_Data_Entity_Core_Objects_ObjectContext : System_Data_Entity_Core_Objects_ObjectContext
 
 - (int32_t)saveChanges;
-- (void)deleteObject:(DBObject *)object;
+- (void)deleteObject:(DBManagedObject *)object;
 
 /*!
  

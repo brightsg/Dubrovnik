@@ -36,14 +36,14 @@
 + (uint32_t)convertMonoObjectToUInt32:(MonoObject *)monoObject;
 + (uint64_t)convertMonoObjectToUInt64:(MonoObject *)monoObject;
 
-+ (int8_t)convertToInt8:(DBObject *)objRep;
-+ (int16_t)convertToInt16:(DBObject *)objRep;
-+ (int32_t)convertToInt32:(DBObject *)objRep;
-+ (int64_t)convertToInt64:(DBObject *)objRep;
++ (int8_t)convertToInt8:(DBManagedObject *)objRep;
++ (int16_t)convertToInt16:(DBManagedObject *)objRep;
++ (int32_t)convertToInt32:(DBManagedObject *)objRep;
++ (int64_t)convertToInt64:(DBManagedObject *)objRep;
 
-+ (uint8_t)convertToUInt8:(DBObject *)objRep;
-+ (uint16_t)convertToUInt16:(DBObject *)objRep;
-+ (uint32_t)convertToUInt32:(DBObject *)objRep;
-+ (uint64_t)convertToUInt64:(DBObject *)objRep;
++ (uint8_t)convertToUInt8:(DBManagedObject *)objRep;
++ (uint16_t)convertToUInt16:(DBManagedObject *)objRep;
++ (uint32_t)convertToUInt32:(DBManagedObject *)objRep;
++ (uint64_t)convertToUInt64:(DBManagedObject *)objRep;
 
 @end

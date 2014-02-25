@@ -21,7 +21,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import "DBManagedString.h"
-#import "DBObject.h"
+#import "DBManagedObject.h"
 
 @interface DBManagedString()
 @property (assign) MonoString *monoString;

@@ -234,7 +234,7 @@
 - (DBSystem_Array *)int64Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int64Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBManagedObject class]];
 }
 - (void)setInt64Array:(DBSystem_Array *)array
 {
@@ -244,7 +244,7 @@
 - (DBSystem_Array *)int32Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int32Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBManagedObject class]];
 }
 - (void)setInt32Array:(DBSystem_Array *)array
 {
@@ -254,13 +254,13 @@
 - (DBSystem_Array *)int16Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int16Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBManagedObject class]];
 }
 
 - (DBSystem_Array *)floatArray
 {
     MonoObject * monoObject = [self getMonoProperty:"FloatArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBManagedObject class]];
 }
 - (void)setFloatArray:(DBSystem_Array *)array
 {
@@ -270,7 +270,7 @@
 - (DBSystem_Array *)doubleArray
 {
     MonoObject * monoObject = [self getMonoProperty:"DoubleArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBManagedObject class]];
 }
 - (void)setDoubleArray:(DBSystem_Array *)array
 {
@@ -280,7 +280,7 @@
 - (DBSystem_Array *)boolArray
 {
     MonoObject * monoObject = [self getMonoProperty:"BoolArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBObject class]];
+    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject withItemClass:[DBManagedObject class]];
 }
 - (DBSystem_Array *)stringArray
 {
@@ -362,7 +362,7 @@
 {
     MonoObject * monoObject = [self getMonoProperty:"StringObjectDictionary"];
     DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSString class]];
-    dict.monoGenericTypeArgumentNames = @"NSString,DBObject";
+    dict.monoGenericTypeArgumentNames = @"NSString,DBManagedObject";
     return dict;
 }
 
@@ -406,7 +406,7 @@
     return value;
 }
 
-- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBObject *)p2
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2
 {
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];

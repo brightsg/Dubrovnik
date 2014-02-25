@@ -94,51 +94,51 @@ static DBClass *_classRep = nil;
 }
 
 #pragma mark -
-#pragma mark DBObject conversion
+#pragma mark DBManagedObject conversion
 
-+ (int8_t)convertToInt8:(DBObject *)objRep {
++ (int8_t)convertToInt8:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToSByte(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_INT8(boxedValue));
 }
 
-+ (int16_t)convertToInt16:(DBObject *)objRep {
++ (int16_t)convertToInt16:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToInt16(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_INT16(boxedValue));
 }
 
-+ (int32_t)convertToInt32:(DBObject *)objRep {
++ (int32_t)convertToInt32:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToInt32(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_INT32(boxedValue));
 }
 
-+ (int64_t)convertToInt64:(DBObject *)objRep {
++ (int64_t)convertToInt64:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToInt64(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_INT64(boxedValue));
 }
 
-+ (uint8_t)convertToUInt8:(DBObject *)objRep {
++ (uint8_t)convertToUInt8:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToByte(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_UINT8(boxedValue));
 }
 
-+ (uint16_t)convertToUInt16:(DBObject *)objRep {
++ (uint16_t)convertToUInt16:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToUInt16(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_UINT16(boxedValue));
 }
 
-+ (uint32_t)convertToUInt32:(DBObject *)objRep {
++ (uint32_t)convertToUInt32:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToUInt32(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_UINT32(boxedValue));
 }
 
-+ (uint64_t)convertToUInt64:(DBObject *)objRep {
++ (uint64_t)convertToUInt64:(DBManagedObject *)objRep {
 	MonoObject *boxedValue = [[self classRep] invokeMonoMethod:"ToUInt64(object)" withNumArgs:1, [objRep monoObject]];
 	
 	return(DB_UNBOX_UINT64(boxedValue));

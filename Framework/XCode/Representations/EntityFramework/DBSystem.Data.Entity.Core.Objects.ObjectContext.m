@@ -27,7 +27,7 @@
     return "EntityFramework";
 }
 
-- (void)deleteObject:(DBObject *)object
+- (void)deleteObject:(DBManagedObject *)object
 {
     [self invokeMonoMethod:"DeleteObject(object)" withNumArgs:1, [object monoObject]];
 }
@@ -63,7 +63,7 @@
     
     // Wrap the query
     DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *objectQuery = [DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoQueryObject
-                                                                                                                withItemClass:[DBObject class]];
+                                                                                                                withItemClass:[DBManagedObject class]];
     objectQuery.monoGenericTypeArgumentNames = className;
     return objectQuery;
 }

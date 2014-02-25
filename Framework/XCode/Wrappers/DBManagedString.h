@@ -22,7 +22,7 @@
 //
 #import <Cocoa/Cocoa.h>
 #import "DBMonoIncludes.h"
-@class DBObject;
+@class DBManagedObject;
 
 @interface DBManagedString : NSString
 

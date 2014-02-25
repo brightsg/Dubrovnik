@@ -142,7 +142,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *dateString = [NSString stringWithMonoString:monoString];
     NSLog(@"NSDate date = %@ Mono DateTime = %@ ticks = %lld", dateNow, dateString, ticks);
     
-    //[DBObject logMonoClassInfo:mono_object_get_class(monoObject)];
+    //[DBManagedObject logMonoClassInfo:mono_object_get_class(monoObject)];
 }
 
 - (void)testNumberRepresentation
@@ -355,7 +355,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil(stringMethod2, DBUObjectIsNil);
     
     MonoString *monoString = mono_string_new(mono_domain_get(), "2");
-    DBObject *stringObj = [DBObject objectWithMonoObject:(MonoObject *)monoString];
+    DBManagedObject *stringObj = [DBManagedObject objectWithMonoObject:(MonoObject *)monoString];
     NSString *stringMethod3 = [refObject stringMethod_withS1String:@"1" s2Object:stringObj];
     STAssertNotNil(stringMethod3, DBUObjectIsNil);
     
@@ -758,9 +758,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [intIntDictA2 objectForKey:key];
     STAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
 
-    // key is a DBObject containing a boxed int
+    // key is a DBManagedObject containing a boxed int
     int intKey = [intIntDictKeys[1] intValue];
-    value = [intIntDictA2 objectForKey:[DBObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
+    value = [intIntDictA2 objectForKey:[DBManagedObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
     // key is a DSNumber representing an int

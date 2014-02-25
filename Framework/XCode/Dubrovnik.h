@@ -43,7 +43,7 @@
 
 // Mono representation
 #import "DBClass.h"
-#import "DBObject.h"
+#import "DBManagedObject.h"
 #import "DBMethod.h"
 
 // Mono classes

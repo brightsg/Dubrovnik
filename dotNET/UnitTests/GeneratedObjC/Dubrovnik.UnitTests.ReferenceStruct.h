@@ -2,7 +2,7 @@
 //
 // Managed struct : ReferenceStruct
 //
-@interface Dubrovnik_UnitTests_ReferenceStruct : DBObject
+@interface Dubrovnik_UnitTests_ReferenceStruct : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup

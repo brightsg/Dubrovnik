@@ -1,5 +1,5 @@
 //
-//  DBObject.h
+//  DBManagedObject.h
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -26,7 +26,7 @@ extern char DBCacheSuffixChar;
 
 @class DBMonoEnvironment, DBClass, DBMethod;
 
-@interface DBObject : NSObject <NSCopying>
+@interface DBManagedObject : NSObject <NSCopying>
 
 @property (strong, readonly) DBMonoEnvironment *monoEnvironment;
 @property (strong, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;

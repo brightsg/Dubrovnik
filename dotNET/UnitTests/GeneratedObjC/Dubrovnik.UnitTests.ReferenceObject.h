@@ -2,7 +2,7 @@
 //
 // Managed class : ReferenceObject
 //
-@interface Dubrovnik_UnitTests_ReferenceObject : DBObject
+@interface Dubrovnik_UnitTests_ReferenceObject : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -238,7 +238,7 @@
 	// Managed method name : StringMethod
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBObject *)p2;
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2;
 
 	// Managed method name : Sum
 	// Managed return type : System.Int64

@@ -1,5 +1,5 @@
 //
-//  DBObject.m
+//  DBManagedObject.m
 //  Dubrovnik
 //
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -20,7 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import <Cocoa/Cocoa.h>
-#import "DBObject.h"
+#import "DBManagedObject.h"
 #import "DBMonoEnvironment.h"
 #import "DBClass.h"
 #import "DBInvoke.h"
@@ -29,7 +29,7 @@
 #import "DBMethod.h"
 #import "DBSystem.Convert.h"
 
-@interface DBObject()
+@interface DBManagedObject()
 
 @property (strong, readwrite) DBMonoEnvironment *monoEnvironment;
 @property (assign) MonoObject *monoObj;
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation DBObject
+@implementation DBManagedObject
 
 #pragma mark -
 #pragma mark class methods for overriding
@@ -49,7 +49,7 @@
 //
 + (const char *)monoAssemblyName
 {
-        @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class must provide a value for +[DBObject monoAssemblyName]" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class must provide a value for +[DBManagedObject monoAssemblyName]" userInfo:nil]);
 }
 
 //
@@ -60,7 +60,7 @@
 
 + (const char *)monoClassName
 {
-    @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class must provide a value for +[DBObject monoClassName]" userInfo:nil]);
+    @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class must provide a value for +[DBManagedObject monoClassName]" userInfo:nil]);
 }
 
 #pragma mark -
@@ -80,7 +80,7 @@
 }
 
 + (instancetype)objectWithMonoObject:(MonoObject *)obj {
-	DBObject *rep = [[[self class] alloc] initWithMonoObject:obj];
+	DBManagedObject *rep = [[[self class] alloc] initWithMonoObject:obj];
 	return(rep);
 }
 
@@ -93,7 +93,7 @@
 	va_start(va_args, numArgs);
 	
 	MonoObject *newObject = DBMonoObjectVarArgsConstruct(monoClass, numArgs, va_args);
-	DBObject *rep = [class objectWithMonoObject:newObject];
+	DBManagedObject *rep = [class objectWithMonoObject:newObject];
 	
 	va_end(va_args);
 	

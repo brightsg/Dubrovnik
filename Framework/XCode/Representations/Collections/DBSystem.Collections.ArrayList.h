@@ -26,6 +26,6 @@
 
 }
 
-- (void)sort:(DBObject *)comparer;
+- (void)sort:(DBManagedObject *)comparer;
 
 @end

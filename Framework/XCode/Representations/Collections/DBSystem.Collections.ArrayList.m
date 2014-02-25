@@ -34,7 +34,7 @@ static MonoClass *_monoClass = NULL;
 	return(_monoClass);
 }
 
-- (void)sort:(DBObject *)comparer {
+- (void)sort:(DBManagedObject *)comparer {
 	[self invokeMonoMethod:"Sort(IComparer)" withNumArgs:1, [comparer monoObject]];
 }
 

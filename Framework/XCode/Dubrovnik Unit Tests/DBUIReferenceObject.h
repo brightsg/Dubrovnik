@@ -6,9 +6,9 @@
 //
 //
 
-#import <Dubrovnik/DBObject.h>
+#import <Dubrovnik/DBManagedObject.h>
 
-@interface DBUIReferenceObject : DBObject
+@interface DBUIReferenceObject : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
