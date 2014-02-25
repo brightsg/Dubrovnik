@@ -20,7 +20,9 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "DBSystem.Convert.h"
+#import "DBManagedClass.h"
+#import "DBBoxing.h"
 
 static DBManagedClass *_classRep = nil;
 

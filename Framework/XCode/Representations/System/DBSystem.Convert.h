@@ -21,6 +21,7 @@
 //
 
 #import "System.Convert.h"
+#import "DBMonoIncludes.h"
 
 @interface DBSystem_Convert : System_Convert {
 

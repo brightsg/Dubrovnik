@@ -19,7 +19,9 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import <Cocoa/Cocoa.h>
+
+@class DBSystem_Collections_ArrayList, DBSystem_Array;
 
 @interface NSArray (Dubrovnik)
 

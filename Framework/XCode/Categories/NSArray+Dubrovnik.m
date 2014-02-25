@@ -20,6 +20,11 @@
 //
 
 #import "NSArray+Dubrovnik.h"
+#import "DBSystem.Collections.ArrayList.h"
+#import "DBSystem.Array.h"
+#import "DBMonoIncludes.h"
+#import "NSString+Dubrovnik.h"
+#import "DBTypeManager.h"
 
 @implementation NSArray (Dubrovnik)
 

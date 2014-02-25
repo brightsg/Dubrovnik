@@ -24,6 +24,7 @@
 //#define DB_INVOCATION_TRACE
 
 #import <pthread.h>
+#import "DBBoxing.h"
 
 // The 32 and 64 bit libs differ as the more modern 64 bit source
 // won't build in 64 bit
