@@ -9,25 +9,25 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@class DBNumber;
+@class DBManagedNumber;
 
 @interface NSNumber (Dubrovnik)
 + (id)objectWithMonoObject:(MonoObject *)monoObject;
 + (id)numberWithMonoObject:(MonoObject *)monoObject;
 
-- (DBNumber *)dbNumberFromCharValue;
-- (DBNumber *)dbNumberFromUnsignedCharValue;
-- (DBNumber *)dbNumberFromShortValue;
-- (DBNumber *)dbNumberFromUnsignedShortValue;
-- (DBNumber *)dbNumberFromIntValue;
-- (DBNumber *)dbNumberFromUnsignedIntValue;
-- (DBNumber *)dbNumberFromLongValue;
-- (DBNumber *)dbNumberFromUnsignedLongValue;
-- (DBNumber *)dbNumberFromLongLongValue;
-- (DBNumber *)dbNumberFromUnsignedLongLongValue;
-- (DBNumber *)dbNumberFromFloatValue;
-- (DBNumber *)dbNumberFromDoubleValue;
-- (DBNumber *)dbNumberFromIntegerValue;
-- (DBNumber *)dbNumberFromUnsignedIntegerValue;
+- (DBManagedNumber *)managedNumberFromCharValue;
+- (DBManagedNumber *)managedNumberFromUnsignedCharValue;
+- (DBManagedNumber *)managedNumberFromShortValue;
+- (DBManagedNumber *)managedNumberFromUnsignedShortValue;
+- (DBManagedNumber *)managedNumberFromIntValue;
+- (DBManagedNumber *)managedNumberFromUnsignedIntValue;
+- (DBManagedNumber *)managedNumberFromLongValue;
+- (DBManagedNumber *)managedNumberFromUnsignedLongValue;
+- (DBManagedNumber *)managedNumberFromLongLongValue;
+- (DBManagedNumber *)managedNumberFromUnsignedLongLongValue;
+- (DBManagedNumber *)managedNumberFromFloatValue;
+- (DBManagedNumber *)managedNumberFromDoubleValue;
+- (DBManagedNumber *)managedNumberFromIntegerValue;
+- (DBManagedNumber *)managedNumberFromUnsignedIntegerValue;
 
 @end

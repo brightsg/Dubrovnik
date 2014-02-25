@@ -148,37 +148,37 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)testNumberRepresentation
 {
     // test
-    DBNumber *n1 = [@((int)1) dbNumberFromIntValue];
+    DBManagedNumber *n1 = [@((int)1) managedNumberFromIntValue];
     STAssertTrue(*(int *)[n1 valuePointer] == 1, DBUEqualityTestFailed);
     STAssertTrue([n1 valuePointer] == [n1 valuePointer], DBUEqualityTestFailed);
     STAssertTrue(*(int *)[n1 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
     // basic equality
-    DBNumber *n2 = [DBNumber dbNumberWithInt:1];
+    DBManagedNumber *n2 = [DBManagedNumber managedNumberWithInt:1];
     STAssertTrue(*(int *)[n2 valuePointer] == 1, DBUEqualityTestFailed);
     STAssertTrue(*(int *)[n2 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
     // create int from MonoObject
     int intValue = 10289;
-    DBNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
+    DBManagedNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
     STAssertTrue(strcmp([nInt objCType], @encode(int)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(int *)[nInt valuePointer] == intValue, DBUEqualityTestFailed);
     
     // create long long from MonoObject
     long long longLongValue = LONG_LONG_MAX;
-    DBNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
+    DBManagedNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
     STAssertTrue(strcmp([nLongLong objCType], @encode(long long)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(long long *)[nLongLong valuePointer] == longLongValue, DBUEqualityTestFailed);
 
     // create double from MonoObject
     double doubleValue = 13245456.;
-    DBNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
+    DBManagedNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
     STAssertTrue(strcmp([nDouble objCType], @encode(double)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(double *)[nDouble valuePointer] == doubleValue, DBUEqualityTestFailed);
     
-    // test DBNumber
-    DBNumber *dn = [[DBNumber alloc] initWithInt:100];
-    DBNumber *dn1 = [DBNumber dbNumberWithInt:100];
+    // test DBManagedNumber
+    DBManagedNumber *dn = [[DBManagedNumber alloc] initWithInt:100];
+    DBManagedNumber *dn1 = [DBManagedNumber managedNumberWithInt:100];
     STAssertTrue([[dn stringValue] isEqualToString:@"100"], DBUEqualityTestFailed);
     
     // test NSNumber methods
@@ -764,7 +764,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
     // key is a DSNumber representing an int
-    value = [intIntDictA2 objectForKey:[DBNumber numberWithInt:intKey]];
+    value = [intIntDictA2 objectForKey:[DBManagedNumber numberWithInt:intKey]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
 
     // object for key requires a type that represnts a mono type
@@ -780,7 +780,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
 
     // key is a literal number representing an int
-    NSNumber *literalNumberKey = [@((int)intKey) dbNumberFromIntValue];
+    NSNumber *literalNumberKey = [@((int)intKey) managedNumberFromIntValue];
     const char *typeEncoding = [literalNumberKey objCType];
     STAssertTrue(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
     value = [intIntDictA2 objectForKey:literalNumberKey];
@@ -828,10 +828,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // STAssertTrue([objectObjectDictValues count] == 5, DBUCountTestFailed);
     
 
-    value = [objectObjectDictA2 objectForKey:[DBNumber numberWithInt:1]];
+    value = [objectObjectDictA2 objectForKey:[DBManagedNumber numberWithInt:1]];
     STAssertTrue([value intValue] == 8, DBUEqualityTestFailed);
     
-    value = [objectObjectDictA2 objectForKey:[@((float)1) dbNumberFromFloatValue]];
+    value = [objectObjectDictA2 objectForKey:[@((float)1) managedNumberFromFloatValue]];
     STAssertNotNil(value, DBUObjectIsNil);
     STAssertTrue([value rangeOfString:DBUTestString].location != NSNotFound, DBUSubstringTestFailed);
     

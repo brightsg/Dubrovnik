@@ -8,7 +8,7 @@
 
 #import "DBTypeManager.h"
 #import "DBObject.h"
-#import "DBNumber.h"
+#import "DBManagedNumber.h"
 #import "DBBoxing.h"
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
@@ -324,68 +324,68 @@ NSString * DBType_System_Exception =  @"System.Exception";
             
             case DBTypeID_System_Boolean:
             {
-                object = [DBNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
+                object = [DBManagedNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Byte:
             case DBTypeID_System_Char:
             {
-                object = [DBNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
+                object = [DBManagedNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
                 break;
             }
 
             case DBTypeID_System_SByte:
             {
-                object = [DBNumber numberWithChar:DB_UNBOX_INT8(monoObject)];
+                object = [DBManagedNumber numberWithChar:DB_UNBOX_INT8(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Int16:
             {
-                object = [DBNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
+                object = [DBManagedNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
                 break;
             }
 
             case DBTypeID_System_UInt16:
             {
-                object = [DBNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
+                object = [DBManagedNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Int32:
             {
-                object = [DBNumber numberWithInt:DB_UNBOX_INT32(monoObject)];
+                object = [DBManagedNumber numberWithInt:DB_UNBOX_INT32(monoObject)];
                 break;
             }
 
             case DBTypeID_System_UInt32:
             {
-                object = [DBNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
+                object = [DBManagedNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Int64:
             {
-                object = [DBNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
+                object = [DBManagedNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
                 break;
             }
                 
             case DBTypeID_System_UInt64:
             {
-                object = [DBNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
+                object = [DBManagedNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Single:
             {
-                object = [DBNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
+                object = [DBManagedNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
                 break;
             }
 
             case DBTypeID_System_Double:
             {
-                object = [DBNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
+                object = [DBManagedNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
                 break;
             }
 

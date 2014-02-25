@@ -1,12 +1,12 @@
 //
-//  DBNumber.m
+//  DBManagedNumber.m
 //  Dubrovnik
 //
 //  Created by Jonathan Mitchell on 24/02/2014.
 //
 //
 
-#import "DBNumber.h"
+#import "DBManagedNumber.h"
 #import "DBBoxing.h"
 
 #define DB_INIT_INSTANCE \
@@ -15,23 +15,23 @@ if (self) { self.monoObjCType = @encode(typeof(value)); self.number = @(value);}
 return self;
 
 
-typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
-    DBNumberTypeBool,
-    DBNumberTypeChar,
-    DBNumberTypeUnsignedChar,
-    DBNumberTypeShort,
-    DBNumberTypeUnsignedShort,
-    DBNumberTypeInt,
-    DBNumberTypeUnsignedInt,
-    DBNumberTypeLong,
-    DBNumberTypeUnsignedLong,
-    DBNumberTypeLongLong,
-    DBNumberTypeUnsignedLongLong,
-    DBNumberTypeFloat,
-    DBNumberTypeDouble,
+typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
+    DBManagedNumberTypeBool,
+    DBManagedNumberTypeChar,
+    DBManagedNumberTypeUnsignedChar,
+    DBManagedNumberTypeShort,
+    DBManagedNumberTypeUnsignedShort,
+    DBManagedNumberTypeInt,
+    DBManagedNumberTypeUnsignedInt,
+    DBManagedNumberTypeLong,
+    DBManagedNumberTypeUnsignedLong,
+    DBManagedNumberTypeLongLong,
+    DBManagedNumberTypeUnsignedLongLong,
+    DBManagedNumberTypeFloat,
+    DBManagedNumberTypeDouble,
 };
 
-@interface DBNumber()
+@interface DBManagedNumber()
 @property (strong) NSNumber *number;
 @property (strong) NSData *valueData;
 @property (assign, nonatomic, readwrite) const char *monoObjCType;
@@ -39,82 +39,82 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 @property (assign) uint32_t gcHandle;
 @end
 
-@implementation DBNumber
+@implementation DBManagedNumber
 
 #pragma mark +
 #pragma mark Factory
 
-+ (instancetype)dbNumberWithChar:(char)value
++ (instancetype)managedNumberWithChar:(char)value
 {
     return [[self alloc] initWithChar:value];
 }
 
-+ (instancetype)dbNumberWithUnsignedChar:(unsigned char)value
++ (instancetype)managedNumberWithUnsignedChar:(unsigned char)value
 {
     return [[self alloc] initWithUnsignedChar:value];
 }
 
-+ (instancetype)dbNumberWithShort:(short)value
++ (instancetype)managedNumberWithShort:(short)value
 {
     return [[self alloc] initWithShort:value];
 }
 
-+ (instancetype)dbNumberWithUnsignedShort:(unsigned short)value
++ (instancetype)managedNumberWithUnsignedShort:(unsigned short)value
 {
     return [[self alloc] initWithUnsignedShort:value];
 }
 
-+ (instancetype)dbNumberWithInt:(int)value
++ (instancetype)managedNumberWithInt:(int)value
 {
     return [[self alloc] initWithInt:value];
 }
 
-+ (instancetype)dbNumberWithUnsignedInt:(unsigned int)value
++ (instancetype)managedNumberWithUnsignedInt:(unsigned int)value
 {
     return [[self alloc] initWithUnsignedInt:value];
 }
 
-+ (instancetype)dbNumberWithLong:(long)value
++ (instancetype)managedNumberWithLong:(long)value
 {
     return [[self alloc] initWithLong:value];
 }
 
-+ (instancetype)dbNumberWithUnsignedLong:(unsigned long)value
++ (instancetype)managedNumberWithUnsignedLong:(unsigned long)value
 {
     return [[self alloc] initWithUnsignedLong:value];
 }
 
-+ (instancetype)dbNumberWithLongLong:(long long)value
++ (instancetype)managedNumberWithLongLong:(long long)value
 {
     return [[self alloc] initWithLongLong:value];
 }
 
-+ (instancetype)dbNumberWithUnsignedLongLong:(unsigned long long)value
++ (instancetype)managedNumberWithUnsignedLongLong:(unsigned long long)value
 {
     return [[self alloc] initWithUnsignedLongLong:value];
 }
 
-+ (instancetype)dbNumberWithFloat:(float)value
++ (instancetype)managedNumberWithFloat:(float)value
 {
     return [[self alloc] initWithFloat:value];
 }
 
-+ (instancetype)dbNumberWithDouble:(double)value
++ (instancetype)managedNumberWithDouble:(double)value
 {
     return [[self alloc] initWithDouble:value];
 }
 
-+ (instancetype)dbNumberWithBool:(BOOL)value
++ (instancetype)managedNumberWithBool:(BOOL)value
 {
     return [[self alloc] initWithBool:value];
 }
 
-+ (instancetype)dbNumberWithInteger:(NSInteger)value
++ (instancetype)managedNumberWithInteger:(NSInteger)value
 {
     return [[self alloc] initWithInteger:value];
 }
 
-+ (instancetype)dbNumberWithUnsignedInteger:(NSUInteger)value
++ (instancetype)managedNumberWithUnsignedInteger:(NSUInteger)value
 {
     return [[self alloc] initWithUnsignedInteger:value];
 }
@@ -127,25 +127,25 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     static NSDictionary *dict = nil;
     if (!dict) {
         dict = @{
-                   @(@encode(BOOL)): @(DBNumberTypeBool),
-                   @(@encode(char)): @(DBNumberTypeChar),
-                   @(@encode(unsigned char)): @(DBNumberTypeUnsignedChar),
-                   @(@encode(short)): @(DBNumberTypeShort),
-                   @(@encode(unsigned short)): @(DBNumberTypeUnsignedShort),
-                   @(@encode(int)): @(DBNumberTypeInt),
-                   @(@encode(unsigned int)): @(DBNumberTypeUnsignedInt),
-                   @(@encode(long)): @(DBNumberTypeLong),
-                   @(@encode(unsigned long)): @(DBNumberTypeUnsignedLong),
-                   @(@encode(long long)): @(DBNumberTypeLongLong),
-                   @(@encode(unsigned long long)): @(DBNumberTypeUnsignedLongLong),
-                   @(@encode(float)): @(DBNumberTypeFloat),
-                   @(@encode(double)): @(DBNumberTypeDouble),
+                   @(@encode(BOOL)): @(DBManagedNumberTypeBool),
+                   @(@encode(char)): @(DBManagedNumberTypeChar),
+                   @(@encode(unsigned char)): @(DBManagedNumberTypeUnsignedChar),
+                   @(@encode(short)): @(DBManagedNumberTypeShort),
+                   @(@encode(unsigned short)): @(DBManagedNumberTypeUnsignedShort),
+                   @(@encode(int)): @(DBManagedNumberTypeInt),
+                   @(@encode(unsigned int)): @(DBManagedNumberTypeUnsignedInt),
+                   @(@encode(long)): @(DBManagedNumberTypeLong),
+                   @(@encode(unsigned long)): @(DBManagedNumberTypeUnsignedLong),
+                   @(@encode(long long)): @(DBManagedNumberTypeLongLong),
+                   @(@encode(unsigned long long)): @(DBManagedNumberTypeUnsignedLongLong),
+                   @(@encode(float)): @(DBManagedNumberTypeFloat),
+                   @(@encode(double)): @(DBManagedNumberTypeDouble),
                 };
     }
     return dict;
 }
 
-+ (DBNumberTypeID)numberTypeIDForTypeName:(NSString *)typeName
++ (DBManagedNumberTypeID)numberTypeIDForTypeName:(NSString *)typeName
 {
     NSNumber *typeID = [self typeIndexDictionary][typeName];
     if (!typeID) {
@@ -351,11 +351,11 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
         void *valuePtr = NULL;
         
         // get type identifier
-        DBNumberTypeID typeID = [[self class] numberTypeIDForTypeName:self.typeName];
+        DBManagedNumberTypeID typeID = [[self class] numberTypeIDForTypeName:self.typeName];
         
         switch (typeID) {
                 
-            case DBNumberTypeBool:
+            case DBManagedNumberTypeBool:
             {
                 BOOL value = [self boolValue];
                 valuePtr = &value;
@@ -363,7 +363,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeChar:
+            case DBManagedNumberTypeChar:
             {
                 char value = [self charValue];
                 valuePtr = &value;
@@ -371,7 +371,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedChar:
+            case DBManagedNumberTypeUnsignedChar:
             {
                 unsigned char value = [self unsignedCharValue];
                 valuePtr = &value;
@@ -379,7 +379,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeShort:
+            case DBManagedNumberTypeShort:
             {
                 short value = [self shortValue];
                 valuePtr = &value;
@@ -387,7 +387,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedShort:
+            case DBManagedNumberTypeUnsignedShort:
             {
                 unsigned short value = [self unsignedShortValue];
                 valuePtr = &value;
@@ -395,7 +395,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeInt:
+            case DBManagedNumberTypeInt:
             {
                 int value = [self intValue];
                 valuePtr = &value;
@@ -403,7 +403,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedInt:
+            case DBManagedNumberTypeUnsignedInt:
             {
                 unsigned int value = [self unsignedIntValue];
                 valuePtr = &value;
@@ -411,7 +411,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeLong:
+            case DBManagedNumberTypeLong:
             {
                 long value = [self longValue];
                 valuePtr = &value;
@@ -419,7 +419,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedLong:
+            case DBManagedNumberTypeUnsignedLong:
             {
                 unsigned long value = [self unsignedLongValue];
                 valuePtr = &value;
@@ -427,7 +427,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeLongLong:
+            case DBManagedNumberTypeLongLong:
             {
                 long long value = [self longLongValue];
                 valuePtr = &value;
@@ -435,7 +435,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedLongLong:
+            case DBManagedNumberTypeUnsignedLongLong:
             {
                 unsigned long long value = [self unsignedLongLongValue];
                 valuePtr = &value;
@@ -443,7 +443,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeFloat:
+            case DBManagedNumberTypeFloat:
             {
                 float value = [self floatValue];
                 valuePtr = &value;
@@ -451,7 +451,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeDouble:
+            case DBManagedNumberTypeDouble:
             {
                 double value = [self doubleValue];
                 valuePtr = &value;
@@ -486,11 +486,11 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 {
     if (!_monoObject) {
     
-        DBNumberTypeID typeID = [[self class] numberTypeIDForTypeName:self.typeName];
+        DBManagedNumberTypeID typeID = [[self class] numberTypeIDForTypeName:self.typeName];
 
         switch (typeID) {
                 
-            case DBNumberTypeBool:
+            case DBManagedNumberTypeBool:
             {
                 BOOL value = [self boolValue];
                 self.monoObject = DB_BOX_BOOLEAN(value);
@@ -498,7 +498,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeChar:
+            case DBManagedNumberTypeChar:
             {
                 char value = [self charValue];
                 self.monoObject = DB_BOX_INT8(value);
@@ -506,7 +506,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedChar:
+            case DBManagedNumberTypeUnsignedChar:
             {
                 unsigned char value = [self unsignedCharValue];
                 self.monoObject = DB_BOX_UINT8(value);
@@ -514,7 +514,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeShort:
+            case DBManagedNumberTypeShort:
             {
                 short value = [self shortValue];
                 self.monoObject = DB_BOX_INT16(value);
@@ -522,7 +522,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedShort:
+            case DBManagedNumberTypeUnsignedShort:
             {
                 unsigned short value = [self unsignedShortValue];
                 self.monoObject = DB_BOX_UINT16(value);
@@ -530,7 +530,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeInt:
+            case DBManagedNumberTypeInt:
             {
                 int value = [self intValue];
                 self.monoObject = DB_BOX_INT32(value);
@@ -538,7 +538,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedInt:
+            case DBManagedNumberTypeUnsignedInt:
             {
                 unsigned int value = [self unsignedIntValue];
                 self.monoObject = DB_BOX_UINT32(value);
@@ -546,7 +546,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeLong:
+            case DBManagedNumberTypeLong:
             {
                 long value = [self longValue];
                 self.monoObject = DB_BOX_INT32(value);
@@ -554,7 +554,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedLong:
+            case DBManagedNumberTypeUnsignedLong:
             {
                 unsigned long value = [self unsignedLongValue];
                 self.monoObject = DB_BOX_UINT32(value);
@@ -562,7 +562,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeLongLong:
+            case DBManagedNumberTypeLongLong:
             {
                 long long value = [self longLongValue];
                 self.monoObject = DB_BOX_INT64(value);
@@ -570,7 +570,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeUnsignedLongLong:
+            case DBManagedNumberTypeUnsignedLongLong:
             {
                 unsigned long long value = [self unsignedLongLongValue];
                 self.monoObject = DB_BOX_UINT64(value);
@@ -578,7 +578,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
             
-            case DBNumberTypeFloat:
+            case DBManagedNumberTypeFloat:
             {
                 float value = [self floatValue];
                 self.monoObject = DB_BOX_FLOAT(value);
@@ -586,7 +586,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 break;
             }
                 
-            case DBNumberTypeDouble:
+            case DBManagedNumberTypeDouble:
             {
                 double value = [self doubleValue];
                 self.monoObject = DB_BOX_DOUBLE(value);
