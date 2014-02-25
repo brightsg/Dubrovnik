@@ -1,5 +1,5 @@
 //
-//  DBWrappedString.h
+//  DBManagedString.h
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 1/11/06.
@@ -24,7 +24,7 @@
 #import "DBMonoIncludes.h"
 @class DBObject;
 
-@interface DBWrappedString : NSString
+@interface DBManagedString : NSString
 
 - (id)initWithMonoString:(MonoString *)monoString;
 

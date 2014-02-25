@@ -22,5 +22,5 @@
 //
 
 #import "DBManagedData.h"
-#import "DBWrappedString.h"
+#import "DBManagedString.h"
 #import "DBManagedNumber.h"

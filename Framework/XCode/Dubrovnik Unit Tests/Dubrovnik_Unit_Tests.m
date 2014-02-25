@@ -193,7 +193,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)testStringRepresentation
 {
     NSString *string1 = @"I am the test string";
-    DBWrappedString *string2 = [DBWrappedString objectWithMonoObject:[string1 monoString]];
+    DBManagedString *string2 = [DBManagedString objectWithMonoObject:[string1 monoString]];
     STAssertTrue([string1 isEqualToString:string2], DBUEqualityTestFailed);
     
     // create string from mono object

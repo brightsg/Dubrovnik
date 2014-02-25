@@ -1,5 +1,5 @@
 //
-//  DBWrappedString.m
+//  DBManagedString.m
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 1/11/06.
@@ -20,16 +20,16 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "DBWrappedString.h"
+#import "DBManagedString.h"
 #import "DBObject.h"
 
-@interface DBWrappedString()
+@interface DBManagedString()
 @property (assign) MonoString *monoString;
 @property (assign) uint32_t gcHandle;
 @property (assign) int stringLength;
 @end
 
-@implementation DBWrappedString
+@implementation DBManagedString
 
 - (id)initWithMonoString:(MonoString *)monoString
 {
@@ -95,14 +95,14 @@
 
 - (id)copy
 {
-	DBWrappedString *copy = [[DBWrappedString alloc] initWithMonoString:self.monoString];
+	DBManagedString *copy = [[DBManagedString alloc] initWithMonoString:self.monoString];
 	
 	return(copy);
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-	DBWrappedString *copy = [[DBWrappedString allocWithZone:zone] initWithMonoString:self.monoString];
+	DBManagedString *copy = [[DBManagedString allocWithZone:zone] initWithMonoString:self.monoString];
 	
 	return(copy);
 }
