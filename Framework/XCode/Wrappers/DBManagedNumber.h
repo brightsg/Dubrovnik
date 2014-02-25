@@ -43,11 +43,13 @@
 
 /*!
  
+ TODO: these mono access methods should be defined in a protocol!
  
  */
 - (void *)monoValue;
+- (MonoObject *)monoObject;
 
-@property (assign, nonatomic, readonly) MonoObject *monoObject;
+@property (assign, nonatomic, readonly) MonoObject *representedMonoObject;
 @property (assign, nonatomic, readonly) const char *monoObjCType;
 
 @end

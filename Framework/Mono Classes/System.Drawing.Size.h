@@ -6,8 +6,8 @@
 //
 //
 
-#import "System.Class.h"
+#import "System.Object.h"
 
-@interface System_Drawing_Size : System_Class
+@interface System_Drawing_Size : System_Object
 
 @end

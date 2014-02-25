@@ -6,8 +6,8 @@
 //
 //
 
-#import "System.Class.h"
+#import "System.Object.h"
 
-@interface System_Linq : System_Class
+@interface System_Linq : System_Object
 
 @end

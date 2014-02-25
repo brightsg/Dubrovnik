@@ -22,12 +22,14 @@
 //
 
 #import "DBManagedData.h"
+#import "DBSystem.Array.h"
 
 @interface DBManagedData()
 @property (assign, readwrite) MonoArray *representedMonoArray;
 @property (assign) int32_t gcHandle;
 @property (assign) uintptr_t dataLength;
 @property (assign) const void *dataBytes;
+@property (strong) System_Array *forwardingTarget;
 @end
 
 @implementation DBManagedData
@@ -99,6 +101,20 @@
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Byte range beyond data bounds." userInfo:nil]);
 	
 	memcpy(buffer, self.dataBytes + range.location, range.length);
+}
+
+#pragma mark -
+#pragma mark Message forwarding
+
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+#pragma unused(aSelector)
+    
+    if (!self.forwardingTarget) {
+        self.forwardingTarget = [DBSystem_Array objectWithMonoObject:(MonoObject *)self.representedMonoArray];
+    }
+    
+    return self.forwardingTarget;
 }
 
 @end

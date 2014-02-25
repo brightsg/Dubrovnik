@@ -14,6 +14,14 @@
 
 @implementation NSNumber (Dubrovnik)
 
+/*
+ 
+ Note: We do not define -monoObject and -MonoValue methods for good reason ie:
+ we cannot rely on -objCType to accurately report the type used for initialisation.
+ 
+ Use DBManagedNumber explicitly.
+ 
+ */
 #pragma mark -
 #pragma mark - Factory
 

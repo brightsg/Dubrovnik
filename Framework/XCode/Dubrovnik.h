@@ -47,7 +47,7 @@
 #import "DBManagedMethod.h"
 
 // Mono classes
-#import "System.Class.h"
+#import "System.Object.h"
 
 // representation subclasses
 

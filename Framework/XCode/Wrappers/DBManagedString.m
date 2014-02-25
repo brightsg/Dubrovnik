@@ -22,11 +22,13 @@
 //
 #import "DBManagedString.h"
 #import "DBManagedObject.h"
+#import "System.String.h"
 
 @interface DBManagedString()
 @property (assign) MonoString *monoString;
 @property (assign) uint32_t gcHandle;
 @property (assign) int stringLength;
+@property (strong) System_String *forwardingTarget;
 @end
 
 @implementation DBManagedString
@@ -120,6 +122,20 @@
 	
 	unichar *stringCharacters = mono_string_chars(self.monoString);
 	memcpy(buffer, stringCharacters + range.location, (range.length * sizeof(unichar)));
+}
+
+#pragma mark -
+#pragma mark Message forwarding
+
+#warning implement protocol to support messaging System_string, or should it be DBSystem_String
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+#pragma unused(aSelector)
+    if (!self.forwardingTarget) {
+        self.forwardingTarget = [System_String objectWithMonoObject:(MonoObject *)self.representedMonoString];
+    }
+    
+    return self.forwardingTarget;
 }
 
 @end

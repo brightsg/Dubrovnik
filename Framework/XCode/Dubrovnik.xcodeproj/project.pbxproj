@@ -97,6 +97,8 @@
 		AB5D609017DDE2A000C53D7D /* DBSystem.Collections.Generic.ListA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5D608E17DDE2A000C53D7D /* DBSystem.Collections.Generic.ListA1.m */; };
 		AB5D609317DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D609117DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB5D609417DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5D609217DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.m */; };
+		AB79217F18BD0D5E005D3DC0 /* System.String.h in Headers */ = {isa = PBXBuildFile; fileRef = AB79217D18BD0D5E005D3DC0 /* System.String.h */; };
+		AB79218018BD0D5E005D3DC0 /* System.String.m in Sources */ = {isa = PBXBuildFile; fileRef = AB79217E18BD0D5E005D3DC0 /* System.String.m */; };
 		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -104,8 +106,8 @@
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
 		AB99495118B3693F00FAC62D /* DBSystem.Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = AB99494F18B3693F00FAC62D /* DBSystem.Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB99495218B3693F00FAC62D /* DBSystem.Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = AB99495018B3693F00FAC62D /* DBSystem.Linq.m */; };
-		AB99495B18B625C800FAC62D /* System.Class.h in Headers */ = {isa = PBXBuildFile; fileRef = AB99495918B625C800FAC62D /* System.Class.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB99495C18B625C800FAC62D /* System.Class.m in Sources */ = {isa = PBXBuildFile; fileRef = AB99495A18B625C800FAC62D /* System.Class.m */; };
+		AB99495B18B625C800FAC62D /* System.Object.h in Headers */ = {isa = PBXBuildFile; fileRef = AB99495918B625C800FAC62D /* System.Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB99495C18B625C800FAC62D /* System..Object.m in Sources */ = {isa = PBXBuildFile; fileRef = AB99495A18B625C800FAC62D /* System..Object.m */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
@@ -252,6 +254,8 @@
 		AB5D608E17DDE2A000C53D7D /* DBSystem.Collections.Generic.ListA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Collections.Generic.ListA1.m; sourceTree = "<group>"; };
 		AB5D609117DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Collections.Generic.DictionaryA2.h; sourceTree = "<group>"; };
 		AB5D609217DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Collections.Generic.DictionaryA2.m; sourceTree = "<group>"; };
+		AB79217D18BD0D5E005D3DC0 /* System.String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.String.h; sourceTree = "<group>"; };
+		AB79217E18BD0D5E005D3DC0 /* System.String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.String.m; sourceTree = "<group>"; };
 		AB81D5C117D7B1B6007214E1 /* DBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBType.h; path = "Mono Environment/DBType.h"; sourceTree = "<group>"; };
 		AB81D5C217D7B1B6007214E1 /* DBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBType.m; path = "Mono Environment/DBType.m"; sourceTree = "<group>"; };
 		AB81D5C517D7B380007214E1 /* DBTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBTypeManager.h; path = "Mono Environment/DBTypeManager.h"; sourceTree = "<group>"; };
@@ -266,8 +270,8 @@
 		AB99495518B36C5500FAC62D /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
 		AB99495618B36C7C00FAC62D /* DBProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBProtocols.h; sourceTree = "<group>"; };
 		AB99495718B3F4D200FAC62D /* Interface_IList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
-		AB99495918B625C800FAC62D /* System.Class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Class.h; sourceTree = "<group>"; };
-		AB99495A18B625C800FAC62D /* System.Class.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Class.m; sourceTree = "<group>"; };
+		AB99495918B625C800FAC62D /* System.Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Object.h; sourceTree = "<group>"; };
+		AB99495A18B625C800FAC62D /* System..Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System..Object.m; sourceTree = "<group>"; };
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
@@ -643,12 +647,14 @@
 		AB99495818B6258300FAC62D /* Mono Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AB99495918B625C800FAC62D /* System.Class.h */,
-				AB99495A18B625C800FAC62D /* System.Class.m */,
+				AB99495918B625C800FAC62D /* System.Object.h */,
+				AB99495A18B625C800FAC62D /* System..Object.m */,
 				AB120D7118B678BC00461FA2 /* System.Array.h */,
 				AB120D7218B678BC00461FA2 /* System.Array.m */,
 				AB120D7518B6792000461FA2 /* System.Convert.h */,
 				AB120D7618B6792000461FA2 /* System.Convert.m */,
+				AB79217D18BD0D5E005D3DC0 /* System.String.h */,
+				AB79217E18BD0D5E005D3DC0 /* System.String.m */,
 				AB120D7918B6796200461FA2 /* System.Enum.h */,
 				AB120D7A18B6796200461FA2 /* System.Enum.m */,
 				AB120D7D18B679C400461FA2 /* System.Linq.h */,
@@ -715,7 +721,7 @@
 				AB120DA518BB47F300461FA2 /* DBManagedNumber.h in Headers */,
 				AB120D7B18B6796200461FA2 /* System.Enum.h in Headers */,
 				AB120D7718B6792000461FA2 /* System.Convert.h in Headers */,
-				AB99495B18B625C800FAC62D /* System.Class.h in Headers */,
+				AB99495B18B625C800FAC62D /* System.Object.h in Headers */,
 				AB120D8F18B67B5100461FA2 /* System.Collections.Generic.DictionaryA2.h in Headers */,
 				AB120D9B18B67C5F00461FA2 /* System.Data.Entity.Core.Objects.ObjectQueryA1.h in Headers */,
 				AB120D8B18B67B0800461FA2 /* System.IO.FileInfo.h in Headers */,
@@ -757,6 +763,7 @@
 				9D88636A0974F59A00365976 /* DBWrappers.h in Headers */,
 				9D6335AE09750DAD00FB76DF /* DBManagedData.h in Headers */,
 				DA4FDE7E09B38A1F00D16517 /* DBSystem.Drawing.Size.h in Headers */,
+				AB79217F18BD0D5E005D3DC0 /* System.String.h in Headers */,
 				9DA8F08D09EF2BDF000EE2DE /* DBSystem.Array.h in Headers */,
 				9DA75F670A239104008EC2F7 /* NSArray+Dubrovnik.h in Headers */,
 				9DCD135D0A7ABFB900849E5C /* DBSystem.Convert.h in Headers */,
@@ -914,7 +921,8 @@
 				AB120D8818B67ACD00461FA2 /* System.Drawing.Size.m in Sources */,
 				9D6335AF09750DAD00FB76DF /* DBManagedData.m in Sources */,
 				DA4FDE7F09B38A1F00D16517 /* DBSystem.Drawing.Size.m in Sources */,
-				AB99495C18B625C800FAC62D /* System.Class.m in Sources */,
+				AB79218018BD0D5E005D3DC0 /* System.String.m in Sources */,
+				AB99495C18B625C800FAC62D /* System..Object.m in Sources */,
 				9DA8F08E09EF2BE0000EE2DE /* DBSystem.Array.m in Sources */,
 				9DA75F680A239104008EC2F7 /* NSArray+Dubrovnik.m in Sources */,
 				AB120D7C18B6796200461FA2 /* System.Enum.m in Sources */,

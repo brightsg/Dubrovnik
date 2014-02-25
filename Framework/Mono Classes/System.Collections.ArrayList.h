@@ -6,8 +6,8 @@
 //
 //
 
-#import "System.Class.h"
+#import "System.Object.h"
 
-@interface System_Collections_ArrayList : System_Class
+@interface System_Collections_ArrayList : System_Object
 
 @end
