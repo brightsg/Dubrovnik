@@ -44,15 +44,23 @@
 
 - (MonoArray *)monoArray {
     
-    // assign the mono array
-    uintptr_t byteLength = [self length];
-	MonoArray *monoArray = mono_array_new(mono_domain_get(), mono_get_byte_class(), byteLength);
+    MonoArray *monoArray = NULL;
+    
+    if ([self respondsToSelector:@selector(representedMonoArray)]) {
+        monoArray = [(id)self representedMonoArray];
+    } else {
+        // assign the mono array
+        uintptr_t byteLength = [self length];
+        monoArray = mono_array_new(mono_domain_get(), mono_get_byte_class(), byteLength);
 
-    // copy the NSData bytes  to the Mono array
-    int32_t elementSize = mono_array_element_size(mono_object_get_class((MonoObject *)monoArray));
-    char *buffer = mono_array_addr_with_size(monoArray, elementSize, 0);
-    [self getBytes:buffer length:[self length]];
-
+        #warning TODO: memory management needs to be resolved
+        
+        // copy the NSData bytes  to the Mono array
+        int32_t elementSize = mono_array_element_size(mono_object_get_class((MonoObject *)monoArray));
+        char *buffer = mono_array_addr_with_size(monoArray, elementSize, 0);
+        [self getBytes:buffer length:[self length]];
+    }
+    
 	return(monoArray);
 }
 

@@ -24,7 +24,7 @@
 #import "DBManagedData.h"
 
 @interface DBManagedData()
-@property (assign) MonoArray *monoArray;
+@property (assign, readwrite) MonoArray *representedMonoArray;
 @property (assign) int32_t gcHandle;
 @property (assign) uintptr_t dataLength;
 @property (assign) const void *dataBytes;
@@ -36,7 +36,7 @@
 	self = [super init];
 	
 	if(self) {
-		_monoArray = monoArray;
+		_representedMonoArray = monoArray;
 		if(monoArray == NULL) {
 			self = nil;
 		} else {
@@ -54,7 +54,7 @@
 }
 
 - (void)dealloc {
-	if(_monoArray != NULL) {
+	if(_representedMonoArray != NULL) {
 		mono_gchandle_free(_gcHandle);
 	}
 	
@@ -75,13 +75,13 @@
 #pragma mark Other Overrides
 
 - (id)copy {
-	DBManagedData *copy = [[DBManagedData alloc] initWithMonoArray:self.monoArray];
+	DBManagedData *copy = [[DBManagedData alloc] initWithMonoArray:self.representedMonoArray];
 	
 	return(copy);
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-	DBManagedData *copy = [[DBManagedData allocWithZone:zone] initWithMonoArray:self.monoArray];
+	DBManagedData *copy = [[DBManagedData allocWithZone:zone] initWithMonoArray:self.representedMonoArray];
 	
 	return(copy);
 }
