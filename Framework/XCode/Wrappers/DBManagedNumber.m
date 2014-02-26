@@ -513,10 +513,10 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
     return (void *)[self valuePointer];
 }
 
-@synthesize representedMonoObject = _representedMonoObject;   // need synthesis when override both getter and setter
+@dynamic representedMonoObject;
 - (MonoObject *)representedMonoObject
 {
-    if (!_representedMonoObject) {
+    if (self.gcHandle == 0) {
     
         DBManagedNumberTypeID typeID = [[self class] numberTypeIDForTypeName:self.typeName];
 
@@ -635,17 +635,24 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
         
     }
     
-    return _representedMonoObject;
+    // This object will not be moved while it is on the stack.
+    // If saved into a non stack location it must be pinned.
+    #warning Memory allocation unit test required
+    MonoObject *monoObject = mono_gchandle_get_target(self.gcHandle);
+    
+    return monoObject;
 }
 
 -(void)setRepresentedMonoObject:(MonoObject *)monoObject
 {
-    if (_representedMonoObject) {
+    if (self.gcHandle) {
         mono_gchandle_free(self.gcHandle);
         self.gcHandle = 0;
     }
-    _representedMonoObject = monoObject;
-    self.gcHandle = mono_gchandle_new(_representedMonoObject, FALSE);
+    
+    // we don't want to persist the monoObject in an ivar as it would
+    // require pinning the pointed to MonoObject
+    self.gcHandle = mono_gchandle_new(monoObject, FALSE);
 }
 
 #pragma mark -
@@ -661,7 +668,7 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
 
 - (void)dealloc
 {
-    if (_representedMonoObject) {
+    if (self.gcHandle) {
         mono_gchandle_free(_gcHandle);
     }
 }

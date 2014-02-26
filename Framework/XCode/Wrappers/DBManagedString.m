@@ -25,7 +25,6 @@
 #import "System.String.h"
 
 @interface DBManagedString()
-@property (assign) MonoString *monoString;
 @property (assign) uint32_t gcHandle;
 @property (assign) int stringLength;
 @property (strong) System_String *forwardingTarget;
@@ -38,7 +37,6 @@
 	self = [super init];
 	
 	if(self) {
-		_monoString = monoString;
 		if(monoString == NULL) {
 			self = nil;
 		} else {
@@ -52,7 +50,7 @@
 
 - (void)dealloc
 {
-	if(_monoString != NULL) {
+	if(_gcHandle != 0) {
 		mono_gchandle_free(_gcHandle);
 	}
 }
@@ -65,7 +63,10 @@
      NSString+Dubrovnik -monoString
      
      */
-	return self.monoString;
+#warning Memory allocation unit test required
+	MonoObject *monoObject = mono_gchandle_get_target(_gcHandle);
+    
+    return (MonoString *)monoObject;
 }
 
 - (MonoObject *)representedMonoObject
@@ -86,7 +87,7 @@
 	if(index >= (NSUInteger)self.stringLength)
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Character index beyond string bounds." userInfo:nil]);
 
-	unichar *stringCharacters = mono_string_chars(self.monoString);
+	unichar *stringCharacters = mono_string_chars(self.representedMonoString);
 	unichar character = stringCharacters[index];
 	
 	return(character);
@@ -97,21 +98,21 @@
 
 - (id)copy
 {
-	DBManagedString *copy = [[DBManagedString alloc] initWithMonoString:self.monoString];
+	DBManagedString *copy = [[DBManagedString alloc] initWithMonoString:self.representedMonoString];
 	
 	return(copy);
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-	DBManagedString *copy = [[DBManagedString allocWithZone:zone] initWithMonoString:self.monoString];
+	DBManagedString *copy = [[DBManagedString allocWithZone:zone] initWithMonoString:self.representedMonoString];
 	
 	return(copy);
 }
 
 - (void)getCharacters:(unichar *)buffer
 {
-	unichar *stringCharacters = mono_string_chars(self.monoString);
+	unichar *stringCharacters = mono_string_chars(self.representedMonoString);
 	memcpy(buffer, stringCharacters, (self.stringLength * sizeof(unichar)));
 }
 
@@ -120,7 +121,7 @@
 	if(range.location + range.length > (NSUInteger)self.stringLength)
 		@throw([NSException exceptionWithName:NSRangeException reason:@"Character range beyond string bounds." userInfo:nil]);
 	
-	unichar *stringCharacters = mono_string_chars(self.monoString);
+	unichar *stringCharacters = mono_string_chars(self.representedMonoString);
 	memcpy(buffer, stringCharacters + range.location, (range.length * sizeof(unichar)));
 }
 

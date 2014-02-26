@@ -28,6 +28,6 @@
 
 - (id)initWithMonoArray:(MonoArray *)monoArray;
 
-@property (assign, readonly) MonoArray *representedMonoArray;
+- (MonoArray *)representedMonoArray;
 
 @end

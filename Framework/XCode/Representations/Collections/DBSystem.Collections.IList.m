@@ -70,6 +70,7 @@
     
 	NSObject *object = nil;
     
+#warning  perhaps we should act on itemClass
     if (self.itemClass == [NSObject class]) {
         int i = 0;
     }

@@ -809,16 +809,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test all keys
     NSArray *stringObjectDictKeys = [stringObjectDictA2 allKeys];
-    STAssertTrue([stringObjectDictKeys count] == 5, DBUCountTestFailed);
+    STAssertTrue([stringObjectDictKeys count] == 6, DBUCountTestFailed);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForString"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForListA1"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForDictionaryA2"], DBUObjectNotFound);
+    STAssertTrue([stringObjectDictKeys containsObject:@"keyForStringArray"], DBUObjectNotFound);
     
     // test all values
     NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
-    STAssertTrue([stringObjectDictValues count] == 5, DBUCountTestFailed);
+    STAssertTrue([stringObjectDictValues count] == 6, DBUCountTestFailed);
     
     STAssertTrue([stringObjectDictValues containsObject:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictValues containsObject:@100], DBUObjectNotFound);
@@ -850,6 +851,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
     STAssertFalse([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
 
+    //  new string[] object
+    value = [stringObjectDictA2 objectForKey:@"keyForStringArray"];
+    
     //============================
     // Dictionary<object,object>
     //=============================

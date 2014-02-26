@@ -472,7 +472,10 @@ NSString * DBType_System_Exception =  @"System.Exception";
  
     // get ObjC class name from mono class name
     NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoObject:obj];
+    NSString *monoTypeName = [DBType monoTypeNameForMonoObject:obj];
     NSString *className = [monoClassName monoClassNameToObjCClassName];
+    
+    // look for array suffix
     
     // look for DB prefixed class
     managedClass = NSClassFromString([@"DB" stringByAppendingString:className]);

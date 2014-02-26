@@ -25,7 +25,6 @@
 #import "DBSystem.Array.h"
 
 @interface DBManagedData()
-@property (assign, readwrite) MonoArray *representedMonoArray;
 @property (assign) int32_t gcHandle;
 @property (assign) uintptr_t dataLength;
 @property (assign) const void *dataBytes;
@@ -38,7 +37,6 @@
 	self = [super init];
 	
 	if(self) {
-		_representedMonoArray = monoArray;
 		if(monoArray == NULL) {
 			self = nil;
 		} else {
@@ -56,7 +54,7 @@
 }
 
 - (void)dealloc {
-	if(_representedMonoArray != NULL) {
+	if(_gcHandle) {
 		mono_gchandle_free(_gcHandle);
 	}
 	
@@ -117,4 +115,10 @@
     return self.forwardingTarget;
 }
 
+
+- (MonoArray *)representedMonoArray
+{
+    #warning Memory allocation unit test required
+    return (MonoArray *)mono_gchandle_get_target(_gcHandle);
+}
 @end

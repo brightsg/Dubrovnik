@@ -31,6 +31,7 @@ extern char DBCacheSuffixChar;
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (strong, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;
 @property (strong, readwrite) NSMutableArray *itemClasses;
+@property (assign, readonly) MonoObject *monoObject;
 
 // Subclasses must override these
 + (const char *)monoAssemblyName;
@@ -68,7 +69,6 @@ extern char DBCacheSuffixChar;
 - (MonoClass *)monoClass;
 - (MonoType *)monoType;
 - (char *)monoTypeName;
-- (MonoObject *)monoObject;
 - (MonoObject *)monoValue;
 - (MonoAssembly *)monoAssembly;
 
