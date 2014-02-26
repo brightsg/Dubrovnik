@@ -137,6 +137,9 @@
 {
     NSArray *classes = nil;
     if (itemClass) {
+        if (itemClass == [NSObject class]) {
+            int wait = 1;
+        }
         classes = @[itemClass];
     }
     

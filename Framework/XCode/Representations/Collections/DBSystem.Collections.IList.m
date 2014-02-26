@@ -68,15 +68,16 @@
 //
 - (id)objectAtIndex:(NSUInteger)index {
     
-	if (self.itemClass) {
-		
-        MonoObject *monoObject = [self monoObjectForIndexObject:&index];
-        id retID = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
-        
-		return retID;
-	} else {
-		@throw([NSException exceptionWithName:@"DBNoItemClass" reason:@"objectAtIndex called on a DBIList without specified Item Class" userInfo:nil]);
-	}
+	NSObject *object = nil;
+    
+    if (self.itemClass == [NSObject class]) {
+        int i = 0;
+    }
+    
+    MonoObject *monoObject = [self monoObjectForIndexObject:&index];
+    object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+    
+    return object;
 }
 
 - (void)setObjectAtIndex:(int)index object:(DBManagedObject *)object {

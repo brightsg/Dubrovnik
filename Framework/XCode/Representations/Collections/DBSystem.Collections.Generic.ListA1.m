@@ -36,7 +36,7 @@
     } else {
         
         // However List<T> itself implements IList so we can act on it directly
-        list = [DBSystem_Collections_IList listWithMonoObject:[self monoObject] withItemClass:self.itemClass];
+        list = [DBSystem_Collections_IList listWithMonoObject:[self monoObject] withItemClass:nil];
     }
     
     return list;

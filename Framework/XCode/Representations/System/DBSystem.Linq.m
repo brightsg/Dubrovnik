@@ -41,7 +41,7 @@
     MonoObject *monoListObject = [monoRep invokeMethod:methodRep withNumArgs:1, [monoRep monoObject]];
     
     // Wrap the list
-    DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoListObject withItemClass:monoRep.itemClass];
+    DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoListObject withItemClass:nil];
     
     return list;
 }

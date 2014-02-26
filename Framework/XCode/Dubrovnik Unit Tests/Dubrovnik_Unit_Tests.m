@@ -838,9 +838,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [stringObjectDictA2 objectForKey:@"keyForListA1"];
     STAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUClassTestFailed);
 
-    //NSArray *keyListA1Array = [(DBSystem_Collections_Generic_ListA1 *)value array];
-    //STAssertTrue([keyListA1Array containsObject:@"Dubrovnik1"], DBUObjectNotFound);
-    //STAssertTrue([keyListA1Array containsObject:@"Dubrovnik2"], DBUObjectNotFound);
+    NSArray *keyListA1Array = [(DBSystem_Collections_Generic_ListA1 *)value array];
+    STAssertTrue([keyListA1Array containsObject:@"Dubrovnik1"], DBUObjectNotFound);
+    STAssertTrue([keyListA1Array containsObject:@"Dubrovnik2"], DBUObjectNotFound);
 
     // DictionaryA2 object
     value = [stringObjectDictA2 objectForKey:@"keyForDictionaryA2"];
@@ -850,7 +850,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
     STAssertFalse([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
 
-       //============================
+    //============================
     // Dictionary<object,object>
     //=============================
     DBSystem_Collections_Generic_DictionaryA2 *objectObjectDictA2 = [refObject objectObjectDictionary];
