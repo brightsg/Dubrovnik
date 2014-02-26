@@ -466,13 +466,13 @@ NSString * DBType_System_Exception =  @"System.Exception";
 - (id)managedObjectWithMonoObject:(MonoObject *)obj
 {
     // contract
-    NSAssert([DBType monoClassForMonoObject:obj] == mono_get_object_class(), @"Mono object required");
+    NSAssert(![DBType monoObjectContainsValueType:obj], @"Mono object required");
    
     Class managedClass = nil;
  
-    // get ObjC class name from mono type name
-    NSString *monoTypeName = [DBType monoTypeNameForMonoObject:obj];
-    NSString *className = [monoTypeName monoClassNameToObjCClassName];
+    // get ObjC class name from mono class name
+    NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoObject:obj];
+    NSString *className = [monoClassName monoClassNameToObjCClassName];
     
     // look for DB prefixed class
     managedClass = NSClassFromString([@"DB" stringByAppendingString:className]);
@@ -480,9 +480,10 @@ NSString * DBType_System_Exception =  @"System.Exception";
     // look for matching class
     if (!managedClass) {
         managedClass = NSClassFromString(className);
-        
+    }
+    
     // use system object
-    } else if (!managedClass) {
+    if (!managedClass) {
         managedClass = [System_Object class];
     }
     

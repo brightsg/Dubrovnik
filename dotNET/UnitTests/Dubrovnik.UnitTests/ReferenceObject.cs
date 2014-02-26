@@ -123,7 +123,8 @@ namespace Dubrovnik.UnitTests
 				{ "keyForString", "Dubrovnik.UnitTests" },
 				{ "keyForInteger", 100 },
 				{ "keyForFloat", 1001F },
-				//{ "keyForArray", new List<string>{"Dubrovnik1", "Dubrovnik2"}}
+				{ "keyForListA1", new List<string>{"Dubrovnik1", "Dubrovnik2"}},
+				{ "keyForDictionaryA2", new Dictionary <string, object> { {"subKey1", "subValue1"}, {"subKey2", "subValue2"} }}
 			};
 			IntIntDictionary = new Dictionary<int, int> {
 				{ 1, 2 },

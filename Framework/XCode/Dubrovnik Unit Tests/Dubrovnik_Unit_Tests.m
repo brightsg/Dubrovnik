@@ -21,10 +21,10 @@
 #endif
 
 
-@implementation NSString (Dubrovnik_UnitTests)
+@implementation NSObject (Dubrovnik_UnitTests)
 - (BOOL)dbTestString:(NSString *)string
 {
-    return (string && [string isKindOfClass:[NSString class]] && [self rangeOfString:string].location != NSNotFound) ? YES : NO;
+    return (string && [string isKindOfClass:[NSString class]] && [(id)self rangeOfString:string].location != NSNotFound) ? YES : NO;
 }
 @end
 
@@ -43,6 +43,8 @@ NSString *DBUNotNilTestFailed = @"Not nil test failed";
 NSString *DBUExceptionTestFailed = @"An exception test failed";
 NSString *DBUObjectNotFound = @"Object not found";
 NSString *DBUNilTestFailed = @"Nil test failed";
+NSString *DBUClassTestFailed = @"Class test failed";
+NSString *DBUDesignedToFailTestPassed = @"Designed to fail test passed";
 
 static BOOL _setup = NO;
 
@@ -807,20 +809,48 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test all keys
     NSArray *stringObjectDictKeys = [stringObjectDictA2 allKeys];
-    STAssertTrue([stringObjectDictKeys count] == 3, DBUCountTestFailed);
+    STAssertTrue([stringObjectDictKeys count] == 5, DBUCountTestFailed);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForString"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
-
+    STAssertTrue([stringObjectDictKeys containsObject:@"keyForListA1"], DBUObjectNotFound);
+    STAssertTrue([stringObjectDictKeys containsObject:@"keyForDictionaryA2"], DBUObjectNotFound);
+    
     // test all values
     NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
-    STAssertTrue([stringObjectDictValues count] == 3, DBUCountTestFailed);
+    STAssertTrue([stringObjectDictValues count] == 5, DBUCountTestFailed);
     
     STAssertTrue([stringObjectDictValues containsObject:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
     STAssertTrue([stringObjectDictValues containsObject:@100], DBUObjectNotFound);
     STAssertTrue([stringObjectDictValues containsObject:@1001.], DBUObjectNotFound);
 
-    //============================
+    // test all DictionaryA2 values for keys
+    value = [stringObjectDictA2 objectForKey:@"keyForString"];
+    STAssertTrue([value dbTestString:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
+
+    value = [stringObjectDictA2 objectForKey:@"keyForInteger"];
+    STAssertTrue([value intValue] == 100, DBUObjectNotFound);
+
+    value = [stringObjectDictA2 objectForKey:@"keyForFloat"];
+    STAssertTrue([value intValue] == 1001., DBUObjectNotFound);
+
+    // ListA1 object
+    value = [stringObjectDictA2 objectForKey:@"keyForListA1"];
+    STAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUClassTestFailed);
+
+    //NSArray *keyListA1Array = [(DBSystem_Collections_Generic_ListA1 *)value array];
+    //STAssertTrue([keyListA1Array containsObject:@"Dubrovnik1"], DBUObjectNotFound);
+    //STAssertTrue([keyListA1Array containsObject:@"Dubrovnik2"], DBUObjectNotFound);
+
+    // DictionaryA2 object
+    value = [stringObjectDictA2 objectForKey:@"keyForDictionaryA2"];
+    STAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUClassTestFailed);
+
+    STAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey1"], DBUObjectNotFound);
+    STAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
+    STAssertFalse([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
+
+       //============================
     // Dictionary<object,object>
     //=============================
     DBSystem_Collections_Generic_DictionaryA2 *objectObjectDictA2 = [refObject objectObjectDictionary];

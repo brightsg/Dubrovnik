@@ -48,6 +48,28 @@
     return className;
 }
 
++ (NSString *)monoClassNameSpaceForMonoObject:(MonoObject *)monoObject
+{
+    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
+    const char *monoClassNameSpace = mono_class_get_namespace(monoClass);
+    NSString *classNameSpace = nil;
+    if (monoClassNameSpace) {
+        classNameSpace = @(monoClassNameSpace);
+    }
+    
+    return classNameSpace;
+}
+
++ (NSString *)monoFullyQualifiedClassNameForMonoObject:(MonoObject *)monoObject
+{
+    NSString *className = [self monoClassNameForMonoObject:monoObject];
+    NSString *classNameSpace = [self monoClassNameSpaceForMonoObject:monoObject];
+    
+    NSString *fullyQualifiedClassName = [NSString stringWithFormat:@"%@.%@", classNameSpace, className];
+
+    return fullyQualifiedClassName;
+}
+
 + (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject
 {
     MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
@@ -81,6 +103,14 @@
     }
     
     return typeName;
+}
+
++ (BOOL)monoObjectContainsValueType:(MonoObject *)monoObject
+{
+    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
+    BOOL isValueType = mono_class_is_valuetype(monoClass);
+    
+    return isValueType;
 }
 
 #pragma mark -
