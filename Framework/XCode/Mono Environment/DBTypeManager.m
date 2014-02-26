@@ -7,7 +7,7 @@
 //
 
 #import "DBTypeManager.h"
-#import "DBManagedObject.h"
+#import "System.Object.h"
 #import "DBManagedNumber.h"
 #import "DBBoxing.h"
 #import "DBInvoke.h"
@@ -254,7 +254,14 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (DBType *)typeWithName:(NSString *)name
 {
-    return (self.monoTypes)[name];
+    DBType *type = self.monoTypes[name];
+    
+    // if no type match found then default to System.Object
+    if (!type) {
+        type = self.monoTypes[DBType_System_Object];
+    }
+    
+    return type;
 }
 
 - (MonoClass *)monoClassWithName:(NSString *)name
@@ -318,7 +325,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
             case DBTypeID_System_Object:
             {
-                object = [self subclassObjectWithMonoObject:monoObject];
+                object = [self managedObjectWithMonoObject:monoObject];
                 break;
             }
             
@@ -456,22 +463,31 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return object;
 }
 
-- (id)subclassObjectWithMonoObject:(MonoObject *)obj
+- (id)managedObjectWithMonoObject:(MonoObject *)obj
 {
     // contract
     NSAssert([DBType monoClassForMonoObject:obj] == mono_get_object_class(), @"Mono object required");
-
-    // logging
-    if (1) {
-        MonoClass *monoClass = mono_object_get_class(obj);
-        [[self class] logMonoClassNameInfo:monoClass];
+   
+    Class managedClass = nil;
+ 
+    // get ObjC class name from mono type name
+    NSString *monoTypeName = [DBType monoTypeNameForMonoObject:obj];
+    NSString *className = [monoTypeName monoClassNameToObjCClassName];
+    
+    // look for DB prefixed class
+    managedClass = NSClassFromString([@"DB" stringByAppendingString:className]);
+    
+    // look for matching class
+    if (!managedClass) {
+        managedClass = NSClassFromString(className);
+        
+    // use system object
+    } else if (!managedClass) {
+        managedClass = [System_Object class];
     }
     
-    // determine the best subclass to represent the mono object
-    Class bestClass = [DBManagedObject class];
-    
-    // instantiate an instance of the best class
-    id object = [[bestClass alloc] initWithMonoObject:obj];
+    // instantiate an instance of the managed class
+    id object = [[managedClass alloc] initWithMonoObject:obj];
     
     return(object);
 }

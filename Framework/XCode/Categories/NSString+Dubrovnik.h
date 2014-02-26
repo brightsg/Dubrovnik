@@ -47,4 +47,7 @@
  */
 - (NSString *)simpleObjCToMonoClassNameString;
 
+- (NSString *)monoClassNameToObjCClassName;
+
+
 @end

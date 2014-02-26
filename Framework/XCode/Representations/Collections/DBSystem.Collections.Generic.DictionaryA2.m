@@ -11,6 +11,7 @@
 #import "DBTypeManager.h"
 #import "DBBoxing.h"
 #import "DBSystem.Collections.IList.h"
+#import "DBManagedNumber.h"
 
 @implementation DBSystem_Collections_Generic_DictionaryA2
 
@@ -46,6 +47,25 @@
     
     // toList defaults to using the first generic type
     NSArray *keys = [[DBSystem_Linq toList:(DBManagedObject <Interface_IEnumerable_T> *)object] array];
+    
+    for (id key in keys) {
+        if ([key respondsToSelector:@selector(setCompareEnforcesTypeMatch)]) {
+            
+            // detect numeric keys with the same hash
+            NSIndexSet *keyMatches = [keys indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+#pragma unused(stop, idx)
+                return [key isEqual:obj];
+            }];
+            
+            // enforce type matching for these keys only
+            if (keyMatches.count > 1) {
+                [keyMatches enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+#pragma unused(stop)
+                    [keys[idx] setCompareEnforcesTypeMatch];
+                }];
+            }
+        }
+    }
     
     return keys;
 }
@@ -143,7 +163,10 @@
 
 - (NSDictionary *)dictionary
 {
-    NSDictionary *dict = [NSDictionary dictionaryWithObjects:self.allValues forKeys:self.allKeys];
+    NSArray *allKeys = self.allKeys;
+    NSArray *allValues = self.allValues;
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:allValues forKeys:allKeys];
     
     return dict;
 }

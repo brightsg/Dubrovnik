@@ -134,7 +134,7 @@ namespace Dubrovnik.UnitTests
 				{ "keyForInteger", 100 },
 				{ "keyForFloat", 1001F },
 				{ 1, 8 },
-				{ 1F,  "Dubrovnik.UnitTests" },
+				{ 1F,  "Dubrovnik.UnitTests 2" },
 			};
 
             // Initialize statics

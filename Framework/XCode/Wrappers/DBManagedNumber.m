@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
 @property (assign, nonatomic, readwrite) MonoObject *representedMonoObject;
 @property (assign) uint32_t gcHandle;
 @property (strong) DBManagedObject *forwardingTarget;
+@property (assign, readwrite) BOOL compareEnforcesTypeMatch;
 @end
 
 @implementation DBManagedNumber
@@ -335,12 +336,36 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
 
 - (BOOL)isEqualToNumber:(NSNumber *)number
 {
+    if ([number isKindOfClass:[self class]] && self.compareEnforcesTypeMatch) {
+        if ([@([self monoObjCType]) isEqualToString:@([(id)number monoObjCType])]) {
+            return NO;
+        }
+    }
+    
     return [self.number isEqualToNumber:number];
 }
 
 - (NSString *)descriptionWithLocale:(id)locale
 {
     return [self.number descriptionWithLocale:locale];
+}
+
+#pragma mark -
+#pragma mark Comparison support
+
+- (void)setCompareEnforcesTypeMatch
+{
+    self.compareEnforcesTypeMatch = YES;
+}
+
+- (NSUInteger)hash
+{
+    NSUInteger hash = [self.number hash];
+    if (self.compareEnforcesTypeMatch) {
+        hash = hash ^ [@(self.monoObjCType) hash];
+    }
+    
+    return hash;
 }
 
 #pragma mark -
@@ -649,9 +674,9 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
 #pragma unused(aSelector)
     if (!self.forwardingTarget) {
         
-        // Does this make any sense?
-        // Types of System.Int32 are structures not System.Object subclasses.
-        if (0) {
+        // Is this correct ?
+        // eg: System.Int32 is a struct.
+        if (1) {
             self.forwardingTarget = [System_Object objectWithMonoObject:self.representedMonoObject];
         }
     }

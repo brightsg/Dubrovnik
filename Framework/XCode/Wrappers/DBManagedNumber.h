@@ -51,5 +51,8 @@
 
 @property (assign, nonatomic, readonly) MonoObject *representedMonoObject;
 @property (assign, nonatomic, readonly) const char *monoObjCType;
+@property (assign, readonly) BOOL compareEnforcesTypeMatch;
 
+
+- (void)setCompareEnforcesTypeMatch;
 @end
