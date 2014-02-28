@@ -70,11 +70,6 @@
     
 	NSObject *object = nil;
     
-#warning  perhaps we should act on itemClass
-    if (self.itemClass == [NSObject class]) {
-        int i = 0;
-    }
-    
     MonoObject *monoObject = [self monoObjectForIndexObject:&index];
     object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
     

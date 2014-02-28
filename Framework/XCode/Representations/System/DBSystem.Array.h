@@ -22,7 +22,7 @@
 //
 #import "System.Array.h"
 
-@class DBType;
+@class DBType, DBSystem_Collections_IList;
 
 @interface DBSystem_Array : System_Array {
 	@protected
@@ -84,5 +84,8 @@
 
 - (BOOL)boolAtIndex:(int)index;
 - (void)setBoolAtIndex:(int)index value:(BOOL)value;
+
+- (NSMutableArray *)mutableArray;
+- (NSArray *)array;
 
 @end

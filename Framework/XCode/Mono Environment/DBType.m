@@ -36,9 +36,23 @@
     return monoClass;
 }
 
++ (MonoClass *)monoSuperClassForMonoClass:(MonoClass *)monoClass
+{
+    MonoClass *monoSuperClass = mono_class_get_parent(monoClass);
+    
+    return monoSuperClass;
+}
+
 + (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject
 {
     MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
+    NSString *className = [self monoClassNameForMonoClass:monoClass];
+    
+    return className;
+}
+
++ (NSString *)monoClassNameForMonoClass:(MonoClass *)monoClass
+{
     const char *monoClassName = mono_class_get_name(monoClass);
     NSString *className = nil;
     if (monoClassName) {
@@ -48,9 +62,8 @@
     return className;
 }
 
-+ (NSString *)monoClassNameSpaceForMonoObject:(MonoObject *)monoObject
++ (NSString *)monoClassNameSpaceForMonoClass:(MonoClass *)monoClass
 {
-    MonoClass *monoClass = [self monoClassForMonoObject:monoObject];
     const char *monoClassNameSpace = mono_class_get_namespace(monoClass);
     NSString *classNameSpace = nil;
     if (monoClassNameSpace) {
@@ -60,10 +73,10 @@
     return classNameSpace;
 }
 
-+ (NSString *)monoFullyQualifiedClassNameForMonoObject:(MonoObject *)monoObject
++ (NSString *)monoFullyQualifiedClassNameForMonoClass:(MonoClass *)monoClass
 {
-    NSString *className = [self monoClassNameForMonoObject:monoObject];
-    NSString *classNameSpace = [self monoClassNameSpaceForMonoObject:monoObject];
+    NSString *className = [self monoClassNameForMonoClass:monoClass];
+    NSString *classNameSpace = [self monoClassNameSpaceForMonoClass:monoClass];
     
     NSString *fullyQualifiedClassName = [NSString stringWithFormat:@"%@.%@", classNameSpace, className];
 
@@ -111,6 +124,21 @@
     BOOL isValueType = mono_class_is_valuetype(monoClass);
     
     return isValueType;
+}
+
++ (NSString *)managedClassNameFromMonoClassName:(NSString *)monoClassName
+{
+    NSMutableString *managedClassName = [NSMutableString stringWithString:monoClassName];
+    
+    // sanitise . separator
+    [managedClassName replaceOccurrencesOfString:@"." withString:@"_" options:NSCaseInsensitiveSearch range:NSMakeRange(0, managedClassName.length)];
+    
+    // sanitise the arity marker
+    [managedClassName replaceOccurrencesOfString:@"`" withString:@"A" options:NSCaseInsensitiveSearch range:NSMakeRange(0, managedClassName.length)];
+    
+    // TODO: add a regex here to validate the name
+    
+    return managedClassName;
 }
 
 #pragma mark -

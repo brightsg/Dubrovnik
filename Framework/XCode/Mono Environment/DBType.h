@@ -18,16 +18,26 @@
 + (instancetype)typeWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
 + (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass;
 
+- (id)initWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
+- (id)initWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass;
+
+// MonoType methods
++ (NSString *)monoTypeNameForMonoType:(MonoType *)monoType;
+
+// MonoClass methods
++ (NSString *)monoClassNameForMonoClass:(MonoClass *)monoClass;
++ (NSString *)monoClassNameSpaceForMonoClass:(MonoClass *)monoClass;
++ (NSString *)monoFullyQualifiedClassNameForMonoClass:(MonoClass *)monoClass;
++ (MonoClass *)monoSuperClassForMonoClass:(MonoClass *)monoClass;
+
+// MonoObject methods
 + (NSString *)monoTypeNameForMonoObject:(MonoObject *)monoObject;
 + (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject;
 + (MonoType *)monoUnderlyingTypeForMonoObject:(MonoObject *)monoObject;
-+ (NSString *)monoTypeNameForMonoType:(MonoType *)monoType;
 + (MonoClass *)monoClassForMonoObject:(MonoObject *)monoObject;
 + (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject;
 + (BOOL)monoObjectContainsValueType:(MonoObject *)monoObject;
-+ (NSString *)monoClassNameSpaceForMonoObject:(MonoObject *)monoObject;
-+ (NSString *)monoFullyQualifiedClassNameForMonoObject:(MonoObject *)monoObject;
 
-- (id)initWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
-- (id)initWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass;
+// Managed class name methods
++ (NSString *)managedClassNameFromMonoClassName:(NSString *)monoClassName;
 @end

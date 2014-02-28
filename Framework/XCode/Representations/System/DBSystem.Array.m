@@ -22,8 +22,13 @@
 //
 #import "DBSystem.Array.h"
 #import "DBTypeManager.h"
+#import "DBSystem.Collections.IList.h"
+#import "DBType.h"
+#import "DBSystem.Linq.h"
 
 @implementation DBSystem_Array
+
+// TODO: the element class for the array can be retrieved with mono_class_get_element_class()
 
 + (MonoArray *)monoArrayWithNoObjects
 {
@@ -58,16 +63,23 @@
     return [self arrayWithMonoArray:[self monoArrayWithNoObjects] withItemClass:nil];
 }
 
-+ (id)arrayWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass {
++ (id)arrayWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass
+{
 	DBSystem_Array *dbArray = [[self alloc] initWithMonoArray:monoArray withItemClass:itemClass];
 	return(dbArray);
 }
 
-- (id)initWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass {
-	self = [super initWithMonoObject:(MonoObject *)monoArray withItemClass:itemClass];
+- (id)initWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass
+{
+	return [self initWithMonoObject:(MonoObject *)monoArray withItemClass:itemClass];
+}
+
+- (id)initWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
+{
+	self = [super initWithMonoObject:(MonoObject *)monoObject withItemClass:itemClass];
 	
 	if(self) {
-		_arrayLength = mono_array_length(monoArray);
+		_arrayLength = mono_array_length((MonoArray *)monoObject);
 	}
 	
 	return(self);
@@ -104,13 +116,12 @@
 #pragma mark -
 #pragma mark Wrapped Object Access
 
-- (id)objectAtIndex:(NSUInteger)index {
-	if(self.itemClass) {
-		MonoObject *monoObject = [self monoObjectAtIndex:(uint32_t)index];
-		return([[DBTypeManager sharedManager] objectWithMonoObject:monoObject]);
-	} else {
-		@throw([NSException exceptionWithName:@"DBNoItemClass" reason:@"objectAtIndex called on a DBArray without specified Item Class" userInfo:nil]);
-	}
+- (id)objectAtIndex:(NSUInteger)index
+{
+    MonoObject *monoObject = [self monoObjectAtIndex:(uint32_t)index];
+    id object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+           
+    return object;
 }
 
 - (void)setObjectAtIndex:(uint32_t)index object:(DBManagedObject *)object {
@@ -251,5 +262,29 @@
 {
 	mono_array_set([self monoArray], BOOL, index, value);
 }
+
+#pragma mark -
+#pragma mark NSArray representation
+
+#pragma mark -
+#pragma mark - Array representations
+
+
+- (NSMutableArray *)mutableArray
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:[self objectAtIndex:i]];
+    }
+    
+    return array;
+}
+
+- (NSArray *)array
+{
+    return [self mutableArray];
+}
+
 
 @end

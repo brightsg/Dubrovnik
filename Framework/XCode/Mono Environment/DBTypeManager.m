@@ -466,30 +466,50 @@ NSString * DBType_System_Exception =  @"System.Exception";
 - (id)managedObjectWithMonoObject:(MonoObject *)obj
 {
     // contract
-    NSAssert(![DBType monoObjectContainsValueType:obj], @"Mono object required");
+    NSAssert(![DBType monoObjectContainsValueType:obj], @"MonoObject must represent a non value type required");
    
     Class managedClass = nil;
  
-    // get ObjC class name from mono class name
-    NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoObject:obj];
-    NSString *monoTypeName = [DBType monoTypeNameForMonoObject:obj];
-    NSString *className = [monoClassName monoClassNameToObjCClassName];
+    MonoClass *monoClass = [DBType monoClassForMonoObject:obj];
     
-    // look for array suffix
+    // search up the class hierarchy for an object that can be instantiated
+    do {
+        if (monoClass == NULL) {
+            break;
+        }
+
+        if (0) {
+            [DBManagedObject logMonoClassNestedTypesInfo:monoClass];
+        }
+        
+        // get ObjC class name from mono class name
+        NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoClass:monoClass];
+        NSString *managedClassName = [DBType managedClassNameFromMonoClassName:monoClassName];
+        
+        // look for DB prefixed class
+        managedClass = NSClassFromString([@"DB" stringByAppendingString:managedClassName]);
+        
+        // look for exact class name match
+        if (!managedClass) {
+            managedClass = NSClassFromString(managedClassName);
+        }
+        
+        if (managedClass) {
+            break;
+        }
     
-    // look for DB prefixed class
-    managedClass = NSClassFromString([@"DB" stringByAppendingString:className]);
-    
-    // look for matching class
-    if (!managedClass) {
-        managedClass = NSClassFromString(className);
-    }
-    
-    // use system object
+        // get the super class.
+        // if we cannot represent the class precisely then the next best thing is to represent with a super class.
+        // note that arrays will present like so System.String[]
+        // the super class will be System.Array
+        monoClass = [DBType monoSuperClassForMonoClass:monoClass];
+    } while (YES);
+
+    // default to system object
     if (!managedClass) {
         managedClass = [System_Object class];
     }
-    
+
     // instantiate an instance of the managed class
     id object = [[managedClass alloc] initWithMonoObject:obj];
     

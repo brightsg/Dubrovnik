@@ -76,22 +76,4 @@
     return [self monoValue];
 }
 
-- (NSString *)simpleObjCToMonoClassNameString
-{
-    NSMutableString *s = [NSMutableString stringWithString:self];
-    [s replaceOccurrencesOfString:@"__" withString:@"+" options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
-    [s replaceOccurrencesOfString:@"_" withString:@"." options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
-    
-    return s;
-}
-
-- (NSString *)monoClassNameToObjCClassName
-{
-    NSMutableString *s = [NSMutableString stringWithString:self];
-    [s replaceOccurrencesOfString:@"." withString:@"_" options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
-    [s replaceOccurrencesOfString:@"`" withString:@"A" options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
-    
-    return s;
-}
-
 @end

@@ -159,7 +159,7 @@
 }
 
 #pragma mark -
-#pragma mark - Dictionary representation
+#pragma mark - NSDictionary representation
 
 - (NSDictionary *)dictionary
 {

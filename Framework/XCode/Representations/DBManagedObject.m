@@ -28,6 +28,7 @@
 #import "NSString+Dubrovnik.h"
 #import "DBManagedMethod.h"
 #import "DBSystem.Convert.h"
+#import "DBTypemanager.h"
 
 @interface DBManagedObject()
 
@@ -266,6 +267,7 @@
 {
     #warning Memory allocation unit test required
     
+    // This pointer should be valid while it is visible on the stack
     MonoObject *monoObject = mono_gchandle_get_target(_mono_gchandle);
     
     return monoObject;
@@ -638,6 +640,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return methodCount;
 }
 
+
 - (const char *)monoClassName
 {
     const char *value = [[self class] monoClassName:[self monoClass]];
@@ -654,6 +657,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     const char *value = [[self class] monoClassNamespace:[self monoClass]];
     return value;
 }
+
+// TODO: there is duplication bettwen these convenience methods and those supplied by DBType.
+// DBType should be canoncial.
+
+
+// TODO: all accessor that operate on char * should include UTF8 string in their selector name.
+//
 
 + (int)monoMethodCount:(MonoClass *)klass
 {
@@ -718,6 +728,19 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         }
         
         klass = mono_class_get_parent(klass);
+    }
+}
+
++ (void)logMonoClassNestedTypesInfo:(MonoClass *)klass
+{
+    void *iter = NULL;
+    
+    while (YES) {
+        MonoClass *nestedClass = mono_class_get_nested_types (klass, &iter);
+        if (iter == NULL || nestedClass == NULL) break;
+
+        NSString *nestedClassName = [DBType monoFullyQualifiedClassNameForMonoClass:nestedClass];
+        NSLog(@"Nested class name: %@", nestedClassName);
     }
 }
 

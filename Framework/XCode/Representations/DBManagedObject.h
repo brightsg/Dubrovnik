@@ -137,6 +137,7 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassName:(MonoClass *)klass;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
 + (const char *)monoClassTypeName:(MonoClass *)klass;
++ (void)logMonoClassNestedTypesInfo:(MonoClass *)klass;
 
 - (Class)itemClass;
 - (Class)firstItemClass;

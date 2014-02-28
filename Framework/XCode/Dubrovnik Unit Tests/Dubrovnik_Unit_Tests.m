@@ -852,7 +852,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertFalse([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
 
     //  new string[] object
-    value = [stringObjectDictA2 objectForKey:@"keyForStringArray"];
+    DBSystem_Array *subItemDBArray = [stringObjectDictA2 objectForKey:@"keyForStringArray"];
+    NSArray *subItemArray = [subItemDBArray array];
+    STAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem1"], DBUObjectNotFound);
+    STAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem2"], DBUObjectNotFound);
+    STAssertFalse([subItemArray containsObject:@"Dubrovnik SubItem3"], DBUDesignedToFailTestPassed);
     
     //============================
     // Dictionary<object,object>
