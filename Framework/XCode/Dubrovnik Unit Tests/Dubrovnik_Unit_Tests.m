@@ -199,6 +199,26 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([dn isEqualToNumber:@((int)100)], DBUEqualityTestFailed);
     STAssertNotNil([dn descriptionWithLocale:nil], DBUNotNilTestFailed);
     
+    // test encoding
+    STAssertTrue([@([[DBManagedNumber managedNumberWithBool:YES] monoObjCType]) isEqualToString:@(@encode(BOOL))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithChar:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedChar:1] monoObjCType]) isEqualToString:@(@encode(unsigned char))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithShort:1] monoObjCType]) isEqualToString:@(@encode(short))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedShort:1] monoObjCType]) isEqualToString:@(@encode(unsigned short))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithInt:1] monoObjCType]) isEqualToString:@(@encode(int))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedInt:1] monoObjCType]) isEqualToString:@(@encode(unsigned int))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithLong:1] monoObjCType]) isEqualToString:@(@encode(long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithLongLong:1] monoObjCType]) isEqualToString:@(@encode(long long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedLongLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithFloat:1] monoObjCType]) isEqualToString:@(@encode(float))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithDouble:1] monoObjCType]) isEqualToString:@(@encode(double))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithInteger:1] monoObjCType]) isEqualToString:@(@encode(NSInteger))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(NSUInteger))], DBUEqualityTestFailed);
+    STAssertFalse([@([[DBManagedNumber managedNumberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUDesignedToFailTestPassed);
+    
+    // test setCompareEnforcesTypeMatch
+    
 }
 
 - (void)testStringRepresentation
