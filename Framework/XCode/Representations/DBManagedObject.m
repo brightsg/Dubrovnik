@@ -112,21 +112,14 @@
 	return([self initWithSignature:"" withNumArgs:0]);
 }
 
-- (id)initWithMonoObject:(MonoObject *)obj withItemClasses:(NSArray *)itemClasses
+- (id)initWithMonoObject:(MonoObject *)monoObject
 {
     self = [super init];
-	if(self) {
-		self.monoObject = obj;
+	if (self) {
+		self.monoObject = monoObject;
 		
-		if(obj != NULL) {
+		if (monoObject != NULL) {
             self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
-
-		    if (itemClasses) {
-                //self.itemClasses = [NSMutableArray arrayWithArray:itemClasses];
-            } else {
-                //self.itemClasses = nil;
-            }
-            
         } else {
 			self = nil;
 		}
@@ -134,21 +127,6 @@
 	
 	return self;
 }
-
-- (id)initWithMonoObject:(MonoObject *)obj withItemClass:(Class)itemClass
-{
-    NSArray *classes = nil;
-    if (itemClass) {
-        //classes = @[itemClass];
-    }
-    
-    return [self initWithMonoObject:obj withItemClasses:classes];
-}
-
-- (id)initWithMonoObject:(MonoObject *)obj {
-    return [self initWithMonoObject:obj withItemClass:nil];
-}
-
 - (id)initWithSignature:(const char *)signature withNumArgs:(int)numArgs, ... {
 	MonoClass *monoClass = [[self class] monoClass];
 	if(monoClass == NULL) return(nil);
@@ -175,21 +153,6 @@
 	MonoString *monoString = (MonoString *)[self invokeMonoMethod:"System.Object:ToString()" withNumArgs:0];
 	
 	return([NSString stringWithMonoString:monoString]);
-}
-
-- (Class)itemClass
-{
-    return self.itemClasses.firstObject;
-}
-
-- (Class)firstItemClass
-{
-    return self.itemClass;
-}
-
-- (Class)secondItemClass
-{
-    return (self.itemClasses)[1];;
 }
 
 #pragma mark -
@@ -761,22 +724,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // a CSV list of type names.
     // types may be class names or primitive types
     _monoGenericTypeArgumentNames = typeNamesList;
-    //NSArray *typeNames = [typeNamesList componentsSeparatedByString:@","];
-    
-    // create an array of class names representing the generic items handled by this type
-    /*self.itemClasses = [NSMutableArray arrayWithCapacity:[typeNames count]];
-    for (NSString *typeName in typeNames) {
-        
-        // convert typename to class
-        Class typeClass = NSClassFromString(typeName);
-        
-        // if typename is not a valid classname then it's a primitive type
-        if (!typeClass) {
-            typeClass = [NSNumber class];
-        }
-        
-        [self.itemClasses addObject:typeClass];
-    }*/
 }
 
 @end

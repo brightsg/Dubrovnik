@@ -34,7 +34,7 @@
 
 + (instancetype)objectQueryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
 {
-    id objectQuery = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
+    id objectQuery = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(objectQuery);
 }
 

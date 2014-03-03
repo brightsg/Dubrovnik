@@ -30,7 +30,6 @@ extern char DBCacheSuffixChar;
 
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (strong, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;
-@property (strong, readwrite) NSMutableArray *itemClasses;
 @property (assign, readonly) MonoObject *monoObject;
 
 // Subclasses must override these
@@ -62,8 +61,6 @@ extern char DBCacheSuffixChar;
  
  */
 - (id)initWithSignature:(const char *)constructorSignature withNumArgs:(int)numArgs, ...;
-- (id)initWithMonoObject:(MonoObject *)obj withItemClasses:(NSArray *)itemClasses;
-- (id)initWithMonoObject:(MonoObject *)obj withItemClass:(Class)itemClass;
 
 // Mono types
 - (MonoClass *)monoClass;
@@ -138,11 +135,5 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
 + (const char *)monoClassTypeName:(MonoClass *)klass;
 + (void)logMonoClassNestedTypesInfo:(MonoClass *)klass;
-
-- (Class)itemClass;
-- (Class)firstItemClass;
-- (Class)secondItemClass;
-
-
 
 @end
