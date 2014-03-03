@@ -84,6 +84,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
 		if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;					
 		_stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _stringProperty;
 	}
     - (void)setStringProperty:(NSString *)value

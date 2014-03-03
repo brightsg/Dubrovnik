@@ -35,6 +35,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"Name"];
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _name;
 	}
     - (void)setName:(NSString *)value

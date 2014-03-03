@@ -548,9 +548,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 				}
 #>
 		<#=propertyStorage#> = <#=monoValueToObjC#>;
-<#+		
-				WriteFacetGenericsToObjCResult(propertyStorage, facet);
-#>
+
 		return <#=propertyStorage#>;
 	}
 <#+	
@@ -594,22 +592,6 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 <#+
         }  // if Implementation
     } // if IsWritable
-}
-
-//
-// WriteFacetGenericsToObjCResult
-//
-public void WriteFacetGenericsToObjCResult(string propertyStorage, CodeFacet facet)
-{
-
-#warning All code paths that return results need this processing
-	if (facet.IsConstructedGenericType)
-	{
-		string objCGenericArgumentTypeNames = ObjCGenericArgumentTypeNamesStringFromMonoFacet(facet);
-#>
-		<#=propertyStorage#>.monoGenericTypeArgumentNames = @"<#=objCGenericArgumentTypeNames#>";
-<#+
-    }
 }
 
 //

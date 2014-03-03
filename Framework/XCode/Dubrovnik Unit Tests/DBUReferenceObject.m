@@ -308,7 +308,6 @@
 {
     MonoObject *monoObject = [self getMonoProperty:"IntNullable"];
     System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
-    nullable.monoGenericTypeArgumentNames = @"int32_t";
     
     return nullable;
 }
@@ -322,7 +321,6 @@
 {
     MonoObject *monoObject = [self getMonoProperty:"FloatNullable"];
     System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
-    nullable.monoGenericTypeArgumentNames = @"float";
     
     return nullable;
 }
@@ -378,7 +376,6 @@
 {
     MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
     DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
-    dict.monoGenericTypeArgumentNames = @"NSString,NSString";
     return dict;
 }
 
@@ -386,7 +383,6 @@
 {
     MonoObject * monoObject = [self getMonoProperty:"IntIntDictionary"];
     DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
-    dict.monoGenericTypeArgumentNames = @"NSNumber,NSNumber";
     return dict;
 }
 
@@ -394,7 +390,6 @@
 {
     MonoObject * monoObject = [self getMonoProperty:"StringObjectDictionary"];
     DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
-    dict.monoGenericTypeArgumentNames = @"NSString,DBManagedObject";
     return dict;
 }
 
@@ -402,7 +397,6 @@
 {
     MonoObject * monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
     DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
-    dict.monoGenericTypeArgumentNames = @"NSObject,NSObject";
     return dict;
 }
 

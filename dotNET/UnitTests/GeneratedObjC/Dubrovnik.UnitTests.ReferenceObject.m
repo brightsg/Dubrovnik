@@ -203,6 +203,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"BoolArray"];
 		if ([self object:_boolArray isEqualToMonoObject:monoObject]) return _boolArray;					
 		_boolArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _boolArray;
 	}
     - (void)setBoolArray:(DBSystem_Array *)value
@@ -220,6 +221,7 @@
 		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassProperty"];
 		if ([self object:m_classProperty isEqualToMonoObject:monoObject]) return m_classProperty;					
 		m_classProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_classProperty;
 	}
     + (void)setClassProperty:(NSString *)value
@@ -237,6 +239,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"Date"];
 		if ([self object:_date isEqualToMonoObject:monoObject]) return _date;					
 		_date = [NSDate dateWithMonoDateTime:monoObject];
+
 		return _date;
 	}
     - (void)setDate:(NSDate *)value
@@ -254,6 +257,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"DecimalNumber"];
 		if ([self object:_decimalNumber isEqualToMonoObject:monoObject]) return _decimalNumber;					
 		_decimalNumber = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+
 		return _decimalNumber;
 	}
     - (void)setDecimalNumber:(NSDecimalNumber *)value
@@ -271,6 +275,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"DoubleArray"];
 		if ([self object:_doubleArray isEqualToMonoObject:monoObject]) return _doubleArray;					
 		_doubleArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _doubleArray;
 	}
     - (void)setDoubleArray:(DBSystem_Array *)value
@@ -288,7 +293,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"DoubleList"];
 		if ([self object:_doubleList isEqualToMonoObject:monoObject]) return _doubleList;					
 		_doubleList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
-		_doubleList.monoGenericTypeArgumentNames = @"double";
+
 		return _doubleList;
 	}
     - (void)setDoubleList:(DBSystem_Collections_Generic_ListA1 *)value
@@ -306,6 +311,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"FloatArray"];
 		if ([self object:_floatArray isEqualToMonoObject:monoObject]) return _floatArray;					
 		_floatArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _floatArray;
 	}
     - (void)setFloatArray:(DBSystem_Array *)value
@@ -323,7 +329,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"FloatList"];
 		if ([self object:_floatList isEqualToMonoObject:monoObject]) return _floatList;					
 		_floatList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
-		_floatList.monoGenericTypeArgumentNames = @"float";
+
 		return _floatList;
 	}
     - (void)setFloatList:(DBSystem_Collections_Generic_ListA1 *)value
@@ -341,7 +347,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"FloatNullable"];
 		if ([self object:_floatNullable isEqualToMonoObject:monoObject]) return _floatNullable;					
 		_floatNullable = [System_NullableA1 objectWithMonoObject:monoObject];
-		_floatNullable.monoGenericTypeArgumentNames = @"float";
+
 		return _floatNullable;
 	}
     - (void)setFloatNullable:(System_NullableA1 *)value
@@ -359,6 +365,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"Int16Array"];
 		if ([self object:_int16Array isEqualToMonoObject:monoObject]) return _int16Array;					
 		_int16Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _int16Array;
 	}
     - (void)setInt16Array:(DBSystem_Array *)value
@@ -376,6 +383,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"Int32Array"];
 		if ([self object:_int32Array isEqualToMonoObject:monoObject]) return _int32Array;					
 		_int32Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _int32Array;
 	}
     - (void)setInt32Array:(DBSystem_Array *)value
@@ -392,6 +400,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int32Number"];
 		_int32Number = DB_UNBOX_INT32(monoObject);
+
 		return _int32Number;
 	}
     - (void)setInt32Number:(int32_t)value
@@ -408,6 +417,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int32Pointer"];
 		_int32Pointer = DB_UNBOX_PTR(monoObject);
+
 		return _int32Pointer;
 	}
     - (void)setInt32Pointer:(int32_t *)value
@@ -425,6 +435,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"Int64Array"];
 		if ([self object:_int64Array isEqualToMonoObject:monoObject]) return _int64Array;					
 		_int64Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _int64Array;
 	}
     - (void)setInt64Array:(DBSystem_Array *)value
@@ -441,6 +452,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int64Number"];
 		_int64Number = DB_UNBOX_INT64(monoObject);
+
 		return _int64Number;
 	}
     - (void)setInt64Number:(int64_t)value
@@ -457,6 +469,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntEnumeration"];
 		_intEnumeration = DB_UNBOX_INT32(monoObject);
+
 		return _intEnumeration;
 	}
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value
@@ -474,7 +487,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"IntIntDictionary"];
 		if ([self object:_intIntDictionary isEqualToMonoObject:monoObject]) return _intIntDictionary;					
 		_intIntDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
-		_intIntDictionary.monoGenericTypeArgumentNames = @"int32_t,int32_t";
+
 		return _intIntDictionary;
 	}
     - (void)setIntIntDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
@@ -492,7 +505,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"IntList"];
 		if ([self object:_intList isEqualToMonoObject:monoObject]) return _intList;					
 		_intList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
-		_intList.monoGenericTypeArgumentNames = @"int32_t";
+
 		return _intList;
 	}
     - (void)setIntList:(DBSystem_Collections_Generic_ListA1 *)value
@@ -510,7 +523,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"IntNullable"];
 		if ([self object:_intNullable isEqualToMonoObject:monoObject]) return _intNullable;					
 		_intNullable = [System_NullableA1 objectWithMonoObject:monoObject];
-		_intNullable.monoGenericTypeArgumentNames = @"int32_t";
+
 		return _intNullable;
 	}
     - (void)setIntNullable:(System_NullableA1 *)value
@@ -527,6 +540,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntNumber"];
 		_intNumber = DB_UNBOX_INT32(monoObject);
+
 		return _intNumber;
 	}
     - (void)setIntNumber:(int32_t)value
@@ -543,6 +557,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"LongEnumeration"];
 		_longEnumeration = DB_UNBOX_INT64(monoObject);
+
 		return _longEnumeration;
 	}
     - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value
@@ -560,6 +575,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"MinimalReferenceObject"];
 		if ([self object:_minimalReferenceObject isEqualToMonoObject:monoObject]) return _minimalReferenceObject;					
 		_minimalReferenceObject = [Dubrovnik_UnitTests_IMinimalReferenceObject objectWithMonoObject:monoObject];
+
 		return _minimalReferenceObject;
 	}
 
@@ -571,6 +587,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"Name"];
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _name;
 	}
     - (void)setName:(NSString *)value
@@ -588,7 +605,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
 		if ([self object:_objectObjectDictionary isEqualToMonoObject:monoObject]) return _objectObjectDictionary;					
 		_objectObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
-		_objectObjectDictionary.monoGenericTypeArgumentNames = @"System_Object,System_Object";
+
 		return _objectObjectDictionary;
 	}
     - (void)setObjectObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
@@ -605,6 +622,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Pointer"];
 		_pointer = DB_UNBOX_PTR(monoObject);
+
 		return _pointer;
 	}
     - (void)setPointer:(void *)value
@@ -622,7 +640,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectList"];
 		if ([self object:_referenceObjectList isEqualToMonoObject:monoObject]) return _referenceObjectList;					
 		_referenceObjectList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
-		_referenceObjectList.monoGenericTypeArgumentNames = @"Dubrovnik_UnitTests_ReferenceObject";
+
 		return _referenceObjectList;
 	}
     - (void)setReferenceObjectList:(DBSystem_Collections_Generic_ListA1 *)value
@@ -640,6 +658,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
 		if ([self object:_referenceObjectRelative isEqualToMonoObject:monoObject]) return _referenceObjectRelative;					
 		_referenceObjectRelative = [Dubrovnik_UnitTests_ReferenceObject objectWithMonoObject:monoObject];
+
 		return _referenceObjectRelative;
 	}
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value
@@ -657,6 +676,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"StringArray"];
 		if ([self object:_stringArray isEqualToMonoObject:monoObject]) return _stringArray;					
 		_stringArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _stringArray;
 	}
     - (void)setStringArray:(DBSystem_Array *)value
@@ -674,6 +694,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"StringArrayList"];
 		if ([self object:_stringArrayList isEqualToMonoObject:monoObject]) return _stringArrayList;					
 		_stringArrayList = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+
 		return _stringArrayList;
 	}
     - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value
@@ -691,7 +712,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"StringList"];
 		if ([self object:_stringList isEqualToMonoObject:monoObject]) return _stringList;					
 		_stringList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
-		_stringList.monoGenericTypeArgumentNames = @"NSString";
+
 		return _stringList;
 	}
     - (void)setStringList:(DBSystem_Collections_Generic_ListA1 *)value
@@ -709,7 +730,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"StringObjectDictionary"];
 		if ([self object:_stringObjectDictionary isEqualToMonoObject:monoObject]) return _stringObjectDictionary;					
 		_stringObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
-		_stringObjectDictionary.monoGenericTypeArgumentNames = @"NSString,System_Object";
+
 		return _stringObjectDictionary;
 	}
     - (void)setStringObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
@@ -727,6 +748,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
 		if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;					
 		_stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _stringProperty;
 	}
     - (void)setStringProperty:(NSString *)value
@@ -744,7 +766,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"StringStringDictionary"];
 		if ([self object:_stringStringDictionary isEqualToMonoObject:monoObject]) return _stringStringDictionary;					
 		_stringStringDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
-		_stringStringDictionary.monoGenericTypeArgumentNames = @"NSString,NSString";
+
 		return _stringStringDictionary;
 	}
     - (void)setStringStringDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
@@ -762,7 +784,7 @@
 		MonoObject *monoObject = [self getMonoProperty:"UIntList"];
 		if ([self object:_uIntList isEqualToMonoObject:monoObject]) return _uIntList;					
 		_uIntList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
-		_uIntList.monoGenericTypeArgumentNames = @"uint32_t";
+
 		return _uIntList;
 	}
     - (void)setUIntList:(DBSystem_Collections_Generic_ListA1 *)value

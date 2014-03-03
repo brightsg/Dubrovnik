@@ -29,7 +29,6 @@ extern char DBCacheSuffixChar;
 @interface DBManagedObject : NSObject <NSCopying>
 
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
-@property (strong, readwrite, nonatomic) NSString *monoGenericTypeArgumentNames;
 @property (assign, readonly) MonoObject *monoObject;
 
 // Subclasses must override these
