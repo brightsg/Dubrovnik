@@ -30,7 +30,7 @@
 #pragma mark -
 #pragma mark - Factory
 
-+ (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
++ (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject
 {
 	DBSystem_Collections_Generic_DictionaryA2 *dict = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(dict);

@@ -377,7 +377,7 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSString class]];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     dict.monoGenericTypeArgumentNames = @"NSString,NSString";
     return dict;
 }
@@ -385,7 +385,7 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"IntIntDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     dict.monoGenericTypeArgumentNames = @"NSNumber,NSNumber";
     return dict;
 }
@@ -393,7 +393,7 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"StringObjectDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSString class]];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     dict.monoGenericTypeArgumentNames = @"NSString,DBManagedObject";
     return dict;
 }
@@ -401,7 +401,7 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     dict.monoGenericTypeArgumentNames = @"NSObject,NSObject";
     return dict;
 }

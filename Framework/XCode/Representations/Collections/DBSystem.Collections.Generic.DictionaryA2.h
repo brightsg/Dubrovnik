@@ -9,7 +9,7 @@
 #import "System.Collections.Generic.DictionaryA2.h"
 
 @interface DBSystem_Collections_Generic_DictionaryA2 : System_Collections_Generic_DictionaryA2
-+ (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
++ (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject;
 - (NSArray *)allKeys;
 - (NSArray *)allValues;
 - (id)objectForKey:(id)key;
