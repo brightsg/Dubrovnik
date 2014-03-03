@@ -130,7 +130,11 @@
 {
     MonoObject *monoObject = NULL;
     
-    // TODO: the desired typename is expicitly passed.
+#warning Refactor this. Wil lkely mean changing the type names to be compatible with DBTypeManager
+    // TODO: there is likely some type info duplication here with DBTypeManager
+    // it would be best to defer this method to DBTypeManager
+    
+    // NOTE: the desired typename is expicitly passed.
     // if DBManagedNumber is passed then the type can be accurately
     // obtained from -monoObjCType
     
