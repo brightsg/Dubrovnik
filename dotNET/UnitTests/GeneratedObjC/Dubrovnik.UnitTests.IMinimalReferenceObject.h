@@ -2,7 +2,7 @@
 //
 // Managed interface : IMinimalReferenceObject
 //
-@interface Dubrovnik_UnitTests_IMinimalReferenceObject : DBManagedObject
+@interface Dubrovnik_UnitTests_IMinimalReferenceObject : System_Object
 
 #pragma mark -
 #pragma mark Setup

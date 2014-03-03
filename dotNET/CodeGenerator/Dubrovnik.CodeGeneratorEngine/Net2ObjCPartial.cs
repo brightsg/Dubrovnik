@@ -613,13 +613,13 @@ namespace Dubrovnik
                         // Just as we provide a class rep for a generic the same will be required for an array.
                         if (monoFacet.IsArray)
                         {
-                            getterArgs.Add("DBMonoObjectRepresentation");
+                            getterArgs.Add("DBManagedObject");
                         }
 
                         // We may require at least two arguments.
                         if (getterArgs.Count < 2)
                         {
-                            getterArgs.Add("DBMonoObjectRepresentation");
+                            getterArgs.Add("DBManagedObject");
                         }
 
                         // add additional arguments
@@ -657,8 +657,8 @@ namespace Dubrovnik
                     objCType = ObjCTypeFromMonoType(monoType);
                 }
 
-                // create DBMonoObjectRepresentation subclass
-                exp = string.Format("[{0} representationWithMonoObject:{1}]", objCType, monoVarName);
+                // create DBManagedObject subclass
+                exp = string.Format("[{0} objectWithMonoObject:{1}]", objCType, monoVarName);
             }
 
             return exp;
@@ -897,12 +897,12 @@ namespace Dubrovnik
 
             // Dubrovnik.Generic.Parameter
             monoTA = new MonoTypeAssociation { MonoType = "Dubrovnik.Generic.Parameter" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBManagedObject", GetterFormat = "[DBManagedObject objectWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Object
             monoTA = new MonoTypeAssociation { MonoType = "System.Object", MonoTypeAlias = "object" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object objectWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.String
@@ -912,12 +912,12 @@ namespace Dubrovnik
 
             // System.Array
             monoTA = new MonoTypeAssociation { MonoType = "System.Array"};
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0}) withRepresentationClass:[{1} class]]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0}) withItemClass:[{1} class]]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Collections.ArrayList
             monoTA = new MonoTypeAssociation { MonoType = "System.Collections.ArrayList" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0} withItemClass:[{1} class]]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Collections.Generic.List
@@ -937,7 +937,7 @@ namespace Dubrovnik
 
             // ObjectSet
             monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectSet`1"};
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0} withRepresentationClass:[{1} class]]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0} withItemClass:[{1} class]]" };
             AssociateTypes(monoTA, objcTA);
 
             // ObjectContext
@@ -951,7 +951,7 @@ namespace Dubrovnik
 
             // System.ValueType - struct
             monoTA = new MonoTypeAssociation { MonoType = "System.ValueType" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBMonoObjectRepresentation", GetterFormat = "[DBMonoObjectRepresentation representationWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBManagedObject", GetterFormat = "[DBManagedObject objectWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Void
@@ -1041,7 +1041,7 @@ namespace Dubrovnik
 
             // System.Enum
             monoTA = new MonoTypeAssociation { MonoType = "System.Enum" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBEnum", GetterFormat = "[DBEnum representationWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBEnum", GetterFormat = "[DBEnum objectWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
             //===============================================================================================

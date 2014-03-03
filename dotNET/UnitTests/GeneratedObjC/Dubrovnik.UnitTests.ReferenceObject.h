@@ -2,7 +2,7 @@
 //
 // Managed class : ReferenceObject
 //
-@interface Dubrovnik_UnitTests_ReferenceObject : DBManagedObject
+@interface Dubrovnik_UnitTests_ReferenceObject : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -89,9 +89,21 @@
 	// Managed property type : System.Double[]
     @property (nonatomic, strong) DBSystem_Array * doubleArray;
 
+	// Managed property name : DoubleList
+	// Managed property type : System.Collections.Generic.List`1<System.Double>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * doubleList;
+
 	// Managed property name : FloatArray
 	// Managed property type : System.Single[]
     @property (nonatomic, strong) DBSystem_Array * floatArray;
+
+	// Managed property name : FloatList
+	// Managed property type : System.Collections.Generic.List`1<System.Single>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * floatList;
+
+	// Managed property name : FloatNullable
+	// Managed property type : System.Nullable`1<System.Single>
+    @property (nonatomic, strong) System_NullableA1 * floatNullable;
 
 	// Managed property name : Int16Array
 	// Managed property type : System.Int16[]
@@ -121,17 +133,21 @@
 	// Managed property type : Dubrovnik.UnitTests.IntEnum
     @property (nonatomic) Dubrovnik_UnitTests_IntEnum intEnumeration;
 
+	// Managed property name : IntIntDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intIntDictionary;
+
 	// Managed property name : IntList
 	// Managed property type : System.Collections.Generic.List`1<System.Int32>
     @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * intList;
 
+	// Managed property name : IntNullable
+	// Managed property type : System.Nullable`1<System.Int32>
+    @property (nonatomic, strong) System_NullableA1 * intNullable;
+
 	// Managed property name : IntNumber
 	// Managed property type : System.Int32
     @property (nonatomic) int32_t intNumber;
-
-	// Managed property name : IntObjectDictionary
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intObjectDictionary;
 
 	// Managed property name : LongEnumeration
 	// Managed property type : Dubrovnik.UnitTests.LongEnum
@@ -144,6 +160,10 @@
 	// Managed property name : Name
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * name;
+
+	// Managed property name : ObjectObjectDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Object, System.Object>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * objectObjectDictionary;
 
 	// Managed property name : Pointer
 	// Managed property type : System.IntPtr
@@ -169,6 +189,10 @@
 	// Managed property type : System.Collections.Generic.List`1<System.String>
     @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * stringList;
 
+	// Managed property name : StringObjectDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.Object>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * stringObjectDictionary;
+
 	// Managed property name : StringProperty
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * stringProperty;
@@ -176,6 +200,10 @@
 	// Managed property name : StringStringDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
     @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * stringStringDictionary;
+
+	// Managed property name : UIntList
+	// Managed property type : System.Collections.Generic.List`1<System.UInt32>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * uIntList;
 
 #pragma mark -
 #pragma mark Methods
@@ -238,17 +266,7 @@
 	// Managed method name : StringMethod
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2;
-
-	// Managed method name : Sum
-	// Managed return type : System.Int64
-	// Managed param types : System.Int64[]
-    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
-
-	// Managed method name : Sum
-	// Managed return type : System.Int32
-	// Managed param types : System.Int32[]
-    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
 
 	// Managed method name : Sum
 	// Managed return type : System.Int16
@@ -274,6 +292,16 @@
 	// Managed return type : System.String
 	// Managed param types : System.String[]
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Int64
+	// Managed param types : System.Int64[]
+    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32[]
+    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
 
 	// Managed method name : SumAndSwitch
 	// Managed return type : System.Int32

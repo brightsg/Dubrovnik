@@ -280,6 +280,24 @@
 		[self setMonoProperty:"DoubleArray" valueObject:monoObject];          
 	}
 
+	// Managed property name : DoubleList
+	// Managed property type : System.Collections.Generic.List`1<System.Double>
+    @synthesize doubleList = _doubleList;
+    - (DBSystem_Collections_Generic_ListA1 *)doubleList
+    {
+		MonoObject *monoObject = [self getMonoProperty:"DoubleList"];
+		if ([self object:_doubleList isEqualToMonoObject:monoObject]) return _doubleList;					
+		_doubleList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_doubleList.monoGenericTypeArgumentNames = @"double";
+		return _doubleList;
+	}
+    - (void)setDoubleList:(DBSystem_Collections_Generic_ListA1 *)value
+	{
+		_doubleList = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"DoubleList" valueObject:monoObject];          
+	}
+
 	// Managed property name : FloatArray
 	// Managed property type : System.Single[]
     @synthesize floatArray = _floatArray;
@@ -295,6 +313,42 @@
 		_floatArray = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"FloatArray" valueObject:monoObject];          
+	}
+
+	// Managed property name : FloatList
+	// Managed property type : System.Collections.Generic.List`1<System.Single>
+    @synthesize floatList = _floatList;
+    - (DBSystem_Collections_Generic_ListA1 *)floatList
+    {
+		MonoObject *monoObject = [self getMonoProperty:"FloatList"];
+		if ([self object:_floatList isEqualToMonoObject:monoObject]) return _floatList;					
+		_floatList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_floatList.monoGenericTypeArgumentNames = @"float";
+		return _floatList;
+	}
+    - (void)setFloatList:(DBSystem_Collections_Generic_ListA1 *)value
+	{
+		_floatList = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"FloatList" valueObject:monoObject];          
+	}
+
+	// Managed property name : FloatNullable
+	// Managed property type : System.Nullable`1<System.Single>
+    @synthesize floatNullable = _floatNullable;
+    - (System_NullableA1 *)floatNullable
+    {
+		MonoObject *monoObject = [self getMonoProperty:"FloatNullable"];
+		if ([self object:_floatNullable isEqualToMonoObject:monoObject]) return _floatNullable;					
+		_floatNullable = [System_NullableA1 objectWithMonoObject:monoObject];
+		_floatNullable.monoGenericTypeArgumentNames = @"float";
+		return _floatNullable;
+	}
+    - (void)setFloatNullable:(System_NullableA1 *)value
+	{
+		_floatNullable = value;
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"FloatNullable" valueObject:monoObject];          
 	}
 
 	// Managed property name : Int16Array
@@ -412,6 +466,24 @@
 		[self setMonoProperty:"IntEnumeration" valueObject:monoObject];          
 	}
 
+	// Managed property name : IntIntDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
+    @synthesize intIntDictionary = _intIntDictionary;
+    - (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary
+    {
+		MonoObject *monoObject = [self getMonoProperty:"IntIntDictionary"];
+		if ([self object:_intIntDictionary isEqualToMonoObject:monoObject]) return _intIntDictionary;					
+		_intIntDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_intIntDictionary.monoGenericTypeArgumentNames = @"int32_t,int32_t";
+		return _intIntDictionary;
+	}
+    - (void)setIntIntDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+	{
+		_intIntDictionary = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"IntIntDictionary" valueObject:monoObject];          
+	}
+
 	// Managed property name : IntList
 	// Managed property type : System.Collections.Generic.List`1<System.Int32>
     @synthesize intList = _intList;
@@ -430,6 +502,24 @@
 		[self setMonoProperty:"IntList" valueObject:monoObject];          
 	}
 
+	// Managed property name : IntNullable
+	// Managed property type : System.Nullable`1<System.Int32>
+    @synthesize intNullable = _intNullable;
+    - (System_NullableA1 *)intNullable
+    {
+		MonoObject *monoObject = [self getMonoProperty:"IntNullable"];
+		if ([self object:_intNullable isEqualToMonoObject:monoObject]) return _intNullable;					
+		_intNullable = [System_NullableA1 objectWithMonoObject:monoObject];
+		_intNullable.monoGenericTypeArgumentNames = @"int32_t";
+		return _intNullable;
+	}
+    - (void)setIntNullable:(System_NullableA1 *)value
+	{
+		_intNullable = value;
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"IntNullable" valueObject:monoObject];          
+	}
+
 	// Managed property name : IntNumber
 	// Managed property type : System.Int32
     @synthesize intNumber = _intNumber;
@@ -444,24 +534,6 @@
 		_intNumber = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IntNumber" valueObject:monoObject];          
-	}
-
-	// Managed property name : IntObjectDictionary
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, Dubrovnik.UnitTests.ReferenceObject>
-    @synthesize intObjectDictionary = _intObjectDictionary;
-    - (DBSystem_Collections_Generic_DictionaryA2 *)intObjectDictionary
-    {
-		MonoObject *monoObject = [self getMonoProperty:"IntObjectDictionary"];
-		if ([self object:_intObjectDictionary isEqualToMonoObject:monoObject]) return _intObjectDictionary;					
-		_intObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
-		_intObjectDictionary.monoGenericTypeArgumentNames = @"int32_t,Dubrovnik_UnitTests_ReferenceObject";
-		return _intObjectDictionary;
-	}
-    - (void)setIntObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
-	{
-		_intObjectDictionary = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"IntObjectDictionary" valueObject:monoObject];          
 	}
 
 	// Managed property name : LongEnumeration
@@ -506,6 +578,24 @@
 		_name = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
+	}
+
+	// Managed property name : ObjectObjectDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Object, System.Object>
+    @synthesize objectObjectDictionary = _objectObjectDictionary;
+    - (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
+		if ([self object:_objectObjectDictionary isEqualToMonoObject:monoObject]) return _objectObjectDictionary;					
+		_objectObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_objectObjectDictionary.monoGenericTypeArgumentNames = @"System_Object,System_Object";
+		return _objectObjectDictionary;
+	}
+    - (void)setObjectObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+	{
+		_objectObjectDictionary = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"ObjectObjectDictionary" valueObject:monoObject];          
 	}
 
 	// Managed property name : Pointer
@@ -611,6 +701,24 @@
 		[self setMonoProperty:"StringList" valueObject:monoObject];          
 	}
 
+	// Managed property name : StringObjectDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.Object>
+    @synthesize stringObjectDictionary = _stringObjectDictionary;
+    - (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary
+    {
+		MonoObject *monoObject = [self getMonoProperty:"StringObjectDictionary"];
+		if ([self object:_stringObjectDictionary isEqualToMonoObject:monoObject]) return _stringObjectDictionary;					
+		_stringObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_stringObjectDictionary.monoGenericTypeArgumentNames = @"NSString,System_Object";
+		return _stringObjectDictionary;
+	}
+    - (void)setStringObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+	{
+		_stringObjectDictionary = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"StringObjectDictionary" valueObject:monoObject];          
+	}
+
 	// Managed property name : StringProperty
 	// Managed property type : System.String
     @synthesize stringProperty = _stringProperty;
@@ -644,6 +752,24 @@
 		_stringStringDictionary = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"StringStringDictionary" valueObject:monoObject];          
+	}
+
+	// Managed property name : UIntList
+	// Managed property type : System.Collections.Generic.List`1<System.UInt32>
+    @synthesize uIntList = _uIntList;
+    - (DBSystem_Collections_Generic_ListA1 *)uIntList
+    {
+		MonoObject *monoObject = [self getMonoProperty:"UIntList"];
+		if ([self object:_uIntList isEqualToMonoObject:monoObject]) return _uIntList;					
+		_uIntList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_uIntList.monoGenericTypeArgumentNames = @"uint32_t";
+		return _uIntList;
+	}
+    - (void)setUIntList:(DBSystem_Collections_Generic_ListA1 *)value
+	{
+		_uIntList = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"UIntList" valueObject:monoObject];          
 	}
 
 #pragma mark -
@@ -751,28 +877,10 @@
 	// Managed method name : StringMethod
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2
+    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	// Managed method name : Sum
-	// Managed return type : System.Int64
-	// Managed param types : System.Int64[]
-    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
-		return DB_UNBOX_INT64(monoObject);
-    }
-
-	// Managed method name : Sum
-	// Managed return type : System.Int32
-	// Managed param types : System.Int32[]
-    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
-		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : Sum
@@ -818,6 +926,24 @@
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : Sum
+	// Managed return type : System.Int64
+	// Managed param types : System.Int64[]
+    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
+		return DB_UNBOX_INT64(monoObject);
+    }
+
+	// Managed method name : Sum
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32[]
+    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
+		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : SumAndSwitch

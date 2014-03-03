@@ -2,7 +2,7 @@
 //
 // Managed class : ReferenceObjectExtensions
 //
-@interface Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions : DBManagedObject
+@interface Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions : System_Object
 
 #pragma mark -
 #pragma mark Setup
