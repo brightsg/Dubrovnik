@@ -113,7 +113,7 @@
 
 + (id)newNullableFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName
 {
-    // Creating a new Nullable<Int64> cannot be done directly:
+    // Creating a new Nullable<T> cannot be done directly:
     // http://stackoverflow.com/questions/8691601/creating-a-nullable-object-via-activator-createinstance-returns-null
     // System.Nullable<T> needs to set the underlying type directly.
     MonoObject *monoObject = [self monoObjectFromObject:object withTypeArgumentName:typeArgumentName];
@@ -130,7 +130,7 @@
 {
     MonoObject *monoObject = NULL;
     
-#warning Refactor this. Will lkely mean changing the type names to be compatible with DBTypeManager
+#warning Refactor this. Will likely mean changing the type names to be compatible with DBTypeManager
     // TODO: there is likely some type info duplication here with DBTypeManager
     // it would be best to defer this method to DBTypeManager
     
