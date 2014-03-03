@@ -937,7 +937,7 @@ namespace Dubrovnik
 
             // ObjectSet
             monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectSet`1"};
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0} withItemClass:[{1} class]]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
             // ObjectContext

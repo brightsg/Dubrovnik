@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark - Factory
 
-+ (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
++ (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject
 {
-    id objectSet = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
+    id objectSet = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(objectSet);
 }
 

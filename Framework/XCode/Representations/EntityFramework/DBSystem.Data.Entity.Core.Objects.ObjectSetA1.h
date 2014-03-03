@@ -16,7 +16,7 @@
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1 : DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
 
 
-+ (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
++ (instancetype)objectSetWithMonoObject:(MonoObject *)monoObject;
 
 - (void)addObject:(DBManagedObject *)object;
 - (void)deleteObject:(DBManagedObject *)object;
