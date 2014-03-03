@@ -75,28 +75,14 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
  Create a new nullable instance from the given object and type name
  
  */
-+ (id)newNullableFromObject:(id)object withMonoGenericTypeArgumentName:(NSString *)typeArgumentName;
++ (id)newNullableFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName;
 
 /*!
  
  Create a new MonoObject from the given object and type name
  
  */
-+ (MonoObject *)monoObjectFromObject:(id)object withMonoGenericTypeArgumentName:(NSString *)typeArgumentName;
-
-/*!
- 
- Create a new nullable instance from the given object and instance type name
- 
- */
-- (System_NullableA1 *)newNullableFromObject:(id)object;
-
-/*!
- 
- Create a new MonoObject from the givne object and instance type name
- 
- */
-- (MonoObject *)monoObjectFromObject:(id)object;
++ (MonoObject *)monoObjectFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName;
 
 - (int64_t)int64Value;
 - (uint64_t)uint64Value;

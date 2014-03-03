@@ -1043,35 +1043,6 @@ namespace Dubrovnik
             monoTA = new MonoTypeAssociation { MonoType = "System.Enum" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBEnum", GetterFormat = "[DBEnum objectWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
-
-            //===============================================================================================
-            // nullable value types
-            //===============================================================================================
-
-            // Nullable<System.DateTime>
-            monoTA = new MonoTypeAssociation { MonoType = "Nullable<global::System.DateTime>" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "NSDate", GetterFormat = "[NSDate dateWithNullableMonoDateTime:{0}]", SetterFormat = "[{0} nullableMonoValue]" };
-            AssociateTypes(monoTA, objcTA);
-
-            // Nullable<System.Decimal>
-            monoTA = new MonoTypeAssociation { MonoType = "Nullable<global::System.Decimal>" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "NSDecimalNumber", GetterFormat = "[NSDecimalNumber decimalNumberWithNullableMonoDecimal:{0}]", SetterFormat = "[{0} nullableMonoValue]" };
-            AssociateTypes(monoTA, objcTA);
-
-            // Nullable<System.Int64>
-            monoTA = new MonoTypeAssociation { MonoType = "Nullable<global::System.Int64>" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "NSNumber", GetterFormat = "[NSNumber numberWithNullableMonoInt64:{0}]", SetterFormat = "[{0} nullableMonoInt64]" };
-            AssociateTypes(monoTA, objcTA);
-
-            // Nullable<System.Int32>
-            monoTA = new MonoTypeAssociation { MonoType = "Nullable<global::System.Int32>" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "NSNumber", GetterFormat = "[NSNumber numberWithNullableMonoInt32:{0}]", SetterFormat = "[{0} nullableMonoInt32]" };
-            AssociateTypes(monoTA, objcTA);
-
-            // Nullable<System.Boolean>
-            monoTA = new MonoTypeAssociation { MonoType = "Nullable<global::System.Boolean>" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "NSNumber", GetterFormat = "[NSNumber numberWithNullableMonoBool:{0}]", SetterFormat = "[{0} nullableMonoBool]" };
-            AssociateTypes(monoTA, objcTA);
         }
 
         //

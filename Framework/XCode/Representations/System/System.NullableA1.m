@@ -9,6 +9,7 @@
 #import "System.NullableA1.h"
 #import "DBBoxing.h"
 #import "NSDecimalNumber+Dubrovnik.h"
+#import "DBTypeManager.h"
 
 // Nullable types are handled differently to other types:
 // http://msdn.microsoft.com/en-US/library/ms228597(v=VS.80).ASPX
@@ -110,23 +111,14 @@
 #pragma mark -
 #pragma mark Factory methods
 
-+ (id)newNullableFromObject:(id)object withMonoGenericTypeArgumentName:(NSString *)typeArgumentName
++ (id)newNullableFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName
 {
     // Creating a new Nullable<Int64> cannot be done directly:
     // http://stackoverflow.com/questions/8691601/creating-a-nullable-object-via-activator-createinstance-returns-null
     // System.Nullable<T> needs to set the underlying type directly.
-    MonoObject *monoObject = [self monoObjectFromObject:object withMonoGenericTypeArgumentName:typeArgumentName];
+    MonoObject *monoObject = [self monoObjectFromObject:object withTypeArgumentName:typeArgumentName];
     
-#warning May need to keep an eye on this for memory issues.
     System_NullableA1 *nullable = [[[self class] alloc] initWithMonoObject:monoObject];
-    nullable.monoGenericTypeArgumentNames = typeArgumentName;
-    
-    return nullable;
-}
-
-- (System_NullableA1 *)newNullableFromObject:(id)object
-{
-    System_NullableA1 *nullable = [[self class] newNullableFromObject:object withMonoGenericTypeArgumentName:self.monoGenericTypeArgumentNames];
     
     return nullable;
 }
@@ -134,7 +126,7 @@
 #pragma mark -
 #pragma mark MonoObject representation methods
 
-+ (MonoObject *)monoObjectFromObject:(id)object withMonoGenericTypeArgumentName:(NSString *)typeArgumentName
++ (MonoObject *)monoObjectFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName
 {
     MonoObject *monoObject = NULL;
     
@@ -258,116 +250,12 @@
     return monoObject;
 }
 
-- (MonoObject *)monoObjectFromObject:(id)object
-{
-    MonoObject *monoObject = [[self class] monoObjectFromObject:object withMonoGenericTypeArgumentName:self.monoGenericTypeArgumentNames];
-    
-    return monoObject;
-}
-
-
 #pragma mark -
 #pragma mark Underlying type accessors
 
 - (NSNumber *)numberValue
 {
-    NSString *genericTypeName = self.monoGenericTypeArgumentNames;
-    NSNumber *number = nil;
-
-    if (self.monoObject) {
-        
-        NSNumber *typeIndex = [[[self class] typeAssociations] objectForKey:genericTypeName];
-
-        if (typeIndex) {
-            
-            switch ([typeIndex integerValue]) {
-                
-                case DBSystemNullableInt8:
-                {
-                    number = [NSNumber numberWithChar:DB_UNBOX_INT8(self.monoObject)];
-                    break;
-                }
-                    
-                case DBSystemNullableUint8:
-                {
-                    number = [NSNumber numberWithUnsignedChar:DB_UNBOX_UINT8(self.monoObject)];
-                    break;
-                }
-
-                case DBSystemNullableInt16:
-                {
-                    number = [NSNumber numberWithShort:DB_UNBOX_INT16(self.monoObject)];
-                    break;
-                }
-                    
-                case DBSystemNullableUint16:
-                {
-                    number = [NSNumber numberWithUnsignedShort:DB_UNBOX_UINT16(self.monoObject)];
-                    break;
-                }
-
-                case DBSystemNullableInt32:
-                {
-                    number = [NSNumber numberWithInt:DB_UNBOX_INT32(self.monoObject)];
-                    break;
-                }
-                    
-                case DBSystemNullableUint32:
-                {
-                    number = [NSNumber numberWithUnsignedInt:DB_UNBOX_UINT32(self.monoObject)];
-                    break;
-                }
-
-                case DBSystemNullableInt64:
-                {
-                    // This works because a boxed Nullable<T> is actually a boxed instance of the underlying type.
-                    number = [NSNumber numberWithLongLong:DB_UNBOX_INT64(self.monoObject)];
-                    break;
-                }
-
-                case DBSystemNullableUint64:
-                {
-                    number = [NSNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(self.monoObject)];
-                    break;
-                }
-
-                case DBSystemNullableDecimal:
-                {
-                    number = [NSDecimalNumber decimalNumberWithMonoDecimal:self.monoObject];
-                    break;
-                }
-
-                case DBSystemNullableDouble:
-                {
-                    number = [NSNumber numberWithDouble:DB_UNBOX_DOUBLE(self.monoObject)];
-                    break;
-                }
-
-                case DBSystemNullableFloat:
-                {
-                    number = [NSNumber numberWithFloat:DB_UNBOX_FLOAT(self.monoObject)];
-                    break;
-                }
-
-                case DBSystemNullableBool:
-                {
-                    number = [NSNumber numberWithBool:DB_UNBOX_BOOLEAN(self.monoObject)];
-                    break;
-                }
-
-                default:
-                {
-                    [NSException raise:@"InvalidTypeForNumberValue" format:@"Cannot get number value for type: %@", genericTypeName];
-                    break;
-                }
-            }
-
-        } else {
-            [NSException raise:@"MissingTypeAssociationForType" format:@"No type associaton for type: %@", genericTypeName];
-        }
-
-    }
-    
+    NSNumber *number = [[DBTypeManager sharedManager]  objectWithMonoObject:self.monoObject];
     return number;
 }
 

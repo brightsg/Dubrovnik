@@ -716,14 +716,4 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     [self logMonoClassMethodInfo:klass];
 }
 
-#pragma mark -
-#pragma mark Generics support
-
-- (void)setMonoGenericTypeArgumentNames:(NSString *)typeNamesList
-{
-    // a CSV list of type names.
-    // types may be class names or primitive types
-    _monoGenericTypeArgumentNames = typeNamesList;
-}
-
 @end

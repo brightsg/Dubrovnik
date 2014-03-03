@@ -1008,7 +1008,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[intNullable numberValue] intValue] == 1, DBUEqualityTestFailed);
     
     // set value to null
-    System_NullableA1 *intNullable2 = [System_NullableA1 newNullableFromObject:nil withMonoGenericTypeArgumentName:@"int32_t"];
+    System_NullableA1 *intNullable2 = [System_NullableA1 newNullableFromObject:nil withTypeArgumentName:@"int32_t"];
     [refObject setIntNullable:intNullable2];
     intNullable = [refObject intNullable];
     STAssertTrue(intNullable == nil, DBUNilTestFailed);
@@ -1017,7 +1017,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     System_NullableA1 *floatNullable = [refObject floatNullable];
     STAssertTrue(floatNullable == nil, DBUNilTestFailed);
 
-    System_NullableA1 *floatNullable2 = [System_NullableA1 newNullableFromObject:@((float)5) withMonoGenericTypeArgumentName:@"float"];
+    System_NullableA1 *floatNullable2 = [System_NullableA1 newNullableFromObject:@((float)5) withTypeArgumentName:@"float"];
     [refObject setFloatNullable:floatNullable2];
     floatNullable = [refObject floatNullable];
     STAssertTrue(floatNullable != nil, DBUNotNilTestFailed);
