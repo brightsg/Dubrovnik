@@ -33,10 +33,10 @@
 + (MonoArray *)monoArrayWithTypeName:(NSString *)name length:(uintptr_t)length;
 + (MonoArray *)monoArrayWithType:(DBType *)type length:(uintptr_t)length;
 + (MonoArray *)monoArrayWithMonoClass:(MonoClass *)klass length:(uintptr_t)length;
-+ (id)arrayWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass;
++ (id)arrayWithMonoArray:(MonoArray *)monoArray;
 + (id)arrayWithNoObjects;
 
-- (id)initWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass;
+- (id)initWithMonoArray:(MonoArray *)monoArray;
 
 - (uint32_t)count;
 - (MonoArray *)monoArray;

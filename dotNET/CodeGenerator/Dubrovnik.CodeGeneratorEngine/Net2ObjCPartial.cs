@@ -912,7 +912,7 @@ namespace Dubrovnik
 
             // System.Array
             monoTA = new MonoTypeAssociation { MonoType = "System.Array"};
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0}) withItemClass:[{1} class]]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0})]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Collections.ArrayList

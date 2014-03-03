@@ -122,9 +122,9 @@
             self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
 
 		    if (itemClasses) {
-                self.itemClasses = [NSMutableArray arrayWithArray:itemClasses];
+                //self.itemClasses = [NSMutableArray arrayWithArray:itemClasses];
             } else {
-                self.itemClasses = nil;
+                //self.itemClasses = nil;
             }
             
         } else {
@@ -139,7 +139,7 @@
 {
     NSArray *classes = nil;
     if (itemClass) {
-        classes = @[itemClass];
+        //classes = @[itemClass];
     }
     
     return [self initWithMonoObject:obj withItemClasses:classes];
@@ -761,10 +761,10 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // a CSV list of type names.
     // types may be class names or primitive types
     _monoGenericTypeArgumentNames = typeNamesList;
-    NSArray *typeNames = [typeNamesList componentsSeparatedByString:@","];
+    //NSArray *typeNames = [typeNamesList componentsSeparatedByString:@","];
     
     // create an array of class names representing the generic items handled by this type
-    self.itemClasses = [NSMutableArray arrayWithCapacity:[typeNames count]];
+    /*self.itemClasses = [NSMutableArray arrayWithCapacity:[typeNames count]];
     for (NSString *typeName in typeNames) {
         
         // convert typename to class
@@ -776,7 +776,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         }
         
         [self.itemClasses addObject:typeClass];
-    }
+    }*/
 }
 
 @end

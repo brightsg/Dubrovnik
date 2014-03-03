@@ -60,23 +60,23 @@
 
 + (id)arrayWithNoObjects
 {
-    return [self arrayWithMonoArray:[self monoArrayWithNoObjects] withItemClass:nil];
+    return [self arrayWithMonoArray:[self monoArrayWithNoObjects]];
 }
 
-+ (id)arrayWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass
++ (id)arrayWithMonoArray:(MonoArray *)monoArray
 {
-	DBSystem_Array *dbArray = [[self alloc] initWithMonoArray:monoArray withItemClass:itemClass];
+	DBSystem_Array *dbArray = [[self alloc] initWithMonoArray:monoArray];
 	return(dbArray);
 }
 
-- (id)initWithMonoArray:(MonoArray *)monoArray withItemClass:(Class)itemClass
+- (id)initWithMonoArray:(MonoArray *)monoArray
 {
-	return [self initWithMonoObject:(MonoObject *)monoArray withItemClass:itemClass];
+	return [self initWithMonoObject:(MonoObject *)monoArray];
 }
 
-- (id)initWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
+- (id)initWithMonoObject:(MonoObject *)monoObject
 {
-	self = [super initWithMonoObject:(MonoObject *)monoObject withItemClass:itemClass];
+	self = [super initWithMonoObject:(MonoObject *)monoObject];
 	
 	if(self) {
 		_arrayLength = mono_array_length((MonoArray *)monoObject);

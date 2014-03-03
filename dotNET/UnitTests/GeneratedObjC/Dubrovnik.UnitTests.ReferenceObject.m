@@ -202,7 +202,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"BoolArray"];
 		if ([self object:_boolArray isEqualToMonoObject:monoObject]) return _boolArray;					
-		_boolArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withItemClass:[DBManagedObject class]];
+		_boolArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return _boolArray;
 	}
     - (void)setBoolArray:(DBSystem_Array *)value
@@ -270,7 +270,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"DoubleArray"];
 		if ([self object:_doubleArray isEqualToMonoObject:monoObject]) return _doubleArray;					
-		_doubleArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withItemClass:[DBManagedObject class]];
+		_doubleArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return _doubleArray;
 	}
     - (void)setDoubleArray:(DBSystem_Array *)value
@@ -305,7 +305,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"FloatArray"];
 		if ([self object:_floatArray isEqualToMonoObject:monoObject]) return _floatArray;					
-		_floatArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withItemClass:[DBManagedObject class]];
+		_floatArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return _floatArray;
 	}
     - (void)setFloatArray:(DBSystem_Array *)value
@@ -358,7 +358,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int16Array"];
 		if ([self object:_int16Array isEqualToMonoObject:monoObject]) return _int16Array;					
-		_int16Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withItemClass:[DBManagedObject class]];
+		_int16Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return _int16Array;
 	}
     - (void)setInt16Array:(DBSystem_Array *)value
@@ -375,7 +375,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int32Array"];
 		if ([self object:_int32Array isEqualToMonoObject:monoObject]) return _int32Array;					
-		_int32Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withItemClass:[DBManagedObject class]];
+		_int32Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return _int32Array;
 	}
     - (void)setInt32Array:(DBSystem_Array *)value
@@ -424,7 +424,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Int64Array"];
 		if ([self object:_int64Array isEqualToMonoObject:monoObject]) return _int64Array;					
-		_int64Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withItemClass:[DBManagedObject class]];
+		_int64Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return _int64Array;
 	}
     - (void)setInt64Array:(DBSystem_Array *)value
@@ -656,7 +656,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringArray"];
 		if ([self object:_stringArray isEqualToMonoObject:monoObject]) return _stringArray;					
-		_stringArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withItemClass:[DBManagedObject class]];
+		_stringArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return _stringArray;
 	}
     - (void)setStringArray:(DBSystem_Array *)value

@@ -60,19 +60,8 @@
     
     if (monoArray && [self count] > 0) {
         
-        Class klass = NULL;
-        switch (type.typeID) {
-                
-            // we assume that all elements are of the same class
-            case DBTypeID_System_Object:
-            case DBTypeID_System_String:
-            case DBTypeID_System_Array:
-                klass = [self[0] class];
-                break;
-        }
-        
         // create System.Array
-        dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray withItemClass:klass];
+        dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray];
         
         // copy items to system array
         for (NSUInteger i = 0; i < [self count]; i++) {
