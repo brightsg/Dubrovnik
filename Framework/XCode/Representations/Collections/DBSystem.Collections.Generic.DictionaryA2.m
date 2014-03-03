@@ -41,7 +41,6 @@
 
 - (NSArray *)allKeys
 {
-    // an array of objects of type self.firstItemClass
     MonoObject *monoObject = [self getMonoProperty:"Keys"];
     DBManagedObject *object = [[DBManagedObject alloc] initWithMonoObject:monoObject];
     
@@ -72,7 +71,6 @@
 
 - (NSArray *)allValues
 {
-    // an array of objects of type self.secondItemClass
     MonoObject *monoObject = [self getMonoProperty:"Values"];
     
     // Returns object of type System.Collections.Generic.Dictionary<TKey, TValue>.ValueCollection.
@@ -87,8 +85,6 @@
 
 - (id)objectForKey:(id)key
 {
-    // key should be an object of type self.itemClasses[0] as obtained from -keys.
-    // object will be of type self.itemClasses[1]
     id object = nil;
     if ([self containsKey:key]) {
         

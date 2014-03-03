@@ -339,35 +339,35 @@
 - (DBSystem_Collections_Generic_ListA1 *)stringList
 {
     MonoObject * monoObject = [self getMonoProperty:"StringList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSString class]];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
 - (DBSystem_Collections_Generic_ListA1 *)intList
 {
     MonoObject * monoObject = [self getMonoProperty:"IntList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
 - (DBSystem_Collections_Generic_ListA1 *)uIntList
 {
     MonoObject * monoObject = [self getMonoProperty:"UIntList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
 - (DBSystem_Collections_Generic_ListA1 *)floatList
 {
     MonoObject * monoObject = [self getMonoProperty:"FloatList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
 - (DBSystem_Collections_Generic_ListA1 *)doubleList
 {
     MonoObject * monoObject = [self getMonoProperty:"DoubleList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject withItemClass:[NSNumber class]];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 

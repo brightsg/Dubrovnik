@@ -14,7 +14,7 @@
 #pragma mark -
 #pragma mark - Factory
 
-+ (instancetype)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
++ (instancetype)listWithMonoObject:(MonoObject *)monoObject
 {
 	DBSystem_Collections_Generic_ListA1 *list = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(list);

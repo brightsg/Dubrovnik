@@ -14,7 +14,7 @@
 
 @interface DBSystem_Collections_Generic_ListA1 : System_Collections_Generic_ListA1 <Interface_IList, Interface_IEnumerable_T>
 
-+ (instancetype)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
++ (instancetype)listWithMonoObject:(MonoObject *)monoObject;
 - (DBSystem_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;
