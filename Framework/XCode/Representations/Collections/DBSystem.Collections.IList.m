@@ -42,8 +42,9 @@
     return "mscorlib";
 }
 
-+ (instancetype)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass {
-	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject withItemClass:itemClass];
++ (instancetype)listWithMonoObject:(MonoObject *)monoObject
+{
+	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(list);
 }
 

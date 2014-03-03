@@ -673,7 +673,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringArrayList"];
 		if ([self object:_stringArrayList isEqualToMonoObject:monoObject]) return _stringArrayList;					
-		_stringArrayList = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject withItemClass:[DBManagedObject class]];
+		_stringArrayList = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
 		return _stringArrayList;
 	}
     - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value

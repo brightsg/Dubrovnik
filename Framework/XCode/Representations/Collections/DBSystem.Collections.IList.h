@@ -26,7 +26,7 @@
 	@protected
 }
 
-+ (id)listWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass;
++ (id)listWithMonoObject:(MonoObject *)monoObject;
 
 //Indexer Access
 - (MonoObject *)monoObjectAtIndex:(int)index;

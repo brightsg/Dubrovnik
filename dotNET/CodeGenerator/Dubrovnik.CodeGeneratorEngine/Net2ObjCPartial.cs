@@ -917,7 +917,7 @@ namespace Dubrovnik
 
             // System.Collections.ArrayList
             monoTA = new MonoTypeAssociation { MonoType = "System.Collections.ArrayList" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0} withItemClass:[{1} class]]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Collections.Generic.List

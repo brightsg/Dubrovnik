@@ -298,7 +298,7 @@
 - (DBSystem_Collections_ArrayList *)stringArrayList
 {
     MonoObject * monoObject = [self getMonoProperty:"StringArrayList"];
-    return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject withItemClass:[NSString class]];
+    return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
 }
 
 #pragma mark -
