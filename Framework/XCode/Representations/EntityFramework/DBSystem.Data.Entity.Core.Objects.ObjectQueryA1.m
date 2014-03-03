@@ -32,7 +32,7 @@
 #pragma mark -
 #pragma mark - Factory
 
-+ (instancetype)objectQueryWithMonoObject:(MonoObject *)monoObject withItemClass:(Class)itemClass
++ (instancetype)objectQueryWithMonoObject:(MonoObject *)monoObject
 {
     id objectQuery = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(objectQuery);
