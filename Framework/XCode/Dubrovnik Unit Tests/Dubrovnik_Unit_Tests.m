@@ -334,7 +334,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // constructor overloads
     //
     NSString *ctorString = @"Constructor with one string argument";
-    refObject = [testClass new_withValue:ctorString];
+    refObject = [testClass new_withValue:(id)ctorString];
     STAssertNotNil(refObject, DBUObjectNotCreated);
     STAssertTrue([[refObject stringProperty] isEqualToString:ctorString], DBUEqualityTestFailed);
     
