@@ -70,11 +70,6 @@ namespace Dubrovnik.UnitTests
 			Int32Number = 32;
 			Int64Number = 64;
 
-            /*
-			Int32NullableNumber = null;
-			Int64NullableNumber = null;
-            */
-
 			IntEnumeration = IntEnum.val1;
 			LongEnumeration = LongEnum.val1;
 
@@ -138,6 +133,10 @@ namespace Dubrovnik.UnitTests
 				{ 1, 8 },
 				{ 1F,  "Dubrovnik.UnitTests 2" },
 			};
+
+			// initialise nullables
+			IntNullable = 1;
+			FloatNullable = null;
 
             // Initialize statics
 			ClassProperty = "Dubrovnik.UnitTests static property";
@@ -214,10 +213,14 @@ namespace Dubrovnik.UnitTests
 		public List<float> FloatList { get; set; }
 		public List<double> DoubleList { get; set; }
 		public List<ReferenceObject> ReferenceObjectList { get; set; }
+
         public Dictionary<string, string> StringStringDictionary { get; set; }
 		public Dictionary<string, object> StringObjectDictionary { get; set; }
 		public Dictionary<int, int> IntIntDictionary { get; set; }
 		public Dictionary<object, object> ObjectObjectDictionary { get; set; }
+
+		public Nullable<int> IntNullable { get; set; }
+		public Nullable<float> FloatNullable { get; set; }
 
 		//==============================
 		// methods

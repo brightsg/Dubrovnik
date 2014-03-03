@@ -190,4 +190,9 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary;
 - (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary;
 
+- (System_NullableA1 *)intNullable;
+- (void)setIntNullable:(System_NullableA1 *)value;
+- (System_NullableA1 *)floatNullable;
+- (void)setFloatNullable:(System_NullableA1 *)value;
+
 @end

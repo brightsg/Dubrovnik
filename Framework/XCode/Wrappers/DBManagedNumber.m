@@ -337,7 +337,9 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
 - (BOOL)isEqualToNumber:(NSNumber *)number
 {
     if ([number isKindOfClass:[self class]] && self.compareEnforcesTypeMatch) {
-        if ([@([self monoObjCType]) isEqualToString:@([(id)number monoObjCType])]) {
+        NSString *selfType = @([self monoObjCType]);
+        NSString *argType = @([(id)number monoObjCType]);
+        if (![selfType isEqualToString:argType]) {
             return NO;
         }
     }

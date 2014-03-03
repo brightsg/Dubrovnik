@@ -218,6 +218,41 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertFalse([@([[DBManagedNumber managedNumberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUDesignedToFailTestPassed);
     
     // test setCompareEnforcesTypeMatch
+    DBManagedNumber *typeMatchIntN = [@55 managedNumberFromIntValue];
+    DBManagedNumber *typeMatchLongN = [@55 managedNumberFromLongValue];
+    DBManagedNumber *typeMatchFloatN = [@55 managedNumberFromFloatValue];
+    
+    DBManagedNumber *typeMatchDoubleN = [@55 managedNumberFromDoubleValue];
+    
+    // test default behaviour with NSNumber
+    STAssertTrue([typeMatchIntN isEqual:@55.], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
+
+    // test default behaviour with DBManagedNumber
+    STAssertTrue([typeMatchIntN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchLongN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchFloatN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
+    
+    // enforce comparison type match
+    [typeMatchIntN setCompareEnforcesTypeMatch];
+    [typeMatchLongN setCompareEnforcesTypeMatch];
+    [typeMatchFloatN setCompareEnforcesTypeMatch];
+    
+    // NSumber behaviour should remain unchanged
+    STAssertTrue([typeMatchIntN isEqual:@55.], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
+    
+    // DBManagedNumber should fail to match instance initialised with another type
+    STAssertFalse([typeMatchIntN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
+    STAssertFalse([typeMatchLongN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
+    STAssertFalse([typeMatchFloatN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
+    
+    // DBManagedNumber should match instance initialised with matching type
+    STAssertTrue([typeMatchIntN isEqual:[@55 managedNumberFromIntValue]], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchLongN isEqual:[@55 managedNumberFromLongValue]], DBUEqualityTestFailed);
+    STAssertTrue([typeMatchFloatN isEqual:[@55 managedNumberFromFloatValue]], DBUEqualityTestFailed);
     
 }
 
@@ -952,6 +987,29 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [objectObjectDict objectForKey:managedKey]; // key must be a managed number
     STAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
 
+    
+    //============================
+    // System.Nullable<T>
+    //=============================
+    System_NullableA1 *intNullable = [refObject intNullable];
+    STAssertTrue(intNullable != nil, DBUNotNilTestFailed);
+    STAssertTrue([[intNullable numberValue] intValue] == 1, DBUEqualityTestFailed);
+    
+    // set value to null
+    System_NullableA1 *intNullable2 = [System_NullableA1 newNullableFromObject:nil withMonoGenericTypeArgumentName:@"int32_t"];
+    [refObject setIntNullable:intNullable2];
+    intNullable = [refObject intNullable];
+    STAssertTrue(intNullable == nil, DBUNilTestFailed);
+    
+    // get float null
+    System_NullableA1 *floatNullable = [refObject floatNullable];
+    STAssertTrue(floatNullable == nil, DBUNilTestFailed);
+
+    System_NullableA1 *floatNullable2 = [System_NullableA1 newNullableFromObject:@((float)5) withMonoGenericTypeArgumentName:@"float"];
+    [refObject setFloatNullable:floatNullable2];
+    floatNullable = [refObject floatNullable];
+    STAssertTrue(floatNullable != nil, DBUNotNilTestFailed);
+    STAssertTrue([[floatNullable numberValue] floatValue] == 5, DBUEqualityTestFailed);
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass

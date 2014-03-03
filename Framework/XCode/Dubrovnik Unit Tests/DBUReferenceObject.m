@@ -302,6 +302,38 @@
 }
 
 #pragma mark -
+#pragma mark Mono Nullable<T> properties
+
+- (System_NullableA1 *)intNullable
+{
+    MonoObject *monoObject = [self getMonoProperty:"IntNullable"];
+    System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
+    nullable.monoGenericTypeArgumentNames = @"int32_t";
+    
+    return nullable;
+}
+- (void)setIntNullable:(System_NullableA1 *)value
+{
+    MonoObject *monoObject = [value monoObject];
+    [self setMonoProperty:"IntNullable" valueObject:monoObject];
+}
+
+- (System_NullableA1 *)floatNullable
+{
+    MonoObject *monoObject = [self getMonoProperty:"FloatNullable"];
+    System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
+    nullable.monoGenericTypeArgumentNames = @"float";
+    
+    return nullable;
+}
+
+- (void)setFloatNullable:(System_NullableA1 *)value
+{
+    MonoObject *monoObject = [value monoObject];
+    [self setMonoProperty:"FloatNullable" valueObject:monoObject];
+}
+
+#pragma mark -
 #pragma mark Mono List<T> properties
 
 - (DBSystem_Collections_Generic_ListA1 *)stringList

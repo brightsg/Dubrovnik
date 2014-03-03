@@ -7,6 +7,8 @@
 //
 
 #import "System.NullableA1.h"
+#import "DBBoxing.h"
+#import "NSDecimalNumber+Dubrovnik.h"
 
 // Nullable types are handled differently to other types:
 // http://msdn.microsoft.com/en-US/library/ms228597(v=VS.80).ASPX
@@ -36,7 +38,7 @@
 // Managed method name : .ctor
 // Managed return type : System.Nullable<T>
 // Managed param types : <T>
-+ (System_NullableA1 *)new_withValue:(DBMonoObjectRepresentation *)p1
++ (System_NullableA1 *)new_withValue:(DBManagedObject *)p1
 {
     return [[self alloc] initWithSignature:"Dubrovnik.Generic.Parameter" withNumArgs:1, [p1 monoValue]];
 }
@@ -50,10 +52,10 @@
 }
 
 // Managed type : <T>
-- (DBMonoObjectRepresentation *)value
+- (DBManagedObject *)value
 {
     MonoObject * monoObject = [self getMonoProperty:"Value"];
-    DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+    DBManagedObject * result = [DBManagedObject objectWithMonoObject:monoObject];
     return result;
 }
 
@@ -63,7 +65,7 @@
 // Managed method name : Equals
 // Managed return type : System.Boolean
 // Managed param types : System.Object
-- (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1
+- (BOOL)equals_withOther:(DBManagedObject *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
     return DB_UNBOX_BOOLEAN(monoObject);
@@ -135,6 +137,10 @@
 + (MonoObject *)monoObjectFromObject:(id)object withMonoGenericTypeArgumentName:(NSString *)typeArgumentName
 {
     MonoObject *monoObject = NULL;
+    
+    // TODO: the desired typename is expicitly passed.
+    // if DBManagedNumber is passed then the type can be accurately
+    // obtained from -monoObjCType
     
     // A MonoObject representation of a nullable object is simply
     // the boxed representation of that object (for primitive types)

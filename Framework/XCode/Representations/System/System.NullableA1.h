@@ -6,7 +6,7 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
+#import "System.Object.h"
 
 NS_ENUM(NSInteger, DBSystemNullableTypes) {
     DBSystemNullableInt8,
@@ -22,7 +22,7 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
     DBSystemNullableFloat,
     DBSystemNullableBool,
 };
-@interface System_NullableA1 : DBMonoObjectRepresentation
+@interface System_NullableA1 : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -37,7 +37,7 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 // Managed method name : .ctor
 // Managed return type : System.Nullable<T>
 // Managed param types : <T>
-+ (System_NullableA1 *)new_withValue:(DBMonoObjectRepresentation *)p1;
++ (System_NullableA1 *)new_withValue:(DBManagedObject *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -46,7 +46,7 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (BOOL)hasValue;
 
 // Managed type : <T>
-- (DBMonoObjectRepresentation *)value;
+- (DBManagedObject *)value;
 
 #pragma mark -
 #pragma mark Methods
@@ -54,7 +54,7 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 // Managed method name : Equals
 // Managed return type : System.Boolean
 // Managed param types : System.Object
-- (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+- (BOOL)equals_withOther:(DBManagedObject *)p1;
 
 // Managed method name : GetHashCode
 // Managed return type : System.Int32
