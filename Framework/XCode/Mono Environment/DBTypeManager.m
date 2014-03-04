@@ -463,14 +463,14 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return object;
 }
 
-- (id)managedObjectWithMonoObject:(MonoObject *)obj
+- (id)managedObjectWithMonoObject:(MonoObject *)monoObject
 {
     // contract
-    NSAssert(![DBType monoObjectContainsValueType:obj], @"MonoObject must represent a non value type required");
+    NSAssert(![DBType monoObjectContainsValueType:monoObject], @"MonoObject must represent a non value type : %@", [DBType monoTypeNameForMonoObject:monoObject]);
    
     Class managedClass = nil;
  
-    MonoClass *monoClass = [DBType monoClassForMonoObject:obj];
+    MonoClass *monoClass = [DBType monoClassForMonoObject:monoObject];
     
     // search up the class hierarchy for an object that can be instantiated
     do {
@@ -511,7 +511,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
     }
 
     // instantiate an instance of the managed class
-    id object = [[managedClass alloc] initWithMonoObject:obj];
+    id object = [[managedClass alloc] initWithMonoObject:monoObject];
     
     return(object);
 }

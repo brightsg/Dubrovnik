@@ -56,10 +56,7 @@
     if ([self respondsToSelector:@selector(representedMonoString)]) {
         monoString = [(id)self representedMonoString];
     } else {
-#warning TODO: implement caching
         monoString = mono_string_new_size(mono_domain_get(), [self length]);
-        
-#warning TODO: memory management needs to be resolved
         [self getCharacters:mono_string_chars(monoString)];
     }
     
@@ -76,4 +73,12 @@
     return [self monoValue];
 }
 
+- (NSString *)simpleObjCToMonoClassNameString
+{
+    NSMutableString *s = [NSMutableString stringWithString:self];
+    [s replaceOccurrencesOfString:@"__" withString:@"+" options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
+    [s replaceOccurrencesOfString:@"_" withString:@"." options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
+    
+    return s;
+}
 @end

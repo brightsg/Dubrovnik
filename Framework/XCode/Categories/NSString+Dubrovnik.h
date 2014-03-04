@@ -33,4 +33,6 @@
 - (MonoObject *)monoValue;
 - (MonoObject *)monoObject;
 
+- (NSString *)simpleObjCToMonoClassNameString;
+
 @end
