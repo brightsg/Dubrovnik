@@ -12,6 +12,7 @@
 #import "DBBoxing.h"
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
+#import "NSDecimalNumber+Dubrovnik.h"
 
  // Built in type aliases
  // http://msdn.microsoft.com/en-us/library/ya5y69ds.aspx
@@ -187,13 +188,15 @@ NSString * DBType_System_Exception =  @"System.Exception";
                    ]
          ];
 
-        /* TODO: decimal
+
+        // mono_get_decimal_class() is curiously absent
+        MonoClass *decimalMonoClass = mono_class_from_name(mono_get_corlib(), "System", "Decimal");
          [self add:[DBType typeWithName:DBType_System_Decimal
                                     alias:DBAlias_System_Decimal
                                     id:DBTypeID_System_Decimal
-                             monoClass:mono_get_double_class()
+                             monoClass:decimalMonoClass
                    ]
-         ]; */
+         ];
 
         [self add:[DBType typeWithName:DBType_System_Char
                                  alias:DBAlias_System_Char
@@ -309,6 +312,8 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (id)objectWithMonoObject:(MonoObject *)monoObject
 {
+#warning This method requires a unit test
+    
     id object = nil;
     NSString *typeName = [DBType monoTypeNameForMonoObject:monoObject];
 
@@ -398,7 +403,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
             case DBTypeID_System_Decimal:
             {
-                [NSException raise:@"Feature not yet implemented" format:@"object for System.Enum"];
+                object = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
                 break;
             }
 
@@ -466,7 +471,10 @@ NSString * DBType_System_Exception =  @"System.Exception";
 - (id)managedObjectWithMonoObject:(MonoObject *)monoObject
 {
     // contract
-    NSAssert(![DBType monoObjectContainsValueType:monoObject], @"MonoObject must represent a non value type : %@", [DBType monoTypeNameForMonoObject:monoObject]);
+    NSAssert(![DBType monoObjectContainsValueType:monoObject],
+             @"MonoObject must represent a non value type : %@ class: %@",
+             [DBType monoTypeNameForMonoObject:monoObject],
+             [DBType monoClassNameForMonoObject:monoObject]);
    
     Class managedClass = nil;
  

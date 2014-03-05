@@ -350,14 +350,14 @@
 		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
 			isa = PBXGroup;
 			children = (
-				08FB77AEFE84172EC02AAC07 /* Source */,
-				32C88DFF0371C24200C91783 /* Other Sources */,
-				089C1665FE841158C02AAC07 /* Resources */,
-				AB00206117C653E900178AFC /* ManagedBinaries */,
+				ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				AB588DC3178308000000AAC1 /* Frameworks */,
+				AB00206117C653E900178AFC /* ManagedBinaries */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				08FB77AEFE84172EC02AAC07 /* Source */,
 			);
 			name = Dumbarton;
 			sourceTree = "<group>";
@@ -384,13 +384,14 @@
 		08FB77AEFE84172EC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				AB99495818B6258300FAC62D /* Mono Classes */,
-				AB99495418B36BFD00FAC62D /* Include */,
-				AB99495318B36BF500FAC62D /* Protocols */,
 				9DF236C70875D58E008A199C /* Categories */,
+				AB99495418B36BFD00FAC62D /* Include */,
+				AB99495818B6258300FAC62D /* Mono Classes */,
 				9D69DC2A08B1842D008BB787 /* Mono Environment */,
 				9DA049F208C8DEAD00EEE149 /* Posing */,
+				AB99495318B36BF500FAC62D /* Protocols */,
 				9D69DC2B08B1844D008BB787 /* Representations */,
+				AB72C96418C74827008AE0DE /* Type handling */,
 				9D021B3108810720003E48C1 /* Utility */,
 				9D8863370974F4D000365976 /* Wrappers */,
 			);
@@ -437,10 +438,6 @@
 			children = (
 				9D69DC4108B1851E008BB787 /* DBManagedEnvironment.h */,
 				9D69DC4208B1851E008BB787 /* DBManagedEnvironment.m */,
-				AB81D5C117D7B1B6007214E1 /* DBType.h */,
-				AB81D5C217D7B1B6007214E1 /* DBType.m */,
-				AB81D5C517D7B380007214E1 /* DBTypeManager.h */,
-				AB81D5C617D7B380007214E1 /* DBTypeManager.m */,
 			);
 			name = "Mono Environment";
 			sourceTree = "<group>";
@@ -554,7 +551,7 @@
 		AB00206117C653E900178AFC /* ManagedBinaries */ = {
 			isa = PBXGroup;
 			children = (
-				AB81D5C017D78C1B007214E1 /* Framework Hellper */,
+				AB81D5C017D78C1B007214E1 /* Framework Helper */,
 			);
 			name = ManagedBinaries;
 			sourceTree = "<group>";
@@ -626,12 +623,23 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		AB81D5C017D78C1B007214E1 /* Framework Hellper */ = {
+		AB72C96418C74827008AE0DE /* Type handling */ = {
+			isa = PBXGroup;
+			children = (
+				AB81D5C117D7B1B6007214E1 /* DBType.h */,
+				AB81D5C217D7B1B6007214E1 /* DBType.m */,
+				AB81D5C517D7B380007214E1 /* DBTypeManager.h */,
+				AB81D5C617D7B380007214E1 /* DBTypeManager.m */,
+			);
+			name = "Type handling";
+			sourceTree = "<group>";
+		};
+		AB81D5C017D78C1B007214E1 /* Framework Helper */ = {
 			isa = PBXGroup;
 			children = (
 				AB00206217C6549E00178AFC /* Debug */,
 			);
-			name = "Framework Hellper";
+			name = "Framework Helper";
 			sourceTree = "<group>";
 		};
 		AB99495318B36BF500FAC62D /* Protocols */ = {
