@@ -314,6 +314,18 @@ NSString * DBType_System_Exception =  @"System.Exception";
 {
 #warning This method requires a unit test
     
+    // this method will get called when iterating over managed collections.
+    // those collections may well contain NULL elements.
+    if (monoObject == NULL) {
+        return [NSNull null];
+    }
+    
+    /*
+     
+     Note: this method is hot so any optimisation is welcome
+     
+     */
+    
     id object = nil;
     NSString *typeName = [DBType monoTypeNameForMonoObject:monoObject];
 
