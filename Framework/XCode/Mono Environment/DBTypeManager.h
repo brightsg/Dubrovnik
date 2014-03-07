@@ -67,6 +67,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
     DBTypeID_System_Char,
     DBTypeID_System_String,
     DBTypeID_System_Enum,
+    DBTypeID_System_DateTime,
     DBTypeID_System_Array,
     DBTypeID_System_Thread,
     DBTypeID_System_Exception

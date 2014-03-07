@@ -70,6 +70,10 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 
 - (NSNumber *)numberValue;
 
+- (NSObject *)objectValue;
+
+- (NSDate *)dateValue;
+
 /*!
  
  Create a new nullable instance from the given object and type name

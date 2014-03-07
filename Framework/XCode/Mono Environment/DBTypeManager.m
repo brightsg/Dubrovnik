@@ -13,6 +13,7 @@
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
 #import "NSDecimalNumber+Dubrovnik.h"
+#import "NSDate+Dubrovnik.h"
 
  // Built in type aliases
  // http://msdn.microsoft.com/en-us/library/ya5y69ds.aspx
@@ -55,6 +56,7 @@ NSString * DBType_System_Decimal =  @"System.Decimal";
 NSString * DBType_System_Char =  @"System.Char";
 NSString * DBType_System_String =  @"System.String";
 NSString * DBType_System_Enum =  @"System.Enum";
+NSString * DBType_System_DateTime =  @"System.DateTime";
 NSString * DBType_System_Array =  @"System.Array";
 NSString * DBType_System_Thread =  @"System.Thread";
 NSString * DBType_System_Exception =  @"System.Exception";
@@ -188,13 +190,17 @@ NSString * DBType_System_Exception =  @"System.Exception";
                    ]
          ];
 
-
-        // mono_get_decimal_class() is curiously absent
-        MonoClass *decimalMonoClass = mono_class_from_name(mono_get_corlib(), "System", "Decimal");
          [self add:[DBType typeWithName:DBType_System_Decimal
                                     alias:DBAlias_System_Decimal
                                     id:DBTypeID_System_Decimal
-                             monoClass:decimalMonoClass
+                             monoClass:mono_class_from_name(mono_get_corlib(), "System", "Decimal")
+                   ]
+         ];
+
+
+        [self add:[DBType typeWithName:DBType_System_DateTime
+                                    id:DBTypeID_System_DateTime
+                             monoClass:mono_class_from_name(mono_get_corlib(), "System", "DateTime")
                    ]
          ];
 
@@ -416,6 +422,12 @@ NSString * DBType_System_Exception =  @"System.Exception";
             case DBTypeID_System_Decimal:
             {
                 object = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+                break;
+            }
+
+            case DBTypeID_System_DateTime:
+            {
+                object = [NSDate dateWithMonoDateTime:monoObject];
                 break;
             }
 

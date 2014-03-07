@@ -259,8 +259,30 @@
 
 - (NSNumber *)numberValue
 {
-    NSNumber *number = [[DBTypeManager sharedManager]  objectWithMonoObject:self.monoObject];
+    NSNumber *number = (NSNumber *)[self objectValue];
+    
+    if (![number isKindOfClass:[NSNumber class]]) {
+        number = nil;
+    }
+    
     return number;
+}
+
+- (NSDate *)dateValue
+{
+    NSDate *date = (NSDate *)[self objectValue];
+    
+    if (![date isKindOfClass:[NSDate class]]) {
+        date = nil;
+    }
+    
+    return date;
+}
+
+- (NSObject *)objectValue
+{
+    NSObject * object = [[DBTypeManager sharedManager]  objectWithMonoObject:self.monoObject];
+    return object;
 }
 
 - (int64_t)int64Value
