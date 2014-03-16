@@ -9,6 +9,7 @@
 #import "System.NullableA1.h"
 #import "DBBoxing.h"
 #import "NSDecimalNumber+Dubrovnik.h"
+#import "NSDate+Dubrovnik.h"
 #import "DBTypeManager.h"
 
 // Nullable types are handled differently to other types:
@@ -100,6 +101,7 @@
             @"int64_t" : @(DBSystemNullableInt64),
             @"uint64_t" : @(DBSystemNullableUint64),
             @"NSDecimalNumber" : @(DBSystemNullableDecimal),
+            @"NSDate" : @(DBSystemNullableDate),
             @"double" : @(DBSystemNullableDouble),
             @"float" : @(DBSystemNullableFloat),
             @"BOOL" : @(DBSystemNullableBool),
@@ -110,7 +112,7 @@
 
 #pragma mark -
 #pragma mark Factory methods
-
+    
 + (id)newNullableFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName
 {
     // Creating a new Nullable<T> cannot be done directly:
@@ -147,6 +149,9 @@
         NSNumber *typeIndex = [[self typeAssociations] objectForKey:typeArgumentName];
         if (typeIndex) {
             
+            //
+            // NSNumber
+            //
             if ([object isKindOfClass:[NSNumber class]]) {
                 
                 NSNumber *number = object;
@@ -239,10 +244,31 @@
 
                     default:
                     {
-                        [NSException raise:@"InvalidTypeForSystemNullableType" format:@"Cannot form nullable type for: %@", typeArgumentName];
+                        [NSException raise:@"InvalidTypeForSystemNullableType" format:@"Cannot form nullable type for NSNumber : %@ typeName: %@", object, typeArgumentName];
                         break;
                     }
                 }
+            
+                //
+                // NSDate
+                //
+            } else if ([object isKindOfClass:[NSDate class]]) {
+                
+                switch ([typeIndex integerValue]) {
+                    case DBSystemNullableDate:
+                        {
+                            NSAssert([object isKindOfClass:[NSDate class]], @"NSDate expected");
+                            monoObject = [(NSDate *)object monoDateTime];
+                            break;
+                        }
+                        
+                    default:
+                    {
+                        [NSException raise:@"InvalidTypeForSystemNullableType" format:@"Cannot form nullable type for NSDate : %@ typeName: %@", object, typeArgumentName];
+                        break;
+                    }
+                }
+                
             } else {
                 [NSException raise:@"InvalidObjectForSystemNullableType" format:@"Cannot form nullable type for: %@", object];
             }
@@ -257,11 +283,24 @@
 #pragma mark -
 #pragma mark Underlying type accessors
 
+- (NSDecimalNumber *)decimalNumberValue
+{
+    NSDecimalNumber *number = (NSDecimalNumber *)[self objectValue];
+    
+    if (![number isKindOfClass:[NSDecimalNumber class]]) {
+        [NSException raise:@"System nullable exception" format:@"Object is not NSDecimalNumber: %@", number];
+        number = nil;
+    }
+    
+    return number;
+}
+
 - (NSNumber *)numberValue
 {
     NSNumber *number = (NSNumber *)[self objectValue];
     
     if (![number isKindOfClass:[NSNumber class]]) {
+        [NSException raise:@"System nullable exception" format:@"Object is not NSNumber: %@", number];
         number = nil;
     }
     
@@ -273,6 +312,7 @@
     NSDate *date = (NSDate *)[self objectValue];
     
     if (![date isKindOfClass:[NSDate class]]) {
+        [NSException raise:@"System nullable exception" format:@"Object is not NSDate: %@", date];
         date = nil;
     }
     

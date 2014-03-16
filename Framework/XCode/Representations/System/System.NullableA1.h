@@ -18,6 +18,7 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
     DBSystemNullableInt64,
     DBSystemNullableUint64,
     DBSystemNullableDecimal,
+    DBSystemNullableDate,
     DBSystemNullableDouble,
     DBSystemNullableFloat,
     DBSystemNullableBool,
@@ -73,6 +74,8 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (NSObject *)objectValue;
 
 - (NSDate *)dateValue;
+
+- (NSDecimalNumber *)decimalNumberValue;
 
 /*!
  
