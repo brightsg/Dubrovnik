@@ -45,6 +45,7 @@ NSString *DBUTestString = @"Dubrovnik";
 // test failure notices
 NSString *DBUObjectNotCreated = @"Object not created";
 NSString *DBUObjectIsNil = @"Object is nil";
+NSString *DBUBooleanTestFailed = @"Boolean test failed";
 NSString *DBUEqualityTestFailed = @"Equality test failed";
 NSString *DBUInequalityTestFailed = @"Inequality test failed";
 NSString *DBULessThanTestFailed = @"Less than test failed";
@@ -1132,7 +1133,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     NSDate *dateNow = [refObject date];
     STAssertNotNil(dateNow, DBUObjectIsNil);
-    STAssertTrue([[NSDate date] timeIntervalSinceDate:dateNow] < 1, DBULessThanTestFailed);
+    STAssertTrue([[NSDate date] timeIntervalSinceDate:dateNow] < 60, DBULessThanTestFailed);    // Why 60? In case we we trigger a breakpoint, take a peek  and then continue.
     
     [refObject setDate:dateNow];
     
@@ -1189,6 +1190,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 }
 
+static BOOL eventFired = NO;
+void DubrovnikEventHandlerICall ()
+{
+    eventFired = YES;
+    return;
+}
+
 - (void)doTestReferenceClass:(Class)testClass
 {
     //===================================
@@ -1196,6 +1204,35 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //===================================
     id refObject = [self doTestConstructorsWithclass:testClass];
  
+    // define internal calls.
+    // The named class::method must be defined within the managed code as an internal call:
+    //
+    // 		[MethodImpl (MethodImplOptions.InternalCall)]
+    //      public static extern void DubrovnikEventHandlerICall();
+    //
+    // This alerts the C# compiler to the fact that the function is implemented in C with the current process.
+    //
+    mono_add_internal_call("Dubrovnik.UnitTests.ReferenceObject::DubrovnikEventHandlerICall", &DubrovnikEventHandlerICall);
+    
+    // We have defined an external handler function above.
+    // We now have to attach it to the event source.
+    // It may be possible to do this via the C API : http://mono.1490590.n4.nabble.com/Mono-Embedding-manage-events-td1499888.html
+    // However, it is easier to simply define some C# helper methods to attach and detach the events as required.
+    if ([testClass respondsToSelector:@selector(attachEvent:)]) {
+        
+        // attach event
+        eventFired = NO;
+        [testClass attachEvent:refObject];
+        [refObject raiseTestEvent];
+        STAssertTrue(eventFired, DBUBooleanTestFailed);
+        
+        // detach event
+        eventFired = NO;
+        [testClass detachEvent:refObject];
+        [refObject raiseTestEvent];
+        STAssertTrue(!eventFired, DBUBooleanTestFailed);
+    }
+    
     //===================================
     // fields
     //===================================

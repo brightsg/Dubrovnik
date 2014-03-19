@@ -76,6 +76,12 @@
 // class methods
 + (NSString *)classDescription;
 
+
+// event handling
++ (void)attachEvent:(DBUReferenceObject *)value;
++ (void)detachEvent:(DBUReferenceObject *)value;
+- (void)raiseTestEvent;
+
 // fields
 - (int32_t)intField;
 - (void)setIntField:(int32_t)value;

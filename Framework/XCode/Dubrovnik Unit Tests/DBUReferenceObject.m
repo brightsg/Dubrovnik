@@ -579,6 +579,24 @@
     return value;
 }
 
++ (void)attachEvent:(DBUReferenceObject *)value
+{
+    [self invokeMonoClassMethod:"AttachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [value monoValue]];
+}
+
++ (void)detachEvent:(DBUReferenceObject *)value
+{
+    [self invokeMonoClassMethod:"DetachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [value monoValue]];
+}
+
+#pragma mark -
+#pragma mark Event handling
+
+- (void)raiseTestEvent
+{
+    [self invokeMonoMethod:"RaiseTestEvent()" withNumArgs:0, NULL];
+}
+
 #pragma mark -
 #pragma mark Mono class extensions
 

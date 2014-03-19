@@ -6,10 +6,14 @@ using System.Text;
 using Dubrovnik.UnitTests;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 // all default string values must include the following unit test : Dubrovnik
 namespace Dubrovnik.UnitTests
 {
+
+	public delegate void DubrovnikEventHandler();
+
     //==============================
     // interfaces
     //==============================
@@ -29,7 +33,28 @@ namespace Dubrovnik.UnitTests
 	//==============================
     public class ReferenceObject : IMinimalReferenceObject
 	{
-		// private fields
+		//==============================
+		// internal calls to C API
+		//==============================
+		[MethodImpl (MethodImplOptions.InternalCall)] 
+		public static extern void DubrovnikEventHandlerICall(); 
+
+		// call these methods from the C API to hook up calling 
+		// the unmanaged event handlers
+		public static void AttachEvent(ReferenceObject refObject) 
+		{ 
+			refObject.TestEvent += DubrovnikEventHandlerICall; 
+		} 
+
+		public static void DetachEvent(ReferenceObject refObject) 
+		{ 
+			refObject.TestEvent -= DubrovnikEventHandlerICall; 
+		} 
+
+		//==============================
+		// events
+		//==============================
+		public event DubrovnikEventHandler TestEvent;
 
 		//==============================
 		// statics
@@ -475,6 +500,15 @@ namespace Dubrovnik.UnitTests
             return sum;
         }
 
+		//=========================
+		// event handling
+		//=========================
+		public void RaiseTestEvent()
+		{
+			if (TestEvent != null) {
+				TestEvent ();
+			}
+		}
 	}
 
 
