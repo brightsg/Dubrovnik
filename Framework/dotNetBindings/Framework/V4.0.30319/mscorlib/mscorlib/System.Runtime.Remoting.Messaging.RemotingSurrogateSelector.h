@@ -2,7 +2,7 @@
 //
 // Managed class : RemotingSurrogateSelector
 //
-@interface System_Runtime_Remoting_Messaging_RemotingSurrogateSelector : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_RemotingSurrogateSelector : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Messaging.MessageSurrogateFilter
-    - (System_Runtime_Remoting_Messaging_MessageSurrogateFilter *)filter;
-    - (void)setFilter:(System_Runtime_Remoting_Messaging_MessageSurrogateFilter *)value;
+	// Managed property name : Filter
+	// Managed property type : System.Runtime.Remoting.Messaging.MessageSurrogateFilter
+    @property (nonatomic, strong) System_Runtime_Remoting_Messaging_MessageSurrogateFilter * filter;
 
 #pragma mark -
 #pragma mark Methods
@@ -34,7 +34,7 @@
 	// Managed method name : GetRootObject
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getRootObject;
+    - (System_Object *)getRootObject;
 
 	// Managed method name : GetSurrogate
 	// Managed return type : System.Runtime.Serialization.ISerializationSurrogate
@@ -44,7 +44,7 @@
 	// Managed method name : SetRootObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)setRootObject_withObj:(DBMonoObjectRepresentation *)p1;
+    - (void)setRootObject_withObj:(System_Object *)p1;
 
 	// Managed method name : UseSoapFormat
 	// Managed return type : System.Void

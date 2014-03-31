@@ -3,6 +3,12 @@
 //
 // Managed class : FileIOPermission
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_FileIOPermission
 
 #pragma mark -
@@ -64,28 +70,36 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.FileIOPermissionAccess
+	// Managed property name : AllFiles
+	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
+    @synthesize allFiles = _allFiles;
     - (System_Security_Permissions_FileIOPermissionAccess)allFiles
     {
-		MonoObject * monoObject = [self getMonoProperty:"AllFiles"];
-		System_Security_Permissions_FileIOPermissionAccess result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AllFiles"];
+		_allFiles = DB_UNBOX_INT32(monoObject);
+
+		return _allFiles;
 	}
     - (void)setAllFiles:(System_Security_Permissions_FileIOPermissionAccess)value
 	{
+		_allFiles = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"AllFiles" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Permissions.FileIOPermissionAccess
+	// Managed property name : AllLocalFiles
+	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
+    @synthesize allLocalFiles = _allLocalFiles;
     - (System_Security_Permissions_FileIOPermissionAccess)allLocalFiles
     {
-		MonoObject * monoObject = [self getMonoProperty:"AllLocalFiles"];
-		System_Security_Permissions_FileIOPermissionAccess result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AllLocalFiles"];
+		_allLocalFiles = DB_UNBOX_INT32(monoObject);
+
+		return _allLocalFiles;
 	}
     - (void)setAllLocalFiles:(System_Security_Permissions_FileIOPermissionAccess)value
 	{
+		_allLocalFiles = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"AllLocalFiles" valueObject:monoObject];          
 	}
@@ -115,13 +129,13 @@
     - (System_Security_IPermission *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -150,7 +164,7 @@
     - (DBSystem_Array *)getPathList_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPathList(System.Security.Permissions.FileIOPermissionAccess)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : Intersect
@@ -159,7 +173,7 @@
     - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
@@ -202,7 +216,7 @@
     - (System_Security_SecurityElement *)toXml
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
@@ -211,7 +225,13 @@
     - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

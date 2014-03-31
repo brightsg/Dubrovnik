@@ -22,14 +22,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Boolean
-    - (BOOL)throwOnUnmappableChar;
-    - (void)setThrowOnUnmappableChar:(BOOL)value;
+	// Managed field name : ThrowOnUnmappableChar
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL throwOnUnmappableChar;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)bestFitMapping;
+	// Managed property name : BestFitMapping
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL bestFitMapping;
 @end
 //--Dubrovnik.CodeGenerator

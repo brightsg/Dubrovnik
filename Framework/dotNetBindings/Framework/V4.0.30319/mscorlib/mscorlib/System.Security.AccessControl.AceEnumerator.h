@@ -2,7 +2,7 @@
 //
 // Managed class : AceEnumerator
 //
-@interface System_Security_AccessControl_AceEnumerator : DBMonoObjectRepresentation
+@interface System_Security_AccessControl_AceEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.GenericAce
-    - (System_Security_AccessControl_GenericAce *)current;
+	// Managed property name : Current
+	// Managed property type : System.Security.AccessControl.GenericAce
+    @property (nonatomic, strong, readonly) System_Security_AccessControl_GenericAce * current;
 
 #pragma mark -
 #pragma mark Methods

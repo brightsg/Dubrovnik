@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Decimal
-    - (NSDecimalNumber *)value;
+	// Managed property name : Value
+	// Managed property type : System.Decimal
+    @property (nonatomic, strong, readonly) NSDecimalNumber * value;
 @end
 //--Dubrovnik.CodeGenerator

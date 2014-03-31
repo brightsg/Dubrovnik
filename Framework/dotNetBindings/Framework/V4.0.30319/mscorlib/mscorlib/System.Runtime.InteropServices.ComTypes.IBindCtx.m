@@ -3,6 +3,12 @@
 //
 // Managed interface : IBindCtx
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ComTypes_IBindCtx
 
 #pragma mark -
@@ -40,7 +46,7 @@
 	// Managed method name : GetObjectParam
 	// Managed return type : System.Void
 	// Managed param types : System.String, ref System.Object&
-    - (void)getObjectParam_withPszKey:(NSString *)p1 ppunkRef:(DBMonoObjectRepresentation **)p2
+    - (void)getObjectParam_withPszKey:(NSString *)p1 ppunkRef:(System_Object **)p2
     {
 		[self invokeMonoMethod:"GetObjectParam(string,object&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -56,7 +62,7 @@
 	// Managed method name : RegisterObjectBound
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)registerObjectBound_withPunk:(DBMonoObjectRepresentation *)p1
+    - (void)registerObjectBound_withPunk:(System_Object *)p1
     {
 		[self invokeMonoMethod:"RegisterObjectBound(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -64,7 +70,7 @@
 	// Managed method name : RegisterObjectParam
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)registerObjectParam_withPszKey:(NSString *)p1 punk:(DBMonoObjectRepresentation *)p2
+    - (void)registerObjectParam_withPszKey:(NSString *)p1 punk:(System_Object *)p2
     {
 		[self invokeMonoMethod:"RegisterObjectParam(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -80,7 +86,7 @@
 	// Managed method name : RevokeObjectBound
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)revokeObjectBound_withPunk:(DBMonoObjectRepresentation *)p1
+    - (void)revokeObjectBound_withPunk:(System_Object *)p1
     {
 		[self invokeMonoMethod:"RevokeObjectBound(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -101,5 +107,11 @@
     {
 		[self invokeMonoMethod:"SetBindOptions(System.Runtime.InteropServices.ComTypes.BIND_OPTS&)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

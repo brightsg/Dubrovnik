@@ -3,6 +3,12 @@
 //
 // Managed class : Contract
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_Contracts_Contract
 
 #pragma mark -
@@ -148,28 +154,34 @@
 	// Managed method name : OldValue
 	// Managed return type : <T>
 	// Managed param types : <T>
-    - (DBMonoObjectRepresentation *)oldValue_withValue:(DBMonoObjectRepresentation *)p1
+    - (DBManagedObject *)oldValue_withValue:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OldValue(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Result
 	// Managed return type : <T>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)result
+    - (DBManagedObject *)result
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Result()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ValueAtReturn
 	// Managed return type : <T>
 	// Managed param types : ref T&
-    - (DBMonoObjectRepresentation *)valueAtReturn_withValueRef:(T **)p1
+    - (DBManagedObject *)valueAtReturn_withValueRef:(T **)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ValueAtReturn(T&)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

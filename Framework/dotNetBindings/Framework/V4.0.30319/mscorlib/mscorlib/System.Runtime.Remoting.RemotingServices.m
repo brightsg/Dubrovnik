@@ -3,6 +3,12 @@
 //
 // Managed class : RemotingServices
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_RemotingServices
 
 #pragma mark -
@@ -24,19 +30,19 @@
 	// Managed method name : Connect
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String
-    - (DBMonoObjectRepresentation *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2
+    - (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Connect(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Connect
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String, System.Object
-    - (DBMonoObjectRepresentation *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2 data:(DBMonoObjectRepresentation *)p3
+    - (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2 data:(System_Object *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Connect(System.Type,string,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Disconnect
@@ -54,7 +60,7 @@
     - (System_Runtime_Remoting_Messaging_IMethodReturnMessage *)executeMessage_withTarget:(System_MarshalByRefObject *)p1 reqMsg:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ExecuteMessage(System.MarshalByRefObject,System.Runtime.Remoting.Messaging.IMethodCallMessage)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMethodReturnMessage representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMethodReturnMessage objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnvoyChainForProxy
@@ -63,16 +69,16 @@
     - (System_Runtime_Remoting_Messaging_IMessageSink *)getEnvoyChainForProxy_withObj:(System_MarshalByRefObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvoyChainForProxy(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessageSink representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : System.MarshalByRefObject
-    - (DBMonoObjectRepresentation *)getLifetimeService_withObj:(System_MarshalByRefObject *)p1
+    - (System_Object *)getLifetimeService_withObj:(System_MarshalByRefObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLifetimeService(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodBaseFromMethodMessage
@@ -81,13 +87,13 @@
     - (System_Reflection_MethodBase *)getMethodBaseFromMethodMessage_withMsg:(System_Runtime_Remoting_Messaging_IMethodMessage *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodBaseFromMethodMessage(System.Runtime.Remoting.Messaging.IMethodMessage)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_MethodBase representationWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
-    - (void)getObjectData_withObj:(DBMonoObjectRepresentation *)p1 info:(System_Runtime_Serialization_SerializationInfo *)p2 context:(System_Runtime_Serialization_StreamingContext *)p3
+    - (void)getObjectData_withObj:(System_Object *)p1 info:(System_Runtime_Serialization_SerializationInfo *)p2 context:(System_Runtime_Serialization_StreamingContext *)p3
     {
 		[self invokeMonoMethod:"GetObjectData(object,System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -107,16 +113,16 @@
     - (System_Runtime_Remoting_ObjRef *)getObjRefForProxy_withObj:(System_MarshalByRefObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObjRefForProxy(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_ObjRef representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRealProxy
 	// Managed return type : System.Runtime.Remoting.Proxies.RealProxy
 	// Managed param types : System.Object
-    - (System_Runtime_Remoting_Proxies_RealProxy *)getRealProxy_withProxy:(DBMonoObjectRepresentation *)p1
+    - (System_Runtime_Remoting_Proxies_RealProxy *)getRealProxy_withProxy:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRealProxy(object)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Proxies_RealProxy representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Proxies_RealProxy objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetServerTypeForUri
@@ -125,7 +131,7 @@
     - (System_Type *)getServerTypeForUri_withURI:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetServerTypeForUri(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSessionIdForMethodMessage
@@ -149,7 +155,7 @@
 	// Managed method name : IsObjectOutOfAppDomain
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isObjectOutOfAppDomain_withTp:(DBMonoObjectRepresentation *)p1
+    - (BOOL)isObjectOutOfAppDomain_withTp:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsObjectOutOfAppDomain(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -158,7 +164,7 @@
 	// Managed method name : IsObjectOutOfContext
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isObjectOutOfContext_withTp:(DBMonoObjectRepresentation *)p1
+    - (BOOL)isObjectOutOfContext_withTp:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsObjectOutOfContext(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -176,7 +182,7 @@
 	// Managed method name : IsTransparentProxy
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isTransparentProxy_withProxy:(DBMonoObjectRepresentation *)p1
+    - (BOOL)isTransparentProxy_withProxy:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsTransparentProxy(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -196,7 +202,7 @@
     - (System_Runtime_Remoting_ObjRef *)marshal_withObj:(System_MarshalByRefObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Marshal(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_ObjRef representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Marshal
@@ -205,7 +211,7 @@
     - (System_Runtime_Remoting_ObjRef *)marshal_withObj:(System_MarshalByRefObject *)p1 uRI:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Marshal(System.MarshalByRefObject,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_ObjRef representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Marshal
@@ -214,7 +220,7 @@
     - (System_Runtime_Remoting_ObjRef *)marshal_withObj:(System_MarshalByRefObject *)p1 objURI:(NSString *)p2 requestedType:(System_Type *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Marshal(System.MarshalByRefObject,string,System.Type)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Runtime_Remoting_ObjRef representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetObjectUriForMarshal
@@ -228,19 +234,25 @@
 	// Managed method name : Unmarshal
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.ObjRef
-    - (DBMonoObjectRepresentation *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1
+    - (System_Object *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Unmarshal(System.Runtime.Remoting.ObjRef)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unmarshal
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.ObjRef, System.Boolean
-    - (DBMonoObjectRepresentation *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1 fRefine:(BOOL)p2
+    - (System_Object *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1 fRefine:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Unmarshal(System.Runtime.Remoting.ObjRef,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

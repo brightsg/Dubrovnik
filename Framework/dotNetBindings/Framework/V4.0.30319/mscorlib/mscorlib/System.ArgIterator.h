@@ -2,7 +2,7 @@
 //
 // Managed struct : ArgIterator
 //
-@interface System_ArgIterator : DBMonoObjectRepresentation
+@interface System_ArgIterator : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -35,7 +35,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

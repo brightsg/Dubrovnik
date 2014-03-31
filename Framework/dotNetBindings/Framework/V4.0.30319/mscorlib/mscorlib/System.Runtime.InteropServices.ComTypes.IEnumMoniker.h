@@ -2,7 +2,7 @@
 //
 // Managed interface : IEnumMoniker
 //
-@interface System_Runtime_InteropServices_ComTypes_IEnumMoniker : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IEnumMoniker : System_Object
 
 #pragma mark -
 #pragma mark Setup

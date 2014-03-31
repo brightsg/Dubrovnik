@@ -3,6 +3,12 @@
 //
 // Managed class : RSA
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_RSA
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Security_Cryptography_RSA *)create
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
-		return [System_Security_Cryptography_RSA representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RSA objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -36,7 +42,7 @@
     - (System_Security_Cryptography_RSA *)create_withAlgName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Cryptography_RSA representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RSA objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DecryptValue
@@ -63,7 +69,7 @@
     - (System_Security_Cryptography_RSAParameters *)exportParameters_withIncludePrivateParameters:(BOOL)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ExportParameters(bool)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Security_Cryptography_RSAParameters representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RSAParameters objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXmlString
@@ -90,5 +96,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXmlString(bool)" withNumArgs:1, DB_VALUE(p1)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

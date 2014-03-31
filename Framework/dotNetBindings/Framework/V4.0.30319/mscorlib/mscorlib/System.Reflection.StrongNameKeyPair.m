@@ -3,6 +3,12 @@
 //
 // Managed class : StrongNameKeyPair
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_StrongNameKeyPair
 
 #pragma mark -
@@ -48,12 +54,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
+	// Managed property name : PublicKey
+	// Managed property type : System.Byte[]
+    @synthesize publicKey = _publicKey;
     - (NSData *)publicKey
     {
-		MonoObject * monoObject = [self getMonoProperty:"PublicKey"];
-		NSData * result = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PublicKey"];
+		if ([self object:_publicKey isEqualToMonoObject:monoObject]) return _publicKey;					
+		_publicKey = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _publicKey;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

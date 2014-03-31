@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)countersignature;
+	// Managed property name : Countersignature
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * countersignature;
 
-	// Managed type : System.String
-    - (NSString *)publicKey;
+	// Managed property name : PublicKey
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * publicKey;
 @end
 //--Dubrovnik.CodeGenerator

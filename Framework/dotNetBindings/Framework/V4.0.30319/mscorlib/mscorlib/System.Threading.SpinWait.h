@@ -2,7 +2,7 @@
 //
 // Managed struct : SpinWait
 //
-@interface System_Threading_SpinWait : DBMonoObjectRepresentation
+@interface System_Threading_SpinWait : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)nextSpinWillYield;
+	// Managed property name : NextSpinWillYield
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL nextSpinWillYield;
 
 #pragma mark -
 #pragma mark Methods

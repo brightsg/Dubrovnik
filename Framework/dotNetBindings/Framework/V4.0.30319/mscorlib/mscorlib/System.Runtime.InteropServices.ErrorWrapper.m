@@ -3,6 +3,12 @@
 //
 // Managed class : ErrorWrapper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ErrorWrapper
 
 #pragma mark -
@@ -32,7 +38,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ErrorWrapper
 	// Managed param types : System.Object
-    + (System_Runtime_InteropServices_ErrorWrapper *)new_withErrorCodeObject:(DBMonoObjectRepresentation *)p1
+    + (System_Runtime_InteropServices_ErrorWrapper *)new_withErrorCodeObject:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
     }
@@ -48,12 +54,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : ErrorCode
+	// Managed property type : System.Int32
+    @synthesize errorCode = _errorCode;
     - (int32_t)errorCode
     {
-		MonoObject * monoObject = [self getMonoProperty:"ErrorCode"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ErrorCode"];
+		_errorCode = DB_UNBOX_INT32(monoObject);
+
+		return _errorCode;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

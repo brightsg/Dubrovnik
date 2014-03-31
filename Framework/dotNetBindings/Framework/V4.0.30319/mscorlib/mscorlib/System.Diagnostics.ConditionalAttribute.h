@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)conditionString;
+	// Managed property name : ConditionString
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * conditionString;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed interface : IUnrestrictedPermission
 //
-@interface System_Security_Permissions_IUnrestrictedPermission : DBMonoObjectRepresentation
+@interface System_Security_Permissions_IUnrestrictedPermission : System_Object
 
 #pragma mark -
 #pragma mark Setup

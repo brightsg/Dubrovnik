@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isClosed;
+	// Managed property name : IsClosed
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isClosed;
 
-	// Managed type : System.Boolean
-    - (BOOL)isInvalid;
+	// Managed property name : IsInvalid
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isInvalid;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed interface : IChannelInfo
 //
-@interface System_Runtime_Remoting_IChannelInfo : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_IChannelInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object[]
-    - (DBSystem_Array *)channelData;
-    - (void)setChannelData:(DBSystem_Array *)value;
+	// Managed property name : ChannelData
+	// Managed property type : System.Object[]
+    @property (nonatomic, strong) DBSystem_Array * channelData;
 @end
 //--Dubrovnik.CodeGenerator

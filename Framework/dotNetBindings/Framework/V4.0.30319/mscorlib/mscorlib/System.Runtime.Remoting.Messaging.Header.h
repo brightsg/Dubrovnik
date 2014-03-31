@@ -2,7 +2,7 @@
 //
 // Managed class : Header
 //
-@interface System_Runtime_Remoting_Messaging_Header : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_Header : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,35 +17,35 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.Header
 	// Managed param types : System.String, System.Object
-    + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(DBMonoObjectRepresentation *)p2;
+    + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.Header
 	// Managed param types : System.String, System.Object, System.Boolean
-    + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(DBMonoObjectRepresentation *)p2 _MustUnderstand:(BOOL)p3;
+    + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2 _MustUnderstand:(BOOL)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.Header
 	// Managed param types : System.String, System.Object, System.Boolean, System.String
-    + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(DBMonoObjectRepresentation *)p2 _MustUnderstand:(BOOL)p3 _HeaderNamespace:(NSString *)p4;
+    + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2 _MustUnderstand:(BOOL)p3 _HeaderNamespace:(NSString *)p4;
 
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
-    - (NSString *)headerNamespace;
-    - (void)setHeaderNamespace:(NSString *)value;
+	// Managed field name : HeaderNamespace
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * headerNamespace;
 
-	// Managed type : System.Boolean
-    - (BOOL)mustUnderstand;
-    - (void)setMustUnderstand:(BOOL)value;
+	// Managed field name : MustUnderstand
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL mustUnderstand;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed field name : Name
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value;
-    - (void)setValue:(DBMonoObjectRepresentation *)value;
+	// Managed field name : Value
+	// Managed field type : System.Object
+    @property (nonatomic, strong) System_Object * value;
 @end
 //--Dubrovnik.CodeGenerator

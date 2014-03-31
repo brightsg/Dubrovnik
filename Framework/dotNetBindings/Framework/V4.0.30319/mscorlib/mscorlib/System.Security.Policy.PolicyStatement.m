@@ -3,6 +3,12 @@
 //
 // Managed class : PolicyStatement
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_PolicyStatement
 
 #pragma mark -
@@ -40,36 +46,49 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.PolicyStatementAttribute
+	// Managed property name : Attributes
+	// Managed property type : System.Security.Policy.PolicyStatementAttribute
+    @synthesize attributes = _attributes;
     - (System_Security_Policy_PolicyStatementAttribute)attributes
     {
-		MonoObject * monoObject = [self getMonoProperty:"Attributes"];
-		System_Security_Policy_PolicyStatementAttribute result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Attributes"];
+		_attributes = DB_UNBOX_INT32(monoObject);
+
+		return _attributes;
 	}
     - (void)setAttributes:(System_Security_Policy_PolicyStatementAttribute)value
 	{
+		_attributes = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Attributes" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : AttributeString
+	// Managed property type : System.String
+    @synthesize attributeString = _attributeString;
     - (NSString *)attributeString
     {
-		MonoObject * monoObject = [self getMonoProperty:"AttributeString"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AttributeString"];
+		if ([self object:_attributeString isEqualToMonoObject:monoObject]) return _attributeString;					
+		_attributeString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _attributeString;
 	}
 
-	// Managed type : System.Security.PermissionSet
+	// Managed property name : PermissionSet
+	// Managed property type : System.Security.PermissionSet
+    @synthesize permissionSet = _permissionSet;
     - (System_Security_PermissionSet *)permissionSet
     {
-		MonoObject * monoObject = [self getMonoProperty:"PermissionSet"];
-		System_Security_PermissionSet * result = [System_Security_PermissionSet representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PermissionSet"];
+		if ([self object:_permissionSet isEqualToMonoObject:monoObject]) return _permissionSet;					
+		_permissionSet = [System_Security_PermissionSet objectWithMonoObject:monoObject];
+
+		return _permissionSet;
 	}
     - (void)setPermissionSet:(System_Security_PermissionSet *)value
 	{
+		_permissionSet = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"PermissionSet" valueObject:monoObject];          
 	}
@@ -83,13 +102,13 @@
     - (System_Security_Policy_PolicyStatement *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_Policy_PolicyStatement representationWithMonoObject:monoObject];
+		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -126,7 +145,7 @@
     - (System_Security_SecurityElement *)toXml
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToXml
@@ -135,7 +154,13 @@
     - (System_Security_SecurityElement *)toXml_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

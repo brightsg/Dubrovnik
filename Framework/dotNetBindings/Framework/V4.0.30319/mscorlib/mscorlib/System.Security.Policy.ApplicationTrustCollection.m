@@ -3,6 +3,12 @@
 //
 // Managed class : ApplicationTrustCollection
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_ApplicationTrustCollection
 
 #pragma mark -
@@ -21,44 +27,62 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsSynchronized"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
+		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isSynchronized;
 	}
 
-	// Managed type : System.Security.Policy.ApplicationTrust
+	// Managed property name : Item
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @synthesize item = _item;
     - (System_Security_Policy_ApplicationTrust *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		System_Security_Policy_ApplicationTrust * result = [System_Security_Policy_ApplicationTrust representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [System_Security_Policy_ApplicationTrust objectWithMonoObject:monoObject];
+
+		return _item;
 	}
 
-	// Managed type : System.Security.Policy.ApplicationTrust
+	// Managed property name : Item
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @synthesize item = _item;
     - (System_Security_Policy_ApplicationTrust *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		System_Security_Policy_ApplicationTrust * result = [System_Security_Policy_ApplicationTrust representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [System_Security_Policy_ApplicationTrust objectWithMonoObject:monoObject];
+
+		return _item;
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @synthesize syncRoot = _syncRoot;
+    - (System_Object *)syncRoot
     {
-		MonoObject * monoObject = [self getMonoProperty:"SyncRoot"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
+		_syncRoot = [System_Object objectWithMonoObject:monoObject];
+
+		return _syncRoot;
 	}
 
 #pragma mark -
@@ -111,7 +135,7 @@
     - (System_Security_Policy_ApplicationTrustCollection *)find_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(System_Security_Policy_ApplicationVersionMatch)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Find(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Security_Policy_ApplicationTrustCollection representationWithMonoObject:monoObject];
+		return [System_Security_Policy_ApplicationTrustCollection objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnumerator
@@ -120,7 +144,7 @@
     - (System_Security_Policy_ApplicationTrustEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Security_Policy_ApplicationTrustEnumerator representationWithMonoObject:monoObject];
+		return [System_Security_Policy_ApplicationTrustEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Remove
@@ -154,5 +178,11 @@
     {
 		[self invokeMonoMethod:"RemoveRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

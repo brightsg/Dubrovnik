@@ -3,6 +3,12 @@
 //
 // Managed class : SoapDate
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate
 
 #pragma mark -
@@ -40,38 +46,51 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Sign
+	// Managed property type : System.Int32
+    @synthesize sign = _sign;
     - (int32_t)sign
     {
-		MonoObject * monoObject = [self getMonoProperty:"Sign"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Sign"];
+		_sign = DB_UNBOX_INT32(monoObject);
+
+		return _sign;
 	}
     - (void)setSign:(int32_t)value
 	{
+		_sign = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Sign" valueObject:monoObject];          
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : Value
+	// Managed property type : System.DateTime
+    @synthesize value = _value;
     - (NSDate *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _value;
 	}
     - (void)setValue:(NSDate *)value
 	{
+		_value = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Value" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : XsdType
+	// Managed property type : System.String
+    static NSString * m_xsdType;
     + (NSString *)xsdType
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"XsdType"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"XsdType"];
+		if ([self object:m_xsdType isEqualToMonoObject:monoObject]) return m_xsdType;					
+		m_xsdType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_xsdType;
 	}
 
 #pragma mark -
@@ -92,7 +111,7 @@
     - (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate *)parse_withValue:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -103,5 +122,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_xsdType = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

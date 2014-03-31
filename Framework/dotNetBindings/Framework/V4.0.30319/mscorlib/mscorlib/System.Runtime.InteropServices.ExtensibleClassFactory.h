@@ -2,7 +2,7 @@
 //
 // Managed class : ExtensibleClassFactory
 //
-@interface System_Runtime_InteropServices_ExtensibleClassFactory : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ExtensibleClassFactory : System_Object
 
 #pragma mark -
 #pragma mark Setup

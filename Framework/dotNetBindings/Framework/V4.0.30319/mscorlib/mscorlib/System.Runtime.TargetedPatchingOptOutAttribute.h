@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)reason;
+	// Managed property name : Reason
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * reason;
 @end
 //--Dubrovnik.CodeGenerator

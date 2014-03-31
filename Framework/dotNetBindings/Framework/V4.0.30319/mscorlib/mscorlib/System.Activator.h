@@ -2,7 +2,7 @@
 //
 // Managed class : Activator
 //
-@interface System_Activator : DBMonoObjectRepresentation
+@interface System_Activator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,27 +27,27 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (DBMonoObjectRepresentation *)createInstance_withType:(System_Type *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)createInstance_withType:(System_Type *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstance_withType:(System_Type *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 activationAttributes:(DBSystem_Array *)p6;
+    - (System_Object *)createInstance_withType:(System_Type *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 activationAttributes:(DBSystem_Array *)p6;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2;
+    - (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Object[], System.Object[]
-    - (DBMonoObjectRepresentation *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2 activationAttributes:(DBSystem_Array *)p3;
+    - (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2 activationAttributes:(DBSystem_Array *)p3;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)createInstance_withType:(System_Type *)p1;
+    - (System_Object *)createInstance_withType:(System_Type *)p1;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Runtime.Remoting.ObjectHandle
@@ -62,12 +62,12 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Boolean
-    - (DBMonoObjectRepresentation *)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2;
+    - (System_Object *)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2;
 
 	// Managed method name : CreateInstance
 	// Managed return type : <T>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)createInstance;
+    - (DBManagedObject *)createInstance;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Runtime.Remoting.ObjectHandle
@@ -142,11 +142,11 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String
-    - (DBMonoObjectRepresentation *)getObject_withType:(System_Type *)p1 url:(NSString *)p2;
+    - (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2;
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String, System.Object
-    - (DBMonoObjectRepresentation *)getObject_withType:(System_Type *)p1 url:(NSString *)p2 state:(DBMonoObjectRepresentation *)p3;
+    - (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2 state:(System_Object *)p3;
 @end
 //--Dubrovnik.CodeGenerator

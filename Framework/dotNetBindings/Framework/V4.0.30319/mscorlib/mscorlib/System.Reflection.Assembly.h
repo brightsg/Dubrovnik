@@ -2,7 +2,7 @@
 //
 // Managed class : Assembly
 //
-@interface System_Reflection_Assembly : DBMonoObjectRepresentation
+@interface System_Reflection_Assembly : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,62 +14,81 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)codeBase;
+	// Managed property name : CodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * codeBase;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    - (System_Collections_Generic_IEnumerable *)customAttributes;
+	// Managed property name : CustomAttributes
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.TypeInfo>
-    - (System_Collections_Generic_IEnumerable *)definedTypes;
+	// Managed property name : DefinedTypes
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.TypeInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * definedTypes;
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)entryPoint;
+	// Managed property name : EntryPoint
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * entryPoint;
 
-	// Managed type : System.String
-    - (NSString *)escapedCodeBase;
+	// Managed property name : EscapedCodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * escapedCodeBase;
 
-	// Managed type : System.Security.Policy.Evidence
-    - (System_Security_Policy_Evidence *)evidence;
+	// Managed property name : Evidence
+	// Managed property type : System.Security.Policy.Evidence
+    @property (nonatomic, strong, readonly) System_Security_Policy_Evidence * evidence;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Type>
-    - (System_Collections_Generic_IEnumerable *)exportedTypes;
+	// Managed property name : ExportedTypes
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Type>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * exportedTypes;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
-	// Managed type : System.Boolean
-    - (BOOL)globalAssemblyCache;
+	// Managed property name : GlobalAssemblyCache
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL globalAssemblyCache;
 
-	// Managed type : System.Int64
-    - (int64_t)hostContext;
+	// Managed property name : HostContext
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t hostContext;
 
-	// Managed type : System.String
-    - (NSString *)imageRuntimeVersion;
+	// Managed property name : ImageRuntimeVersion
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * imageRuntimeVersion;
 
-	// Managed type : System.Boolean
-    - (BOOL)isDynamic;
+	// Managed property name : IsDynamic
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isDynamic;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFullyTrusted;
+	// Managed property name : IsFullyTrusted
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFullyTrusted;
 
-	// Managed type : System.String
-    - (NSString *)location;
+	// Managed property name : Location
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * location;
 
-	// Managed type : System.Reflection.Module
-    - (System_Reflection_Module *)manifestModule;
+	// Managed property name : ManifestModule
+	// Managed property type : System.Reflection.Module
+    @property (nonatomic, strong, readonly) System_Reflection_Module * manifestModule;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.Module>
-    - (System_Collections_Generic_IEnumerable *)modules;
+	// Managed property name : Modules
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.Module>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * modules;
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)permissionSet;
+	// Managed property name : PermissionSet
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong, readonly) System_Security_PermissionSet * permissionSet;
 
-	// Managed type : System.Boolean
-    - (BOOL)reflectionOnly;
+	// Managed property name : ReflectionOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL reflectionOnly;
 
-	// Managed type : System.Security.SecurityRuleSet
-    - (System_Security_SecurityRuleSet)securityRuleSet;
+	// Managed property name : SecurityRuleSet
+	// Managed property type : System.Security.SecurityRuleSet
+    @property (nonatomic, readonly) System_Security_SecurityRuleSet securityRuleSet;
 
 #pragma mark -
 #pragma mark Methods
@@ -77,17 +96,17 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)createInstance_withTypeName:(NSString *)p1;
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean
-    - (DBMonoObjectRepresentation *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7;
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7;
 
 	// Managed method name : CreateQualifiedName
 	// Managed return type : System.String
@@ -97,7 +116,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetAssembly
 	// Managed return type : System.Reflection.Assembly

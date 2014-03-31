@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)defaultAlias;
+	// Managed property name : DefaultAlias
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * defaultAlias;
 @end
 //--Dubrovnik.CodeGenerator

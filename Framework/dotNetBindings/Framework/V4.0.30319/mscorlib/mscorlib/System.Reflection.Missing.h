@@ -2,7 +2,7 @@
 //
 // Managed class : Missing
 //
-@interface System_Reflection_Missing : DBMonoObjectRepresentation
+@interface System_Reflection_Missing : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Reflection.Missing
+	// Managed field name : Value
+	// Managed field type : System.Reflection.Missing
     + (System_Reflection_Missing *)value;
 @end
 //--Dubrovnik.CodeGenerator

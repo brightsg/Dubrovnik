@@ -2,7 +2,7 @@
 //
 // Managed interface : _EventInfo
 //
-@interface System_Runtime_InteropServices__EventInfo : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__EventInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,29 +14,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.EventAttributes
-    - (System_Reflection_EventAttributes)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Reflection.EventAttributes
+    @property (nonatomic, readonly) System_Reflection_EventAttributes attributes;
 
-	// Managed type : System.Type
-    - (System_Type *)declaringType;
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * declaringType;
 
-	// Managed type : System.Type
-    - (System_Type *)eventHandlerType;
+	// Managed property name : EventHandlerType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * eventHandlerType;
 
-	// Managed type : System.Boolean
-    - (BOOL)isMulticast;
+	// Managed property name : IsMulticast
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isMulticast;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSpecialName;
+	// Managed property name : IsSpecialName
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSpecialName;
 
-	// Managed type : System.Reflection.MemberTypes
-    - (System_Reflection_MemberTypes)memberType;
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)reflectedType;
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
 #pragma mark -
 #pragma mark Methods
@@ -44,12 +52,12 @@
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Delegate
-    - (void)addEventHandler_withTarget:(DBMonoObjectRepresentation *)p1 handler:(System_Delegate *)p2;
+    - (void)addEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(System_Object *)p1;
 
 	// Managed method name : GetAddMethod
 	// Managed return type : System.Reflection.MethodInfo
@@ -129,7 +137,7 @@
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Delegate
-    - (void)removeEventHandler_withTarget:(DBMonoObjectRepresentation *)p1 handler:(System_Delegate *)p2;
+    - (void)removeEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

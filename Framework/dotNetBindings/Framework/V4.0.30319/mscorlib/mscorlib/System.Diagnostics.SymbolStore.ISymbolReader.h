@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolReader
 //
-@interface System_Diagnostics_SymbolStore_ISymbolReader : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolReader : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Diagnostics.SymbolStore.SymbolToken
-    - (System_Diagnostics_SymbolStore_SymbolToken *)userEntryPoint;
+	// Managed property name : UserEntryPoint
+	// Managed property type : System.Diagnostics.SymbolStore.SymbolToken
+    @property (nonatomic, strong, readonly) System_Diagnostics_SymbolStore_SymbolToken * userEntryPoint;
 
 #pragma mark -
 #pragma mark Methods

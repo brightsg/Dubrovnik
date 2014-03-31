@@ -2,7 +2,7 @@
 //
 // Managed class : IntrospectionExtensions
 //
-@interface System_Reflection_IntrospectionExtensions : DBMonoObjectRepresentation
+@interface System_Reflection_IntrospectionExtensions : System_Object
 
 #pragma mark -
 #pragma mark Setup

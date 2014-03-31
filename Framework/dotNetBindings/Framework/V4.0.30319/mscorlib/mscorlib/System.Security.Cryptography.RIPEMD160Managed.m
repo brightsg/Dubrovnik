@@ -3,6 +3,12 @@
 //
 // Managed class : RIPEMD160Managed
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_RIPEMD160Managed
 
 #pragma mark -
@@ -28,5 +34,11 @@
     {
 		[self invokeMonoMethod:"Initialize()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

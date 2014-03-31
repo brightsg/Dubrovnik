@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationIdentity
 //
-@interface System_ApplicationIdentity : DBMonoObjectRepresentation
+@interface System_ApplicationIdentity : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,11 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)codeBase;
+	// Managed property name : CodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * codeBase;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
 #pragma mark -
 #pragma mark Methods

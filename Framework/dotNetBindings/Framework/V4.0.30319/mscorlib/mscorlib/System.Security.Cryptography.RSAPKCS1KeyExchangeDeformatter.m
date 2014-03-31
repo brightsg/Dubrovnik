@@ -3,6 +3,12 @@
 //
 // Managed class : RSAPKCS1KeyExchangeDeformatter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_RSAPKCS1KeyExchangeDeformatter
 
 #pragma mark -
@@ -32,28 +38,38 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Parameters
+	// Managed property type : System.String
+    @synthesize parameters = _parameters;
     - (NSString *)parameters
     {
-		MonoObject * monoObject = [self getMonoProperty:"Parameters"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Parameters"];
+		if ([self object:_parameters isEqualToMonoObject:monoObject]) return _parameters;					
+		_parameters = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _parameters;
 	}
     - (void)setParameters:(NSString *)value
 	{
+		_parameters = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Parameters" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Cryptography.RandomNumberGenerator
+	// Managed property name : RNG
+	// Managed property type : System.Security.Cryptography.RandomNumberGenerator
+    @synthesize rNG = _rNG;
     - (System_Security_Cryptography_RandomNumberGenerator *)rNG
     {
-		MonoObject * monoObject = [self getMonoProperty:"RNG"];
-		System_Security_Cryptography_RandomNumberGenerator * result = [System_Security_Cryptography_RandomNumberGenerator representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RNG"];
+		if ([self object:_rNG isEqualToMonoObject:monoObject]) return _rNG;					
+		_rNG = [System_Security_Cryptography_RandomNumberGenerator objectWithMonoObject:monoObject];
+
+		return _rNG;
 	}
     - (void)setRNG:(System_Security_Cryptography_RandomNumberGenerator *)value
 	{
+		_rNG = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"RNG" valueObject:monoObject];          
 	}
@@ -77,5 +93,11 @@
     {
 		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

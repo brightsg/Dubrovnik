@@ -2,7 +2,7 @@
 //
 // Managed class : AsymmetricKeyExchangeFormatter
 //
-@interface System_Security_Cryptography_AsymmetricKeyExchangeFormatter : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_AsymmetricKeyExchangeFormatter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)parameters;
+	// Managed property name : Parameters
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * parameters;
 
 #pragma mark -
 #pragma mark Methods

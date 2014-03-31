@@ -2,7 +2,7 @@
 //
 // Managed class : CodeGroup
 //
-@interface System_Security_Policy_CodeGroup : DBMonoObjectRepresentation
+@interface System_Security_Policy_CodeGroup : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,34 +14,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)attributeString;
+	// Managed property name : AttributeString
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * attributeString;
 
-	// Managed type : System.Collections.IList
-    - (System_Collections_IList *)children;
-    - (void)setChildren:(System_Collections_IList *)value;
+	// Managed property name : Children
+	// Managed property type : System.Collections.IList
+    @property (nonatomic, strong) System_Collections_IList * children;
 
-	// Managed type : System.String
-    - (NSString *)description;
-    - (void)setDescription:(NSString *)value;
+	// Managed property name : Description
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * description;
 
-	// Managed type : System.Security.Policy.IMembershipCondition
-    - (System_Security_Policy_IMembershipCondition *)membershipCondition;
-    - (void)setMembershipCondition:(System_Security_Policy_IMembershipCondition *)value;
+	// Managed property name : MembershipCondition
+	// Managed property type : System.Security.Policy.IMembershipCondition
+    @property (nonatomic, strong) System_Security_Policy_IMembershipCondition * membershipCondition;
 
-	// Managed type : System.String
-    - (NSString *)mergeLogic;
+	// Managed property name : MergeLogic
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * mergeLogic;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)permissionSetName;
+	// Managed property name : PermissionSetName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * permissionSetName;
 
-	// Managed type : System.Security.Policy.PolicyStatement
-    - (System_Security_Policy_PolicyStatement *)policyStatement;
-    - (void)setPolicyStatement:(System_Security_Policy_PolicyStatement *)value;
+	// Managed property name : PolicyStatement
+	// Managed property type : System.Security.Policy.PolicyStatement
+    @property (nonatomic, strong) System_Security_Policy_PolicyStatement * policyStatement;
 
 #pragma mark -
 #pragma mark Methods
@@ -59,7 +62,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

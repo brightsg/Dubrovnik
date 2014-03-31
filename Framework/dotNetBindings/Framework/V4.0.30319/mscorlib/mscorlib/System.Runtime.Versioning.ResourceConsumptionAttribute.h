@@ -27,10 +27,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Versioning.ResourceScope
-    - (System_Runtime_Versioning_ResourceScope)consumptionScope;
+	// Managed property name : ConsumptionScope
+	// Managed property type : System.Runtime.Versioning.ResourceScope
+    @property (nonatomic, readonly) System_Runtime_Versioning_ResourceScope consumptionScope;
 
-	// Managed type : System.Runtime.Versioning.ResourceScope
-    - (System_Runtime_Versioning_ResourceScope)resourceScope;
+	// Managed property name : ResourceScope
+	// Managed property type : System.Runtime.Versioning.ResourceScope
+    @property (nonatomic, readonly) System_Runtime_Versioning_ResourceScope resourceScope;
 @end
 //--Dubrovnik.CodeGenerator

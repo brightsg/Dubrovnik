@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolScope
 //
-@interface System_Diagnostics_SymbolStore_ISymbolScope : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolScope : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)endOffset;
+	// Managed property name : EndOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t endOffset;
 
-	// Managed type : System.Diagnostics.SymbolStore.ISymbolMethod
-    - (System_Diagnostics_SymbolStore_ISymbolMethod *)method;
+	// Managed property name : Method
+	// Managed property type : System.Diagnostics.SymbolStore.ISymbolMethod
+    @property (nonatomic, strong, readonly) System_Diagnostics_SymbolStore_ISymbolMethod * method;
 
-	// Managed type : System.Diagnostics.SymbolStore.ISymbolScope
-    - (System_Diagnostics_SymbolStore_ISymbolScope *)parent;
+	// Managed property name : Parent
+	// Managed property type : System.Diagnostics.SymbolStore.ISymbolScope
+    @property (nonatomic, strong, readonly) System_Diagnostics_SymbolStore_ISymbolScope * parent;
 
-	// Managed type : System.Int32
-    - (int32_t)startOffset;
+	// Managed property name : StartOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t startOffset;
 
 #pragma mark -
 #pragma mark Methods

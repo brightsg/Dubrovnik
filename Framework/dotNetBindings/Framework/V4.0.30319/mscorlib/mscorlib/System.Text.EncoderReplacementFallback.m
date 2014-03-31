@@ -3,6 +3,12 @@
 //
 // Managed class : EncoderReplacementFallback
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Text_EncoderReplacementFallback
 
 #pragma mark -
@@ -32,20 +38,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : DefaultString
+	// Managed property type : System.String
+    @synthesize defaultString = _defaultString;
     - (NSString *)defaultString
     {
-		MonoObject * monoObject = [self getMonoProperty:"DefaultString"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DefaultString"];
+		if ([self object:_defaultString isEqualToMonoObject:monoObject]) return _defaultString;					
+		_defaultString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _defaultString;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : MaxCharCount
+	// Managed property type : System.Int32
+    @synthesize maxCharCount = _maxCharCount;
     - (int32_t)maxCharCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"MaxCharCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MaxCharCount"];
+		_maxCharCount = DB_UNBOX_INT32(monoObject);
+
+		return _maxCharCount;
 	}
 
 #pragma mark -
@@ -57,13 +70,13 @@
     - (System_Text_EncoderFallbackBuffer *)createFallbackBuffer
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFallbackBuffer()" withNumArgs:0];
-		return [System_Text_EncoderFallbackBuffer representationWithMonoObject:monoObject];
+		return [System_Text_EncoderFallbackBuffer objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withValue:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -77,5 +90,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

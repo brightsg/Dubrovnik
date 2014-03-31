@@ -2,7 +2,7 @@
 //
 // Managed class : VariantWrapper
 //
-@interface System_Runtime_InteropServices_VariantWrapper : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_VariantWrapper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,12 +17,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.VariantWrapper
 	// Managed param types : System.Object
-    + (System_Runtime_InteropServices_VariantWrapper *)new_withObj:(DBMonoObjectRepresentation *)p1;
+    + (System_Runtime_InteropServices_VariantWrapper *)new_withObj:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)wrappedObject;
+	// Managed property name : WrappedObject
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * wrappedObject;
 @end
 //--Dubrovnik.CodeGenerator

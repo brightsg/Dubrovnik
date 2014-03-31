@@ -2,7 +2,7 @@
 //
 // Managed interface : IPermission
 //
-@interface System_Security_IPermission : DBMonoObjectRepresentation
+@interface System_Security_IPermission : System_Object
 
 #pragma mark -
 #pragma mark Setup

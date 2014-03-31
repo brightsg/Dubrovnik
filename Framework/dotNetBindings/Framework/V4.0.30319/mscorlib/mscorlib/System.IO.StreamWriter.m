@@ -3,6 +3,12 @@
 //
 // Managed class : StreamWriter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_StreamWriter
 
 #pragma mark -
@@ -88,44 +94,60 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.StreamWriter
+	// Managed field name : Null
+	// Managed field type : System.IO.StreamWriter
+    static System_IO_StreamWriter * m_null;
     + (System_IO_StreamWriter *)null
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Null" valuePtr:DB_PTR(monoObject)];
-		return [System_IO_StreamWriter representationWithMonoObject:monoObject];
+		if ([self object:m_null isEqualToMonoObject:monoObject]) return m_null;					
+		m_null = [System_IO_StreamWriter objectWithMonoObject:monoObject];
+		return m_null;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : AutoFlush
+	// Managed property type : System.Boolean
+    @synthesize autoFlush = _autoFlush;
     - (BOOL)autoFlush
     {
-		MonoObject * monoObject = [self getMonoProperty:"AutoFlush"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AutoFlush"];
+		_autoFlush = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _autoFlush;
 	}
     - (void)setAutoFlush:(BOOL)value
 	{
+		_autoFlush = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"AutoFlush" valueObject:monoObject];          
 	}
 
-	// Managed type : System.IO.Stream
+	// Managed property name : BaseStream
+	// Managed property type : System.IO.Stream
+    @synthesize baseStream = _baseStream;
     - (System_IO_Stream *)baseStream
     {
-		MonoObject * monoObject = [self getMonoProperty:"BaseStream"];
-		System_IO_Stream * result = [System_IO_Stream representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BaseStream"];
+		if ([self object:_baseStream isEqualToMonoObject:monoObject]) return _baseStream;					
+		_baseStream = [System_IO_Stream objectWithMonoObject:monoObject];
+
+		return _baseStream;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : Encoding
+	// Managed property type : System.Text.Encoding
+    @synthesize encoding = _encoding;
     - (System_Text_Encoding *)encoding
     {
-		MonoObject * monoObject = [self getMonoProperty:"Encoding"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Encoding"];
+		if ([self object:_encoding isEqualToMonoObject:monoObject]) return _encoding;					
+		_encoding = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return _encoding;
 	}
 
 #pragma mark -
@@ -153,7 +175,7 @@
     - (System_Threading_Tasks_Task *)flushAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Write
@@ -194,7 +216,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteAsync
@@ -203,7 +225,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteAsync
@@ -212,7 +234,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -221,7 +243,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -230,7 +252,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -239,7 +261,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -248,7 +270,14 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_null = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

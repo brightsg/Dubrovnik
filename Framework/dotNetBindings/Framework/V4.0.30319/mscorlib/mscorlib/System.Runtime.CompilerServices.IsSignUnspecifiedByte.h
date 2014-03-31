@@ -2,7 +2,7 @@
 //
 // Managed class : IsSignUnspecifiedByte
 //
-@interface System_Runtime_CompilerServices_IsSignUnspecifiedByte : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsSignUnspecifiedByte : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -14,50 +14,65 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)assembly;
+	// Managed property name : Assembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * assembly;
 
-	// Managed type : System.String
-    - (NSString *)assemblyQualifiedName;
+	// Managed property name : AssemblyQualifiedName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * assemblyQualifiedName;
 
-	// Managed type : System.Type
-    - (System_Type *)baseType;
+	// Managed property name : BaseType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * baseType;
 
-	// Managed type : System.Type
-    - (System_Type *)declaringType;
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * declaringType;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
-	// Managed type : System.Guid
-    - (System_Guid *)gUID;
+	// Managed property name : GUID
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * gUID;
 
-	// Managed type : System.Boolean
-    - (BOOL)isConstructedGenericType;
+	// Managed property name : IsConstructedGenericType
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isConstructedGenericType;
 
-	// Managed type : System.Reflection.Module
-    - (System_Reflection_Module *)module;
+	// Managed property name : Module
+	// Managed property type : System.Reflection.Module
+    @property (nonatomic, strong, readonly) System_Reflection_Module * module;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)namespace;
+	// Managed property name : Namespace
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * namespace;
 
-	// Managed type : System.Type
-    - (System_Type *)reflectedType;
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
-	// Managed type : System.RuntimeTypeHandle
-    - (System_RuntimeTypeHandle *)typeHandle;
+	// Managed property name : TypeHandle
+	// Managed property type : System.RuntimeTypeHandle
+    @property (nonatomic, strong, readonly) System_RuntimeTypeHandle * typeHandle;
 
-	// Managed type : System.Reflection.Emit.TypeToken
-    - (System_Reflection_Emit_TypeToken *)typeToken;
+	// Managed property name : TypeToken
+	// Managed property type : System.Reflection.Emit.TypeToken
+    @property (nonatomic, strong, readonly) System_Reflection_Emit_TypeToken * typeToken;
 
-	// Managed type : System.Reflection.Emit.FieldBuilder
-    - (System_Reflection_Emit_FieldBuilder *)underlyingField;
+	// Managed property name : UnderlyingField
+	// Managed property type : System.Reflection.Emit.FieldBuilder
+    @property (nonatomic, strong, readonly) System_Reflection_Emit_FieldBuilder * underlyingField;
 
-	// Managed type : System.Type
-    - (System_Type *)underlyingSystemType;
+	// Managed property name : UnderlyingSystemType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * underlyingSystemType;
 
 #pragma mark -
 #pragma mark Methods
@@ -75,7 +90,7 @@
 	// Managed method name : DefineLiteral
 	// Managed return type : System.Reflection.Emit.FieldBuilder
 	// Managed param types : System.String, System.Object
-    - (System_Reflection_Emit_FieldBuilder *)defineLiteral_withLiteralName:(NSString *)p1 literalValue:(DBMonoObjectRepresentation *)p2;
+    - (System_Reflection_Emit_FieldBuilder *)defineLiteral_withLiteralName:(NSString *)p1 literalValue:(System_Object *)p2;
 
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
@@ -175,7 +190,7 @@
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[]
-    - (DBMonoObjectRepresentation *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(DBMonoObjectRepresentation *)p4 args:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(DBSystem_Array *)p8;
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(DBSystem_Array *)p8;
 
 	// Managed method name : IsAssignableFrom
 	// Managed return type : System.Boolean

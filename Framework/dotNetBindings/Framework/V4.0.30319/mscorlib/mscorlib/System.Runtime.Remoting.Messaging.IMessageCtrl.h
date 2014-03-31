@@ -2,7 +2,7 @@
 //
 // Managed interface : IMessageCtrl
 //
-@interface System_Runtime_Remoting_Messaging_IMessageCtrl : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_IMessageCtrl : System_Object
 
 #pragma mark -
 #pragma mark Setup

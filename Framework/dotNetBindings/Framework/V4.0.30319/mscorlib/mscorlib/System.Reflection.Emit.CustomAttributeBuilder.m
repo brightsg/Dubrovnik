@@ -3,6 +3,12 @@
 //
 // Managed class : CustomAttributeBuilder
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_CustomAttributeBuilder
 
 #pragma mark -
@@ -52,5 +58,11 @@
     {
 		return [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[],System.Array[],object[],System.Array[],object[]" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

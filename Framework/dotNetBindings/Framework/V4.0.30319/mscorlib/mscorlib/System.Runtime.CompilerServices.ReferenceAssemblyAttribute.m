@@ -3,6 +3,12 @@
 //
 // Managed class : ReferenceAssemblyAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_ReferenceAssemblyAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Description
+	// Managed property type : System.String
+    @synthesize description = _description;
     - (NSString *)description
     {
-		MonoObject * monoObject = [self getMonoProperty:"Description"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Description"];
+		if ([self object:_description isEqualToMonoObject:monoObject]) return _description;					
+		_description = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _description;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

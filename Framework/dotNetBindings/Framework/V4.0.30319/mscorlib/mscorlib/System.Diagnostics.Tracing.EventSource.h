@@ -2,7 +2,7 @@
 //
 // Managed class : EventSource
 //
-@interface System_Diagnostics_Tracing_EventSource : DBMonoObjectRepresentation
+@interface System_Diagnostics_Tracing_EventSource : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Guid
-    - (System_Guid *)guid;
+	// Managed property name : Guid
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * guid;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
 #pragma mark -
 #pragma mark Methods

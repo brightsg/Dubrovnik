@@ -22,12 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)parameters;
+	// Managed property name : Parameters
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * parameters;
 
-	// Managed type : System.Security.Cryptography.RandomNumberGenerator
-    - (System_Security_Cryptography_RandomNumberGenerator *)rng;
-    - (void)setRng:(System_Security_Cryptography_RandomNumberGenerator *)value;
+	// Managed property name : Rng
+	// Managed property type : System.Security.Cryptography.RandomNumberGenerator
+    @property (nonatomic, strong) System_Security_Cryptography_RandomNumberGenerator * rng;
 
 #pragma mark -
 #pragma mark Methods

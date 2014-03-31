@@ -3,6 +3,12 @@
 //
 // Managed class : ProgIdAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ProgIdAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Value
+	// Managed property type : System.String
+    @synthesize value = _value;
     - (NSString *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Diagnostics.DebuggerBrowsableState
-    - (System_Diagnostics_DebuggerBrowsableState)state;
+	// Managed property name : State
+	// Managed property type : System.Diagnostics.DebuggerBrowsableState
+    @property (nonatomic, readonly) System_Diagnostics_DebuggerBrowsableState state;
 @end
 //--Dubrovnik.CodeGenerator

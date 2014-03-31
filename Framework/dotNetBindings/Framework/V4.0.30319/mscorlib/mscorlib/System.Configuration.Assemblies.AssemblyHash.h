@@ -2,7 +2,7 @@
 //
 // Managed struct : AssemblyHash
 //
-@interface System_Configuration_Assemblies_AssemblyHash : DBMonoObjectRepresentation
+@interface System_Configuration_Assemblies_AssemblyHash : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -27,15 +27,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Configuration.Assemblies.AssemblyHash
+	// Managed field name : Empty
+	// Managed field type : System.Configuration.Assemblies.AssemblyHash
     + (System_Configuration_Assemblies_AssemblyHash *)empty;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Configuration.Assemblies.AssemblyHashAlgorithm
-    - (System_Configuration_Assemblies_AssemblyHashAlgorithm)algorithm;
-    - (void)setAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)value;
+	// Managed property name : Algorithm
+	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
+    @property (nonatomic) System_Configuration_Assemblies_AssemblyHashAlgorithm algorithm;
 
 #pragma mark -
 #pragma mark Methods
@@ -43,7 +44,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Byte[]

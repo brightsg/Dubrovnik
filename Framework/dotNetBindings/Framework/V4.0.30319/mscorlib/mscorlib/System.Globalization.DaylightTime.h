@@ -2,7 +2,7 @@
 //
 // Managed class : DaylightTime
 //
-@interface System_Globalization_DaylightTime : DBMonoObjectRepresentation
+@interface System_Globalization_DaylightTime : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,13 +22,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)delta;
+	// Managed property name : Delta
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong, readonly) System_TimeSpan * delta;
 
-	// Managed type : System.DateTime
-    - (NSDate *)end;
+	// Managed property name : End
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * end;
 
-	// Managed type : System.DateTime
-    - (NSDate *)start;
+	// Managed property name : Start
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * start;
 @end
 //--Dubrovnik.CodeGenerator

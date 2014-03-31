@@ -3,6 +3,12 @@
 //
 // Managed class : ParallelLoopState
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Tasks_ParallelLoopState
 
 #pragma mark -
@@ -21,37 +27,49 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsExceptional
+	// Managed property type : System.Boolean
+    @synthesize isExceptional = _isExceptional;
     - (BOOL)isExceptional
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsExceptional"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsExceptional"];
+		_isExceptional = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isExceptional;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsStopped
+	// Managed property type : System.Boolean
+    @synthesize isStopped = _isStopped;
     - (BOOL)isStopped
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsStopped"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsStopped"];
+		_isStopped = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isStopped;
 	}
 
-	// Managed type : System.Nullable<System.Int64>
+	// Managed property name : LowestBreakIteration
+	// Managed property type : System.Nullable<System.Int64>
+    @synthesize lowestBreakIteration = _lowestBreakIteration;
     - (System_Nullable *)lowestBreakIteration
     {
-		MonoObject * monoObject = [self getMonoProperty:"LowestBreakIteration"];
-		System_Nullable * result = [System_Nullable representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"int64_t";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LowestBreakIteration"];
+		if ([self object:_lowestBreakIteration isEqualToMonoObject:monoObject]) return _lowestBreakIteration;					
+		_lowestBreakIteration = [System_Nullable objectWithMonoObject:monoObject];
+
+		return _lowestBreakIteration;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ShouldExitCurrentIteration
+	// Managed property type : System.Boolean
+    @synthesize shouldExitCurrentIteration = _shouldExitCurrentIteration;
     - (BOOL)shouldExitCurrentIteration
     {
-		MonoObject * monoObject = [self getMonoProperty:"ShouldExitCurrentIteration"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ShouldExitCurrentIteration"];
+		_shouldExitCurrentIteration = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _shouldExitCurrentIteration;
 	}
 
 #pragma mark -
@@ -72,5 +90,11 @@
     {
 		[self invokeMonoMethod:"Stop()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

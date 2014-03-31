@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyCultureAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyCultureAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Culture
+	// Managed property type : System.String
+    @synthesize culture = _culture;
     - (NSString *)culture
     {
-		MonoObject * monoObject = [self getMonoProperty:"Culture"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Culture"];
+		if ([self object:_culture isEqualToMonoObject:monoObject]) return _culture;					
+		_culture = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _culture;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

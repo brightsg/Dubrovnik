@@ -2,7 +2,7 @@
 //
 // Managed class : ResourceReader
 //
-@interface System_Resources_ResourceReader : DBMonoObjectRepresentation
+@interface System_Resources_ResourceReader : System_Object
 
 #pragma mark -
 #pragma mark Setup

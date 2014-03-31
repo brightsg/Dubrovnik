@@ -22,17 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)authenticated;
-    - (void)setAuthenticated:(BOOL)value;
+	// Managed property name : Authenticated
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL authenticated;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)role;
-    - (void)setRole:(NSString *)value;
+	// Managed property name : Role
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * role;
 
 #pragma mark -
 #pragma mark Methods

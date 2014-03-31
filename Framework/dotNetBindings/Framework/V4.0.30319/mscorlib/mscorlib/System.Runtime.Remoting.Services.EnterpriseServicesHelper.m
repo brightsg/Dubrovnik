@@ -3,6 +3,12 @@
 //
 // Managed class : EnterpriseServicesHelper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Services_EnterpriseServicesHelper
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)createConstructionReturnMessage_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1 retObj:(System_MarshalByRefObject *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateConstructionReturnMessage(System.Runtime.Remoting.Activation.IConstructionCallMessage,System.MarshalByRefObject)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SwitchWrappers
@@ -41,10 +47,16 @@
 	// Managed method name : WrapIUnknownWithComObject
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)wrapIUnknownWithComObject_withPunk:(void *)p1
+    - (System_Object *)wrapIUnknownWithComObject_withPunk:(void *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WrapIUnknownWithComObject(intptr)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

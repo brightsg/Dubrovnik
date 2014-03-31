@@ -2,7 +2,7 @@
 //
 // Managed interface : IActivationFactory
 //
-@interface System_Runtime_InteropServices_WindowsRuntime_IActivationFactory : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_WindowsRuntime_IActivationFactory : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : ActivateInstance
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)activateInstance;
+    - (System_Object *)activateInstance;
 @end
 //--Dubrovnik.CodeGenerator

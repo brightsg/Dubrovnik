@@ -2,7 +2,7 @@
 //
 // Managed class : CspParameters
 //
-@interface System_Security_Cryptography_CspParameters : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_CspParameters : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,39 +42,39 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
-    - (NSString *)keyContainerName;
-    - (void)setKeyContainerName:(NSString *)value;
+	// Managed field name : KeyContainerName
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * keyContainerName;
 
-	// Managed type : System.Int32
-    - (int32_t)keyNumber;
-    - (void)setKeyNumber:(int32_t)value;
+	// Managed field name : KeyNumber
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t keyNumber;
 
-	// Managed type : System.String
-    - (NSString *)providerName;
-    - (void)setProviderName:(NSString *)value;
+	// Managed field name : ProviderName
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * providerName;
 
-	// Managed type : System.Int32
-    - (int32_t)providerType;
-    - (void)setProviderType:(int32_t)value;
+	// Managed field name : ProviderType
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t providerType;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.CryptoKeySecurity
-    - (System_Security_AccessControl_CryptoKeySecurity *)cryptoKeySecurity;
-    - (void)setCryptoKeySecurity:(System_Security_AccessControl_CryptoKeySecurity *)value;
+	// Managed property name : CryptoKeySecurity
+	// Managed property type : System.Security.AccessControl.CryptoKeySecurity
+    @property (nonatomic, strong) System_Security_AccessControl_CryptoKeySecurity * cryptoKeySecurity;
 
-	// Managed type : System.Security.Cryptography.CspProviderFlags
-    - (System_Security_Cryptography_CspProviderFlags)flags;
-    - (void)setFlags:(System_Security_Cryptography_CspProviderFlags)value;
+	// Managed property name : Flags
+	// Managed property type : System.Security.Cryptography.CspProviderFlags
+    @property (nonatomic) System_Security_Cryptography_CspProviderFlags flags;
 
-	// Managed type : System.Security.SecureString
-    - (System_Security_SecureString *)keyPassword;
-    - (void)setKeyPassword:(System_Security_SecureString *)value;
+	// Managed property name : KeyPassword
+	// Managed property type : System.Security.SecureString
+    @property (nonatomic, strong) System_Security_SecureString * keyPassword;
 
-	// Managed type : System.IntPtr
-    - (void *)parentWindowHandle;
-    - (void)setParentWindowHandle:(void *)value;
+	// Managed property name : ParentWindowHandle
+	// Managed property type : System.IntPtr
+    @property (nonatomic) void * parentWindowHandle;
 @end
 //--Dubrovnik.CodeGenerator

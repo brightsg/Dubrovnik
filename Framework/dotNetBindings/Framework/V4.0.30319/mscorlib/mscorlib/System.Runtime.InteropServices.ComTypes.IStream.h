@@ -2,7 +2,7 @@
 //
 // Managed interface : IStream
 //
-@interface System_Runtime_InteropServices_ComTypes_IStream : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IStream : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed struct : EventToken
 //
-@interface System_Reflection_Emit_EventToken : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_EventToken : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Reflection.Emit.EventToken
+	// Managed field name : Empty
+	// Managed field type : System.Reflection.Emit.EventToken
     + (System_Reflection_Emit_EventToken *)empty;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)token;
+	// Managed property name : Token
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t token;
 
 #pragma mark -
 #pragma mark Methods
@@ -29,7 +31,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

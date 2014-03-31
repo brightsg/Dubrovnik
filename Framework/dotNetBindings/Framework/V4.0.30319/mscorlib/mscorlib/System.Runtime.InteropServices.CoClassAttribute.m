@@ -3,6 +3,12 @@
 //
 // Managed class : CoClassAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_CoClassAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : CoClass
+	// Managed property type : System.Type
+    @synthesize coClass = _coClass;
     - (System_Type *)coClass
     {
-		MonoObject * monoObject = [self getMonoProperty:"CoClass"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CoClass"];
+		if ([self object:_coClass isEqualToMonoObject:monoObject]) return _coClass;					
+		_coClass = [System_Type objectWithMonoObject:monoObject];
+
+		return _coClass;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

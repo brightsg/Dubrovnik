@@ -2,7 +2,7 @@
 //
 // Managed class : CustomAttributeBuilder
 //
-@interface System_Reflection_Emit_CustomAttributeBuilder : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_CustomAttributeBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

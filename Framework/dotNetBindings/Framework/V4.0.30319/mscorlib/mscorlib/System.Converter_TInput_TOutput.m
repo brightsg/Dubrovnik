@@ -3,6 +3,12 @@
 //
 // Managed class : Converter<TInput, TOutput>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Converter
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Converter<TInput, TOutput>
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Converter *)new_withObject:(DBMonoObjectRepresentation *)p1 method:(void *)p2
+    + (System_Converter *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -35,28 +41,34 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : <TInput>, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withInput:(DBMonoObjectRepresentation *)p1 callback:(System_AsyncCallback *)p2 object:(DBMonoObjectRepresentation *)p3
+    - (System_IAsyncResult *)beginInvoke_withInput:(DBManagedObject *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(Dubrovnik.Generic.Parameter,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_IAsyncResult representationWithMonoObject:monoObject];
+		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndInvoke
 	// Managed return type : <TOutput>
 	// Managed param types : System.IAsyncResult
-    - (DBMonoObjectRepresentation *)endInvoke_withResult:(System_IAsyncResult *)p1
+    - (DBManagedObject *)endInvoke_withResult:(System_IAsyncResult *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Invoke
 	// Managed return type : <TOutput>
 	// Managed param types : <TInput>
-    - (DBMonoObjectRepresentation *)invoke_withInput:(DBMonoObjectRepresentation *)p1
+    - (DBManagedObject *)invoke_withInput:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

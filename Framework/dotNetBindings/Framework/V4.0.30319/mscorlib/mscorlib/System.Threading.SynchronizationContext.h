@@ -2,7 +2,7 @@
 //
 // Managed class : SynchronizationContext
 //
-@interface System_Threading_SynchronizationContext : DBMonoObjectRepresentation
+@interface System_Threading_SynchronizationContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.SynchronizationContext
+	// Managed property name : Current
+	// Managed property type : System.Threading.SynchronizationContext
     + (System_Threading_SynchronizationContext *)current;
 
 #pragma mark -
@@ -43,12 +44,12 @@
 	// Managed method name : Post
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
-    - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
 
 	// Managed method name : Send
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
-    - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
 
 	// Managed method name : SetSynchronizationContext
 	// Managed return type : System.Void

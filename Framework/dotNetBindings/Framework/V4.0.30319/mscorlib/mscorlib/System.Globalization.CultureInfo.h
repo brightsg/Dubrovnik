@@ -2,7 +2,7 @@
 //
 // Managed class : CultureInfo
 //
-@interface System_Globalization_CultureInfo : DBMonoObjectRepresentation
+@interface System_Globalization_CultureInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -37,90 +37,115 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Globalization.Calendar
-    - (System_Globalization_Calendar *)calendar;
+	// Managed property name : Calendar
+	// Managed property type : System.Globalization.Calendar
+    @property (nonatomic, strong, readonly) System_Globalization_Calendar * calendar;
 
-	// Managed type : System.Globalization.CompareInfo
-    - (System_Globalization_CompareInfo *)compareInfo;
+	// Managed property name : CompareInfo
+	// Managed property type : System.Globalization.CompareInfo
+    @property (nonatomic, strong, readonly) System_Globalization_CompareInfo * compareInfo;
 
-	// Managed type : System.Globalization.CultureTypes
-    - (System_Globalization_CultureTypes)cultureTypes;
+	// Managed property name : CultureTypes
+	// Managed property type : System.Globalization.CultureTypes
+    @property (nonatomic, readonly) System_Globalization_CultureTypes cultureTypes;
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : CurrentCulture
+	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)currentCulture;
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : CurrentUICulture
+	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)currentUICulture;
 
-	// Managed type : System.Globalization.DateTimeFormatInfo
-    - (System_Globalization_DateTimeFormatInfo *)dateTimeFormat;
-    - (void)setDateTimeFormat:(System_Globalization_DateTimeFormatInfo *)value;
+	// Managed property name : DateTimeFormat
+	// Managed property type : System.Globalization.DateTimeFormatInfo
+    @property (nonatomic, strong) System_Globalization_DateTimeFormatInfo * dateTimeFormat;
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : DefaultThreadCurrentCulture
+	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)defaultThreadCurrentCulture;
     + (void)setDefaultThreadCurrentCulture:(System_Globalization_CultureInfo *)value;
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : DefaultThreadCurrentUICulture
+	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)defaultThreadCurrentUICulture;
     + (void)setDefaultThreadCurrentUICulture:(System_Globalization_CultureInfo *)value;
 
-	// Managed type : System.String
-    - (NSString *)displayName;
+	// Managed property name : DisplayName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * displayName;
 
-	// Managed type : System.String
-    - (NSString *)englishName;
+	// Managed property name : EnglishName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * englishName;
 
-	// Managed type : System.String
-    - (NSString *)ietfLanguageTag;
+	// Managed property name : IetfLanguageTag
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * ietfLanguageTag;
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : InstalledUICulture
+	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)installedUICulture;
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : InvariantCulture
+	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)invariantCulture;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNeutralCulture;
+	// Managed property name : IsNeutralCulture
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNeutralCulture;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Int32
-    - (int32_t)keyboardLayoutId;
+	// Managed property name : KeyboardLayoutId
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t keyboardLayoutId;
 
-	// Managed type : System.Int32
-    - (int32_t)lCID;
+	// Managed property name : LCID
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t lCID;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)nativeName;
+	// Managed property name : NativeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * nativeName;
 
-	// Managed type : System.Globalization.NumberFormatInfo
-    - (System_Globalization_NumberFormatInfo *)numberFormat;
-    - (void)setNumberFormat:(System_Globalization_NumberFormatInfo *)value;
+	// Managed property name : NumberFormat
+	// Managed property type : System.Globalization.NumberFormatInfo
+    @property (nonatomic, strong) System_Globalization_NumberFormatInfo * numberFormat;
 
-	// Managed type : System.Globalization.Calendar[]
-    - (DBSystem_Array *)optionalCalendars;
+	// Managed property name : OptionalCalendars
+	// Managed property type : System.Globalization.Calendar[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * optionalCalendars;
 
-	// Managed type : System.Globalization.CultureInfo
-    - (System_Globalization_CultureInfo *)parent;
+	// Managed property name : Parent
+	// Managed property type : System.Globalization.CultureInfo
+    @property (nonatomic, strong, readonly) System_Globalization_CultureInfo * parent;
 
-	// Managed type : System.Globalization.TextInfo
-    - (System_Globalization_TextInfo *)textInfo;
+	// Managed property name : TextInfo
+	// Managed property type : System.Globalization.TextInfo
+    @property (nonatomic, strong, readonly) System_Globalization_TextInfo * textInfo;
 
-	// Managed type : System.String
-    - (NSString *)threeLetterISOLanguageName;
+	// Managed property name : ThreeLetterISOLanguageName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * threeLetterISOLanguageName;
 
-	// Managed type : System.String
-    - (NSString *)threeLetterWindowsLanguageName;
+	// Managed property name : ThreeLetterWindowsLanguageName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * threeLetterWindowsLanguageName;
 
-	// Managed type : System.String
-    - (NSString *)twoLetterISOLanguageName;
+	// Managed property name : TwoLetterISOLanguageName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * twoLetterISOLanguageName;
 
-	// Managed type : System.Boolean
-    - (BOOL)useUserOverride;
+	// Managed property name : UseUserOverride
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL useUserOverride;
 
 #pragma mark -
 #pragma mark Methods
@@ -133,7 +158,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : CreateSpecificCulture
 	// Managed return type : System.Globalization.CultureInfo
@@ -143,7 +168,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetConsoleFallbackUICulture
 	// Managed return type : System.Globalization.CultureInfo
@@ -178,7 +203,7 @@
 	// Managed method name : GetFormat
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getFormat_withFormatType:(System_Type *)p1;
+    - (System_Object *)getFormat_withFormatType:(System_Type *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

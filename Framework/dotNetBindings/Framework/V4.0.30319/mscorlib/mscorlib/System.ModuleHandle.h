@@ -2,7 +2,7 @@
 //
 // Managed struct : ModuleHandle
 //
-@interface System_ModuleHandle : DBMonoObjectRepresentation
+@interface System_ModuleHandle : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.ModuleHandle
+	// Managed field name : EmptyHandle
+	// Managed field type : System.ModuleHandle
     + (System_ModuleHandle *)emptyHandle;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)mDStreamVersion;
+	// Managed property name : MDStreamVersion
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t mDStreamVersion;
 
 #pragma mark -
 #pragma mark Methods
@@ -29,7 +31,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

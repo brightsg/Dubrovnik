@@ -22,11 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)assemblyIsPrivate;
+	// Managed property name : AssemblyIsPrivate
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL assemblyIsPrivate;
 
-	// Managed type : System.Boolean
-    - (BOOL)stripAfterObfuscation;
-    - (void)setStripAfterObfuscation:(BOOL)value;
+	// Managed property name : StripAfterObfuscation
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL stripAfterObfuscation;
 @end
 //--Dubrovnik.CodeGenerator

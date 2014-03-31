@@ -2,7 +2,7 @@
 //
 // Managed interface : ICustomQueryInterface
 //
-@interface System_Runtime_InteropServices_ICustomQueryInterface : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ICustomQueryInterface : System_Object
 
 #pragma mark -
 #pragma mark Setup

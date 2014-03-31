@@ -3,6 +3,12 @@
 //
 // Managed struct : YieldAwaitable
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_YieldAwaitable
 
 #pragma mark -
@@ -27,7 +33,13 @@
     - (System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter *)getAwaiter
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAwaiter()" withNumArgs:0];
-		return [System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter representationWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

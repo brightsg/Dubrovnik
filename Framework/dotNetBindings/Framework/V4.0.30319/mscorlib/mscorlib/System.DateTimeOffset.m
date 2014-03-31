@@ -3,6 +3,12 @@
 //
 // Managed struct : DateTimeOffset
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_DateTimeOffset
 
 #pragma mark -
@@ -72,175 +78,248 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.DateTimeOffset
+	// Managed field name : MaxValue
+	// Managed field type : System.DateTimeOffset
+    static System_DateTimeOffset * m_maxValue;
     + (System_DateTimeOffset *)maxValue
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
+		m_maxValue = [System_DateTimeOffset objectWithMonoObject:monoObject];
+		return m_maxValue;
 	}
 
-	// Managed type : System.DateTimeOffset
+	// Managed field name : MinValue
+	// Managed field type : System.DateTimeOffset
+    static System_DateTimeOffset * m_minValue;
     + (System_DateTimeOffset *)minValue
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
+		m_minValue = [System_DateTimeOffset objectWithMonoObject:monoObject];
+		return m_minValue;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.DateTime
+	// Managed property name : Date
+	// Managed property type : System.DateTime
+    @synthesize date = _date;
     - (NSDate *)date
     {
-		MonoObject * monoObject = [self getMonoProperty:"Date"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Date"];
+		if ([self object:_date isEqualToMonoObject:monoObject]) return _date;					
+		_date = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _date;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : DateTime
+	// Managed property type : System.DateTime
+    @synthesize dateTime = _dateTime;
     - (NSDate *)dateTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"DateTime"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DateTime"];
+		if ([self object:_dateTime isEqualToMonoObject:monoObject]) return _dateTime;					
+		_dateTime = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _dateTime;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Day
+	// Managed property type : System.Int32
+    @synthesize day = _day;
     - (int32_t)day
     {
-		MonoObject * monoObject = [self getMonoProperty:"Day"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Day"];
+		_day = DB_UNBOX_INT32(monoObject);
+
+		return _day;
 	}
 
-	// Managed type : System.DayOfWeek
+	// Managed property name : DayOfWeek
+	// Managed property type : System.DayOfWeek
+    @synthesize dayOfWeek = _dayOfWeek;
     - (System_DayOfWeek)dayOfWeek
     {
-		MonoObject * monoObject = [self getMonoProperty:"DayOfWeek"];
-		System_DayOfWeek result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DayOfWeek"];
+		_dayOfWeek = DB_UNBOX_INT32(monoObject);
+
+		return _dayOfWeek;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : DayOfYear
+	// Managed property type : System.Int32
+    @synthesize dayOfYear = _dayOfYear;
     - (int32_t)dayOfYear
     {
-		MonoObject * monoObject = [self getMonoProperty:"DayOfYear"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DayOfYear"];
+		_dayOfYear = DB_UNBOX_INT32(monoObject);
+
+		return _dayOfYear;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Hour
+	// Managed property type : System.Int32
+    @synthesize hour = _hour;
     - (int32_t)hour
     {
-		MonoObject * monoObject = [self getMonoProperty:"Hour"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Hour"];
+		_hour = DB_UNBOX_INT32(monoObject);
+
+		return _hour;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : LocalDateTime
+	// Managed property type : System.DateTime
+    @synthesize localDateTime = _localDateTime;
     - (NSDate *)localDateTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"LocalDateTime"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LocalDateTime"];
+		if ([self object:_localDateTime isEqualToMonoObject:monoObject]) return _localDateTime;					
+		_localDateTime = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _localDateTime;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Millisecond
+	// Managed property type : System.Int32
+    @synthesize millisecond = _millisecond;
     - (int32_t)millisecond
     {
-		MonoObject * monoObject = [self getMonoProperty:"Millisecond"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Millisecond"];
+		_millisecond = DB_UNBOX_INT32(monoObject);
+
+		return _millisecond;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Minute
+	// Managed property type : System.Int32
+    @synthesize minute = _minute;
     - (int32_t)minute
     {
-		MonoObject * monoObject = [self getMonoProperty:"Minute"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Minute"];
+		_minute = DB_UNBOX_INT32(monoObject);
+
+		return _minute;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Month
+	// Managed property type : System.Int32
+    @synthesize month = _month;
     - (int32_t)month
     {
-		MonoObject * monoObject = [self getMonoProperty:"Month"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Month"];
+		_month = DB_UNBOX_INT32(monoObject);
+
+		return _month;
 	}
 
-	// Managed type : System.DateTimeOffset
+	// Managed property name : Now
+	// Managed property type : System.DateTimeOffset
+    static System_DateTimeOffset * m_now;
     + (System_DateTimeOffset *)now
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Now"];
-		System_DateTimeOffset * result = [System_DateTimeOffset representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Now"];
+		if ([self object:m_now isEqualToMonoObject:monoObject]) return m_now;					
+		m_now = [System_DateTimeOffset objectWithMonoObject:monoObject];
+
+		return m_now;
 	}
 
-	// Managed type : System.TimeSpan
+	// Managed property name : Offset
+	// Managed property type : System.TimeSpan
+    @synthesize offset = _offset;
     - (System_TimeSpan *)offset
     {
-		MonoObject * monoObject = [self getMonoProperty:"Offset"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Offset"];
+		if ([self object:_offset isEqualToMonoObject:monoObject]) return _offset;					
+		_offset = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _offset;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Second
+	// Managed property type : System.Int32
+    @synthesize second = _second;
     - (int32_t)second
     {
-		MonoObject * monoObject = [self getMonoProperty:"Second"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Second"];
+		_second = DB_UNBOX_INT32(monoObject);
+
+		return _second;
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : Ticks
+	// Managed property type : System.Int64
+    @synthesize ticks = _ticks;
     - (int64_t)ticks
     {
-		MonoObject * monoObject = [self getMonoProperty:"Ticks"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Ticks"];
+		_ticks = DB_UNBOX_INT64(monoObject);
+
+		return _ticks;
 	}
 
-	// Managed type : System.TimeSpan
+	// Managed property name : TimeOfDay
+	// Managed property type : System.TimeSpan
+    @synthesize timeOfDay = _timeOfDay;
     - (System_TimeSpan *)timeOfDay
     {
-		MonoObject * monoObject = [self getMonoProperty:"TimeOfDay"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TimeOfDay"];
+		if ([self object:_timeOfDay isEqualToMonoObject:monoObject]) return _timeOfDay;					
+		_timeOfDay = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _timeOfDay;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : UtcDateTime
+	// Managed property type : System.DateTime
+    @synthesize utcDateTime = _utcDateTime;
     - (NSDate *)utcDateTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"UtcDateTime"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UtcDateTime"];
+		if ([self object:_utcDateTime isEqualToMonoObject:monoObject]) return _utcDateTime;					
+		_utcDateTime = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _utcDateTime;
 	}
 
-	// Managed type : System.DateTimeOffset
+	// Managed property name : UtcNow
+	// Managed property type : System.DateTimeOffset
+    static System_DateTimeOffset * m_utcNow;
     + (System_DateTimeOffset *)utcNow
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UtcNow"];
-		System_DateTimeOffset * result = [System_DateTimeOffset representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UtcNow"];
+		if ([self object:m_utcNow isEqualToMonoObject:monoObject]) return m_utcNow;					
+		m_utcNow = [System_DateTimeOffset objectWithMonoObject:monoObject];
+
+		return m_utcNow;
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : UtcTicks
+	// Managed property type : System.Int64
+    @synthesize utcTicks = _utcTicks;
     - (int64_t)utcTicks
     {
-		MonoObject * monoObject = [self getMonoProperty:"UtcTicks"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UtcTicks"];
+		_utcTicks = DB_UNBOX_INT64(monoObject);
+
+		return _utcTicks;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Year
+	// Managed property type : System.Int32
+    @synthesize year = _year;
     - (int32_t)year
     {
-		MonoObject * monoObject = [self getMonoProperty:"Year"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Year"];
+		_year = DB_UNBOX_INT32(monoObject);
+
+		return _year;
 	}
 
 #pragma mark -
@@ -252,7 +331,7 @@
     - (System_DateTimeOffset *)add_withTimeSpan:(System_TimeSpan *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddDays
@@ -261,7 +340,7 @@
     - (System_DateTimeOffset *)addDays_withDays:(double)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddDays(double)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddHours
@@ -270,7 +349,7 @@
     - (System_DateTimeOffset *)addHours_withHours:(double)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddHours(double)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddMilliseconds
@@ -279,7 +358,7 @@
     - (System_DateTimeOffset *)addMilliseconds_withMilliseconds:(double)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMilliseconds(double)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddMinutes
@@ -288,7 +367,7 @@
     - (System_DateTimeOffset *)addMinutes_withMinutes:(double)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMinutes(double)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddMonths
@@ -297,7 +376,7 @@
     - (System_DateTimeOffset *)addMonths_withMonths:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMonths(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddSeconds
@@ -306,7 +385,7 @@
     - (System_DateTimeOffset *)addSeconds_withSeconds:(double)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddSeconds(double)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddTicks
@@ -315,7 +394,7 @@
     - (System_DateTimeOffset *)addTicks_withTicks:(int64_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddTicks(long)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddYears
@@ -324,7 +403,7 @@
     - (System_DateTimeOffset *)addYears_withYears:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddYears(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Compare
@@ -348,7 +427,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -387,7 +466,7 @@
     - (System_DateTimeOffset *)fromFileTime_withFileTime:(int64_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FromFileTime(long)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -405,7 +484,7 @@
     - (System_DateTimeOffset *)op_Addition_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Addition(System.DateTimeOffset,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -441,7 +520,7 @@
     - (System_DateTimeOffset *)op_Implicit_withDateTime:(NSDate *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Implicit(System.DateTime)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Inequality
@@ -477,7 +556,7 @@
     - (System_DateTimeOffset *)op_Subtraction_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Subtraction(System.DateTimeOffset,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Subtraction
@@ -486,7 +565,7 @@
     - (System_TimeSpan *)op_Subtraction_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Subtraction(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_TimeSpan representationWithMonoObject:monoObject];
+		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Parse
@@ -495,7 +574,7 @@
     - (System_DateTimeOffset *)parse_withInput:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Parse
@@ -504,7 +583,7 @@
     - (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Parse
@@ -513,7 +592,7 @@
     - (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
@@ -522,7 +601,7 @@
     - (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ParseExact(string,string,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
@@ -531,7 +610,7 @@
     - (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ParseExact(string,string,System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
@@ -540,7 +619,7 @@
     - (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ParseExact(string,string[],System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Subtract
@@ -549,7 +628,7 @@
     - (System_TimeSpan *)subtract_withValueSDateTimeOffset:(System_DateTimeOffset *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.DateTimeOffset)" withNumArgs:1, [p1 monoValue]];
-		return [System_TimeSpan representationWithMonoObject:monoObject];
+		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Subtract
@@ -558,7 +637,7 @@
     - (System_DateTimeOffset *)subtract_withValueSTimeSpan:(System_TimeSpan *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToFileTime
@@ -576,7 +655,7 @@
     - (System_DateTimeOffset *)toLocalTime
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToLocalTime()" withNumArgs:0];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToOffset
@@ -585,7 +664,7 @@
     - (System_DateTimeOffset *)toOffset_withOffset:(System_TimeSpan *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToOffset(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -630,7 +709,7 @@
     - (System_DateTimeOffset *)toUniversalTime
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUniversalTime()" withNumArgs:0];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : TryParse
@@ -668,5 +747,15 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParseExact(string,string,System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTimeOffset&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_maxValue = nil;
+		m_minValue = nil;
+		m_now = nil;
+		m_utcNow = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

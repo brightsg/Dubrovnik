@@ -2,7 +2,7 @@
 //
 // Managed class : Environment
 //
-@interface System_Environment : DBMonoObjectRepresentation
+@interface System_Environment : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,66 +14,86 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : CommandLine
+	// Managed property type : System.String
     + (NSString *)commandLine;
 
-	// Managed type : System.String
+	// Managed property name : CurrentDirectory
+	// Managed property type : System.String
     + (NSString *)currentDirectory;
     + (void)setCurrentDirectory:(NSString *)value;
 
-	// Managed type : System.Int32
+	// Managed property name : CurrentManagedThreadId
+	// Managed property type : System.Int32
     + (int32_t)currentManagedThreadId;
 
-	// Managed type : System.Int32
+	// Managed property name : ExitCode
+	// Managed property type : System.Int32
     + (int32_t)exitCode;
     + (void)setExitCode:(int32_t)value;
 
-	// Managed type : System.Boolean
+	// Managed property name : HasShutdownStarted
+	// Managed property type : System.Boolean
     + (BOOL)hasShutdownStarted;
 
-	// Managed type : System.Boolean
+	// Managed property name : Is64BitOperatingSystem
+	// Managed property type : System.Boolean
     + (BOOL)is64BitOperatingSystem;
 
-	// Managed type : System.Boolean
+	// Managed property name : Is64BitProcess
+	// Managed property type : System.Boolean
     + (BOOL)is64BitProcess;
 
-	// Managed type : System.String
+	// Managed property name : MachineName
+	// Managed property type : System.String
     + (NSString *)machineName;
 
-	// Managed type : System.String
+	// Managed property name : NewLine
+	// Managed property type : System.String
     + (NSString *)newLine;
 
-	// Managed type : System.OperatingSystem
+	// Managed property name : OSVersion
+	// Managed property type : System.OperatingSystem
     + (System_OperatingSystem *)oSVersion;
 
-	// Managed type : System.Int32
+	// Managed property name : ProcessorCount
+	// Managed property type : System.Int32
     + (int32_t)processorCount;
 
-	// Managed type : System.String
+	// Managed property name : StackTrace
+	// Managed property type : System.String
     + (NSString *)stackTrace;
 
-	// Managed type : System.String
+	// Managed property name : SystemDirectory
+	// Managed property type : System.String
     + (NSString *)systemDirectory;
 
-	// Managed type : System.Int32
+	// Managed property name : SystemPageSize
+	// Managed property type : System.Int32
     + (int32_t)systemPageSize;
 
-	// Managed type : System.Int32
+	// Managed property name : TickCount
+	// Managed property type : System.Int32
     + (int32_t)tickCount;
 
-	// Managed type : System.String
+	// Managed property name : UserDomainName
+	// Managed property type : System.String
     + (NSString *)userDomainName;
 
-	// Managed type : System.Boolean
+	// Managed property name : UserInteractive
+	// Managed property type : System.Boolean
     + (BOOL)userInteractive;
 
-	// Managed type : System.String
+	// Managed property name : UserName
+	// Managed property type : System.String
     + (NSString *)userName;
 
-	// Managed type : System.Version
+	// Managed property name : Version
+	// Managed property type : System.Version
     + (System_Version *)version;
 
-	// Managed type : System.Int64
+	// Managed property name : WorkingSet
+	// Managed property type : System.Int64
     + (int64_t)workingSet;
 
 #pragma mark -

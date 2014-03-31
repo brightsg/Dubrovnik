@@ -3,6 +3,12 @@
 //
 // Managed class : InternalRemotingServices
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_InternalRemotingServices
 
 #pragma mark -
@@ -32,10 +38,10 @@
 	// Managed method name : GetCachedSoapAttribute
 	// Managed return type : System.Runtime.Remoting.Metadata.SoapAttribute
 	// Managed param types : System.Object
-    - (System_Runtime_Remoting_Metadata_SoapAttribute *)getCachedSoapAttribute_withReflectionObject:(DBMonoObjectRepresentation *)p1
+    - (System_Runtime_Remoting_Metadata_SoapAttribute *)getCachedSoapAttribute_withReflectionObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCachedSoapAttribute(object)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Metadata_SoapAttribute representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Metadata_SoapAttribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemotingAssert
@@ -57,9 +63,15 @@
 	// Managed method name : SetServerIdentity
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Messaging.MethodCall, System.Object
-    - (void)setServerIdentity_withM:(System_Runtime_Remoting_Messaging_MethodCall *)p1 srvID:(DBMonoObjectRepresentation *)p2
+    - (void)setServerIdentity_withM:(System_Runtime_Remoting_Messaging_MethodCall *)p1 srvID:(System_Object *)p2
     {
 		[self invokeMonoMethod:"SetServerIdentity(System.Runtime.Remoting.Messaging.MethodCall,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

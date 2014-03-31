@@ -2,7 +2,7 @@
 //
 // Managed class : GenericAcl
 //
-@interface System_Security_AccessControl_GenericAcl : DBMonoObjectRepresentation
+@interface System_Security_AccessControl_GenericAcl : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,36 +14,44 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Byte
+	// Managed field name : AclRevision
+	// Managed field type : System.Byte
     + (uint8_t)aclRevision;
 
-	// Managed type : System.Byte
+	// Managed field name : AclRevisionDS
+	// Managed field type : System.Byte
     + (uint8_t)aclRevisionDS;
 
-	// Managed type : System.Int32
+	// Managed field name : MaxBinaryLength
+	// Managed field type : System.Int32
     + (int32_t)maxBinaryLength;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSynchronized;
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed type : System.Security.AccessControl.GenericAce
-    - (System_Security_AccessControl_GenericAce *)item;
-    - (void)setItem:(System_Security_AccessControl_GenericAce *)value;
+	// Managed property name : Item
+	// Managed property type : System.Security.AccessControl.GenericAce
+    @property (nonatomic, strong) System_Security_AccessControl_GenericAce * item;
 
-	// Managed type : System.Byte
-    - (uint8_t)revision;
+	// Managed property name : Revision
+	// Managed property type : System.Byte
+    @property (nonatomic, readonly) uint8_t revision;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot;
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * syncRoot;
 
 #pragma mark -
 #pragma mark Methods

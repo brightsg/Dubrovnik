@@ -3,6 +3,12 @@
 //
 // Managed class : SecurityPermissionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_SecurityPermissionAttribute
 
 #pragma mark -
@@ -32,197 +38,257 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : Assertion
+	// Managed property type : System.Boolean
+    @synthesize assertion = _assertion;
     - (BOOL)assertion
     {
-		MonoObject * monoObject = [self getMonoProperty:"Assertion"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Assertion"];
+		_assertion = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _assertion;
 	}
     - (void)setAssertion:(BOOL)value
 	{
+		_assertion = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Assertion" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : BindingRedirects
+	// Managed property type : System.Boolean
+    @synthesize bindingRedirects = _bindingRedirects;
     - (BOOL)bindingRedirects
     {
-		MonoObject * monoObject = [self getMonoProperty:"BindingRedirects"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BindingRedirects"];
+		_bindingRedirects = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _bindingRedirects;
 	}
     - (void)setBindingRedirects:(BOOL)value
 	{
+		_bindingRedirects = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"BindingRedirects" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ControlAppDomain
+	// Managed property type : System.Boolean
+    @synthesize controlAppDomain = _controlAppDomain;
     - (BOOL)controlAppDomain
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlAppDomain"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlAppDomain"];
+		_controlAppDomain = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _controlAppDomain;
 	}
     - (void)setControlAppDomain:(BOOL)value
 	{
+		_controlAppDomain = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ControlAppDomain" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ControlDomainPolicy
+	// Managed property type : System.Boolean
+    @synthesize controlDomainPolicy = _controlDomainPolicy;
     - (BOOL)controlDomainPolicy
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlDomainPolicy"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlDomainPolicy"];
+		_controlDomainPolicy = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _controlDomainPolicy;
 	}
     - (void)setControlDomainPolicy:(BOOL)value
 	{
+		_controlDomainPolicy = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ControlDomainPolicy" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ControlEvidence
+	// Managed property type : System.Boolean
+    @synthesize controlEvidence = _controlEvidence;
     - (BOOL)controlEvidence
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlEvidence"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlEvidence"];
+		_controlEvidence = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _controlEvidence;
 	}
     - (void)setControlEvidence:(BOOL)value
 	{
+		_controlEvidence = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ControlEvidence" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ControlPolicy
+	// Managed property type : System.Boolean
+    @synthesize controlPolicy = _controlPolicy;
     - (BOOL)controlPolicy
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlPolicy"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlPolicy"];
+		_controlPolicy = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _controlPolicy;
 	}
     - (void)setControlPolicy:(BOOL)value
 	{
+		_controlPolicy = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ControlPolicy" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ControlPrincipal
+	// Managed property type : System.Boolean
+    @synthesize controlPrincipal = _controlPrincipal;
     - (BOOL)controlPrincipal
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlPrincipal"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlPrincipal"];
+		_controlPrincipal = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _controlPrincipal;
 	}
     - (void)setControlPrincipal:(BOOL)value
 	{
+		_controlPrincipal = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ControlPrincipal" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ControlThread
+	// Managed property type : System.Boolean
+    @synthesize controlThread = _controlThread;
     - (BOOL)controlThread
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlThread"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlThread"];
+		_controlThread = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _controlThread;
 	}
     - (void)setControlThread:(BOOL)value
 	{
+		_controlThread = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ControlThread" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Execution
+	// Managed property type : System.Boolean
+    @synthesize execution = _execution;
     - (BOOL)execution
     {
-		MonoObject * monoObject = [self getMonoProperty:"Execution"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Execution"];
+		_execution = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _execution;
 	}
     - (void)setExecution:(BOOL)value
 	{
+		_execution = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Execution" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Permissions.SecurityPermissionFlag
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.SecurityPermissionFlag
+    @synthesize flags = _flags;
     - (System_Security_Permissions_SecurityPermissionFlag)flags
     {
-		MonoObject * monoObject = [self getMonoProperty:"Flags"];
-		System_Security_Permissions_SecurityPermissionFlag result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Flags"];
+		_flags = DB_UNBOX_INT32(monoObject);
+
+		return _flags;
 	}
     - (void)setFlags:(System_Security_Permissions_SecurityPermissionFlag)value
 	{
+		_flags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Flags" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Infrastructure
+	// Managed property type : System.Boolean
+    @synthesize infrastructure = _infrastructure;
     - (BOOL)infrastructure
     {
-		MonoObject * monoObject = [self getMonoProperty:"Infrastructure"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Infrastructure"];
+		_infrastructure = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _infrastructure;
 	}
     - (void)setInfrastructure:(BOOL)value
 	{
+		_infrastructure = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Infrastructure" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : RemotingConfiguration
+	// Managed property type : System.Boolean
+    @synthesize remotingConfiguration = _remotingConfiguration;
     - (BOOL)remotingConfiguration
     {
-		MonoObject * monoObject = [self getMonoProperty:"RemotingConfiguration"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RemotingConfiguration"];
+		_remotingConfiguration = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _remotingConfiguration;
 	}
     - (void)setRemotingConfiguration:(BOOL)value
 	{
+		_remotingConfiguration = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"RemotingConfiguration" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : SerializationFormatter
+	// Managed property type : System.Boolean
+    @synthesize serializationFormatter = _serializationFormatter;
     - (BOOL)serializationFormatter
     {
-		MonoObject * monoObject = [self getMonoProperty:"SerializationFormatter"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SerializationFormatter"];
+		_serializationFormatter = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _serializationFormatter;
 	}
     - (void)setSerializationFormatter:(BOOL)value
 	{
+		_serializationFormatter = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"SerializationFormatter" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : SkipVerification
+	// Managed property type : System.Boolean
+    @synthesize skipVerification = _skipVerification;
     - (BOOL)skipVerification
     {
-		MonoObject * monoObject = [self getMonoProperty:"SkipVerification"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SkipVerification"];
+		_skipVerification = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _skipVerification;
 	}
     - (void)setSkipVerification:(BOOL)value
 	{
+		_skipVerification = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"SkipVerification" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : UnmanagedCode
+	// Managed property type : System.Boolean
+    @synthesize unmanagedCode = _unmanagedCode;
     - (BOOL)unmanagedCode
     {
-		MonoObject * monoObject = [self getMonoProperty:"UnmanagedCode"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UnmanagedCode"];
+		_unmanagedCode = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _unmanagedCode;
 	}
     - (void)setUnmanagedCode:(BOOL)value
 	{
+		_unmanagedCode = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"UnmanagedCode" valueObject:monoObject];          
 	}
@@ -236,7 +302,13 @@
     - (System_Security_IPermission *)createPermission
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

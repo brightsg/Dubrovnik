@@ -2,7 +2,7 @@
 //
 // Managed interface : IBindCtx
 //
-@interface System_Runtime_InteropServices_ComTypes_IBindCtx : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IBindCtx : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : GetObjectParam
 	// Managed return type : System.Void
 	// Managed param types : System.String, ref System.Object&
-    - (void)getObjectParam_withPszKey:(NSString *)p1 ppunkRef:(DBMonoObjectRepresentation **)p2;
+    - (void)getObjectParam_withPszKey:(NSString *)p1 ppunkRef:(System_Object **)p2;
 
 	// Managed method name : GetRunningObjectTable
 	// Managed return type : System.Void
@@ -37,12 +37,12 @@
 	// Managed method name : RegisterObjectBound
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)registerObjectBound_withPunk:(DBMonoObjectRepresentation *)p1;
+    - (void)registerObjectBound_withPunk:(System_Object *)p1;
 
 	// Managed method name : RegisterObjectParam
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)registerObjectParam_withPszKey:(NSString *)p1 punk:(DBMonoObjectRepresentation *)p2;
+    - (void)registerObjectParam_withPszKey:(NSString *)p1 punk:(System_Object *)p2;
 
 	// Managed method name : ReleaseBoundObjects
 	// Managed return type : System.Void
@@ -52,7 +52,7 @@
 	// Managed method name : RevokeObjectBound
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)revokeObjectBound_withPunk:(DBMonoObjectRepresentation *)p1;
+    - (void)revokeObjectBound_withPunk:(System_Object *)p1;
 
 	// Managed method name : RevokeObjectParam
 	// Managed return type : System.Int32

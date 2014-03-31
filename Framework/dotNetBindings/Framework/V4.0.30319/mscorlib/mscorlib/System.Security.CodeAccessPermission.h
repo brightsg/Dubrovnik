@@ -2,7 +2,7 @@
 //
 // Managed class : CodeAccessPermission
 //
-@interface System_Security_CodeAccessPermission : DBMonoObjectRepresentation
+@interface System_Security_CodeAccessPermission : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -37,7 +37,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

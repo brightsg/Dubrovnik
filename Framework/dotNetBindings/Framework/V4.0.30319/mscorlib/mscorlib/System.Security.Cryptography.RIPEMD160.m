@@ -3,6 +3,12 @@
 //
 // Managed class : RIPEMD160
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_RIPEMD160
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Security_Cryptography_RIPEMD160 *)create
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
-		return [System_Security_Cryptography_RIPEMD160 representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RIPEMD160 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -36,7 +42,13 @@
     - (System_Security_Cryptography_RIPEMD160 *)create_withHashName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Cryptography_RIPEMD160 representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RIPEMD160 objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

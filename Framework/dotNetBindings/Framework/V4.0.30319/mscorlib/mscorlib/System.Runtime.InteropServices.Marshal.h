@@ -2,7 +2,7 @@
 //
 // Managed class : Marshal
 //
-@interface System_Runtime_InteropServices_Marshal : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_Marshal : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : SystemDefaultCharSize
+	// Managed field type : System.Int32
     + (int32_t)systemDefaultCharSize;
 
-	// Managed type : System.Int32
+	// Managed field name : SystemMaxDBCSCharSize
+	// Managed field type : System.Int32
     + (int32_t)systemMaxDBCSCharSize;
 
 #pragma mark -
@@ -51,12 +53,12 @@
 	// Managed method name : BindToMoniker
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)bindToMoniker_withMonikerName:(NSString *)p1;
+    - (System_Object *)bindToMoniker_withMonikerName:(NSString *)p1;
 
 	// Managed method name : ChangeWrapperHandleStrength
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Boolean
-    - (void)changeWrapperHandleStrength_withOtp:(DBMonoObjectRepresentation *)p1 fIsWeak:(BOOL)p2;
+    - (void)changeWrapperHandleStrength_withOtp:(System_Object *)p1 fIsWeak:(BOOL)p2;
 
 	// Managed method name : CleanupUnusedObjectsInCurrentContext
 	// Managed return type : System.Void
@@ -146,12 +148,12 @@
 	// Managed method name : CreateAggregatedObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Object
-    - (void *)createAggregatedObject_withPOuter:(void *)p1 o:(DBMonoObjectRepresentation *)p2;
+    - (void *)createAggregatedObject_withPOuter:(void *)p1 o:(System_Object *)p2;
 
 	// Managed method name : CreateWrapperOfType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Type
-    - (DBMonoObjectRepresentation *)createWrapperOfType_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2;
+    - (System_Object *)createWrapperOfType_withO:(System_Object *)p1 t:(System_Type *)p2;
 
 	// Managed method name : DestroyStructure
 	// Managed return type : System.Void
@@ -161,7 +163,7 @@
 	// Managed method name : FinalReleaseComObject
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)finalReleaseComObject_withO:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)finalReleaseComObject_withO:(System_Object *)p1;
 
 	// Managed method name : FreeBSTR
 	// Managed return type : System.Void
@@ -191,27 +193,27 @@
 	// Managed method name : GetActiveObject
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getActiveObject_withProgID:(NSString *)p1;
+    - (System_Object *)getActiveObject_withProgID:(NSString *)p1;
 
 	// Managed method name : GetComInterfaceForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Type
-    - (void *)getComInterfaceForObject_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2;
+    - (void *)getComInterfaceForObject_withO:(System_Object *)p1 t:(System_Type *)p2;
 
 	// Managed method name : GetComInterfaceForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Type, System.Runtime.InteropServices.CustomQueryInterfaceMode
-    - (void *)getComInterfaceForObject_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2 mode:(System_Runtime_InteropServices_CustomQueryInterfaceMode)p3;
+    - (void *)getComInterfaceForObject_withO:(System_Object *)p1 t:(System_Type *)p2 mode:(System_Runtime_InteropServices_CustomQueryInterfaceMode)p3;
 
 	// Managed method name : GetComInterfaceForObjectInContext
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Type
-    - (void *)getComInterfaceForObjectInContext_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2;
+    - (void *)getComInterfaceForObjectInContext_withO:(System_Object *)p1 t:(System_Type *)p2;
 
 	// Managed method name : GetComObjectData
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Object
-    - (DBMonoObjectRepresentation *)getComObjectData_withObj:(DBMonoObjectRepresentation *)p1 key:(DBMonoObjectRepresentation *)p2;
+    - (System_Object *)getComObjectData_withObj:(System_Object *)p1 key:(System_Object *)p2;
 
 	// Managed method name : GetComSlotForMethodInfo
 	// Managed return type : System.Int32
@@ -271,12 +273,12 @@
 	// Managed method name : GetIDispatchForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIDispatchForObject_withO:(DBMonoObjectRepresentation *)p1;
+    - (void *)getIDispatchForObject_withO:(System_Object *)p1;
 
 	// Managed method name : GetIDispatchForObjectInContext
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIDispatchForObjectInContext_withO:(DBMonoObjectRepresentation *)p1;
+    - (void *)getIDispatchForObjectInContext_withO:(System_Object *)p1;
 
 	// Managed method name : GetITypeInfoForType
 	// Managed return type : System.IntPtr
@@ -286,12 +288,12 @@
 	// Managed method name : GetIUnknownForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIUnknownForObject_withO:(DBMonoObjectRepresentation *)p1;
+    - (void *)getIUnknownForObject_withO:(System_Object *)p1;
 
 	// Managed method name : GetIUnknownForObjectInContext
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIUnknownForObjectInContext_withO:(DBMonoObjectRepresentation *)p1;
+    - (void *)getIUnknownForObjectInContext_withO:(System_Object *)p1;
 
 	// Managed method name : GetLastWin32Error
 	// Managed return type : System.Int32
@@ -311,17 +313,17 @@
 	// Managed method name : GetNativeVariantForObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.IntPtr
-    - (void)getNativeVariantForObject_withObj:(DBMonoObjectRepresentation *)p1 pDstNativeVariant:(void *)p2;
+    - (void)getNativeVariantForObject_withObj:(System_Object *)p1 pDstNativeVariant:(void *)p2;
 
 	// Managed method name : GetObjectForIUnknown
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)getObjectForIUnknown_withPUnk:(void *)p1;
+    - (System_Object *)getObjectForIUnknown_withPUnk:(void *)p1;
 
 	// Managed method name : GetObjectForNativeVariant
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)getObjectForNativeVariant_withPSrcNativeVariant:(void *)p1;
+    - (System_Object *)getObjectForNativeVariant_withPSrcNativeVariant:(void *)p1;
 
 	// Managed method name : GetObjectsForNativeVariants
 	// Managed return type : System.Object[]
@@ -341,7 +343,7 @@
 	// Managed method name : GetTypedObjectForIUnknown
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr, System.Type
-    - (DBMonoObjectRepresentation *)getTypedObjectForIUnknown_withPUnk:(void *)p1 t:(System_Type *)p2;
+    - (System_Object *)getTypedObjectForIUnknown_withPUnk:(void *)p1 t:(System_Type *)p2;
 
 	// Managed method name : GetTypeForITypeInfo
 	// Managed return type : System.Type
@@ -406,7 +408,7 @@
 	// Managed method name : GetUniqueObjectForIUnknown
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)getUniqueObjectForIUnknown_withUnknown:(void *)p1;
+    - (System_Object *)getUniqueObjectForIUnknown_withUnknown:(void *)p1;
 
 	// Managed method name : GetUnmanagedThunkForManagedMethodPtr
 	// Managed return type : System.IntPtr
@@ -416,7 +418,7 @@
 	// Managed method name : IsComObject
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isComObject_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)isComObject_withO:(System_Object *)p1;
 
 	// Managed method name : IsTypeVisibleFromCom
 	// Managed return type : System.Boolean
@@ -481,12 +483,12 @@
 	// Managed method name : PtrToStructure
 	// Managed return type : System.Void
 	// Managed param types : System.IntPtr, System.Object
-    - (void)ptrToStructure_withPtr:(void *)p1 structure:(DBMonoObjectRepresentation *)p2;
+    - (void)ptrToStructure_withPtr:(void *)p1 structure:(System_Object *)p2;
 
 	// Managed method name : PtrToStructure
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr, System.Type
-    - (DBMonoObjectRepresentation *)ptrToStructure_withPtr:(void *)p1 structureType:(System_Type *)p2;
+    - (System_Object *)ptrToStructure_withPtr:(void *)p1 structureType:(System_Type *)p2;
 
 	// Managed method name : QueryInterface
 	// Managed return type : System.Int32
@@ -496,7 +498,7 @@
 	// Managed method name : ReadByte
 	// Managed return type : System.Byte
 	// Managed param types : System.Object, System.Int32
-    - (uint8_t)readByte_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2;
+    - (uint8_t)readByte_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2;
 
 	// Managed method name : ReadByte
 	// Managed return type : System.Byte
@@ -511,7 +513,7 @@
 	// Managed method name : ReadInt16
 	// Managed return type : System.Int16
 	// Managed param types : System.Object, System.Int32
-    - (int16_t)readInt16_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2;
+    - (int16_t)readInt16_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2;
 
 	// Managed method name : ReadInt16
 	// Managed return type : System.Int16
@@ -526,7 +528,7 @@
 	// Managed method name : ReadInt32
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Int32
-    - (int32_t)readInt32_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2;
+    - (int32_t)readInt32_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2;
 
 	// Managed method name : ReadInt32
 	// Managed return type : System.Int32
@@ -541,7 +543,7 @@
 	// Managed method name : ReadInt64
 	// Managed return type : System.Int64
 	// Managed param types : System.Object, System.Int32
-    - (int64_t)readInt64_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2;
+    - (int64_t)readInt64_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2;
 
 	// Managed method name : ReadInt64
 	// Managed return type : System.Int64
@@ -556,7 +558,7 @@
 	// Managed method name : ReadIntPtr
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Int32
-    - (void *)readIntPtr_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2;
+    - (void *)readIntPtr_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2;
 
 	// Managed method name : ReadIntPtr
 	// Managed return type : System.IntPtr
@@ -586,7 +588,7 @@
 	// Managed method name : ReleaseComObject
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)releaseComObject_withO:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)releaseComObject_withO:(System_Object *)p1;
 
 	// Managed method name : ReleaseThreadCache
 	// Managed return type : System.Void
@@ -621,12 +623,12 @@
 	// Managed method name : SetComObjectData
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object, System.Object
-    - (BOOL)setComObjectData_withObj:(DBMonoObjectRepresentation *)p1 key:(DBMonoObjectRepresentation *)p2 data:(DBMonoObjectRepresentation *)p3;
+    - (BOOL)setComObjectData_withObj:(System_Object *)p1 key:(System_Object *)p2 data:(System_Object *)p3;
 
 	// Managed method name : SizeOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)sizeOf_withStructure:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)sizeOf_withStructure:(System_Object *)p1;
 
 	// Managed method name : SizeOf
 	// Managed return type : System.Int32
@@ -671,7 +673,7 @@
 	// Managed method name : StructureToPtr
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.IntPtr, System.Boolean
-    - (void)structureToPtr_withStructure:(DBMonoObjectRepresentation *)p1 ptr:(void *)p2 fDeleteOld:(BOOL)p3;
+    - (void)structureToPtr_withStructure:(System_Object *)p1 ptr:(void *)p2 fDeleteOld:(BOOL)p3;
 
 	// Managed method name : ThrowExceptionForHR
 	// Managed return type : System.Void
@@ -696,7 +698,7 @@
 	// Managed method name : WriteByte
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Byte
-    - (void)writeByte_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valByte:(uint8_t)p3;
+    - (void)writeByte_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valByte:(uint8_t)p3;
 
 	// Managed method name : WriteByte
 	// Managed return type : System.Void
@@ -711,7 +713,7 @@
 	// Managed method name : WriteInt16
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int16
-    - (void)writeInt16_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valInt16:(int16_t)p3;
+    - (void)writeInt16_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valInt16:(int16_t)p3;
 
 	// Managed method name : WriteInt16
 	// Managed return type : System.Void
@@ -726,7 +728,7 @@
 	// Managed method name : WriteInt16
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Char
-    - (void)writeInt16_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valChar:(uint16_t)p3;
+    - (void)writeInt16_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valChar:(uint16_t)p3;
 
 	// Managed method name : WriteInt16
 	// Managed return type : System.Void
@@ -741,7 +743,7 @@
 	// Managed method name : WriteInt32
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int32
-    - (void)writeInt32_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valInt:(int32_t)p3;
+    - (void)writeInt32_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valInt:(int32_t)p3;
 
 	// Managed method name : WriteInt32
 	// Managed return type : System.Void
@@ -756,7 +758,7 @@
 	// Managed method name : WriteInt64
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int64
-    - (void)writeInt64_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valLong:(int64_t)p3;
+    - (void)writeInt64_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valLong:(int64_t)p3;
 
 	// Managed method name : WriteInt64
 	// Managed return type : System.Void
@@ -771,7 +773,7 @@
 	// Managed method name : WriteIntPtr
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.IntPtr
-    - (void)writeIntPtr_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valIntptr:(void *)p3;
+    - (void)writeIntPtr_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valIntptr:(void *)p3;
 
 	// Managed method name : WriteIntPtr
 	// Managed return type : System.Void

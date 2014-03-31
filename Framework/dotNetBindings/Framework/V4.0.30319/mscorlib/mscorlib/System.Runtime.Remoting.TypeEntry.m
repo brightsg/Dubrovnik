@@ -3,6 +3,12 @@
 //
 // Managed class : TypeEntry
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_TypeEntry
 
 #pragma mark -
@@ -21,30 +27,46 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : AssemblyName
+	// Managed property type : System.String
+    @synthesize assemblyName = _assemblyName;
     - (NSString *)assemblyName
     {
-		MonoObject * monoObject = [self getMonoProperty:"AssemblyName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AssemblyName"];
+		if ([self object:_assemblyName isEqualToMonoObject:monoObject]) return _assemblyName;					
+		_assemblyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _assemblyName;
 	}
     - (void)setAssemblyName:(NSString *)value
 	{
+		_assemblyName = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"AssemblyName" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : TypeName
+	// Managed property type : System.String
+    @synthesize typeName = _typeName;
     - (NSString *)typeName
     {
-		MonoObject * monoObject = [self getMonoProperty:"TypeName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TypeName"];
+		if ([self object:_typeName isEqualToMonoObject:monoObject]) return _typeName;					
+		_typeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _typeName;
 	}
     - (void)setTypeName:(NSString *)value
 	{
+		_typeName = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"TypeName" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

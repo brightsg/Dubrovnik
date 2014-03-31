@@ -3,6 +3,12 @@
 //
 // Managed class : ReadOnlyDictionary<TKey, TValue>.KeyCollection
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_ObjectModel_ReadOnlyDictionary
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
 #pragma mark -
@@ -46,7 +55,13 @@
     - (IEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [IEnumerator representationWithMonoObject:monoObject];
+		return [IEnumerator objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

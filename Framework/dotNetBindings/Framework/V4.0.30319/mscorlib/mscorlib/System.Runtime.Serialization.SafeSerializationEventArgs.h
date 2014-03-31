@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Serialization.StreamingContext
-    - (System_Runtime_Serialization_StreamingContext *)streamingContext;
+	// Managed property name : StreamingContext
+	// Managed property type : System.Runtime.Serialization.StreamingContext
+    @property (nonatomic, strong, readonly) System_Runtime_Serialization_StreamingContext * streamingContext;
 
 #pragma mark -
 #pragma mark Methods

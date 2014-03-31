@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)deniedPermissions;
+	// Managed property name : DeniedPermissions
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong, readonly) System_Security_PermissionSet * deniedPermissions;
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)optionalPermissions;
+	// Managed property name : OptionalPermissions
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong, readonly) System_Security_PermissionSet * optionalPermissions;
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)requestedPermissions;
+	// Managed property name : RequestedPermissions
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong, readonly) System_Security_PermissionSet * requestedPermissions;
 
 #pragma mark -
 #pragma mark Methods

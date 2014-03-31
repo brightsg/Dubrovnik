@@ -42,13 +42,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.FileIOPermissionAccess
-    - (System_Security_Permissions_FileIOPermissionAccess)allFiles;
-    - (void)setAllFiles:(System_Security_Permissions_FileIOPermissionAccess)value;
+	// Managed property name : AllFiles
+	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
+    @property (nonatomic) System_Security_Permissions_FileIOPermissionAccess allFiles;
 
-	// Managed type : System.Security.Permissions.FileIOPermissionAccess
-    - (System_Security_Permissions_FileIOPermissionAccess)allLocalFiles;
-    - (void)setAllLocalFiles:(System_Security_Permissions_FileIOPermissionAccess)value;
+	// Managed property name : AllLocalFiles
+	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
+    @property (nonatomic) System_Security_Permissions_FileIOPermissionAccess allLocalFiles;
 
 #pragma mark -
 #pragma mark Methods
@@ -71,7 +71,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

@@ -3,6 +3,12 @@
 //
 // Managed class : CancellationTokenSource
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_CancellationTokenSource
 
 #pragma mark -
@@ -40,20 +46,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsCancellationRequested
+	// Managed property type : System.Boolean
+    @synthesize isCancellationRequested = _isCancellationRequested;
     - (BOOL)isCancellationRequested
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsCancellationRequested"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsCancellationRequested"];
+		_isCancellationRequested = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isCancellationRequested;
 	}
 
-	// Managed type : System.Threading.CancellationToken
+	// Managed property name : Token
+	// Managed property type : System.Threading.CancellationToken
+    @synthesize token = _token;
     - (System_Threading_CancellationToken *)token
     {
-		MonoObject * monoObject = [self getMonoProperty:"Token"];
-		System_Threading_CancellationToken * result = [System_Threading_CancellationToken representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Token"];
+		if ([self object:_token isEqualToMonoObject:monoObject]) return _token;					
+		_token = [System_Threading_CancellationToken objectWithMonoObject:monoObject];
+
+		return _token;
 	}
 
 #pragma mark -
@@ -97,7 +110,7 @@
     - (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withToken1:(System_Threading_CancellationToken *)p1 token2:(System_Threading_CancellationToken *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Threading_CancellationTokenSource representationWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateLinkedTokenSource
@@ -106,7 +119,7 @@
     - (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateLinkedTokenSource(System.Array[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_CancellationTokenSource representationWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -116,5 +129,11 @@
     {
 		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

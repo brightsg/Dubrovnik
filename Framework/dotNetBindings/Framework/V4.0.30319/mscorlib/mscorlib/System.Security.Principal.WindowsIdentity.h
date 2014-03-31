@@ -52,53 +52,68 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : DefaultIssuer
+	// Managed field type : System.String
     + (NSString *)defaultIssuer;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)authenticationType;
+	// Managed property name : AuthenticationType
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * authenticationType;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)claims;
+	// Managed property name : Claims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * claims;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)deviceClaims;
+	// Managed property name : DeviceClaims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * deviceClaims;
 
-	// Managed type : System.Security.Principal.IdentityReferenceCollection
-    - (System_Security_Principal_IdentityReferenceCollection *)groups;
+	// Managed property name : Groups
+	// Managed property type : System.Security.Principal.IdentityReferenceCollection
+    @property (nonatomic, strong, readonly) System_Security_Principal_IdentityReferenceCollection * groups;
 
-	// Managed type : System.Security.Principal.TokenImpersonationLevel
-    - (System_Security_Principal_TokenImpersonationLevel)impersonationLevel;
+	// Managed property name : ImpersonationLevel
+	// Managed property type : System.Security.Principal.TokenImpersonationLevel
+    @property (nonatomic, readonly) System_Security_Principal_TokenImpersonationLevel impersonationLevel;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAnonymous;
+	// Managed property name : IsAnonymous
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAnonymous;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAuthenticated;
+	// Managed property name : IsAuthenticated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAuthenticated;
 
-	// Managed type : System.Boolean
-    - (BOOL)isGuest;
+	// Managed property name : IsGuest
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isGuest;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSystem;
+	// Managed property name : IsSystem
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSystem;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)owner;
+	// Managed property name : Owner
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong, readonly) System_Security_Principal_SecurityIdentifier * owner;
 
-	// Managed type : System.IntPtr
-    - (void *)token;
+	// Managed property name : Token
+	// Managed property type : System.IntPtr
+    @property (nonatomic, readonly) void * token;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)user;
+	// Managed property name : User
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong, readonly) System_Security_Principal_SecurityIdentifier * user;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)userClaims;
+	// Managed property name : UserClaims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * userClaims;
 
 #pragma mark -
 #pragma mark Methods

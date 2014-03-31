@@ -3,6 +3,12 @@
 //
 // Managed interface : IUnrestrictedPermission
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_IUnrestrictedPermission
 
 #pragma mark -
@@ -29,5 +35,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsUnrestricted()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

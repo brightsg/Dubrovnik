@@ -2,7 +2,7 @@
 //
 // Managed class : HostSecurityManager
 //
-@interface System_Security_HostSecurityManager : DBMonoObjectRepresentation
+@interface System_Security_HostSecurityManager : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.PolicyLevel
-    - (System_Security_Policy_PolicyLevel *)domainPolicy;
+	// Managed property name : DomainPolicy
+	// Managed property type : System.Security.Policy.PolicyLevel
+    @property (nonatomic, strong, readonly) System_Security_Policy_PolicyLevel * domainPolicy;
 
-	// Managed type : System.Security.HostSecurityManagerOptions
-    - (System_Security_HostSecurityManagerOptions)flags;
+	// Managed property name : Flags
+	// Managed property type : System.Security.HostSecurityManagerOptions
+    @property (nonatomic, readonly) System_Security_HostSecurityManagerOptions flags;
 
 #pragma mark -
 #pragma mark Methods

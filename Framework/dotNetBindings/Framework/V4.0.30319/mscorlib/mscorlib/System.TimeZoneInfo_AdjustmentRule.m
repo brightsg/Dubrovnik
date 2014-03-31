@@ -3,6 +3,12 @@
 //
 // Managed class : TimeZoneInfo.AdjustmentRule
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_TimeZoneInfo__AdjustmentRule
 
 #pragma mark -
@@ -21,44 +27,64 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.DateTime
+	// Managed property name : DateEnd
+	// Managed property type : System.DateTime
+    @synthesize dateEnd = _dateEnd;
     - (NSDate *)dateEnd
     {
-		MonoObject * monoObject = [self getMonoProperty:"DateEnd"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DateEnd"];
+		if ([self object:_dateEnd isEqualToMonoObject:monoObject]) return _dateEnd;					
+		_dateEnd = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _dateEnd;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : DateStart
+	// Managed property type : System.DateTime
+    @synthesize dateStart = _dateStart;
     - (NSDate *)dateStart
     {
-		MonoObject * monoObject = [self getMonoProperty:"DateStart"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DateStart"];
+		if ([self object:_dateStart isEqualToMonoObject:monoObject]) return _dateStart;					
+		_dateStart = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _dateStart;
 	}
 
-	// Managed type : System.TimeSpan
+	// Managed property name : DaylightDelta
+	// Managed property type : System.TimeSpan
+    @synthesize daylightDelta = _daylightDelta;
     - (System_TimeSpan *)daylightDelta
     {
-		MonoObject * monoObject = [self getMonoProperty:"DaylightDelta"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DaylightDelta"];
+		if ([self object:_daylightDelta isEqualToMonoObject:monoObject]) return _daylightDelta;					
+		_daylightDelta = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _daylightDelta;
 	}
 
-	// Managed type : System.TimeZoneInfo+TransitionTime
+	// Managed property name : DaylightTransitionEnd
+	// Managed property type : System.TimeZoneInfo+TransitionTime
+    @synthesize daylightTransitionEnd = _daylightTransitionEnd;
     - (System_TimeZoneInfo__TransitionTime *)daylightTransitionEnd
     {
-		MonoObject * monoObject = [self getMonoProperty:"DaylightTransitionEnd"];
-		System_TimeZoneInfo__TransitionTime * result = [System_TimeZoneInfo__TransitionTime representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DaylightTransitionEnd"];
+		if ([self object:_daylightTransitionEnd isEqualToMonoObject:monoObject]) return _daylightTransitionEnd;					
+		_daylightTransitionEnd = [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
+
+		return _daylightTransitionEnd;
 	}
 
-	// Managed type : System.TimeZoneInfo+TransitionTime
+	// Managed property name : DaylightTransitionStart
+	// Managed property type : System.TimeZoneInfo+TransitionTime
+    @synthesize daylightTransitionStart = _daylightTransitionStart;
     - (System_TimeZoneInfo__TransitionTime *)daylightTransitionStart
     {
-		MonoObject * monoObject = [self getMonoProperty:"DaylightTransitionStart"];
-		System_TimeZoneInfo__TransitionTime * result = [System_TimeZoneInfo__TransitionTime representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DaylightTransitionStart"];
+		if ([self object:_daylightTransitionStart isEqualToMonoObject:monoObject]) return _daylightTransitionStart;					
+		_daylightTransitionStart = [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
+
+		return _daylightTransitionStart;
 	}
 
 #pragma mark -
@@ -70,7 +96,7 @@
     - (System_TimeZoneInfo__AdjustmentRule *)createAdjustmentRule_withDateStart:(NSDate *)p1 dateEnd:(NSDate *)p2 daylightDelta:(System_TimeSpan *)p3 daylightTransitionStart:(System_TimeZoneInfo__TransitionTime *)p4 daylightTransitionEnd:(System_TimeZoneInfo__TransitionTime *)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateAdjustmentRule(System.DateTime,System.DateTime,System.TimeSpan,System.TimeZoneInfo+TransitionTime,System.TimeZoneInfo+TransitionTime)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
-		return [System_TimeZoneInfo__AdjustmentRule representationWithMonoObject:monoObject];
+		return [System_TimeZoneInfo__AdjustmentRule objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -90,5 +116,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

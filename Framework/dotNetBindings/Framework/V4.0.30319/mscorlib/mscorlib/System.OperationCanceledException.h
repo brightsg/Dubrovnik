@@ -42,8 +42,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.CancellationToken
-    - (System_Threading_CancellationToken *)cancellationToken;
-    - (void)setCancellationToken:(System_Threading_CancellationToken *)value;
+	// Managed property name : CancellationToken
+	// Managed property type : System.Threading.CancellationToken
+    @property (nonatomic, strong) System_Threading_CancellationToken * cancellationToken;
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : ZoneMembershipCondition
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_ZoneMembershipCondition
 
 #pragma mark -
@@ -32,15 +38,19 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.SecurityZone
+	// Managed property name : SecurityZone
+	// Managed property type : System.Security.SecurityZone
+    @synthesize securityZone = _securityZone;
     - (System_Security_SecurityZone)securityZone
     {
-		MonoObject * monoObject = [self getMonoProperty:"SecurityZone"];
-		System_Security_SecurityZone result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SecurityZone"];
+		_securityZone = DB_UNBOX_INT32(monoObject);
+
+		return _securityZone;
 	}
     - (void)setSecurityZone:(System_Security_SecurityZone)value
 	{
+		_securityZone = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"SecurityZone" valueObject:monoObject];          
 	}
@@ -63,13 +73,13 @@
     - (System_Security_Policy_IMembershipCondition *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_Policy_IMembershipCondition representationWithMonoObject:monoObject];
+		return [System_Security_Policy_IMembershipCondition objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -115,7 +125,7 @@
     - (System_Security_SecurityElement *)toXml
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToXml
@@ -124,7 +134,13 @@
     - (System_Security_SecurityElement *)toXml_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

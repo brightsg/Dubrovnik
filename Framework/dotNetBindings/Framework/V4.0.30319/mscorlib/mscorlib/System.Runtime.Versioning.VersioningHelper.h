@@ -2,7 +2,7 @@
 //
 // Managed class : VersioningHelper
 //
-@interface System_Runtime_Versioning_VersioningHelper : DBMonoObjectRepresentation
+@interface System_Runtime_Versioning_VersioningHelper : System_Object
 
 #pragma mark -
 #pragma mark Setup

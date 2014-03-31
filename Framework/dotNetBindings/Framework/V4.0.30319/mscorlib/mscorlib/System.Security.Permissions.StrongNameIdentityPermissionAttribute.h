@@ -22,17 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)publicKey;
-    - (void)setPublicKey:(NSString *)value;
+	// Managed property name : PublicKey
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * publicKey;
 
-	// Managed type : System.String
-    - (NSString *)version;
-    - (void)setVersion:(NSString *)value;
+	// Managed property name : Version
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * version;
 
 #pragma mark -
 #pragma mark Methods

@@ -22,33 +22,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)all;
-    - (void)setAll:(NSString *)value;
+	// Managed property name : All
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * all;
 
-	// Managed type : System.String
-    - (NSString *)changeAccessControl;
-    - (void)setChangeAccessControl:(NSString *)value;
+	// Managed property name : ChangeAccessControl
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * changeAccessControl;
 
-	// Managed type : System.String
-    - (NSString *)create;
-    - (void)setCreate:(NSString *)value;
+	// Managed property name : Create
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * create;
 
-	// Managed type : System.String
-    - (NSString *)read;
-    - (void)setRead:(NSString *)value;
+	// Managed property name : Read
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * read;
 
-	// Managed type : System.String
-    - (NSString *)viewAccessControl;
-    - (void)setViewAccessControl:(NSString *)value;
+	// Managed property name : ViewAccessControl
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * viewAccessControl;
 
-	// Managed type : System.String
-    - (NSString *)viewAndModify;
-    - (void)setViewAndModify:(NSString *)value;
+	// Managed property name : ViewAndModify
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * viewAndModify;
 
-	// Managed type : System.String
-    - (NSString *)write;
-    - (void)setWrite:(NSString *)value;
+	// Managed property name : Write
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * write;
 
 #pragma mark -
 #pragma mark Methods

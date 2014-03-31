@@ -2,7 +2,7 @@
 //
 // Managed struct : FUNCDESC
 //
-@interface System_Runtime_InteropServices_FUNCDESC : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_FUNCDESC : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,52 +14,52 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.CALLCONV
-    - (System_Runtime_InteropServices_CALLCONV)callconv;
-    - (void)setCallconv:(System_Runtime_InteropServices_CALLCONV)value;
+	// Managed field name : callconv
+	// Managed field type : System.Runtime.InteropServices.CALLCONV
+    @property (nonatomic) System_Runtime_InteropServices_CALLCONV callconv;
 
-	// Managed type : System.Int16
-    - (int16_t)cParams;
-    - (void)setCParams:(int16_t)value;
+	// Managed field name : cParams
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cParams;
 
-	// Managed type : System.Int16
-    - (int16_t)cParamsOpt;
-    - (void)setCParamsOpt:(int16_t)value;
+	// Managed field name : cParamsOpt
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cParamsOpt;
 
-	// Managed type : System.Int16
-    - (int16_t)cScodes;
-    - (void)setCScodes:(int16_t)value;
+	// Managed field name : cScodes
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cScodes;
 
-	// Managed type : System.Runtime.InteropServices.ELEMDESC
-    - (System_Runtime_InteropServices_ELEMDESC *)elemdescFunc;
-    - (void)setElemdescFunc:(System_Runtime_InteropServices_ELEMDESC *)value;
+	// Managed field name : elemdescFunc
+	// Managed field type : System.Runtime.InteropServices.ELEMDESC
+    @property (nonatomic, strong) System_Runtime_InteropServices_ELEMDESC * elemdescFunc;
 
-	// Managed type : System.Runtime.InteropServices.FUNCKIND
-    - (System_Runtime_InteropServices_FUNCKIND)funckind;
-    - (void)setFunckind:(System_Runtime_InteropServices_FUNCKIND)value;
+	// Managed field name : funckind
+	// Managed field type : System.Runtime.InteropServices.FUNCKIND
+    @property (nonatomic) System_Runtime_InteropServices_FUNCKIND funckind;
 
-	// Managed type : System.Runtime.InteropServices.INVOKEKIND
-    - (System_Runtime_InteropServices_INVOKEKIND)invkind;
-    - (void)setInvkind:(System_Runtime_InteropServices_INVOKEKIND)value;
+	// Managed field name : invkind
+	// Managed field type : System.Runtime.InteropServices.INVOKEKIND
+    @property (nonatomic) System_Runtime_InteropServices_INVOKEKIND invkind;
 
-	// Managed type : System.IntPtr
-    - (void *)lprgelemdescParam;
-    - (void)setLprgelemdescParam:(void *)value;
+	// Managed field name : lprgelemdescParam
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lprgelemdescParam;
 
-	// Managed type : System.IntPtr
-    - (void *)lprgscode;
-    - (void)setLprgscode:(void *)value;
+	// Managed field name : lprgscode
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lprgscode;
 
-	// Managed type : System.Int32
-    - (int32_t)memid;
-    - (void)setMemid:(int32_t)value;
+	// Managed field name : memid
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t memid;
 
-	// Managed type : System.Int16
-    - (int16_t)oVft;
-    - (void)setOVft:(int16_t)value;
+	// Managed field name : oVft
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t oVft;
 
-	// Managed type : System.Int16
-    - (int16_t)wFuncFlags;
-    - (void)setWFuncFlags:(int16_t)value;
+	// Managed field name : wFuncFlags
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wFuncFlags;
 @end
 //--Dubrovnik.CodeGenerator

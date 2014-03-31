@@ -3,6 +3,12 @@
 //
 // Managed class : GacIdentityPermission
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_GacIdentityPermission
 
 #pragma mark -
@@ -38,7 +44,7 @@
     - (System_Security_IPermission *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -55,7 +61,7 @@
     - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
@@ -73,7 +79,7 @@
     - (System_Security_SecurityElement *)toXml
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
@@ -82,7 +88,13 @@
     - (System_Security_IPermission *)union_withTarget:(System_Security_IPermission *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

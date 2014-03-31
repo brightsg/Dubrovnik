@@ -2,7 +2,7 @@
 //
 // Managed struct : HandleRef
 //
-@interface System_Runtime_InteropServices_HandleRef : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_HandleRef : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,16 +17,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.HandleRef
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Runtime_InteropServices_HandleRef *)new_withWrapper:(DBMonoObjectRepresentation *)p1 handle:(void *)p2;
+    + (System_Runtime_InteropServices_HandleRef *)new_withWrapper:(System_Object *)p1 handle:(void *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IntPtr
-    - (void *)handle;
+	// Managed property name : Handle
+	// Managed property type : System.IntPtr
+    @property (nonatomic, readonly) void * handle;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)wrapper;
+	// Managed property name : Wrapper
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * wrapper;
 
 #pragma mark -
 #pragma mark Methods

@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * value;
 @end
 //--Dubrovnik.CodeGenerator

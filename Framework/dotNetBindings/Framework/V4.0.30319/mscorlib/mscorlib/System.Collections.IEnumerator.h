@@ -2,7 +2,7 @@
 //
 // Managed interface : IEnumerator
 //
-@interface System_Collections_IEnumerator : DBMonoObjectRepresentation
+@interface System_Collections_IEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)current;
+	// Managed property name : Current
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * current;
 
 #pragma mark -
 #pragma mark Methods

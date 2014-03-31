@@ -3,6 +3,12 @@
 //
 // Managed interface : IEnumerator
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_IEnumerator
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)current
+	// Managed property name : Current
+	// Managed property type : System.Object
+    @synthesize current = _current;
+    - (System_Object *)current
     {
-		MonoObject * monoObject = [self getMonoProperty:"Current"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Current"];
+		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
+		_current = [System_Object objectWithMonoObject:monoObject];
+
+		return _current;
 	}
 
 #pragma mark -
@@ -48,5 +58,11 @@
     {
 		[self invokeMonoMethod:"Reset()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

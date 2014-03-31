@@ -2,7 +2,7 @@
 //
 // Managed class : PublisherMembershipCondition
 //
-@interface System_Security_Policy_PublisherMembershipCondition : DBMonoObjectRepresentation
+@interface System_Security_Policy_PublisherMembershipCondition : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.X509Certificates.X509Certificate
-    - (System_Security_Cryptography_X509Certificates_X509Certificate *)certificate;
-    - (void)setCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)value;
+	// Managed property name : Certificate
+	// Managed property type : System.Security.Cryptography.X509Certificates.X509Certificate
+    @property (nonatomic, strong) System_Security_Cryptography_X509Certificates_X509Certificate * certificate;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +42,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

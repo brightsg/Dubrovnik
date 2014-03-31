@@ -3,6 +3,12 @@
 //
 // Managed struct : Char
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Char
 
 #pragma mark -
@@ -21,20 +27,26 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Char
+	// Managed field name : MaxValue
+	// Managed field type : System.Char
+    static uint16_t m_maxValue;
     + (uint16_t)maxValue
     {
 		uint16_t monoObject;
 		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_maxValue = monoObject;
+		return m_maxValue;
 	}
 
-	// Managed type : System.Char
+	// Managed field name : MinValue
+	// Managed field type : System.Char
+    static uint16_t m_minValue;
     + (uint16_t)minValue
     {
 		uint16_t monoObject;
 		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_minValue = monoObject;
+		return m_minValue;
 	}
 
 #pragma mark -
@@ -43,7 +55,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -88,7 +100,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -525,5 +537,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,char&)" withNumArgs:2, [p1 monoValue], p2];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

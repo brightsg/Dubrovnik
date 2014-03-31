@@ -2,7 +2,7 @@
 //
 // Managed interface : IServerChannelSink
 //
-@interface System_Runtime_Remoting_Channels_IServerChannelSink : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IServerChannelSink : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Channels.IServerChannelSink
-    - (System_Runtime_Remoting_Channels_IServerChannelSink *)nextChannelSink;
+	// Managed property name : NextChannelSink
+	// Managed property type : System.Runtime.Remoting.Channels.IServerChannelSink
+    @property (nonatomic, strong, readonly) System_Runtime_Remoting_Channels_IServerChannelSink * nextChannelSink;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,12 +24,12 @@
 	// Managed method name : AsyncProcessResponse
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack, System.Object, System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Channels.ITransportHeaders, System.IO.Stream
-    - (void)asyncProcessResponse_withSinkStack:(System_Runtime_Remoting_Channels_IServerResponseChannelSinkStack *)p1 state:(DBMonoObjectRepresentation *)p2 msg:(System_Runtime_Remoting_Messaging_IMessage *)p3 headers:(System_Runtime_Remoting_Channels_ITransportHeaders *)p4 stream:(System_IO_Stream *)p5;
+    - (void)asyncProcessResponse_withSinkStack:(System_Runtime_Remoting_Channels_IServerResponseChannelSinkStack *)p1 state:(System_Object *)p2 msg:(System_Runtime_Remoting_Messaging_IMessage *)p3 headers:(System_Runtime_Remoting_Channels_ITransportHeaders *)p4 stream:(System_IO_Stream *)p5;
 
 	// Managed method name : GetResponseStream
 	// Managed return type : System.IO.Stream
 	// Managed param types : System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack, System.Object, System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Channels.ITransportHeaders
-    - (System_IO_Stream *)getResponseStream_withSinkStack:(System_Runtime_Remoting_Channels_IServerResponseChannelSinkStack *)p1 state:(DBMonoObjectRepresentation *)p2 msg:(System_Runtime_Remoting_Messaging_IMessage *)p3 headers:(System_Runtime_Remoting_Channels_ITransportHeaders *)p4;
+    - (System_IO_Stream *)getResponseStream_withSinkStack:(System_Runtime_Remoting_Channels_IServerResponseChannelSinkStack *)p1 state:(System_Object *)p2 msg:(System_Runtime_Remoting_Messaging_IMessage *)p3 headers:(System_Runtime_Remoting_Channels_ITransportHeaders *)p4;
 
 	// Managed method name : ProcessMessage
 	// Managed return type : System.Runtime.Remoting.Channels.ServerProcessing

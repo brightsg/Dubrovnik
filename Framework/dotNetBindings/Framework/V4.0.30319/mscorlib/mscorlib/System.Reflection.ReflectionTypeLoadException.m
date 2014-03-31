@@ -3,6 +3,12 @@
 //
 // Managed class : ReflectionTypeLoadException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_ReflectionTypeLoadException
 
 #pragma mark -
@@ -40,20 +46,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Exception[]
+	// Managed property name : LoaderExceptions
+	// Managed property type : System.Exception[]
+    @synthesize loaderExceptions = _loaderExceptions;
     - (DBSystem_Array *)loaderExceptions
     {
-		MonoObject * monoObject = [self getMonoProperty:"LoaderExceptions"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LoaderExceptions"];
+		if ([self object:_loaderExceptions isEqualToMonoObject:monoObject]) return _loaderExceptions;					
+		_loaderExceptions = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _loaderExceptions;
 	}
 
-	// Managed type : System.Type[]
+	// Managed property name : Types
+	// Managed property type : System.Type[]
+    @synthesize types = _types;
     - (DBSystem_Array *)types
     {
-		MonoObject * monoObject = [self getMonoProperty:"Types"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Types"];
+		if ([self object:_types isEqualToMonoObject:monoObject]) return _types;					
+		_types = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _types;
 	}
 
 #pragma mark -
@@ -66,5 +80,11 @@
     {
 		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -14,11 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)cancel;
-    - (void)setCancel:(BOOL)value;
+	// Managed property name : Cancel
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL cancel;
 
-	// Managed type : System.ConsoleSpecialKey
-    - (System_ConsoleSpecialKey)specialKey;
+	// Managed property name : SpecialKey
+	// Managed property type : System.ConsoleSpecialKey
+    @property (nonatomic, readonly) System_ConsoleSpecialKey specialKey;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : StringComparer
 //
-@interface System_StringComparer : DBMonoObjectRepresentation
+@interface System_StringComparer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,22 +14,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.StringComparer
+	// Managed property name : CurrentCulture
+	// Managed property type : System.StringComparer
     + (System_StringComparer *)currentCulture;
 
-	// Managed type : System.StringComparer
+	// Managed property name : CurrentCultureIgnoreCase
+	// Managed property type : System.StringComparer
     + (System_StringComparer *)currentCultureIgnoreCase;
 
-	// Managed type : System.StringComparer
+	// Managed property name : InvariantCulture
+	// Managed property type : System.StringComparer
     + (System_StringComparer *)invariantCulture;
 
-	// Managed type : System.StringComparer
+	// Managed property name : InvariantCultureIgnoreCase
+	// Managed property type : System.StringComparer
     + (System_StringComparer *)invariantCultureIgnoreCase;
 
-	// Managed type : System.StringComparer
+	// Managed property name : Ordinal
+	// Managed property type : System.StringComparer
     + (System_StringComparer *)ordinal;
 
-	// Managed type : System.StringComparer
+	// Managed property name : OrdinalIgnoreCase
+	// Managed property type : System.StringComparer
     + (System_StringComparer *)ordinalIgnoreCase;
 
 #pragma mark -
@@ -38,7 +44,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Object
-    - (int32_t)compare_withXObject:(DBMonoObjectRepresentation *)p1 yObject:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)compare_withXObject:(System_Object *)p1 yObject:(System_Object *)p2;
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
@@ -53,7 +59,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object
-    - (BOOL)equals_withXObject:(DBMonoObjectRepresentation *)p1 yObject:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)equals_withXObject:(System_Object *)p1 yObject:(System_Object *)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -63,7 +69,7 @@
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)getHashCode_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)getHashCode_withObjObject:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

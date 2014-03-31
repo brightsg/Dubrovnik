@@ -2,7 +2,7 @@
 //
 // Managed class : BitArray
 //
-@interface System_Collections_BitArray : DBMonoObjectRepresentation
+@interface System_Collections_BitArray : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -47,25 +47,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSynchronized;
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed type : System.Boolean
-    - (BOOL)item;
-    - (void)setItem:(BOOL)value;
+	// Managed property name : Item
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL item;
 
-	// Managed type : System.Int32
-    - (int32_t)length;
-    - (void)setLength:(int32_t)value;
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t length;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot;
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * syncRoot;
 
 #pragma mark -
 #pragma mark Methods
@@ -78,7 +82,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void

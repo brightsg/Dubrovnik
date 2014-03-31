@@ -3,6 +3,12 @@
 //
 // Managed interface : ILease
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Lifetime_ILease
 
 #pragma mark -
@@ -21,58 +27,80 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
+	// Managed property name : CurrentLeaseTime
+	// Managed property type : System.TimeSpan
+    @synthesize currentLeaseTime = _currentLeaseTime;
     - (System_TimeSpan *)currentLeaseTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"CurrentLeaseTime"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CurrentLeaseTime"];
+		if ([self object:_currentLeaseTime isEqualToMonoObject:monoObject]) return _currentLeaseTime;					
+		_currentLeaseTime = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _currentLeaseTime;
 	}
 
-	// Managed type : System.Runtime.Remoting.Lifetime.LeaseState
+	// Managed property name : CurrentState
+	// Managed property type : System.Runtime.Remoting.Lifetime.LeaseState
+    @synthesize currentState = _currentState;
     - (System_Runtime_Remoting_Lifetime_LeaseState)currentState
     {
-		MonoObject * monoObject = [self getMonoProperty:"CurrentState"];
-		System_Runtime_Remoting_Lifetime_LeaseState result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CurrentState"];
+		_currentState = DB_UNBOX_INT32(monoObject);
+
+		return _currentState;
 	}
 
-	// Managed type : System.TimeSpan
+	// Managed property name : InitialLeaseTime
+	// Managed property type : System.TimeSpan
+    @synthesize initialLeaseTime = _initialLeaseTime;
     - (System_TimeSpan *)initialLeaseTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"InitialLeaseTime"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InitialLeaseTime"];
+		if ([self object:_initialLeaseTime isEqualToMonoObject:monoObject]) return _initialLeaseTime;					
+		_initialLeaseTime = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _initialLeaseTime;
 	}
     - (void)setInitialLeaseTime:(System_TimeSpan *)value
 	{
-		MonoObject *monoObject = DB_VALUE(value);
+		_initialLeaseTime = value;
+		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"InitialLeaseTime" valueObject:monoObject];          
 	}
 
-	// Managed type : System.TimeSpan
+	// Managed property name : RenewOnCallTime
+	// Managed property type : System.TimeSpan
+    @synthesize renewOnCallTime = _renewOnCallTime;
     - (System_TimeSpan *)renewOnCallTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"RenewOnCallTime"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RenewOnCallTime"];
+		if ([self object:_renewOnCallTime isEqualToMonoObject:monoObject]) return _renewOnCallTime;					
+		_renewOnCallTime = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _renewOnCallTime;
 	}
     - (void)setRenewOnCallTime:(System_TimeSpan *)value
 	{
-		MonoObject *monoObject = DB_VALUE(value);
+		_renewOnCallTime = value;
+		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"RenewOnCallTime" valueObject:monoObject];          
 	}
 
-	// Managed type : System.TimeSpan
+	// Managed property name : SponsorshipTimeout
+	// Managed property type : System.TimeSpan
+    @synthesize sponsorshipTimeout = _sponsorshipTimeout;
     - (System_TimeSpan *)sponsorshipTimeout
     {
-		MonoObject * monoObject = [self getMonoProperty:"SponsorshipTimeout"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SponsorshipTimeout"];
+		if ([self object:_sponsorshipTimeout isEqualToMonoObject:monoObject]) return _sponsorshipTimeout;					
+		_sponsorshipTimeout = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _sponsorshipTimeout;
 	}
     - (void)setSponsorshipTimeout:(System_TimeSpan *)value
 	{
-		MonoObject *monoObject = DB_VALUE(value);
+		_sponsorshipTimeout = value;
+		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"SponsorshipTimeout" valueObject:monoObject];          
 	}
 
@@ -101,7 +129,7 @@
     - (System_TimeSpan *)renew_withRenewalTime:(System_TimeSpan *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Renew(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
-		return [System_TimeSpan representationWithMonoObject:monoObject];
+		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unregister
@@ -111,5 +139,11 @@
     {
 		[self invokeMonoMethod:"Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

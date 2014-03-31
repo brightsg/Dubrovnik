@@ -2,7 +2,7 @@
 //
 // Managed interface : ISerializable
 //
-@interface System_Runtime_Serialization_ISerializable : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_ISerializable : System_Object
 
 #pragma mark -
 #pragma mark Setup

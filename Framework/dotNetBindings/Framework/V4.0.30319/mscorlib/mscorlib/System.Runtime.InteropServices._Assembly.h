@@ -2,7 +2,7 @@
 //
 // Managed interface : _Assembly
 //
-@interface System_Runtime_InteropServices__Assembly : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__Assembly : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,26 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)codeBase;
+	// Managed property name : CodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * codeBase;
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)entryPoint;
+	// Managed property name : EntryPoint
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * entryPoint;
 
-	// Managed type : System.String
-    - (NSString *)escapedCodeBase;
+	// Managed property name : EscapedCodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * escapedCodeBase;
 
-	// Managed type : System.Security.Policy.Evidence
-    - (System_Security_Policy_Evidence *)evidence;
+	// Managed property name : Evidence
+	// Managed property type : System.Security.Policy.Evidence
+    @property (nonatomic, strong, readonly) System_Security_Policy_Evidence * evidence;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
-	// Managed type : System.Boolean
-    - (BOOL)globalAssemblyCache;
+	// Managed property name : GlobalAssemblyCache
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL globalAssemblyCache;
 
-	// Managed type : System.String
-    - (NSString *)location;
+	// Managed property name : Location
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * location;
 
 #pragma mark -
 #pragma mark Methods
@@ -41,22 +48,22 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)createInstance_withTypeName:(NSString *)p1;
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean
-    - (DBMonoObjectRepresentation *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7;
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Object[]

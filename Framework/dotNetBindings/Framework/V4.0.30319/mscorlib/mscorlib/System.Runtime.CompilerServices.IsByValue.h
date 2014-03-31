@@ -2,7 +2,7 @@
 //
 // Managed class : IsByValue
 //
-@interface System_Runtime_CompilerServices_IsByValue : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsByValue : System_Object
 
 #pragma mark -
 #pragma mark Setup

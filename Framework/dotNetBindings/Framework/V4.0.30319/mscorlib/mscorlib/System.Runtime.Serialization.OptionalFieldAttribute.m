@@ -3,6 +3,12 @@
 //
 // Managed class : OptionalFieldAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_OptionalFieldAttribute
 
 #pragma mark -
@@ -21,17 +27,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : VersionAdded
+	// Managed property type : System.Int32
+    @synthesize versionAdded = _versionAdded;
     - (int32_t)versionAdded
     {
-		MonoObject * monoObject = [self getMonoProperty:"VersionAdded"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"VersionAdded"];
+		_versionAdded = DB_UNBOX_INT32(monoObject);
+
+		return _versionAdded;
 	}
     - (void)setVersionAdded:(int32_t)value
 	{
+		_versionAdded = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"VersionAdded" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

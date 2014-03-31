@@ -14,60 +14,77 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.MethodAttributes
-    - (System_Reflection_MethodAttributes)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Reflection.MethodAttributes
+    @property (nonatomic, readonly) System_Reflection_MethodAttributes attributes;
 
-	// Managed type : System.Reflection.CallingConventions
-    - (System_Reflection_CallingConventions)callingConvention;
+	// Managed property name : CallingConvention
+	// Managed property type : System.Reflection.CallingConventions
+    @property (nonatomic, readonly) System_Reflection_CallingConventions callingConvention;
 
-	// Managed type : System.Boolean
-    - (BOOL)containsGenericParameters;
+	// Managed property name : ContainsGenericParameters
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL containsGenericParameters;
 
-	// Managed type : System.Type
-    - (System_Type *)declaringType;
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * declaringType;
 
-	// Managed type : System.Boolean
-    - (BOOL)initLocals;
-    - (void)setInitLocals:(BOOL)value;
+	// Managed property name : InitLocals
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL initLocals;
 
-	// Managed type : System.Boolean
-    - (BOOL)isGenericMethod;
+	// Managed property name : IsGenericMethod
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isGenericMethod;
 
-	// Managed type : System.Boolean
-    - (BOOL)isGenericMethodDefinition;
+	// Managed property name : IsGenericMethodDefinition
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isGenericMethodDefinition;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSecurityCritical;
+	// Managed property name : IsSecurityCritical
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSecurityCritical;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSecuritySafeCritical;
+	// Managed property name : IsSecuritySafeCritical
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSecuritySafeCritical;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSecurityTransparent;
+	// Managed property name : IsSecurityTransparent
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSecurityTransparent;
 
-	// Managed type : System.RuntimeMethodHandle
-    - (System_RuntimeMethodHandle *)methodHandle;
+	// Managed property name : MethodHandle
+	// Managed property type : System.RuntimeMethodHandle
+    @property (nonatomic, strong, readonly) System_RuntimeMethodHandle * methodHandle;
 
-	// Managed type : System.Reflection.Module
-    - (System_Reflection_Module *)module;
+	// Managed property name : Module
+	// Managed property type : System.Reflection.Module
+    @property (nonatomic, strong, readonly) System_Reflection_Module * module;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)reflectedType;
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
-	// Managed type : System.Reflection.ParameterInfo
-    - (System_Reflection_ParameterInfo *)returnParameter;
+	// Managed property name : ReturnParameter
+	// Managed property type : System.Reflection.ParameterInfo
+    @property (nonatomic, strong, readonly) System_Reflection_ParameterInfo * returnParameter;
 
-	// Managed type : System.Type
-    - (System_Type *)returnType;
+	// Managed property name : ReturnType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * returnType;
 
-	// Managed type : System.Reflection.ICustomAttributeProvider
-    - (System_Reflection_ICustomAttributeProvider *)returnTypeCustomAttributes;
+	// Managed property name : ReturnTypeCustomAttributes
+	// Managed property type : System.Reflection.ICustomAttributeProvider
+    @property (nonatomic, strong, readonly) System_Reflection_ICustomAttributeProvider * returnTypeCustomAttributes;
 
-	// Managed type : System.String
-    - (NSString *)signature;
+	// Managed property name : Signature
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * signature;
 
 #pragma mark -
 #pragma mark Methods
@@ -95,7 +112,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetBaseDefinition
 	// Managed return type : System.Reflection.MethodInfo
@@ -160,7 +177,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (DBMonoObjectRepresentation *)invoke_withObj:(DBMonoObjectRepresentation *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean

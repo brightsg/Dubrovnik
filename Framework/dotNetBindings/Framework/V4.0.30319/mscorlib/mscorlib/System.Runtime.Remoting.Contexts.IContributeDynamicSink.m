@@ -3,6 +3,12 @@
 //
 // Managed interface : IContributeDynamicSink
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Contexts_IContributeDynamicSink
 
 #pragma mark -
@@ -27,7 +33,13 @@
     - (System_Runtime_Remoting_Contexts_IDynamicMessageSink *)getDynamicSink
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicSink()" withNumArgs:0];
-		return [System_Runtime_Remoting_Contexts_IDynamicMessageSink representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Contexts_IDynamicMessageSink objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

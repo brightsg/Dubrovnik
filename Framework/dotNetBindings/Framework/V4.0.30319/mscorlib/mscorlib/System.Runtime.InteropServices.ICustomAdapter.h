@@ -2,7 +2,7 @@
 //
 // Managed interface : ICustomAdapter
 //
-@interface System_Runtime_InteropServices_ICustomAdapter : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ICustomAdapter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : GetUnderlyingObject
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getUnderlyingObject;
+    - (System_Object *)getUnderlyingObject;
 @end
 //--Dubrovnik.CodeGenerator

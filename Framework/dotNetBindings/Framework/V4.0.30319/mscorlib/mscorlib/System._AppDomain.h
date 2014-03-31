@@ -2,7 +2,7 @@
 //
 // Managed interface : _AppDomain
 //
-@interface System__AppDomain : DBMonoObjectRepresentation
+@interface System__AppDomain : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,23 +14,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)baseDirectory;
+	// Managed property name : BaseDirectory
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * baseDirectory;
 
-	// Managed type : System.String
-    - (NSString *)dynamicDirectory;
+	// Managed property name : DynamicDirectory
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * dynamicDirectory;
 
-	// Managed type : System.Security.Policy.Evidence
-    - (System_Security_Policy_Evidence *)evidence;
+	// Managed property name : Evidence
+	// Managed property type : System.Security.Policy.Evidence
+    @property (nonatomic, strong, readonly) System_Security_Policy_Evidence * evidence;
 
-	// Managed type : System.String
-    - (NSString *)friendlyName;
+	// Managed property name : FriendlyName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * friendlyName;
 
-	// Managed type : System.String
-    - (NSString *)relativeSearchPath;
+	// Managed property name : RelativeSearchPath
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * relativeSearchPath;
 
-	// Managed type : System.Boolean
-    - (BOOL)shadowCopyFiles;
+	// Managed property name : ShadowCopyFiles
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL shadowCopyFiles;
 
 #pragma mark -
 #pragma mark Methods
@@ -133,7 +139,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(System_Object *)p1;
 
 	// Managed method name : ExecuteAssembly
 	// Managed return type : System.Int32
@@ -158,7 +164,7 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getData_withName:(NSString *)p1;
+    - (System_Object *)getData_withName:(NSString *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -173,7 +179,7 @@
 	// Managed method name : GetLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getLifetimeService;
+    - (System_Object *)getLifetimeService;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
@@ -193,7 +199,7 @@
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)initializeLifetimeService;
+    - (System_Object *)initializeLifetimeService;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
@@ -248,7 +254,7 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)setData_withName:(NSString *)p1 data:(DBMonoObjectRepresentation *)p2;
+    - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
 
 	// Managed method name : SetPrincipalPolicy
 	// Managed return type : System.Void

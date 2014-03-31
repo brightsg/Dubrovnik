@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.RegistryRights
-    - (System_Security_AccessControl_RegistryRights)registryRights;
+	// Managed property name : RegistryRights
+	// Managed property type : System.Security.AccessControl.RegistryRights
+    @property (nonatomic, readonly) System_Security_AccessControl_RegistryRights registryRights;
 @end
 //--Dubrovnik.CodeGenerator

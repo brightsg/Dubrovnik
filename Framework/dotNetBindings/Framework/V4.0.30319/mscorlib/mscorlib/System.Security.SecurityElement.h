@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityElement
 //
-@interface System_Security_SecurityElement : DBMonoObjectRepresentation
+@interface System_Security_SecurityElement : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,21 +27,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Hashtable
-    - (System_Collections_Hashtable *)attributes;
-    - (void)setAttributes:(System_Collections_Hashtable *)value;
+	// Managed property name : Attributes
+	// Managed property type : System.Collections.Hashtable
+    @property (nonatomic, strong) System_Collections_Hashtable * attributes;
 
-	// Managed type : System.Collections.ArrayList
-    - (DBSystem_Collections_ArrayList *)children;
-    - (void)setChildren:(DBSystem_Collections_ArrayList *)value;
+	// Managed property name : Children
+	// Managed property type : System.Collections.ArrayList
+    @property (nonatomic, strong) DBSystem_Collections_ArrayList * children;
 
-	// Managed type : System.String
-    - (NSString *)tag;
-    - (void)setTag:(NSString *)value;
+	// Managed property name : Tag
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * tag;
 
-	// Managed type : System.String
-    - (NSString *)text;
-    - (void)setText:(NSString *)value;
+	// Managed property name : Text
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * text;
 
 #pragma mark -
 #pragma mark Methods

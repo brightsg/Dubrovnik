@@ -3,6 +3,12 @@
 //
 // Managed struct : StreamingContext
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_StreamingContext
 
 #pragma mark -
@@ -32,7 +38,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.StreamingContext
 	// Managed param types : System.Runtime.Serialization.StreamingContextStates, System.Object
-    + (System_Runtime_Serialization_StreamingContext *)new_withState:(System_Runtime_Serialization_StreamingContextStates)p1 additional:(DBMonoObjectRepresentation *)p2
+    + (System_Runtime_Serialization_StreamingContext *)new_withState:(System_Runtime_Serialization_StreamingContextStates)p1 additional:(System_Object *)p2
     {
 		return [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContextStates,object" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
     }
@@ -40,20 +46,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)context
+	// Managed property name : Context
+	// Managed property type : System.Object
+    @synthesize context = _context;
+    - (System_Object *)context
     {
-		MonoObject * monoObject = [self getMonoProperty:"Context"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Context"];
+		if ([self object:_context isEqualToMonoObject:monoObject]) return _context;					
+		_context = [System_Object objectWithMonoObject:monoObject];
+
+		return _context;
 	}
 
-	// Managed type : System.Runtime.Serialization.StreamingContextStates
+	// Managed property name : State
+	// Managed property type : System.Runtime.Serialization.StreamingContextStates
+    @synthesize state = _state;
     - (System_Runtime_Serialization_StreamingContextStates)state
     {
-		MonoObject * monoObject = [self getMonoProperty:"State"];
-		System_Runtime_Serialization_StreamingContextStates result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"State"];
+		_state = DB_UNBOX_INT32(monoObject);
+
+		return _state;
 	}
 
 #pragma mark -
@@ -62,7 +75,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -76,5 +89,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

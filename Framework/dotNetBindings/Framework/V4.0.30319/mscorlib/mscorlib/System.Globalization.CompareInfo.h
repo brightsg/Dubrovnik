@@ -2,7 +2,7 @@
 //
 // Managed class : CompareInfo
 //
-@interface System_Globalization_CompareInfo : DBMonoObjectRepresentation
+@interface System_Globalization_CompareInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)lCID;
+	// Managed property name : LCID
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t lCID;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Globalization.SortVersion
-    - (System_Globalization_SortVersion *)version;
+	// Managed property name : Version
+	// Managed property type : System.Globalization.SortVersion
+    @property (nonatomic, strong, readonly) System_Globalization_SortVersion * version;
 
 #pragma mark -
 #pragma mark Methods
@@ -59,7 +62,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo

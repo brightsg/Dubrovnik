@@ -3,6 +3,12 @@
 //
 // Managed class : BestFitMappingAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_BestFitMappingAttribute
 
 #pragma mark -
@@ -32,15 +38,19 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Boolean
+	// Managed field name : ThrowOnUnmappableChar
+	// Managed field type : System.Boolean
+    @synthesize throwOnUnmappableChar = _throwOnUnmappableChar;
     - (BOOL)throwOnUnmappableChar
     {
 		BOOL monoObject;
 		[self getMonoField:"ThrowOnUnmappableChar" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_throwOnUnmappableChar = monoObject;
+		return _throwOnUnmappableChar;
 	}
     - (void)setThrowOnUnmappableChar:(BOOL)value
 	{
+		_throwOnUnmappableChar = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"ThrowOnUnmappableChar" valueObject:monoObject];          
 	}
@@ -48,12 +58,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : BestFitMapping
+	// Managed property type : System.Boolean
+    @synthesize bestFitMapping = _bestFitMapping;
     - (BOOL)bestFitMapping
     {
-		MonoObject * monoObject = [self getMonoProperty:"BestFitMapping"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BestFitMapping"];
+		_bestFitMapping = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _bestFitMapping;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

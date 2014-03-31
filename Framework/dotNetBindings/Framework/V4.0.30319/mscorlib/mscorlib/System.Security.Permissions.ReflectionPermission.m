@@ -3,6 +3,12 @@
 //
 // Managed class : ReflectionPermission
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_ReflectionPermission
 
 #pragma mark -
@@ -40,15 +46,19 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.ReflectionPermissionFlag
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.ReflectionPermissionFlag
+    @synthesize flags = _flags;
     - (System_Security_Permissions_ReflectionPermissionFlag)flags
     {
-		MonoObject * monoObject = [self getMonoProperty:"Flags"];
-		System_Security_Permissions_ReflectionPermissionFlag result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Flags"];
+		_flags = DB_UNBOX_INT32(monoObject);
+
+		return _flags;
 	}
     - (void)setFlags:(System_Security_Permissions_ReflectionPermissionFlag)value
 	{
+		_flags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Flags" valueObject:monoObject];          
 	}
@@ -62,7 +72,7 @@
     - (System_Security_IPermission *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -79,7 +89,7 @@
     - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
@@ -106,7 +116,7 @@
     - (System_Security_SecurityElement *)toXml
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
@@ -115,7 +125,13 @@
     - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

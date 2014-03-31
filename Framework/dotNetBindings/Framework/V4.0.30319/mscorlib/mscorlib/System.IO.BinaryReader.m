@@ -3,6 +3,12 @@
 //
 // Managed class : BinaryReader
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_BinaryReader
 
 #pragma mark -
@@ -48,12 +54,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IO.Stream
+	// Managed property name : BaseStream
+	// Managed property type : System.IO.Stream
+    @synthesize baseStream = _baseStream;
     - (System_IO_Stream *)baseStream
     {
-		MonoObject * monoObject = [self getMonoProperty:"BaseStream"];
-		System_IO_Stream * result = [System_IO_Stream representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BaseStream"];
+		if ([self object:_baseStream isEqualToMonoObject:monoObject]) return _baseStream;					
+		_baseStream = [System_IO_Stream objectWithMonoObject:monoObject];
+
+		return _baseStream;
 	}
 
 #pragma mark -
@@ -153,7 +163,7 @@
     - (DBSystem_Array *)readChars_withCount:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadChars(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : ReadDecimal
@@ -254,5 +264,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadUInt64()" withNumArgs:0];
 		return DB_UNBOX_UINT64(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

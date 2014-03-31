@@ -2,7 +2,7 @@
 //
 // Managed class : ErrorWrapper
 //
-@interface System_Runtime_InteropServices_ErrorWrapper : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ErrorWrapper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ErrorWrapper
 	// Managed param types : System.Object
-    + (System_Runtime_InteropServices_ErrorWrapper *)new_withErrorCodeObject:(DBMonoObjectRepresentation *)p1;
+    + (System_Runtime_InteropServices_ErrorWrapper *)new_withErrorCodeObject:(System_Object *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ErrorWrapper
@@ -32,7 +32,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)errorCode;
+	// Managed property name : ErrorCode
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t errorCode;
 @end
 //--Dubrovnik.CodeGenerator

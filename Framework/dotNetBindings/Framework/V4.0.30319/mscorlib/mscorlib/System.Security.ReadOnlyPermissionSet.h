@@ -22,8 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
 #pragma mark -
 #pragma mark Methods

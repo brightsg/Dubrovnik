@@ -2,7 +2,7 @@
 //
 // Managed class : String
 //
-@interface System_String : DBMonoObjectRepresentation
+@interface System_String : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -57,17 +57,20 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : Empty
+	// Managed field type : System.String
     + (NSString *)empty;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Char
-    - (uint16_t)chars;
+	// Managed property name : Chars
+	// Managed property type : System.Char
+    @property (nonatomic, readonly) uint16_t chars;
 
-	// Managed type : System.Int32
-    - (int32_t)length;
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t length;
 
 #pragma mark -
 #pragma mark Methods
@@ -75,7 +78,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
@@ -140,7 +143,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValue:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withValue:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -150,22 +153,22 @@
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Object
-    - (NSString *)concat_withArg0:(DBMonoObjectRepresentation *)p1;
+    - (NSString *)concat_withArg0:(System_Object *)p1;
 
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Object, System.Object
-    - (NSString *)concat_withArg0:(DBMonoObjectRepresentation *)p1 arg1:(DBMonoObjectRepresentation *)p2;
+    - (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2;
 
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Object, System.Object, System.Object
-    - (NSString *)concat_withArg0:(DBMonoObjectRepresentation *)p1 arg1:(DBMonoObjectRepresentation *)p2 arg2:(DBMonoObjectRepresentation *)p3;
+    - (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2 arg2:(System_Object *)p3;
 
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Object, System.Object, System.Object, System.Object
-    - (NSString *)concat_withArg0:(DBMonoObjectRepresentation *)p1 arg1:(DBMonoObjectRepresentation *)p2 arg2:(DBMonoObjectRepresentation *)p3 arg3:(DBMonoObjectRepresentation *)p4;
+    - (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2 arg2:(System_Object *)p3 arg3:(System_Object *)p4;
 
 	// Managed method name : Concat
 	// Managed return type : System.String
@@ -235,7 +238,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -260,17 +263,17 @@
 	// Managed method name : Format
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object
-    - (NSString *)format_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2;
+    - (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
 
 	// Managed method name : Format
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object, System.Object
-    - (NSString *)format_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3;
+    - (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
 
 	// Managed method name : Format
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (NSString *)format_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4;
+    - (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
 
 	// Managed method name : Format
 	// Managed return type : System.String

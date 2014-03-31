@@ -60,8 +60,11 @@ NSString *DBUClassTestFailed = @"Class test failed";
 NSString *DBUDesignedToFailTestPassed = @"Designed to fail test passed";
 
 static BOOL _setup = NO;
+static MonoAssembly *monoAssembly;
 
 @interface Dubrovnik_Unit_Tests()
+
+
 - (void)doTestReferenceClass:(Class)testClass;
 - (id)doTestConstructorsWithclass:(Class)testClass;
 - (void)doTestFields:(id)refObject class:(Class)testClass;
@@ -109,7 +112,7 @@ static BOOL _setup = NO;
     [monoEnv setDelegate:self];
          
     // open the assembly 
-	MonoAssembly *monoAssembly = [monoEnv openAssembly:assemblyName path:assemblyFile];
+    monoAssembly = [monoEnv openAssembly:assemblyName path:assemblyFile];
     STAssertTrue(monoAssembly, @"Cannot open assembly : %@", assemblyFile);
     
     // invoke the assembly static main
@@ -346,6 +349,34 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
     
     return refObject;
+}
+
+- (void)doTestForEquality:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    // object equality is based on equality of the underlying mono object
+    
+    // compare two wrapped instances of the same managed object
+    System_Object *object1 = [[System_Object alloc] initWithMonoObject:[refObject monoObject]];
+    STAssertTrue(refObject != object1, DBUInequalityTestFailed);
+    STAssertTrue([refObject monoObject] == object1.monoObject, DBUEqualityTestFailed);
+    STAssertTrue([refObject isEqual:object1], DBUEqualityTestFailed);
+    
+    // compare two separate instances of the same object
+    System_Object *object2 = [self doTestConstructorsWithclass:testClass];
+    System_Object *object3 = [self doTestConstructorsWithclass:testClass];
+    STAssertTrue(object2 != object3, DBUInequalityTestFailed);
+    STAssertTrue(object2.monoObject != object3.monoObject, DBUInequalityTestFailed);
+    STAssertTrue([[(id)object2 stringProperty] isEqual:[(id)object3 stringProperty]], DBUEqualityTestFailed);
+    STAssertTrue([object2 hash] == [object3 hash], DBUEqualityTestFailed);
+    STAssertTrue([object2 isEqual:object3], DBUEqualityTestFailed);
+    
+    // object equality is determined on the basis of the stringProperty.
+    NSString *eProperty = [(id)object3 stringProperty];
+    [(id)object3 setStringProperty:[NSString stringWithFormat:@"+%@", eProperty]];
+    STAssertTrue([object2 hash] != [object3 hash], DBUInequalityTestFailed);
+    STAssertTrue(![object2 isEqual:object3], DBUInequalityTestFailed);
 }
 
 - (void)doTestFields:(id)refObject class:(Class)testClass
@@ -1232,6 +1263,9 @@ void DubrovnikEventHandlerICall ()
         [refObject raiseTestEvent];
         STAssertTrue(!eventFired, DBUBooleanTestFailed);
     }
+    
+    
+    [self doTestForEquality:refObject class:testClass];
     
     //===================================
     // fields

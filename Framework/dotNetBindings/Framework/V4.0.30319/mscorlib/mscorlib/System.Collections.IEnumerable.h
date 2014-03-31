@@ -2,7 +2,7 @@
 //
 // Managed interface : IEnumerable
 //
-@interface System_Collections_IEnumerable : DBMonoObjectRepresentation
+@interface System_Collections_IEnumerable : System_Object
 
 #pragma mark -
 #pragma mark Setup

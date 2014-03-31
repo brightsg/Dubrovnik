@@ -22,11 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.AggregateException
-    - (System_AggregateException *)exception;
+	// Managed property name : Exception
+	// Managed property type : System.AggregateException
+    @property (nonatomic, strong, readonly) System_AggregateException * exception;
 
-	// Managed type : System.Boolean
-    - (BOOL)observed;
+	// Managed property name : Observed
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL observed;
 
 #pragma mark -
 #pragma mark Methods

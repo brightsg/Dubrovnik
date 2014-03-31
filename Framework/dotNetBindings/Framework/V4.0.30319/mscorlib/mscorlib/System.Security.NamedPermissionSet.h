@@ -37,13 +37,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)description;
-    - (void)setDescription:(NSString *)value;
+	// Managed property name : Description
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * description;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
 #pragma mark -
 #pragma mark Methods
@@ -61,7 +61,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

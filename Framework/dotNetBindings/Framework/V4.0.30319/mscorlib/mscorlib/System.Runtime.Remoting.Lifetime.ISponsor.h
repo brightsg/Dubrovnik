@@ -2,7 +2,7 @@
 //
 // Managed interface : ISponsor
 //
-@interface System_Runtime_Remoting_Lifetime_ISponsor : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Lifetime_ISponsor : System_Object
 
 #pragma mark -
 #pragma mark Setup

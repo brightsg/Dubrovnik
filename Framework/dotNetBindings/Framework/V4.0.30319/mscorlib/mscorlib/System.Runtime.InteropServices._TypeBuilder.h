@@ -2,7 +2,7 @@
 //
 // Managed interface : _TypeBuilder
 //
-@interface System_Runtime_InteropServices__TypeBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__TypeBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed class : ThaiBuddhistCalendar
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Globalization_ThaiBuddhistCalendar
 
 #pragma mark -
@@ -21,58 +27,80 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : ThaiBuddhistEra
+	// Managed field type : System.Int32
+    static int32_t m_thaiBuddhistEra;
     + (int32_t)thaiBuddhistEra
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"ThaiBuddhistEra" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_thaiBuddhistEra = monoObject;
+		return m_thaiBuddhistEra;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Globalization.CalendarAlgorithmType
+	// Managed property name : AlgorithmType
+	// Managed property type : System.Globalization.CalendarAlgorithmType
+    @synthesize algorithmType = _algorithmType;
     - (System_Globalization_CalendarAlgorithmType)algorithmType
     {
-		MonoObject * monoObject = [self getMonoProperty:"AlgorithmType"];
-		System_Globalization_CalendarAlgorithmType result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AlgorithmType"];
+		_algorithmType = DB_UNBOX_INT32(monoObject);
+
+		return _algorithmType;
 	}
 
-	// Managed type : System.Int32[]
+	// Managed property name : Eras
+	// Managed property type : System.Int32[]
+    @synthesize eras = _eras;
     - (DBSystem_Array *)eras
     {
-		MonoObject * monoObject = [self getMonoProperty:"Eras"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Eras"];
+		if ([self object:_eras isEqualToMonoObject:monoObject]) return _eras;					
+		_eras = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _eras;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : MaxSupportedDateTime
+	// Managed property type : System.DateTime
+    @synthesize maxSupportedDateTime = _maxSupportedDateTime;
     - (NSDate *)maxSupportedDateTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"MaxSupportedDateTime"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MaxSupportedDateTime"];
+		if ([self object:_maxSupportedDateTime isEqualToMonoObject:monoObject]) return _maxSupportedDateTime;					
+		_maxSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _maxSupportedDateTime;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : MinSupportedDateTime
+	// Managed property type : System.DateTime
+    @synthesize minSupportedDateTime = _minSupportedDateTime;
     - (NSDate *)minSupportedDateTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"MinSupportedDateTime"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MinSupportedDateTime"];
+		if ([self object:_minSupportedDateTime isEqualToMonoObject:monoObject]) return _minSupportedDateTime;					
+		_minSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _minSupportedDateTime;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : TwoDigitYearMax
+	// Managed property type : System.Int32
+    @synthesize twoDigitYearMax = _twoDigitYearMax;
     - (int32_t)twoDigitYearMax
     {
-		MonoObject * monoObject = [self getMonoProperty:"TwoDigitYearMax"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TwoDigitYearMax"];
+		_twoDigitYearMax = DB_UNBOX_INT32(monoObject);
+
+		return _twoDigitYearMax;
 	}
     - (void)setTwoDigitYearMax:(int32_t)value
 	{
+		_twoDigitYearMax = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"TwoDigitYearMax" valueObject:monoObject];          
 	}
@@ -241,5 +269,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToFourDigitYear(int)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

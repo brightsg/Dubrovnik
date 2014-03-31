@@ -2,7 +2,7 @@
 //
 // Managed class : File
 //
-@interface System_IO_File : DBMonoObjectRepresentation
+@interface System_IO_File : System_Object
 
 #pragma mark -
 #pragma mark Setup

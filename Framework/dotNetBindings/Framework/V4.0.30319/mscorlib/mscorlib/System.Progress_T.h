@@ -2,7 +2,7 @@
 //
 // Managed class : Progress<T>
 //
-@interface System_Progress : DBMonoObjectRepresentation
+@interface System_Progress : System_Object
 
 #pragma mark -
 #pragma mark Setup

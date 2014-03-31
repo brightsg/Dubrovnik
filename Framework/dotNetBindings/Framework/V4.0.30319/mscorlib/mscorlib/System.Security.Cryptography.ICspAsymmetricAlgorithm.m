@@ -3,6 +3,12 @@
 //
 // Managed interface : ICspAsymmetricAlgorithm
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_ICspAsymmetricAlgorithm
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.CspKeyContainerInfo
+	// Managed property name : CspKeyContainerInfo
+	// Managed property type : System.Security.Cryptography.CspKeyContainerInfo
+    @synthesize cspKeyContainerInfo = _cspKeyContainerInfo;
     - (System_Security_Cryptography_CspKeyContainerInfo *)cspKeyContainerInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"CspKeyContainerInfo"];
-		System_Security_Cryptography_CspKeyContainerInfo * result = [System_Security_Cryptography_CspKeyContainerInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CspKeyContainerInfo"];
+		if ([self object:_cspKeyContainerInfo isEqualToMonoObject:monoObject]) return _cspKeyContainerInfo;					
+		_cspKeyContainerInfo = [System_Security_Cryptography_CspKeyContainerInfo objectWithMonoObject:monoObject];
+
+		return _cspKeyContainerInfo;
 	}
 
 #pragma mark -
@@ -48,5 +58,11 @@
     {
 		[self invokeMonoMethod:"ImportCspBlob(byte[])" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

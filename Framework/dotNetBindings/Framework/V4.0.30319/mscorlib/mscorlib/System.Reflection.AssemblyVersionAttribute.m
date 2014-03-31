@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyVersionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyVersionAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Version
+	// Managed property type : System.String
+    @synthesize version = _version;
     - (NSString *)version
     {
-		MonoObject * monoObject = [self getMonoProperty:"Version"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		if ([self object:_version isEqualToMonoObject:monoObject]) return _version;					
+		_version = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _version;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

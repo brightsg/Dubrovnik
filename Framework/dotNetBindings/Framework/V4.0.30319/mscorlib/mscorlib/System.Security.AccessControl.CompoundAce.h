@@ -22,12 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.Security.AccessControl.CompoundAceType
-    - (System_Security_AccessControl_CompoundAceType)compoundAceType;
-    - (void)setCompoundAceType:(System_Security_AccessControl_CompoundAceType)value;
+	// Managed property name : CompoundAceType
+	// Managed property type : System.Security.AccessControl.CompoundAceType
+    @property (nonatomic) System_Security_AccessControl_CompoundAceType compoundAceType;
 
 #pragma mark -
 #pragma mark Methods

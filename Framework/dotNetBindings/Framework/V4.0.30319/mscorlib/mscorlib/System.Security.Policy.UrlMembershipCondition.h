@@ -2,7 +2,7 @@
 //
 // Managed class : UrlMembershipCondition
 //
-@interface System_Security_Policy_UrlMembershipCondition : DBMonoObjectRepresentation
+@interface System_Security_Policy_UrlMembershipCondition : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)url;
-    - (void)setUrl:(NSString *)value;
+	// Managed property name : Url
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * url;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +42,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

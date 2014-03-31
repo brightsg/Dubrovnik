@@ -2,7 +2,7 @@
 //
 // Managed class : Binder
 //
-@interface System_Reflection_Binder : DBMonoObjectRepresentation
+@interface System_Reflection_Binder : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,22 +17,22 @@
 	// Managed method name : BindToField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.FieldInfo[], System.Object, System.Globalization.CultureInfo
-    - (System_Reflection_FieldInfo *)bindToField_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 value:(DBMonoObjectRepresentation *)p3 culture:(System_Globalization_CultureInfo *)p4;
+    - (System_Reflection_FieldInfo *)bindToField_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 value:(System_Object *)p3 culture:(System_Globalization_CultureInfo *)p4;
 
 	// Managed method name : BindToMethod
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.MethodBase[], ref System.Object[]&, System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[], ref System.Object&
-    - (System_Reflection_MethodBase *)bindToMethod_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 argsRef:(System_Object **)p3 modifiers:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 names:(DBSystem_Array *)p6 stateRef:(DBMonoObjectRepresentation **)p7;
+    - (System_Reflection_MethodBase *)bindToMethod_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 argsRef:(System_Object **)p3 modifiers:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 names:(DBSystem_Array *)p6 stateRef:(System_Object **)p7;
 
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Type, System.Globalization.CultureInfo
-    - (DBMonoObjectRepresentation *)changeType_withValue:(DBMonoObjectRepresentation *)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3;
+    - (System_Object *)changeType_withValue:(System_Object *)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3;
 
 	// Managed method name : ReorderArgumentArray
 	// Managed return type : System.Void
 	// Managed param types : ref System.Object[]&, System.Object
-    - (void)reorderArgumentArray_withArgsRef:(System_Object **)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (void)reorderArgumentArray_withArgsRef:(System_Object **)p1 state:(System_Object *)p2;
 
 	// Managed method name : SelectMethod
 	// Managed return type : System.Reflection.MethodBase

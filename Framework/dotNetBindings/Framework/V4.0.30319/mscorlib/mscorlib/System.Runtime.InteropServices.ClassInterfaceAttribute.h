@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.ClassInterfaceType
-    - (System_Runtime_InteropServices_ClassInterfaceType)value;
+	// Managed property name : Value
+	// Managed property type : System.Runtime.InteropServices.ClassInterfaceType
+    @property (nonatomic, readonly) System_Runtime_InteropServices_ClassInterfaceType value;
 @end
 //--Dubrovnik.CodeGenerator

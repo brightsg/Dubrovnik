@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolMethod
 //
-@interface System_Diagnostics_SymbolStore_ISymbolMethod : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolMethod : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Diagnostics.SymbolStore.ISymbolScope
-    - (System_Diagnostics_SymbolStore_ISymbolScope *)rootScope;
+	// Managed property name : RootScope
+	// Managed property type : System.Diagnostics.SymbolStore.ISymbolScope
+    @property (nonatomic, strong, readonly) System_Diagnostics_SymbolStore_ISymbolScope * rootScope;
 
-	// Managed type : System.Int32
-    - (int32_t)sequencePointCount;
+	// Managed property name : SequencePointCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t sequencePointCount;
 
-	// Managed type : System.Diagnostics.SymbolStore.SymbolToken
-    - (System_Diagnostics_SymbolStore_SymbolToken *)token;
+	// Managed property name : Token
+	// Managed property type : System.Diagnostics.SymbolStore.SymbolToken
+    @property (nonatomic, strong, readonly) System_Diagnostics_SymbolStore_SymbolToken * token;
 
 #pragma mark -
 #pragma mark Methods

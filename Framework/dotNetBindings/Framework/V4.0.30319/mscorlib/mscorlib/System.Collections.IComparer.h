@@ -2,7 +2,7 @@
 //
 // Managed interface : IComparer
 //
-@interface System_Collections_IComparer : DBMonoObjectRepresentation
+@interface System_Collections_IComparer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Object
-    - (int32_t)compare_withX:(DBMonoObjectRepresentation *)p1 y:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

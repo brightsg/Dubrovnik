@@ -3,6 +3,12 @@
 //
 // Managed interface : IRemotingFormatter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Messaging_IRemotingFormatter
 
 #pragma mark -
@@ -24,18 +30,24 @@
 	// Managed method name : Deserialize
 	// Managed return type : System.Object
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler
-    - (DBMonoObjectRepresentation *)deserialize_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2
+    - (System_Object *)deserialize_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.IO.Stream,System.Runtime.Remoting.Messaging.HeaderHandler)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Serialize
 	// Managed return type : System.Void
 	// Managed param types : System.IO.Stream, System.Object, System.Runtime.Remoting.Messaging.Header[]
-    - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(DBMonoObjectRepresentation *)p2 headers:(DBSystem_Array *)p3
+    - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2 headers:(DBSystem_Array *)p3
     {
 		[self invokeMonoMethod:"Serialize(System.IO.Stream,object,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : OperationCanceledException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_OperationCanceledException
 
 #pragma mark -
@@ -64,17 +70,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.CancellationToken
+	// Managed property name : CancellationToken
+	// Managed property type : System.Threading.CancellationToken
+    @synthesize cancellationToken = _cancellationToken;
     - (System_Threading_CancellationToken *)cancellationToken
     {
-		MonoObject * monoObject = [self getMonoProperty:"CancellationToken"];
-		System_Threading_CancellationToken * result = [System_Threading_CancellationToken representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CancellationToken"];
+		if ([self object:_cancellationToken isEqualToMonoObject:monoObject]) return _cancellationToken;					
+		_cancellationToken = [System_Threading_CancellationToken objectWithMonoObject:monoObject];
+
+		return _cancellationToken;
 	}
     - (void)setCancellationToken:(System_Threading_CancellationToken *)value
 	{
-		MonoObject *monoObject = DB_VALUE(value);
+		_cancellationToken = value;
+		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"CancellationToken" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

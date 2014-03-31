@@ -2,7 +2,7 @@
 //
 // Managed class : LocalVariableInfo
 //
-@interface System_Reflection_LocalVariableInfo : DBMonoObjectRepresentation
+@interface System_Reflection_LocalVariableInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isPinned;
+	// Managed property name : IsPinned
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isPinned;
 
-	// Managed type : System.Int32
-    - (int32_t)localIndex;
+	// Managed property name : LocalIndex
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t localIndex;
 
-	// Managed type : System.Type
-    - (System_Type *)localType;
+	// Managed property name : LocalType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * localType;
 
 #pragma mark -
 #pragma mark Methods

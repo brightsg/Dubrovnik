@@ -22,65 +22,65 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)assertion;
-    - (void)setAssertion:(BOOL)value;
+	// Managed property name : Assertion
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL assertion;
 
-	// Managed type : System.Boolean
-    - (BOOL)bindingRedirects;
-    - (void)setBindingRedirects:(BOOL)value;
+	// Managed property name : BindingRedirects
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL bindingRedirects;
 
-	// Managed type : System.Boolean
-    - (BOOL)controlAppDomain;
-    - (void)setControlAppDomain:(BOOL)value;
+	// Managed property name : ControlAppDomain
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL controlAppDomain;
 
-	// Managed type : System.Boolean
-    - (BOOL)controlDomainPolicy;
-    - (void)setControlDomainPolicy:(BOOL)value;
+	// Managed property name : ControlDomainPolicy
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL controlDomainPolicy;
 
-	// Managed type : System.Boolean
-    - (BOOL)controlEvidence;
-    - (void)setControlEvidence:(BOOL)value;
+	// Managed property name : ControlEvidence
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL controlEvidence;
 
-	// Managed type : System.Boolean
-    - (BOOL)controlPolicy;
-    - (void)setControlPolicy:(BOOL)value;
+	// Managed property name : ControlPolicy
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL controlPolicy;
 
-	// Managed type : System.Boolean
-    - (BOOL)controlPrincipal;
-    - (void)setControlPrincipal:(BOOL)value;
+	// Managed property name : ControlPrincipal
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL controlPrincipal;
 
-	// Managed type : System.Boolean
-    - (BOOL)controlThread;
-    - (void)setControlThread:(BOOL)value;
+	// Managed property name : ControlThread
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL controlThread;
 
-	// Managed type : System.Boolean
-    - (BOOL)execution;
-    - (void)setExecution:(BOOL)value;
+	// Managed property name : Execution
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL execution;
 
-	// Managed type : System.Security.Permissions.SecurityPermissionFlag
-    - (System_Security_Permissions_SecurityPermissionFlag)flags;
-    - (void)setFlags:(System_Security_Permissions_SecurityPermissionFlag)value;
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.SecurityPermissionFlag
+    @property (nonatomic) System_Security_Permissions_SecurityPermissionFlag flags;
 
-	// Managed type : System.Boolean
-    - (BOOL)infrastructure;
-    - (void)setInfrastructure:(BOOL)value;
+	// Managed property name : Infrastructure
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL infrastructure;
 
-	// Managed type : System.Boolean
-    - (BOOL)remotingConfiguration;
-    - (void)setRemotingConfiguration:(BOOL)value;
+	// Managed property name : RemotingConfiguration
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL remotingConfiguration;
 
-	// Managed type : System.Boolean
-    - (BOOL)serializationFormatter;
-    - (void)setSerializationFormatter:(BOOL)value;
+	// Managed property name : SerializationFormatter
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL serializationFormatter;
 
-	// Managed type : System.Boolean
-    - (BOOL)skipVerification;
-    - (void)setSkipVerification:(BOOL)value;
+	// Managed property name : SkipVerification
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL skipVerification;
 
-	// Managed type : System.Boolean
-    - (BOOL)unmanagedCode;
-    - (void)setUnmanagedCode:(BOOL)value;
+	// Managed property name : UnmanagedCode
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL unmanagedCode;
 
 #pragma mark -
 #pragma mark Methods

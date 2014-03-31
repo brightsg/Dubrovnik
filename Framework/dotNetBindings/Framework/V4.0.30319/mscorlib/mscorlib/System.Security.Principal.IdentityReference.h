@@ -2,7 +2,7 @@
 //
 // Managed class : IdentityReference
 //
-@interface System_Security_Principal_IdentityReference : DBMonoObjectRepresentation
+@interface System_Security_Principal_IdentityReference : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)value;
+	// Managed property name : Value
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * value;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,7 +24,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

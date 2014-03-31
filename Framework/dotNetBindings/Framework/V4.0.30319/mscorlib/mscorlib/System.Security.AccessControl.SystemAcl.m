@@ -3,6 +3,12 @@
 //
 // Managed class : SystemAcl
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_SystemAcl
 
 #pragma mark -
@@ -113,5 +119,11 @@
     {
 		[self invokeMonoMethod:"SetAudit(System.Security.AccessControl.AuditFlags,System.Security.Principal.SecurityIdentifier,int,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.ObjectAceFlags,System.Guid,System.Guid)" withNumArgs:8, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoValue], [p8 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

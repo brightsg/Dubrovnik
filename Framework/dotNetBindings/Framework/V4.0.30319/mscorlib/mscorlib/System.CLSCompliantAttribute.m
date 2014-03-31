@@ -3,6 +3,12 @@
 //
 // Managed class : CLSCompliantAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_CLSCompliantAttribute
 
 #pragma mark -
@@ -32,12 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsCompliant
+	// Managed property type : System.Boolean
+    @synthesize isCompliant = _isCompliant;
     - (BOOL)isCompliant
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsCompliant"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsCompliant"];
+		_isCompliant = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isCompliant;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

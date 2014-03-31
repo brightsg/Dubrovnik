@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.CompilerServices.LoadHint
-    - (System_Runtime_CompilerServices_LoadHint)loadHint;
+	// Managed property name : LoadHint
+	// Managed property type : System.Runtime.CompilerServices.LoadHint
+    @property (nonatomic, readonly) System_Runtime_CompilerServices_LoadHint loadHint;
 @end
 //--Dubrovnik.CodeGenerator

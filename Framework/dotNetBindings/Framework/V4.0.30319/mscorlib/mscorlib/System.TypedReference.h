@@ -2,7 +2,7 @@
 //
 // Managed struct : TypedReference
 //
-@interface System_TypedReference : DBMonoObjectRepresentation
+@interface System_TypedReference : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -32,12 +32,12 @@
 	// Managed method name : MakeTypedReference
 	// Managed return type : System.TypedReference
 	// Managed param types : System.Object, System.Reflection.FieldInfo[]
-    - (System_TypedReference *)makeTypedReference_withTarget:(DBMonoObjectRepresentation *)p1 flds:(DBSystem_Array *)p2;
+    - (System_TypedReference *)makeTypedReference_withTarget:(System_Object *)p1 flds:(DBSystem_Array *)p2;
 
 	// Managed method name : SetTypedReference
 	// Managed return type : System.Void
 	// Managed param types : System.TypedReference, System.Object
-    - (void)setTypedReference_withTarget:(System_TypedReference *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (void)setTypedReference_withTarget:(System_TypedReference *)p1 value:(System_Object *)p2;
 
 	// Managed method name : TargetTypeToken
 	// Managed return type : System.RuntimeTypeHandle
@@ -47,6 +47,6 @@
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.TypedReference
-    - (DBMonoObjectRepresentation *)toObject_withValue:(System_TypedReference *)p1;
+    - (System_Object *)toObject_withValue:(System_TypedReference *)p1;
 @end
 //--Dubrovnik.CodeGenerator

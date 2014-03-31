@@ -3,6 +3,12 @@
 //
 // Managed class : DefaultCharSetAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_DefaultCharSetAttribute
 
 #pragma mark -
@@ -32,12 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.CharSet
+	// Managed property name : CharSet
+	// Managed property type : System.Runtime.InteropServices.CharSet
+    @synthesize charSet = _charSet;
     - (System_Runtime_InteropServices_CharSet)charSet
     {
-		MonoObject * monoObject = [self getMonoProperty:"CharSet"];
-		System_Runtime_InteropServices_CharSet result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CharSet"];
+		_charSet = DB_UNBOX_INT32(monoObject);
+
+		return _charSet;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

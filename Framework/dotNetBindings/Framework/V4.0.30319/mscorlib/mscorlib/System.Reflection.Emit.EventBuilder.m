@@ -3,6 +3,12 @@
 //
 // Managed class : EventBuilder
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_EventBuilder
 
 #pragma mark -
@@ -35,7 +41,7 @@
     - (System_Reflection_Emit_EventToken *)getEventToken
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEventToken()" withNumArgs:0];
-		return [System_Reflection_Emit_EventToken representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_EventToken objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetAddOnMethod
@@ -77,5 +83,11 @@
     {
 		[self invokeMonoMethod:"SetRemoveOnMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

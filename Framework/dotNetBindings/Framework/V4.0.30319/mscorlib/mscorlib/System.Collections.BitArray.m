@@ -3,6 +3,12 @@
 //
 // Managed class : BitArray
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_BitArray
 
 #pragma mark -
@@ -72,62 +78,83 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsReadOnly"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
+		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isReadOnly;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsSynchronized"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
+		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isSynchronized;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Item
+	// Managed property type : System.Boolean
+    @synthesize item = _item;
     - (BOOL)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		_item = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _item;
 	}
     - (void)setItem:(BOOL)value
 	{
+		_item = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Item" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @synthesize length = _length;
     - (int32_t)length
     {
-		MonoObject * monoObject = [self getMonoProperty:"Length"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Length"];
+		_length = DB_UNBOX_INT32(monoObject);
+
+		return _length;
 	}
     - (void)setLength:(int32_t)value
 	{
+		_length = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Length" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @synthesize syncRoot = _syncRoot;
+    - (System_Object *)syncRoot
     {
-		MonoObject * monoObject = [self getMonoProperty:"SyncRoot"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
+		_syncRoot = [System_Object objectWithMonoObject:monoObject];
+
+		return _syncRoot;
 	}
 
 #pragma mark -
@@ -139,16 +166,16 @@
     - (System_Collections_BitArray *)and_withValue:(System_Collections_BitArray *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"And(System.Collections.BitArray)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_BitArray representationWithMonoObject:monoObject];
+		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone
+    - (System_Object *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CopyTo
@@ -174,7 +201,7 @@
     - (System_Collections_IEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Collections_IEnumerator representationWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Not
@@ -183,7 +210,7 @@
     - (System_Collections_BitArray *)not
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Not()" withNumArgs:0];
-		return [System_Collections_BitArray representationWithMonoObject:monoObject];
+		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Or
@@ -192,7 +219,7 @@
     - (System_Collections_BitArray *)or_withValue:(System_Collections_BitArray *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Or(System.Collections.BitArray)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_BitArray representationWithMonoObject:monoObject];
+		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Set
@@ -217,7 +244,13 @@
     - (System_Collections_BitArray *)xor_withValue:(System_Collections_BitArray *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Xor(System.Collections.BitArray)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_BitArray representationWithMonoObject:monoObject];
+		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

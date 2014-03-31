@@ -2,7 +2,7 @@
 //
 // Managed class : ContextProperty
 //
-@interface System_Runtime_Remoting_Contexts_ContextProperty : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Contexts_ContextProperty : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)property;
+	// Managed property name : Property
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * property;
 @end
 //--Dubrovnik.CodeGenerator

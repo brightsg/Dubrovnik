@@ -2,7 +2,7 @@
 //
 // Managed class : SortVersion
 //
-@interface System_Globalization_SortVersion : DBMonoObjectRepresentation
+@interface System_Globalization_SortVersion : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,11 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)fullVersion;
+	// Managed property name : FullVersion
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t fullVersion;
 
-	// Managed type : System.Guid
-    - (System_Guid *)sortId;
+	// Managed property name : SortId
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * sortId;
 
 #pragma mark -
 #pragma mark Methods
@@ -34,7 +36,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

@@ -3,6 +3,12 @@
 //
 // Managed class : InterfaceImplementedInVersionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_WindowsRuntime_InterfaceImplementedInVersionAttribute
 
 #pragma mark -
@@ -32,44 +38,66 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte
+	// Managed property name : BuildVersion
+	// Managed property type : System.Byte
+    @synthesize buildVersion = _buildVersion;
     - (uint8_t)buildVersion
     {
-		MonoObject * monoObject = [self getMonoProperty:"BuildVersion"];
-		uint8_t result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BuildVersion"];
+		_buildVersion = DB_UNBOX_UINT8(monoObject);
+
+		return _buildVersion;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : InterfaceType
+	// Managed property type : System.Type
+    @synthesize interfaceType = _interfaceType;
     - (System_Type *)interfaceType
     {
-		MonoObject * monoObject = [self getMonoProperty:"InterfaceType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InterfaceType"];
+		if ([self object:_interfaceType isEqualToMonoObject:monoObject]) return _interfaceType;					
+		_interfaceType = [System_Type objectWithMonoObject:monoObject];
+
+		return _interfaceType;
 	}
 
-	// Managed type : System.Byte
+	// Managed property name : MajorVersion
+	// Managed property type : System.Byte
+    @synthesize majorVersion = _majorVersion;
     - (uint8_t)majorVersion
     {
-		MonoObject * monoObject = [self getMonoProperty:"MajorVersion"];
-		uint8_t result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MajorVersion"];
+		_majorVersion = DB_UNBOX_UINT8(monoObject);
+
+		return _majorVersion;
 	}
 
-	// Managed type : System.Byte
+	// Managed property name : MinorVersion
+	// Managed property type : System.Byte
+    @synthesize minorVersion = _minorVersion;
     - (uint8_t)minorVersion
     {
-		MonoObject * monoObject = [self getMonoProperty:"MinorVersion"];
-		uint8_t result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MinorVersion"];
+		_minorVersion = DB_UNBOX_UINT8(monoObject);
+
+		return _minorVersion;
 	}
 
-	// Managed type : System.Byte
+	// Managed property name : RevisionVersion
+	// Managed property type : System.Byte
+    @synthesize revisionVersion = _revisionVersion;
     - (uint8_t)revisionVersion
     {
-		MonoObject * monoObject = [self getMonoProperty:"RevisionVersion"];
-		uint8_t result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RevisionVersion"];
+		_revisionVersion = DB_UNBOX_UINT8(monoObject);
+
+		return _revisionVersion;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

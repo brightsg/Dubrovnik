@@ -2,7 +2,7 @@
 //
 // Managed struct : DISPPARAMS
 //
-@interface System_Runtime_InteropServices_DISPPARAMS : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_DISPPARAMS : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,20 +14,20 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
-    - (int32_t)cArgs;
-    - (void)setCArgs:(int32_t)value;
+	// Managed field name : cArgs
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t cArgs;
 
-	// Managed type : System.Int32
-    - (int32_t)cNamedArgs;
-    - (void)setCNamedArgs:(int32_t)value;
+	// Managed field name : cNamedArgs
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t cNamedArgs;
 
-	// Managed type : System.IntPtr
-    - (void *)rgdispidNamedArgs;
-    - (void)setRgdispidNamedArgs:(void *)value;
+	// Managed field name : rgdispidNamedArgs
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * rgdispidNamedArgs;
 
-	// Managed type : System.IntPtr
-    - (void *)rgvarg;
-    - (void)setRgvarg:(void *)value;
+	// Managed field name : rgvarg
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * rgvarg;
 @end
 //--Dubrovnik.CodeGenerator

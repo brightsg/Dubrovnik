@@ -2,7 +2,7 @@
 //
 // Managed interface : _ParameterBuilder
 //
-@interface System_Runtime_InteropServices__ParameterBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__ParameterBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

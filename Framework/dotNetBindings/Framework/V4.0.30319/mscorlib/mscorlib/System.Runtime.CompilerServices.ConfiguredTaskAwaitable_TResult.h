@@ -2,7 +2,7 @@
 //
 // Managed struct : ConfiguredTaskAwaitable<TResult>
 //
-@interface System_Runtime_CompilerServices_ConfiguredTaskAwaitable : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_ConfiguredTaskAwaitable : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup

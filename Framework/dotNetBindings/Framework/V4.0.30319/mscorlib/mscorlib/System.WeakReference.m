@@ -3,6 +3,12 @@
 //
 // Managed class : WeakReference
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_WeakReference
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference
 	// Managed param types : System.Object
-    + (System_WeakReference *)new_withTarget:(DBMonoObjectRepresentation *)p1
+    + (System_WeakReference *)new_withTarget:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
     }
@@ -32,7 +38,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference
 	// Managed param types : System.Object, System.Boolean
-    + (System_WeakReference *)new_withTarget:(DBMonoObjectRepresentation *)p1 trackResurrection:(BOOL)p2
+    + (System_WeakReference *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2
     {
 		return [[self alloc] initWithSignature:"object,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -40,33 +46,44 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsAlive
+	// Managed property type : System.Boolean
+    @synthesize isAlive = _isAlive;
     - (BOOL)isAlive
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsAlive"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsAlive"];
+		_isAlive = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isAlive;
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)target
+	// Managed property name : Target
+	// Managed property type : System.Object
+    @synthesize target = _target;
+    - (System_Object *)target
     {
-		MonoObject * monoObject = [self getMonoProperty:"Target"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Target"];
+		if ([self object:_target isEqualToMonoObject:monoObject]) return _target;					
+		_target = [System_Object objectWithMonoObject:monoObject];
+
+		return _target;
 	}
-    - (void)setTarget:(DBMonoObjectRepresentation *)value
+    - (void)setTarget:(System_Object *)value
 	{
+		_target = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Target" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : TrackResurrection
+	// Managed property type : System.Boolean
+    @synthesize trackResurrection = _trackResurrection;
     - (BOOL)trackResurrection
     {
-		MonoObject * monoObject = [self getMonoProperty:"TrackResurrection"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TrackResurrection"];
+		_trackResurrection = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _trackResurrection;
 	}
 
 #pragma mark -
@@ -79,5 +96,11 @@
     {
 		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

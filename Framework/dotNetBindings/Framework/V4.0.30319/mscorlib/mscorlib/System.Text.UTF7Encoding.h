@@ -25,7 +25,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetByteCount
 	// Managed return type : System.Int32

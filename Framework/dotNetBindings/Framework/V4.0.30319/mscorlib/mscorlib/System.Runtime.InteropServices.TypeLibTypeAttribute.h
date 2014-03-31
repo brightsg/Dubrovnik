@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.TypeLibTypeFlags
-    - (System_Runtime_InteropServices_TypeLibTypeFlags)value;
+	// Managed property name : Value
+	// Managed property type : System.Runtime.InteropServices.TypeLibTypeFlags
+    @property (nonatomic, readonly) System_Runtime_InteropServices_TypeLibTypeFlags value;
 @end
 //--Dubrovnik.CodeGenerator

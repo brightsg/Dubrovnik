@@ -2,7 +2,7 @@
 //
 // Managed class : Module
 //
-@interface System_Reflection_Module : DBMonoObjectRepresentation
+@interface System_Reflection_Module : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,41 +14,52 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Reflection.TypeFilter
+	// Managed field name : FilterTypeName
+	// Managed field type : System.Reflection.TypeFilter
     + (System_Reflection_TypeFilter *)filterTypeName;
 
-	// Managed type : System.Reflection.TypeFilter
+	// Managed field name : FilterTypeNameIgnoreCase
+	// Managed field type : System.Reflection.TypeFilter
     + (System_Reflection_TypeFilter *)filterTypeNameIgnoreCase;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)assembly;
+	// Managed property name : Assembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * assembly;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    - (System_Collections_Generic_IEnumerable *)customAttributes;
+	// Managed property name : CustomAttributes
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
 
-	// Managed type : System.String
-    - (NSString *)fullyQualifiedName;
+	// Managed property name : FullyQualifiedName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullyQualifiedName;
 
-	// Managed type : System.Int32
-    - (int32_t)mDStreamVersion;
+	// Managed property name : MDStreamVersion
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t mDStreamVersion;
 
-	// Managed type : System.Int32
-    - (int32_t)metadataToken;
+	// Managed property name : MetadataToken
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t metadataToken;
 
-	// Managed type : System.ModuleHandle
-    - (System_ModuleHandle *)moduleHandle;
+	// Managed property name : ModuleHandle
+	// Managed property type : System.ModuleHandle
+    @property (nonatomic, strong, readonly) System_ModuleHandle * moduleHandle;
 
-	// Managed type : System.Guid
-    - (System_Guid *)moduleVersionId;
+	// Managed property name : ModuleVersionId
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * moduleVersionId;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)scopeName;
+	// Managed property name : ScopeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * scopeName;
 
 #pragma mark -
 #pragma mark Methods
@@ -56,12 +67,12 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : FindTypes
 	// Managed return type : System.Type[]
 	// Managed param types : System.Reflection.TypeFilter, System.Object
-    - (DBSystem_Array *)findTypes_withFilter:(System_Reflection_TypeFilter *)p1 filterCriteria:(DBMonoObjectRepresentation *)p2;
+    - (DBSystem_Array *)findTypes_withFilter:(System_Reflection_TypeFilter *)p1 filterCriteria:(System_Object *)p2;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Object[]

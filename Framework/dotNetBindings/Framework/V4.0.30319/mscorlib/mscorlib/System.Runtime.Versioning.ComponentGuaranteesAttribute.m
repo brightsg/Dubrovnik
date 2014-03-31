@@ -3,6 +3,12 @@
 //
 // Managed class : ComponentGuaranteesAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Versioning_ComponentGuaranteesAttribute
 
 #pragma mark -
@@ -32,12 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Versioning.ComponentGuaranteesOptions
+	// Managed property name : Guarantees
+	// Managed property type : System.Runtime.Versioning.ComponentGuaranteesOptions
+    @synthesize guarantees = _guarantees;
     - (System_Runtime_Versioning_ComponentGuaranteesOptions)guarantees
     {
-		MonoObject * monoObject = [self getMonoProperty:"Guarantees"];
-		System_Runtime_Versioning_ComponentGuaranteesOptions result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Guarantees"];
+		_guarantees = DB_UNBOX_INT32(monoObject);
+
+		return _guarantees;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

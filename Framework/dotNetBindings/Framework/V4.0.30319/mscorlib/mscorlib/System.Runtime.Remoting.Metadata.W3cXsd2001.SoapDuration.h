@@ -2,7 +2,7 @@
 //
 // Managed class : SoapDuration
 //
-@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDuration : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDuration : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : XsdType
+	// Managed property type : System.String
     + (NSString *)xsdType;
 
 #pragma mark -

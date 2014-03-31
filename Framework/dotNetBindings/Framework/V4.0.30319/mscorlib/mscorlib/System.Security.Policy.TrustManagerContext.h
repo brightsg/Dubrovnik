@@ -2,7 +2,7 @@
 //
 // Managed class : TrustManagerContext
 //
-@interface System_Security_Policy_TrustManagerContext : DBMonoObjectRepresentation
+@interface System_Security_Policy_TrustManagerContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,28 +22,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)ignorePersistedDecision;
-    - (void)setIgnorePersistedDecision:(BOOL)value;
+	// Managed property name : IgnorePersistedDecision
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL ignorePersistedDecision;
 
-	// Managed type : System.Boolean
-    - (BOOL)keepAlive;
-    - (void)setKeepAlive:(BOOL)value;
+	// Managed property name : KeepAlive
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL keepAlive;
 
-	// Managed type : System.Boolean
-    - (BOOL)noPrompt;
-    - (void)setNoPrompt:(BOOL)value;
+	// Managed property name : NoPrompt
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL noPrompt;
 
-	// Managed type : System.Boolean
-    - (BOOL)persist;
-    - (void)setPersist:(BOOL)value;
+	// Managed property name : Persist
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL persist;
 
-	// Managed type : System.ApplicationIdentity
-    - (System_ApplicationIdentity *)previousApplicationIdentity;
-    - (void)setPreviousApplicationIdentity:(System_ApplicationIdentity *)value;
+	// Managed property name : PreviousApplicationIdentity
+	// Managed property type : System.ApplicationIdentity
+    @property (nonatomic, strong) System_ApplicationIdentity * previousApplicationIdentity;
 
-	// Managed type : System.Security.Policy.TrustManagerUIContext
-    - (System_Security_Policy_TrustManagerUIContext)uIContext;
-    - (void)setUIContext:(System_Security_Policy_TrustManagerUIContext)value;
+	// Managed property name : UIContext
+	// Managed property type : System.Security.Policy.TrustManagerUIContext
+    @property (nonatomic) System_Security_Policy_TrustManagerUIContext uIContext;
 @end
 //--Dubrovnik.CodeGenerator

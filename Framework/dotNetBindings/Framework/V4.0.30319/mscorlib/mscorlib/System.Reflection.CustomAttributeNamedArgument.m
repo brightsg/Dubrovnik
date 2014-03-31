@@ -3,6 +3,12 @@
 //
 // Managed struct : CustomAttributeNamedArgument
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_CustomAttributeNamedArgument
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.CustomAttributeNamedArgument
 	// Managed param types : System.Reflection.MemberInfo, System.Object
-    + (System_Reflection_CustomAttributeNamedArgument *)new_withMemberInfo:(System_Reflection_MemberInfo *)p1 value:(DBMonoObjectRepresentation *)p2
+    + (System_Reflection_CustomAttributeNamedArgument *)new_withMemberInfo:(System_Reflection_MemberInfo *)p1 value:(System_Object *)p2
     {
 		return [[self alloc] initWithSignature:"System.Reflection.MemberInfo,object" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -40,36 +46,51 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsField
+	// Managed property type : System.Boolean
+    @synthesize isField = _isField;
     - (BOOL)isField
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsField"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsField"];
+		_isField = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isField;
 	}
 
-	// Managed type : System.Reflection.MemberInfo
+	// Managed property name : MemberInfo
+	// Managed property type : System.Reflection.MemberInfo
+    @synthesize memberInfo = _memberInfo;
     - (System_Reflection_MemberInfo *)memberInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"MemberInfo"];
-		System_Reflection_MemberInfo * result = [System_Reflection_MemberInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MemberInfo"];
+		if ([self object:_memberInfo isEqualToMonoObject:monoObject]) return _memberInfo;					
+		_memberInfo = [System_Reflection_MemberInfo objectWithMonoObject:monoObject];
+
+		return _memberInfo;
 	}
 
-	// Managed type : System.String
+	// Managed property name : MemberName
+	// Managed property type : System.String
+    @synthesize memberName = _memberName;
     - (NSString *)memberName
     {
-		MonoObject * monoObject = [self getMonoProperty:"MemberName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MemberName"];
+		if ([self object:_memberName isEqualToMonoObject:monoObject]) return _memberName;					
+		_memberName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _memberName;
 	}
 
-	// Managed type : System.Reflection.CustomAttributeTypedArgument
+	// Managed property name : TypedValue
+	// Managed property type : System.Reflection.CustomAttributeTypedArgument
+    @synthesize typedValue = _typedValue;
     - (System_Reflection_CustomAttributeTypedArgument *)typedValue
     {
-		MonoObject * monoObject = [self getMonoProperty:"TypedValue"];
-		System_Reflection_CustomAttributeTypedArgument * result = [System_Reflection_CustomAttributeTypedArgument representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TypedValue"];
+		if ([self object:_typedValue isEqualToMonoObject:monoObject]) return _typedValue;					
+		_typedValue = [System_Reflection_CustomAttributeTypedArgument objectWithMonoObject:monoObject];
+
+		return _typedValue;
 	}
 
 #pragma mark -
@@ -78,7 +99,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -119,5 +140,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

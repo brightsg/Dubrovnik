@@ -14,20 +14,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)applyToMembers;
-    - (void)setApplyToMembers:(BOOL)value;
+	// Managed property name : ApplyToMembers
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL applyToMembers;
 
-	// Managed type : System.Boolean
-    - (BOOL)exclude;
-    - (void)setExclude:(BOOL)value;
+	// Managed property name : Exclude
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL exclude;
 
-	// Managed type : System.String
-    - (NSString *)feature;
-    - (void)setFeature:(NSString *)value;
+	// Managed property name : Feature
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * feature;
 
-	// Managed type : System.Boolean
-    - (BOOL)stripAfterObfuscation;
-    - (void)setStripAfterObfuscation:(BOOL)value;
+	// Managed property name : StripAfterObfuscation
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL stripAfterObfuscation;
 @end
 //--Dubrovnik.CodeGenerator

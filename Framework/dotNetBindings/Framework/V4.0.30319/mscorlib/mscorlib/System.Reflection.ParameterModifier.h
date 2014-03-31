@@ -2,7 +2,7 @@
 //
 // Managed struct : ParameterModifier
 //
-@interface System_Reflection_ParameterModifier : DBMonoObjectRepresentation
+@interface System_Reflection_ParameterModifier : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -22,8 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)item;
-    - (void)setItem:(BOOL)value;
+	// Managed property name : Item
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL item;
 @end
 //--Dubrovnik.CodeGenerator

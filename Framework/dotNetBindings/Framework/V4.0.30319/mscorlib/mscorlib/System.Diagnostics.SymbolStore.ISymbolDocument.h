@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolDocument
 //
-@interface System_Diagnostics_SymbolStore_ISymbolDocument : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolDocument : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,26 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Guid
-    - (System_Guid *)checkSumAlgorithmId;
+	// Managed property name : CheckSumAlgorithmId
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * checkSumAlgorithmId;
 
-	// Managed type : System.Guid
-    - (System_Guid *)documentType;
+	// Managed property name : DocumentType
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * documentType;
 
-	// Managed type : System.Boolean
-    - (BOOL)hasEmbeddedSource;
+	// Managed property name : HasEmbeddedSource
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL hasEmbeddedSource;
 
-	// Managed type : System.Guid
-    - (System_Guid *)language;
+	// Managed property name : Language
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * language;
 
-	// Managed type : System.Guid
-    - (System_Guid *)languageVendor;
+	// Managed property name : LanguageVendor
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * languageVendor;
 
-	// Managed type : System.Int32
-    - (int32_t)sourceLength;
+	// Managed property name : SourceLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t sourceLength;
 
-	// Managed type : System.String
-    - (NSString *)uRL;
+	// Managed property name : URL
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * uRL;
 
 #pragma mark -
 #pragma mark Methods

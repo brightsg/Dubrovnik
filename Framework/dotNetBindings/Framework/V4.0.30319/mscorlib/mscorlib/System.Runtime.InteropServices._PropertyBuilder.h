@@ -2,7 +2,7 @@
 //
 // Managed interface : _PropertyBuilder
 //
-@interface System_Runtime_InteropServices__PropertyBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__PropertyBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed class : LocalBuilder
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_LocalBuilder
 
 #pragma mark -
@@ -21,28 +27,38 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsPinned
+	// Managed property type : System.Boolean
+    @synthesize isPinned = _isPinned;
     - (BOOL)isPinned
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsPinned"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsPinned"];
+		_isPinned = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isPinned;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : LocalIndex
+	// Managed property type : System.Int32
+    @synthesize localIndex = _localIndex;
     - (int32_t)localIndex
     {
-		MonoObject * monoObject = [self getMonoProperty:"LocalIndex"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LocalIndex"];
+		_localIndex = DB_UNBOX_INT32(monoObject);
+
+		return _localIndex;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : LocalType
+	// Managed property type : System.Type
+    @synthesize localType = _localType;
     - (System_Type *)localType
     {
-		MonoObject * monoObject = [self getMonoProperty:"LocalType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LocalType"];
+		if ([self object:_localType isEqualToMonoObject:monoObject]) return _localType;					
+		_localType = [System_Type objectWithMonoObject:monoObject];
+
+		return _localType;
 	}
 
 #pragma mark -
@@ -63,5 +79,11 @@
     {
 		[self invokeMonoMethod:"SetLocalSymInfo(string,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

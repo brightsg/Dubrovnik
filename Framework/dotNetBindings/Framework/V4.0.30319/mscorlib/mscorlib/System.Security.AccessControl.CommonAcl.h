@@ -14,27 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isCanonical;
+	// Managed property name : IsCanonical
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCanonical;
 
-	// Managed type : System.Boolean
-    - (BOOL)isContainer;
+	// Managed property name : IsContainer
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isContainer;
 
-	// Managed type : System.Boolean
-    - (BOOL)isDS;
+	// Managed property name : IsDS
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isDS;
 
-	// Managed type : System.Security.AccessControl.GenericAce
-    - (System_Security_AccessControl_GenericAce *)item;
-    - (void)setItem:(System_Security_AccessControl_GenericAce *)value;
+	// Managed property name : Item
+	// Managed property type : System.Security.AccessControl.GenericAce
+    @property (nonatomic, strong) System_Security_AccessControl_GenericAce * item;
 
-	// Managed type : System.Byte
-    - (uint8_t)revision;
+	// Managed property name : Revision
+	// Managed property type : System.Byte
+    @property (nonatomic, readonly) uint8_t revision;
 
 #pragma mark -
 #pragma mark Methods

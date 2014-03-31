@@ -3,6 +3,12 @@
 //
 // Managed class : TextWriter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_TextWriter
 
 #pragma mark -
@@ -21,42 +27,59 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.TextWriter
+	// Managed field name : Null
+	// Managed field type : System.IO.TextWriter
+    static System_IO_TextWriter * m_null;
     + (System_IO_TextWriter *)null
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Null" valuePtr:DB_PTR(monoObject)];
-		return [System_IO_TextWriter representationWithMonoObject:monoObject];
+		if ([self object:m_null isEqualToMonoObject:monoObject]) return m_null;					
+		m_null = [System_IO_TextWriter objectWithMonoObject:monoObject];
+		return m_null;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : Encoding
+	// Managed property type : System.Text.Encoding
+    @synthesize encoding = _encoding;
     - (System_Text_Encoding *)encoding
     {
-		MonoObject * monoObject = [self getMonoProperty:"Encoding"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Encoding"];
+		if ([self object:_encoding isEqualToMonoObject:monoObject]) return _encoding;					
+		_encoding = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return _encoding;
 	}
 
-	// Managed type : System.IFormatProvider
+	// Managed property name : FormatProvider
+	// Managed property type : System.IFormatProvider
+    @synthesize formatProvider = _formatProvider;
     - (System_IFormatProvider *)formatProvider
     {
-		MonoObject * monoObject = [self getMonoProperty:"FormatProvider"];
-		System_IFormatProvider * result = [System_IFormatProvider representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FormatProvider"];
+		if ([self object:_formatProvider isEqualToMonoObject:monoObject]) return _formatProvider;					
+		_formatProvider = [System_IFormatProvider objectWithMonoObject:monoObject];
+
+		return _formatProvider;
 	}
 
-	// Managed type : System.String
+	// Managed property name : NewLine
+	// Managed property type : System.String
+    @synthesize newLine = _newLine;
     - (NSString *)newLine
     {
-		MonoObject * monoObject = [self getMonoProperty:"NewLine"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"NewLine"];
+		if ([self object:_newLine isEqualToMonoObject:monoObject]) return _newLine;					
+		_newLine = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _newLine;
 	}
     - (void)setNewLine:(NSString *)value
 	{
+		_newLine = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"NewLine" valueObject:monoObject];          
 	}
@@ -94,7 +117,7 @@
     - (System_Threading_Tasks_Task *)flushAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Synchronized
@@ -103,7 +126,7 @@
     - (System_IO_TextWriter *)synchronized_withWriter:(System_IO_TextWriter *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Synchronized(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_TextWriter representationWithMonoObject:monoObject];
+		return [System_IO_TextWriter objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Write
@@ -205,7 +228,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)write_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (void)write_withValueObject:(System_Object *)p1
     {
 		[self invokeMonoMethod:"Write(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -213,7 +236,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Write(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -221,7 +244,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
 		[self invokeMonoMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -229,7 +252,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
 		[self invokeMonoMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
@@ -248,7 +271,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteAsync
@@ -257,7 +280,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteAsync
@@ -266,7 +289,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteAsync
@@ -275,7 +298,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLine
@@ -385,7 +408,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)writeLine_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (void)writeLine_withValueObject:(System_Object *)p1
     {
 		[self invokeMonoMethod:"WriteLine(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -393,7 +416,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
 		[self invokeMonoMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -401,7 +424,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
 		[self invokeMonoMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -409,7 +432,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
 		[self invokeMonoMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
@@ -428,7 +451,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -437,7 +460,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -446,7 +469,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -455,7 +478,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -464,7 +487,14 @@
     - (System_Threading_Tasks_Task *)writeLineAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_null = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

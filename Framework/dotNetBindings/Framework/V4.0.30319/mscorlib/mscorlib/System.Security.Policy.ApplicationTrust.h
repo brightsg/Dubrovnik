@@ -27,28 +27,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ApplicationIdentity
-    - (System_ApplicationIdentity *)applicationIdentity;
-    - (void)setApplicationIdentity:(System_ApplicationIdentity *)value;
+	// Managed property name : ApplicationIdentity
+	// Managed property type : System.ApplicationIdentity
+    @property (nonatomic, strong) System_ApplicationIdentity * applicationIdentity;
 
-	// Managed type : System.Security.Policy.PolicyStatement
-    - (System_Security_Policy_PolicyStatement *)defaultGrantSet;
-    - (void)setDefaultGrantSet:(System_Security_Policy_PolicyStatement *)value;
+	// Managed property name : DefaultGrantSet
+	// Managed property type : System.Security.Policy.PolicyStatement
+    @property (nonatomic, strong) System_Security_Policy_PolicyStatement * defaultGrantSet;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)extraInfo;
-    - (void)setExtraInfo:(DBMonoObjectRepresentation *)value;
+	// Managed property name : ExtraInfo
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * extraInfo;
 
-	// Managed type : System.Collections.Generic.IList<System.Security.Policy.StrongName>
-    - (System_Collections_Generic_IList *)fullTrustAssemblies;
+	// Managed property name : FullTrustAssemblies
+	// Managed property type : System.Collections.Generic.IList<System.Security.Policy.StrongName>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * fullTrustAssemblies;
 
-	// Managed type : System.Boolean
-    - (BOOL)isApplicationTrustedToRun;
-    - (void)setIsApplicationTrustedToRun:(BOOL)value;
+	// Managed property name : IsApplicationTrustedToRun
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL isApplicationTrustedToRun;
 
-	// Managed type : System.Boolean
-    - (BOOL)persist;
-    - (void)setPersist:(BOOL)value;
+	// Managed property name : Persist
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL persist;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed class : BStrWrapper
 //
-@interface System_Runtime_InteropServices_BStrWrapper : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_BStrWrapper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,12 +22,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.BStrWrapper
 	// Managed param types : System.Object
-    + (System_Runtime_InteropServices_BStrWrapper *)new_withValueObject:(DBMonoObjectRepresentation *)p1;
+    + (System_Runtime_InteropServices_BStrWrapper *)new_withValueObject:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)wrappedObject;
+	// Managed property name : WrappedObject
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * wrappedObject;
 @end
 //--Dubrovnik.CodeGenerator

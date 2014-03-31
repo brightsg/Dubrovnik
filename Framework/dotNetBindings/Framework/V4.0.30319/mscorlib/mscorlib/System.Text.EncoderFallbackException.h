@@ -27,17 +27,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Char
-    - (uint16_t)charUnknown;
+	// Managed property name : CharUnknown
+	// Managed property type : System.Char
+    @property (nonatomic, readonly) uint16_t charUnknown;
 
-	// Managed type : System.Char
-    - (uint16_t)charUnknownHigh;
+	// Managed property name : CharUnknownHigh
+	// Managed property type : System.Char
+    @property (nonatomic, readonly) uint16_t charUnknownHigh;
 
-	// Managed type : System.Char
-    - (uint16_t)charUnknownLow;
+	// Managed property name : CharUnknownLow
+	// Managed property type : System.Char
+    @property (nonatomic, readonly) uint16_t charUnknownLow;
 
-	// Managed type : System.Int32
-    - (int32_t)index;
+	// Managed property name : Index
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t index;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed interface : ISymbolWriter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_SymbolStore_ISymbolWriter
 
 #pragma mark -
@@ -59,7 +65,7 @@
     - (System_Diagnostics_SymbolStore_ISymbolDocumentWriter *)defineDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDocument(string,System.Guid,System.Guid,System.Guid)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
-		return [System_Diagnostics_SymbolStore_ISymbolDocumentWriter representationWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolDocumentWriter objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineField
@@ -182,5 +188,11 @@
     {
 		[self invokeMonoMethod:"UsingNamespace(string)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

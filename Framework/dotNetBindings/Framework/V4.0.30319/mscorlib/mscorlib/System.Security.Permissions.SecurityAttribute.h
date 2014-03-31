@@ -14,13 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.SecurityAction
-    - (System_Security_Permissions_SecurityAction)action;
-    - (void)setAction:(System_Security_Permissions_SecurityAction)value;
+	// Managed property name : Action
+	// Managed property type : System.Security.Permissions.SecurityAction
+    @property (nonatomic) System_Security_Permissions_SecurityAction action;
 
-	// Managed type : System.Boolean
-    - (BOOL)unrestricted;
-    - (void)setUnrestricted:(BOOL)value;
+	// Managed property name : Unrestricted
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL unrestricted;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed class : FileLoadException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_FileLoadException
 
 #pragma mark -
@@ -56,28 +62,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : FileName
+	// Managed property type : System.String
+    @synthesize fileName = _fileName;
     - (NSString *)fileName
     {
-		MonoObject * monoObject = [self getMonoProperty:"FileName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FileName"];
+		if ([self object:_fileName isEqualToMonoObject:monoObject]) return _fileName;					
+		_fileName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _fileName;
 	}
 
-	// Managed type : System.String
+	// Managed property name : FusionLog
+	// Managed property type : System.String
+    @synthesize fusionLog = _fusionLog;
     - (NSString *)fusionLog
     {
-		MonoObject * monoObject = [self getMonoProperty:"FusionLog"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FusionLog"];
+		if ([self object:_fusionLog isEqualToMonoObject:monoObject]) return _fusionLog;					
+		_fusionLog = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _fusionLog;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Message
+	// Managed property type : System.String
+    @synthesize message = _message;
     - (NSString *)message
     {
-		MonoObject * monoObject = [self getMonoProperty:"Message"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Message"];
+		if ([self object:_message isEqualToMonoObject:monoObject]) return _message;					
+		_message = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _message;
 	}
 
 #pragma mark -
@@ -99,5 +117,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

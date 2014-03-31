@@ -2,7 +2,7 @@
 //
 // Managed interface : _AssemblyName
 //
-@interface System_Runtime_InteropServices__AssemblyName : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__AssemblyName : System_Object
 
 #pragma mark -
 #pragma mark Setup

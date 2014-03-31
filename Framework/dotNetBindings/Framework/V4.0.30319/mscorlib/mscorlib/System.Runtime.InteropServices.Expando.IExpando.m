@@ -3,6 +3,12 @@
 //
 // Managed interface : IExpando
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_Expando_IExpando
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Reflection_FieldInfo *)addField_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddField(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_FieldInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddMethod
@@ -36,7 +42,7 @@
     - (System_Reflection_MethodInfo *)addMethod_withName:(NSString *)p1 method:(System_Delegate *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMethod(string,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Reflection_MethodInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddProperty
@@ -45,7 +51,7 @@
     - (System_Reflection_PropertyInfo *)addProperty_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddProperty(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_PropertyInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemoveMember
@@ -55,5 +61,11 @@
     {
 		[self invokeMonoMethod:"RemoveMember(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

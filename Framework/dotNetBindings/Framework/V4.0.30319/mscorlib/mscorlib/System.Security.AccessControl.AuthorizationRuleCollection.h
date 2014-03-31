@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AuthorizationRule
-    - (System_Security_AccessControl_AuthorizationRule *)item;
+	// Managed property name : Item
+	// Managed property type : System.Security.AccessControl.AuthorizationRule
+    @property (nonatomic, strong, readonly) System_Security_AccessControl_AuthorizationRule * item;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblySignatureKeyAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblySignatureKeyAttribute
 
 #pragma mark -
@@ -32,20 +38,34 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Countersignature
+	// Managed property type : System.String
+    @synthesize countersignature = _countersignature;
     - (NSString *)countersignature
     {
-		MonoObject * monoObject = [self getMonoProperty:"Countersignature"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Countersignature"];
+		if ([self object:_countersignature isEqualToMonoObject:monoObject]) return _countersignature;					
+		_countersignature = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _countersignature;
 	}
 
-	// Managed type : System.String
+	// Managed property name : PublicKey
+	// Managed property type : System.String
+    @synthesize publicKey = _publicKey;
     - (NSString *)publicKey
     {
-		MonoObject * monoObject = [self getMonoProperty:"PublicKey"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PublicKey"];
+		if ([self object:_publicKey isEqualToMonoObject:monoObject]) return _publicKey;					
+		_publicKey = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _publicKey;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

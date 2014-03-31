@@ -2,7 +2,7 @@
 //
 // Managed class : ServerFault
 //
-@interface System_Runtime_Serialization_Formatters_ServerFault : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_Formatters_ServerFault : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,16 +22,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)exceptionMessage;
-    - (void)setExceptionMessage:(NSString *)value;
+	// Managed property name : ExceptionMessage
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * exceptionMessage;
 
-	// Managed type : System.String
-    - (NSString *)exceptionType;
-    - (void)setExceptionType:(NSString *)value;
+	// Managed property name : ExceptionType
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * exceptionType;
 
-	// Managed type : System.String
-    - (NSString *)stackTrace;
-    - (void)setStackTrace:(NSString *)value;
+	// Managed property name : StackTrace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * stackTrace;
 @end
 //--Dubrovnik.CodeGenerator

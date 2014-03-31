@@ -2,7 +2,7 @@
 //
 // Managed class : CriticalFinalizerObject
 //
-@interface System_Runtime_ConstrainedExecution_CriticalFinalizerObject : DBMonoObjectRepresentation
+@interface System_Runtime_ConstrainedExecution_CriticalFinalizerObject : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed class : CustomAttributeExtensions
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_CustomAttributeExtensions
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Attribute representationWithMonoObject:monoObject];
+		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
@@ -36,7 +42,7 @@
     - (System_Attribute *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Attribute representationWithMonoObject:monoObject];
+		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
@@ -45,7 +51,7 @@
     - (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Attribute representationWithMonoObject:monoObject];
+		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
@@ -54,43 +60,43 @@
     - (System_Attribute *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Attribute representationWithMonoObject:monoObject];
+		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.Assembly
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1
+    - (DBManagedObject *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.Module
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1
+    - (DBManagedObject *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.MemberInfo
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1
+    - (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.ParameterInfo
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1
+    - (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
@@ -99,7 +105,7 @@
     - (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Attribute representationWithMonoObject:monoObject];
+		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
@@ -108,25 +114,25 @@
     - (System_Attribute *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Attribute representationWithMonoObject:monoObject];
+		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.MemberInfo, System.Boolean
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2
+    - (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.ParameterInfo, System.Boolean
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 inheritBool:(BOOL)p2
+    - (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 inheritBool:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -135,7 +141,7 @@
     - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -144,7 +150,7 @@
     - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -153,7 +159,7 @@
     - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -162,7 +168,7 @@
     - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -171,7 +177,7 @@
     - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -180,7 +186,7 @@
     - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsDefined
@@ -236,5 +242,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

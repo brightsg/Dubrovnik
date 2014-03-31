@@ -3,6 +3,12 @@
 //
 // Managed class : ObjectAce
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_ObjectAce
 
 #pragma mark -
@@ -32,50 +38,67 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject * monoObject = [self getMonoProperty:"BinaryLength"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
+		_binaryLength = DB_UNBOX_INT32(monoObject);
+
+		return _binaryLength;
 	}
 
-	// Managed type : System.Guid
+	// Managed property name : InheritedObjectAceType
+	// Managed property type : System.Guid
+    @synthesize inheritedObjectAceType = _inheritedObjectAceType;
     - (System_Guid *)inheritedObjectAceType
     {
-		MonoObject * monoObject = [self getMonoProperty:"InheritedObjectAceType"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InheritedObjectAceType"];
+		if ([self object:_inheritedObjectAceType isEqualToMonoObject:monoObject]) return _inheritedObjectAceType;					
+		_inheritedObjectAceType = [System_Guid objectWithMonoObject:monoObject];
+
+		return _inheritedObjectAceType;
 	}
     - (void)setInheritedObjectAceType:(System_Guid *)value
 	{
-		MonoObject *monoObject = DB_VALUE(value);
+		_inheritedObjectAceType = value;
+		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"InheritedObjectAceType" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.AccessControl.ObjectAceFlags
+	// Managed property name : ObjectAceFlags
+	// Managed property type : System.Security.AccessControl.ObjectAceFlags
+    @synthesize objectAceFlags = _objectAceFlags;
     - (System_Security_AccessControl_ObjectAceFlags)objectAceFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"ObjectAceFlags"];
-		System_Security_AccessControl_ObjectAceFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ObjectAceFlags"];
+		_objectAceFlags = DB_UNBOX_INT32(monoObject);
+
+		return _objectAceFlags;
 	}
     - (void)setObjectAceFlags:(System_Security_AccessControl_ObjectAceFlags)value
 	{
+		_objectAceFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ObjectAceFlags" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Guid
+	// Managed property name : ObjectAceType
+	// Managed property type : System.Guid
+    @synthesize objectAceType = _objectAceType;
     - (System_Guid *)objectAceType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ObjectAceType"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ObjectAceType"];
+		if ([self object:_objectAceType isEqualToMonoObject:monoObject]) return _objectAceType;					
+		_objectAceType = [System_Guid objectWithMonoObject:monoObject];
+
+		return _objectAceType;
 	}
     - (void)setObjectAceType:(System_Guid *)value
 	{
-		MonoObject *monoObject = DB_VALUE(value);
+		_objectAceType = value;
+		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"ObjectAceType" valueObject:monoObject];          
 	}
 
@@ -98,5 +121,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"MaxOpaqueLength(bool)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

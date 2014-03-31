@@ -3,6 +3,12 @@
 //
 // Managed class : DirectoryObjectSecurity
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_DirectoryObjectSecurity
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 type:(System_Security_AccessControl_AccessControlType)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType,System.Guid,System.Guid)" withNumArgs:8, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoValue], [p8 monoValue]];
-		return [System_Security_AccessControl_AccessRule representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AccessRule objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AuditRuleFactory
@@ -36,7 +42,7 @@
     - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 flags:(System_Security_AccessControl_AuditFlags)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags,System.Guid,System.Guid)" withNumArgs:8, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoValue], [p8 monoValue]];
-		return [System_Security_AccessControl_AuditRule representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuditRule objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessRules
@@ -45,7 +51,7 @@
     - (System_Security_AccessControl_AuthorizationRuleCollection *)getAccessRules_withIncludeExplicit:(BOOL)p1 includeInherited:(BOOL)p2 targetType:(System_Type *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessRules(bool,bool,System.Type)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
-		return [System_Security_AccessControl_AuthorizationRuleCollection representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuthorizationRuleCollection objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAuditRules
@@ -54,7 +60,13 @@
     - (System_Security_AccessControl_AuthorizationRuleCollection *)getAuditRules_withIncludeExplicit:(BOOL)p1 includeInherited:(BOOL)p2 targetType:(System_Type *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAuditRules(bool,bool,System.Type)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
-		return [System_Security_AccessControl_AuthorizationRuleCollection representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuthorizationRuleCollection objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

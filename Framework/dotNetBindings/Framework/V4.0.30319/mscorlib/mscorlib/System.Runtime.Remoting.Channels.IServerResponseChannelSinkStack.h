@@ -2,7 +2,7 @@
 //
 // Managed interface : IServerResponseChannelSinkStack
 //
-@interface System_Runtime_Remoting_Channels_IServerResponseChannelSinkStack : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IServerResponseChannelSinkStack : System_Object
 
 #pragma mark -
 #pragma mark Setup

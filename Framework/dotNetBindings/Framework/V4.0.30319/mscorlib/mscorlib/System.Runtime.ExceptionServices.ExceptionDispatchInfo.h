@@ -2,7 +2,7 @@
 //
 // Managed class : ExceptionDispatchInfo
 //
-@interface System_Runtime_ExceptionServices_ExceptionDispatchInfo : DBMonoObjectRepresentation
+@interface System_Runtime_ExceptionServices_ExceptionDispatchInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Exception
-    - (System_Exception *)sourceException;
+	// Managed property name : SourceException
+	// Managed property type : System.Exception
+    @property (nonatomic, strong, readonly) System_Exception * sourceException;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed class : WindowsRuntimeMetadata
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_WindowsRuntime_WindowsRuntimeMetadata
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Collections_Generic_IEnumerable *)resolveNamespace_withNamespaceName:(NSString *)p1 packageGraphFilePaths:(System_Collections_Generic_IEnumerable *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveNamespace(string,System.Collections.Generic.IEnumerable<System.String>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveNamespace
@@ -36,7 +42,13 @@
     - (System_Collections_Generic_IEnumerable *)resolveNamespace_withNamespaceName:(NSString *)p1 windowsSdkFilePath:(NSString *)p2 packageGraphFilePaths:(System_Collections_Generic_IEnumerable *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveNamespace(string,string,System.Collections.Generic.IEnumerable<System.String>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed struct : VARDESC
 //
-@interface System_Runtime_InteropServices_VARDESC : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_VARDESC : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,24 +14,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.ELEMDESC
-    - (System_Runtime_InteropServices_ELEMDESC *)elemdescVar;
-    - (void)setElemdescVar:(System_Runtime_InteropServices_ELEMDESC *)value;
+	// Managed field name : elemdescVar
+	// Managed field type : System.Runtime.InteropServices.ELEMDESC
+    @property (nonatomic, strong) System_Runtime_InteropServices_ELEMDESC * elemdescVar;
 
-	// Managed type : System.String
-    - (NSString *)lpstrSchema;
-    - (void)setLpstrSchema:(NSString *)value;
+	// Managed field name : lpstrSchema
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * lpstrSchema;
 
-	// Managed type : System.Int32
-    - (int32_t)memid;
-    - (void)setMemid:(int32_t)value;
+	// Managed field name : memid
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t memid;
 
-	// Managed type : System.Runtime.InteropServices.VarEnum
-    - (System_Runtime_InteropServices_VarEnum)varkind;
-    - (void)setVarkind:(System_Runtime_InteropServices_VarEnum)value;
+	// Managed field name : varkind
+	// Managed field type : System.Runtime.InteropServices.VarEnum
+    @property (nonatomic) System_Runtime_InteropServices_VarEnum varkind;
 
-	// Managed type : System.Int16
-    - (int16_t)wVarFlags;
-    - (void)setWVarFlags:(int16_t)value;
+	// Managed field name : wVarFlags
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wVarFlags;
 @end
 //--Dubrovnik.CodeGenerator

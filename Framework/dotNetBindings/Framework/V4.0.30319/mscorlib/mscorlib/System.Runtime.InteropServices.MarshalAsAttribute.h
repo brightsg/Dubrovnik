@@ -27,46 +27,47 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
-    - (System_Runtime_InteropServices_UnmanagedType)arraySubType;
-    - (void)setArraySubType:(System_Runtime_InteropServices_UnmanagedType)value;
+	// Managed field name : ArraySubType
+	// Managed field type : System.Runtime.InteropServices.UnmanagedType
+    @property (nonatomic) System_Runtime_InteropServices_UnmanagedType arraySubType;
 
-	// Managed type : System.Int32
-    - (int32_t)iidParameterIndex;
-    - (void)setIidParameterIndex:(int32_t)value;
+	// Managed field name : IidParameterIndex
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t iidParameterIndex;
 
-	// Managed type : System.String
-    - (NSString *)marshalCookie;
-    - (void)setMarshalCookie:(NSString *)value;
+	// Managed field name : MarshalCookie
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * marshalCookie;
 
-	// Managed type : System.String
-    - (NSString *)marshalType;
-    - (void)setMarshalType:(NSString *)value;
+	// Managed field name : MarshalType
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * marshalType;
 
-	// Managed type : System.Type
-    - (System_Type *)marshalTypeRef;
-    - (void)setMarshalTypeRef:(System_Type *)value;
+	// Managed field name : MarshalTypeRef
+	// Managed field type : System.Type
+    @property (nonatomic, strong) System_Type * marshalTypeRef;
 
-	// Managed type : System.Runtime.InteropServices.VarEnum
-    - (System_Runtime_InteropServices_VarEnum)safeArraySubType;
-    - (void)setSafeArraySubType:(System_Runtime_InteropServices_VarEnum)value;
+	// Managed field name : SafeArraySubType
+	// Managed field type : System.Runtime.InteropServices.VarEnum
+    @property (nonatomic) System_Runtime_InteropServices_VarEnum safeArraySubType;
 
-	// Managed type : System.Type
-    - (System_Type *)safeArrayUserDefinedSubType;
-    - (void)setSafeArrayUserDefinedSubType:(System_Type *)value;
+	// Managed field name : SafeArrayUserDefinedSubType
+	// Managed field type : System.Type
+    @property (nonatomic, strong) System_Type * safeArrayUserDefinedSubType;
 
-	// Managed type : System.Int32
-    - (int32_t)sizeConst;
-    - (void)setSizeConst:(int32_t)value;
+	// Managed field name : SizeConst
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t sizeConst;
 
-	// Managed type : System.Int16
-    - (int16_t)sizeParamIndex;
-    - (void)setSizeParamIndex:(int16_t)value;
+	// Managed field name : SizeParamIndex
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t sizeParamIndex;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
-    - (System_Runtime_InteropServices_UnmanagedType)value;
+	// Managed property name : Value
+	// Managed property type : System.Runtime.InteropServices.UnmanagedType
+    @property (nonatomic, readonly) System_Runtime_InteropServices_UnmanagedType value;
 @end
 //--Dubrovnik.CodeGenerator

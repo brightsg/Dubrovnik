@@ -3,6 +3,12 @@
 //
 // Managed interface : ISoapXsd
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Metadata_W3cXsd2001_ISoapXsd
 
 #pragma mark -
@@ -29,5 +35,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetXsdType()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

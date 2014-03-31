@@ -2,7 +2,7 @@
 //
 // Managed interface : IConstructionReturnMessage
 //
-@interface System_Runtime_Remoting_Activation_IConstructionReturnMessage : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Activation_IConstructionReturnMessage : System_Object
 
 #pragma mark -
 #pragma mark Setup

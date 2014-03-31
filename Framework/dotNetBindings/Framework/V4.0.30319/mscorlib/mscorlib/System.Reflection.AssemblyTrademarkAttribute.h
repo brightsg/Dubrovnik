@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)trademark;
+	// Managed property name : Trademark
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * trademark;
 @end
 //--Dubrovnik.CodeGenerator

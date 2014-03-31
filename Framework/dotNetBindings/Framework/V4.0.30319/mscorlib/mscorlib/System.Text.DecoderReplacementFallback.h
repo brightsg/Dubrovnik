@@ -22,11 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)defaultString;
+	// Managed property name : DefaultString
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * defaultString;
 
-	// Managed type : System.Int32
-    - (int32_t)maxCharCount;
+	// Managed property name : MaxCharCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t maxCharCount;
 
 #pragma mark -
 #pragma mark Methods
@@ -39,7 +41,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

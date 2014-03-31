@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)parameters;
-    - (void)setParameters:(NSString *)value;
+	// Managed property name : Parameters
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * parameters;
 
 #pragma mark -
 #pragma mark Methods

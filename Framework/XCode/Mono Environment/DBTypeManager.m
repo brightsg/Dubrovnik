@@ -316,6 +316,11 @@ NSString * DBType_System_Exception =  @"System.Exception";
 #pragma mark -
 #pragma mark Object factory
 
+- (id)objectWithManagedObject:(DBManagedObject *)managedObject
+{
+    return [self objectWithMonoObject:managedObject.monoObject];
+}
+
 - (id)objectWithMonoObject:(MonoObject *)monoObject
 {
 #warning This method requires a unit test

@@ -2,7 +2,7 @@
 //
 // Managed interface : _MemberInfo
 //
-@interface System_Runtime_InteropServices__MemberInfo : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__MemberInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)declaringType;
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * declaringType;
 
-	// Managed type : System.Reflection.MemberTypes
-    - (System_Reflection_MemberTypes)memberType;
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)reflectedType;
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
 #pragma mark -
 #pragma mark Methods
@@ -32,7 +36,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Object[]

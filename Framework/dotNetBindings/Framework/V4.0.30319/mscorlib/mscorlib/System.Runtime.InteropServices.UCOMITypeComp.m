@@ -3,6 +3,12 @@
 //
 // Managed interface : UCOMITypeComp
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_UCOMITypeComp
 
 #pragma mark -
@@ -36,5 +42,11 @@
     {
 		[self invokeMonoMethod:"BindType(string,int,System.Runtime.InteropServices.UCOMITypeInfo&,System.Runtime.InteropServices.UCOMITypeComp&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

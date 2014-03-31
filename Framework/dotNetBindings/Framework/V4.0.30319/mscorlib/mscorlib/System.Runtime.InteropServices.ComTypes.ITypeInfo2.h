@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeInfo2
 //
-@interface System_Runtime_InteropServices_ComTypes_ITypeInfo2 : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_ITypeInfo2 : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Void
 	// Managed param types : System.Object, ref System.Guid&, ref System.Object&
-    - (void)createInstance_withPUnkOuter:(DBMonoObjectRepresentation *)p1 riidRef:(System_Guid **)p2 ppvObjRef:(DBMonoObjectRepresentation **)p3;
+    - (void)createInstance_withPUnkOuter:(System_Object *)p1 riidRef:(System_Guid **)p2 ppvObjRef:(System_Object **)p3;
 
 	// Managed method name : GetAllCustData
 	// Managed return type : System.Void
@@ -57,7 +57,7 @@
 	// Managed method name : GetCustData
 	// Managed return type : System.Void
 	// Managed param types : ref System.Guid&, ref System.Object&
-    - (void)getCustData_withGuidRef:(System_Guid **)p1 pVarValRef:(DBMonoObjectRepresentation **)p2;
+    - (void)getCustData_withGuidRef:(System_Guid **)p1 pVarValRef:(System_Object **)p2;
 
 	// Managed method name : GetDllEntry
 	// Managed return type : System.Void
@@ -77,7 +77,7 @@
 	// Managed method name : GetFuncCustData
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, ref System.Guid&, ref System.Object&
-    - (void)getFuncCustData_withIndex:(int32_t)p1 guidRef:(System_Guid **)p2 pVarValRef:(DBMonoObjectRepresentation **)p3;
+    - (void)getFuncCustData_withIndex:(int32_t)p1 guidRef:(System_Guid **)p2 pVarValRef:(System_Object **)p3;
 
 	// Managed method name : GetFuncDesc
 	// Managed return type : System.Void
@@ -97,7 +97,7 @@
 	// Managed method name : GetImplTypeCustData
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, ref System.Guid&, ref System.Object&
-    - (void)getImplTypeCustData_withIndex:(int32_t)p1 guidRef:(System_Guid **)p2 pVarValRef:(DBMonoObjectRepresentation **)p3;
+    - (void)getImplTypeCustData_withIndex:(int32_t)p1 guidRef:(System_Guid **)p2 pVarValRef:(System_Object **)p3;
 
 	// Managed method name : GetImplTypeFlags
 	// Managed return type : System.Void
@@ -117,7 +117,7 @@
 	// Managed method name : GetParamCustData
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Int32, ref System.Guid&, ref System.Object&
-    - (void)getParamCustData_withIndexFunc:(int32_t)p1 indexParam:(int32_t)p2 guidRef:(System_Guid **)p3 pVarValRef:(DBMonoObjectRepresentation **)p4;
+    - (void)getParamCustData_withIndexFunc:(int32_t)p1 indexParam:(int32_t)p2 guidRef:(System_Guid **)p3 pVarValRef:(System_Object **)p4;
 
 	// Managed method name : GetRefTypeInfo
 	// Managed return type : System.Void
@@ -152,7 +152,7 @@
 	// Managed method name : GetVarCustData
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, ref System.Guid&, ref System.Object&
-    - (void)getVarCustData_withIndex:(int32_t)p1 guidRef:(System_Guid **)p2 pVarValRef:(DBMonoObjectRepresentation **)p3;
+    - (void)getVarCustData_withIndex:(int32_t)p1 guidRef:(System_Guid **)p2 pVarValRef:(System_Object **)p3;
 
 	// Managed method name : GetVarDesc
 	// Managed return type : System.Void
@@ -167,7 +167,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int16, ref System.Runtime.InteropServices.ComTypes.DISPPARAMS&, System.IntPtr, System.IntPtr, ref System.Int32&
-    - (void)invoke_withPvInstance:(DBMonoObjectRepresentation *)p1 memid:(int32_t)p2 wFlags:(int16_t)p3 pDispParamsRef:(System_Runtime_InteropServices_ComTypes_DISPPARAMS **)p4 pVarResult:(void *)p5 pExcepInfo:(void *)p6 puArgErrRef:(int32_t*)p7;
+    - (void)invoke_withPvInstance:(System_Object *)p1 memid:(int32_t)p2 wFlags:(int16_t)p3 pDispParamsRef:(System_Runtime_InteropServices_ComTypes_DISPPARAMS **)p4 pVarResult:(void *)p5 pExcepInfo:(void *)p6 puArgErrRef:(int32_t*)p7;
 
 	// Managed method name : ReleaseFuncDesc
 	// Managed return type : System.Void

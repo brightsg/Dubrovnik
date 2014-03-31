@@ -3,6 +3,12 @@
 //
 // Managed class : DSACryptoServiceProvider
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_DSACryptoServiceProvider
 
 #pragma mark -
@@ -48,68 +54,94 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.CspKeyContainerInfo
+	// Managed property name : CspKeyContainerInfo
+	// Managed property type : System.Security.Cryptography.CspKeyContainerInfo
+    @synthesize cspKeyContainerInfo = _cspKeyContainerInfo;
     - (System_Security_Cryptography_CspKeyContainerInfo *)cspKeyContainerInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"CspKeyContainerInfo"];
-		System_Security_Cryptography_CspKeyContainerInfo * result = [System_Security_Cryptography_CspKeyContainerInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CspKeyContainerInfo"];
+		if ([self object:_cspKeyContainerInfo isEqualToMonoObject:monoObject]) return _cspKeyContainerInfo;					
+		_cspKeyContainerInfo = [System_Security_Cryptography_CspKeyContainerInfo objectWithMonoObject:monoObject];
+
+		return _cspKeyContainerInfo;
 	}
 
-	// Managed type : System.String
+	// Managed property name : KeyExchangeAlgorithm
+	// Managed property type : System.String
+    @synthesize keyExchangeAlgorithm = _keyExchangeAlgorithm;
     - (NSString *)keyExchangeAlgorithm
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeyExchangeAlgorithm"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeyExchangeAlgorithm"];
+		if ([self object:_keyExchangeAlgorithm isEqualToMonoObject:monoObject]) return _keyExchangeAlgorithm;					
+		_keyExchangeAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _keyExchangeAlgorithm;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : KeySize
+	// Managed property type : System.Int32
+    @synthesize keySize = _keySize;
     - (int32_t)keySize
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeySize"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeySize"];
+		_keySize = DB_UNBOX_INT32(monoObject);
+
+		return _keySize;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : PersistKeyInCsp
+	// Managed property type : System.Boolean
+    @synthesize persistKeyInCsp = _persistKeyInCsp;
     - (BOOL)persistKeyInCsp
     {
-		MonoObject * monoObject = [self getMonoProperty:"PersistKeyInCsp"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PersistKeyInCsp"];
+		_persistKeyInCsp = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _persistKeyInCsp;
 	}
     - (void)setPersistKeyInCsp:(BOOL)value
 	{
+		_persistKeyInCsp = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"PersistKeyInCsp" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : PublicOnly
+	// Managed property type : System.Boolean
+    @synthesize publicOnly = _publicOnly;
     - (BOOL)publicOnly
     {
-		MonoObject * monoObject = [self getMonoProperty:"PublicOnly"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PublicOnly"];
+		_publicOnly = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _publicOnly;
 	}
 
-	// Managed type : System.String
+	// Managed property name : SignatureAlgorithm
+	// Managed property type : System.String
+    @synthesize signatureAlgorithm = _signatureAlgorithm;
     - (NSString *)signatureAlgorithm
     {
-		MonoObject * monoObject = [self getMonoProperty:"SignatureAlgorithm"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SignatureAlgorithm"];
+		if ([self object:_signatureAlgorithm isEqualToMonoObject:monoObject]) return _signatureAlgorithm;					
+		_signatureAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _signatureAlgorithm;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : UseMachineKeyStore
+	// Managed property type : System.Boolean
+    static BOOL m_useMachineKeyStore;
     + (BOOL)useMachineKeyStore
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UseMachineKeyStore"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UseMachineKeyStore"];
+		m_useMachineKeyStore = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_useMachineKeyStore;
 	}
     + (void)setUseMachineKeyStore:(BOOL)value
 	{
+		m_useMachineKeyStore = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"UseMachineKeyStore" valueObject:monoObject];          
 	}
@@ -141,7 +173,7 @@
     - (System_Security_Cryptography_DSAParameters *)exportParameters_withIncludePrivateParameters:(BOOL)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ExportParameters(bool)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Security_Cryptography_DSAParameters representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_DSAParameters objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ImportCspBlob
@@ -222,5 +254,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"VerifySignature(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

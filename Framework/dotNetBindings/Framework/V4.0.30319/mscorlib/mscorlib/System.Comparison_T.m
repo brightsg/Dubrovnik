@@ -3,6 +3,12 @@
 //
 // Managed class : Comparison<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Comparison
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Comparison<T>
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Comparison *)new_withObject:(DBMonoObjectRepresentation *)p1 method:(void *)p2
+    + (System_Comparison *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -35,10 +41,10 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : <T>, <T>, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withX:(DBMonoObjectRepresentation *)p1 y:(DBMonoObjectRepresentation *)p2 callback:(System_AsyncCallback *)p3 object:(DBMonoObjectRepresentation *)p4
+    - (System_IAsyncResult *)beginInvoke_withX:(DBManagedObject *)p1 y:(DBManagedObject *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
-		return [System_IAsyncResult representationWithMonoObject:monoObject];
+		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndInvoke
@@ -53,10 +59,16 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Int32
 	// Managed param types : <T>, <T>
-    - (int32_t)invoke_withX:(DBMonoObjectRepresentation *)p1 y:(DBMonoObjectRepresentation *)p2
+    - (int32_t)invoke_withX:(DBManagedObject *)p1 y:(DBManagedObject *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

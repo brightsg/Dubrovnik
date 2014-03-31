@@ -3,6 +3,12 @@
 //
 // Managed class : UrlIdentityPermissionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_UrlIdentityPermissionAttribute
 
 #pragma mark -
@@ -32,15 +38,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Url
+	// Managed property type : System.String
+    @synthesize url = _url;
     - (NSString *)url
     {
-		MonoObject * monoObject = [self getMonoProperty:"Url"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Url"];
+		if ([self object:_url isEqualToMonoObject:monoObject]) return _url;					
+		_url = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _url;
 	}
     - (void)setUrl:(NSString *)value
 	{
+		_url = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Url" valueObject:monoObject];          
 	}
@@ -54,7 +65,13 @@
     - (System_Security_IPermission *)createPermission
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : KeyContainerPermissionAccessEntry
 //
-@interface System_Security_Permissions_KeyContainerPermissionAccessEntry : DBMonoObjectRepresentation
+@interface System_Security_Permissions_KeyContainerPermissionAccessEntry : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,29 +32,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.KeyContainerPermissionFlags
-    - (System_Security_Permissions_KeyContainerPermissionFlags)flags;
-    - (void)setFlags:(System_Security_Permissions_KeyContainerPermissionFlags)value;
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.KeyContainerPermissionFlags
+    @property (nonatomic) System_Security_Permissions_KeyContainerPermissionFlags flags;
 
-	// Managed type : System.String
-    - (NSString *)keyContainerName;
-    - (void)setKeyContainerName:(NSString *)value;
+	// Managed property name : KeyContainerName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * keyContainerName;
 
-	// Managed type : System.Int32
-    - (int32_t)keySpec;
-    - (void)setKeySpec:(int32_t)value;
+	// Managed property name : KeySpec
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t keySpec;
 
-	// Managed type : System.String
-    - (NSString *)keyStore;
-    - (void)setKeyStore:(NSString *)value;
+	// Managed property name : KeyStore
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * keyStore;
 
-	// Managed type : System.String
-    - (NSString *)providerName;
-    - (void)setProviderName:(NSString *)value;
+	// Managed property name : ProviderName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * providerName;
 
-	// Managed type : System.Int32
-    - (int32_t)providerType;
-    - (void)setProviderType:(int32_t)value;
+	// Managed property name : ProviderType
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t providerType;
 
 #pragma mark -
 #pragma mark Methods
@@ -62,7 +62,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

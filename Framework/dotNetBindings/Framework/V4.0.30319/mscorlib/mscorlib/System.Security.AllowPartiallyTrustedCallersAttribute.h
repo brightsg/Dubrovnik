@@ -14,8 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.PartialTrustVisibilityLevel
-    - (System_Security_PartialTrustVisibilityLevel)partialTrustVisibilityLevel;
-    - (void)setPartialTrustVisibilityLevel:(System_Security_PartialTrustVisibilityLevel)value;
+	// Managed property name : PartialTrustVisibilityLevel
+	// Managed property type : System.Security.PartialTrustVisibilityLevel
+    @property (nonatomic) System_Security_PartialTrustVisibilityLevel partialTrustVisibilityLevel;
 @end
 //--Dubrovnik.CodeGenerator

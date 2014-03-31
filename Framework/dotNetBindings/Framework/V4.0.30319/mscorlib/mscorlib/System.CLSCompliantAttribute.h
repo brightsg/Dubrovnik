@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isCompliant;
+	// Managed property name : IsCompliant
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCompliant;
 @end
 //--Dubrovnik.CodeGenerator

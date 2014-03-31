@@ -3,6 +3,12 @@
 //
 // Managed class : ManifestResourceInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_ManifestResourceInfo
 
 #pragma mark -
@@ -32,28 +38,45 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : FileName
+	// Managed property type : System.String
+    @synthesize fileName = _fileName;
     - (NSString *)fileName
     {
-		MonoObject * monoObject = [self getMonoProperty:"FileName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FileName"];
+		if ([self object:_fileName isEqualToMonoObject:monoObject]) return _fileName;					
+		_fileName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _fileName;
 	}
 
-	// Managed type : System.Reflection.Assembly
+	// Managed property name : ReferencedAssembly
+	// Managed property type : System.Reflection.Assembly
+    @synthesize referencedAssembly = _referencedAssembly;
     - (System_Reflection_Assembly *)referencedAssembly
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReferencedAssembly"];
-		System_Reflection_Assembly * result = [System_Reflection_Assembly representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ReferencedAssembly"];
+		if ([self object:_referencedAssembly isEqualToMonoObject:monoObject]) return _referencedAssembly;					
+		_referencedAssembly = [System_Reflection_Assembly objectWithMonoObject:monoObject];
+
+		return _referencedAssembly;
 	}
 
-	// Managed type : System.Reflection.ResourceLocation
+	// Managed property name : ResourceLocation
+	// Managed property type : System.Reflection.ResourceLocation
+    @synthesize resourceLocation = _resourceLocation;
     - (System_Reflection_ResourceLocation)resourceLocation
     {
-		MonoObject * monoObject = [self getMonoProperty:"ResourceLocation"];
-		System_Reflection_ResourceLocation result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ResourceLocation"];
+		_resourceLocation = DB_UNBOX_INT32(monoObject);
+
+		return _resourceLocation;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

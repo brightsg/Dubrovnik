@@ -22,11 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)frameworkDisplayName;
-    - (void)setFrameworkDisplayName:(NSString *)value;
+	// Managed property name : FrameworkDisplayName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * frameworkDisplayName;
 
-	// Managed type : System.String
-    - (NSString *)frameworkName;
+	// Managed property name : FrameworkName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * frameworkName;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : Debugger
 //
-@interface System_Diagnostics_Debugger : DBMonoObjectRepresentation
+@interface System_Diagnostics_Debugger : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : DefaultCategory
+	// Managed field type : System.String
     + (NSString *)defaultCategory;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsAttached
+	// Managed property type : System.Boolean
     + (BOOL)isAttached;
 
 #pragma mark -

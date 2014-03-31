@@ -3,6 +3,12 @@
 //
 // Managed class : SinkProviderData
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_SinkProviderData
 
 #pragma mark -
@@ -32,28 +38,46 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IList
+	// Managed property name : Children
+	// Managed property type : System.Collections.IList
+    @synthesize children = _children;
     - (System_Collections_IList *)children
     {
-		MonoObject * monoObject = [self getMonoProperty:"Children"];
-		System_Collections_IList * result = [System_Collections_IList representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Children"];
+		if ([self object:_children isEqualToMonoObject:monoObject]) return _children;					
+		_children = [System_Collections_IList objectWithMonoObject:monoObject];
+
+		return _children;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
 
-	// Managed type : System.Collections.IDictionary
+	// Managed property name : Properties
+	// Managed property type : System.Collections.IDictionary
+    @synthesize properties = _properties;
     - (System_Collections_IDictionary *)properties
     {
-		MonoObject * monoObject = [self getMonoProperty:"Properties"];
-		System_Collections_IDictionary * result = [System_Collections_IDictionary representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
+		_properties = [System_Collections_IDictionary objectWithMonoObject:monoObject];
+
+		return _properties;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : Attribute
 //
-@interface System_Attribute : DBMonoObjectRepresentation
+@interface System_Attribute : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)typeId;
+	// Managed property name : TypeId
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * typeId;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,7 +24,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
@@ -198,6 +199,6 @@
 	// Managed method name : Match
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)match_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)match_withObj:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

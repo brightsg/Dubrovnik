@@ -3,6 +3,12 @@
 //
 // Managed class : StackFrame
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_StackFrame
 
 #pragma mark -
@@ -64,12 +70,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : OFFSET_UNKNOWN
+	// Managed field type : System.Int32
+    static int32_t m_oFFSET_UNKNOWN;
     + (int32_t)oFFSET_UNKNOWN
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"OFFSET_UNKNOWN" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_oFFSET_UNKNOWN = monoObject;
+		return m_oFFSET_UNKNOWN;
 	}
 
 #pragma mark -
@@ -117,7 +126,7 @@
     - (System_Reflection_MethodBase *)getMethod
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod()" withNumArgs:0];
-		return [System_Reflection_MethodBase representationWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNativeOffset
@@ -137,5 +146,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

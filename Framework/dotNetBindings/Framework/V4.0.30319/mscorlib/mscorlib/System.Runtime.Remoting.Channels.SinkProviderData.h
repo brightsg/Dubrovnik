@@ -2,7 +2,7 @@
 //
 // Managed class : SinkProviderData
 //
-@interface System_Runtime_Remoting_Channels_SinkProviderData : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_SinkProviderData : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,13 +22,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IList
-    - (System_Collections_IList *)children;
+	// Managed property name : Children
+	// Managed property type : System.Collections.IList
+    @property (nonatomic, strong, readonly) System_Collections_IList * children;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Collections.IDictionary
-    - (System_Collections_IDictionary *)properties;
+	// Managed property name : Properties
+	// Managed property type : System.Collections.IDictionary
+    @property (nonatomic, strong, readonly) System_Collections_IDictionary * properties;
 @end
 //--Dubrovnik.CodeGenerator

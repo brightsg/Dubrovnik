@@ -2,7 +2,7 @@
 //
 // Managed class : Array
 //
-@interface System_Array : DBMonoObjectRepresentation
+@interface System_Array : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,26 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isFixedSize;
+	// Managed property name : IsFixedSize
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFixedSize;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSynchronized;
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed type : System.Int32
-    - (int32_t)length;
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t length;
 
-	// Managed type : System.Int64
-    - (int64_t)longLength;
+	// Managed property name : LongLength
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t longLength;
 
-	// Managed type : System.Int32
-    - (int32_t)rank;
+	// Managed property name : Rank
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t rank;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot;
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * syncRoot;
 
 #pragma mark -
 #pragma mark Methods
@@ -46,42 +53,42 @@
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Int32, System.Int32, System.Object
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(DBMonoObjectRepresentation *)p4;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object, System.Collections.IComparer
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2 comparerSCIComparer:(System_Collections_IComparer *)p3;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2 comparerSCIComparer:(System_Collections_IComparer *)p3;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Int32, System.Int32, System.Object, System.Collections.IComparer
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(DBMonoObjectRepresentation *)p4 comparerSCIComparer:(System_Collections_IComparer *)p5;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4 comparerSCIComparer:(System_Collections_IComparer *)p5;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>, IComparer<T>
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2 comparerIComparer_T:(IComparer *)p3;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2 comparerIComparer_T:(IComparer *)p3;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : T[], System.Int32, System.Int32, <T>
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueDGParameter:(DBMonoObjectRepresentation *)p4;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueDGParameter:(DBManagedObject *)p4;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : T[], System.Int32, System.Int32, <T>, IComparer<T>
-    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueDGParameter:(DBMonoObjectRepresentation *)p4 comparerIComparer_T:(IComparer *)p5;
+    - (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueDGParameter:(DBManagedObject *)p4 comparerIComparer_T:(IComparer *)p5;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -91,7 +98,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : ConstrainedCopy
 	// Managed return type : System.Void
@@ -171,7 +178,7 @@
 	// Managed method name : Find
 	// Managed return type : <T>
 	// Managed param types : T[], Predicate<T>
-    - (DBMonoObjectRepresentation *)find_withArray:(DBSystem_Array *)p1 match:(Predicate *)p2;
+    - (DBManagedObject *)find_withArray:(DBSystem_Array *)p1 match:(Predicate *)p2;
 
 	// Managed method name : FindAll
 	// Managed return type : T[]
@@ -196,7 +203,7 @@
 	// Managed method name : FindLast
 	// Managed return type : <T>
 	// Managed param types : T[], Predicate<T>
-    - (DBMonoObjectRepresentation *)findLast_withArray:(DBSystem_Array *)p1 match:(Predicate *)p2;
+    - (DBManagedObject *)findLast_withArray:(DBSystem_Array *)p1 match:(Predicate *)p2;
 
 	// Managed method name : FindLastIndex
 	// Managed return type : System.Int32
@@ -246,72 +253,72 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int32[]
-    - (DBMonoObjectRepresentation *)getValue_withIndicesInt:(DBSystem_Array *)p1;
+    - (System_Object *)getValue_withIndicesInt:(DBSystem_Array *)p1;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int32
-    - (DBMonoObjectRepresentation *)getValue_withIndexInt:(int32_t)p1;
+    - (System_Object *)getValue_withIndexInt:(int32_t)p1;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int32, System.Int32
-    - (DBMonoObjectRepresentation *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2;
+    - (System_Object *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int32, System.Int32, System.Int32
-    - (DBMonoObjectRepresentation *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2 index3Int:(int32_t)p3;
+    - (System_Object *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2 index3Int:(int32_t)p3;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int64
-    - (DBMonoObjectRepresentation *)getValue_withIndexLong:(int64_t)p1;
+    - (System_Object *)getValue_withIndexLong:(int64_t)p1;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int64, System.Int64
-    - (DBMonoObjectRepresentation *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2;
+    - (System_Object *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int64, System.Int64, System.Int64
-    - (DBMonoObjectRepresentation *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2 index3Long:(int64_t)p3;
+    - (System_Object *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2 index3Long:(int64_t)p3;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Int64[]
-    - (DBMonoObjectRepresentation *)getValue_withIndicesLong:(DBSystem_Array *)p1;
+    - (System_Object *)getValue_withIndicesLong:(DBSystem_Array *)p1;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object
-    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object, System.Int32
-    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3;
+    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object, System.Int32, System.Int32
-    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
+    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>
-    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>, System.Int32
-    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3;
+    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2 startIndexInt:(int32_t)p3;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>, System.Int32, System.Int32
-    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
+    - (int32_t)indexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 	// Managed method name : Initialize
 	// Managed return type : System.Void
@@ -321,32 +328,32 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object
-    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object, System.Int32
-    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3;
+    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object, System.Int32, System.Int32
-    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
+    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>
-    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>, System.Int32
-    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3;
+    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2 startIndexInt:(int32_t)p3;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : T[], <T>, System.Int32, System.Int32
-    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
+    - (int32_t)lastIndexOf_withArraySArray:(DBSystem_Array *)p1 valueDGParameter:(DBManagedObject *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 	// Managed method name : Resize
 	// Managed return type : System.Void
@@ -366,42 +373,42 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 indexInt:(int32_t)p2;
+    - (void)setValue_withValueObject:(System_Object *)p1 indexInt:(int32_t)p2;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int32
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3;
+    - (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int32, System.Int32
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3 index3Int:(int32_t)p4;
+    - (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3 index3Int:(int32_t)p4;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32[]
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 indicesInt:(DBSystem_Array *)p2;
+    - (void)setValue_withValueObject:(System_Object *)p1 indicesInt:(DBSystem_Array *)p2;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 indexLong:(int64_t)p2;
+    - (void)setValue_withValueObject:(System_Object *)p1 indexLong:(int64_t)p2;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64, System.Int64
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3;
+    - (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64, System.Int64, System.Int64
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3 index3Long:(int64_t)p4;
+    - (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3 index3Long:(int64_t)p4;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64[]
-    - (void)setValue_withValueObject:(DBMonoObjectRepresentation *)p1 indicesLong:(DBSystem_Array *)p2;
+    - (void)setValue_withValueObject:(System_Object *)p1 indicesLong:(DBSystem_Array *)p2;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void

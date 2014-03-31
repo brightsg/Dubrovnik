@@ -2,7 +2,7 @@
 //
 // Managed class : Stack
 //
-@interface System_Collections_Stack : DBMonoObjectRepresentation
+@interface System_Collections_Stack : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,14 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSynchronized;
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot;
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * syncRoot;
 
 #pragma mark -
 #pragma mark Methods
@@ -47,12 +50,12 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)contains_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)contains_withObj:(System_Object *)p1;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
@@ -67,17 +70,17 @@
 	// Managed method name : Peek
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)peek;
+    - (System_Object *)peek;
 
 	// Managed method name : Pop
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)pop;
+    - (System_Object *)pop;
 
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)push_withObj:(DBMonoObjectRepresentation *)p1;
+    - (void)push_withObj:(System_Object *)p1;
 
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.Stack

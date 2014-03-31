@@ -22,42 +22,43 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Boolean
-    - (BOOL)bestFitMapping;
-    - (void)setBestFitMapping:(BOOL)value;
+	// Managed field name : BestFitMapping
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL bestFitMapping;
 
-	// Managed type : System.Runtime.InteropServices.CallingConvention
-    - (System_Runtime_InteropServices_CallingConvention)callingConvention;
-    - (void)setCallingConvention:(System_Runtime_InteropServices_CallingConvention)value;
+	// Managed field name : CallingConvention
+	// Managed field type : System.Runtime.InteropServices.CallingConvention
+    @property (nonatomic) System_Runtime_InteropServices_CallingConvention callingConvention;
 
-	// Managed type : System.Runtime.InteropServices.CharSet
-    - (System_Runtime_InteropServices_CharSet)charSet;
-    - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value;
+	// Managed field name : CharSet
+	// Managed field type : System.Runtime.InteropServices.CharSet
+    @property (nonatomic) System_Runtime_InteropServices_CharSet charSet;
 
-	// Managed type : System.String
-    - (NSString *)entryPoint;
-    - (void)setEntryPoint:(NSString *)value;
+	// Managed field name : EntryPoint
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * entryPoint;
 
-	// Managed type : System.Boolean
-    - (BOOL)exactSpelling;
-    - (void)setExactSpelling:(BOOL)value;
+	// Managed field name : ExactSpelling
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL exactSpelling;
 
-	// Managed type : System.Boolean
-    - (BOOL)preserveSig;
-    - (void)setPreserveSig:(BOOL)value;
+	// Managed field name : PreserveSig
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL preserveSig;
 
-	// Managed type : System.Boolean
-    - (BOOL)setLastError;
-    - (void)setSetLastError:(BOOL)value;
+	// Managed field name : SetLastError
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL setLastError;
 
-	// Managed type : System.Boolean
-    - (BOOL)throwOnUnmappableChar;
-    - (void)setThrowOnUnmappableChar:(BOOL)value;
+	// Managed field name : ThrowOnUnmappableChar
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL throwOnUnmappableChar;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)value;
+	// Managed property name : Value
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * value;
 @end
 //--Dubrovnik.CodeGenerator

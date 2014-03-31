@@ -2,7 +2,7 @@
 //
 // Managed class : StackFrame
 //
-@interface System_Diagnostics_StackFrame : DBMonoObjectRepresentation
+@interface System_Diagnostics_StackFrame : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,7 +42,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : OFFSET_UNKNOWN
+	// Managed field type : System.Int32
     + (int32_t)oFFSET_UNKNOWN;
 
 #pragma mark -

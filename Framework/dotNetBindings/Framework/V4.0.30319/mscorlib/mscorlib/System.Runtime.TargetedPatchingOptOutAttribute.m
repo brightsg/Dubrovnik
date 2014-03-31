@@ -3,6 +3,12 @@
 //
 // Managed class : TargetedPatchingOptOutAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_TargetedPatchingOptOutAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Reason
+	// Managed property type : System.String
+    @synthesize reason = _reason;
     - (NSString *)reason
     {
-		MonoObject * monoObject = [self getMonoProperty:"Reason"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Reason"];
+		if ([self object:_reason isEqualToMonoObject:monoObject]) return _reason;					
+		_reason = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _reason;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

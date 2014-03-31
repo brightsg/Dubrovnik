@@ -3,6 +3,12 @@
 //
 // Managed class : IndexerNameAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_IndexerNameAttribute
 
 #pragma mark -
@@ -28,5 +34,11 @@
     {
 		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

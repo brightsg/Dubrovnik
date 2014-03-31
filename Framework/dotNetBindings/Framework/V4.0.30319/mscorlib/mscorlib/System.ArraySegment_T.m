@@ -3,6 +3,12 @@
 //
 // Managed struct : ArraySegment<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_ArraySegment
 
 #pragma mark -
@@ -40,28 +46,38 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : T[]
+	// Managed property name : Array
+	// Managed property type : T[]
+    @synthesize array = _array;
     - (DBSystem_Array *)array
     {
-		MonoObject * monoObject = [self getMonoProperty:"Array"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Array"];
+		if ([self object:_array isEqualToMonoObject:monoObject]) return _array;					
+		_array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _array;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Offset
+	// Managed property type : System.Int32
+    @synthesize offset = _offset;
     - (int32_t)offset
     {
-		MonoObject * monoObject = [self getMonoProperty:"Offset"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Offset"];
+		_offset = DB_UNBOX_INT32(monoObject);
+
+		return _offset;
 	}
 
 #pragma mark -
@@ -70,7 +86,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -111,5 +127,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.ArraySegment<T>,System.ArraySegment<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

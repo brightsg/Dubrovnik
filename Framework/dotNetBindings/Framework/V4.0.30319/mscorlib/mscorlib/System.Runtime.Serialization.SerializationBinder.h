@@ -2,7 +2,7 @@
 //
 // Managed class : SerializationBinder
 //
-@interface System_Runtime_Serialization_SerializationBinder : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_SerializationBinder : System_Object
 
 #pragma mark -
 #pragma mark Setup

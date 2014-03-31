@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeLib
 //
-@interface System_Runtime_InteropServices_ComTypes_ITypeLib : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_ITypeLib : System_Object
 
 #pragma mark -
 #pragma mark Setup

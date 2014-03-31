@@ -3,6 +3,12 @@
 //
 // Managed class : RuntimeEnvironment
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_RuntimeEnvironment
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : SystemConfigurationFile
+	// Managed property type : System.String
+    static NSString * m_systemConfigurationFile;
     + (NSString *)systemConfigurationFile
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"SystemConfigurationFile"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"SystemConfigurationFile"];
+		if ([self object:m_systemConfigurationFile isEqualToMonoObject:monoObject]) return m_systemConfigurationFile;					
+		m_systemConfigurationFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_systemConfigurationFile;
 	}
 
 #pragma mark -
@@ -62,10 +72,10 @@
 	// Managed method name : GetRuntimeInterfaceAsObject
 	// Managed return type : System.Object
 	// Managed param types : System.Guid, System.Guid
-    - (DBMonoObjectRepresentation *)getRuntimeInterfaceAsObject_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
+    - (System_Object *)getRuntimeInterfaceAsObject_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeInterfaceAsObject(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSystemVersion
@@ -76,5 +86,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSystemVersion()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_systemConfigurationFile = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

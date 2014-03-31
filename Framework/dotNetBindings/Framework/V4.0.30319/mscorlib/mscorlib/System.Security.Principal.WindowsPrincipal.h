@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)deviceClaims;
+	// Managed property name : DeviceClaims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * deviceClaims;
 
-	// Managed type : System.Security.Principal.IIdentity
-    - (System_Security_Principal_IIdentity *)identity;
+	// Managed property name : Identity
+	// Managed property type : System.Security.Principal.IIdentity
+    @property (nonatomic, strong, readonly) System_Security_Principal_IIdentity * identity;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)userClaims;
+	// Managed property name : UserClaims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * userClaims;
 
 #pragma mark -
 #pragma mark Methods

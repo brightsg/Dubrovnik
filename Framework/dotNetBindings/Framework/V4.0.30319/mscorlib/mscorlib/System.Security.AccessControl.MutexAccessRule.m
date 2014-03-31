@@ -3,6 +3,12 @@
 //
 // Managed class : MutexAccessRule
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_MutexAccessRule
 
 #pragma mark -
@@ -40,12 +46,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.MutexRights
+	// Managed property name : MutexRights
+	// Managed property type : System.Security.AccessControl.MutexRights
+    @synthesize mutexRights = _mutexRights;
     - (System_Security_AccessControl_MutexRights)mutexRights
     {
-		MonoObject * monoObject = [self getMonoProperty:"MutexRights"];
-		System_Security_AccessControl_MutexRights result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MutexRights"];
+		_mutexRights = DB_UNBOX_INT32(monoObject);
+
+		return _mutexRights;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

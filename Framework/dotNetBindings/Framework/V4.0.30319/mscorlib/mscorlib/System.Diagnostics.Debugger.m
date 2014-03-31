@@ -3,6 +3,12 @@
 //
 // Managed class : Debugger
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_Debugger
 
 #pragma mark -
@@ -21,23 +27,30 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : DefaultCategory
+	// Managed field type : System.String
+    static NSString * m_defaultCategory;
     + (NSString *)defaultCategory
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"DefaultCategory" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_defaultCategory isEqualToMonoObject:monoObject]) return m_defaultCategory;					
+		m_defaultCategory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_defaultCategory;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsAttached
+	// Managed property type : System.Boolean
+    static BOOL m_isAttached;
     + (BOOL)isAttached
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"IsAttached"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsAttached"];
+		m_isAttached = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_isAttached;
 	}
 
 #pragma mark -
@@ -84,5 +97,12 @@
     {
 		[self invokeMonoMethod:"NotifyOfCrossThreadDependency()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_defaultCategory = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

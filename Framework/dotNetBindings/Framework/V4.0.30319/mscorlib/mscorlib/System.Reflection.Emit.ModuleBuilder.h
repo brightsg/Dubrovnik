@@ -14,26 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)assembly;
+	// Managed property name : Assembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * assembly;
 
-	// Managed type : System.String
-    - (NSString *)fullyQualifiedName;
+	// Managed property name : FullyQualifiedName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullyQualifiedName;
 
-	// Managed type : System.Int32
-    - (int32_t)mDStreamVersion;
+	// Managed property name : MDStreamVersion
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t mDStreamVersion;
 
-	// Managed type : System.Int32
-    - (int32_t)metadataToken;
+	// Managed property name : MetadataToken
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t metadataToken;
 
-	// Managed type : System.Guid
-    - (System_Guid *)moduleVersionId;
+	// Managed property name : ModuleVersionId
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * moduleVersionId;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)scopeName;
+	// Managed property name : ScopeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * scopeName;
 
 #pragma mark -
 #pragma mark Methods
@@ -151,7 +158,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetArrayMethod
 	// Managed return type : System.Reflection.MethodInfo

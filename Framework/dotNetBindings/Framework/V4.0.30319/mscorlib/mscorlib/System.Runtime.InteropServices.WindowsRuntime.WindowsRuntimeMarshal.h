@@ -2,7 +2,7 @@
 //
 // Managed class : WindowsRuntimeMarshal
 //
-@interface System_Runtime_InteropServices_WindowsRuntime_WindowsRuntimeMarshal : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_WindowsRuntime_WindowsRuntimeMarshal : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Void
 	// Managed param types : Func<T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, System.Action<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <T>
-    - (void)addEventHandler_withAddMethod:(Func *)p1 removeMethod:(System_Action *)p2 handler:(DBMonoObjectRepresentation *)p3;
+    - (void)addEventHandler_withAddMethod:(Func *)p1 removeMethod:(System_Action *)p2 handler:(DBManagedObject *)p3;
 
 	// Managed method name : FreeHString
 	// Managed return type : System.Void
@@ -42,7 +42,7 @@
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Action<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <T>
-    - (void)removeEventHandler_withRemoveMethod:(System_Action *)p1 handler:(DBMonoObjectRepresentation *)p2;
+    - (void)removeEventHandler_withRemoveMethod:(System_Action *)p1 handler:(DBManagedObject *)p2;
 
 	// Managed method name : StringToHString
 	// Managed return type : System.IntPtr

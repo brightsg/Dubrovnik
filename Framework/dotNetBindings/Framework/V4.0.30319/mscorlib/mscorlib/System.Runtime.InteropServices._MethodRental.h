@@ -2,7 +2,7 @@
 //
 // Managed interface : _MethodRental
 //
-@interface System_Runtime_InteropServices__MethodRental : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__MethodRental : System_Object
 
 #pragma mark -
 #pragma mark Setup

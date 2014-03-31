@@ -2,7 +2,7 @@
 //
 // Managed class : ParallelOptions
 //
-@interface System_Threading_Tasks_ParallelOptions : DBMonoObjectRepresentation
+@interface System_Threading_Tasks_ParallelOptions : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,16 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.CancellationToken
-    - (System_Threading_CancellationToken *)cancellationToken;
-    - (void)setCancellationToken:(System_Threading_CancellationToken *)value;
+	// Managed property name : CancellationToken
+	// Managed property type : System.Threading.CancellationToken
+    @property (nonatomic, strong) System_Threading_CancellationToken * cancellationToken;
 
-	// Managed type : System.Int32
-    - (int32_t)maxDegreeOfParallelism;
-    - (void)setMaxDegreeOfParallelism:(int32_t)value;
+	// Managed property name : MaxDegreeOfParallelism
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t maxDegreeOfParallelism;
 
-	// Managed type : System.Threading.Tasks.TaskScheduler
-    - (System_Threading_Tasks_TaskScheduler *)taskScheduler;
-    - (void)setTaskScheduler:(System_Threading_Tasks_TaskScheduler *)value;
+	// Managed property name : TaskScheduler
+	// Managed property type : System.Threading.Tasks.TaskScheduler
+    @property (nonatomic, strong) System_Threading_Tasks_TaskScheduler * taskScheduler;
 @end
 //--Dubrovnik.CodeGenerator

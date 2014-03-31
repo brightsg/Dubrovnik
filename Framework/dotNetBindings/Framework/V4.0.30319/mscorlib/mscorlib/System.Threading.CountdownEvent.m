@@ -3,6 +3,12 @@
 //
 // Managed class : CountdownEvent
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_CountdownEvent
 
 #pragma mark -
@@ -32,36 +38,49 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : CurrentCount
+	// Managed property type : System.Int32
+    @synthesize currentCount = _currentCount;
     - (int32_t)currentCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"CurrentCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CurrentCount"];
+		_currentCount = DB_UNBOX_INT32(monoObject);
+
+		return _currentCount;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : InitialCount
+	// Managed property type : System.Int32
+    @synthesize initialCount = _initialCount;
     - (int32_t)initialCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"InitialCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InitialCount"];
+		_initialCount = DB_UNBOX_INT32(monoObject);
+
+		return _initialCount;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsSet
+	// Managed property type : System.Boolean
+    @synthesize isSet = _isSet;
     - (BOOL)isSet
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsSet"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsSet"];
+		_isSet = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isSet;
 	}
 
-	// Managed type : System.Threading.WaitHandle
+	// Managed property name : WaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @synthesize waitHandle = _waitHandle;
     - (System_Threading_WaitHandle *)waitHandle
     {
-		MonoObject * monoObject = [self getMonoProperty:"WaitHandle"];
-		System_Threading_WaitHandle * result = [System_Threading_WaitHandle representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WaitHandle"];
+		if ([self object:_waitHandle isEqualToMonoObject:monoObject]) return _waitHandle;					
+		_waitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+
+		return _waitHandle;
 	}
 
 #pragma mark -
@@ -194,5 +213,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"Wait(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

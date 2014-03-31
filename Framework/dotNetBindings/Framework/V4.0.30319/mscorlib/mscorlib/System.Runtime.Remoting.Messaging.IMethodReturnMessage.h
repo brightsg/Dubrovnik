@@ -2,7 +2,7 @@
 //
 // Managed interface : IMethodReturnMessage
 //
-@interface System_Runtime_Remoting_Messaging_IMethodReturnMessage : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_IMethodReturnMessage : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Exception
-    - (System_Exception *)exception;
+	// Managed property name : Exception
+	// Managed property type : System.Exception
+    @property (nonatomic, strong, readonly) System_Exception * exception;
 
-	// Managed type : System.Int32
-    - (int32_t)outArgCount;
+	// Managed property name : OutArgCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t outArgCount;
 
-	// Managed type : System.Object[]
-    - (DBSystem_Array *)outArgs;
+	// Managed property name : OutArgs
+	// Managed property type : System.Object[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * outArgs;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)returnValue;
+	// Managed property name : ReturnValue
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * returnValue;
 
 #pragma mark -
 #pragma mark Methods
@@ -32,7 +36,7 @@
 	// Managed method name : GetOutArg
 	// Managed return type : System.Object
 	// Managed param types : System.Int32
-    - (DBMonoObjectRepresentation *)getOutArg_withArgNum:(int32_t)p1;
+    - (System_Object *)getOutArg_withArgNum:(int32_t)p1;
 
 	// Managed method name : GetOutArgName
 	// Managed return type : System.String

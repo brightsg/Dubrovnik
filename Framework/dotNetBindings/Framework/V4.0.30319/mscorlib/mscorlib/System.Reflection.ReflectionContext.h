@@ -2,7 +2,7 @@
 //
 // Managed class : ReflectionContext
 //
-@interface System_Reflection_ReflectionContext : DBMonoObjectRepresentation
+@interface System_Reflection_ReflectionContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : GetTypeForObject
 	// Managed return type : System.Reflection.TypeInfo
 	// Managed param types : System.Object
-    - (System_Reflection_TypeInfo *)getTypeForObject_withValue:(DBMonoObjectRepresentation *)p1;
+    - (System_Reflection_TypeInfo *)getTypeForObject_withValue:(System_Object *)p1;
 
 	// Managed method name : MapAssembly
 	// Managed return type : System.Reflection.Assembly

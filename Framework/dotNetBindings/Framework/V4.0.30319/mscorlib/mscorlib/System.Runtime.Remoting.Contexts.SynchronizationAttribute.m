@@ -3,6 +3,12 @@
 //
 // Managed class : SynchronizationAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Contexts_SynchronizationAttribute
 
 #pragma mark -
@@ -48,58 +54,77 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : NOT_SUPPORTED
+	// Managed field type : System.Int32
+    static int32_t m_nOT_SUPPORTED;
     + (int32_t)nOT_SUPPORTED
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"NOT_SUPPORTED" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_nOT_SUPPORTED = monoObject;
+		return m_nOT_SUPPORTED;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : REQUIRED
+	// Managed field type : System.Int32
+    static int32_t m_rEQUIRED;
     + (int32_t)rEQUIRED
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"REQUIRED" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_rEQUIRED = monoObject;
+		return m_rEQUIRED;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : REQUIRES_NEW
+	// Managed field type : System.Int32
+    static int32_t m_rEQUIRES_NEW;
     + (int32_t)rEQUIRES_NEW
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"REQUIRES_NEW" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_rEQUIRES_NEW = monoObject;
+		return m_rEQUIRES_NEW;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : SUPPORTED
+	// Managed field type : System.Int32
+    static int32_t m_sUPPORTED;
     + (int32_t)sUPPORTED
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"SUPPORTED" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_sUPPORTED = monoObject;
+		return m_sUPPORTED;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsReEntrant
+	// Managed property type : System.Boolean
+    @synthesize isReEntrant = _isReEntrant;
     - (BOOL)isReEntrant
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsReEntrant"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsReEntrant"];
+		_isReEntrant = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isReEntrant;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Locked
+	// Managed property type : System.Boolean
+    @synthesize locked = _locked;
     - (BOOL)locked
     {
-		MonoObject * monoObject = [self getMonoProperty:"Locked"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Locked"];
+		_locked = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _locked;
 	}
     - (void)setLocked:(BOOL)value
 	{
+		_locked = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Locked" valueObject:monoObject];          
 	}
@@ -113,7 +138,7 @@
     - (System_Runtime_Remoting_Messaging_IMessageSink *)getClientContextSink_withNextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetClientContextSink(System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessageSink representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPropertiesForNewContext
@@ -130,7 +155,7 @@
     - (System_Runtime_Remoting_Messaging_IMessageSink *)getServerContextSink_withNextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetServerContextSink(System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessageSink representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsContextOK
@@ -141,5 +166,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsContextOK(System.Runtime.Remoting.Contexts.Context,System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

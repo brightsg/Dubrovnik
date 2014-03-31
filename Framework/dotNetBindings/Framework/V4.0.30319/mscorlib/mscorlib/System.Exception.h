@@ -2,7 +2,7 @@
 //
 // Managed class : Exception
 //
-@interface System_Exception : DBMonoObjectRepresentation
+@interface System_Exception : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,32 +27,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IDictionary
-    - (System_Collections_IDictionary *)data;
+	// Managed property name : Data
+	// Managed property type : System.Collections.IDictionary
+    @property (nonatomic, strong, readonly) System_Collections_IDictionary * data;
 
-	// Managed type : System.String
-    - (NSString *)helpLink;
-    - (void)setHelpLink:(NSString *)value;
+	// Managed property name : HelpLink
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * helpLink;
 
-	// Managed type : System.Int32
-    - (int32_t)hResult;
-    - (void)setHResult:(int32_t)value;
+	// Managed property name : HResult
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t hResult;
 
-	// Managed type : System.Exception
-    - (System_Exception *)innerException;
+	// Managed property name : InnerException
+	// Managed property type : System.Exception
+    @property (nonatomic, strong, readonly) System_Exception * innerException;
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 
-	// Managed type : System.String
-    - (NSString *)source;
-    - (void)setSource:(NSString *)value;
+	// Managed property name : Source
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * source;
 
-	// Managed type : System.String
-    - (NSString *)stackTrace;
+	// Managed property name : StackTrace
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * stackTrace;
 
-	// Managed type : System.Reflection.MethodBase
-    - (System_Reflection_MethodBase *)targetSite;
+	// Managed property name : TargetSite
+	// Managed property type : System.Reflection.MethodBase
+    @property (nonatomic, strong, readonly) System_Reflection_MethodBase * targetSite;
 
 #pragma mark -
 #pragma mark Methods

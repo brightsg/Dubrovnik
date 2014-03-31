@@ -3,6 +3,12 @@
 //
 // Managed class : FileStream
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_FileStream
 
 #pragma mark -
@@ -144,81 +150,111 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : CanRead
+	// Managed property type : System.Boolean
+    @synthesize canRead = _canRead;
     - (BOOL)canRead
     {
-		MonoObject * monoObject = [self getMonoProperty:"CanRead"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CanRead"];
+		_canRead = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _canRead;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : CanSeek
+	// Managed property type : System.Boolean
+    @synthesize canSeek = _canSeek;
     - (BOOL)canSeek
     {
-		MonoObject * monoObject = [self getMonoProperty:"CanSeek"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CanSeek"];
+		_canSeek = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _canSeek;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : CanWrite
+	// Managed property type : System.Boolean
+    @synthesize canWrite = _canWrite;
     - (BOOL)canWrite
     {
-		MonoObject * monoObject = [self getMonoProperty:"CanWrite"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CanWrite"];
+		_canWrite = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _canWrite;
 	}
 
-	// Managed type : System.IntPtr
+	// Managed property name : Handle
+	// Managed property type : System.IntPtr
+    @synthesize handle = _handle;
     - (void *)handle
     {
-		MonoObject * monoObject = [self getMonoProperty:"Handle"];
-		void * result = DB_UNBOX_PTR(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Handle"];
+		_handle = DB_UNBOX_PTR(monoObject);
+
+		return _handle;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsAsync
+	// Managed property type : System.Boolean
+    @synthesize isAsync = _isAsync;
     - (BOOL)isAsync
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsAsync"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsAsync"];
+		_isAsync = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isAsync;
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : Length
+	// Managed property type : System.Int64
+    @synthesize length = _length;
     - (int64_t)length
     {
-		MonoObject * monoObject = [self getMonoProperty:"Length"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Length"];
+		_length = DB_UNBOX_INT64(monoObject);
+
+		return _length;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : Position
+	// Managed property type : System.Int64
+    @synthesize position = _position;
     - (int64_t)position
     {
-		MonoObject * monoObject = [self getMonoProperty:"Position"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Position"];
+		_position = DB_UNBOX_INT64(monoObject);
+
+		return _position;
 	}
     - (void)setPosition:(int64_t)value
 	{
+		_position = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Position" valueObject:monoObject];          
 	}
 
-	// Managed type : Microsoft.Win32.SafeHandles.SafeFileHandle
+	// Managed property name : SafeFileHandle
+	// Managed property type : Microsoft.Win32.SafeHandles.SafeFileHandle
+    @synthesize safeFileHandle = _safeFileHandle;
     - (Microsoft_Win32_SafeHandles_SafeFileHandle *)safeFileHandle
     {
-		MonoObject * monoObject = [self getMonoProperty:"SafeFileHandle"];
-		Microsoft_Win32_SafeHandles_SafeFileHandle * result = [Microsoft_Win32_SafeHandles_SafeFileHandle representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SafeFileHandle"];
+		if ([self object:_safeFileHandle isEqualToMonoObject:monoObject]) return _safeFileHandle;					
+		_safeFileHandle = [Microsoft_Win32_SafeHandles_SafeFileHandle objectWithMonoObject:monoObject];
+
+		return _safeFileHandle;
 	}
 
 #pragma mark -
@@ -227,19 +263,19 @@
 	// Managed method name : BeginRead
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginRead_withArray:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(DBMonoObjectRepresentation *)p5
+    - (System_IAsyncResult *)beginRead_withArray:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(System_Object *)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
-		return [System_IAsyncResult representationWithMonoObject:monoObject];
+		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BeginWrite
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginWrite_withArray:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(DBMonoObjectRepresentation *)p5
+    - (System_IAsyncResult *)beginWrite_withArray:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(System_Object *)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
-		return [System_IAsyncResult representationWithMonoObject:monoObject];
+		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndRead
@@ -281,7 +317,7 @@
     - (System_Threading_Tasks_Task *)flushAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessControl
@@ -290,7 +326,7 @@
     - (System_Security_AccessControl_FileSecurity *)getAccessControl
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl()" withNumArgs:0];
-		return [System_Security_AccessControl_FileSecurity representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Lock
@@ -316,7 +352,7 @@
     - (System_Threading_Tasks_Task *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadByte
@@ -375,7 +411,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteByte
@@ -385,5 +421,11 @@
     {
 		[self invokeMonoMethod:"WriteByte(byte)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

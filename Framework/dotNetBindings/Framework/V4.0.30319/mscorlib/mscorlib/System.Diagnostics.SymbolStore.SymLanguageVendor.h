@@ -2,7 +2,7 @@
 //
 // Managed class : SymLanguageVendor
 //
-@interface System_Diagnostics_SymbolStore_SymLanguageVendor : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_SymLanguageVendor : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Guid
+	// Managed field name : Microsoft
+	// Managed field type : System.Guid
     + (System_Guid *)microsoft;
 @end
 //--Dubrovnik.CodeGenerator

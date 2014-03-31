@@ -14,16 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)guid;
-    - (void)setGuid:(NSString *)value;
+	// Managed property name : Guid
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * guid;
 
-	// Managed type : System.String
-    - (NSString *)localizationResources;
-    - (void)setLocalizationResources:(NSString *)value;
+	// Managed property name : LocalizationResources
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * localizationResources;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 @end
 //--Dubrovnik.CodeGenerator

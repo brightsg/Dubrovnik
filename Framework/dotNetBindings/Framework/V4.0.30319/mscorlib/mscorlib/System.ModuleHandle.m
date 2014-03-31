@@ -3,6 +3,12 @@
 //
 // Managed struct : ModuleHandle
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_ModuleHandle
 
 #pragma mark -
@@ -21,23 +27,30 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.ModuleHandle
+	// Managed field name : EmptyHandle
+	// Managed field type : System.ModuleHandle
+    static System_ModuleHandle * m_emptyHandle;
     + (System_ModuleHandle *)emptyHandle
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"EmptyHandle" valuePtr:DB_PTR(monoObject)];
-		return [System_ModuleHandle representationWithMonoObject:monoObject];
+		if ([self object:m_emptyHandle isEqualToMonoObject:monoObject]) return m_emptyHandle;					
+		m_emptyHandle = [System_ModuleHandle objectWithMonoObject:monoObject];
+		return m_emptyHandle;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : MDStreamVersion
+	// Managed property type : System.Int32
+    @synthesize mDStreamVersion = _mDStreamVersion;
     - (int32_t)mDStreamVersion
     {
-		MonoObject * monoObject = [self getMonoProperty:"MDStreamVersion"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MDStreamVersion"];
+		_mDStreamVersion = DB_UNBOX_INT32(monoObject);
+
+		return _mDStreamVersion;
 	}
 
 #pragma mark -
@@ -46,7 +59,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -76,7 +89,7 @@
     - (System_RuntimeFieldHandle *)getRuntimeFieldHandleFromMetadataToken_withFieldToken:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeFieldHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_RuntimeFieldHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeMethodHandleFromMetadataToken
@@ -85,7 +98,7 @@
     - (System_RuntimeMethodHandle *)getRuntimeMethodHandleFromMetadataToken_withMethodToken:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeMethodHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_RuntimeMethodHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeTypeHandleFromMetadataToken
@@ -94,7 +107,7 @@
     - (System_RuntimeTypeHandle *)getRuntimeTypeHandleFromMetadataToken_withTypeToken:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeTypeHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_RuntimeTypeHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -121,7 +134,7 @@
     - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_RuntimeFieldHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveFieldHandle
@@ -130,7 +143,7 @@
     - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
-		return [System_RuntimeFieldHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMethodHandle
@@ -139,7 +152,7 @@
     - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_RuntimeMethodHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMethodHandle
@@ -148,7 +161,7 @@
     - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
-		return [System_RuntimeMethodHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveTypeHandle
@@ -157,7 +170,7 @@
     - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_RuntimeTypeHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveTypeHandle
@@ -166,7 +179,14 @@
     - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
-		return [System_RuntimeTypeHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_emptyHandle = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

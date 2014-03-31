@@ -2,7 +2,7 @@
 //
 // Managed class : EncoderFallbackBuffer
 //
-@interface System_Text_EncoderFallbackBuffer : DBMonoObjectRepresentation
+@interface System_Text_EncoderFallbackBuffer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)remaining;
+	// Managed property name : Remaining
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t remaining;
 
 #pragma mark -
 #pragma mark Methods

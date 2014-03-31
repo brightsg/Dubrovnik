@@ -3,6 +3,12 @@
 //
 // Managed class : EventSource
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_Tracing_EventSource
 
 #pragma mark -
@@ -21,20 +27,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Guid
+	// Managed property name : Guid
+	// Managed property type : System.Guid
+    @synthesize guid = _guid;
     - (System_Guid *)guid
     {
-		MonoObject * monoObject = [self getMonoProperty:"Guid"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Guid"];
+		if ([self object:_guid isEqualToMonoObject:monoObject]) return _guid;					
+		_guid = [System_Guid objectWithMonoObject:monoObject];
+
+		return _guid;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
 
 #pragma mark -
@@ -63,7 +77,7 @@
     - (System_Guid *)getGuid_withEventSourceType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGuid(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetName
@@ -81,7 +95,7 @@
     - (System_Collections_Generic_IEnumerable *)getSources
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSources()" withNumArgs:0];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsEnabled
@@ -118,5 +132,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

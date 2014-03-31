@@ -2,7 +2,7 @@
 //
 // Managed class : IdnMapping
 //
-@interface System_Globalization_IdnMapping : DBMonoObjectRepresentation
+@interface System_Globalization_IdnMapping : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)allowUnassigned;
-    - (void)setAllowUnassigned:(BOOL)value;
+	// Managed property name : AllowUnassigned
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL allowUnassigned;
 
-	// Managed type : System.Boolean
-    - (BOOL)useStd3AsciiRules;
-    - (void)setUseStd3AsciiRules:(BOOL)value;
+	// Managed property name : UseStd3AsciiRules
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL useStd3AsciiRules;
 
 #pragma mark -
 #pragma mark Methods
@@ -28,7 +28,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetAscii
 	// Managed return type : System.String

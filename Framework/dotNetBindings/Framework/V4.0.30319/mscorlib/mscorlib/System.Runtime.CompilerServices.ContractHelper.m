@@ -3,6 +3,12 @@
 //
 // Managed class : ContractHelper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_ContractHelper
 
 #pragma mark -
@@ -37,5 +43,11 @@
     {
 		[self invokeMonoMethod:"TriggerFailure(System.Diagnostics.Contracts.ContractFailureKind,string,string,string,System.Exception)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

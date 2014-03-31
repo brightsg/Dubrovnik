@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)copyright;
+	// Managed property name : Copyright
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * copyright;
 @end
 //--Dubrovnik.CodeGenerator

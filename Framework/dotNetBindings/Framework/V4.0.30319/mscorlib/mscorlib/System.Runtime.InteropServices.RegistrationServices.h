@@ -2,7 +2,7 @@
 //
 // Managed class : RegistrationServices
 //
-@interface System_Runtime_InteropServices_RegistrationServices : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_RegistrationServices : System_Object
 
 #pragma mark -
 #pragma mark Setup

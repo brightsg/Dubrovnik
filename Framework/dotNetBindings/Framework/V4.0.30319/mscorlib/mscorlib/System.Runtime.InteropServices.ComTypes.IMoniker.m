@@ -3,6 +3,12 @@
 //
 // Managed interface : IMoniker
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ComTypes_IMoniker
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : BindToObject
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Guid&, ref System.Object&
-    - (void)bindToObject_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidResultRef:(System_Guid **)p3 ppvResultRef:(DBMonoObjectRepresentation **)p4
+    - (void)bindToObject_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidResultRef:(System_Guid **)p3 ppvResultRef:(System_Object **)p4
     {
 		[self invokeMonoMethod:"BindToObject(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid&,object&)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
@@ -32,7 +38,7 @@
 	// Managed method name : BindToStorage
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Guid&, ref System.Object&
-    - (void)bindToStorage_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidRef:(System_Guid **)p3 ppvObjRef:(DBMonoObjectRepresentation **)p4
+    - (void)bindToStorage_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidRef:(System_Guid **)p3 ppvObjRef:(System_Object **)p4
     {
 		[self invokeMonoMethod:"BindToStorage(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid&,object&)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
@@ -185,5 +191,11 @@
     {
 		[self invokeMonoMethod:"Save(System.Runtime.InteropServices.ComTypes.IStream,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

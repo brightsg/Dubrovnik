@@ -3,6 +3,12 @@
 //
 // Managed interface : UCOMIConnectionPointContainer
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_UCOMIConnectionPointContainer
 
 #pragma mark -
@@ -36,5 +42,11 @@
     {
 		[self invokeMonoMethod:"FindConnectionPoint(System.Guid&,System.Runtime.InteropServices.UCOMIConnectionPoint&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

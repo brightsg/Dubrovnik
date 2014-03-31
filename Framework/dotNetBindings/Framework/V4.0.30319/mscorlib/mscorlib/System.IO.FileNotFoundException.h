@@ -37,14 +37,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)fileName;
+	// Managed property name : FileName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fileName;
 
-	// Managed type : System.String
-    - (NSString *)fusionLog;
+	// Managed property name : FusionLog
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fusionLog;
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 
 #pragma mark -
 #pragma mark Methods

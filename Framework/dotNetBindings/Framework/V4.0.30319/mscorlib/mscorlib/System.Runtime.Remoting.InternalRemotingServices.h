@@ -2,7 +2,7 @@
 //
 // Managed class : InternalRemotingServices
 //
-@interface System_Runtime_Remoting_InternalRemotingServices : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_InternalRemotingServices : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : GetCachedSoapAttribute
 	// Managed return type : System.Runtime.Remoting.Metadata.SoapAttribute
 	// Managed param types : System.Object
-    - (System_Runtime_Remoting_Metadata_SoapAttribute *)getCachedSoapAttribute_withReflectionObject:(DBMonoObjectRepresentation *)p1;
+    - (System_Runtime_Remoting_Metadata_SoapAttribute *)getCachedSoapAttribute_withReflectionObject:(System_Object *)p1;
 
 	// Managed method name : RemotingAssert
 	// Managed return type : System.Void
@@ -37,6 +37,6 @@
 	// Managed method name : SetServerIdentity
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Messaging.MethodCall, System.Object
-    - (void)setServerIdentity_withM:(System_Runtime_Remoting_Messaging_MethodCall *)p1 srvID:(DBMonoObjectRepresentation *)p2;
+    - (void)setServerIdentity_withM:(System_Runtime_Remoting_Messaging_MethodCall *)p1 srvID:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

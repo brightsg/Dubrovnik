@@ -3,6 +3,12 @@
 //
 // Managed class : ClientSponsor
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Lifetime_ClientSponsor
 
 #pragma mark -
@@ -32,16 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
+	// Managed property name : RenewalTime
+	// Managed property type : System.TimeSpan
+    @synthesize renewalTime = _renewalTime;
     - (System_TimeSpan *)renewalTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"RenewalTime"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RenewalTime"];
+		if ([self object:_renewalTime isEqualToMonoObject:monoObject]) return _renewalTime;					
+		_renewalTime = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _renewalTime;
 	}
     - (void)setRenewalTime:(System_TimeSpan *)value
 	{
-		MonoObject *monoObject = DB_VALUE(value);
+		_renewalTime = value;
+		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"RenewalTime" valueObject:monoObject];          
 	}
 
@@ -59,10 +70,10 @@
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)initializeLifetimeService
+    - (System_Object *)initializeLifetimeService
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
@@ -80,7 +91,7 @@
     - (System_TimeSpan *)renewal_withLease:(System_Runtime_Remoting_Lifetime_ILease *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoValue]];
-		return [System_TimeSpan representationWithMonoObject:monoObject];
+		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unregister
@@ -90,5 +101,11 @@
     {
 		[self invokeMonoMethod:"Unregister(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

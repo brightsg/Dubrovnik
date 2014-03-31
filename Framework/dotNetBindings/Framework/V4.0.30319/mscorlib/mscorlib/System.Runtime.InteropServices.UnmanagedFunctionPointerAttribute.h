@@ -22,26 +22,27 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Boolean
-    - (BOOL)bestFitMapping;
-    - (void)setBestFitMapping:(BOOL)value;
+	// Managed field name : BestFitMapping
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL bestFitMapping;
 
-	// Managed type : System.Runtime.InteropServices.CharSet
-    - (System_Runtime_InteropServices_CharSet)charSet;
-    - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value;
+	// Managed field name : CharSet
+	// Managed field type : System.Runtime.InteropServices.CharSet
+    @property (nonatomic) System_Runtime_InteropServices_CharSet charSet;
 
-	// Managed type : System.Boolean
-    - (BOOL)setLastError;
-    - (void)setSetLastError:(BOOL)value;
+	// Managed field name : SetLastError
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL setLastError;
 
-	// Managed type : System.Boolean
-    - (BOOL)throwOnUnmappableChar;
-    - (void)setThrowOnUnmappableChar:(BOOL)value;
+	// Managed field name : ThrowOnUnmappableChar
+	// Managed field type : System.Boolean
+    @property (nonatomic) BOOL throwOnUnmappableChar;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.CallingConvention
-    - (System_Runtime_InteropServices_CallingConvention)callingConvention;
+	// Managed property name : CallingConvention
+	// Managed property type : System.Runtime.InteropServices.CallingConvention
+    @property (nonatomic, readonly) System_Runtime_InteropServices_CallingConvention callingConvention;
 @end
 //--Dubrovnik.CodeGenerator

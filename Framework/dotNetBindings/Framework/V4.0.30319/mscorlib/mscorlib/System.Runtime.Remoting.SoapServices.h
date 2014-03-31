@@ -2,7 +2,7 @@
 //
 // Managed class : SoapServices
 //
-@interface System_Runtime_Remoting_SoapServices : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_SoapServices : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,16 +14,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrType
+	// Managed property type : System.String
     + (NSString *)xmlNsForClrType;
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrTypeWithAssembly
+	// Managed property type : System.String
     + (NSString *)xmlNsForClrTypeWithAssembly;
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrTypeWithNs
+	// Managed property type : System.String
     + (NSString *)xmlNsForClrTypeWithNs;
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrTypeWithNsAndAssembly
+	// Managed property type : System.String
     + (NSString *)xmlNsForClrTypeWithNsAndAssembly;
 
 #pragma mark -

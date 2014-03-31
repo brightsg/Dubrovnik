@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     9/24/2013 11:34:04 AM
+// Date:     3/31/2014 4:54:01 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -19,7 +19,7 @@
 // OS Arch:  64 bit
 // Process:  32 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-// Runtime:  4.0.30319.18052
+// Runtime:  4.0.30319.18444
 //
 // Manual changes to this file may cause unexpected behavior in your application.
 // Manual changes to this file will be overwritten if the code is regenerated.
@@ -117,32 +117,32 @@
 #define SAction_ System_Action
 #endif
 
-@class System_Action_P5;
-#ifdef SAction_P5_
-#warning SAction_P5_ class name collision.
+@class System_ActionA5;
+#ifdef SActionA5_
+#warning SActionA5_ class name collision.
 #else
-#define SAction_P5_ System_Action_P5
+#define SActionA5_ System_ActionA5
 #endif
 
-@class System_Action_P6;
-#ifdef SAction_P6_
-#warning SAction_P6_ class name collision.
+@class System_ActionA6;
+#ifdef SActionA6_
+#warning SActionA6_ class name collision.
 #else
-#define SAction_P6_ System_Action_P6
+#define SActionA6_ System_ActionA6
 #endif
 
-@class System_Action_P7;
-#ifdef SAction_P7_
-#warning SAction_P7_ class name collision.
+@class System_ActionA7;
+#ifdef SActionA7_
+#warning SActionA7_ class name collision.
 #else
-#define SAction_P7_ System_Action_P7
+#define SActionA7_ System_ActionA7
 #endif
 
-@class System_Action_P8;
-#ifdef SAction_P8_
-#warning SAction_P8_ class name collision.
+@class System_ActionA8;
+#ifdef SActionA8_
+#warning SActionA8_ class name collision.
 #else
-#define SAction_P8_ System_Action_P8
+#define SActionA8_ System_ActionA8
 #endif
 
 @class System_Action;
@@ -558,39 +558,39 @@
 #define SFormatException_ System_FormatException
 #endif
 
-@class System_Func_P5;
-#ifdef SFunc_P5_
-#warning SFunc_P5_ class name collision.
+@class System_FuncA5;
+#ifdef SFuncA5_
+#warning SFuncA5_ class name collision.
 #else
-#define SFunc_P5_ System_Func_P5
+#define SFuncA5_ System_FuncA5
 #endif
 
-@class System_Func_P6;
-#ifdef SFunc_P6_
-#warning SFunc_P6_ class name collision.
+@class System_FuncA6;
+#ifdef SFuncA6_
+#warning SFuncA6_ class name collision.
 #else
-#define SFunc_P6_ System_Func_P6
+#define SFuncA6_ System_FuncA6
 #endif
 
-@class System_Func_P7;
-#ifdef SFunc_P7_
-#warning SFunc_P7_ class name collision.
+@class System_FuncA7;
+#ifdef SFuncA7_
+#warning SFuncA7_ class name collision.
 #else
-#define SFunc_P7_ System_Func_P7
+#define SFuncA7_ System_FuncA7
 #endif
 
-@class System_Func_P8;
-#ifdef SFunc_P8_
-#warning SFunc_P8_ class name collision.
+@class System_FuncA8;
+#ifdef SFuncA8_
+#warning SFuncA8_ class name collision.
 #else
-#define SFunc_P8_ System_Func_P8
+#define SFuncA8_ System_FuncA8
 #endif
 
-@class System_Func_P9;
-#ifdef SFunc_P9_
-#warning SFunc_P9_ class name collision.
+@class System_FuncA9;
+#ifdef SFuncA9_
+#warning SFuncA9_ class name collision.
 #else
-#define SFunc_P9_ System_Func_P9
+#define SFuncA9_ System_FuncA9
 #endif
 
 @class System_Func;
@@ -1006,32 +1006,32 @@
 #define STuple_ System_Tuple
 #endif
 
-@class System_Tuple_P5;
-#ifdef STuple_P5_
-#warning STuple_P5_ class name collision.
+@class System_TupleA5;
+#ifdef STupleA5_
+#warning STupleA5_ class name collision.
 #else
-#define STuple_P5_ System_Tuple_P5
+#define STupleA5_ System_TupleA5
 #endif
 
-@class System_Tuple_P6;
-#ifdef STuple_P6_
-#warning STuple_P6_ class name collision.
+@class System_TupleA6;
+#ifdef STupleA6_
+#warning STupleA6_ class name collision.
 #else
-#define STuple_P6_ System_Tuple_P6
+#define STupleA6_ System_TupleA6
 #endif
 
-@class System_Tuple_P7;
-#ifdef STuple_P7_
-#warning STuple_P7_ class name collision.
+@class System_TupleA7;
+#ifdef STupleA7_
+#warning STupleA7_ class name collision.
 #else
-#define STuple_P7_ System_Tuple_P7
+#define STupleA7_ System_TupleA7
 #endif
 
-@class System_Tuple_P8;
-#ifdef STuple_P8_
-#warning STuple_P8_ class name collision.
+@class System_TupleA8;
+#ifdef STupleA8_
+#warning STupleA8_ class name collision.
 #else
-#define STuple_P8_ System_Tuple_P8
+#define STupleA8_ System_TupleA8
 #endif
 
 @class System_Tuple;
@@ -9320,10 +9320,10 @@
 #import "System.AccessViolationException.h"
 #import "System.MulticastDelegate.h"
 #import "System.Action.h"
-#import "System.Action_P5.h"
-#import "System.Action_P6.h"
-#import "System.Action_P7.h"
-#import "System.Action_P8.h"
+#import "System.ActionA5.h"
+#import "System.ActionA6.h"
+#import "System.ActionA7.h"
+#import "System.ActionA8.h"
 #import "System.Action_T.h"
 #import "System.Action_T1_T2_T3_T4.h"
 #import "System.Action_T1_T2_T3.h"
@@ -9383,11 +9383,11 @@
 #import "System.MemberAccessException.h"
 #import "System.FieldAccessException.h"
 #import "System.FlagsAttribute.h"
-#import "System.Func_P5.h"
-#import "System.Func_P6.h"
-#import "System.Func_P7.h"
-#import "System.Func_P8.h"
-#import "System.Func_P9.h"
+#import "System.FuncA5.h"
+#import "System.FuncA6.h"
+#import "System.FuncA7.h"
+#import "System.FuncA8.h"
+#import "System.FuncA9.h"
 #import "System.Func_T_TResult.h"
 #import "System.Func_T1_T2_T3_TResult.h"
 #import "System.Func_T1_T2_TResult.h"
@@ -9441,10 +9441,10 @@
 #import "System.TimeZoneInfo_AdjustmentRule.h"
 #import "System.TimeZoneNotFoundException.h"
 #import "System.Tuple.h"
-#import "System.Tuple_P5.h"
-#import "System.Tuple_P6.h"
-#import "System.Tuple_P7.h"
-#import "System.Tuple_P8.h"
+#import "System.TupleA5.h"
+#import "System.TupleA6.h"
+#import "System.TupleA7.h"
+#import "System.TupleA8.h"
 #import "System.Tuple_T1_T2_T3_T4.h"
 #import "System.Tuple_T1_T2_T3.h"
 #import "System.Tuple_T1_T2.h"

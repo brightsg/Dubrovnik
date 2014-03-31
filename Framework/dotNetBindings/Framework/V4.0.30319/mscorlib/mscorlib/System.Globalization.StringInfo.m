@@ -3,6 +3,12 @@
 //
 // Managed class : StringInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Globalization_StringInfo
 
 #pragma mark -
@@ -32,23 +38,31 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : LengthInTextElements
+	// Managed property type : System.Int32
+    @synthesize lengthInTextElements = _lengthInTextElements;
     - (int32_t)lengthInTextElements
     {
-		MonoObject * monoObject = [self getMonoProperty:"LengthInTextElements"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LengthInTextElements"];
+		_lengthInTextElements = DB_UNBOX_INT32(monoObject);
+
+		return _lengthInTextElements;
 	}
 
-	// Managed type : System.String
+	// Managed property name : String
+	// Managed property type : System.String
+    @synthesize string = _string;
     - (NSString *)string
     {
-		MonoObject * monoObject = [self getMonoProperty:"String"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"String"];
+		if ([self object:_string isEqualToMonoObject:monoObject]) return _string;					
+		_string = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _string;
 	}
     - (void)setString:(NSString *)value
 	{
+		_string = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"String" valueObject:monoObject];          
 	}
@@ -59,7 +73,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withValue:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -98,7 +112,7 @@
     - (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTextElementEnumerator(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Globalization_TextElementEnumerator representationWithMonoObject:monoObject];
+		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTextElementEnumerator
@@ -107,7 +121,7 @@
     - (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1 index:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTextElementEnumerator(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Globalization_TextElementEnumerator representationWithMonoObject:monoObject];
+		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseCombiningCharacters
@@ -116,7 +130,7 @@
     - (DBSystem_Array *)parseCombiningCharacters_withStr:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ParseCombiningCharacters(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : SubstringByTextElements
@@ -136,5 +150,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"SubstringByTextElements(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : StringWriter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_StringWriter
 
 #pragma mark -
@@ -48,12 +54,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : Encoding
+	// Managed property type : System.Text.Encoding
+    @synthesize encoding = _encoding;
     - (System_Text_Encoding *)encoding
     {
-		MonoObject * monoObject = [self getMonoProperty:"Encoding"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Encoding"];
+		if ([self object:_encoding isEqualToMonoObject:monoObject]) return _encoding;					
+		_encoding = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return _encoding;
 	}
 
 #pragma mark -
@@ -73,7 +83,7 @@
     - (System_Threading_Tasks_Task *)flushAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStringBuilder
@@ -82,7 +92,7 @@
     - (System_Text_StringBuilder *)getStringBuilder
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStringBuilder()" withNumArgs:0];
-		return [System_Text_StringBuilder representationWithMonoObject:monoObject];
+		return [System_Text_StringBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -124,7 +134,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteAsync
@@ -133,7 +143,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteAsync
@@ -142,7 +152,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -151,7 +161,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -160,7 +170,7 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteLineAsync
@@ -169,7 +179,13 @@
     - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

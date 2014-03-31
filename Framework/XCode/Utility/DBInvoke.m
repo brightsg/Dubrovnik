@@ -91,6 +91,8 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
 	NSString *exceptionStackTrace = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "StackTrace")];
     NSException *e = [NSException exceptionWithName:exceptionMessage reason:exceptionStackTrace userInfo:nil];
     
+    NSLog(@"Dubrovnik exception: %@ %@", exceptionMessage, exceptionStackTrace);
+    
 	return(e);
 }
 

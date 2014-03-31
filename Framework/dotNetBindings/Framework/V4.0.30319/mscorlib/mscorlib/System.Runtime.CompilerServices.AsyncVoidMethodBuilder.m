@@ -3,6 +3,12 @@
 //
 // Managed struct : AsyncVoidMethodBuilder
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_AsyncVoidMethodBuilder
 
 #pragma mark -
@@ -43,7 +49,7 @@
     - (System_Runtime_CompilerServices_AsyncVoidMethodBuilder *)create
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
-		return [System_Runtime_CompilerServices_AsyncVoidMethodBuilder representationWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_AsyncVoidMethodBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetException
@@ -77,5 +83,11 @@
     {
 		[self invokeMonoMethod:"Start(TStateMachine&)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

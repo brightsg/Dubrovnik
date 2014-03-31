@@ -2,7 +2,7 @@
 //
 // Managed struct : SpinLock
 //
-@interface System_Threading_SpinLock : DBMonoObjectRepresentation
+@interface System_Threading_SpinLock : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isHeld;
+	// Managed property name : IsHeld
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isHeld;
 
-	// Managed type : System.Boolean
-    - (BOOL)isHeldByCurrentThread;
+	// Managed property name : IsHeldByCurrentThread
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isHeldByCurrentThread;
 
-	// Managed type : System.Boolean
-    - (BOOL)isThreadOwnerTrackingEnabled;
+	// Managed property name : IsThreadOwnerTrackingEnabled
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isThreadOwnerTrackingEnabled;
 
 #pragma mark -
 #pragma mark Methods

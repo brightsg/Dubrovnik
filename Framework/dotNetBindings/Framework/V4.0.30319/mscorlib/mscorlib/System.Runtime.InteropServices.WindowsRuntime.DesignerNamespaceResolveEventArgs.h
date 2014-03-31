@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)namespaceName;
+	// Managed property name : NamespaceName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * namespaceName;
 
-	// Managed type : System.Collections.ObjectModel.Collection<System.String>
-    - (System_Collections_ObjectModel_Collection *)resolvedAssemblyFiles;
+	// Managed property name : ResolvedAssemblyFiles
+	// Managed property type : System.Collections.ObjectModel.Collection<System.String>
+    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_Collection * resolvedAssemblyFiles;
 @end
 //--Dubrovnik.CodeGenerator

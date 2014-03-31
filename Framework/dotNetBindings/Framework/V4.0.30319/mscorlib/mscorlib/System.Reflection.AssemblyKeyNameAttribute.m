@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyKeyNameAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyKeyNameAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : KeyName
+	// Managed property type : System.String
+    @synthesize keyName = _keyName;
     - (NSString *)keyName
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeyName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeyName"];
+		if ([self object:_keyName isEqualToMonoObject:monoObject]) return _keyName;					
+		_keyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _keyName;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

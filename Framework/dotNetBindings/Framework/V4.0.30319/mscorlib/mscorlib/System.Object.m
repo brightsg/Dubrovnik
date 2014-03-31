@@ -3,6 +3,12 @@
 //
 // Managed class : Object
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Object
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -33,7 +39,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object
-    - (BOOL)equals_withObjA:(DBMonoObjectRepresentation *)p1 objB:(DBMonoObjectRepresentation *)p2
+    - (BOOL)equals_withObjA:(System_Object *)p1 objB:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -54,13 +60,13 @@
     - (System_Type *)getType
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReferenceEquals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object
-    - (BOOL)referenceEquals_withObjA:(DBMonoObjectRepresentation *)p1 objB:(DBMonoObjectRepresentation *)p2
+    - (BOOL)referenceEquals_withObjA:(System_Object *)p1 objB:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceEquals(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -74,5 +80,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

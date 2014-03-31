@@ -2,7 +2,7 @@
 //
 // Managed interface : IChannelSinkBase
 //
-@interface System_Runtime_Remoting_Channels_IChannelSinkBase : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IChannelSinkBase : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IDictionary
-    - (System_Collections_IDictionary *)properties;
+	// Managed property name : Properties
+	// Managed property type : System.Collections.IDictionary
+    @property (nonatomic, strong, readonly) System_Collections_IDictionary * properties;
 @end
 //--Dubrovnik.CodeGenerator

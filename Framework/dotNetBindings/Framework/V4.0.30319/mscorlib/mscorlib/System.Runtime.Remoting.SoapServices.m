@@ -3,6 +3,12 @@
 //
 // Managed class : SoapServices
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_SoapServices
 
 #pragma mark -
@@ -21,36 +27,52 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrType
+	// Managed property type : System.String
+    static NSString * m_xmlNsForClrType;
     + (NSString *)xmlNsForClrType
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"XmlNsForClrType"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrType"];
+		if ([self object:m_xmlNsForClrType isEqualToMonoObject:monoObject]) return m_xmlNsForClrType;					
+		m_xmlNsForClrType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_xmlNsForClrType;
 	}
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrTypeWithAssembly
+	// Managed property type : System.String
+    static NSString * m_xmlNsForClrTypeWithAssembly;
     + (NSString *)xmlNsForClrTypeWithAssembly
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithAssembly"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithAssembly"];
+		if ([self object:m_xmlNsForClrTypeWithAssembly isEqualToMonoObject:monoObject]) return m_xmlNsForClrTypeWithAssembly;					
+		m_xmlNsForClrTypeWithAssembly = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_xmlNsForClrTypeWithAssembly;
 	}
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrTypeWithNs
+	// Managed property type : System.String
+    static NSString * m_xmlNsForClrTypeWithNs;
     + (NSString *)xmlNsForClrTypeWithNs
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithNs"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithNs"];
+		if ([self object:m_xmlNsForClrTypeWithNs isEqualToMonoObject:monoObject]) return m_xmlNsForClrTypeWithNs;					
+		m_xmlNsForClrTypeWithNs = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_xmlNsForClrTypeWithNs;
 	}
 
-	// Managed type : System.String
+	// Managed property name : XmlNsForClrTypeWithNsAndAssembly
+	// Managed property type : System.String
+    static NSString * m_xmlNsForClrTypeWithNsAndAssembly;
     + (NSString *)xmlNsForClrTypeWithNsAndAssembly
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithNsAndAssembly"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithNsAndAssembly"];
+		if ([self object:m_xmlNsForClrTypeWithNsAndAssembly isEqualToMonoObject:monoObject]) return m_xmlNsForClrTypeWithNsAndAssembly;					
+		m_xmlNsForClrTypeWithNsAndAssembly = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_xmlNsForClrTypeWithNsAndAssembly;
 	}
 
 #pragma mark -
@@ -100,7 +122,7 @@
     - (System_Type *)getInteropTypeFromXmlElement_withXmlElement:(NSString *)p1 xmlNamespace:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInteropTypeFromXmlElement(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetInteropTypeFromXmlType
@@ -109,7 +131,7 @@
     - (System_Type *)getInteropTypeFromXmlType_withXmlType:(NSString *)p1 xmlTypeNamespace:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInteropTypeFromXmlType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSoapActionFromMethodBase
@@ -237,5 +259,15 @@
     {
 		[self invokeMonoMethod:"RegisterSoapActionForMethodBase(System.Reflection.MethodBase,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_xmlNsForClrType = nil;
+		m_xmlNsForClrTypeWithAssembly = nil;
+		m_xmlNsForClrTypeWithNs = nil;
+		m_xmlNsForClrTypeWithNsAndAssembly = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

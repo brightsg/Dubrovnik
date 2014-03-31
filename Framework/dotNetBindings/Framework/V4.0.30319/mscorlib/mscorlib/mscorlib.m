@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     9/24/2013 11:34:04 AM
+// Date:     3/31/2014 4:54:01 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -19,7 +19,7 @@
 // OS Arch:  64 bit
 // Process:  32 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-// Runtime:  4.0.30319.18052
+// Runtime:  4.0.30319.18444
 //
 // Manual changes to this file may cause unexpected behavior in your application.
 // Manual changes to this file will be overwritten if the code is regenerated.
@@ -27,6 +27,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #import "mscorlib.h"
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 
 // Dubrovnik.CodeGenerator made System.ArgIterator.m
 // Dubrovnik.CodeGenerator made System.ArraySegment_T.m
@@ -167,10 +173,10 @@
 // Dubrovnik.CodeGenerator made System.AccessViolationException.m
 // Dubrovnik.CodeGenerator made System.MulticastDelegate.m
 // Dubrovnik.CodeGenerator made System.Action.m
-// Dubrovnik.CodeGenerator made System.Action_P5.m
-// Dubrovnik.CodeGenerator made System.Action_P6.m
-// Dubrovnik.CodeGenerator made System.Action_P7.m
-// Dubrovnik.CodeGenerator made System.Action_P8.m
+// Dubrovnik.CodeGenerator made System.ActionA5.m
+// Dubrovnik.CodeGenerator made System.ActionA6.m
+// Dubrovnik.CodeGenerator made System.ActionA7.m
+// Dubrovnik.CodeGenerator made System.ActionA8.m
 // Dubrovnik.CodeGenerator made System.Action_T.m
 // Dubrovnik.CodeGenerator made System.Action_T1_T2_T3_T4.m
 // Dubrovnik.CodeGenerator made System.Action_T1_T2_T3.m
@@ -230,11 +236,11 @@
 // Dubrovnik.CodeGenerator made System.MemberAccessException.m
 // Dubrovnik.CodeGenerator made System.FieldAccessException.m
 // Dubrovnik.CodeGenerator made System.FlagsAttribute.m
-// Dubrovnik.CodeGenerator made System.Func_P5.m
-// Dubrovnik.CodeGenerator made System.Func_P6.m
-// Dubrovnik.CodeGenerator made System.Func_P7.m
-// Dubrovnik.CodeGenerator made System.Func_P8.m
-// Dubrovnik.CodeGenerator made System.Func_P9.m
+// Dubrovnik.CodeGenerator made System.FuncA5.m
+// Dubrovnik.CodeGenerator made System.FuncA6.m
+// Dubrovnik.CodeGenerator made System.FuncA7.m
+// Dubrovnik.CodeGenerator made System.FuncA8.m
+// Dubrovnik.CodeGenerator made System.FuncA9.m
 // Dubrovnik.CodeGenerator made System.Func_T_TResult.m
 // Dubrovnik.CodeGenerator made System.Func_T1_T2_T3_TResult.m
 // Dubrovnik.CodeGenerator made System.Func_T1_T2_TResult.m
@@ -288,10 +294,10 @@
 // Dubrovnik.CodeGenerator made System.TimeZoneInfo_AdjustmentRule.m
 // Dubrovnik.CodeGenerator made System.TimeZoneNotFoundException.m
 // Dubrovnik.CodeGenerator made System.Tuple.m
-// Dubrovnik.CodeGenerator made System.Tuple_P5.m
-// Dubrovnik.CodeGenerator made System.Tuple_P6.m
-// Dubrovnik.CodeGenerator made System.Tuple_P7.m
-// Dubrovnik.CodeGenerator made System.Tuple_P8.m
+// Dubrovnik.CodeGenerator made System.TupleA5.m
+// Dubrovnik.CodeGenerator made System.TupleA6.m
+// Dubrovnik.CodeGenerator made System.TupleA7.m
+// Dubrovnik.CodeGenerator made System.TupleA8.m
 // Dubrovnik.CodeGenerator made System.Tuple_T1_T2_T3_T4.m
 // Dubrovnik.CodeGenerator made System.Tuple_T1_T2_T3.m
 // Dubrovnik.CodeGenerator made System.Tuple_T1_T2.m

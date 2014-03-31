@@ -2,7 +2,7 @@
 //
 // Managed struct : Int32
 //
-@interface System_Int32 : DBMonoObjectRepresentation
+@interface System_Int32 : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : MaxValue
+	// Managed field type : System.Int32
     + (int32_t)maxValue;
 
-	// Managed type : System.Int32
+	// Managed field name : MinValue
+	// Managed field type : System.Int32
     + (int32_t)minValue;
 
 #pragma mark -
@@ -26,7 +28,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -36,7 +38,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

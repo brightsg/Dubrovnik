@@ -2,7 +2,7 @@
 //
 // Managed class : TextElementEnumerator
 //
-@interface System_Globalization_TextElementEnumerator : DBMonoObjectRepresentation
+@interface System_Globalization_TextElementEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)current;
+	// Managed property name : Current
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * current;
 
-	// Managed type : System.Int32
-    - (int32_t)elementIndex;
+	// Managed property name : ElementIndex
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t elementIndex;
 
 #pragma mark -
 #pragma mark Methods

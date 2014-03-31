@@ -2,7 +2,7 @@
 //
 // Managed struct : CONNECTDATA
 //
-@interface System_Runtime_InteropServices_ComTypes_CONNECTDATA : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_CONNECTDATA : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
-    - (int32_t)dwCookie;
-    - (void)setDwCookie:(int32_t)value;
+	// Managed field name : dwCookie
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t dwCookie;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)pUnk;
-    - (void)setPUnk:(DBMonoObjectRepresentation *)value;
+	// Managed field name : pUnk
+	// Managed field type : System.Object
+    @property (nonatomic, strong) System_Object * pUnk;
 @end
 //--Dubrovnik.CodeGenerator

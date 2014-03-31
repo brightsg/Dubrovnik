@@ -2,7 +2,7 @@
 //
 // Managed class : ChannelServices
 //
-@interface System_Runtime_Remoting_Channels_ChannelServices : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_ChannelServices : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Channels.IChannel[]
+	// Managed property name : RegisteredChannels
+	// Managed property type : System.Runtime.Remoting.Channels.IChannel[]
     + (DBSystem_Array *)registeredChannels;
 
 #pragma mark -
@@ -43,7 +44,7 @@
 	// Managed method name : GetChannelSinkProperties
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : System.Object
-    - (System_Collections_IDictionary *)getChannelSinkProperties_withObj:(DBMonoObjectRepresentation *)p1;
+    - (System_Collections_IDictionary *)getChannelSinkProperties_withObj:(System_Object *)p1;
 
 	// Managed method name : GetUrlsForObject
 	// Managed return type : System.String[]

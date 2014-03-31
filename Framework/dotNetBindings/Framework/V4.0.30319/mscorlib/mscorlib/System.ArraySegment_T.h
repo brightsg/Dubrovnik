@@ -2,7 +2,7 @@
 //
 // Managed struct : ArraySegment<T>
 //
-@interface System_ArraySegment : DBMonoObjectRepresentation
+@interface System_ArraySegment : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -27,14 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : T[]
-    - (DBSystem_Array *)array;
+	// Managed property name : Array
+	// Managed property type : T[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * array;
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Int32
-    - (int32_t)offset;
+	// Managed property name : Offset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t offset;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +45,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

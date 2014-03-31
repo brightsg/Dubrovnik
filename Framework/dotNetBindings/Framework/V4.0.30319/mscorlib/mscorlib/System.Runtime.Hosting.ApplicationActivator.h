@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationActivator
 //
-@interface System_Runtime_Hosting_ApplicationActivator : DBMonoObjectRepresentation
+@interface System_Runtime_Hosting_ApplicationActivator : System_Object
 
 #pragma mark -
 #pragma mark Setup

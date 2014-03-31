@@ -3,6 +3,12 @@
 //
 // Managed class : InternalST
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_Formatters_InternalST
 
 #pragma mark -
@@ -35,13 +41,13 @@
     - (System_Reflection_Assembly *)loadAssemblyFromString_withAssemblyString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"LoadAssemblyFromString(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SerializationSetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Reflection.FieldInfo, System.Object, System.Object
-    - (void)serializationSetValue_withFi:(System_Reflection_FieldInfo *)p1 target:(DBMonoObjectRepresentation *)p2 value:(DBMonoObjectRepresentation *)p3
+    - (void)serializationSetValue_withFi:(System_Reflection_FieldInfo *)p1 target:(System_Object *)p2 value:(System_Object *)p3
     {
 		[self invokeMonoMethod:"SerializationSetValue(System.Reflection.FieldInfo,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -70,5 +76,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"SoapCheckEnabled()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

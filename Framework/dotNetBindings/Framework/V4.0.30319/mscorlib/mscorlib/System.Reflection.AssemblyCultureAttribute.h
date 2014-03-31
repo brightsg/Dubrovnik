@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)culture;
+	// Managed property name : Culture
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * culture;
 @end
 //--Dubrovnik.CodeGenerator

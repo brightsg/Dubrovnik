@@ -3,6 +3,12 @@
 //
 // Managed interface : UCOMIRunningObjectTable
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_UCOMIRunningObjectTable
 
 #pragma mark -
@@ -32,7 +38,7 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker, ref System.Object&
-    - (void)getObject_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 ppunkObjectRef:(DBMonoObjectRepresentation **)p2
+    - (void)getObject_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 ppunkObjectRef:(System_Object **)p2
     {
 		[self invokeMonoMethod:"GetObject(System.Runtime.InteropServices.UCOMIMoniker,object&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -64,7 +70,7 @@
 	// Managed method name : Register
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Object, System.Runtime.InteropServices.UCOMIMoniker, ref System.Int32&
-    - (void)register_withGrfFlags:(int32_t)p1 punkObject:(DBMonoObjectRepresentation *)p2 pmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p3 pdwRegisterRef:(int32_t*)p4
+    - (void)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p3 pdwRegisterRef:(int32_t*)p4
     {
 		[self invokeMonoMethod:"Register(int,object,System.Runtime.InteropServices.UCOMIMoniker,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], p4];
     }
@@ -76,5 +82,11 @@
     {
 		[self invokeMonoMethod:"Revoke(int)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

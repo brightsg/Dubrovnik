@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.CharSet
-    - (System_Runtime_InteropServices_CharSet)charSet;
+	// Managed property name : CharSet
+	// Managed property type : System.Runtime.InteropServices.CharSet
+    @property (nonatomic, readonly) System_Runtime_InteropServices_CharSet charSet;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed struct : RSAParameters
 //
-@interface System_Security_Cryptography_RSAParameters : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_RSAParameters : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,36 +14,36 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Byte[]
-    - (NSData *)d;
-    - (void)setD:(NSData *)value;
+	// Managed field name : D
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * d;
 
-	// Managed type : System.Byte[]
-    - (NSData *)dP;
-    - (void)setDP:(NSData *)value;
+	// Managed field name : DP
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * dP;
 
-	// Managed type : System.Byte[]
-    - (NSData *)dQ;
-    - (void)setDQ:(NSData *)value;
+	// Managed field name : DQ
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * dQ;
 
-	// Managed type : System.Byte[]
-    - (NSData *)exponent;
-    - (void)setExponent:(NSData *)value;
+	// Managed field name : Exponent
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * exponent;
 
-	// Managed type : System.Byte[]
-    - (NSData *)inverseQ;
-    - (void)setInverseQ:(NSData *)value;
+	// Managed field name : InverseQ
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * inverseQ;
 
-	// Managed type : System.Byte[]
-    - (NSData *)modulus;
-    - (void)setModulus:(NSData *)value;
+	// Managed field name : Modulus
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * modulus;
 
-	// Managed type : System.Byte[]
-    - (NSData *)p;
-    - (void)setP:(NSData *)value;
+	// Managed field name : P
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * p;
 
-	// Managed type : System.Byte[]
-    - (NSData *)q;
-    - (void)setQ:(NSData *)value;
+	// Managed field name : Q
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * q;
 @end
 //--Dubrovnik.CodeGenerator

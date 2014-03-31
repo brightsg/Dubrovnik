@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.IOCompletionCallback
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Threading_IOCompletionCallback *)new_withObject:(DBMonoObjectRepresentation *)p1 method:(void *)p2;
+    + (System_Threading_IOCompletionCallback *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -25,7 +25,7 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.UInt32, System.UInt32, System.Threading.NativeOverlapped*, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withErrorCode:(uint32_t)p1 numBytes:(uint32_t)p2 pOVERLAP:(System_Threading_NativeOverlapped **)p3 callback:(System_AsyncCallback *)p4 object:(DBMonoObjectRepresentation *)p5;
+    - (System_IAsyncResult *)beginInvoke_withErrorCode:(uint32_t)p1 numBytes:(uint32_t)p2 pOVERLAP:(System_Threading_NativeOverlapped **)p3 callback:(System_AsyncCallback *)p4 object:(System_Object *)p5;
 
 	// Managed method name : EndInvoke
 	// Managed return type : System.Void

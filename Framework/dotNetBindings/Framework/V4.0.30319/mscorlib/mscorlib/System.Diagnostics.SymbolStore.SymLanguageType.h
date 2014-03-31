@@ -2,7 +2,7 @@
 //
 // Managed class : SymLanguageType
 //
-@interface System_Diagnostics_SymbolStore_SymLanguageType : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_SymLanguageType : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,37 +14,48 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Guid
+	// Managed field name : Basic
+	// Managed field type : System.Guid
     + (System_Guid *)basic;
 
-	// Managed type : System.Guid
+	// Managed field name : C
+	// Managed field type : System.Guid
     + (System_Guid *)c;
 
-	// Managed type : System.Guid
+	// Managed field name : Cobol
+	// Managed field type : System.Guid
     + (System_Guid *)cobol;
 
-	// Managed type : System.Guid
+	// Managed field name : CPlusPlus
+	// Managed field type : System.Guid
     + (System_Guid *)cPlusPlus;
 
-	// Managed type : System.Guid
+	// Managed field name : CSharp
+	// Managed field type : System.Guid
     + (System_Guid *)cSharp;
 
-	// Managed type : System.Guid
+	// Managed field name : ILAssembly
+	// Managed field type : System.Guid
     + (System_Guid *)iLAssembly;
 
-	// Managed type : System.Guid
+	// Managed field name : Java
+	// Managed field type : System.Guid
     + (System_Guid *)java;
 
-	// Managed type : System.Guid
+	// Managed field name : JScript
+	// Managed field type : System.Guid
     + (System_Guid *)jScript;
 
-	// Managed type : System.Guid
+	// Managed field name : MCPlusPlus
+	// Managed field type : System.Guid
     + (System_Guid *)mCPlusPlus;
 
-	// Managed type : System.Guid
+	// Managed field name : Pascal
+	// Managed field type : System.Guid
     + (System_Guid *)pascal;
 
-	// Managed type : System.Guid
+	// Managed field name : SMC
+	// Managed field type : System.Guid
     + (System_Guid *)sMC;
 @end
 //--Dubrovnik.CodeGenerator

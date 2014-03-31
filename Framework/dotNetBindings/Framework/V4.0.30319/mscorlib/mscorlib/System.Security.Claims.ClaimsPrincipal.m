@@ -3,6 +3,12 @@
 //
 // Managed class : ClaimsPrincipal
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Claims_ClaimsPrincipal
 
 #pragma mark -
@@ -48,64 +54,86 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property name : Claims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @synthesize claims = _claims;
     - (System_Collections_Generic_IEnumerable *)claims
     {
-		MonoObject * monoObject = [self getMonoProperty:"Claims"];
-		System_Collections_Generic_IEnumerable * result = [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Security_Claims_Claim";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Claims"];
+		if ([self object:_claims isEqualToMonoObject:monoObject]) return _claims;					
+		_claims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+
+		return _claims;
 	}
 
-	// Managed type : System.Func<System.Security.Claims.ClaimsPrincipal>
+	// Managed property name : ClaimsPrincipalSelector
+	// Managed property type : System.Func<System.Security.Claims.ClaimsPrincipal>
+    static System_Func * m_claimsPrincipalSelector;
     + (System_Func *)claimsPrincipalSelector
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ClaimsPrincipalSelector"];
-		System_Func * result = [System_Func representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Security_Claims_ClaimsPrincipal";
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClaimsPrincipalSelector"];
+		if ([self object:m_claimsPrincipalSelector isEqualToMonoObject:monoObject]) return m_claimsPrincipalSelector;					
+		m_claimsPrincipalSelector = [System_Func objectWithMonoObject:monoObject];
+
+		return m_claimsPrincipalSelector;
 	}
     + (void)setClaimsPrincipalSelector:(System_Func *)value
 	{
+		m_claimsPrincipalSelector = value;
 		MonoObject *monoObject = [value monoObject];
 		[[self class] setMonoClassProperty:"ClaimsPrincipalSelector" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Claims.ClaimsPrincipal
+	// Managed property name : Current
+	// Managed property type : System.Security.Claims.ClaimsPrincipal
+    static System_Security_Claims_ClaimsPrincipal * m_current;
     + (System_Security_Claims_ClaimsPrincipal *)current
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Current"];
-		System_Security_Claims_ClaimsPrincipal * result = [System_Security_Claims_ClaimsPrincipal representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Current"];
+		if ([self object:m_current isEqualToMonoObject:monoObject]) return m_current;					
+		m_current = [System_Security_Claims_ClaimsPrincipal objectWithMonoObject:monoObject];
+
+		return m_current;
 	}
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>
+	// Managed property name : Identities
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>
+    @synthesize identities = _identities;
     - (System_Collections_Generic_IEnumerable *)identities
     {
-		MonoObject * monoObject = [self getMonoProperty:"Identities"];
-		System_Collections_Generic_IEnumerable * result = [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Security_Claims_ClaimsIdentity";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Identities"];
+		if ([self object:_identities isEqualToMonoObject:monoObject]) return _identities;					
+		_identities = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+
+		return _identities;
 	}
 
-	// Managed type : System.Security.Principal.IIdentity
+	// Managed property name : Identity
+	// Managed property type : System.Security.Principal.IIdentity
+    @synthesize identity = _identity;
     - (System_Security_Principal_IIdentity *)identity
     {
-		MonoObject * monoObject = [self getMonoProperty:"Identity"];
-		System_Security_Principal_IIdentity * result = [System_Security_Principal_IIdentity representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Identity"];
+		if ([self object:_identity isEqualToMonoObject:monoObject]) return _identity;					
+		_identity = [System_Security_Principal_IIdentity objectWithMonoObject:monoObject];
+
+		return _identity;
 	}
 
-	// Managed type : System.Func<System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>, System.Security.Claims.ClaimsIdentity>
+	// Managed property name : PrimaryIdentitySelector
+	// Managed property type : System.Func<System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>, System.Security.Claims.ClaimsIdentity>
+    static System_Func * m_primaryIdentitySelector;
     + (System_Func *)primaryIdentitySelector
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"PrimaryIdentitySelector"];
-		System_Func * result = [System_Func representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Collections_Generic_IEnumerable,System_Security_Claims_ClaimsIdentity,System_Security_Claims_ClaimsIdentity";
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"PrimaryIdentitySelector"];
+		if ([self object:m_primaryIdentitySelector isEqualToMonoObject:monoObject]) return m_primaryIdentitySelector;					
+		m_primaryIdentitySelector = [System_Func objectWithMonoObject:monoObject];
+
+		return m_primaryIdentitySelector;
 	}
     + (void)setPrimaryIdentitySelector:(System_Func *)value
 	{
+		m_primaryIdentitySelector = value;
 		MonoObject *monoObject = [value monoObject];
 		[[self class] setMonoClassProperty:"PrimaryIdentitySelector" valueObject:monoObject];          
 	}
@@ -135,7 +163,7 @@
     - (System_Collections_Generic_IEnumerable *)findAll_withMatch:(System_Predicate *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindAll
@@ -144,7 +172,7 @@
     - (System_Collections_Generic_IEnumerable *)findAll_withType:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindFirst
@@ -153,7 +181,7 @@
     - (System_Security_Claims_Claim *)findFirst_withMatch:(System_Predicate *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Claims_Claim representationWithMonoObject:monoObject];
+		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindFirst
@@ -162,7 +190,7 @@
     - (System_Security_Claims_Claim *)findFirst_withType:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Claims_Claim representationWithMonoObject:monoObject];
+		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : HasClaim
@@ -191,5 +219,14 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_claimsPrincipalSelector = nil;
+		m_current = nil;
+		m_primaryIdentitySelector = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

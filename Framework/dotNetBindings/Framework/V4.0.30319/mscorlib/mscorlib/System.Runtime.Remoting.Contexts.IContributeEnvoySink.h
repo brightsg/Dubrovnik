@@ -2,7 +2,7 @@
 //
 // Managed interface : IContributeEnvoySink
 //
-@interface System_Runtime_Remoting_Contexts_IContributeEnvoySink : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Contexts_IContributeEnvoySink : System_Object
 
 #pragma mark -
 #pragma mark Setup

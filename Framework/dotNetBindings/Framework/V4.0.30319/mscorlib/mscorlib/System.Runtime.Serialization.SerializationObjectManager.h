@@ -2,7 +2,7 @@
 //
 // Managed class : SerializationObjectManager
 //
-@interface System_Runtime_Serialization_SerializationObjectManager : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_SerializationObjectManager : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -30,6 +30,6 @@
 	// Managed method name : RegisterObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)registerObject_withObj:(DBMonoObjectRepresentation *)p1;
+    - (void)registerObject_withObj:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

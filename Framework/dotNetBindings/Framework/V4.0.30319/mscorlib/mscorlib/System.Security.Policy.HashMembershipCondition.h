@@ -2,7 +2,7 @@
 //
 // Managed class : HashMembershipCondition
 //
-@interface System_Security_Policy_HashMembershipCondition : DBMonoObjectRepresentation
+@interface System_Security_Policy_HashMembershipCondition : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,13 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.HashAlgorithm
-    - (System_Security_Cryptography_HashAlgorithm *)hashAlgorithm;
-    - (void)setHashAlgorithm:(System_Security_Cryptography_HashAlgorithm *)value;
+	// Managed property name : HashAlgorithm
+	// Managed property type : System.Security.Cryptography.HashAlgorithm
+    @property (nonatomic, strong) System_Security_Cryptography_HashAlgorithm * hashAlgorithm;
 
-	// Managed type : System.Byte[]
-    - (NSData *)hashValue;
-    - (void)setHashValue:(NSData *)value;
+	// Managed property name : HashValue
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong) NSData * hashValue;
 
 #pragma mark -
 #pragma mark Methods
@@ -46,7 +46,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

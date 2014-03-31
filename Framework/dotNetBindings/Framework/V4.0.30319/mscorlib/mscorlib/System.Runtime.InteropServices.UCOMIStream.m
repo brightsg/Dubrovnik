@@ -3,6 +3,12 @@
 //
 // Managed interface : UCOMIStream
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_UCOMIStream
 
 #pragma mark -
@@ -108,5 +114,11 @@
     {
 		[self invokeMonoMethod:"Write(byte[],int,intptr)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

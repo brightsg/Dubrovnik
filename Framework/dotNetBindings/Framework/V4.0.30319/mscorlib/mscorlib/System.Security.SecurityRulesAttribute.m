@@ -3,6 +3,12 @@
 //
 // Managed class : SecurityRulesAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_SecurityRulesAttribute
 
 #pragma mark -
@@ -32,25 +38,38 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.SecurityRuleSet
+	// Managed property name : RuleSet
+	// Managed property type : System.Security.SecurityRuleSet
+    @synthesize ruleSet = _ruleSet;
     - (System_Security_SecurityRuleSet)ruleSet
     {
-		MonoObject * monoObject = [self getMonoProperty:"RuleSet"];
-		System_Security_SecurityRuleSet result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RuleSet"];
+		_ruleSet = DB_UNBOX_UINT8(monoObject);
+
+		return _ruleSet;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : SkipVerificationInFullTrust
+	// Managed property type : System.Boolean
+    @synthesize skipVerificationInFullTrust = _skipVerificationInFullTrust;
     - (BOOL)skipVerificationInFullTrust
     {
-		MonoObject * monoObject = [self getMonoProperty:"SkipVerificationInFullTrust"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SkipVerificationInFullTrust"];
+		_skipVerificationInFullTrust = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _skipVerificationInFullTrust;
 	}
     - (void)setSkipVerificationInFullTrust:(BOOL)value
 	{
+		_skipVerificationInFullTrust = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"SkipVerificationInFullTrust" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

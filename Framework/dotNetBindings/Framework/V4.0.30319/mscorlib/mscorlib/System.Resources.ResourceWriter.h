@@ -2,7 +2,7 @@
 //
 // Managed class : ResourceWriter
 //
-@interface System_Resources_ResourceWriter : DBMonoObjectRepresentation
+@interface System_Resources_ResourceWriter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Func<System.Type, System.String>
-    - (System_Func *)typeNameConverter;
-    - (void)setTypeNameConverter:(System_Func *)value;
+	// Managed property name : TypeNameConverter
+	// Managed property type : System.Func<System.Type, System.String>
+    @property (nonatomic, strong) System_Func * typeNameConverter;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +42,7 @@
 	// Managed method name : AddResource
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)addResource_withNameString:(NSString *)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (void)addResource_withNameString:(NSString *)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : AddResource
 	// Managed return type : System.Void

@@ -2,7 +2,7 @@
 //
 // Managed interface : IResourceReader
 //
-@interface System_Resources_IResourceReader : DBMonoObjectRepresentation
+@interface System_Resources_IResourceReader : System_Object
 
 #pragma mark -
 #pragma mark Setup

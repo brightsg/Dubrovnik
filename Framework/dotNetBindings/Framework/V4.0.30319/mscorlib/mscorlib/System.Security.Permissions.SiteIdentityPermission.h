@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)site;
-    - (void)setSite:(NSString *)value;
+	// Managed property name : Site
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * site;
 
 #pragma mark -
 #pragma mark Methods

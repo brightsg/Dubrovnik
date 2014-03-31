@@ -2,7 +2,7 @@
 //
 // Managed struct : TimeSpan
 //
-@interface System_TimeSpan : DBMonoObjectRepresentation
+@interface System_TimeSpan : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -37,65 +37,84 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.TimeSpan
+	// Managed field name : MaxValue
+	// Managed field type : System.TimeSpan
     + (System_TimeSpan *)maxValue;
 
-	// Managed type : System.TimeSpan
+	// Managed field name : MinValue
+	// Managed field type : System.TimeSpan
     + (System_TimeSpan *)minValue;
 
-	// Managed type : System.Int64
+	// Managed field name : TicksPerDay
+	// Managed field type : System.Int64
     + (int64_t)ticksPerDay;
 
-	// Managed type : System.Int64
+	// Managed field name : TicksPerHour
+	// Managed field type : System.Int64
     + (int64_t)ticksPerHour;
 
-	// Managed type : System.Int64
+	// Managed field name : TicksPerMillisecond
+	// Managed field type : System.Int64
     + (int64_t)ticksPerMillisecond;
 
-	// Managed type : System.Int64
+	// Managed field name : TicksPerMinute
+	// Managed field type : System.Int64
     + (int64_t)ticksPerMinute;
 
-	// Managed type : System.Int64
+	// Managed field name : TicksPerSecond
+	// Managed field type : System.Int64
     + (int64_t)ticksPerSecond;
 
-	// Managed type : System.TimeSpan
+	// Managed field name : Zero
+	// Managed field type : System.TimeSpan
     + (System_TimeSpan *)zero;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)days;
+	// Managed property name : Days
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t days;
 
-	// Managed type : System.Int32
-    - (int32_t)hours;
+	// Managed property name : Hours
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t hours;
 
-	// Managed type : System.Int32
-    - (int32_t)milliseconds;
+	// Managed property name : Milliseconds
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t milliseconds;
 
-	// Managed type : System.Int32
-    - (int32_t)minutes;
+	// Managed property name : Minutes
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t minutes;
 
-	// Managed type : System.Int32
-    - (int32_t)seconds;
+	// Managed property name : Seconds
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t seconds;
 
-	// Managed type : System.Int64
-    - (int64_t)ticks;
+	// Managed property name : Ticks
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t ticks;
 
-	// Managed type : System.Double
-    - (double)totalDays;
+	// Managed property name : TotalDays
+	// Managed property type : System.Double
+    @property (nonatomic, readonly) double totalDays;
 
-	// Managed type : System.Double
-    - (double)totalHours;
+	// Managed property name : TotalHours
+	// Managed property type : System.Double
+    @property (nonatomic, readonly) double totalHours;
 
-	// Managed type : System.Double
-    - (double)totalMilliseconds;
+	// Managed property name : TotalMilliseconds
+	// Managed property type : System.Double
+    @property (nonatomic, readonly) double totalMilliseconds;
 
-	// Managed type : System.Double
-    - (double)totalMinutes;
+	// Managed property name : TotalMinutes
+	// Managed property type : System.Double
+    @property (nonatomic, readonly) double totalMinutes;
 
-	// Managed type : System.Double
-    - (double)totalSeconds;
+	// Managed property name : TotalSeconds
+	// Managed property type : System.Double
+    @property (nonatomic, readonly) double totalSeconds;
 
 #pragma mark -
 #pragma mark Methods
@@ -113,7 +132,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -128,7 +147,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

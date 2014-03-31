@@ -14,16 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)embedded;
-    - (void)setEmbedded:(BOOL)value;
+	// Managed property name : Embedded
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL embedded;
 
-	// Managed type : System.Boolean
-    - (BOOL)useAttribute;
-    - (void)setUseAttribute:(BOOL)value;
+	// Managed property name : UseAttribute
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL useAttribute;
 
-	// Managed type : System.String
-    - (NSString *)xmlNamespace;
-    - (void)setXmlNamespace:(NSString *)value;
+	// Managed property name : XmlNamespace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlNamespace;
 @end
 //--Dubrovnik.CodeGenerator

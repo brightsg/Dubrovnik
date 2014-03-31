@@ -2,7 +2,7 @@
 //
 // Managed class : List<T>
 //
-@interface System_Collections_Generic_List : DBMonoObjectRepresentation
+@interface System_Collections_Generic_List : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,16 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)capacity;
-    - (void)setCapacity:(int32_t)value;
+	// Managed property name : Capacity
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t capacity;
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : <T>
+    @property (nonatomic, strong) DBManagedObject * item;
 
 #pragma mark -
 #pragma mark Methods
@@ -44,7 +45,7 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)add_withItem:(DBMonoObjectRepresentation *)p1;
+    - (void)add_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : AddRange
 	// Managed return type : System.Void
@@ -59,17 +60,17 @@
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Int32, <T>, IComparer<T>
-    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(DBMonoObjectRepresentation *)p3 comparer:(IComparer *)p4;
+    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(DBManagedObject *)p3 comparer:(IComparer *)p4;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : <T>, IComparer<T>
-    - (int32_t)binarySearch_withItem:(DBMonoObjectRepresentation *)p1 comparer:(IComparer *)p2;
+    - (int32_t)binarySearch_withItem:(DBManagedObject *)p1 comparer:(IComparer *)p2;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)binarySearch_withItem:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)binarySearch_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -79,7 +80,7 @@
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)contains_withItem:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)contains_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : ConvertAll
 	// Managed return type : List<TOutput>
@@ -109,12 +110,12 @@
 	// Managed method name : Find
 	// Managed return type : <T>
 	// Managed param types : Predicate<T>
-    - (DBMonoObjectRepresentation *)find_withMatch:(Predicate *)p1;
+    - (DBManagedObject *)find_withMatch:(Predicate *)p1;
 
 	// Managed method name : FindAll
 	// Managed return type : System.Collections.Generic.List<T>
 	// Managed param types : Predicate<T>
-    - (DBSystem_Collections_Generic_List *)findAll_withMatch:(Predicate *)p1;
+    - (System_Collections_Generic_List *)findAll_withMatch:(Predicate *)p1;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
@@ -134,7 +135,7 @@
 	// Managed method name : FindLast
 	// Managed return type : <T>
 	// Managed param types : Predicate<T>
-    - (DBMonoObjectRepresentation *)findLast_withMatch:(Predicate *)p1;
+    - (DBManagedObject *)findLast_withMatch:(Predicate *)p1;
 
 	// Managed method name : FindLastIndex
 	// Managed return type : System.Int32
@@ -164,27 +165,27 @@
 	// Managed method name : GetRange
 	// Managed return type : System.Collections.Generic.List<T>
 	// Managed param types : System.Int32, System.Int32
-    - (DBSystem_Collections_Generic_List *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
+    - (System_Collections_Generic_List *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2;
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32, System.Int32
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : Insert
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, <T>
-    - (void)insert_withIndex:(int32_t)p1 item:(DBMonoObjectRepresentation *)p2;
+    - (void)insert_withIndex:(int32_t)p1 item:(DBManagedObject *)p2;
 
 	// Managed method name : InsertRange
 	// Managed return type : System.Void
@@ -194,22 +195,22 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)lastIndexOf_withItem:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)lastIndexOf_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32
-    - (int32_t)lastIndexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2;
+    - (int32_t)lastIndexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32, System.Int32
-    - (int32_t)lastIndexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (int32_t)lastIndexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)remove_withItem:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)remove_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : RemoveAll
 	// Managed return type : System.Int32

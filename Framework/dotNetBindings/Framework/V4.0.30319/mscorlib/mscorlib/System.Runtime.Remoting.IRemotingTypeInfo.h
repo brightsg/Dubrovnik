@@ -2,7 +2,7 @@
 //
 // Managed interface : IRemotingTypeInfo
 //
-@interface System_Runtime_Remoting_IRemotingTypeInfo : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_IRemotingTypeInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)typeName;
-    - (void)setTypeName:(NSString *)value;
+	// Managed property name : TypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * typeName;
 
 #pragma mark -
 #pragma mark Methods
@@ -24,6 +24,6 @@
 	// Managed method name : CanCastTo
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type, System.Object
-    - (BOOL)canCastTo_withFromType:(System_Type *)p1 o:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)canCastTo_withFromType:(System_Type *)p1 o:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

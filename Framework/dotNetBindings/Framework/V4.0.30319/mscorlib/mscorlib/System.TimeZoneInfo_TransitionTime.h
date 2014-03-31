@@ -2,7 +2,7 @@
 //
 // Managed struct : TimeZoneInfo.TransitionTime
 //
-@interface System_TimeZoneInfo__TransitionTime : DBMonoObjectRepresentation
+@interface System_TimeZoneInfo__TransitionTime : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,23 +14,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)day;
+	// Managed property name : Day
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t day;
 
-	// Managed type : System.DayOfWeek
-    - (System_DayOfWeek)dayOfWeek;
+	// Managed property name : DayOfWeek
+	// Managed property type : System.DayOfWeek
+    @property (nonatomic, readonly) System_DayOfWeek dayOfWeek;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFixedDateRule;
+	// Managed property name : IsFixedDateRule
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFixedDateRule;
 
-	// Managed type : System.Int32
-    - (int32_t)month;
+	// Managed property name : Month
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t month;
 
-	// Managed type : System.DateTime
-    - (NSDate *)timeOfDay;
+	// Managed property name : TimeOfDay
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * timeOfDay;
 
-	// Managed type : System.Int32
-    - (int32_t)week;
+	// Managed property name : Week
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t week;
 
 #pragma mark -
 #pragma mark Methods
@@ -48,7 +54,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

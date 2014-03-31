@@ -2,7 +2,7 @@
 //
 // Managed class : CollectionBase
 //
-@interface System_Collections_CollectionBase : DBMonoObjectRepresentation
+@interface System_Collections_CollectionBase : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)capacity;
-    - (void)setCapacity:(int32_t)value;
+	// Managed property name : Capacity
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t capacity;
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
 #pragma mark -
 #pragma mark Methods

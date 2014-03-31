@@ -3,6 +3,12 @@
 //
 // Managed class : AuthorizationRuleCollection
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_AuthorizationRuleCollection
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AuthorizationRule
+	// Managed property name : Item
+	// Managed property type : System.Security.AccessControl.AuthorizationRule
+    @synthesize item = _item;
     - (System_Security_AccessControl_AuthorizationRule *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		System_Security_AccessControl_AuthorizationRule * result = [System_Security_AccessControl_AuthorizationRule representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [System_Security_AccessControl_AuthorizationRule objectWithMonoObject:monoObject];
+
+		return _item;
 	}
 
 #pragma mark -
@@ -39,5 +49,11 @@
     {
 		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

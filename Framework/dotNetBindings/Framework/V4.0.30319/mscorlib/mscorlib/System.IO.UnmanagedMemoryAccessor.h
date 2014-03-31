@@ -2,7 +2,7 @@
 //
 // Managed class : UnmanagedMemoryAccessor
 //
-@interface System_IO_UnmanagedMemoryAccessor : DBMonoObjectRepresentation
+@interface System_IO_UnmanagedMemoryAccessor : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,14 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)canRead;
+	// Managed property name : CanRead
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canRead;
 
-	// Managed type : System.Boolean
-    - (BOOL)canWrite;
+	// Managed property name : CanWrite
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canWrite;
 
-	// Managed type : System.Int64
-    - (int64_t)capacity;
+	// Managed property name : Capacity
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t capacity;
 
 #pragma mark -
 #pragma mark Methods

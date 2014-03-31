@@ -3,6 +3,12 @@
 //
 // Managed class : CodeConnectAccess
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_CodeConnectAccess
 
 #pragma mark -
@@ -32,55 +38,76 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : AnyScheme
+	// Managed field type : System.String
+    static NSString * m_anyScheme;
     + (NSString *)anyScheme
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"AnyScheme" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_anyScheme isEqualToMonoObject:monoObject]) return m_anyScheme;					
+		m_anyScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_anyScheme;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : DefaultPort
+	// Managed field type : System.Int32
+    static int32_t m_defaultPort;
     + (int32_t)defaultPort
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"DefaultPort" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_defaultPort = monoObject;
+		return m_defaultPort;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : OriginPort
+	// Managed field type : System.Int32
+    static int32_t m_originPort;
     + (int32_t)originPort
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"OriginPort" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_originPort = monoObject;
+		return m_originPort;
 	}
 
-	// Managed type : System.String
+	// Managed field name : OriginScheme
+	// Managed field type : System.String
+    static NSString * m_originScheme;
     + (NSString *)originScheme
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"OriginScheme" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_originScheme isEqualToMonoObject:monoObject]) return m_originScheme;					
+		m_originScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_originScheme;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Port
+	// Managed property type : System.Int32
+    @synthesize port = _port;
     - (int32_t)port
     {
-		MonoObject * monoObject = [self getMonoProperty:"Port"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Port"];
+		_port = DB_UNBOX_INT32(monoObject);
+
+		return _port;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Scheme
+	// Managed property type : System.String
+    @synthesize scheme = _scheme;
     - (NSString *)scheme
     {
-		MonoObject * monoObject = [self getMonoProperty:"Scheme"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Scheme"];
+		if ([self object:_scheme isEqualToMonoObject:monoObject]) return _scheme;					
+		_scheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _scheme;
 	}
 
 #pragma mark -
@@ -92,7 +119,7 @@
     - (System_Security_Policy_CodeConnectAccess *)createAnySchemeAccess_withAllowPort:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateAnySchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Security_Policy_CodeConnectAccess representationWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeConnectAccess objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateOriginSchemeAccess
@@ -101,13 +128,13 @@
     - (System_Security_Policy_CodeConnectAccess *)createOriginSchemeAccess_withAllowPort:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateOriginSchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Security_Policy_CodeConnectAccess representationWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeConnectAccess objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -121,5 +148,13 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_anyScheme = nil;
+		m_originScheme = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

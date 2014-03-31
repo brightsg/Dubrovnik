@@ -2,7 +2,7 @@
 //
 // Managed interface : IAsyncResult
 //
-@interface System_IAsyncResult : DBMonoObjectRepresentation
+@interface System_IAsyncResult : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,16 +14,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)asyncState;
+	// Managed property name : AsyncState
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * asyncState;
 
-	// Managed type : System.Threading.WaitHandle
-    - (System_Threading_WaitHandle *)asyncWaitHandle;
+	// Managed property name : AsyncWaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @property (nonatomic, strong, readonly) System_Threading_WaitHandle * asyncWaitHandle;
 
-	// Managed type : System.Boolean
-    - (BOOL)completedSynchronously;
+	// Managed property name : CompletedSynchronously
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL completedSynchronously;
 
-	// Managed type : System.Boolean
-    - (BOOL)isCompleted;
+	// Managed property name : IsCompleted
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCompleted;
 @end
 //--Dubrovnik.CodeGenerator

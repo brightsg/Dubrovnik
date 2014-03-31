@@ -2,7 +2,7 @@
 //
 // Managed class : AsymmetricSignatureFormatter
 //
-@interface System_Security_Cryptography_AsymmetricSignatureFormatter : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_AsymmetricSignatureFormatter : System_Object
 
 #pragma mark -
 #pragma mark Setup

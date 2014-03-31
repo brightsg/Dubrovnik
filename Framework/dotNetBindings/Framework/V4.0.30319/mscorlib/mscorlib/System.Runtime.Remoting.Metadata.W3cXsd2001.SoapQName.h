@@ -2,7 +2,7 @@
 //
 // Managed class : SoapQName
 //
-@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapQName : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapQName : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,19 +32,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)key;
-    - (void)setKey:(NSString *)value;
+	// Managed property name : Key
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * key;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)namespace;
-    - (void)setNamespace:(NSString *)value;
+	// Managed property name : Namespace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * namespace;
 
-	// Managed type : System.String
+	// Managed property name : XsdType
+	// Managed property type : System.String
     + (NSString *)xsdType;
 
 #pragma mark -

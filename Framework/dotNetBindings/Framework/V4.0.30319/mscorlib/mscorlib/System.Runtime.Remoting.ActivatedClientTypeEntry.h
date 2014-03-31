@@ -27,15 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)applicationUrl;
+	// Managed property name : ApplicationUrl
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * applicationUrl;
 
-	// Managed type : System.Runtime.Remoting.Contexts.IContextAttribute[]
-    - (DBSystem_Array *)contextAttributes;
-    - (void)setContextAttributes:(DBSystem_Array *)value;
+	// Managed property name : ContextAttributes
+	// Managed property type : System.Runtime.Remoting.Contexts.IContextAttribute[]
+    @property (nonatomic, strong) DBSystem_Array * contextAttributes;
 
-	// Managed type : System.Type
-    - (System_Type *)objectType;
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * objectType;
 
 #pragma mark -
 #pragma mark Methods

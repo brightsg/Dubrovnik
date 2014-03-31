@@ -3,6 +3,12 @@
 //
 // Managed interface : IReadOnlyList<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_IReadOnlyList
 
 #pragma mark -
@@ -21,12 +27,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)item
+	// Managed property name : Item
+	// Managed property type : <T>
+    @synthesize item = _item;
+    - (DBManagedObject *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

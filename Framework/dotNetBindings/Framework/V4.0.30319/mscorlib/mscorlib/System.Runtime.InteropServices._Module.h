@@ -2,7 +2,7 @@
 //
 // Managed interface : _Module
 //
-@interface System_Runtime_InteropServices__Module : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__Module : System_Object
 
 #pragma mark -
 #pragma mark Setup

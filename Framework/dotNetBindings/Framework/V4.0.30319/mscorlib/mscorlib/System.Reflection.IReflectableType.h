@@ -2,7 +2,7 @@
 //
 // Managed interface : IReflectableType
 //
-@interface System_Reflection_IReflectableType : DBMonoObjectRepresentation
+@interface System_Reflection_IReflectableType : System_Object
 
 #pragma mark -
 #pragma mark Setup

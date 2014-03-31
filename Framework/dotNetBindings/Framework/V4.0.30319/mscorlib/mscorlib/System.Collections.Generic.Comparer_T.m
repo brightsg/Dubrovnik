@@ -3,6 +3,12 @@
 //
 // Managed class : Comparer<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_Comparer
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.Comparer<T>
+	// Managed property name : Default
+	// Managed property type : System.Collections.Generic.Comparer<T>
+    static System_Collections_Generic_Comparer * m_default;
     + (System_Collections_Generic_Comparer *)default
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Default"];
-		System_Collections_Generic_Comparer * result = [System_Collections_Generic_Comparer representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Default"];
+		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
+		m_default = [System_Collections_Generic_Comparer objectWithMonoObject:monoObject];
+
+		return m_default;
 	}
 
 #pragma mark -
@@ -35,7 +45,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : <T>, <T>
-    - (int32_t)compare_withX:(DBMonoObjectRepresentation *)p1 y:(DBMonoObjectRepresentation *)p2
+    - (int32_t)compare_withX:(DBManagedObject *)p1 y:(DBManagedObject *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Compare(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -47,7 +57,14 @@
     - (System_Collections_Generic_Comparer *)create_withComparison:(Comparison *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(Comparison<T>)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_Comparer representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_Comparer objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_default = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

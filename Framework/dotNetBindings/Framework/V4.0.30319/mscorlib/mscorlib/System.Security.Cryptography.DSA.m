@@ -3,6 +3,12 @@
 //
 // Managed class : DSA
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_DSA
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Security_Cryptography_DSA *)create
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
-		return [System_Security_Cryptography_DSA representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_DSA objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -36,7 +42,7 @@
     - (System_Security_Cryptography_DSA *)create_withAlgName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Cryptography_DSA representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_DSA objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSignature
@@ -54,7 +60,7 @@
     - (System_Security_Cryptography_DSAParameters *)exportParameters_withIncludePrivateParameters:(BOOL)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ExportParameters(bool)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Security_Cryptography_DSAParameters representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_DSAParameters objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXmlString
@@ -90,5 +96,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"VerifySignature(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : ResourceConsumptionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Versioning_ResourceConsumptionAttribute
 
 #pragma mark -
@@ -40,20 +46,32 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Versioning.ResourceScope
+	// Managed property name : ConsumptionScope
+	// Managed property type : System.Runtime.Versioning.ResourceScope
+    @synthesize consumptionScope = _consumptionScope;
     - (System_Runtime_Versioning_ResourceScope)consumptionScope
     {
-		MonoObject * monoObject = [self getMonoProperty:"ConsumptionScope"];
-		System_Runtime_Versioning_ResourceScope result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ConsumptionScope"];
+		_consumptionScope = DB_UNBOX_INT32(monoObject);
+
+		return _consumptionScope;
 	}
 
-	// Managed type : System.Runtime.Versioning.ResourceScope
+	// Managed property name : ResourceScope
+	// Managed property type : System.Runtime.Versioning.ResourceScope
+    @synthesize resourceScope = _resourceScope;
     - (System_Runtime_Versioning_ResourceScope)resourceScope
     {
-		MonoObject * monoObject = [self getMonoProperty:"ResourceScope"];
-		System_Runtime_Versioning_ResourceScope result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ResourceScope"];
+		_resourceScope = DB_UNBOX_INT32(monoObject);
+
+		return _resourceScope;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

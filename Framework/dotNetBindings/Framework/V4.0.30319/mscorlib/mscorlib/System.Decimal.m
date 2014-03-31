@@ -3,6 +3,12 @@
 //
 // Managed struct : Decimal
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Decimal
 
 #pragma mark -
@@ -88,44 +94,64 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Decimal
+	// Managed field name : MaxValue
+	// Managed field type : System.Decimal
+    static NSDecimalNumber * m_maxValue;
     + (NSDecimalNumber *)maxValue
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
+		m_maxValue = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		return m_maxValue;
 	}
 
-	// Managed type : System.Decimal
+	// Managed field name : MinusOne
+	// Managed field type : System.Decimal
+    static NSDecimalNumber * m_minusOne;
     + (NSDecimalNumber *)minusOne
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"MinusOne" valuePtr:DB_PTR(monoObject)];
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		if ([self object:m_minusOne isEqualToMonoObject:monoObject]) return m_minusOne;					
+		m_minusOne = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		return m_minusOne;
 	}
 
-	// Managed type : System.Decimal
+	// Managed field name : MinValue
+	// Managed field type : System.Decimal
+    static NSDecimalNumber * m_minValue;
     + (NSDecimalNumber *)minValue
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
+		m_minValue = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		return m_minValue;
 	}
 
-	// Managed type : System.Decimal
+	// Managed field name : One
+	// Managed field type : System.Decimal
+    static NSDecimalNumber * m_one;
     + (NSDecimalNumber *)one
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"One" valuePtr:DB_PTR(monoObject)];
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		if ([self object:m_one isEqualToMonoObject:monoObject]) return m_one;					
+		m_one = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		return m_one;
 	}
 
-	// Managed type : System.Decimal
+	// Managed field name : Zero
+	// Managed field type : System.Decimal
+    static NSDecimalNumber * m_zero;
     + (NSDecimalNumber *)zero
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Zero" valuePtr:DB_PTR(monoObject)];
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		if ([self object:m_zero isEqualToMonoObject:monoObject]) return m_zero;					
+		m_zero = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+		return m_zero;
 	}
 
 #pragma mark -
@@ -161,7 +187,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -188,7 +214,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withValueObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -236,7 +262,7 @@
     - (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBits(decimal)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetHashCode
@@ -760,5 +786,16 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,decimal&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_maxValue = nil;
+		m_minusOne = nil;
+		m_minValue = nil;
+		m_one = nil;
+		m_zero = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

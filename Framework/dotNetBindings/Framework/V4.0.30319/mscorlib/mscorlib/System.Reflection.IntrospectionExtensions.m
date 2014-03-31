@@ -3,6 +3,12 @@
 //
 // Managed class : IntrospectionExtensions
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_IntrospectionExtensions
 
 #pragma mark -
@@ -27,7 +33,13 @@
     - (System_Reflection_TypeInfo *)getTypeInfo_withType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeInfo(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_TypeInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

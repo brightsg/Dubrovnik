@@ -3,6 +3,12 @@
 //
 // Managed class : RuntimeHelpers.CleanupCode
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_RuntimeHelpers__CleanupCode
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.CompilerServices.RuntimeHelpers+CleanupCode
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Runtime_CompilerServices_RuntimeHelpers__CleanupCode *)new_withObject:(DBMonoObjectRepresentation *)p1 method:(void *)p2
+    + (System_Runtime_CompilerServices_RuntimeHelpers__CleanupCode *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -35,10 +41,10 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Object, System.Boolean, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withUserData:(DBMonoObjectRepresentation *)p1 exceptionThrown:(BOOL)p2 callback:(System_AsyncCallback *)p3 object:(DBMonoObjectRepresentation *)p4
+    - (System_IAsyncResult *)beginInvoke_withUserData:(System_Object *)p1 exceptionThrown:(BOOL)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,bool,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
-		return [System_IAsyncResult representationWithMonoObject:monoObject];
+		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndInvoke
@@ -52,9 +58,15 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Boolean
-    - (void)invoke_withUserData:(DBMonoObjectRepresentation *)p1 exceptionThrown:(BOOL)p2
+    - (void)invoke_withUserData:(System_Object *)p1 exceptionThrown:(BOOL)p2
     {
 		[self invokeMonoMethod:"Invoke(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

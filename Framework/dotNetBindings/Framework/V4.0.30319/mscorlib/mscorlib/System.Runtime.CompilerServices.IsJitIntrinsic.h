@@ -2,7 +2,7 @@
 //
 // Managed class : IsJitIntrinsic
 //
-@interface System_Runtime_CompilerServices_IsJitIntrinsic : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsJitIntrinsic : System_Object
 
 #pragma mark -
 #pragma mark Setup

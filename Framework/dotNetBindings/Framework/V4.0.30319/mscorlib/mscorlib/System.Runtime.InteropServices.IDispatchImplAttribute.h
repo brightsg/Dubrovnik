@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.IDispatchImplType
-    - (System_Runtime_InteropServices_IDispatchImplType)value;
+	// Managed property name : Value
+	// Managed property type : System.Runtime.InteropServices.IDispatchImplType
+    @property (nonatomic, readonly) System_Runtime_InteropServices_IDispatchImplType value;
 @end
 //--Dubrovnik.CodeGenerator

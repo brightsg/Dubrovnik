@@ -2,7 +2,7 @@
 //
 // Managed struct : SymbolToken
 //
-@interface System_Diagnostics_SymbolStore_SymbolToken : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_SymbolToken : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -25,7 +25,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

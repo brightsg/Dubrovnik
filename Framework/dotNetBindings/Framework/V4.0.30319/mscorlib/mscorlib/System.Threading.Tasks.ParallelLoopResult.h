@@ -2,7 +2,7 @@
 //
 // Managed struct : ParallelLoopResult
 //
-@interface System_Threading_Tasks_ParallelLoopResult : DBMonoObjectRepresentation
+@interface System_Threading_Tasks_ParallelLoopResult : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isCompleted;
+	// Managed property name : IsCompleted
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCompleted;
 
-	// Managed type : System.Nullable<System.Int64>
-    - (System_Nullable *)lowestBreakIteration;
+	// Managed property name : LowestBreakIteration
+	// Managed property type : System.Nullable<System.Int64>
+    @property (nonatomic, strong, readonly) System_Nullable * lowestBreakIteration;
 @end
 //--Dubrovnik.CodeGenerator

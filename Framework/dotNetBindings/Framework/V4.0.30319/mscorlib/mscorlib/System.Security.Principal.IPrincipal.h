@@ -2,7 +2,7 @@
 //
 // Managed interface : IPrincipal
 //
-@interface System_Security_Principal_IPrincipal : DBMonoObjectRepresentation
+@interface System_Security_Principal_IPrincipal : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Principal.IIdentity
-    - (System_Security_Principal_IIdentity *)identity;
+	// Managed property name : Identity
+	// Managed property type : System.Security.Principal.IIdentity
+    @property (nonatomic, strong, readonly) System_Security_Principal_IIdentity * identity;
 
 #pragma mark -
 #pragma mark Methods

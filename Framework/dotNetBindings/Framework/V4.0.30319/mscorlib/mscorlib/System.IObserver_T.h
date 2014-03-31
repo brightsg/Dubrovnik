@@ -2,7 +2,7 @@
 //
 // Managed interface : IObserver<T>
 //
-@interface System_IObserver : DBMonoObjectRepresentation
+@interface System_IObserver : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,6 +27,6 @@
 	// Managed method name : OnNext
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)onNext_withValue:(DBMonoObjectRepresentation *)p1;
+    - (void)onNext_withValue:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

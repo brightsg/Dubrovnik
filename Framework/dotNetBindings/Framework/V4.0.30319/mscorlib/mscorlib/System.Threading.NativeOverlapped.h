@@ -2,7 +2,7 @@
 //
 // Managed struct : NativeOverlapped
 //
-@interface System_Threading_NativeOverlapped : DBMonoObjectRepresentation
+@interface System_Threading_NativeOverlapped : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,24 +14,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IntPtr
-    - (void *)eventHandle;
-    - (void)setEventHandle:(void *)value;
+	// Managed field name : EventHandle
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * eventHandle;
 
-	// Managed type : System.IntPtr
-    - (void *)internalHigh;
-    - (void)setInternalHigh:(void *)value;
+	// Managed field name : InternalHigh
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * internalHigh;
 
-	// Managed type : System.IntPtr
-    - (void *)internalLow;
-    - (void)setInternalLow:(void *)value;
+	// Managed field name : InternalLow
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * internalLow;
 
-	// Managed type : System.Int32
-    - (int32_t)offsetHigh;
-    - (void)setOffsetHigh:(int32_t)value;
+	// Managed field name : OffsetHigh
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t offsetHigh;
 
-	// Managed type : System.Int32
-    - (int32_t)offsetLow;
-    - (void)setOffsetLow:(int32_t)value;
+	// Managed field name : OffsetLow
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t offsetLow;
 @end
 //--Dubrovnik.CodeGenerator

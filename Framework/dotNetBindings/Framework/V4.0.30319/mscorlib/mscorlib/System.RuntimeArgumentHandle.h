@@ -2,7 +2,7 @@
 //
 // Managed struct : RuntimeArgumentHandle
 //
-@interface System_RuntimeArgumentHandle : DBMonoObjectRepresentation
+@interface System_RuntimeArgumentHandle : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup

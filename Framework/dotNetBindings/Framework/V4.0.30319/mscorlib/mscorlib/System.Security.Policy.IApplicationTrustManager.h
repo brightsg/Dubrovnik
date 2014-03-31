@@ -2,7 +2,7 @@
 //
 // Managed interface : IApplicationTrustManager
 //
-@interface System_Security_Policy_IApplicationTrustManager : DBMonoObjectRepresentation
+@interface System_Security_Policy_IApplicationTrustManager : System_Object
 
 #pragma mark -
 #pragma mark Setup

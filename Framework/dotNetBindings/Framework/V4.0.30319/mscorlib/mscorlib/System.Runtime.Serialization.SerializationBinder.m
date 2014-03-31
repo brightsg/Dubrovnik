@@ -3,6 +3,12 @@
 //
 // Managed class : SerializationBinder
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_SerializationBinder
 
 #pragma mark -
@@ -37,7 +43,13 @@
     - (System_Type *)bindToType_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BindToType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

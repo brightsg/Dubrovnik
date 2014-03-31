@@ -3,6 +3,12 @@
 //
 // Managed class : ActivatedServiceTypeEntry
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_ActivatedServiceTypeEntry
 
 #pragma mark -
@@ -40,25 +46,34 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Contexts.IContextAttribute[]
+	// Managed property name : ContextAttributes
+	// Managed property type : System.Runtime.Remoting.Contexts.IContextAttribute[]
+    @synthesize contextAttributes = _contextAttributes;
     - (DBSystem_Array *)contextAttributes
     {
-		MonoObject * monoObject = [self getMonoProperty:"ContextAttributes"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ContextAttributes"];
+		if ([self object:_contextAttributes isEqualToMonoObject:monoObject]) return _contextAttributes;					
+		_contextAttributes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _contextAttributes;
 	}
     - (void)setContextAttributes:(DBSystem_Array *)value
 	{
+		_contextAttributes = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"ContextAttributes" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Type
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @synthesize objectType = _objectType;
     - (System_Type *)objectType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ObjectType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ObjectType"];
+		if ([self object:_objectType isEqualToMonoObject:monoObject]) return _objectType;					
+		_objectType = [System_Type objectWithMonoObject:monoObject];
+
+		return _objectType;
 	}
 
 #pragma mark -
@@ -72,5 +87,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,11 +32,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 
-	// Managed type : System.String
-    - (NSString *)objectName;
+	// Managed property name : ObjectName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * objectName;
 
 #pragma mark -
 #pragma mark Methods

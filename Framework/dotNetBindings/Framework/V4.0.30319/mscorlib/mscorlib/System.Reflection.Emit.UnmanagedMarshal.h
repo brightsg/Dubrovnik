@@ -2,7 +2,7 @@
 //
 // Managed class : UnmanagedMarshal
 //
-@interface System_Reflection_Emit_UnmanagedMarshal : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_UnmanagedMarshal : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
-    - (System_Runtime_InteropServices_UnmanagedType)baseType;
+	// Managed property name : BaseType
+	// Managed property type : System.Runtime.InteropServices.UnmanagedType
+    @property (nonatomic, readonly) System_Runtime_InteropServices_UnmanagedType baseType;
 
-	// Managed type : System.Int32
-    - (int32_t)elementCount;
+	// Managed property name : ElementCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t elementCount;
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
-    - (System_Runtime_InteropServices_UnmanagedType)getUnmanagedType;
+	// Managed property name : GetUnmanagedType
+	// Managed property type : System.Runtime.InteropServices.UnmanagedType
+    @property (nonatomic, readonly) System_Runtime_InteropServices_UnmanagedType getUnmanagedType;
 
-	// Managed type : System.Guid
-    - (System_Guid *)iIDGuid;
+	// Managed property name : IIDGuid
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * iIDGuid;
 
 #pragma mark -
 #pragma mark Methods

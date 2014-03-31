@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)requiredContract;
+	// Managed property name : RequiredContract
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * requiredContract;
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : VersioningHelper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Versioning_VersioningHelper
 
 #pragma mark -
@@ -38,5 +44,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"MakeVersionSafeName(string,System.Runtime.Versioning.ResourceScope,System.Runtime.Versioning.ResourceScope)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

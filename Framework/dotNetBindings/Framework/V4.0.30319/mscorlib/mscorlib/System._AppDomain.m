@@ -3,6 +3,12 @@
 //
 // Managed interface : _AppDomain
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System__AppDomain
 
 #pragma mark -
@@ -21,52 +27,75 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : BaseDirectory
+	// Managed property type : System.String
+    @synthesize baseDirectory = _baseDirectory;
     - (NSString *)baseDirectory
     {
-		MonoObject * monoObject = [self getMonoProperty:"BaseDirectory"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BaseDirectory"];
+		if ([self object:_baseDirectory isEqualToMonoObject:monoObject]) return _baseDirectory;					
+		_baseDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _baseDirectory;
 	}
 
-	// Managed type : System.String
+	// Managed property name : DynamicDirectory
+	// Managed property type : System.String
+    @synthesize dynamicDirectory = _dynamicDirectory;
     - (NSString *)dynamicDirectory
     {
-		MonoObject * monoObject = [self getMonoProperty:"DynamicDirectory"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DynamicDirectory"];
+		if ([self object:_dynamicDirectory isEqualToMonoObject:monoObject]) return _dynamicDirectory;					
+		_dynamicDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _dynamicDirectory;
 	}
 
-	// Managed type : System.Security.Policy.Evidence
+	// Managed property name : Evidence
+	// Managed property type : System.Security.Policy.Evidence
+    @synthesize evidence = _evidence;
     - (System_Security_Policy_Evidence *)evidence
     {
-		MonoObject * monoObject = [self getMonoProperty:"Evidence"];
-		System_Security_Policy_Evidence * result = [System_Security_Policy_Evidence representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Evidence"];
+		if ([self object:_evidence isEqualToMonoObject:monoObject]) return _evidence;					
+		_evidence = [System_Security_Policy_Evidence objectWithMonoObject:monoObject];
+
+		return _evidence;
 	}
 
-	// Managed type : System.String
+	// Managed property name : FriendlyName
+	// Managed property type : System.String
+    @synthesize friendlyName = _friendlyName;
     - (NSString *)friendlyName
     {
-		MonoObject * monoObject = [self getMonoProperty:"FriendlyName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FriendlyName"];
+		if ([self object:_friendlyName isEqualToMonoObject:monoObject]) return _friendlyName;					
+		_friendlyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _friendlyName;
 	}
 
-	// Managed type : System.String
+	// Managed property name : RelativeSearchPath
+	// Managed property type : System.String
+    @synthesize relativeSearchPath = _relativeSearchPath;
     - (NSString *)relativeSearchPath
     {
-		MonoObject * monoObject = [self getMonoProperty:"RelativeSearchPath"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RelativeSearchPath"];
+		if ([self object:_relativeSearchPath isEqualToMonoObject:monoObject]) return _relativeSearchPath;					
+		_relativeSearchPath = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _relativeSearchPath;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ShadowCopyFiles
+	// Managed property type : System.Boolean
+    @synthesize shadowCopyFiles = _shadowCopyFiles;
     - (BOOL)shadowCopyFiles
     {
-		MonoObject * monoObject = [self getMonoProperty:"ShadowCopyFiles"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ShadowCopyFiles"];
+		_shadowCopyFiles = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _shadowCopyFiles;
 	}
 
 #pragma mark -
@@ -102,7 +131,7 @@
     - (System_Runtime_Remoting_ObjectHandle *)createInstance_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_ObjectHandle representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateInstance
@@ -111,7 +140,7 @@
     - (System_Runtime_Remoting_ObjectHandle *)createInstance_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,string,object[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Runtime_Remoting_ObjectHandle representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateInstance
@@ -120,7 +149,7 @@
     - (System_Runtime_Remoting_ObjectHandle *)createInstance_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8 securityAttributes:(System_Security_Policy_Evidence *)p9
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,string,bool,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Security.Policy.Evidence)" withNumArgs:9, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue], [p8 monoValue], [p9 monoValue]];
-		return [System_Runtime_Remoting_ObjectHandle representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateInstanceFrom
@@ -129,7 +158,7 @@
     - (System_Runtime_Remoting_ObjectHandle *)createInstanceFrom_withAssemblyFile:(NSString *)p1 typeName:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFrom(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_ObjectHandle representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateInstanceFrom
@@ -138,7 +167,7 @@
     - (System_Runtime_Remoting_ObjectHandle *)createInstanceFrom_withAssemblyFile:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFrom(string,string,object[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Runtime_Remoting_ObjectHandle representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateInstanceFrom
@@ -147,7 +176,7 @@
     - (System_Runtime_Remoting_ObjectHandle *)createInstanceFrom_withAssemblyFile:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8 securityAttributes:(System_Security_Policy_Evidence *)p9
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFrom(string,string,bool,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[],System.Security.Policy.Evidence)" withNumArgs:9, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue], [p8 monoValue], [p9 monoValue]];
-		return [System_Runtime_Remoting_ObjectHandle representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -156,7 +185,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -165,7 +194,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -174,7 +203,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 evidence:(System_Security_Policy_Evidence *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Security.Policy.Evidence)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -183,7 +212,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 requiredPermissions:(System_Security_PermissionSet *)p3 optionalPermissions:(System_Security_PermissionSet *)p4 refusedPermissions:(System_Security_PermissionSet *)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -192,7 +221,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 evidence:(System_Security_Policy_Evidence *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,System.Security.Policy.Evidence)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -201,7 +230,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 requiredPermissions:(System_Security_PermissionSet *)p4 optionalPermissions:(System_Security_PermissionSet *)p5 refusedPermissions:(System_Security_PermissionSet *)p6
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -210,7 +239,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 evidence:(System_Security_Policy_Evidence *)p3 requiredPermissions:(System_Security_PermissionSet *)p4 optionalPermissions:(System_Security_PermissionSet *)p5 refusedPermissions:(System_Security_PermissionSet *)p6
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -219,7 +248,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 evidence:(System_Security_Policy_Evidence *)p4 requiredPermissions:(System_Security_PermissionSet *)p5 optionalPermissions:(System_Security_PermissionSet *)p6 refusedPermissions:(System_Security_PermissionSet *)p7
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet)" withNumArgs:7, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
@@ -228,7 +257,7 @@
     - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 evidence:(System_Security_Policy_Evidence *)p4 requiredPermissions:(System_Security_PermissionSet *)p5 optionalPermissions:(System_Security_PermissionSet *)p6 refusedPermissions:(System_Security_PermissionSet *)p7 isSynchronized:(BOOL)p8
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet,bool)" withNumArgs:8, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue], DB_VALUE(p8)];
-		return [System_Reflection_Emit_AssemblyBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DoCallBack
@@ -242,7 +271,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withOther:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -281,16 +310,16 @@
     - (DBSystem_Array *)getAssemblies
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblies()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getData_withName:(NSString *)p1
+    - (System_Object *)getData_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetData(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -313,10 +342,10 @@
 	// Managed method name : GetLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getLifetimeService
+    - (System_Object *)getLifetimeService
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLifetimeService()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -325,7 +354,7 @@
     - (System_Type *)getType
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeInfo
@@ -347,10 +376,10 @@
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)initializeLifetimeService
+    - (System_Object *)initializeLifetimeService
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Invoke
@@ -367,7 +396,7 @@
     - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -376,7 +405,7 @@
     - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -385,7 +414,7 @@
     - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -394,7 +423,7 @@
     - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -403,7 +432,7 @@
     - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityEvidence:(System_Security_Policy_Evidence *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[],byte[],System.Security.Policy.Evidence)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -412,7 +441,7 @@
     - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Load(System.Reflection.AssemblyName,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -421,7 +450,7 @@
     - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Load(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetAppDomainPolicy
@@ -443,7 +472,7 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)setData_withName:(NSString *)p1 data:(DBMonoObjectRepresentation *)p2
+    - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2
     {
 		[self invokeMonoMethod:"SetData(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -480,5 +509,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

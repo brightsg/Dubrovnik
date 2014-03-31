@@ -14,15 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions
-    - (System_IO_IsolatedStorage_IsolatedStorageSecurityOptions)options;
+	// Managed property name : Options
+	// Managed property type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions
+    @property (nonatomic, readonly) System_IO_IsolatedStorage_IsolatedStorageSecurityOptions options;
 
-	// Managed type : System.Int64
-    - (int64_t)quota;
-    - (void)setQuota:(int64_t)value;
+	// Managed property name : Quota
+	// Managed property type : System.Int64
+    @property (nonatomic) int64_t quota;
 
-	// Managed type : System.Int64
-    - (int64_t)usedSize;
+	// Managed property name : UsedSize
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t usedSize;
 
 #pragma mark -
 #pragma mark Methods

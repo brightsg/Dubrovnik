@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.CryptoKeyRights
-    - (System_Security_AccessControl_CryptoKeyRights)cryptoKeyRights;
+	// Managed property name : CryptoKeyRights
+	// Managed property type : System.Security.AccessControl.CryptoKeyRights
+    @property (nonatomic, readonly) System_Security_AccessControl_CryptoKeyRights cryptoKeyRights;
 @end
 //--Dubrovnik.CodeGenerator

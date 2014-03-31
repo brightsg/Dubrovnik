@@ -3,6 +3,12 @@
 //
 // Managed class : GenericSecurityDescriptor
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_GenericSecurityDescriptor
 
 #pragma mark -
@@ -21,54 +27,73 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject * monoObject = [self getMonoProperty:"BinaryLength"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
+		_binaryLength = DB_UNBOX_INT32(monoObject);
+
+		return _binaryLength;
 	}
 
-	// Managed type : System.Security.AccessControl.ControlFlags
+	// Managed property name : ControlFlags
+	// Managed property type : System.Security.AccessControl.ControlFlags
+    @synthesize controlFlags = _controlFlags;
     - (System_Security_AccessControl_ControlFlags)controlFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlFlags"];
-		System_Security_AccessControl_ControlFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlFlags"];
+		_controlFlags = DB_UNBOX_INT32(monoObject);
+
+		return _controlFlags;
 	}
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
+	// Managed property name : Group
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @synthesize group = _group;
     - (System_Security_Principal_SecurityIdentifier *)group
     {
-		MonoObject * monoObject = [self getMonoProperty:"Group"];
-		System_Security_Principal_SecurityIdentifier * result = [System_Security_Principal_SecurityIdentifier representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Group"];
+		if ([self object:_group isEqualToMonoObject:monoObject]) return _group;					
+		_group = [System_Security_Principal_SecurityIdentifier objectWithMonoObject:monoObject];
+
+		return _group;
 	}
     - (void)setGroup:(System_Security_Principal_SecurityIdentifier *)value
 	{
+		_group = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Group" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
+	// Managed property name : Owner
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @synthesize owner = _owner;
     - (System_Security_Principal_SecurityIdentifier *)owner
     {
-		MonoObject * monoObject = [self getMonoProperty:"Owner"];
-		System_Security_Principal_SecurityIdentifier * result = [System_Security_Principal_SecurityIdentifier representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Owner"];
+		if ([self object:_owner isEqualToMonoObject:monoObject]) return _owner;					
+		_owner = [System_Security_Principal_SecurityIdentifier objectWithMonoObject:monoObject];
+
+		return _owner;
 	}
     - (void)setOwner:(System_Security_Principal_SecurityIdentifier *)value
 	{
+		_owner = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Owner" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Byte
+	// Managed property name : Revision
+	// Managed property type : System.Byte
+    static uint8_t m_revision;
     + (uint8_t)revision
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Revision"];
-		uint8_t result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Revision"];
+		m_revision = DB_UNBOX_UINT8(monoObject);
+
+		return m_revision;
 	}
 
 #pragma mark -
@@ -99,5 +124,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSddlConversionSupported()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

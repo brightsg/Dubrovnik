@@ -2,7 +2,7 @@
 //
 // Managed class : WindowsRuntimeDesignerContext
 //
-@interface System_Runtime_DesignerServices_WindowsRuntimeDesignerContext : DBMonoObjectRepresentation
+@interface System_Runtime_DesignerServices_WindowsRuntimeDesignerContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,8 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
 #pragma mark -
 #pragma mark Methods

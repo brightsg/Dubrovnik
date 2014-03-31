@@ -2,7 +2,7 @@
 //
 // Managed interface : IResourceWriter
 //
-@interface System_Resources_IResourceWriter : DBMonoObjectRepresentation
+@interface System_Resources_IResourceWriter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : AddResource
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)addResource_withNameString:(NSString *)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (void)addResource_withNameString:(NSString *)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : AddResource
 	// Managed return type : System.Void

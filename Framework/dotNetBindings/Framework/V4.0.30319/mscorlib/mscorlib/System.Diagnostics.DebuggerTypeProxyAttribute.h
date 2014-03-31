@@ -27,15 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)proxyTypeName;
+	// Managed property name : ProxyTypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * proxyTypeName;
 
-	// Managed type : System.Type
-    - (System_Type *)target;
-    - (void)setTarget:(System_Type *)value;
+	// Managed property name : Target
+	// Managed property type : System.Type
+    @property (nonatomic, strong) System_Type * target;
 
-	// Managed type : System.String
-    - (NSString *)targetTypeName;
-    - (void)setTargetTypeName:(NSString *)value;
+	// Managed property name : TargetTypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * targetTypeName;
 @end
 //--Dubrovnik.CodeGenerator

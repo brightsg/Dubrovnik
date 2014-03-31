@@ -2,7 +2,7 @@
 //
 // Managed class : Contract
 //
-@interface System_Diagnostics_Contracts_Contract : DBMonoObjectRepresentation
+@interface System_Diagnostics_Contracts_Contract : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -92,16 +92,16 @@
 	// Managed method name : OldValue
 	// Managed return type : <T>
 	// Managed param types : <T>
-    - (DBMonoObjectRepresentation *)oldValue_withValue:(DBMonoObjectRepresentation *)p1;
+    - (DBManagedObject *)oldValue_withValue:(DBManagedObject *)p1;
 
 	// Managed method name : Result
 	// Managed return type : <T>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)result;
+    - (DBManagedObject *)result;
 
 	// Managed method name : ValueAtReturn
 	// Managed return type : <T>
 	// Managed param types : ref T&
-    - (DBMonoObjectRepresentation *)valueAtReturn_withValueRef:(T **)p1;
+    - (DBManagedObject *)valueAtReturn_withValueRef:(T **)p1;
 @end
 //--Dubrovnik.CodeGenerator

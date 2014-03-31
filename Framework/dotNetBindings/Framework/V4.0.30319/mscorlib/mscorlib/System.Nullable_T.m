@@ -3,6 +3,12 @@
 //
 // Managed struct : Nullable<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Nullable
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Nullable<T>
 	// Managed param types : <T>
-    + (System_Nullable *)new_withValue:(DBMonoObjectRepresentation *)p1
+    + (System_Nullable *)new_withValue:(DBManagedObject *)p1
     {
 		return [[self alloc] initWithSignature:"Dubrovnik.Generic.Parameter" withNumArgs:1, [p1 monoValue]];
     }
@@ -32,20 +38,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : HasValue
+	// Managed property type : System.Boolean
+    @synthesize hasValue = _hasValue;
     - (BOOL)hasValue
     {
-		MonoObject * monoObject = [self getMonoProperty:"HasValue"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"HasValue"];
+		_hasValue = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _hasValue;
 	}
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)value
+	// Managed property name : Value
+	// Managed property type : <T>
+    @synthesize value = _value;
+    - (DBManagedObject *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _value;
 	}
 
 #pragma mark -
@@ -54,7 +67,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withOther:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -72,37 +85,37 @@
 	// Managed method name : GetValueOrDefault
 	// Managed return type : <T>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getValueOrDefault
+    - (DBManagedObject *)getValueOrDefault
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetValueOrDefault
 	// Managed return type : <T>
 	// Managed param types : <T>
-    - (DBMonoObjectRepresentation *)getValueOrDefault_withDefaultValue:(DBMonoObjectRepresentation *)p1
+    - (DBManagedObject *)getValueOrDefault_withDefaultValue:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Explicit
 	// Managed return type : <T>
 	// Managed param types : System.Nullable<T>
-    - (DBMonoObjectRepresentation *)op_Explicit_withValue:(System_Nullable *)p1
+    - (DBManagedObject *)op_Explicit_withValue:(System_Nullable *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Explicit(System.Nullable<T>)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Implicit
 	// Managed return type : System.Nullable<T>
 	// Managed param types : <T>
-    - (System_Nullable *)op_Implicit_withValue:(DBMonoObjectRepresentation *)p1
+    - (System_Nullable *)op_Implicit_withValue:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Implicit(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
-		return [System_Nullable representationWithMonoObject:monoObject];
+		return [System_Nullable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -113,5 +126,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

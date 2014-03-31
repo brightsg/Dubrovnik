@@ -2,7 +2,7 @@
 //
 // Managed class : IdentityReferenceCollection
 //
-@interface System_Security_Principal_IdentityReferenceCollection : DBMonoObjectRepresentation
+@interface System_Security_Principal_IdentityReferenceCollection : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,15 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Security.Principal.IdentityReference
-    - (System_Security_Principal_IdentityReference *)item;
-    - (void)setItem:(System_Security_Principal_IdentityReference *)value;
+	// Managed property name : Item
+	// Managed property type : System.Security.Principal.IdentityReference
+    @property (nonatomic, strong) System_Security_Principal_IdentityReference * item;
 
 #pragma mark -
 #pragma mark Methods

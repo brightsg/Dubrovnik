@@ -3,6 +3,12 @@
 //
 // Managed struct : List<T>.Enumerator
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_List
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)current
+	// Managed property name : Current
+	// Managed property type : <T>
+    @synthesize current = _current;
+    - (DBManagedObject *)current
     {
-		MonoObject * monoObject = [self getMonoProperty:"Current"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Current"];
+		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
+		_current = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _current;
 	}
 
 #pragma mark -
@@ -48,5 +58,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"MoveNext()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

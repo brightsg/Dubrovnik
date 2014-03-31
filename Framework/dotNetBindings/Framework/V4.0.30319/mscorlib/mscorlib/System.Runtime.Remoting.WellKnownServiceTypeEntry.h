@@ -27,18 +27,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Contexts.IContextAttribute[]
-    - (DBSystem_Array *)contextAttributes;
-    - (void)setContextAttributes:(DBSystem_Array *)value;
+	// Managed property name : ContextAttributes
+	// Managed property type : System.Runtime.Remoting.Contexts.IContextAttribute[]
+    @property (nonatomic, strong) DBSystem_Array * contextAttributes;
 
-	// Managed type : System.Runtime.Remoting.WellKnownObjectMode
-    - (System_Runtime_Remoting_WellKnownObjectMode)mode;
+	// Managed property name : Mode
+	// Managed property type : System.Runtime.Remoting.WellKnownObjectMode
+    @property (nonatomic, readonly) System_Runtime_Remoting_WellKnownObjectMode mode;
 
-	// Managed type : System.Type
-    - (System_Type *)objectType;
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * objectType;
 
-	// Managed type : System.String
-    - (NSString *)objectUri;
+	// Managed property name : ObjectUri
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * objectUri;
 
 #pragma mark -
 #pragma mark Methods

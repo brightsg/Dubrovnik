@@ -32,16 +32,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ArgumentOutOfRangeException
 	// Managed param types : System.String, System.Object, System.String
-    + (System_ArgumentOutOfRangeException *)new_withParamName:(NSString *)p1 actualValue:(DBMonoObjectRepresentation *)p2 message:(NSString *)p3;
+    + (System_ArgumentOutOfRangeException *)new_withParamName:(NSString *)p1 actualValue:(System_Object *)p2 message:(NSString *)p3;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)actualValue;
+	// Managed property name : ActualValue
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * actualValue;
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 
 #pragma mark -
 #pragma mark Methods

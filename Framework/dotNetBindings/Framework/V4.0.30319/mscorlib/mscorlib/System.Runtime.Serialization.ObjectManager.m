@@ -3,6 +3,12 @@
 //
 // Managed class : ObjectManager
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_ObjectManager
 
 #pragma mark -
@@ -43,10 +49,10 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.Int64
-    - (DBMonoObjectRepresentation *)getObject_withObjectID:(int64_t)p1
+    - (System_Object *)getObject_withObjectID:(int64_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(long)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RaiseDeserializationEvent
@@ -60,7 +66,7 @@
 	// Managed method name : RaiseOnDeserializingEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)raiseOnDeserializingEvent_withObj:(DBMonoObjectRepresentation *)p1
+    - (void)raiseOnDeserializingEvent_withObj:(System_Object *)p1
     {
 		[self invokeMonoMethod:"RaiseOnDeserializingEvent(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -100,7 +106,7 @@
 	// Managed method name : RegisterObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64
-    - (void)registerObject_withObj:(DBMonoObjectRepresentation *)p1 objectID:(int64_t)p2
+    - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2
     {
 		[self invokeMonoMethod:"RegisterObject(object,long)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -108,7 +114,7 @@
 	// Managed method name : RegisterObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64, System.Runtime.Serialization.SerializationInfo
-    - (void)registerObject_withObj:(DBMonoObjectRepresentation *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3
+    - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3
     {
 		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
     }
@@ -116,7 +122,7 @@
 	// Managed method name : RegisterObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64, System.Runtime.Serialization.SerializationInfo, System.Int64, System.Reflection.MemberInfo
-    - (void)registerObject_withObj:(DBMonoObjectRepresentation *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3 idOfContainingObj:(int64_t)p4 member:(System_Reflection_MemberInfo *)p5
+    - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3 idOfContainingObj:(int64_t)p4 member:(System_Reflection_MemberInfo *)p5
     {
 		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo,long,System.Reflection.MemberInfo)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
     }
@@ -124,9 +130,15 @@
 	// Managed method name : RegisterObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int64, System.Runtime.Serialization.SerializationInfo, System.Int64, System.Reflection.MemberInfo, System.Int32[]
-    - (void)registerObject_withObj:(DBMonoObjectRepresentation *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3 idOfContainingObj:(int64_t)p4 member:(System_Reflection_MemberInfo *)p5 arrayIndex:(DBSystem_Array *)p6
+    - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3 idOfContainingObj:(int64_t)p4 member:(System_Reflection_MemberInfo *)p5 arrayIndex:(DBSystem_Array *)p6
     {
 		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo,long,System.Reflection.MemberInfo,int[])" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4), [p5 monoValue], [p6 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

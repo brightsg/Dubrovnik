@@ -3,6 +3,12 @@
 //
 // Managed class : MarshalAsAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_MarshalAsAttribute
 
 #pragma mark -
@@ -40,119 +46,159 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
+	// Managed field name : ArraySubType
+	// Managed field type : System.Runtime.InteropServices.UnmanagedType
+    @synthesize arraySubType = _arraySubType;
     - (System_Runtime_InteropServices_UnmanagedType)arraySubType
     {
-		MonoObject * monoObject;
+		System_Runtime_InteropServices_UnmanagedType monoObject;
 		[self getMonoField:"ArraySubType" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT32(monoObject);
+		_arraySubType = monoObject;
+		return _arraySubType;
 	}
     - (void)setArraySubType:(System_Runtime_InteropServices_UnmanagedType)value
 	{
+		_arraySubType = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"ArraySubType" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : IidParameterIndex
+	// Managed field type : System.Int32
+    @synthesize iidParameterIndex = _iidParameterIndex;
     - (int32_t)iidParameterIndex
     {
 		int32_t monoObject;
 		[self getMonoField:"IidParameterIndex" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_iidParameterIndex = monoObject;
+		return _iidParameterIndex;
 	}
     - (void)setIidParameterIndex:(int32_t)value
 	{
+		_iidParameterIndex = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"IidParameterIndex" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed field name : MarshalCookie
+	// Managed field type : System.String
+    @synthesize marshalCookie = _marshalCookie;
     - (NSString *)marshalCookie
     {
 		MonoObject * monoObject;
 		[self getMonoField:"MarshalCookie" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_marshalCookie isEqualToMonoObject:monoObject]) return _marshalCookie;					
+		_marshalCookie = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _marshalCookie;
 	}
     - (void)setMarshalCookie:(NSString *)value
 	{
+		_marshalCookie = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"MarshalCookie" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed field name : MarshalType
+	// Managed field type : System.String
+    @synthesize marshalType = _marshalType;
     - (NSString *)marshalType
     {
 		MonoObject * monoObject;
 		[self getMonoField:"MarshalType" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_marshalType isEqualToMonoObject:monoObject]) return _marshalType;					
+		_marshalType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _marshalType;
 	}
     - (void)setMarshalType:(NSString *)value
 	{
+		_marshalType = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"MarshalType" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Type
+	// Managed field name : MarshalTypeRef
+	// Managed field type : System.Type
+    @synthesize marshalTypeRef = _marshalTypeRef;
     - (System_Type *)marshalTypeRef
     {
 		MonoObject * monoObject;
 		[self getMonoField:"MarshalTypeRef" valuePtr:DB_PTR(monoObject)];
-		return [System_Type representationWithMonoObject:monoObject];
+		if ([self object:_marshalTypeRef isEqualToMonoObject:monoObject]) return _marshalTypeRef;					
+		_marshalTypeRef = [System_Type objectWithMonoObject:monoObject];
+		return _marshalTypeRef;
 	}
     - (void)setMarshalTypeRef:(System_Type *)value
 	{
+		_marshalTypeRef = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoField:"MarshalTypeRef" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.InteropServices.VarEnum
+	// Managed field name : SafeArraySubType
+	// Managed field type : System.Runtime.InteropServices.VarEnum
+    @synthesize safeArraySubType = _safeArraySubType;
     - (System_Runtime_InteropServices_VarEnum)safeArraySubType
     {
-		MonoObject * monoObject;
+		System_Runtime_InteropServices_VarEnum monoObject;
 		[self getMonoField:"SafeArraySubType" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT32(monoObject);
+		_safeArraySubType = monoObject;
+		return _safeArraySubType;
 	}
     - (void)setSafeArraySubType:(System_Runtime_InteropServices_VarEnum)value
 	{
+		_safeArraySubType = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"SafeArraySubType" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Type
+	// Managed field name : SafeArrayUserDefinedSubType
+	// Managed field type : System.Type
+    @synthesize safeArrayUserDefinedSubType = _safeArrayUserDefinedSubType;
     - (System_Type *)safeArrayUserDefinedSubType
     {
 		MonoObject * monoObject;
 		[self getMonoField:"SafeArrayUserDefinedSubType" valuePtr:DB_PTR(monoObject)];
-		return [System_Type representationWithMonoObject:monoObject];
+		if ([self object:_safeArrayUserDefinedSubType isEqualToMonoObject:monoObject]) return _safeArrayUserDefinedSubType;					
+		_safeArrayUserDefinedSubType = [System_Type objectWithMonoObject:monoObject];
+		return _safeArrayUserDefinedSubType;
 	}
     - (void)setSafeArrayUserDefinedSubType:(System_Type *)value
 	{
+		_safeArrayUserDefinedSubType = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoField:"SafeArrayUserDefinedSubType" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : SizeConst
+	// Managed field type : System.Int32
+    @synthesize sizeConst = _sizeConst;
     - (int32_t)sizeConst
     {
 		int32_t monoObject;
 		[self getMonoField:"SizeConst" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_sizeConst = monoObject;
+		return _sizeConst;
 	}
     - (void)setSizeConst:(int32_t)value
 	{
+		_sizeConst = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"SizeConst" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int16
+	// Managed field name : SizeParamIndex
+	// Managed field type : System.Int16
+    @synthesize sizeParamIndex = _sizeParamIndex;
     - (int16_t)sizeParamIndex
     {
 		int16_t monoObject;
 		[self getMonoField:"SizeParamIndex" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_sizeParamIndex = monoObject;
+		return _sizeParamIndex;
 	}
     - (void)setSizeParamIndex:(int16_t)value
 	{
+		_sizeParamIndex = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"SizeParamIndex" valueObject:monoObject];          
 	}
@@ -160,12 +206,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
+	// Managed property name : Value
+	// Managed property type : System.Runtime.InteropServices.UnmanagedType
+    @synthesize value = _value;
     - (System_Runtime_InteropServices_UnmanagedType)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		System_Runtime_InteropServices_UnmanagedType result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		_value = DB_UNBOX_INT32(monoObject);
+
+		return _value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

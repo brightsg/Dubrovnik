@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.TextReader
+	// Managed field name : Null
+	// Managed field type : System.IO.TextReader
     + (System_IO_TextReader *)null;
 
 #pragma mark -

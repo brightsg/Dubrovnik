@@ -2,7 +2,7 @@
 //
 // Managed class : SymmetricAlgorithm
 //
-@interface System_Security_Cryptography_SymmetricAlgorithm : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_SymmetricAlgorithm : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,39 +14,41 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)blockSize;
-    - (void)setBlockSize:(int32_t)value;
+	// Managed property name : BlockSize
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t blockSize;
 
-	// Managed type : System.Int32
-    - (int32_t)feedbackSize;
-    - (void)setFeedbackSize:(int32_t)value;
+	// Managed property name : FeedbackSize
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t feedbackSize;
 
-	// Managed type : System.Byte[]
-    - (NSData *)iV;
-    - (void)setIV:(NSData *)value;
+	// Managed property name : IV
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong) NSData * iV;
 
-	// Managed type : System.Byte[]
-    - (NSData *)key;
-    - (void)setKey:(NSData *)value;
+	// Managed property name : Key
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong) NSData * key;
 
-	// Managed type : System.Int32
-    - (int32_t)keySize;
-    - (void)setKeySize:(int32_t)value;
+	// Managed property name : KeySize
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t keySize;
 
-	// Managed type : System.Security.Cryptography.KeySizes[]
-    - (DBSystem_Array *)legalBlockSizes;
+	// Managed property name : LegalBlockSizes
+	// Managed property type : System.Security.Cryptography.KeySizes[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * legalBlockSizes;
 
-	// Managed type : System.Security.Cryptography.KeySizes[]
-    - (DBSystem_Array *)legalKeySizes;
+	// Managed property name : LegalKeySizes
+	// Managed property type : System.Security.Cryptography.KeySizes[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * legalKeySizes;
 
-	// Managed type : System.Security.Cryptography.CipherMode
-    - (System_Security_Cryptography_CipherMode)mode;
-    - (void)setMode:(System_Security_Cryptography_CipherMode)value;
+	// Managed property name : Mode
+	// Managed property type : System.Security.Cryptography.CipherMode
+    @property (nonatomic) System_Security_Cryptography_CipherMode mode;
 
-	// Managed type : System.Security.Cryptography.PaddingMode
-    - (System_Security_Cryptography_PaddingMode)padding;
-    - (void)setPadding:(System_Security_Cryptography_PaddingMode)value;
+	// Managed property name : Padding
+	// Managed property type : System.Security.Cryptography.PaddingMode
+    @property (nonatomic) System_Security_Cryptography_PaddingMode padding;
 
 #pragma mark -
 #pragma mark Methods

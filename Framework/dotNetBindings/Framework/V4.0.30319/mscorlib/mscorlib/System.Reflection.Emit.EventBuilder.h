@@ -2,7 +2,7 @@
 //
 // Managed class : EventBuilder
 //
-@interface System_Reflection_Emit_EventBuilder : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_EventBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

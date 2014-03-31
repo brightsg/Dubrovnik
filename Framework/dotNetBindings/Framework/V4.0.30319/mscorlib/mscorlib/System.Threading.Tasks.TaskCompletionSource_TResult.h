@@ -2,7 +2,7 @@
 //
 // Managed class : TaskCompletionSource<TResult>
 //
-@interface System_Threading_Tasks_TaskCompletionSource : DBMonoObjectRepresentation
+@interface System_Threading_Tasks_TaskCompletionSource : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource<TResult>
 	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(DBMonoObjectRepresentation *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2;
+    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(System_Object *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource<TResult>
@@ -27,13 +27,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource<TResult>
 	// Managed param types : System.Object
-    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(DBMonoObjectRepresentation *)p1;
+    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : Task<TResult>
-    - (Task *)task;
+	// Managed property name : Task
+	// Managed property type : Task<TResult>
+    @property (nonatomic, strong, readonly) Task * task;
 
 #pragma mark -
 #pragma mark Methods
@@ -56,7 +57,7 @@
 	// Managed method name : SetResult
 	// Managed return type : System.Void
 	// Managed param types : <TResult>
-    - (void)setResult_withResult:(DBMonoObjectRepresentation *)p1;
+    - (void)setResult_withResult:(DBManagedObject *)p1;
 
 	// Managed method name : TrySetCanceled
 	// Managed return type : System.Boolean
@@ -76,6 +77,6 @@
 	// Managed method name : TrySetResult
 	// Managed return type : System.Boolean
 	// Managed param types : <TResult>
-    - (BOOL)trySetResult_withResult:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)trySetResult_withResult:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

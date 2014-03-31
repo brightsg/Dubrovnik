@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Versioning.ResourceScope
-    - (System_Runtime_Versioning_ResourceScope)resourceExposureLevel;
+	// Managed property name : ResourceExposureLevel
+	// Managed property type : System.Runtime.Versioning.ResourceScope
+    @property (nonatomic, readonly) System_Runtime_Versioning_ResourceScope resourceExposureLevel;
 @end
 //--Dubrovnik.CodeGenerator

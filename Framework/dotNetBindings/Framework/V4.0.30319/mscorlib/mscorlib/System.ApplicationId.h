@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationId
 //
-@interface System_ApplicationId : DBMonoObjectRepresentation
+@interface System_ApplicationId : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,20 +22,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)culture;
+	// Managed property name : Culture
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * culture;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)processorArchitecture;
+	// Managed property name : ProcessorArchitecture
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * processorArchitecture;
 
-	// Managed type : System.Byte[]
-    - (NSData *)publicKeyToken;
+	// Managed property name : PublicKeyToken
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * publicKeyToken;
 
-	// Managed type : System.Version
-    - (System_Version *)version;
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @property (nonatomic, strong, readonly) System_Version * version;
 
 #pragma mark -
 #pragma mark Methods
@@ -48,7 +53,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

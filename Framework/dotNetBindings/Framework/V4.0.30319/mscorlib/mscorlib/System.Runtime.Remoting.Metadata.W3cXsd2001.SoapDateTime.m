@@ -3,6 +3,12 @@
 //
 // Managed class : SoapDateTime
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDateTime
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : XsdType
+	// Managed property type : System.String
+    static NSString * m_xsdType;
     + (NSString *)xsdType
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"XsdType"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"XsdType"];
+		if ([self object:m_xsdType isEqualToMonoObject:monoObject]) return m_xsdType;					
+		m_xsdType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_xsdType;
 	}
 
 #pragma mark -
@@ -49,5 +59,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.DateTime)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_xsdType = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

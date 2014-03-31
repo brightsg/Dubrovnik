@@ -3,6 +3,12 @@
 //
 // Managed class : ChannelServices
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_ChannelServices
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Channels.IChannel[]
+	// Managed property name : RegisteredChannels
+	// Managed property type : System.Runtime.Remoting.Channels.IChannel[]
+    static DBSystem_Array * m_registeredChannels;
     + (DBSystem_Array *)registeredChannels
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"RegisteredChannels"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"RegisteredChannels"];
+		if ([self object:m_registeredChannels isEqualToMonoObject:monoObject]) return m_registeredChannels;					
+		m_registeredChannels = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return m_registeredChannels;
 	}
 
 #pragma mark -
@@ -38,7 +48,7 @@
     - (System_Runtime_Remoting_Messaging_IMessageCtrl *)asyncDispatchMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 replySink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AsyncDispatchMessage(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessageCtrl representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageCtrl objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateServerChannelSinkChain
@@ -47,7 +57,7 @@
     - (System_Runtime_Remoting_Channels_IServerChannelSink *)createServerChannelSinkChain_withProvider:(System_Runtime_Remoting_Channels_IServerChannelSinkProvider *)p1 channel:(System_Runtime_Remoting_Channels_IChannelReceiver *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateServerChannelSinkChain(System.Runtime.Remoting.Channels.IServerChannelSinkProvider,System.Runtime.Remoting.Channels.IChannelReceiver)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_Channels_IServerChannelSink representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Channels_IServerChannelSink objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DispatchMessage
@@ -65,16 +75,16 @@
     - (System_Runtime_Remoting_Channels_IChannel *)getChannel_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChannel(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Channels_IChannel representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Channels_IChannel objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetChannelSinkProperties
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : System.Object
-    - (System_Collections_IDictionary *)getChannelSinkProperties_withObj:(DBMonoObjectRepresentation *)p1
+    - (System_Collections_IDictionary *)getChannelSinkProperties_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChannelSinkProperties(object)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_IDictionary representationWithMonoObject:monoObject];
+		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUrlsForObject
@@ -83,7 +93,7 @@
     - (DBSystem_Array *)getUrlsForObject_withObj:(System_MarshalByRefObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUrlsForObject(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : RegisterChannel
@@ -108,7 +118,7 @@
     - (System_Runtime_Remoting_Messaging_IMessage *)syncDispatchMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"SyncDispatchMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessage representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnregisterChannel
@@ -118,5 +128,12 @@
     {
 		[self invokeMonoMethod:"UnregisterChannel(System.Runtime.Remoting.Channels.IChannel)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_registeredChannels = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

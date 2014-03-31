@@ -2,7 +2,7 @@
 //
 // Managed class : Formatter
 //
-@interface System_Runtime_Serialization_Formatter : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_Formatter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Serialization.SerializationBinder
-    - (System_Runtime_Serialization_SerializationBinder *)binder;
-    - (void)setBinder:(System_Runtime_Serialization_SerializationBinder *)value;
+	// Managed property name : Binder
+	// Managed property type : System.Runtime.Serialization.SerializationBinder
+    @property (nonatomic, strong) System_Runtime_Serialization_SerializationBinder * binder;
 
-	// Managed type : System.Runtime.Serialization.StreamingContext
-    - (System_Runtime_Serialization_StreamingContext *)context;
-    - (void)setContext:(System_Runtime_Serialization_StreamingContext *)value;
+	// Managed property name : Context
+	// Managed property type : System.Runtime.Serialization.StreamingContext
+    @property (nonatomic, strong) System_Runtime_Serialization_StreamingContext * context;
 
-	// Managed type : System.Runtime.Serialization.ISurrogateSelector
-    - (System_Runtime_Serialization_ISurrogateSelector *)surrogateSelector;
-    - (void)setSurrogateSelector:(System_Runtime_Serialization_ISurrogateSelector *)value;
+	// Managed property name : SurrogateSelector
+	// Managed property type : System.Runtime.Serialization.ISurrogateSelector
+    @property (nonatomic, strong) System_Runtime_Serialization_ISurrogateSelector * surrogateSelector;
 
 #pragma mark -
 #pragma mark Methods
@@ -32,11 +32,11 @@
 	// Managed method name : Deserialize
 	// Managed return type : System.Object
 	// Managed param types : System.IO.Stream
-    - (DBMonoObjectRepresentation *)deserialize_withSerializationStream:(System_IO_Stream *)p1;
+    - (System_Object *)deserialize_withSerializationStream:(System_IO_Stream *)p1;
 
 	// Managed method name : Serialize
 	// Managed return type : System.Void
 	// Managed param types : System.IO.Stream, System.Object
-    - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(DBMonoObjectRepresentation *)p2;
+    - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

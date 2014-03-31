@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)url;
-    - (void)setUrl:(NSString *)value;
+	// Managed property name : Url
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * url;
 
 #pragma mark -
 #pragma mark Methods

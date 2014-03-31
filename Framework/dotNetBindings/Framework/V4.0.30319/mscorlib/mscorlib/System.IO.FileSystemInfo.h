@@ -14,45 +14,49 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IO.FileAttributes
-    - (System_IO_FileAttributes)attributes;
-    - (void)setAttributes:(System_IO_FileAttributes)value;
+	// Managed property name : Attributes
+	// Managed property type : System.IO.FileAttributes
+    @property (nonatomic) System_IO_FileAttributes attributes;
 
-	// Managed type : System.DateTime
-    - (NSDate *)creationTime;
-    - (void)setCreationTime:(NSDate *)value;
+	// Managed property name : CreationTime
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * creationTime;
 
-	// Managed type : System.DateTime
-    - (NSDate *)creationTimeUtc;
-    - (void)setCreationTimeUtc:(NSDate *)value;
+	// Managed property name : CreationTimeUtc
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * creationTimeUtc;
 
-	// Managed type : System.Boolean
-    - (BOOL)exists;
+	// Managed property name : Exists
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL exists;
 
-	// Managed type : System.String
-    - (NSString *)extension;
+	// Managed property name : Extension
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * extension;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
-	// Managed type : System.DateTime
-    - (NSDate *)lastAccessTime;
-    - (void)setLastAccessTime:(NSDate *)value;
+	// Managed property name : LastAccessTime
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * lastAccessTime;
 
-	// Managed type : System.DateTime
-    - (NSDate *)lastAccessTimeUtc;
-    - (void)setLastAccessTimeUtc:(NSDate *)value;
+	// Managed property name : LastAccessTimeUtc
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * lastAccessTimeUtc;
 
-	// Managed type : System.DateTime
-    - (NSDate *)lastWriteTime;
-    - (void)setLastWriteTime:(NSDate *)value;
+	// Managed property name : LastWriteTime
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * lastWriteTime;
 
-	// Managed type : System.DateTime
-    - (NSDate *)lastWriteTimeUtc;
-    - (void)setLastWriteTimeUtc:(NSDate *)value;
+	// Managed property name : LastWriteTimeUtc
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * lastWriteTimeUtc;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
 #pragma mark -
 #pragma mark Methods

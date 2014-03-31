@@ -2,7 +2,7 @@
 //
 // Managed class : GCSettings
 //
-@interface System_Runtime_GCSettings : DBMonoObjectRepresentation
+@interface System_Runtime_GCSettings : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsServerGC
+	// Managed property type : System.Boolean
     + (BOOL)isServerGC;
 
-	// Managed type : System.Runtime.GCLatencyMode
+	// Managed property name : LatencyMode
+	// Managed property type : System.Runtime.GCLatencyMode
     + (System_Runtime_GCLatencyMode)latencyMode;
     + (void)setLatencyMode:(System_Runtime_GCLatencyMode)value;
 @end

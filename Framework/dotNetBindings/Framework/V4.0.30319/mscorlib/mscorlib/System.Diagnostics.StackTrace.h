@@ -2,7 +2,7 @@
 //
 // Managed class : StackTrace
 //
-@interface System_Diagnostics_StackTrace : DBMonoObjectRepresentation
+@interface System_Diagnostics_StackTrace : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -62,14 +62,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : METHODS_TO_SKIP
+	// Managed field type : System.Int32
     + (int32_t)mETHODS_TO_SKIP;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)frameCount;
+	// Managed property name : FrameCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t frameCount;
 
 #pragma mark -
 #pragma mark Methods

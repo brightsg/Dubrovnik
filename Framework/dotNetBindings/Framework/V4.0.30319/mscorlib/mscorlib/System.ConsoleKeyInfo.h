@@ -2,7 +2,7 @@
 //
 // Managed struct : ConsoleKeyInfo
 //
-@interface System_ConsoleKeyInfo : DBMonoObjectRepresentation
+@interface System_ConsoleKeyInfo : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ConsoleKey
-    - (System_ConsoleKey)key;
+	// Managed property name : Key
+	// Managed property type : System.ConsoleKey
+    @property (nonatomic, readonly) System_ConsoleKey key;
 
-	// Managed type : System.Char
-    - (uint16_t)keyChar;
+	// Managed property name : KeyChar
+	// Managed property type : System.Char
+    @property (nonatomic, readonly) uint16_t keyChar;
 
-	// Managed type : System.ConsoleModifiers
-    - (System_ConsoleModifiers)modifiers;
+	// Managed property name : Modifiers
+	// Managed property type : System.ConsoleModifiers
+    @property (nonatomic, readonly) System_ConsoleModifiers modifiers;
 
 #pragma mark -
 #pragma mark Methods
@@ -37,7 +40,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

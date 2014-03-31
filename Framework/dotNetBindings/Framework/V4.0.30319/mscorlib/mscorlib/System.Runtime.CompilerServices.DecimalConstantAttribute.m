@@ -3,6 +3,12 @@
 //
 // Managed class : DecimalConstantAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_DecimalConstantAttribute
 
 #pragma mark -
@@ -40,12 +46,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Decimal
+	// Managed property name : Value
+	// Managed property type : System.Decimal
+    @synthesize value = _value;
     - (NSDecimalNumber *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		NSDecimalNumber * result = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+
+		return _value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

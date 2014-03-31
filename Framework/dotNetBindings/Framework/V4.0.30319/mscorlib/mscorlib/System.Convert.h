@@ -2,7 +2,7 @@
 //
 // Managed class : Convert
 //
-@interface System_Convert : DBMonoObjectRepresentation
+@interface System_Convert : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Object
-    + (DBMonoObjectRepresentation *)dBNull;
+	// Managed field name : DBNull
+	// Managed field type : System.Object
+    + (System_Object *)dBNull;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,22 +24,22 @@
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.TypeCode
-    - (DBMonoObjectRepresentation *)changeType_withValue:(DBMonoObjectRepresentation *)p1 typeCode:(System_TypeCode)p2;
+    - (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(System_TypeCode)p2;
 
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.TypeCode, System.IFormatProvider
-    - (DBMonoObjectRepresentation *)changeType_withValue:(DBMonoObjectRepresentation *)p1 typeCode:(System_TypeCode)p2 provider:(System_IFormatProvider *)p3;
+    - (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(System_TypeCode)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Type
-    - (DBMonoObjectRepresentation *)changeType_withValue:(DBMonoObjectRepresentation *)p1 conversionType:(System_Type *)p2;
+    - (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2;
 
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Type, System.IFormatProvider
-    - (DBMonoObjectRepresentation *)changeType_withValue:(DBMonoObjectRepresentation *)p1 conversionType:(System_Type *)p2 provider:(System_IFormatProvider *)p3;
+    - (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : FromBase64CharArray
 	// Managed return type : System.Byte[]
@@ -53,12 +54,12 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : System.Object
-    - (System_TypeCode)getTypeCode_withValue:(DBMonoObjectRepresentation *)p1;
+    - (System_TypeCode)getTypeCode_withValue:(System_Object *)p1;
 
 	// Managed method name : IsDBNull
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isDBNull_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)isDBNull_withValue:(System_Object *)p1;
 
 	// Managed method name : ToBase64CharArray
 	// Managed return type : System.Int32
@@ -93,12 +94,12 @@
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)toBoolean_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)toBoolean_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.IFormatProvider
-    - (BOOL)toBoolean_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (BOOL)toBoolean_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean
@@ -183,12 +184,12 @@
 	// Managed method name : ToByte
 	// Managed return type : System.Byte
 	// Managed param types : System.Object
-    - (uint8_t)toByte_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (uint8_t)toByte_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToByte
 	// Managed return type : System.Byte
 	// Managed param types : System.Object, System.IFormatProvider
-    - (uint8_t)toByte_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (uint8_t)toByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToByte
 	// Managed return type : System.Byte
@@ -278,12 +279,12 @@
 	// Managed method name : ToChar
 	// Managed return type : System.Char
 	// Managed param types : System.Object
-    - (uint16_t)toChar_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (uint16_t)toChar_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToChar
 	// Managed return type : System.Char
 	// Managed param types : System.Object, System.IFormatProvider
-    - (uint16_t)toChar_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (uint16_t)toChar_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToChar
 	// Managed return type : System.Char
@@ -373,12 +374,12 @@
 	// Managed method name : ToDateTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.Object
-    - (NSDate *)toDateTime_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (NSDate *)toDateTime_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToDateTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.Object, System.IFormatProvider
-    - (NSDate *)toDateTime_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (NSDate *)toDateTime_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToDateTime
 	// Managed return type : System.DateTime
@@ -458,12 +459,12 @@
 	// Managed method name : ToDecimal
 	// Managed return type : System.Decimal
 	// Managed param types : System.Object
-    - (NSDecimalNumber *)toDecimal_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToDecimal
 	// Managed return type : System.Decimal
 	// Managed param types : System.Object, System.IFormatProvider
-    - (NSDecimalNumber *)toDecimal_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToDecimal
 	// Managed return type : System.Decimal
@@ -548,12 +549,12 @@
 	// Managed method name : ToDouble
 	// Managed return type : System.Double
 	// Managed param types : System.Object
-    - (double)toDouble_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (double)toDouble_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToDouble
 	// Managed return type : System.Double
 	// Managed param types : System.Object, System.IFormatProvider
-    - (double)toDouble_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (double)toDouble_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToDouble
 	// Managed return type : System.Double
@@ -638,12 +639,12 @@
 	// Managed method name : ToInt16
 	// Managed return type : System.Int16
 	// Managed param types : System.Object
-    - (int16_t)toInt16_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int16_t)toInt16_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToInt16
 	// Managed return type : System.Int16
 	// Managed param types : System.Object, System.IFormatProvider
-    - (int16_t)toInt16_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (int16_t)toInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToInt16
 	// Managed return type : System.Int16
@@ -733,12 +734,12 @@
 	// Managed method name : ToInt32
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)toInt32_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)toInt32_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToInt32
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.IFormatProvider
-    - (int32_t)toInt32_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (int32_t)toInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToInt32
 	// Managed return type : System.Int32
@@ -828,12 +829,12 @@
 	// Managed method name : ToInt64
 	// Managed return type : System.Int64
 	// Managed param types : System.Object
-    - (int64_t)toInt64_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int64_t)toInt64_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToInt64
 	// Managed return type : System.Int64
 	// Managed param types : System.Object, System.IFormatProvider
-    - (int64_t)toInt64_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (int64_t)toInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToInt64
 	// Managed return type : System.Int64
@@ -923,12 +924,12 @@
 	// Managed method name : ToSByte
 	// Managed return type : System.SByte
 	// Managed param types : System.Object
-    - (int8_t)toSByte_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int8_t)toSByte_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToSByte
 	// Managed return type : System.SByte
 	// Managed param types : System.Object, System.IFormatProvider
-    - (int8_t)toSByte_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (int8_t)toSByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToSByte
 	// Managed return type : System.SByte
@@ -1018,12 +1019,12 @@
 	// Managed method name : ToSingle
 	// Managed return type : System.Single
 	// Managed param types : System.Object
-    - (float)toSingle_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (float)toSingle_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToSingle
 	// Managed return type : System.Single
 	// Managed param types : System.Object, System.IFormatProvider
-    - (float)toSingle_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (float)toSingle_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToSingle
 	// Managed return type : System.Single
@@ -1108,12 +1109,12 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Object
-    - (NSString *)toString_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (NSString *)toString_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Object, System.IFormatProvider
-    - (NSString *)toString_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (NSString *)toString_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -1288,12 +1289,12 @@
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16
 	// Managed param types : System.Object
-    - (uint16_t)toUInt16_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (uint16_t)toUInt16_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16
 	// Managed param types : System.Object, System.IFormatProvider
-    - (uint16_t)toUInt16_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (uint16_t)toUInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16
@@ -1383,12 +1384,12 @@
 	// Managed method name : ToUInt32
 	// Managed return type : System.UInt32
 	// Managed param types : System.Object
-    - (uint32_t)toUInt32_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (uint32_t)toUInt32_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToUInt32
 	// Managed return type : System.UInt32
 	// Managed param types : System.Object, System.IFormatProvider
-    - (uint32_t)toUInt32_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (uint32_t)toUInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToUInt32
 	// Managed return type : System.UInt32
@@ -1478,12 +1479,12 @@
 	// Managed method name : ToUInt64
 	// Managed return type : System.UInt64
 	// Managed param types : System.Object
-    - (uint64_t)toUInt64_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (uint64_t)toUInt64_withValueObject:(System_Object *)p1;
 
 	// Managed method name : ToUInt64
 	// Managed return type : System.UInt64
 	// Managed param types : System.Object, System.IFormatProvider
-    - (uint64_t)toUInt64_withValueObject:(DBMonoObjectRepresentation *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
+    - (uint64_t)toUInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToUInt64
 	// Managed return type : System.UInt64

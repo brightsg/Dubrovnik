@@ -14,38 +14,44 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.Stream
+	// Managed field name : Null
+	// Managed field type : System.IO.Stream
     + (System_IO_Stream *)null;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)canRead;
+	// Managed property name : CanRead
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canRead;
 
-	// Managed type : System.Boolean
-    - (BOOL)canSeek;
+	// Managed property name : CanSeek
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canSeek;
 
-	// Managed type : System.Boolean
-    - (BOOL)canTimeout;
+	// Managed property name : CanTimeout
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canTimeout;
 
-	// Managed type : System.Boolean
-    - (BOOL)canWrite;
+	// Managed property name : CanWrite
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canWrite;
 
-	// Managed type : System.Int64
-    - (int64_t)length;
+	// Managed property name : Length
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t length;
 
-	// Managed type : System.Int64
-    - (int64_t)position;
-    - (void)setPosition:(int64_t)value;
+	// Managed property name : Position
+	// Managed property type : System.Int64
+    @property (nonatomic) int64_t position;
 
-	// Managed type : System.Int32
-    - (int32_t)readTimeout;
-    - (void)setReadTimeout:(int32_t)value;
+	// Managed property name : ReadTimeout
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t readTimeout;
 
-	// Managed type : System.Int32
-    - (int32_t)writeTimeout;
-    - (void)setWriteTimeout:(int32_t)value;
+	// Managed property name : WriteTimeout
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t writeTimeout;
 
 #pragma mark -
 #pragma mark Methods
@@ -53,12 +59,12 @@
 	// Managed method name : BeginRead
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(DBMonoObjectRepresentation *)p5;
+    - (System_IAsyncResult *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 	// Managed method name : BeginWrite
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(DBMonoObjectRepresentation *)p5;
+    - (System_IAsyncResult *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 	// Managed method name : Close
 	// Managed return type : System.Void

@@ -2,7 +2,7 @@
 //
 // Managed class : ClaimsIdentity
 //
-@interface System_Security_Claims_ClaimsIdentity : DBMonoObjectRepresentation
+@interface System_Security_Claims_ClaimsIdentity : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -57,47 +57,56 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : DefaultIssuer
+	// Managed field type : System.String
     + (NSString *)defaultIssuer;
 
-	// Managed type : System.String
+	// Managed field name : DefaultNameClaimType
+	// Managed field type : System.String
     + (NSString *)defaultNameClaimType;
 
-	// Managed type : System.String
+	// Managed field name : DefaultRoleClaimType
+	// Managed field type : System.String
     + (NSString *)defaultRoleClaimType;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Claims.ClaimsIdentity
-    - (System_Security_Claims_ClaimsIdentity *)actor;
-    - (void)setActor:(System_Security_Claims_ClaimsIdentity *)value;
+	// Managed property name : Actor
+	// Managed property type : System.Security.Claims.ClaimsIdentity
+    @property (nonatomic, strong) System_Security_Claims_ClaimsIdentity * actor;
 
-	// Managed type : System.String
-    - (NSString *)authenticationType;
+	// Managed property name : AuthenticationType
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * authenticationType;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)bootstrapContext;
-    - (void)setBootstrapContext:(DBMonoObjectRepresentation *)value;
+	// Managed property name : BootstrapContext
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * bootstrapContext;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)claims;
+	// Managed property name : Claims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * claims;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAuthenticated;
+	// Managed property name : IsAuthenticated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAuthenticated;
 
-	// Managed type : System.String
-    - (NSString *)label;
-    - (void)setLabel:(NSString *)value;
+	// Managed property name : Label
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * label;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)nameClaimType;
+	// Managed property name : NameClaimType
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * nameClaimType;
 
-	// Managed type : System.String
-    - (NSString *)roleClaimType;
+	// Managed property name : RoleClaimType
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * roleClaimType;
 
 #pragma mark -
 #pragma mark Methods

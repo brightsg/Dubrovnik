@@ -2,7 +2,7 @@
 //
 // Managed class : ActivationContext
 //
-@interface System_ActivationContext : DBMonoObjectRepresentation
+@interface System_ActivationContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
-    - (NSData *)applicationManifestBytes;
+	// Managed property name : ApplicationManifestBytes
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * applicationManifestBytes;
 
-	// Managed type : System.Byte[]
-    - (NSData *)deploymentManifestBytes;
+	// Managed property name : DeploymentManifestBytes
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * deploymentManifestBytes;
 
-	// Managed type : System.ActivationContext+ContextForm
-    - (System_ActivationContext__ContextForm)form;
+	// Managed property name : Form
+	// Managed property type : System.ActivationContext+ContextForm
+    @property (nonatomic, readonly) System_ActivationContext__ContextForm form;
 
-	// Managed type : System.ApplicationIdentity
-    - (System_ApplicationIdentity *)identity;
+	// Managed property name : Identity
+	// Managed property type : System.ApplicationIdentity
+    @property (nonatomic, strong, readonly) System_ApplicationIdentity * identity;
 
 #pragma mark -
 #pragma mark Methods

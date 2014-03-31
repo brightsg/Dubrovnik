@@ -2,7 +2,7 @@
 //
 // Managed interface : INormalizeForIsolatedStorage
 //
-@interface System_IO_IsolatedStorage_INormalizeForIsolatedStorage : DBMonoObjectRepresentation
+@interface System_IO_IsolatedStorage_INormalizeForIsolatedStorage : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : Normalize
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)normalize;
+    - (System_Object *)normalize;
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyConfigurationAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyConfigurationAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Configuration
+	// Managed property type : System.String
+    @synthesize configuration = _configuration;
     - (NSString *)configuration
     {
-		MonoObject * monoObject = [self getMonoProperty:"Configuration"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Configuration"];
+		if ([self object:_configuration isEqualToMonoObject:monoObject]) return _configuration;					
+		_configuration = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _configuration;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

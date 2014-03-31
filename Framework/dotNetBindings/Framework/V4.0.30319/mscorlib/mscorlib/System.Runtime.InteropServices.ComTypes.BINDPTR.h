@@ -2,7 +2,7 @@
 //
 // Managed struct : BINDPTR
 //
-@interface System_Runtime_InteropServices_ComTypes_BINDPTR : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_BINDPTR : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,16 +14,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IntPtr
-    - (void *)lpfuncdesc;
-    - (void)setLpfuncdesc:(void *)value;
+	// Managed field name : lpfuncdesc
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lpfuncdesc;
 
-	// Managed type : System.IntPtr
-    - (void *)lptcomp;
-    - (void)setLptcomp:(void *)value;
+	// Managed field name : lptcomp
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lptcomp;
 
-	// Managed type : System.IntPtr
-    - (void *)lpvardesc;
-    - (void)setLpvardesc:(void *)value;
+	// Managed field name : lpvardesc
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lpvardesc;
 @end
 //--Dubrovnik.CodeGenerator

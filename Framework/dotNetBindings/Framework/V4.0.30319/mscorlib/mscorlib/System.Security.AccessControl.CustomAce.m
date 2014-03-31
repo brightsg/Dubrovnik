@@ -3,6 +3,12 @@
 //
 // Managed class : CustomAce
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_CustomAce
 
 #pragma mark -
@@ -32,31 +38,40 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : MaxOpaqueLength
+	// Managed field type : System.Int32
+    static int32_t m_maxOpaqueLength;
     + (int32_t)maxOpaqueLength
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"MaxOpaqueLength" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_maxOpaqueLength = monoObject;
+		return m_maxOpaqueLength;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject * monoObject = [self getMonoProperty:"BinaryLength"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
+		_binaryLength = DB_UNBOX_INT32(monoObject);
+
+		return _binaryLength;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : OpaqueLength
+	// Managed property type : System.Int32
+    @synthesize opaqueLength = _opaqueLength;
     - (int32_t)opaqueLength
     {
-		MonoObject * monoObject = [self getMonoProperty:"OpaqueLength"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OpaqueLength"];
+		_opaqueLength = DB_UNBOX_INT32(monoObject);
+
+		return _opaqueLength;
 	}
 
 #pragma mark -
@@ -86,5 +101,11 @@
     {
 		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

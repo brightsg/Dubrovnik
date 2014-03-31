@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolBinder
 //
-@interface System_Diagnostics_SymbolStore_ISymbolBinder : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolBinder : System_Object
 
 #pragma mark -
 #pragma mark Setup

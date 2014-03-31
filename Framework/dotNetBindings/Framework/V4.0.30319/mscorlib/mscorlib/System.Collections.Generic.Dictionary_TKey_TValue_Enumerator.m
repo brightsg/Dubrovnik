@@ -3,6 +3,12 @@
 //
 // Managed struct : Dictionary<TKey, TValue>.Enumerator
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_Dictionary
 
 #pragma mark -
@@ -21,13 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : KeyValuePair<TKey, TValue>
+	// Managed property name : Current
+	// Managed property type : KeyValuePair<TKey, TValue>
+    @synthesize current = _current;
     - (KeyValuePair *)current
     {
-		MonoObject * monoObject = [self getMonoProperty:"Current"];
-		KeyValuePair * result = [KeyValuePair representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"TKey,TValue";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Current"];
+		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
+		_current = [KeyValuePair objectWithMonoObject:monoObject];
+
+		return _current;
 	}
 
 #pragma mark -
@@ -49,5 +58,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"MoveNext()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

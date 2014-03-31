@@ -3,6 +3,12 @@
 //
 // Managed class : Path
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_Path
 
 #pragma mark -
@@ -21,44 +27,60 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Char
+	// Managed field name : AltDirectorySeparatorChar
+	// Managed field type : System.Char
+    static uint16_t m_altDirectorySeparatorChar;
     + (uint16_t)altDirectorySeparatorChar
     {
 		uint16_t monoObject;
 		[[self class] getMonoClassField:"AltDirectorySeparatorChar" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_altDirectorySeparatorChar = monoObject;
+		return m_altDirectorySeparatorChar;
 	}
 
-	// Managed type : System.Char
+	// Managed field name : DirectorySeparatorChar
+	// Managed field type : System.Char
+    static uint16_t m_directorySeparatorChar;
     + (uint16_t)directorySeparatorChar
     {
 		uint16_t monoObject;
 		[[self class] getMonoClassField:"DirectorySeparatorChar" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_directorySeparatorChar = monoObject;
+		return m_directorySeparatorChar;
 	}
 
-	// Managed type : System.Char[]
+	// Managed field name : InvalidPathChars
+	// Managed field type : System.Char[]
+    static DBSystem_Array * m_invalidPathChars;
     + (DBSystem_Array *)invalidPathChars
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"InvalidPathChars" valuePtr:DB_PTR(monoObject)];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		if ([self object:m_invalidPathChars isEqualToMonoObject:monoObject]) return m_invalidPathChars;					
+		m_invalidPathChars = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return m_invalidPathChars;
 	}
 
-	// Managed type : System.Char
+	// Managed field name : PathSeparator
+	// Managed field type : System.Char
+    static uint16_t m_pathSeparator;
     + (uint16_t)pathSeparator
     {
 		uint16_t monoObject;
 		[[self class] getMonoClassField:"PathSeparator" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_pathSeparator = monoObject;
+		return m_pathSeparator;
 	}
 
-	// Managed type : System.Char
+	// Managed field name : VolumeSeparatorChar
+	// Managed field type : System.Char
+    static uint16_t m_volumeSeparatorChar;
     + (uint16_t)volumeSeparatorChar
     {
 		uint16_t monoObject;
 		[[self class] getMonoClassField:"VolumeSeparatorChar" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_volumeSeparatorChar = monoObject;
+		return m_volumeSeparatorChar;
 	}
 
 #pragma mark -
@@ -160,7 +182,7 @@
     - (DBSystem_Array *)getInvalidFileNameChars
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInvalidFileNameChars()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetInvalidPathChars
@@ -169,7 +191,7 @@
     - (DBSystem_Array *)getInvalidPathChars
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInvalidPathChars()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetPathRoot
@@ -225,5 +247,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsPathRooted(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_invalidPathChars = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

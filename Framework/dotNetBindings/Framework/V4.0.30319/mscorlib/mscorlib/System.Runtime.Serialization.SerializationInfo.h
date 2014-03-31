@@ -2,7 +2,7 @@
 //
 // Managed class : SerializationInfo
 //
-@interface System_Runtime_Serialization_SerializationInfo : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_SerializationInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,25 +27,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)assemblyName;
-    - (void)setAssemblyName:(NSString *)value;
+	// Managed property name : AssemblyName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * assemblyName;
 
-	// Managed type : System.String
-    - (NSString *)fullTypeName;
-    - (void)setFullTypeName:(NSString *)value;
+	// Managed property name : FullTypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * fullTypeName;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAssemblyNameSetExplicit;
+	// Managed property name : IsAssemblyNameSetExplicit
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAssemblyNameSetExplicit;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFullTypeNameSetExplicit;
+	// Managed property name : IsFullTypeNameSetExplicit
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFullTypeNameSetExplicit;
 
-	// Managed type : System.Int32
-    - (int32_t)memberCount;
+	// Managed property name : MemberCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t memberCount;
 
-	// Managed type : System.Type
-    - (System_Type *)objectType;
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * objectType;
 
 #pragma mark -
 #pragma mark Methods
@@ -53,12 +57,12 @@
 	// Managed method name : AddValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Type
-    - (void)addValue_withName:(NSString *)p1 value:(DBMonoObjectRepresentation *)p2 type:(System_Type *)p3;
+    - (void)addValue_withName:(NSString *)p1 value:(System_Object *)p2 type:(System_Type *)p3;
 
 	// Managed method name : AddValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)addValue_withNameString:(NSString *)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (void)addValue_withNameString:(NSString *)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : AddValue
 	// Managed return type : System.Void
@@ -213,7 +217,7 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Type
-    - (DBMonoObjectRepresentation *)getValue_withName:(NSString *)p1 type:(System_Type *)p2;
+    - (System_Object *)getValue_withName:(NSString *)p1 type:(System_Type *)p2;
 
 	// Managed method name : SetType
 	// Managed return type : System.Void

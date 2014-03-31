@@ -14,12 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Globalization.CalendarAlgorithmType
-    - (System_Globalization_CalendarAlgorithmType)algorithmType;
+	// Managed property name : AlgorithmType
+	// Managed property type : System.Globalization.CalendarAlgorithmType
+    @property (nonatomic, readonly) System_Globalization_CalendarAlgorithmType algorithmType;
 
-	// Managed type : System.Int32
-    - (int32_t)twoDigitYearMax;
-    - (void)setTwoDigitYearMax:(int32_t)value;
+	// Managed property name : TwoDigitYearMax
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t twoDigitYearMax;
 
 #pragma mark -
 #pragma mark Methods

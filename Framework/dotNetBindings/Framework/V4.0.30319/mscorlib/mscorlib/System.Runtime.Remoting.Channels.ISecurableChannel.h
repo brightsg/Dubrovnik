@@ -2,7 +2,7 @@
 //
 // Managed interface : ISecurableChannel
 //
-@interface System_Runtime_Remoting_Channels_ISecurableChannel : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_ISecurableChannel : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isSecured;
-    - (void)setIsSecured:(BOOL)value;
+	// Managed property name : IsSecured
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL isSecured;
 @end
 //--Dubrovnik.CodeGenerator

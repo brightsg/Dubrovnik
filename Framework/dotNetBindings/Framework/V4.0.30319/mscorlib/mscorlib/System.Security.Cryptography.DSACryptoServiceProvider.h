@@ -32,26 +32,32 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.CspKeyContainerInfo
-    - (System_Security_Cryptography_CspKeyContainerInfo *)cspKeyContainerInfo;
+	// Managed property name : CspKeyContainerInfo
+	// Managed property type : System.Security.Cryptography.CspKeyContainerInfo
+    @property (nonatomic, strong, readonly) System_Security_Cryptography_CspKeyContainerInfo * cspKeyContainerInfo;
 
-	// Managed type : System.String
-    - (NSString *)keyExchangeAlgorithm;
+	// Managed property name : KeyExchangeAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * keyExchangeAlgorithm;
 
-	// Managed type : System.Int32
-    - (int32_t)keySize;
+	// Managed property name : KeySize
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t keySize;
 
-	// Managed type : System.Boolean
-    - (BOOL)persistKeyInCsp;
-    - (void)setPersistKeyInCsp:(BOOL)value;
+	// Managed property name : PersistKeyInCsp
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL persistKeyInCsp;
 
-	// Managed type : System.Boolean
-    - (BOOL)publicOnly;
+	// Managed property name : PublicOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL publicOnly;
 
-	// Managed type : System.String
-    - (NSString *)signatureAlgorithm;
+	// Managed property name : SignatureAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * signatureAlgorithm;
 
-	// Managed type : System.Boolean
+	// Managed property name : UseMachineKeyStore
+	// Managed property type : System.Boolean
     + (BOOL)useMachineKeyStore;
     + (void)setUseMachineKeyStore:(BOOL)value;
 

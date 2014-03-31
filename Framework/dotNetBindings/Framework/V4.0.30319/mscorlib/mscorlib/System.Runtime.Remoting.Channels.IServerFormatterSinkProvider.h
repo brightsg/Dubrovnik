@@ -2,7 +2,7 @@
 //
 // Managed interface : IServerFormatterSinkProvider
 //
-@interface System_Runtime_Remoting_Channels_IServerFormatterSinkProvider : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IServerFormatterSinkProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed class : Rfc2898DeriveBytes
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_Rfc2898DeriveBytes
 
 #pragma mark -
@@ -64,28 +70,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : IterationCount
+	// Managed property type : System.Int32
+    @synthesize iterationCount = _iterationCount;
     - (int32_t)iterationCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"IterationCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IterationCount"];
+		_iterationCount = DB_UNBOX_INT32(monoObject);
+
+		return _iterationCount;
 	}
     - (void)setIterationCount:(int32_t)value
 	{
+		_iterationCount = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IterationCount" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Byte[]
+	// Managed property name : Salt
+	// Managed property type : System.Byte[]
+    @synthesize salt = _salt;
     - (NSData *)salt
     {
-		MonoObject * monoObject = [self getMonoProperty:"Salt"];
-		NSData * result = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Salt"];
+		if ([self object:_salt isEqualToMonoObject:monoObject]) return _salt;					
+		_salt = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _salt;
 	}
     - (void)setSalt:(NSData *)value
 	{
+		_salt = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Salt" valueObject:monoObject];          
 	}
@@ -109,5 +124,11 @@
     {
 		[self invokeMonoMethod:"Reset()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

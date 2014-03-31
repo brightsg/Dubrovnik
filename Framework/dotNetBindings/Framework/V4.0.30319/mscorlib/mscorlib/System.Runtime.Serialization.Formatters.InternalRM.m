@@ -3,6 +3,12 @@
 //
 // Managed class : InternalRM
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_Formatters_InternalRM
 
 #pragma mark -
@@ -37,5 +43,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"SoapCheckEnabled()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

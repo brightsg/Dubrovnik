@@ -2,7 +2,7 @@
 //
 // Managed class : IsImplicitlyDereferenced
 //
-@interface System_Runtime_CompilerServices_IsImplicitlyDereferenced : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsImplicitlyDereferenced : System_Object
 
 #pragma mark -
 #pragma mark Setup

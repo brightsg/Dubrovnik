@@ -2,7 +2,7 @@
 //
 // Managed class : CspKeyContainerInfo
 //
-@interface System_Security_Cryptography_CspKeyContainerInfo : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_CspKeyContainerInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,43 +22,56 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)accessible;
+	// Managed property name : Accessible
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL accessible;
 
-	// Managed type : System.Security.AccessControl.CryptoKeySecurity
-    - (System_Security_AccessControl_CryptoKeySecurity *)cryptoKeySecurity;
+	// Managed property name : CryptoKeySecurity
+	// Managed property type : System.Security.AccessControl.CryptoKeySecurity
+    @property (nonatomic, strong, readonly) System_Security_AccessControl_CryptoKeySecurity * cryptoKeySecurity;
 
-	// Managed type : System.Boolean
-    - (BOOL)exportable;
+	// Managed property name : Exportable
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL exportable;
 
-	// Managed type : System.Boolean
-    - (BOOL)hardwareDevice;
+	// Managed property name : HardwareDevice
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL hardwareDevice;
 
-	// Managed type : System.String
-    - (NSString *)keyContainerName;
+	// Managed property name : KeyContainerName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * keyContainerName;
 
-	// Managed type : System.Security.Cryptography.KeyNumber
-    - (System_Security_Cryptography_KeyNumber)keyNumber;
+	// Managed property name : KeyNumber
+	// Managed property type : System.Security.Cryptography.KeyNumber
+    @property (nonatomic, readonly) System_Security_Cryptography_KeyNumber keyNumber;
 
-	// Managed type : System.Boolean
-    - (BOOL)machineKeyStore;
+	// Managed property name : MachineKeyStore
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL machineKeyStore;
 
-	// Managed type : System.Boolean
-    - (BOOL)protected;
+	// Managed property name : Protected
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL protected;
 
-	// Managed type : System.String
-    - (NSString *)providerName;
+	// Managed property name : ProviderName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * providerName;
 
-	// Managed type : System.Int32
-    - (int32_t)providerType;
+	// Managed property name : ProviderType
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t providerType;
 
-	// Managed type : System.Boolean
-    - (BOOL)randomlyGenerated;
+	// Managed property name : RandomlyGenerated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL randomlyGenerated;
 
-	// Managed type : System.Boolean
-    - (BOOL)removable;
+	// Managed property name : Removable
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL removable;
 
-	// Managed type : System.String
-    - (NSString *)uniqueKeyContainerName;
+	// Managed property name : UniqueKeyContainerName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * uniqueKeyContainerName;
 @end
 //--Dubrovnik.CodeGenerator

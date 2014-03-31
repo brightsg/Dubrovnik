@@ -3,6 +3,12 @@
 //
 // Managed class : SynchronizationContext
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_SynchronizationContext
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.SynchronizationContext
+	// Managed property name : Current
+	// Managed property type : System.Threading.SynchronizationContext
+    static System_Threading_SynchronizationContext * m_current;
     + (System_Threading_SynchronizationContext *)current
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Current"];
-		System_Threading_SynchronizationContext * result = [System_Threading_SynchronizationContext representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Current"];
+		if ([self object:m_current isEqualToMonoObject:monoObject]) return m_current;					
+		m_current = [System_Threading_SynchronizationContext objectWithMonoObject:monoObject];
+
+		return m_current;
 	}
 
 #pragma mark -
@@ -38,7 +48,7 @@
     - (System_Threading_SynchronizationContext *)createCopy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
-		return [System_Threading_SynchronizationContext representationWithMonoObject:monoObject];
+		return [System_Threading_SynchronizationContext objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsWaitNotificationRequired
@@ -69,7 +79,7 @@
 	// Managed method name : Post
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
-    - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -77,7 +87,7 @@
 	// Managed method name : Send
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
-    - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Send(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -98,5 +108,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"Wait(intptr[],bool,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_current = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

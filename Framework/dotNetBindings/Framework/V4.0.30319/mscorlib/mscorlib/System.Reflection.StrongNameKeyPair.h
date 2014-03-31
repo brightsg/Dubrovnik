@@ -2,7 +2,7 @@
 //
 // Managed class : StrongNameKeyPair
 //
-@interface System_Reflection_StrongNameKeyPair : DBMonoObjectRepresentation
+@interface System_Reflection_StrongNameKeyPair : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,7 +32,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
-    - (NSData *)publicKey;
+	// Managed property name : PublicKey
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * publicKey;
 @end
 //--Dubrovnik.CodeGenerator

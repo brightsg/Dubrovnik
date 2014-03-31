@@ -2,7 +2,7 @@
 //
 // Managed class : Partitioner<TSource>
 //
-@interface System_Collections_Concurrent_Partitioner : DBMonoObjectRepresentation
+@interface System_Collections_Concurrent_Partitioner : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)supportsDynamicPartitions;
+	// Managed property name : SupportsDynamicPartitions
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL supportsDynamicPartitions;
 
 #pragma mark -
 #pragma mark Methods

@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)wrappedException;
+	// Managed property name : WrappedException
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * wrappedException;
 
 #pragma mark -
 #pragma mark Methods

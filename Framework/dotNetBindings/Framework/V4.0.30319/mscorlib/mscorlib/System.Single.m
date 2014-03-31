@@ -3,6 +3,12 @@
 //
 // Managed struct : Single
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Single
 
 #pragma mark -
@@ -21,52 +27,70 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Single
+	// Managed field name : Epsilon
+	// Managed field type : System.Single
+    static float m_epsilon;
     + (float)epsilon
     {
 		float monoObject;
 		[[self class] getMonoClassField:"Epsilon" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_epsilon = monoObject;
+		return m_epsilon;
 	}
 
-	// Managed type : System.Single
+	// Managed field name : MaxValue
+	// Managed field type : System.Single
+    static float m_maxValue;
     + (float)maxValue
     {
 		float monoObject;
 		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_maxValue = monoObject;
+		return m_maxValue;
 	}
 
-	// Managed type : System.Single
+	// Managed field name : MinValue
+	// Managed field type : System.Single
+    static float m_minValue;
     + (float)minValue
     {
 		float monoObject;
 		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_minValue = monoObject;
+		return m_minValue;
 	}
 
-	// Managed type : System.Single
+	// Managed field name : NaN
+	// Managed field type : System.Single
+    static float m_naN;
     + (float)naN
     {
 		float monoObject;
 		[[self class] getMonoClassField:"NaN" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_naN = monoObject;
+		return m_naN;
 	}
 
-	// Managed type : System.Single
+	// Managed field name : NegativeInfinity
+	// Managed field type : System.Single
+    static float m_negativeInfinity;
     + (float)negativeInfinity
     {
 		float monoObject;
 		[[self class] getMonoClassField:"NegativeInfinity" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_negativeInfinity = monoObject;
+		return m_negativeInfinity;
 	}
 
-	// Managed type : System.Single
+	// Managed field name : PositiveInfinity
+	// Managed field type : System.Single
+    static float m_positiveInfinity;
     + (float)positiveInfinity
     {
 		float monoObject;
 		[[self class] getMonoClassField:"PositiveInfinity" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_positiveInfinity = monoObject;
+		return m_positiveInfinity;
 	}
 
 #pragma mark -
@@ -75,7 +99,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -93,7 +117,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -305,5 +329,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,single&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], p4];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

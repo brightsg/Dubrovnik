@@ -3,6 +3,12 @@
 //
 // Managed class : MethodInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_MethodInfo
 
 #pragma mark -
@@ -21,36 +27,51 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.MemberTypes
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @synthesize memberType = _memberType;
     - (System_Reflection_MemberTypes)memberType
     {
-		MonoObject * monoObject = [self getMonoProperty:"MemberType"];
-		System_Reflection_MemberTypes result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MemberType"];
+		_memberType = DB_UNBOX_INT32(monoObject);
+
+		return _memberType;
 	}
 
-	// Managed type : System.Reflection.ParameterInfo
+	// Managed property name : ReturnParameter
+	// Managed property type : System.Reflection.ParameterInfo
+    @synthesize returnParameter = _returnParameter;
     - (System_Reflection_ParameterInfo *)returnParameter
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReturnParameter"];
-		System_Reflection_ParameterInfo * result = [System_Reflection_ParameterInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ReturnParameter"];
+		if ([self object:_returnParameter isEqualToMonoObject:monoObject]) return _returnParameter;					
+		_returnParameter = [System_Reflection_ParameterInfo objectWithMonoObject:monoObject];
+
+		return _returnParameter;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : ReturnType
+	// Managed property type : System.Type
+    @synthesize returnType = _returnType;
     - (System_Type *)returnType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReturnType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ReturnType"];
+		if ([self object:_returnType isEqualToMonoObject:monoObject]) return _returnType;					
+		_returnType = [System_Type objectWithMonoObject:monoObject];
+
+		return _returnType;
 	}
 
-	// Managed type : System.Reflection.ICustomAttributeProvider
+	// Managed property name : ReturnTypeCustomAttributes
+	// Managed property type : System.Reflection.ICustomAttributeProvider
+    @synthesize returnTypeCustomAttributes = _returnTypeCustomAttributes;
     - (System_Reflection_ICustomAttributeProvider *)returnTypeCustomAttributes
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReturnTypeCustomAttributes"];
-		System_Reflection_ICustomAttributeProvider * result = [System_Reflection_ICustomAttributeProvider representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ReturnTypeCustomAttributes"];
+		if ([self object:_returnTypeCustomAttributes isEqualToMonoObject:monoObject]) return _returnTypeCustomAttributes;					
+		_returnTypeCustomAttributes = [System_Reflection_ICustomAttributeProvider objectWithMonoObject:monoObject];
+
+		return _returnTypeCustomAttributes;
 	}
 
 #pragma mark -
@@ -62,22 +83,22 @@
     - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object
-    - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(DBMonoObjectRepresentation *)p2
+    - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -89,7 +110,7 @@
     - (System_Reflection_MethodInfo *)getBaseDefinition
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBaseDefinition()" withNumArgs:0];
-		return [System_Reflection_MethodInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetGenericArguments
@@ -98,7 +119,7 @@
     - (DBSystem_Array *)getGenericArguments
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetGenericMethodDefinition
@@ -107,7 +128,7 @@
     - (System_Reflection_MethodInfo *)getGenericMethodDefinition
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericMethodDefinition()" withNumArgs:0];
-		return [System_Reflection_MethodInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -125,7 +146,7 @@
     - (System_Reflection_MethodInfo *)makeGenericMethod_withTypeArguments:(DBSystem_Array *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"MakeGenericMethod(System.Array[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_MethodInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -145,5 +166,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Reflection.MethodInfo,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

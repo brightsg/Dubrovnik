@@ -2,7 +2,7 @@
 //
 // Managed interface : _ConstructorBuilder
 //
-@interface System_Runtime_InteropServices__ConstructorBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__ConstructorBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

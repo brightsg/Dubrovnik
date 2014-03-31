@@ -3,6 +3,12 @@
 //
 // Managed class : Nullable
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Nullable
 
 #pragma mark -
@@ -45,7 +51,13 @@
     - (System_Type *)getUnderlyingType_withNullableType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUnderlyingType(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

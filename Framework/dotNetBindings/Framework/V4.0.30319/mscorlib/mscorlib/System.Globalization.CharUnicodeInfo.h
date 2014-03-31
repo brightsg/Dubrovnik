@@ -2,7 +2,7 @@
 //
 // Managed class : CharUnicodeInfo
 //
-@interface System_Globalization_CharUnicodeInfo : DBMonoObjectRepresentation
+@interface System_Globalization_CharUnicodeInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup

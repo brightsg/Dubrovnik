@@ -2,7 +2,7 @@
 //
 // Managed class : InternalST
 //
-@interface System_Runtime_Serialization_Formatters_InternalST : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_Formatters_InternalST : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : SerializationSetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Reflection.FieldInfo, System.Object, System.Object
-    - (void)serializationSetValue_withFi:(System_Reflection_FieldInfo *)p1 target:(DBMonoObjectRepresentation *)p2 value:(DBMonoObjectRepresentation *)p3;
+    - (void)serializationSetValue_withFi:(System_Reflection_FieldInfo *)p1 target:(System_Object *)p2 value:(System_Object *)p3;
 
 	// Managed method name : Soap
 	// Managed return type : System.Void

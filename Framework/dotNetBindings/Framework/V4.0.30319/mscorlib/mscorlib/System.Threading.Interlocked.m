@@ -3,6 +3,12 @@
 //
 // Managed class : Interlocked
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Interlocked
 
 #pragma mark -
@@ -78,10 +84,10 @@
 	// Managed method name : CompareExchange
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&, System.Object, System.Object
-    - (DBMonoObjectRepresentation *)compareExchange_withLocation1ObjectRef:(DBMonoObjectRepresentation **)p1 valueObject:(DBMonoObjectRepresentation *)p2 comparandObject:(DBMonoObjectRepresentation *)p3
+    - (System_Object *)compareExchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2 comparandObject:(System_Object *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareExchange(object&,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CompareExchange
@@ -96,10 +102,10 @@
 	// Managed method name : CompareExchange
 	// Managed return type : <T>
 	// Managed param types : ref T&, <T>, <T>
-    - (DBMonoObjectRepresentation *)compareExchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2 comparandDGParameter:(DBMonoObjectRepresentation *)p3
+    - (DBManagedObject *)compareExchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBManagedObject *)p2 comparandDGParameter:(DBManagedObject *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareExchange(T&,Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Decrement
@@ -159,10 +165,10 @@
 	// Managed method name : Exchange
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&, System.Object
-    - (DBMonoObjectRepresentation *)exchange_withLocation1ObjectRef:(DBMonoObjectRepresentation **)p1 valueObject:(DBMonoObjectRepresentation *)p2
+    - (System_Object *)exchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Exchange(object&,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Exchange
@@ -177,10 +183,10 @@
 	// Managed method name : Exchange
 	// Managed return type : <T>
 	// Managed param types : ref T&, <T>
-    - (DBMonoObjectRepresentation *)exchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2
+    - (DBManagedObject *)exchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBManagedObject *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Exchange(T&,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Increment
@@ -217,5 +223,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"Read(long&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT64(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

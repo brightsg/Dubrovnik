@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AuditFlags
-    - (System_Security_AccessControl_AuditFlags)auditFlags;
+	// Managed property name : AuditFlags
+	// Managed property type : System.Security.AccessControl.AuditFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_AuditFlags auditFlags;
 @end
 //--Dubrovnik.CodeGenerator

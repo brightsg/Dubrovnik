@@ -2,7 +2,7 @@
 //
 // Managed interface : IChannel
 //
-@interface System_Runtime_Remoting_Channels_IChannel : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IChannel : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)channelName;
+	// Managed property name : ChannelName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * channelName;
 
-	// Managed type : System.Int32
-    - (int32_t)channelPriority;
+	// Managed property name : ChannelPriority
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t channelPriority;
 
 #pragma mark -
 #pragma mark Methods

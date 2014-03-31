@@ -3,6 +3,12 @@
 //
 // Managed class : Environment
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Environment
 
 #pragma mark -
@@ -21,174 +27,246 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : CommandLine
+	// Managed property type : System.String
+    static NSString * m_commandLine;
     + (NSString *)commandLine
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CommandLine"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CommandLine"];
+		if ([self object:m_commandLine isEqualToMonoObject:monoObject]) return m_commandLine;					
+		m_commandLine = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_commandLine;
 	}
 
-	// Managed type : System.String
+	// Managed property name : CurrentDirectory
+	// Managed property type : System.String
+    static NSString * m_currentDirectory;
     + (NSString *)currentDirectory
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CurrentDirectory"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentDirectory"];
+		if ([self object:m_currentDirectory isEqualToMonoObject:monoObject]) return m_currentDirectory;					
+		m_currentDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_currentDirectory;
 	}
     + (void)setCurrentDirectory:(NSString *)value
 	{
+		m_currentDirectory = value;
 		MonoObject *monoObject = [value monoValue];
 		[[self class] setMonoClassProperty:"CurrentDirectory" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : CurrentManagedThreadId
+	// Managed property type : System.Int32
+    static int32_t m_currentManagedThreadId;
     + (int32_t)currentManagedThreadId
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CurrentManagedThreadId"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentManagedThreadId"];
+		m_currentManagedThreadId = DB_UNBOX_INT32(monoObject);
+
+		return m_currentManagedThreadId;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : ExitCode
+	// Managed property type : System.Int32
+    static int32_t m_exitCode;
     + (int32_t)exitCode
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ExitCode"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ExitCode"];
+		m_exitCode = DB_UNBOX_INT32(monoObject);
+
+		return m_exitCode;
 	}
     + (void)setExitCode:(int32_t)value
 	{
+		m_exitCode = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"ExitCode" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : HasShutdownStarted
+	// Managed property type : System.Boolean
+    static BOOL m_hasShutdownStarted;
     + (BOOL)hasShutdownStarted
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"HasShutdownStarted"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"HasShutdownStarted"];
+		m_hasShutdownStarted = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_hasShutdownStarted;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Is64BitOperatingSystem
+	// Managed property type : System.Boolean
+    static BOOL m_is64BitOperatingSystem;
     + (BOOL)is64BitOperatingSystem
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Is64BitOperatingSystem"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Is64BitOperatingSystem"];
+		m_is64BitOperatingSystem = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_is64BitOperatingSystem;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Is64BitProcess
+	// Managed property type : System.Boolean
+    static BOOL m_is64BitProcess;
     + (BOOL)is64BitProcess
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Is64BitProcess"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Is64BitProcess"];
+		m_is64BitProcess = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_is64BitProcess;
 	}
 
-	// Managed type : System.String
+	// Managed property name : MachineName
+	// Managed property type : System.String
+    static NSString * m_machineName;
     + (NSString *)machineName
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"MachineName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"MachineName"];
+		if ([self object:m_machineName isEqualToMonoObject:monoObject]) return m_machineName;					
+		m_machineName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_machineName;
 	}
 
-	// Managed type : System.String
+	// Managed property name : NewLine
+	// Managed property type : System.String
+    static NSString * m_newLine;
     + (NSString *)newLine
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"NewLine"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"NewLine"];
+		if ([self object:m_newLine isEqualToMonoObject:monoObject]) return m_newLine;					
+		m_newLine = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_newLine;
 	}
 
-	// Managed type : System.OperatingSystem
+	// Managed property name : OSVersion
+	// Managed property type : System.OperatingSystem
+    static System_OperatingSystem * m_oSVersion;
     + (System_OperatingSystem *)oSVersion
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"OSVersion"];
-		System_OperatingSystem * result = [System_OperatingSystem representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"OSVersion"];
+		if ([self object:m_oSVersion isEqualToMonoObject:monoObject]) return m_oSVersion;					
+		m_oSVersion = [System_OperatingSystem objectWithMonoObject:monoObject];
+
+		return m_oSVersion;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : ProcessorCount
+	// Managed property type : System.Int32
+    static int32_t m_processorCount;
     + (int32_t)processorCount
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ProcessorCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ProcessorCount"];
+		m_processorCount = DB_UNBOX_INT32(monoObject);
+
+		return m_processorCount;
 	}
 
-	// Managed type : System.String
+	// Managed property name : StackTrace
+	// Managed property type : System.String
+    static NSString * m_stackTrace;
     + (NSString *)stackTrace
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"StackTrace"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"StackTrace"];
+		if ([self object:m_stackTrace isEqualToMonoObject:monoObject]) return m_stackTrace;					
+		m_stackTrace = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_stackTrace;
 	}
 
-	// Managed type : System.String
+	// Managed property name : SystemDirectory
+	// Managed property type : System.String
+    static NSString * m_systemDirectory;
     + (NSString *)systemDirectory
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"SystemDirectory"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"SystemDirectory"];
+		if ([self object:m_systemDirectory isEqualToMonoObject:monoObject]) return m_systemDirectory;					
+		m_systemDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_systemDirectory;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : SystemPageSize
+	// Managed property type : System.Int32
+    static int32_t m_systemPageSize;
     + (int32_t)systemPageSize
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"SystemPageSize"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"SystemPageSize"];
+		m_systemPageSize = DB_UNBOX_INT32(monoObject);
+
+		return m_systemPageSize;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : TickCount
+	// Managed property type : System.Int32
+    static int32_t m_tickCount;
     + (int32_t)tickCount
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"TickCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"TickCount"];
+		m_tickCount = DB_UNBOX_INT32(monoObject);
+
+		return m_tickCount;
 	}
 
-	// Managed type : System.String
+	// Managed property name : UserDomainName
+	// Managed property type : System.String
+    static NSString * m_userDomainName;
     + (NSString *)userDomainName
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UserDomainName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UserDomainName"];
+		if ([self object:m_userDomainName isEqualToMonoObject:monoObject]) return m_userDomainName;					
+		m_userDomainName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_userDomainName;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : UserInteractive
+	// Managed property type : System.Boolean
+    static BOOL m_userInteractive;
     + (BOOL)userInteractive
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UserInteractive"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UserInteractive"];
+		m_userInteractive = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_userInteractive;
 	}
 
-	// Managed type : System.String
+	// Managed property name : UserName
+	// Managed property type : System.String
+    static NSString * m_userName;
     + (NSString *)userName
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UserName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UserName"];
+		if ([self object:m_userName isEqualToMonoObject:monoObject]) return m_userName;					
+		m_userName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_userName;
 	}
 
-	// Managed type : System.Version
+	// Managed property name : Version
+	// Managed property type : System.Version
+    static System_Version * m_version;
     + (System_Version *)version
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Version"];
-		System_Version * result = [System_Version representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Version"];
+		if ([self object:m_version isEqualToMonoObject:monoObject]) return m_version;					
+		m_version = [System_Version objectWithMonoObject:monoObject];
+
+		return m_version;
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : WorkingSet
+	// Managed property type : System.Int64
+    static int64_t m_workingSet;
     + (int64_t)workingSet
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"WorkingSet"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"WorkingSet"];
+		m_workingSet = DB_UNBOX_INT64(monoObject);
+
+		return m_workingSet;
 	}
 
 #pragma mark -
@@ -233,7 +311,7 @@
     - (DBSystem_Array *)getCommandLineArgs
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCommandLineArgs()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetEnvironmentVariable
@@ -260,7 +338,7 @@
     - (System_Collections_IDictionary *)getEnvironmentVariables
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvironmentVariables()" withNumArgs:0];
-		return [System_Collections_IDictionary representationWithMonoObject:monoObject];
+		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnvironmentVariables
@@ -269,7 +347,7 @@
     - (System_Collections_IDictionary *)getEnvironmentVariables_withTarget:(System_EnvironmentVariableTarget)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvironmentVariables(System.EnvironmentVariableTarget)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Collections_IDictionary representationWithMonoObject:monoObject];
+		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFolderPath
@@ -296,7 +374,7 @@
     - (DBSystem_Array *)getLogicalDrives
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLogicalDrives()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : SetEnvironmentVariable
@@ -314,5 +392,21 @@
     {
 		[self invokeMonoMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_commandLine = nil;
+		m_currentDirectory = nil;
+		m_machineName = nil;
+		m_newLine = nil;
+		m_oSVersion = nil;
+		m_stackTrace = nil;
+		m_systemDirectory = nil;
+		m_userDomainName = nil;
+		m_userName = nil;
+		m_version = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

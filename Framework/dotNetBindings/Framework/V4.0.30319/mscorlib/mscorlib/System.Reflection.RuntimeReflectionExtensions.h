@@ -2,7 +2,7 @@
 //
 // Managed class : RuntimeReflectionExtensions
 //
-@interface System_Reflection_RuntimeReflectionExtensions : DBMonoObjectRepresentation
+@interface System_Reflection_RuntimeReflectionExtensions : System_Object
 
 #pragma mark -
 #pragma mark Setup

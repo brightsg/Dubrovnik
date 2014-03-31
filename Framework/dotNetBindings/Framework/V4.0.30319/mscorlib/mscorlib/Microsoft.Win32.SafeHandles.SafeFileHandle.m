@@ -3,6 +3,12 @@
 //
 // Managed class : SafeFileHandle
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation Microsoft_Win32_SafeHandles_SafeFileHandle
 
 #pragma mark -
@@ -28,5 +34,11 @@
     {
 		return [[self alloc] initWithSignature:"intptr,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

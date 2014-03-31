@@ -2,7 +2,7 @@
 //
 // Managed interface : IFormattable
 //
-@interface System_IFormattable : DBMonoObjectRepresentation
+@interface System_IFormattable : System_Object
 
 #pragma mark -
 #pragma mark Setup

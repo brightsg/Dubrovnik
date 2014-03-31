@@ -190,8 +190,42 @@
     return [[self class] object:object isEqualToMonoObject:monoObject];
 }
 
+- (BOOL)isEqual:(id)other
+{
+    // check for pointer equality
+    if (self == other) {
+        return YES;
+    }
+    
+    // check for managed object
+    if ([other isKindOfClass:[DBManagedObject class]]) {
 
+        // check for monoObject pointer equality
+        if (self.monoObject == [other monoObject]) {
+            return YES;
+        }
+        
+        // check for object equality
+        // if the subclass implements equals_withObj then use it
+        if ([self respondsToSelector:@selector(equals_withObj:)]) {
+            if ([(id)self equals_withObj:other]) {
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
+}
 
+- (NSUInteger)hash
+{
+    // if the subclass implements getHashCode then use it
+    if ([self respondsToSelector:@selector(getHashCode)]) {
+        return (NSUInteger)[(id)self getHashCode];
+    } else {
+        return [super hash];
+    }
+}
 #pragma mark -
 #pragma mark NSCopying Protocol
 

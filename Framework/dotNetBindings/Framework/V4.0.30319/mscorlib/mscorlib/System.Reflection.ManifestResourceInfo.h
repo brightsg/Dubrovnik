@@ -2,7 +2,7 @@
 //
 // Managed class : ManifestResourceInfo
 //
-@interface System_Reflection_ManifestResourceInfo : DBMonoObjectRepresentation
+@interface System_Reflection_ManifestResourceInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,13 +22,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)fileName;
+	// Managed property name : FileName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fileName;
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)referencedAssembly;
+	// Managed property name : ReferencedAssembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * referencedAssembly;
 
-	// Managed type : System.Reflection.ResourceLocation
-    - (System_Reflection_ResourceLocation)resourceLocation;
+	// Managed property name : ResourceLocation
+	// Managed property type : System.Reflection.ResourceLocation
+    @property (nonatomic, readonly) System_Reflection_ResourceLocation resourceLocation;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed interface : IIdentity
 //
-@interface System_Security_Principal_IIdentity : DBMonoObjectRepresentation
+@interface System_Security_Principal_IIdentity : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)authenticationType;
+	// Managed property name : AuthenticationType
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * authenticationType;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAuthenticated;
+	// Managed property name : IsAuthenticated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAuthenticated;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 @end
 //--Dubrovnik.CodeGenerator

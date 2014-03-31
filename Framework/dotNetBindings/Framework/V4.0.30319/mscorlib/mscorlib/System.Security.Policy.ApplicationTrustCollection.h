@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationTrustCollection
 //
-@interface System_Security_Policy_ApplicationTrustCollection : DBMonoObjectRepresentation
+@interface System_Security_Policy_ApplicationTrustCollection : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,20 +14,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSynchronized;
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed type : System.Security.Policy.ApplicationTrust
-    - (System_Security_Policy_ApplicationTrust *)item;
+	// Managed property name : Item
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @property (nonatomic, strong, readonly) System_Security_Policy_ApplicationTrust * item;
 
-	// Managed type : System.Security.Policy.ApplicationTrust
-    - (System_Security_Policy_ApplicationTrust *)item;
+	// Managed property name : Item
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @property (nonatomic, strong, readonly) System_Security_Policy_ApplicationTrust * item;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot;
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * syncRoot;
 
 #pragma mark -
 #pragma mark Methods

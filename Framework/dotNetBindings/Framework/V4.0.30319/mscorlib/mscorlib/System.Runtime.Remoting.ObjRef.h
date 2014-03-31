@@ -2,7 +2,7 @@
 //
 // Managed class : ObjRef
 //
-@interface System_Runtime_Remoting_ObjRef : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_ObjRef : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,21 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.IChannelInfo
-    - (System_Runtime_Remoting_IChannelInfo *)channelInfo;
-    - (void)setChannelInfo:(System_Runtime_Remoting_IChannelInfo *)value;
+	// Managed property name : ChannelInfo
+	// Managed property type : System.Runtime.Remoting.IChannelInfo
+    @property (nonatomic, strong) System_Runtime_Remoting_IChannelInfo * channelInfo;
 
-	// Managed type : System.Runtime.Remoting.IEnvoyInfo
-    - (System_Runtime_Remoting_IEnvoyInfo *)envoyInfo;
-    - (void)setEnvoyInfo:(System_Runtime_Remoting_IEnvoyInfo *)value;
+	// Managed property name : EnvoyInfo
+	// Managed property type : System.Runtime.Remoting.IEnvoyInfo
+    @property (nonatomic, strong) System_Runtime_Remoting_IEnvoyInfo * envoyInfo;
 
-	// Managed type : System.Runtime.Remoting.IRemotingTypeInfo
-    - (System_Runtime_Remoting_IRemotingTypeInfo *)typeInfo;
-    - (void)setTypeInfo:(System_Runtime_Remoting_IRemotingTypeInfo *)value;
+	// Managed property name : TypeInfo
+	// Managed property type : System.Runtime.Remoting.IRemotingTypeInfo
+    @property (nonatomic, strong) System_Runtime_Remoting_IRemotingTypeInfo * typeInfo;
 
-	// Managed type : System.String
-    - (NSString *)uRI;
-    - (void)setURI:(NSString *)value;
+	// Managed property name : URI
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * uRI;
 
 #pragma mark -
 #pragma mark Methods
@@ -49,7 +49,7 @@
 	// Managed method name : GetRealObject
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Serialization.StreamingContext
-    - (DBMonoObjectRepresentation *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1;
+    - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1;
 
 	// Managed method name : IsFromThisAppDomain
 	// Managed return type : System.Boolean

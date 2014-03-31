@@ -32,27 +32,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : NOT_SUPPORTED
+	// Managed field type : System.Int32
     + (int32_t)nOT_SUPPORTED;
 
-	// Managed type : System.Int32
+	// Managed field name : REQUIRED
+	// Managed field type : System.Int32
     + (int32_t)rEQUIRED;
 
-	// Managed type : System.Int32
+	// Managed field name : REQUIRES_NEW
+	// Managed field type : System.Int32
     + (int32_t)rEQUIRES_NEW;
 
-	// Managed type : System.Int32
+	// Managed field name : SUPPORTED
+	// Managed field type : System.Int32
     + (int32_t)sUPPORTED;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isReEntrant;
+	// Managed property name : IsReEntrant
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReEntrant;
 
-	// Managed type : System.Boolean
-    - (BOOL)locked;
-    - (void)setLocked:(BOOL)value;
+	// Managed property name : Locked
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL locked;
 
 #pragma mark -
 #pragma mark Methods

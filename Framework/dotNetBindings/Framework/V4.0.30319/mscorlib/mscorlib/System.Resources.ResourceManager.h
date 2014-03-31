@@ -2,7 +2,7 @@
 //
 // Managed class : ResourceManager
 //
-@interface System_Resources_ResourceManager : DBMonoObjectRepresentation
+@interface System_Resources_ResourceManager : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,24 +32,28 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : HeaderVersionNumber
+	// Managed field type : System.Int32
     + (int32_t)headerVersionNumber;
 
-	// Managed type : System.Int32
+	// Managed field name : MagicNumber
+	// Managed field type : System.Int32
     + (int32_t)magicNumber;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)baseName;
+	// Managed property name : BaseName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * baseName;
 
-	// Managed type : System.Boolean
-    - (BOOL)ignoreCase;
-    - (void)setIgnoreCase:(BOOL)value;
+	// Managed property name : IgnoreCase
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL ignoreCase;
 
-	// Managed type : System.Type
-    - (System_Type *)resourceSetType;
+	// Managed property name : ResourceSetType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * resourceSetType;
 
 #pragma mark -
 #pragma mark Methods
@@ -62,12 +66,12 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1;
+    - (System_Object *)getObject_withName:(NSString *)p1;
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Globalization.CultureInfo
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2;
+    - (System_Object *)getObject_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2;
 
 	// Managed method name : GetResourceSet
 	// Managed return type : System.Resources.ResourceSet

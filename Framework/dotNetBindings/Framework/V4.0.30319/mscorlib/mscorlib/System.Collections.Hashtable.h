@@ -2,7 +2,7 @@
 //
 // Managed class : Hashtable
 //
-@interface System_Collections_Hashtable : DBMonoObjectRepresentation
+@interface System_Collections_Hashtable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -87,30 +87,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFixedSize;
+	// Managed property name : IsFixedSize
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFixedSize;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSynchronized;
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * item;
 
-	// Managed type : System.Collections.ICollection
-    - (System_Collections_ICollection *)keys;
+	// Managed property name : Keys
+	// Managed property type : System.Collections.ICollection
+    @property (nonatomic, strong, readonly) System_Collections_ICollection * keys;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot;
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * syncRoot;
 
-	// Managed type : System.Collections.ICollection
-    - (System_Collections_ICollection *)values;
+	// Managed property name : Values
+	// Managed property type : System.Collections.ICollection
+    @property (nonatomic, strong, readonly) System_Collections_ICollection * values;
 
 #pragma mark -
 #pragma mark Methods
@@ -118,7 +125,7 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object
-    - (void)add_withKey:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -128,22 +135,22 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)contains_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)contains_withKey:(System_Object *)p1;
 
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)containsKey_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)containsKey_withKey:(System_Object *)p1;
 
 	// Managed method name : ContainsValue
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)containsValue_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)containsValue_withValue:(System_Object *)p1;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
@@ -163,12 +170,12 @@
 	// Managed method name : OnDeserialization
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)onDeserialization_withSender:(DBMonoObjectRepresentation *)p1;
+    - (void)onDeserialization_withSender:(System_Object *)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)remove_withKey:(DBMonoObjectRepresentation *)p1;
+    - (void)remove_withKey:(System_Object *)p1;
 
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.Hashtable

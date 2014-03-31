@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationSecurityManager
 //
-@interface System_Security_Policy_ApplicationSecurityManager : DBMonoObjectRepresentation
+@interface System_Security_Policy_ApplicationSecurityManager : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.IApplicationTrustManager
+	// Managed property name : ApplicationTrustManager
+	// Managed property type : System.Security.Policy.IApplicationTrustManager
     + (System_Security_Policy_IApplicationTrustManager *)applicationTrustManager;
 
-	// Managed type : System.Security.Policy.ApplicationTrustCollection
+	// Managed property name : UserApplicationTrusts
+	// Managed property type : System.Security.Policy.ApplicationTrustCollection
     + (System_Security_Policy_ApplicationTrustCollection *)userApplicationTrusts;
 
 #pragma mark -

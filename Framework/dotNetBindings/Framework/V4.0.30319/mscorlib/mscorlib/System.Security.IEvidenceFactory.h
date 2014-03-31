@@ -2,7 +2,7 @@
 //
 // Managed interface : IEvidenceFactory
 //
-@interface System_Security_IEvidenceFactory : DBMonoObjectRepresentation
+@interface System_Security_IEvidenceFactory : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.Evidence
-    - (System_Security_Policy_Evidence *)evidence;
+	// Managed property name : Evidence
+	// Managed property type : System.Security.Policy.Evidence
+    @property (nonatomic, strong, readonly) System_Security_Policy_Evidence * evidence;
 @end
 //--Dubrovnik.CodeGenerator

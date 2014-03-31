@@ -3,6 +3,12 @@
 //
 // Managed interface : ISafeSerializationData
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_ISafeSerializationData
 
 #pragma mark -
@@ -24,9 +30,15 @@
 	// Managed method name : CompleteDeserialization
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)completeDeserialization_withDeserialized:(DBMonoObjectRepresentation *)p1
+    - (void)completeDeserialization_withDeserialized:(System_Object *)p1
     {
 		[self invokeMonoMethod:"CompleteDeserialization(object)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

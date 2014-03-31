@@ -2,7 +2,7 @@
 //
 // Managed class : ThreadLocal<T>
 //
-@interface System_Threading_ThreadLocal : DBMonoObjectRepresentation
+@interface System_Threading_ThreadLocal : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,15 +32,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isValueCreated;
+	// Managed property name : IsValueCreated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isValueCreated;
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)value;
-    - (void)setValue:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : <T>
+    @property (nonatomic, strong) DBManagedObject * value;
 
-	// Managed type : IList<T>
-    - (IList *)values;
+	// Managed property name : Values
+	// Managed property type : IList<T>
+    @property (nonatomic, strong, readonly) IList * values;
 
 #pragma mark -
 #pragma mark Methods

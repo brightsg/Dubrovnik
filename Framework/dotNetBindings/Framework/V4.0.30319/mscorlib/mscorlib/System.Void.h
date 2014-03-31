@@ -2,7 +2,7 @@
 //
 // Managed struct : Void
 //
-@interface System_Void : DBMonoObjectRepresentation
+@interface System_Void : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup

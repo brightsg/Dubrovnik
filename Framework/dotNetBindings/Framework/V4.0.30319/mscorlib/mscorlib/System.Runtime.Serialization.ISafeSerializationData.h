@@ -2,7 +2,7 @@
 //
 // Managed interface : ISafeSerializationData
 //
-@interface System_Runtime_Serialization_ISafeSerializationData : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_ISafeSerializationData : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : CompleteDeserialization
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)completeDeserialization_withDeserialized:(DBMonoObjectRepresentation *)p1;
+    - (void)completeDeserialization_withDeserialized:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

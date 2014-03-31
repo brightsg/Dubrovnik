@@ -2,7 +2,7 @@
 //
 // Managed class : HostExecutionContext
 //
-@interface System_Threading_HostExecutionContext : DBMonoObjectRepresentation
+@interface System_Threading_HostExecutionContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.HostExecutionContext
 	// Managed param types : System.Object
-    + (System_Threading_HostExecutionContext *)new_withState:(DBMonoObjectRepresentation *)p1;
+    + (System_Threading_HostExecutionContext *)new_withState:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed class : MethodRental
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_MethodRental
 
 #pragma mark -
@@ -21,20 +27,26 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : JitImmediate
+	// Managed field type : System.Int32
+    static int32_t m_jitImmediate;
     + (int32_t)jitImmediate
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"JitImmediate" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_jitImmediate = monoObject;
+		return m_jitImmediate;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : JitOnDemand
+	// Managed field type : System.Int32
+    static int32_t m_jitOnDemand;
     + (int32_t)jitOnDemand
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"JitOnDemand" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_jitOnDemand = monoObject;
+		return m_jitOnDemand;
 	}
 
 #pragma mark -
@@ -47,5 +59,11 @@
     {
 		[self invokeMonoMethod:"SwapMethodBody(System.Type,int,intptr,int,int)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

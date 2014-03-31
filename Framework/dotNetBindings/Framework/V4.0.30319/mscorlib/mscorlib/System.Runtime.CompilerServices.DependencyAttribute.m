@@ -3,6 +3,12 @@
 //
 // Managed class : DependencyAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_DependencyAttribute
 
 #pragma mark -
@@ -32,20 +38,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : DependentAssembly
+	// Managed property type : System.String
+    @synthesize dependentAssembly = _dependentAssembly;
     - (NSString *)dependentAssembly
     {
-		MonoObject * monoObject = [self getMonoProperty:"DependentAssembly"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DependentAssembly"];
+		if ([self object:_dependentAssembly isEqualToMonoObject:monoObject]) return _dependentAssembly;					
+		_dependentAssembly = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _dependentAssembly;
 	}
 
-	// Managed type : System.Runtime.CompilerServices.LoadHint
+	// Managed property name : LoadHint
+	// Managed property type : System.Runtime.CompilerServices.LoadHint
+    @synthesize loadHint = _loadHint;
     - (System_Runtime_CompilerServices_LoadHint)loadHint
     {
-		MonoObject * monoObject = [self getMonoProperty:"LoadHint"];
-		System_Runtime_CompilerServices_LoadHint result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LoadHint"];
+		_loadHint = DB_UNBOX_INT32(monoObject);
+
+		return _loadHint;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

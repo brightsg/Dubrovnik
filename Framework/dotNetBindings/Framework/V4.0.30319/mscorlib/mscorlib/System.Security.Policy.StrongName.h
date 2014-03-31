@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Security.Permissions.StrongNamePublicKeyBlob
-    - (System_Security_Permissions_StrongNamePublicKeyBlob *)publicKey;
+	// Managed property name : PublicKey
+	// Managed property type : System.Security.Permissions.StrongNamePublicKeyBlob
+    @property (nonatomic, strong, readonly) System_Security_Permissions_StrongNamePublicKeyBlob * publicKey;
 
-	// Managed type : System.Version
-    - (System_Version *)version;
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @property (nonatomic, strong, readonly) System_Version * version;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +45,7 @@
 	// Managed method name : Copy
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)copy;
+    - (System_Object *)copy;
 
 	// Managed method name : CreateIdentityPermission
 	// Managed return type : System.Security.IPermission
@@ -52,7 +55,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

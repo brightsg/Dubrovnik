@@ -22,25 +22,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.ReflectionPermissionFlag
-    - (System_Security_Permissions_ReflectionPermissionFlag)flags;
-    - (void)setFlags:(System_Security_Permissions_ReflectionPermissionFlag)value;
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.ReflectionPermissionFlag
+    @property (nonatomic) System_Security_Permissions_ReflectionPermissionFlag flags;
 
-	// Managed type : System.Boolean
-    - (BOOL)memberAccess;
-    - (void)setMemberAccess:(BOOL)value;
+	// Managed property name : MemberAccess
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL memberAccess;
 
-	// Managed type : System.Boolean
-    - (BOOL)reflectionEmit;
-    - (void)setReflectionEmit:(BOOL)value;
+	// Managed property name : ReflectionEmit
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL reflectionEmit;
 
-	// Managed type : System.Boolean
-    - (BOOL)restrictedMemberAccess;
-    - (void)setRestrictedMemberAccess:(BOOL)value;
+	// Managed property name : RestrictedMemberAccess
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL restrictedMemberAccess;
 
-	// Managed type : System.Boolean
-    - (BOOL)typeInformation;
-    - (void)setTypeInformation:(BOOL)value;
+	// Managed property name : TypeInformation
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL typeInformation;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed class : InternalActivationContextHelper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Deployment_Internal_InternalActivationContextHelper
 
 #pragma mark -
@@ -24,19 +30,19 @@
 	// Managed method name : GetActivationContextData
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (DBMonoObjectRepresentation *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1
+    - (System_Object *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetActivationContextData(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetApplicationComponentManifest
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (DBMonoObjectRepresentation *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1
+    - (System_Object *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetApplicationComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetApplicationManifestBytes
@@ -51,10 +57,10 @@
 	// Managed method name : GetDeploymentComponentManifest
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (DBMonoObjectRepresentation *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1
+    - (System_Object *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeploymentComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeploymentManifestBytes
@@ -82,5 +88,11 @@
     {
 		[self invokeMonoMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

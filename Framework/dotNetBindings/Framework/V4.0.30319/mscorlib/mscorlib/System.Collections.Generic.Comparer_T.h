@@ -2,7 +2,7 @@
 //
 // Managed class : Comparer<T>
 //
-@interface System_Collections_Generic_Comparer : DBMonoObjectRepresentation
+@interface System_Collections_Generic_Comparer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.Comparer<T>
+	// Managed property name : Default
+	// Managed property type : System.Collections.Generic.Comparer<T>
     + (System_Collections_Generic_Comparer *)default;
 
 #pragma mark -
@@ -23,7 +24,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : <T>, <T>
-    - (int32_t)compare_withX:(DBMonoObjectRepresentation *)p1 y:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)compare_withX:(DBManagedObject *)p1 y:(DBManagedObject *)p2;
 
 	// Managed method name : Create
 	// Managed return type : System.Collections.Generic.Comparer<T>

@@ -3,6 +3,12 @@
 //
 // Managed interface : IChannelReceiverHook
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_IChannelReceiverHook
 
 #pragma mark -
@@ -21,28 +27,39 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : ChannelScheme
+	// Managed property type : System.String
+    @synthesize channelScheme = _channelScheme;
     - (NSString *)channelScheme
     {
-		MonoObject * monoObject = [self getMonoProperty:"ChannelScheme"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ChannelScheme"];
+		if ([self object:_channelScheme isEqualToMonoObject:monoObject]) return _channelScheme;					
+		_channelScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _channelScheme;
 	}
 
-	// Managed type : System.Runtime.Remoting.Channels.IServerChannelSink
+	// Managed property name : ChannelSinkChain
+	// Managed property type : System.Runtime.Remoting.Channels.IServerChannelSink
+    @synthesize channelSinkChain = _channelSinkChain;
     - (System_Runtime_Remoting_Channels_IServerChannelSink *)channelSinkChain
     {
-		MonoObject * monoObject = [self getMonoProperty:"ChannelSinkChain"];
-		System_Runtime_Remoting_Channels_IServerChannelSink * result = [System_Runtime_Remoting_Channels_IServerChannelSink representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ChannelSinkChain"];
+		if ([self object:_channelSinkChain isEqualToMonoObject:monoObject]) return _channelSinkChain;					
+		_channelSinkChain = [System_Runtime_Remoting_Channels_IServerChannelSink objectWithMonoObject:monoObject];
+
+		return _channelSinkChain;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : WantsToListen
+	// Managed property type : System.Boolean
+    @synthesize wantsToListen = _wantsToListen;
     - (BOOL)wantsToListen
     {
-		MonoObject * monoObject = [self getMonoProperty:"WantsToListen"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WantsToListen"];
+		_wantsToListen = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _wantsToListen;
 	}
 
 #pragma mark -
@@ -55,5 +72,11 @@
     {
 		[self invokeMonoMethod:"AddHookChannelUri(string)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

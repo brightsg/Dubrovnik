@@ -27,14 +27,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.CompilerServices.MethodCodeType
-    - (System_Runtime_CompilerServices_MethodCodeType)methodCodeType;
-    - (void)setMethodCodeType:(System_Runtime_CompilerServices_MethodCodeType)value;
+	// Managed field name : MethodCodeType
+	// Managed field type : System.Runtime.CompilerServices.MethodCodeType
+    @property (nonatomic) System_Runtime_CompilerServices_MethodCodeType methodCodeType;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.CompilerServices.MethodImplOptions
-    - (System_Runtime_CompilerServices_MethodImplOptions)value;
+	// Managed property name : Value
+	// Managed property type : System.Runtime.CompilerServices.MethodImplOptions
+    @property (nonatomic, readonly) System_Runtime_CompilerServices_MethodImplOptions value;
 @end
 //--Dubrovnik.CodeGenerator

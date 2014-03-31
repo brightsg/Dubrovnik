@@ -3,6 +3,12 @@
 //
 // Managed class : DebuggerBrowsableAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_DebuggerBrowsableAttribute
 
 #pragma mark -
@@ -32,12 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Diagnostics.DebuggerBrowsableState
+	// Managed property name : State
+	// Managed property type : System.Diagnostics.DebuggerBrowsableState
+    @synthesize state = _state;
     - (System_Diagnostics_DebuggerBrowsableState)state
     {
-		MonoObject * monoObject = [self getMonoProperty:"State"];
-		System_Diagnostics_DebuggerBrowsableState result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"State"];
+		_state = DB_UNBOX_INT32(monoObject);
+
+		return _state;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

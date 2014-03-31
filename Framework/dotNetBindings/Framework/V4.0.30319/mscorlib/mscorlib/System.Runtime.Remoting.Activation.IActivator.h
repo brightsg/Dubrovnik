@@ -2,7 +2,7 @@
 //
 // Managed interface : IActivator
 //
-@interface System_Runtime_Remoting_Activation_IActivator : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Activation_IActivator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Activation.ActivatorLevel
-    - (System_Runtime_Remoting_Activation_ActivatorLevel)level;
+	// Managed property name : Level
+	// Managed property type : System.Runtime.Remoting.Activation.ActivatorLevel
+    @property (nonatomic, readonly) System_Runtime_Remoting_Activation_ActivatorLevel level;
 
-	// Managed type : System.Runtime.Remoting.Activation.IActivator
-    - (System_Runtime_Remoting_Activation_IActivator *)nextActivator;
-    - (void)setNextActivator:(System_Runtime_Remoting_Activation_IActivator *)value;
+	// Managed property name : NextActivator
+	// Managed property type : System.Runtime.Remoting.Activation.IActivator
+    @property (nonatomic, strong) System_Runtime_Remoting_Activation_IActivator * nextActivator;
 
 #pragma mark -
 #pragma mark Methods

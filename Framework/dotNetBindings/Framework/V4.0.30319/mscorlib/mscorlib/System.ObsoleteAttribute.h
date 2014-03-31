@@ -27,10 +27,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isError;
+	// Managed property name : IsError
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isError;
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 @end
 //--Dubrovnik.CodeGenerator

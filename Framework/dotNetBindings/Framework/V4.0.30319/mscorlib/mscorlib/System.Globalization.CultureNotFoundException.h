@@ -52,14 +52,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Nullable<System.Int32>
-    - (System_Nullable *)invalidCultureId;
+	// Managed property name : InvalidCultureId
+	// Managed property type : System.Nullable<System.Int32>
+    @property (nonatomic, strong, readonly) System_Nullable * invalidCultureId;
 
-	// Managed type : System.String
-    - (NSString *)invalidCultureName;
+	// Managed property name : InvalidCultureName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * invalidCultureName;
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 
 #pragma mark -
 #pragma mark Methods

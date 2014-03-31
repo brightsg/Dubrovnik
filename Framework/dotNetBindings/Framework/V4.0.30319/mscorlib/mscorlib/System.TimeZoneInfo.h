@@ -2,7 +2,7 @@
 //
 // Managed class : TimeZoneInfo
 //
-@interface System_TimeZoneInfo : DBMonoObjectRepresentation
+@interface System_TimeZoneInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,28 +14,36 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)baseUtcOffset;
+	// Managed property name : BaseUtcOffset
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong, readonly) System_TimeSpan * baseUtcOffset;
 
-	// Managed type : System.String
-    - (NSString *)daylightName;
+	// Managed property name : DaylightName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * daylightName;
 
-	// Managed type : System.String
-    - (NSString *)displayName;
+	// Managed property name : DisplayName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * displayName;
 
-	// Managed type : System.String
-    - (NSString *)id;
+	// Managed property name : Id
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * id;
 
-	// Managed type : System.TimeZoneInfo
+	// Managed property name : Local
+	// Managed property type : System.TimeZoneInfo
     + (System_TimeZoneInfo *)local;
 
-	// Managed type : System.String
-    - (NSString *)standardName;
+	// Managed property name : StandardName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * standardName;
 
-	// Managed type : System.Boolean
-    - (BOOL)supportsDaylightSavingTime;
+	// Managed property name : SupportsDaylightSavingTime
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL supportsDaylightSavingTime;
 
-	// Managed type : System.TimeZoneInfo
+	// Managed property name : Utc
+	// Managed property type : System.TimeZoneInfo
     + (System_TimeZoneInfo *)utc;
 
 #pragma mark -
@@ -114,7 +122,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : FindSystemTimeZoneById
 	// Managed return type : System.TimeZoneInfo

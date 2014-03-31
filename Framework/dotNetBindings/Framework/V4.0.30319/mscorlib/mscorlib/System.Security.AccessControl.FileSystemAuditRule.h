@@ -37,7 +37,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.FileSystemRights
-    - (System_Security_AccessControl_FileSystemRights)fileSystemRights;
+	// Managed property name : FileSystemRights
+	// Managed property type : System.Security.AccessControl.FileSystemRights
+    @property (nonatomic, readonly) System_Security_AccessControl_FileSystemRights fileSystemRights;
 @end
 //--Dubrovnik.CodeGenerator

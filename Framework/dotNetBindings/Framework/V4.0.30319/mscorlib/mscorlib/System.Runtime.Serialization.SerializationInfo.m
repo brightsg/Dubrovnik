@@ -3,6 +3,12 @@
 //
 // Managed class : SerializationInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_SerializationInfo
 
 #pragma mark -
@@ -40,62 +46,85 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : AssemblyName
+	// Managed property type : System.String
+    @synthesize assemblyName = _assemblyName;
     - (NSString *)assemblyName
     {
-		MonoObject * monoObject = [self getMonoProperty:"AssemblyName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AssemblyName"];
+		if ([self object:_assemblyName isEqualToMonoObject:monoObject]) return _assemblyName;					
+		_assemblyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _assemblyName;
 	}
     - (void)setAssemblyName:(NSString *)value
 	{
+		_assemblyName = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"AssemblyName" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : FullTypeName
+	// Managed property type : System.String
+    @synthesize fullTypeName = _fullTypeName;
     - (NSString *)fullTypeName
     {
-		MonoObject * monoObject = [self getMonoProperty:"FullTypeName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FullTypeName"];
+		if ([self object:_fullTypeName isEqualToMonoObject:monoObject]) return _fullTypeName;					
+		_fullTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _fullTypeName;
 	}
     - (void)setFullTypeName:(NSString *)value
 	{
+		_fullTypeName = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"FullTypeName" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsAssemblyNameSetExplicit
+	// Managed property type : System.Boolean
+    @synthesize isAssemblyNameSetExplicit = _isAssemblyNameSetExplicit;
     - (BOOL)isAssemblyNameSetExplicit
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsAssemblyNameSetExplicit"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsAssemblyNameSetExplicit"];
+		_isAssemblyNameSetExplicit = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isAssemblyNameSetExplicit;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsFullTypeNameSetExplicit
+	// Managed property type : System.Boolean
+    @synthesize isFullTypeNameSetExplicit = _isFullTypeNameSetExplicit;
     - (BOOL)isFullTypeNameSetExplicit
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsFullTypeNameSetExplicit"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsFullTypeNameSetExplicit"];
+		_isFullTypeNameSetExplicit = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isFullTypeNameSetExplicit;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : MemberCount
+	// Managed property type : System.Int32
+    @synthesize memberCount = _memberCount;
     - (int32_t)memberCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"MemberCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MemberCount"];
+		_memberCount = DB_UNBOX_INT32(monoObject);
+
+		return _memberCount;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @synthesize objectType = _objectType;
     - (System_Type *)objectType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ObjectType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ObjectType"];
+		if ([self object:_objectType isEqualToMonoObject:monoObject]) return _objectType;					
+		_objectType = [System_Type objectWithMonoObject:monoObject];
+
+		return _objectType;
 	}
 
 #pragma mark -
@@ -104,7 +133,7 @@
 	// Managed method name : AddValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Type
-    - (void)addValue_withName:(NSString *)p1 value:(DBMonoObjectRepresentation *)p2 type:(System_Type *)p3
+    - (void)addValue_withName:(NSString *)p1 value:(System_Object *)p2 type:(System_Type *)p3
     {
 		[self invokeMonoMethod:"AddValue(string,object,System.Type)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -112,7 +141,7 @@
 	// Managed method name : AddValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)addValue_withNameString:(NSString *)p1 valueObject:(DBMonoObjectRepresentation *)p2
+    - (void)addValue_withNameString:(NSString *)p1 valueObject:(System_Object *)p2
     {
 		[self invokeMonoMethod:"AddValue(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -289,7 +318,7 @@
     - (System_Runtime_Serialization_SerializationInfoEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Runtime_Serialization_SerializationInfoEnumerator representationWithMonoObject:monoObject];
+		return [System_Runtime_Serialization_SerializationInfoEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetInt16
@@ -376,10 +405,10 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Type
-    - (DBMonoObjectRepresentation *)getValue_withName:(NSString *)p1 type:(System_Type *)p2
+    - (System_Object *)getValue_withName:(NSString *)p1 type:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(string,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetType
@@ -389,5 +418,11 @@
     {
 		[self invokeMonoMethod:"SetType(System.Type)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

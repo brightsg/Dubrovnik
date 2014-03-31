@@ -2,7 +2,7 @@
 //
 // Managed interface : ICustomMarshaler
 //
-@interface System_Runtime_InteropServices_ICustomMarshaler : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ICustomMarshaler : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : CleanUpManagedData
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)cleanUpManagedData_withManagedObj:(DBMonoObjectRepresentation *)p1;
+    - (void)cleanUpManagedData_withManagedObj:(System_Object *)p1;
 
 	// Managed method name : CleanUpNativeData
 	// Managed return type : System.Void
@@ -32,11 +32,11 @@
 	// Managed method name : MarshalManagedToNative
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)marshalManagedToNative_withManagedObj:(DBMonoObjectRepresentation *)p1;
+    - (void *)marshalManagedToNative_withManagedObj:(System_Object *)p1;
 
 	// Managed method name : MarshalNativeToManaged
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)marshalNativeToManaged_withPNativeData:(void *)p1;
+    - (System_Object *)marshalNativeToManaged_withPNativeData:(void *)p1;
 @end
 //--Dubrovnik.CodeGenerator

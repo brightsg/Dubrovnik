@@ -2,7 +2,7 @@
 //
 // Managed struct : IntPtr
 //
-@interface System_IntPtr : DBMonoObjectRepresentation
+@interface System_IntPtr : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -32,13 +32,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IntPtr
+	// Managed field name : Zero
+	// Managed field type : System.IntPtr
     + (void *)zero;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Size
+	// Managed property type : System.Int32
     + (int32_t)size;
 
 #pragma mark -
@@ -52,7 +54,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

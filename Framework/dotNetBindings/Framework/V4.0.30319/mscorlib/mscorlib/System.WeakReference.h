@@ -2,7 +2,7 @@
 //
 // Managed class : WeakReference
 //
-@interface System_WeakReference : DBMonoObjectRepresentation
+@interface System_WeakReference : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,25 +17,27 @@
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference
 	// Managed param types : System.Object
-    + (System_WeakReference *)new_withTarget:(DBMonoObjectRepresentation *)p1;
+    + (System_WeakReference *)new_withTarget:(System_Object *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference
 	// Managed param types : System.Object, System.Boolean
-    + (System_WeakReference *)new_withTarget:(DBMonoObjectRepresentation *)p1 trackResurrection:(BOOL)p2;
+    + (System_WeakReference *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isAlive;
+	// Managed property name : IsAlive
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAlive;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)target;
-    - (void)setTarget:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Target
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * target;
 
-	// Managed type : System.Boolean
-    - (BOOL)trackResurrection;
+	// Managed property name : TrackResurrection
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL trackResurrection;
 
 #pragma mark -
 #pragma mark Methods

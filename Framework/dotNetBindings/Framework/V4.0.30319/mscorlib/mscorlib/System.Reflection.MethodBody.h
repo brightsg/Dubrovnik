@@ -2,7 +2,7 @@
 //
 // Managed class : MethodBody
 //
-@interface System_Reflection_MethodBody : DBMonoObjectRepresentation
+@interface System_Reflection_MethodBody : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,20 +14,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IList<System.Reflection.ExceptionHandlingClause>
-    - (System_Collections_Generic_IList *)exceptionHandlingClauses;
+	// Managed property name : ExceptionHandlingClauses
+	// Managed property type : System.Collections.Generic.IList<System.Reflection.ExceptionHandlingClause>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * exceptionHandlingClauses;
 
-	// Managed type : System.Boolean
-    - (BOOL)initLocals;
+	// Managed property name : InitLocals
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL initLocals;
 
-	// Managed type : System.Int32
-    - (int32_t)localSignatureMetadataToken;
+	// Managed property name : LocalSignatureMetadataToken
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t localSignatureMetadataToken;
 
-	// Managed type : System.Collections.Generic.IList<System.Reflection.LocalVariableInfo>
-    - (System_Collections_Generic_IList *)localVariables;
+	// Managed property name : LocalVariables
+	// Managed property type : System.Collections.Generic.IList<System.Reflection.LocalVariableInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * localVariables;
 
-	// Managed type : System.Int32
-    - (int32_t)maxStackSize;
+	// Managed property name : MaxStackSize
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t maxStackSize;
 
 #pragma mark -
 #pragma mark Methods

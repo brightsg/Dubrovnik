@@ -3,6 +3,12 @@
 //
 // Managed struct : AssemblyHash
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Configuration_Assemblies_AssemblyHash
 
 #pragma mark -
@@ -40,26 +46,34 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Configuration.Assemblies.AssemblyHash
+	// Managed field name : Empty
+	// Managed field type : System.Configuration.Assemblies.AssemblyHash
+    static System_Configuration_Assemblies_AssemblyHash * m_empty;
     + (System_Configuration_Assemblies_AssemblyHash *)empty
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Empty" valuePtr:DB_PTR(monoObject)];
-		return [System_Configuration_Assemblies_AssemblyHash representationWithMonoObject:monoObject];
+		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
+		m_empty = [System_Configuration_Assemblies_AssemblyHash objectWithMonoObject:monoObject];
+		return m_empty;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Configuration.Assemblies.AssemblyHashAlgorithm
+	// Managed property name : Algorithm
+	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
+    @synthesize algorithm = _algorithm;
     - (System_Configuration_Assemblies_AssemblyHashAlgorithm)algorithm
     {
-		MonoObject * monoObject = [self getMonoProperty:"Algorithm"];
-		System_Configuration_Assemblies_AssemblyHashAlgorithm result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Algorithm"];
+		_algorithm = DB_UNBOX_INT32(monoObject);
+
+		return _algorithm;
 	}
     - (void)setAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)value
 	{
+		_algorithm = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Algorithm" valueObject:monoObject];          
 	}
@@ -70,10 +84,10 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone
+    - (System_Object *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetValue
@@ -92,5 +106,12 @@
     {
 		[self invokeMonoMethod:"SetValue(byte[])" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_empty = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : EqualityComparer<T>
 //
-@interface System_Collections_Generic_EqualityComparer : DBMonoObjectRepresentation
+@interface System_Collections_Generic_EqualityComparer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.EqualityComparer<T>
+	// Managed property name : Default
+	// Managed property type : System.Collections.Generic.EqualityComparer<T>
     + (System_Collections_Generic_EqualityComparer *)default;
 
 #pragma mark -
@@ -23,11 +24,11 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : <T>, <T>
-    - (BOOL)equals_withX:(DBMonoObjectRepresentation *)p1 y:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)equals_withX:(DBManagedObject *)p1 y:(DBManagedObject *)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)getHashCode_withObj:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)getHashCode_withObj:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

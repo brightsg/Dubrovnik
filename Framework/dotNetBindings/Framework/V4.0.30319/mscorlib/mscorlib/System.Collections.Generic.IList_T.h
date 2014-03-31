@@ -2,7 +2,7 @@
 //
 // Managed interface : IList<T>
 //
-@interface System_Collections_Generic_IList : DBMonoObjectRepresentation
+@interface System_Collections_Generic_IList : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : <T>
+    @property (nonatomic, strong) DBManagedObject * item;
 
 #pragma mark -
 #pragma mark Methods
@@ -24,12 +24,12 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : Insert
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, <T>
-    - (void)insert_withIndex:(int32_t)p1 item:(DBMonoObjectRepresentation *)p2;
+    - (void)insert_withIndex:(int32_t)p1 item:(DBManagedObject *)p2;
 
 	// Managed method name : RemoveAt
 	// Managed return type : System.Void

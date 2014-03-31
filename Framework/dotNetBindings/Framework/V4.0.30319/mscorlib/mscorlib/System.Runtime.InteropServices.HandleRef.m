@@ -3,6 +3,12 @@
 //
 // Managed struct : HandleRef
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_HandleRef
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.HandleRef
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Runtime_InteropServices_HandleRef *)new_withWrapper:(DBMonoObjectRepresentation *)p1 handle:(void *)p2
+    + (System_Runtime_InteropServices_HandleRef *)new_withWrapper:(System_Object *)p1 handle:(void *)p2
     {
 		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -32,20 +38,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IntPtr
+	// Managed property name : Handle
+	// Managed property type : System.IntPtr
+    @synthesize handle = _handle;
     - (void *)handle
     {
-		MonoObject * monoObject = [self getMonoProperty:"Handle"];
-		void * result = DB_UNBOX_PTR(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Handle"];
+		_handle = DB_UNBOX_PTR(monoObject);
+
+		return _handle;
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)wrapper
+	// Managed property name : Wrapper
+	// Managed property type : System.Object
+    @synthesize wrapper = _wrapper;
+    - (System_Object *)wrapper
     {
-		MonoObject * monoObject = [self getMonoProperty:"Wrapper"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Wrapper"];
+		if ([self object:_wrapper isEqualToMonoObject:monoObject]) return _wrapper;					
+		_wrapper = [System_Object objectWithMonoObject:monoObject];
+
+		return _wrapper;
 	}
 
 #pragma mark -
@@ -68,5 +81,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToIntPtr(System.Runtime.InteropServices.HandleRef)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed struct : Guid
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Guid
 
 #pragma mark -
@@ -64,12 +70,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Guid
+	// Managed field name : Empty
+	// Managed field type : System.Guid
+    static System_Guid * m_empty;
     + (System_Guid *)empty
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Empty" valuePtr:DB_PTR(monoObject)];
-		return [System_Guid representationWithMonoObject:monoObject];
+		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
+		m_empty = [System_Guid objectWithMonoObject:monoObject];
+		return m_empty;
 	}
 
 #pragma mark -
@@ -78,7 +88,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -96,7 +106,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -126,7 +136,7 @@
     - (System_Guid *)newGuid
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"NewGuid()" withNumArgs:0];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -153,7 +163,7 @@
     - (System_Guid *)parse_withInput:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
@@ -162,7 +172,7 @@
     - (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ParseExact(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToByteArray
@@ -218,5 +228,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParseExact(string,string,System.Guid&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_empty = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -14,69 +14,90 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ActivationContext
-    - (System_ActivationContext *)activationContext;
+	// Managed property name : ActivationContext
+	// Managed property type : System.ActivationContext
+    @property (nonatomic, strong, readonly) System_ActivationContext * activationContext;
 
-	// Managed type : System.ApplicationIdentity
-    - (System_ApplicationIdentity *)applicationIdentity;
+	// Managed property name : ApplicationIdentity
+	// Managed property type : System.ApplicationIdentity
+    @property (nonatomic, strong, readonly) System_ApplicationIdentity * applicationIdentity;
 
-	// Managed type : System.Security.Policy.ApplicationTrust
-    - (System_Security_Policy_ApplicationTrust *)applicationTrust;
+	// Managed property name : ApplicationTrust
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @property (nonatomic, strong, readonly) System_Security_Policy_ApplicationTrust * applicationTrust;
 
-	// Managed type : System.String
-    - (NSString *)baseDirectory;
+	// Managed property name : BaseDirectory
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * baseDirectory;
 
-	// Managed type : System.AppDomain
+	// Managed property name : CurrentDomain
+	// Managed property type : System.AppDomain
     + (System_AppDomain *)currentDomain;
 
-	// Managed type : System.AppDomainManager
-    - (System_AppDomainManager *)domainManager;
+	// Managed property name : DomainManager
+	// Managed property type : System.AppDomainManager
+    @property (nonatomic, strong, readonly) System_AppDomainManager * domainManager;
 
-	// Managed type : System.String
-    - (NSString *)dynamicDirectory;
+	// Managed property name : DynamicDirectory
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * dynamicDirectory;
 
-	// Managed type : System.Security.Policy.Evidence
-    - (System_Security_Policy_Evidence *)evidence;
+	// Managed property name : Evidence
+	// Managed property type : System.Security.Policy.Evidence
+    @property (nonatomic, strong, readonly) System_Security_Policy_Evidence * evidence;
 
-	// Managed type : System.String
-    - (NSString *)friendlyName;
+	// Managed property name : FriendlyName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * friendlyName;
 
-	// Managed type : System.Int32
-    - (int32_t)id;
+	// Managed property name : Id
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t id;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFullyTrusted;
+	// Managed property name : IsFullyTrusted
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFullyTrusted;
 
-	// Managed type : System.Boolean
-    - (BOOL)isHomogenous;
+	// Managed property name : IsHomogenous
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isHomogenous;
 
-	// Managed type : System.Boolean
+	// Managed property name : MonitoringIsEnabled
+	// Managed property type : System.Boolean
     + (BOOL)monitoringIsEnabled;
     + (void)setMonitoringIsEnabled:(BOOL)value;
 
-	// Managed type : System.Int64
-    - (int64_t)monitoringSurvivedMemorySize;
+	// Managed property name : MonitoringSurvivedMemorySize
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t monitoringSurvivedMemorySize;
 
-	// Managed type : System.Int64
+	// Managed property name : MonitoringSurvivedProcessMemorySize
+	// Managed property type : System.Int64
     + (int64_t)monitoringSurvivedProcessMemorySize;
 
-	// Managed type : System.Int64
-    - (int64_t)monitoringTotalAllocatedMemorySize;
+	// Managed property name : MonitoringTotalAllocatedMemorySize
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t monitoringTotalAllocatedMemorySize;
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)monitoringTotalProcessorTime;
+	// Managed property name : MonitoringTotalProcessorTime
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong, readonly) System_TimeSpan * monitoringTotalProcessorTime;
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)permissionSet;
+	// Managed property name : PermissionSet
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong, readonly) System_Security_PermissionSet * permissionSet;
 
-	// Managed type : System.String
-    - (NSString *)relativeSearchPath;
+	// Managed property name : RelativeSearchPath
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * relativeSearchPath;
 
-	// Managed type : System.AppDomainSetup
-    - (System_AppDomainSetup *)setupInformation;
+	// Managed property name : SetupInformation
+	// Managed property type : System.AppDomainSetup
+    @property (nonatomic, strong, readonly) System_AppDomainSetup * setupInformation;
 
-	// Managed type : System.Boolean
-    - (BOOL)shadowCopyFiles;
+	// Managed property name : ShadowCopyFiles
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL shadowCopyFiles;
 
 #pragma mark -
 #pragma mark Methods
@@ -164,22 +185,22 @@
 	// Managed method name : CreateInstanceAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String
-    - (DBMonoObjectRepresentation *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 	// Managed method name : CreateInstanceAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3;
+    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3;
 
 	// Managed method name : CreateInstanceAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[], System.Security.Policy.Evidence
-    - (DBMonoObjectRepresentation *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8 securityAttributes:(System_Security_Policy_Evidence *)p9;
+    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8 securityAttributes:(System_Security_Policy_Evidence *)p9;
 
 	// Managed method name : CreateInstanceAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8;
+    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8;
 
 	// Managed method name : CreateInstanceFrom
 	// Managed return type : System.Runtime.Remoting.ObjectHandle
@@ -204,22 +225,22 @@
 	// Managed method name : CreateInstanceFromAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String
-    - (DBMonoObjectRepresentation *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 	// Managed method name : CreateInstanceFromAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3;
+    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3;
 
 	// Managed method name : CreateInstanceFromAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[], System.Security.Policy.Evidence
-    - (DBMonoObjectRepresentation *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8 securityAttributes:(System_Security_Policy_Evidence *)p9;
+    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8 securityAttributes:(System_Security_Policy_Evidence *)p9;
 
 	// Managed method name : CreateInstanceFromAndUnwrap
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (DBMonoObjectRepresentation *)createInstanceFromAndUnwrap_withAssemblyFile:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8;
+    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyFile:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(System_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(DBSystem_Array *)p8;
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
@@ -364,7 +385,7 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getData_withName:(NSString *)p1;
+    - (System_Object *)getData_withName:(NSString *)p1;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
@@ -374,7 +395,7 @@
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)initializeLifetimeService;
+    - (System_Object *)initializeLifetimeService;
 
 	// Managed method name : IsCompatibilitySwitchSet
 	// Managed return type : System.Nullable<System.Boolean>
@@ -444,12 +465,12 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)setData_withName:(NSString *)p1 data:(DBMonoObjectRepresentation *)p2;
+    - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
 
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Security.IPermission
-    - (void)setData_withName:(NSString *)p1 data:(DBMonoObjectRepresentation *)p2 permission:(System_Security_IPermission *)p3;
+    - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2 permission:(System_Security_IPermission *)p3;
 
 	// Managed method name : SetDynamicBase
 	// Managed return type : System.Void

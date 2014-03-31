@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)loadedAssembly;
+	// Managed property name : LoadedAssembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * loadedAssembly;
 @end
 //--Dubrovnik.CodeGenerator

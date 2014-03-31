@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.SecurityCriticalScope
-    - (System_Security_SecurityCriticalScope)scope;
+	// Managed property name : Scope
+	// Managed property type : System.Security.SecurityCriticalScope
+    @property (nonatomic, readonly) System_Security_SecurityCriticalScope scope;
 @end
 //--Dubrovnik.CodeGenerator

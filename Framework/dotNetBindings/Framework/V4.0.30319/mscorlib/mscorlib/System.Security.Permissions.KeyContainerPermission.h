@@ -32,11 +32,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.KeyContainerPermissionAccessEntryCollection
-    - (System_Security_Permissions_KeyContainerPermissionAccessEntryCollection *)accessEntries;
+	// Managed property name : AccessEntries
+	// Managed property type : System.Security.Permissions.KeyContainerPermissionAccessEntryCollection
+    @property (nonatomic, strong, readonly) System_Security_Permissions_KeyContainerPermissionAccessEntryCollection * accessEntries;
 
-	// Managed type : System.Security.Permissions.KeyContainerPermissionFlags
-    - (System_Security_Permissions_KeyContainerPermissionFlags)flags;
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.KeyContainerPermissionFlags
+    @property (nonatomic, readonly) System_Security_Permissions_KeyContainerPermissionFlags flags;
 
 #pragma mark -
 #pragma mark Methods

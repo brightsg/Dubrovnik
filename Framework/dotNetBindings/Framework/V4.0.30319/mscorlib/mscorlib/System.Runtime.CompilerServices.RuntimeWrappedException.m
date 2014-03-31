@@ -3,6 +3,12 @@
 //
 // Managed class : RuntimeWrappedException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_RuntimeWrappedException
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)wrappedException
+	// Managed property name : WrappedException
+	// Managed property type : System.Object
+    @synthesize wrappedException = _wrappedException;
+    - (System_Object *)wrappedException
     {
-		MonoObject * monoObject = [self getMonoProperty:"WrappedException"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WrappedException"];
+		if ([self object:_wrappedException isEqualToMonoObject:monoObject]) return _wrappedException;					
+		_wrappedException = [System_Object objectWithMonoObject:monoObject];
+
+		return _wrappedException;
 	}
 
 #pragma mark -
@@ -39,5 +49,11 @@
     {
 		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed interface : IDictionaryEnumerator
 //
-@interface System_Collections_IDictionaryEnumerator : DBMonoObjectRepresentation
+@interface System_Collections_IDictionaryEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.DictionaryEntry
-    - (System_Collections_DictionaryEntry *)entry;
+	// Managed property name : Entry
+	// Managed property type : System.Collections.DictionaryEntry
+    @property (nonatomic, strong, readonly) System_Collections_DictionaryEntry * entry;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)key;
+	// Managed property name : Key
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * key;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * value;
 @end
 //--Dubrovnik.CodeGenerator

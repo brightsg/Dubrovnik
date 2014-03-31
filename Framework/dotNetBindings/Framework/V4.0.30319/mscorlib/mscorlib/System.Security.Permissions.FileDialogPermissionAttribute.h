@@ -22,13 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)open;
-    - (void)setOpen:(BOOL)value;
+	// Managed property name : Open
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL open;
 
-	// Managed type : System.Boolean
-    - (BOOL)save;
-    - (void)setSave:(BOOL)value;
+	// Managed property name : Save
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL save;
 
 #pragma mark -
 #pragma mark Methods

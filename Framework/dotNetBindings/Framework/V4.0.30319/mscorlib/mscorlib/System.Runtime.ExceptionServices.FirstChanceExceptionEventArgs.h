@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Exception
-    - (System_Exception *)exception;
+	// Managed property name : Exception
+	// Managed property type : System.Exception
+    @property (nonatomic, strong, readonly) System_Exception * exception;
 @end
 //--Dubrovnik.CodeGenerator

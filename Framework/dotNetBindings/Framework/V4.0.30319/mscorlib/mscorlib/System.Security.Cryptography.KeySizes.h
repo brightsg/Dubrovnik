@@ -2,7 +2,7 @@
 //
 // Managed class : KeySizes
 //
-@interface System_Security_Cryptography_KeySizes : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_KeySizes : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,13 +22,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)maxSize;
+	// Managed property name : MaxSize
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t maxSize;
 
-	// Managed type : System.Int32
-    - (int32_t)minSize;
+	// Managed property name : MinSize
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t minSize;
 
-	// Managed type : System.Int32
-    - (int32_t)skipSize;
+	// Managed property name : SkipSize
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t skipSize;
 @end
 //--Dubrovnik.CodeGenerator

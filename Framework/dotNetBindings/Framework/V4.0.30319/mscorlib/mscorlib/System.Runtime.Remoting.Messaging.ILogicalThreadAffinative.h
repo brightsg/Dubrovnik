@@ -2,7 +2,7 @@
 //
 // Managed interface : ILogicalThreadAffinative
 //
-@interface System_Runtime_Remoting_Messaging_ILogicalThreadAffinative : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_ILogicalThreadAffinative : System_Object
 
 #pragma mark -
 #pragma mark Setup

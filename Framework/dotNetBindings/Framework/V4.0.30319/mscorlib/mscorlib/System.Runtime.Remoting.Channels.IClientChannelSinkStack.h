@@ -2,7 +2,7 @@
 //
 // Managed interface : IClientChannelSinkStack
 //
-@interface System_Runtime_Remoting_Channels_IClientChannelSinkStack : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IClientChannelSinkStack : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,11 +17,11 @@
 	// Managed method name : Pop
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink
-    - (DBMonoObjectRepresentation *)pop_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1;
+    - (System_Object *)pop_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1;
 
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink, System.Object
-    - (void)push_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (void)push_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1 state:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

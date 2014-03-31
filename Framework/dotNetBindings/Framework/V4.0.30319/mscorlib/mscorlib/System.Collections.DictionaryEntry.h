@@ -2,7 +2,7 @@
 //
 // Managed struct : DictionaryEntry
 //
-@interface System_Collections_DictionaryEntry : DBMonoObjectRepresentation
+@interface System_Collections_DictionaryEntry : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,17 +17,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.DictionaryEntry
 	// Managed param types : System.Object, System.Object
-    + (System_Collections_DictionaryEntry *)new_withKey:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2;
+    + (System_Collections_DictionaryEntry *)new_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)key;
-    - (void)setKey:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Key
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * key;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value;
-    - (void)setValue:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * value;
 @end
 //--Dubrovnik.CodeGenerator

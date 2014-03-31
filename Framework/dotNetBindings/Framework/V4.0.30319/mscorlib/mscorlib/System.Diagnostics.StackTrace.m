@@ -3,6 +3,12 @@
 //
 // Managed class : StackTrace
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_StackTrace
 
 #pragma mark -
@@ -96,23 +102,29 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : METHODS_TO_SKIP
+	// Managed field type : System.Int32
+    static int32_t m_mETHODS_TO_SKIP;
     + (int32_t)mETHODS_TO_SKIP
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"METHODS_TO_SKIP" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_mETHODS_TO_SKIP = monoObject;
+		return m_mETHODS_TO_SKIP;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : FrameCount
+	// Managed property type : System.Int32
+    @synthesize frameCount = _frameCount;
     - (int32_t)frameCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"FrameCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FrameCount"];
+		_frameCount = DB_UNBOX_INT32(monoObject);
+
+		return _frameCount;
 	}
 
 #pragma mark -
@@ -124,7 +136,7 @@
     - (System_Diagnostics_StackFrame *)getFrame_withIndex:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFrame(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Diagnostics_StackFrame representationWithMonoObject:monoObject];
+		return [System_Diagnostics_StackFrame objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFrames
@@ -133,7 +145,7 @@
     - (DBSystem_Array *)getFrames
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFrames()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : ToString
@@ -144,5 +156,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

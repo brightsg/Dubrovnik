@@ -3,6 +3,12 @@
 //
 // Managed class : ASCIIEncoding
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Text_ASCIIEncoding
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsSingleByte
+	// Managed property type : System.Boolean
+    @synthesize isSingleByte = _isSingleByte;
     - (BOOL)isSingleByte
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsSingleByte"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsSingleByte"];
+		_isSingleByte = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isSingleByte;
 	}
 
 #pragma mark -
@@ -128,7 +137,7 @@
     - (System_Text_Decoder *)getDecoder
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
-		return [System_Text_Decoder representationWithMonoObject:monoObject];
+		return [System_Text_Decoder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoder
@@ -137,7 +146,7 @@
     - (System_Text_Encoder *)getEncoder
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
-		return [System_Text_Encoder representationWithMonoObject:monoObject];
+		return [System_Text_Encoder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMaxByteCount
@@ -166,5 +175,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

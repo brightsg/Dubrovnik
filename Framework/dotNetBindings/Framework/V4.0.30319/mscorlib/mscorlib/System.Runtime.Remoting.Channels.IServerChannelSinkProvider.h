@@ -2,7 +2,7 @@
 //
 // Managed interface : IServerChannelSinkProvider
 //
-@interface System_Runtime_Remoting_Channels_IServerChannelSinkProvider : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IServerChannelSinkProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Channels.IServerChannelSinkProvider
-    - (System_Runtime_Remoting_Channels_IServerChannelSinkProvider *)next;
-    - (void)setNext:(System_Runtime_Remoting_Channels_IServerChannelSinkProvider *)value;
+	// Managed property name : Next
+	// Managed property type : System.Runtime.Remoting.Channels.IServerChannelSinkProvider
+    @property (nonatomic, strong) System_Runtime_Remoting_Channels_IServerChannelSinkProvider * next;
 
 #pragma mark -
 #pragma mark Methods

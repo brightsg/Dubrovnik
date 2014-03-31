@@ -3,6 +3,12 @@
 //
 // Managed class : InternalApplicationIdentityHelper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Deployment_Internal_InternalApplicationIdentityHelper
 
 #pragma mark -
@@ -24,10 +30,16 @@
 	// Managed method name : GetInternalAppId
 	// Managed return type : System.Object
 	// Managed param types : System.ApplicationIdentity
-    - (DBMonoObjectRepresentation *)getInternalAppId_withId:(System_ApplicationIdentity *)p1
+    - (System_Object *)getInternalAppId_withId:(System_ApplicationIdentity *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInternalAppId(System.ApplicationIdentity)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

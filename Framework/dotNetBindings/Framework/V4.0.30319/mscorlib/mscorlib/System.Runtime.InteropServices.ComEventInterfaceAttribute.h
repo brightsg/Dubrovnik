@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)eventProvider;
+	// Managed property name : EventProvider
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * eventProvider;
 
-	// Managed type : System.Type
-    - (System_Type *)sourceInterface;
+	// Managed property name : SourceInterface
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * sourceInterface;
 @end
 //--Dubrovnik.CodeGenerator

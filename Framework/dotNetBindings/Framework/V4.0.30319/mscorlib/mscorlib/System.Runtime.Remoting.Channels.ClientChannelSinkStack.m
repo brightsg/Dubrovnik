@@ -3,6 +3,12 @@
 //
 // Managed class : ClientChannelSinkStack
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_ClientChannelSinkStack
 
 #pragma mark -
@@ -59,18 +65,24 @@
 	// Managed method name : Pop
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink
-    - (DBMonoObjectRepresentation *)pop_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1
+    - (System_Object *)pop_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Pop(System.Runtime.Remoting.Channels.IClientChannelSink)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink, System.Object
-    - (void)push_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (void)push_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1 state:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Push(System.Runtime.Remoting.Channels.IClientChannelSink,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

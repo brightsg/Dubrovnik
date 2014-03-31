@@ -14,33 +14,41 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)applicationIdentity;
+	// Managed property name : ApplicationIdentity
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * applicationIdentity;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)assemblyIdentity;
+	// Managed property name : AssemblyIdentity
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * assemblyIdentity;
 
-	// Managed type : System.Int64
-    - (int64_t)availableFreeSpace;
+	// Managed property name : AvailableFreeSpace
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t availableFreeSpace;
 
-	// Managed type : System.UInt64
-    - (uint64_t)currentSize;
+	// Managed property name : CurrentSize
+	// Managed property type : System.UInt64
+    @property (nonatomic, readonly) uint64_t currentSize;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)domainIdentity;
+	// Managed property name : DomainIdentity
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * domainIdentity;
 
-	// Managed type : System.UInt64
-    - (uint64_t)maximumSize;
+	// Managed property name : MaximumSize
+	// Managed property type : System.UInt64
+    @property (nonatomic, readonly) uint64_t maximumSize;
 
-	// Managed type : System.Int64
-    - (int64_t)quota;
-    - (void)setQuota:(int64_t)value;
+	// Managed property name : Quota
+	// Managed property type : System.Int64
+    @property (nonatomic) int64_t quota;
 
-	// Managed type : System.IO.IsolatedStorage.IsolatedStorageScope
-    - (System_IO_IsolatedStorage_IsolatedStorageScope)scope;
+	// Managed property name : Scope
+	// Managed property type : System.IO.IsolatedStorage.IsolatedStorageScope
+    @property (nonatomic, readonly) System_IO_IsolatedStorage_IsolatedStorageScope scope;
 
-	// Managed type : System.Int64
-    - (int64_t)usedSize;
+	// Managed property name : UsedSize
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t usedSize;
 
 #pragma mark -
 #pragma mark Methods

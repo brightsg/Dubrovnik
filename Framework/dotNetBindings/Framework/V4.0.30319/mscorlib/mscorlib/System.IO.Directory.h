@@ -2,7 +2,7 @@
 //
 // Managed class : Directory
 //
-@interface System_IO_Directory : DBMonoObjectRepresentation
+@interface System_IO_Directory : System_Object
 
 #pragma mark -
 #pragma mark Setup

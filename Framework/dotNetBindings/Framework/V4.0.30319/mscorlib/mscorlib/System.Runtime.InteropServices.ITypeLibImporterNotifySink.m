@@ -3,6 +3,12 @@
 //
 // Managed interface : ITypeLibImporterNotifySink
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ITypeLibImporterNotifySink
 
 #pragma mark -
@@ -32,10 +38,16 @@
 	// Managed method name : ResolveRef
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Object
-    - (System_Reflection_Assembly *)resolveRef_withTypeLib:(DBMonoObjectRepresentation *)p1
+    - (System_Reflection_Assembly *)resolveRef_withTypeLib:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveRef(object)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Assembly representationWithMonoObject:monoObject];
+		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

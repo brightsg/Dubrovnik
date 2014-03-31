@@ -2,7 +2,7 @@
 //
 // Managed interface : _Type
 //
-@interface System_Runtime_InteropServices__Type : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__Type : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,143 +14,189 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)assembly;
+	// Managed property name : Assembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * assembly;
 
-	// Managed type : System.String
-    - (NSString *)assemblyQualifiedName;
+	// Managed property name : AssemblyQualifiedName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * assemblyQualifiedName;
 
-	// Managed type : System.Reflection.TypeAttributes
-    - (System_Reflection_TypeAttributes)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Reflection.TypeAttributes
+    @property (nonatomic, readonly) System_Reflection_TypeAttributes attributes;
 
-	// Managed type : System.Type
-    - (System_Type *)baseType;
+	// Managed property name : BaseType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * baseType;
 
-	// Managed type : System.Type
-    - (System_Type *)declaringType;
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * declaringType;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
-	// Managed type : System.Guid
-    - (System_Guid *)gUID;
+	// Managed property name : GUID
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * gUID;
 
-	// Managed type : System.Boolean
-    - (BOOL)hasElementType;
+	// Managed property name : HasElementType
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL hasElementType;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAbstract;
+	// Managed property name : IsAbstract
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAbstract;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAnsiClass;
+	// Managed property name : IsAnsiClass
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAnsiClass;
 
-	// Managed type : System.Boolean
-    - (BOOL)isArray;
+	// Managed property name : IsArray
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isArray;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAutoClass;
+	// Managed property name : IsAutoClass
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAutoClass;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAutoLayout;
+	// Managed property name : IsAutoLayout
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAutoLayout;
 
-	// Managed type : System.Boolean
-    - (BOOL)isByRef;
+	// Managed property name : IsByRef
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isByRef;
 
-	// Managed type : System.Boolean
-    - (BOOL)isClass;
+	// Managed property name : IsClass
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isClass;
 
-	// Managed type : System.Boolean
-    - (BOOL)isCOMObject;
+	// Managed property name : IsCOMObject
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCOMObject;
 
-	// Managed type : System.Boolean
-    - (BOOL)isContextful;
+	// Managed property name : IsContextful
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isContextful;
 
-	// Managed type : System.Boolean
-    - (BOOL)isEnum;
+	// Managed property name : IsEnum
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isEnum;
 
-	// Managed type : System.Boolean
-    - (BOOL)isExplicitLayout;
+	// Managed property name : IsExplicitLayout
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isExplicitLayout;
 
-	// Managed type : System.Boolean
-    - (BOOL)isImport;
+	// Managed property name : IsImport
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isImport;
 
-	// Managed type : System.Boolean
-    - (BOOL)isInterface;
+	// Managed property name : IsInterface
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isInterface;
 
-	// Managed type : System.Boolean
-    - (BOOL)isLayoutSequential;
+	// Managed property name : IsLayoutSequential
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isLayoutSequential;
 
-	// Managed type : System.Boolean
-    - (BOOL)isMarshalByRef;
+	// Managed property name : IsMarshalByRef
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isMarshalByRef;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNestedAssembly;
+	// Managed property name : IsNestedAssembly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNestedAssembly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNestedFamANDAssem;
+	// Managed property name : IsNestedFamANDAssem
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNestedFamANDAssem;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNestedFamily;
+	// Managed property name : IsNestedFamily
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNestedFamily;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNestedFamORAssem;
+	// Managed property name : IsNestedFamORAssem
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNestedFamORAssem;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNestedPrivate;
+	// Managed property name : IsNestedPrivate
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNestedPrivate;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNestedPublic;
+	// Managed property name : IsNestedPublic
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNestedPublic;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNotPublic;
+	// Managed property name : IsNotPublic
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNotPublic;
 
-	// Managed type : System.Boolean
-    - (BOOL)isPointer;
+	// Managed property name : IsPointer
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isPointer;
 
-	// Managed type : System.Boolean
-    - (BOOL)isPrimitive;
+	// Managed property name : IsPrimitive
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isPrimitive;
 
-	// Managed type : System.Boolean
-    - (BOOL)isPublic;
+	// Managed property name : IsPublic
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isPublic;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSealed;
+	// Managed property name : IsSealed
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSealed;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSerializable;
+	// Managed property name : IsSerializable
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSerializable;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSpecialName;
+	// Managed property name : IsSpecialName
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSpecialName;
 
-	// Managed type : System.Boolean
-    - (BOOL)isUnicodeClass;
+	// Managed property name : IsUnicodeClass
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isUnicodeClass;
 
-	// Managed type : System.Boolean
-    - (BOOL)isValueType;
+	// Managed property name : IsValueType
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isValueType;
 
-	// Managed type : System.Reflection.MemberTypes
-    - (System_Reflection_MemberTypes)memberType;
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
 
-	// Managed type : System.Reflection.Module
-    - (System_Reflection_Module *)module;
+	// Managed property name : Module
+	// Managed property type : System.Reflection.Module
+    @property (nonatomic, strong, readonly) System_Reflection_Module * module;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)namespace;
+	// Managed property name : Namespace
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * namespace;
 
-	// Managed type : System.Type
-    - (System_Type *)reflectedType;
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
-	// Managed type : System.RuntimeTypeHandle
-    - (System_RuntimeTypeHandle *)typeHandle;
+	// Managed property name : TypeHandle
+	// Managed property type : System.RuntimeTypeHandle
+    @property (nonatomic, strong, readonly) System_RuntimeTypeHandle * typeHandle;
 
-	// Managed type : System.Reflection.ConstructorInfo
-    - (System_Reflection_ConstructorInfo *)typeInitializer;
+	// Managed property name : TypeInitializer
+	// Managed property type : System.Reflection.ConstructorInfo
+    @property (nonatomic, strong, readonly) System_Reflection_ConstructorInfo * typeInitializer;
 
-	// Managed type : System.Type
-    - (System_Type *)underlyingSystemType;
+	// Managed property name : UnderlyingSystemType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * underlyingSystemType;
 
 #pragma mark -
 #pragma mark Methods
@@ -158,7 +204,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -168,12 +214,12 @@
 	// Managed method name : FindInterfaces
 	// Managed return type : System.Type[]
 	// Managed param types : System.Reflection.TypeFilter, System.Object
-    - (DBSystem_Array *)findInterfaces_withFilter:(System_Reflection_TypeFilter *)p1 filterCriteria:(DBMonoObjectRepresentation *)p2;
+    - (DBSystem_Array *)findInterfaces_withFilter:(System_Reflection_TypeFilter *)p1 filterCriteria:(System_Object *)p2;
 
 	// Managed method name : FindMembers
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, System.Object
-    - (DBSystem_Array *)findMembers_withMemberType:(System_Reflection_MemberTypes)p1 bindingAttr:(System_Reflection_BindingFlags)p2 filter:(System_Reflection_MemberFilter *)p3 filterCriteria:(DBMonoObjectRepresentation *)p4;
+    - (DBSystem_Array *)findMembers_withMemberType:(System_Reflection_MemberTypes)p1 bindingAttr:(System_Reflection_BindingFlags)p2 filter:(System_Reflection_MemberFilter *)p3 filterCriteria:(System_Object *)p4;
 
 	// Managed method name : GetArrayRank
 	// Managed return type : System.Int32
@@ -448,17 +494,17 @@
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[]
-    - (DBMonoObjectRepresentation *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(DBMonoObjectRepresentation *)p4 args:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(DBSystem_Array *)p8;
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(DBSystem_Array *)p8;
 
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Globalization.CultureInfo
-    - (DBMonoObjectRepresentation *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(DBMonoObjectRepresentation *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
 
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[]
-    - (DBMonoObjectRepresentation *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(DBMonoObjectRepresentation *)p4 args:(DBSystem_Array *)p5;
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5;
 
 	// Managed method name : IsAssignableFrom
 	// Managed return type : System.Boolean
@@ -473,7 +519,7 @@
 	// Managed method name : IsInstanceOfType
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isInstanceOfType_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)isInstanceOfType_withO:(System_Object *)p1;
 
 	// Managed method name : IsSubclassOf
 	// Managed return type : System.Boolean

@@ -2,7 +2,7 @@
 //
 // Managed interface : ICspAsymmetricAlgorithm
 //
-@interface System_Security_Cryptography_ICspAsymmetricAlgorithm : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_ICspAsymmetricAlgorithm : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.CspKeyContainerInfo
-    - (System_Security_Cryptography_CspKeyContainerInfo *)cspKeyContainerInfo;
+	// Managed property name : CspKeyContainerInfo
+	// Managed property type : System.Security.Cryptography.CspKeyContainerInfo
+    @property (nonatomic, strong, readonly) System_Security_Cryptography_CspKeyContainerInfo * cspKeyContainerInfo;
 
 #pragma mark -
 #pragma mark Methods

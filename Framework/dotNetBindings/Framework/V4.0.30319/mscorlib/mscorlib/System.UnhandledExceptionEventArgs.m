@@ -3,6 +3,12 @@
 //
 // Managed class : UnhandledExceptionEventArgs
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_UnhandledExceptionEventArgs
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.UnhandledExceptionEventArgs
 	// Managed param types : System.Object, System.Boolean
-    + (System_UnhandledExceptionEventArgs *)new_withException:(DBMonoObjectRepresentation *)p1 isTerminating:(BOOL)p2
+    + (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2
     {
 		return [[self alloc] initWithSignature:"object,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -32,20 +38,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)exceptionObject
+	// Managed property name : ExceptionObject
+	// Managed property type : System.Object
+    @synthesize exceptionObject = _exceptionObject;
+    - (System_Object *)exceptionObject
     {
-		MonoObject * monoObject = [self getMonoProperty:"ExceptionObject"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ExceptionObject"];
+		if ([self object:_exceptionObject isEqualToMonoObject:monoObject]) return _exceptionObject;					
+		_exceptionObject = [System_Object objectWithMonoObject:monoObject];
+
+		return _exceptionObject;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsTerminating
+	// Managed property type : System.Boolean
+    @synthesize isTerminating = _isTerminating;
     - (BOOL)isTerminating
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsTerminating"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsTerminating"];
+		_isTerminating = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isTerminating;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

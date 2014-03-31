@@ -2,7 +2,7 @@
 //
 // Managed class : ExceptionHandlingClause
 //
-@interface System_Reflection_ExceptionHandlingClause : DBMonoObjectRepresentation
+@interface System_Reflection_ExceptionHandlingClause : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,26 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)catchType;
+	// Managed property name : CatchType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * catchType;
 
-	// Managed type : System.Int32
-    - (int32_t)filterOffset;
+	// Managed property name : FilterOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t filterOffset;
 
-	// Managed type : System.Reflection.ExceptionHandlingClauseOptions
-    - (System_Reflection_ExceptionHandlingClauseOptions)flags;
+	// Managed property name : Flags
+	// Managed property type : System.Reflection.ExceptionHandlingClauseOptions
+    @property (nonatomic, readonly) System_Reflection_ExceptionHandlingClauseOptions flags;
 
-	// Managed type : System.Int32
-    - (int32_t)handlerLength;
+	// Managed property name : HandlerLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t handlerLength;
 
-	// Managed type : System.Int32
-    - (int32_t)handlerOffset;
+	// Managed property name : HandlerOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t handlerOffset;
 
-	// Managed type : System.Int32
-    - (int32_t)tryLength;
+	// Managed property name : TryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t tryLength;
 
-	// Managed type : System.Int32
-    - (int32_t)tryOffset;
+	// Managed property name : TryOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t tryOffset;
 
 #pragma mark -
 #pragma mark Methods

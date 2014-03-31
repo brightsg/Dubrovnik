@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeInfo
 //
-@interface System_Runtime_InteropServices_ComTypes_ITypeInfo : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_ITypeInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Void
 	// Managed param types : System.Object, ref System.Guid&, ref System.Object&
-    - (void)createInstance_withPUnkOuter:(DBMonoObjectRepresentation *)p1 riidRef:(System_Guid **)p2 ppvObjRef:(DBMonoObjectRepresentation **)p3;
+    - (void)createInstance_withPUnkOuter:(System_Object *)p1 riidRef:(System_Guid **)p2 ppvObjRef:(System_Object **)p3;
 
 	// Managed method name : GetContainingTypeLib
 	// Managed return type : System.Void
@@ -92,7 +92,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int16, ref System.Runtime.InteropServices.ComTypes.DISPPARAMS&, System.IntPtr, System.IntPtr, ref System.Int32&
-    - (void)invoke_withPvInstance:(DBMonoObjectRepresentation *)p1 memid:(int32_t)p2 wFlags:(int16_t)p3 pDispParamsRef:(System_Runtime_InteropServices_ComTypes_DISPPARAMS **)p4 pVarResult:(void *)p5 pExcepInfo:(void *)p6 puArgErrRef:(int32_t*)p7;
+    - (void)invoke_withPvInstance:(System_Object *)p1 memid:(int32_t)p2 wFlags:(int16_t)p3 pDispParamsRef:(System_Runtime_InteropServices_ComTypes_DISPPARAMS **)p4 pVarResult:(void *)p5 pExcepInfo:(void *)p6 puArgErrRef:(int32_t*)p7;
 
 	// Managed method name : ReleaseFuncDesc
 	// Managed return type : System.Void

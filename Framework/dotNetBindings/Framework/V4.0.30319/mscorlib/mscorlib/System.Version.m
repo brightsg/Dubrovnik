@@ -3,6 +3,12 @@
 //
 // Managed class : Version
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Version
 
 #pragma mark -
@@ -56,52 +62,70 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Build
+	// Managed property type : System.Int32
+    @synthesize build = _build;
     - (int32_t)build
     {
-		MonoObject * monoObject = [self getMonoProperty:"Build"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Build"];
+		_build = DB_UNBOX_INT32(monoObject);
+
+		return _build;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Major
+	// Managed property type : System.Int32
+    @synthesize major = _major;
     - (int32_t)major
     {
-		MonoObject * monoObject = [self getMonoProperty:"Major"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Major"];
+		_major = DB_UNBOX_INT32(monoObject);
+
+		return _major;
 	}
 
-	// Managed type : System.Int16
+	// Managed property name : MajorRevision
+	// Managed property type : System.Int16
+    @synthesize majorRevision = _majorRevision;
     - (int16_t)majorRevision
     {
-		MonoObject * monoObject = [self getMonoProperty:"MajorRevision"];
-		int16_t result = DB_UNBOX_INT16(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MajorRevision"];
+		_majorRevision = DB_UNBOX_INT16(monoObject);
+
+		return _majorRevision;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Minor
+	// Managed property type : System.Int32
+    @synthesize minor = _minor;
     - (int32_t)minor
     {
-		MonoObject * monoObject = [self getMonoProperty:"Minor"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Minor"];
+		_minor = DB_UNBOX_INT32(monoObject);
+
+		return _minor;
 	}
 
-	// Managed type : System.Int16
+	// Managed property name : MinorRevision
+	// Managed property type : System.Int16
+    @synthesize minorRevision = _minorRevision;
     - (int16_t)minorRevision
     {
-		MonoObject * monoObject = [self getMonoProperty:"MinorRevision"];
-		int16_t result = DB_UNBOX_INT16(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MinorRevision"];
+		_minorRevision = DB_UNBOX_INT16(monoObject);
+
+		return _minorRevision;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Revision
+	// Managed property type : System.Int32
+    @synthesize revision = _revision;
     - (int32_t)revision
     {
-		MonoObject * monoObject = [self getMonoProperty:"Revision"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Revision"];
+		_revision = DB_UNBOX_INT32(monoObject);
+
+		return _revision;
 	}
 
 #pragma mark -
@@ -110,16 +134,16 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone
+    - (System_Object *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withVersion:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withVersion:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -137,7 +161,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -221,7 +245,7 @@
     - (System_Version *)parse_withInput:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Version representationWithMonoObject:monoObject];
+		return [System_Version objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -250,5 +274,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Version&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

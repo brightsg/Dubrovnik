@@ -2,7 +2,7 @@
 //
 // Managed class : ObjectIDGenerator
 //
-@interface System_Runtime_Serialization_ObjectIDGenerator : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_ObjectIDGenerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,11 +17,11 @@
 	// Managed method name : GetId
 	// Managed return type : System.Int64
 	// Managed param types : System.Object, ref System.Boolean&
-    - (int64_t)getId_withObj:(DBMonoObjectRepresentation *)p1 firstTimeRef:(BOOL*)p2;
+    - (int64_t)getId_withObj:(System_Object *)p1 firstTimeRef:(BOOL*)p2;
 
 	// Managed method name : HasId
 	// Managed return type : System.Int64
 	// Managed param types : System.Object, ref System.Boolean&
-    - (int64_t)hasId_withObj:(DBMonoObjectRepresentation *)p1 firstTimeRef:(BOOL*)p2;
+    - (int64_t)hasId_withObj:(System_Object *)p1 firstTimeRef:(BOOL*)p2;
 @end
 //--Dubrovnik.CodeGenerator

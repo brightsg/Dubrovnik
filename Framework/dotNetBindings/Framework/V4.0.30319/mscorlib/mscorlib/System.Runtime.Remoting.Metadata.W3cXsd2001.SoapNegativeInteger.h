@@ -2,7 +2,7 @@
 //
 // Managed class : SoapNegativeInteger
 //
-@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapNegativeInteger : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapNegativeInteger : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,11 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Decimal
-    - (NSDecimalNumber *)value;
-    - (void)setValue:(NSDecimalNumber *)value;
+	// Managed property name : Value
+	// Managed property type : System.Decimal
+    @property (nonatomic, strong) NSDecimalNumber * value;
 
-	// Managed type : System.String
+	// Managed property name : XsdType
+	// Managed property type : System.String
     + (NSString *)xsdType;
 
 #pragma mark -

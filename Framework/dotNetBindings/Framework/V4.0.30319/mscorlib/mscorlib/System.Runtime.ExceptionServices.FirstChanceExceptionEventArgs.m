@@ -3,6 +3,12 @@
 //
 // Managed class : FirstChanceExceptionEventArgs
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_ExceptionServices_FirstChanceExceptionEventArgs
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Exception
+	// Managed property name : Exception
+	// Managed property type : System.Exception
+    @synthesize exception = _exception;
     - (System_Exception *)exception
     {
-		MonoObject * monoObject = [self getMonoProperty:"Exception"];
-		System_Exception * result = [System_Exception representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Exception"];
+		if ([self object:_exception isEqualToMonoObject:monoObject]) return _exception;					
+		_exception = [System_Exception objectWithMonoObject:monoObject];
+
+		return _exception;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

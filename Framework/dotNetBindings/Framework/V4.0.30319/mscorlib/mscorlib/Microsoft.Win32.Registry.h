@@ -2,7 +2,7 @@
 //
 // Managed class : Registry
 //
-@interface Microsoft_Win32_Registry : DBMonoObjectRepresentation
+@interface Microsoft_Win32_Registry : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,25 +14,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : Microsoft.Win32.RegistryKey
+	// Managed field name : ClassesRoot
+	// Managed field type : Microsoft.Win32.RegistryKey
     + (Microsoft_Win32_RegistryKey *)classesRoot;
 
-	// Managed type : Microsoft.Win32.RegistryKey
+	// Managed field name : CurrentConfig
+	// Managed field type : Microsoft.Win32.RegistryKey
     + (Microsoft_Win32_RegistryKey *)currentConfig;
 
-	// Managed type : Microsoft.Win32.RegistryKey
+	// Managed field name : CurrentUser
+	// Managed field type : Microsoft.Win32.RegistryKey
     + (Microsoft_Win32_RegistryKey *)currentUser;
 
-	// Managed type : Microsoft.Win32.RegistryKey
+	// Managed field name : DynData
+	// Managed field type : Microsoft.Win32.RegistryKey
     + (Microsoft_Win32_RegistryKey *)dynData;
 
-	// Managed type : Microsoft.Win32.RegistryKey
+	// Managed field name : LocalMachine
+	// Managed field type : Microsoft.Win32.RegistryKey
     + (Microsoft_Win32_RegistryKey *)localMachine;
 
-	// Managed type : Microsoft.Win32.RegistryKey
+	// Managed field name : PerformanceData
+	// Managed field type : Microsoft.Win32.RegistryKey
     + (Microsoft_Win32_RegistryKey *)performanceData;
 
-	// Managed type : Microsoft.Win32.RegistryKey
+	// Managed field name : Users
+	// Managed field type : Microsoft.Win32.RegistryKey
     + (Microsoft_Win32_RegistryKey *)users;
 
 #pragma mark -
@@ -41,16 +48,16 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.String, System.Object
-    - (DBMonoObjectRepresentation *)getValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 defaultValue:(DBMonoObjectRepresentation *)p3;
+    - (System_Object *)getValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 defaultValue:(System_Object *)p3;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Object, Microsoft.Win32.RegistryValueKind
-    - (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(DBMonoObjectRepresentation *)p3 valueKind:(Microsoft_Win32_RegistryValueKind)p4;
+    - (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3 valueKind:(Microsoft_Win32_RegistryValueKind)p4;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Object
-    - (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(DBMonoObjectRepresentation *)p3;
+    - (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3;
 @end
 //--Dubrovnik.CodeGenerator

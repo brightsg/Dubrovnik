@@ -3,6 +3,12 @@
 //
 // Managed class : WindowsRuntimeMarshal
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_WindowsRuntime_WindowsRuntimeMarshal
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Void
 	// Managed param types : Func<T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, System.Action<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <T>
-    - (void)addEventHandler_withAddMethod:(Func *)p1 removeMethod:(System_Action *)p2 handler:(DBMonoObjectRepresentation *)p3
+    - (void)addEventHandler_withAddMethod:(Func *)p1 removeMethod:(System_Action *)p2 handler:(DBManagedObject *)p3
     {
 		[self invokeMonoMethod:"AddEventHandler(Func<T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,System.Action<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,Dubrovnik.Generic.Parameter)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -43,7 +49,7 @@
     - (System_Runtime_InteropServices_WindowsRuntime_IActivationFactory *)getActivationFactory_withType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetActivationFactory(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_InteropServices_WindowsRuntime_IActivationFactory representationWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_WindowsRuntime_IActivationFactory objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : PtrToStringHString
@@ -66,7 +72,7 @@
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Action<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <T>
-    - (void)removeEventHandler_withRemoveMethod:(System_Action *)p1 handler:(DBMonoObjectRepresentation *)p2
+    - (void)removeEventHandler_withRemoveMethod:(System_Action *)p1 handler:(DBManagedObject *)p2
     {
 		[self invokeMonoMethod:"RemoveEventHandler(System.Action<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -79,5 +85,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"StringToHString(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

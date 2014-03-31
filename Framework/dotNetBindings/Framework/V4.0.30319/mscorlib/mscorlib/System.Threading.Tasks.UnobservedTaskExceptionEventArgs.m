@@ -3,6 +3,12 @@
 //
 // Managed class : UnobservedTaskExceptionEventArgs
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Tasks_UnobservedTaskExceptionEventArgs
 
 #pragma mark -
@@ -32,20 +38,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.AggregateException
+	// Managed property name : Exception
+	// Managed property type : System.AggregateException
+    @synthesize exception = _exception;
     - (System_AggregateException *)exception
     {
-		MonoObject * monoObject = [self getMonoProperty:"Exception"];
-		System_AggregateException * result = [System_AggregateException representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Exception"];
+		if ([self object:_exception isEqualToMonoObject:monoObject]) return _exception;					
+		_exception = [System_AggregateException objectWithMonoObject:monoObject];
+
+		return _exception;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Observed
+	// Managed property type : System.Boolean
+    @synthesize observed = _observed;
     - (BOOL)observed
     {
-		MonoObject * monoObject = [self getMonoProperty:"Observed"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Observed"];
+		_observed = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _observed;
 	}
 
 #pragma mark -
@@ -58,5 +71,11 @@
     {
 		[self invokeMonoMethod:"SetObserved()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

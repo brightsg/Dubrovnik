@@ -3,6 +3,12 @@
 //
 // Managed class : UrlAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Activation_UrlAttribute
 
 #pragma mark -
@@ -32,12 +38,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : UrlValue
+	// Managed property type : System.String
+    @synthesize urlValue = _urlValue;
     - (NSString *)urlValue
     {
-		MonoObject * monoObject = [self getMonoProperty:"UrlValue"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UrlValue"];
+		if ([self object:_urlValue isEqualToMonoObject:monoObject]) return _urlValue;					
+		_urlValue = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _urlValue;
 	}
 
 #pragma mark -
@@ -46,7 +56,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -77,5 +87,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsContextOK(System.Runtime.Remoting.Contexts.Context,System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

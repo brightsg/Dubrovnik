@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)dependentAssembly;
+	// Managed property name : DependentAssembly
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * dependentAssembly;
 
-	// Managed type : System.Runtime.CompilerServices.LoadHint
-    - (System_Runtime_CompilerServices_LoadHint)loadHint;
+	// Managed property name : LoadHint
+	// Managed property type : System.Runtime.CompilerServices.LoadHint
+    @property (nonatomic, readonly) System_Runtime_CompilerServices_LoadHint loadHint;
 @end
 //--Dubrovnik.CodeGenerator

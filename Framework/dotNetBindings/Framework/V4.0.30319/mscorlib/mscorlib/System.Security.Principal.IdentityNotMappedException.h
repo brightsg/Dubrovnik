@@ -27,8 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Principal.IdentityReferenceCollection
-    - (System_Security_Principal_IdentityReferenceCollection *)unmappedIdentities;
+	// Managed property name : UnmappedIdentities
+	// Managed property type : System.Security.Principal.IdentityReferenceCollection
+    @property (nonatomic, strong, readonly) System_Security_Principal_IdentityReferenceCollection * unmappedIdentities;
 
 #pragma mark -
 #pragma mark Methods

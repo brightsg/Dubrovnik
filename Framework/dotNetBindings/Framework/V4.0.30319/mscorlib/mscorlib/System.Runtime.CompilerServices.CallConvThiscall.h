@@ -2,7 +2,7 @@
 //
 // Managed class : CallConvThiscall
 //
-@interface System_Runtime_CompilerServices_CallConvThiscall : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_CallConvThiscall : System_Object
 
 #pragma mark -
 #pragma mark Setup

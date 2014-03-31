@@ -22,8 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)mergeLogic;
+	// Managed property name : MergeLogic
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * mergeLogic;
 
 #pragma mark -
 #pragma mark Methods

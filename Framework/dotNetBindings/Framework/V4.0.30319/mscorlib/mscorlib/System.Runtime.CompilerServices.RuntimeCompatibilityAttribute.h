@@ -14,8 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)wrapNonExceptionThrows;
-    - (void)setWrapNonExceptionThrows:(BOOL)value;
+	// Managed property name : WrapNonExceptionThrows
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL wrapNonExceptionThrows;
 @end
 //--Dubrovnik.CodeGenerator

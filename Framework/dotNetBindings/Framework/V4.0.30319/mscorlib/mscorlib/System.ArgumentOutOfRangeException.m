@@ -3,6 +3,12 @@
 //
 // Managed class : ArgumentOutOfRangeException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_ArgumentOutOfRangeException
 
 #pragma mark -
@@ -48,7 +54,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ArgumentOutOfRangeException
 	// Managed param types : System.String, System.Object, System.String
-    + (System_ArgumentOutOfRangeException *)new_withParamName:(NSString *)p1 actualValue:(DBMonoObjectRepresentation *)p2 message:(NSString *)p3
+    + (System_ArgumentOutOfRangeException *)new_withParamName:(NSString *)p1 actualValue:(System_Object *)p2 message:(NSString *)p3
     {
 		return [[self alloc] initWithSignature:"string,object,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -56,20 +62,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)actualValue
+	// Managed property name : ActualValue
+	// Managed property type : System.Object
+    @synthesize actualValue = _actualValue;
+    - (System_Object *)actualValue
     {
-		MonoObject * monoObject = [self getMonoProperty:"ActualValue"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ActualValue"];
+		if ([self object:_actualValue isEqualToMonoObject:monoObject]) return _actualValue;					
+		_actualValue = [System_Object objectWithMonoObject:monoObject];
+
+		return _actualValue;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Message
+	// Managed property type : System.String
+    @synthesize message = _message;
     - (NSString *)message
     {
-		MonoObject * monoObject = [self getMonoProperty:"Message"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Message"];
+		if ([self object:_message isEqualToMonoObject:monoObject]) return _message;					
+		_message = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _message;
 	}
 
 #pragma mark -
@@ -82,5 +96,11 @@
     {
 		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

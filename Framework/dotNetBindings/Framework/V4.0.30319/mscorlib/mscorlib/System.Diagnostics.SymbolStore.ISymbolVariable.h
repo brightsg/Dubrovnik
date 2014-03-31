@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolVariable
 //
-@interface System_Diagnostics_SymbolStore_ISymbolVariable : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolVariable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,29 +14,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)addressField1;
+	// Managed property name : AddressField1
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t addressField1;
 
-	// Managed type : System.Int32
-    - (int32_t)addressField2;
+	// Managed property name : AddressField2
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t addressField2;
 
-	// Managed type : System.Int32
-    - (int32_t)addressField3;
+	// Managed property name : AddressField3
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t addressField3;
 
-	// Managed type : System.Diagnostics.SymbolStore.SymAddressKind
-    - (System_Diagnostics_SymbolStore_SymAddressKind)addressKind;
+	// Managed property name : AddressKind
+	// Managed property type : System.Diagnostics.SymbolStore.SymAddressKind
+    @property (nonatomic, readonly) System_Diagnostics_SymbolStore_SymAddressKind addressKind;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * attributes;
 
-	// Managed type : System.Int32
-    - (int32_t)endOffset;
+	// Managed property name : EndOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t endOffset;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Int32
-    - (int32_t)startOffset;
+	// Managed property name : StartOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t startOffset;
 
 #pragma mark -
 #pragma mark Methods

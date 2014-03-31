@@ -2,7 +2,7 @@
 //
 // Managed class : DynamicILInfo
 //
-@interface System_Reflection_Emit_DynamicILInfo : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_DynamicILInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Emit.DynamicMethod
-    - (System_Reflection_Emit_DynamicMethod *)dynamicMethod;
+	// Managed property name : DynamicMethod
+	// Managed property type : System.Reflection.Emit.DynamicMethod
+    @property (nonatomic, strong, readonly) System_Reflection_Emit_DynamicMethod * dynamicMethod;
 
 #pragma mark -
 #pragma mark Methods

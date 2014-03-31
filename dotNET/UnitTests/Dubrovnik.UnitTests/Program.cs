@@ -15,7 +15,14 @@ namespace Dubrovnik.UnitTests
 			ReferenceObject refObject = new ReferenceObject(".ctor called with", "two strings");
 
 			// Define event handler and raise event
-			refObject.TestEvent += new DubrovnikEventHandler(TestEventHandler);
+			bool configureLocalEvenetHandler = false;
+			if (configureLocalEvenetHandler) {
+				refObject.TestEvent += new DubrovnikEventHandler (TestEventHandler);
+			} else {
+				// add an event handler to a static method on a handler class
+				ReferenceObject.ConfigureStaticEventHandler (refObject, "TestEvent", "Dubrovnik.UnitTests.ReferenceObject", "OnTestEvent", true);
+			}
+
 			refObject.RaiseTestEvent();
 
 			// exercise refObject
@@ -52,7 +59,7 @@ namespace Dubrovnik.UnitTests
 
 		public static void TestEventHandler()
 		{
-			Console.WriteLine ("called: TestEventHandler");
+			Console.WriteLine ("Called: TestEventHandler");
 		}
 	}
 }

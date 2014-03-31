@@ -2,7 +2,7 @@
 //
 // Managed class : RegionInfo
 //
-@interface System_Globalization_RegionInfo : DBMonoObjectRepresentation
+@interface System_Globalization_RegionInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,47 +27,61 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)currencyEnglishName;
+	// Managed property name : CurrencyEnglishName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * currencyEnglishName;
 
-	// Managed type : System.String
-    - (NSString *)currencyNativeName;
+	// Managed property name : CurrencyNativeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * currencyNativeName;
 
-	// Managed type : System.String
-    - (NSString *)currencySymbol;
+	// Managed property name : CurrencySymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * currencySymbol;
 
-	// Managed type : System.Globalization.RegionInfo
+	// Managed property name : CurrentRegion
+	// Managed property type : System.Globalization.RegionInfo
     + (System_Globalization_RegionInfo *)currentRegion;
 
-	// Managed type : System.String
-    - (NSString *)displayName;
+	// Managed property name : DisplayName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * displayName;
 
-	// Managed type : System.String
-    - (NSString *)englishName;
+	// Managed property name : EnglishName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * englishName;
 
-	// Managed type : System.Int32
-    - (int32_t)geoId;
+	// Managed property name : GeoId
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t geoId;
 
-	// Managed type : System.Boolean
-    - (BOOL)isMetric;
+	// Managed property name : IsMetric
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isMetric;
 
-	// Managed type : System.String
-    - (NSString *)iSOCurrencySymbol;
+	// Managed property name : ISOCurrencySymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * iSOCurrencySymbol;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.String
-    - (NSString *)nativeName;
+	// Managed property name : NativeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * nativeName;
 
-	// Managed type : System.String
-    - (NSString *)threeLetterISORegionName;
+	// Managed property name : ThreeLetterISORegionName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * threeLetterISORegionName;
 
-	// Managed type : System.String
-    - (NSString *)threeLetterWindowsRegionName;
+	// Managed property name : ThreeLetterWindowsRegionName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * threeLetterWindowsRegionName;
 
-	// Managed type : System.String
-    - (NSString *)twoLetterISORegionName;
+	// Managed property name : TwoLetterISORegionName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * twoLetterISORegionName;
 
 #pragma mark -
 #pragma mark Methods
@@ -75,7 +89,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

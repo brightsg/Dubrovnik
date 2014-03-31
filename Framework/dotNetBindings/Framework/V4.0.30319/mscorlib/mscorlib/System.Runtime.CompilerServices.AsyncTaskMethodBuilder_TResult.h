@@ -2,7 +2,7 @@
 //
 // Managed struct : AsyncTaskMethodBuilder<TResult>
 //
-@interface System_Runtime_CompilerServices_AsyncTaskMethodBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_AsyncTaskMethodBuilder : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : Task<TResult>
-    - (Task *)task;
+	// Managed property name : Task
+	// Managed property type : Task<TResult>
+    @property (nonatomic, strong, readonly) Task * task;
 
 #pragma mark -
 #pragma mark Methods
@@ -43,7 +44,7 @@
 	// Managed method name : SetResult
 	// Managed return type : System.Void
 	// Managed param types : <TResult>
-    - (void)setResult_withResult:(DBMonoObjectRepresentation *)p1;
+    - (void)setResult_withResult:(DBManagedObject *)p1;
 
 	// Managed method name : SetStateMachine
 	// Managed return type : System.Void

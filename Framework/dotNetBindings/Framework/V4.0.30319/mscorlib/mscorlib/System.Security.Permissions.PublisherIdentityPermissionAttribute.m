@@ -3,6 +3,12 @@
 //
 // Managed class : PublisherIdentityPermissionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_PublisherIdentityPermissionAttribute
 
 #pragma mark -
@@ -32,41 +38,56 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : CertFile
+	// Managed property type : System.String
+    @synthesize certFile = _certFile;
     - (NSString *)certFile
     {
-		MonoObject * monoObject = [self getMonoProperty:"CertFile"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CertFile"];
+		if ([self object:_certFile isEqualToMonoObject:monoObject]) return _certFile;					
+		_certFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _certFile;
 	}
     - (void)setCertFile:(NSString *)value
 	{
+		_certFile = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"CertFile" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : SignedFile
+	// Managed property type : System.String
+    @synthesize signedFile = _signedFile;
     - (NSString *)signedFile
     {
-		MonoObject * monoObject = [self getMonoProperty:"SignedFile"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SignedFile"];
+		if ([self object:_signedFile isEqualToMonoObject:monoObject]) return _signedFile;					
+		_signedFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _signedFile;
 	}
     - (void)setSignedFile:(NSString *)value
 	{
+		_signedFile = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"SignedFile" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : X509Certificate
+	// Managed property type : System.String
+    @synthesize x509Certificate = _x509Certificate;
     - (NSString *)x509Certificate
     {
-		MonoObject * monoObject = [self getMonoProperty:"X509Certificate"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"X509Certificate"];
+		if ([self object:_x509Certificate isEqualToMonoObject:monoObject]) return _x509Certificate;					
+		_x509Certificate = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _x509Certificate;
 	}
     - (void)setX509Certificate:(NSString *)value
 	{
+		_x509Certificate = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"X509Certificate" valueObject:monoObject];          
 	}
@@ -80,7 +101,13 @@
     - (System_Security_IPermission *)createPermission
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

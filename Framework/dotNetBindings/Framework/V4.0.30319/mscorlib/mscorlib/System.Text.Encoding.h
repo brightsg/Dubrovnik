@@ -2,7 +2,7 @@
 //
 // Managed class : Encoding
 //
-@interface System_Text_Encoding : DBMonoObjectRepresentation
+@interface System_Text_Encoding : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,70 +14,89 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : ASCII
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)aSCII;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : BigEndianUnicode
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)bigEndianUnicode;
 
-	// Managed type : System.String
-    - (NSString *)bodyName;
+	// Managed property name : BodyName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * bodyName;
 
-	// Managed type : System.Int32
-    - (int32_t)codePage;
+	// Managed property name : CodePage
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t codePage;
 
-	// Managed type : System.Text.DecoderFallback
-    - (System_Text_DecoderFallback *)decoderFallback;
-    - (void)setDecoderFallback:(System_Text_DecoderFallback *)value;
+	// Managed property name : DecoderFallback
+	// Managed property type : System.Text.DecoderFallback
+    @property (nonatomic, strong) System_Text_DecoderFallback * decoderFallback;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : Default
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)default;
 
-	// Managed type : System.Text.EncoderFallback
-    - (System_Text_EncoderFallback *)encoderFallback;
-    - (void)setEncoderFallback:(System_Text_EncoderFallback *)value;
+	// Managed property name : EncoderFallback
+	// Managed property type : System.Text.EncoderFallback
+    @property (nonatomic, strong) System_Text_EncoderFallback * encoderFallback;
 
-	// Managed type : System.String
-    - (NSString *)encodingName;
+	// Managed property name : EncodingName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * encodingName;
 
-	// Managed type : System.String
-    - (NSString *)headerName;
+	// Managed property name : HeaderName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * headerName;
 
-	// Managed type : System.Boolean
-    - (BOOL)isBrowserDisplay;
+	// Managed property name : IsBrowserDisplay
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isBrowserDisplay;
 
-	// Managed type : System.Boolean
-    - (BOOL)isBrowserSave;
+	// Managed property name : IsBrowserSave
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isBrowserSave;
 
-	// Managed type : System.Boolean
-    - (BOOL)isMailNewsDisplay;
+	// Managed property name : IsMailNewsDisplay
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isMailNewsDisplay;
 
-	// Managed type : System.Boolean
-    - (BOOL)isMailNewsSave;
+	// Managed property name : IsMailNewsSave
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isMailNewsSave;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSingleByte;
+	// Managed property name : IsSingleByte
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSingleByte;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : Unicode
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)unicode;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : UTF32
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)uTF32;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : UTF7
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)uTF7;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : UTF8
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)uTF8;
 
-	// Managed type : System.String
-    - (NSString *)webName;
+	// Managed property name : WebName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * webName;
 
-	// Managed type : System.Int32
-    - (int32_t)windowsCodePage;
+	// Managed property name : WindowsCodePage
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t windowsCodePage;
 
 #pragma mark -
 #pragma mark Methods
@@ -85,7 +104,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : Convert
 	// Managed return type : System.Byte[]
@@ -100,7 +119,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetByteCount
 	// Managed return type : System.Int32

@@ -2,7 +2,7 @@
 //
 // Managed interface : IProducerConsumerCollection<T>
 //
-@interface System_Collections_Concurrent_IProducerConsumerCollection : DBMonoObjectRepresentation
+@interface System_Collections_Concurrent_IProducerConsumerCollection : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)tryAdd_withItem:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)tryAdd_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : TryTake
 	// Managed return type : System.Boolean

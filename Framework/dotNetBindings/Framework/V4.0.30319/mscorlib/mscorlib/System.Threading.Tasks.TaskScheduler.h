@@ -2,7 +2,7 @@
 //
 // Managed class : TaskScheduler
 //
-@interface System_Threading_Tasks_TaskScheduler : DBMonoObjectRepresentation
+@interface System_Threading_Tasks_TaskScheduler : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.Tasks.TaskScheduler
+	// Managed property name : Current
+	// Managed property type : System.Threading.Tasks.TaskScheduler
     + (System_Threading_Tasks_TaskScheduler *)current;
 
-	// Managed type : System.Threading.Tasks.TaskScheduler
+	// Managed property name : Default
+	// Managed property type : System.Threading.Tasks.TaskScheduler
     + (System_Threading_Tasks_TaskScheduler *)default;
 
-	// Managed type : System.Int32
-    - (int32_t)id;
+	// Managed property name : Id
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t id;
 
-	// Managed type : System.Int32
-    - (int32_t)maximumConcurrencyLevel;
+	// Managed property name : MaximumConcurrencyLevel
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t maximumConcurrencyLevel;
 
 #pragma mark -
 #pragma mark Methods

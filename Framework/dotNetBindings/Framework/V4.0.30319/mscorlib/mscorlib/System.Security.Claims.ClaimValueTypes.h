@@ -2,7 +2,7 @@
 //
 // Managed class : ClaimValueTypes
 //
-@interface System_Security_Claims_ClaimValueTypes : DBMonoObjectRepresentation
+@interface System_Security_Claims_ClaimValueTypes : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,85 +14,112 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : Base64Binary
+	// Managed field type : System.String
     + (NSString *)base64Binary;
 
-	// Managed type : System.String
+	// Managed field name : Base64Octet
+	// Managed field type : System.String
     + (NSString *)base64Octet;
 
-	// Managed type : System.String
+	// Managed field name : Boolean
+	// Managed field type : System.String
     + (NSString *)boolean;
 
-	// Managed type : System.String
+	// Managed field name : Date
+	// Managed field type : System.String
     + (NSString *)date;
 
-	// Managed type : System.String
+	// Managed field name : DateTime
+	// Managed field type : System.String
     + (NSString *)dateTime;
 
-	// Managed type : System.String
+	// Managed field name : DaytimeDuration
+	// Managed field type : System.String
     + (NSString *)daytimeDuration;
 
-	// Managed type : System.String
+	// Managed field name : DnsName
+	// Managed field type : System.String
     + (NSString *)dnsName;
 
-	// Managed type : System.String
+	// Managed field name : Double
+	// Managed field type : System.String
     + (NSString *)double;
 
-	// Managed type : System.String
+	// Managed field name : DsaKeyValue
+	// Managed field type : System.String
     + (NSString *)dsaKeyValue;
 
-	// Managed type : System.String
+	// Managed field name : Email
+	// Managed field type : System.String
     + (NSString *)email;
 
-	// Managed type : System.String
+	// Managed field name : Fqbn
+	// Managed field type : System.String
     + (NSString *)fqbn;
 
-	// Managed type : System.String
+	// Managed field name : HexBinary
+	// Managed field type : System.String
     + (NSString *)hexBinary;
 
-	// Managed type : System.String
+	// Managed field name : Integer
+	// Managed field type : System.String
     + (NSString *)integer;
 
-	// Managed type : System.String
+	// Managed field name : Integer32
+	// Managed field type : System.String
     + (NSString *)integer32;
 
-	// Managed type : System.String
+	// Managed field name : Integer64
+	// Managed field type : System.String
     + (NSString *)integer64;
 
-	// Managed type : System.String
+	// Managed field name : KeyInfo
+	// Managed field type : System.String
     + (NSString *)keyInfo;
 
-	// Managed type : System.String
+	// Managed field name : Rfc822Name
+	// Managed field type : System.String
     + (NSString *)rfc822Name;
 
-	// Managed type : System.String
+	// Managed field name : Rsa
+	// Managed field type : System.String
     + (NSString *)rsa;
 
-	// Managed type : System.String
+	// Managed field name : RsaKeyValue
+	// Managed field type : System.String
     + (NSString *)rsaKeyValue;
 
-	// Managed type : System.String
+	// Managed field name : Sid
+	// Managed field type : System.String
     + (NSString *)sid;
 
-	// Managed type : System.String
+	// Managed field name : String
+	// Managed field type : System.String
     + (NSString *)string;
 
-	// Managed type : System.String
+	// Managed field name : Time
+	// Managed field type : System.String
     + (NSString *)time;
 
-	// Managed type : System.String
+	// Managed field name : UInteger32
+	// Managed field type : System.String
     + (NSString *)uInteger32;
 
-	// Managed type : System.String
+	// Managed field name : UInteger64
+	// Managed field type : System.String
     + (NSString *)uInteger64;
 
-	// Managed type : System.String
+	// Managed field name : UpnName
+	// Managed field type : System.String
     + (NSString *)upnName;
 
-	// Managed type : System.String
+	// Managed field name : X500Name
+	// Managed field type : System.String
     + (NSString *)x500Name;
 
-	// Managed type : System.String
+	// Managed field name : YearMonthDuration
+	// Managed field type : System.String
     + (NSString *)yearMonthDuration;
 @end
 //--Dubrovnik.CodeGenerator

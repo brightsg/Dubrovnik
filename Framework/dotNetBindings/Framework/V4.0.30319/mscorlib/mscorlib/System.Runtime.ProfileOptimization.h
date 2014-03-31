@@ -2,7 +2,7 @@
 //
 // Managed class : ProfileOptimization
 //
-@interface System_Runtime_ProfileOptimization : DBMonoObjectRepresentation
+@interface System_Runtime_ProfileOptimization : System_Object
 
 #pragma mark -
 #pragma mark Setup

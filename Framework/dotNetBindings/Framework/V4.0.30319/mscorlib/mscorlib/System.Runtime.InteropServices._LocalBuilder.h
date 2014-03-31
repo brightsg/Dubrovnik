@@ -2,7 +2,7 @@
 //
 // Managed interface : _LocalBuilder
 //
-@interface System_Runtime_InteropServices__LocalBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__LocalBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

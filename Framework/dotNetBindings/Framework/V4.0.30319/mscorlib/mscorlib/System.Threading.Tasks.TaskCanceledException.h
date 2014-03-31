@@ -32,7 +32,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.Tasks.Task
-    - (System_Threading_Tasks_Task *)task;
+	// Managed property name : Task
+	// Managed property type : System.Threading.Tasks.Task
+    @property (nonatomic, strong, readonly) System_Threading_Tasks_Task * task;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : SignatureHelper
 //
-@interface System_Reflection_Emit_SignatureHelper : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_SignatureHelper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,7 +42,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetFieldSigHelper
 	// Managed return type : System.Reflection.Emit.SignatureHelper

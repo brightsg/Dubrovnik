@@ -2,7 +2,7 @@
 //
 // Managed class : StringInfo
 //
-@interface System_Globalization_StringInfo : DBMonoObjectRepresentation
+@interface System_Globalization_StringInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,12 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)lengthInTextElements;
+	// Managed property name : LengthInTextElements
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t lengthInTextElements;
 
-	// Managed type : System.String
-    - (NSString *)string;
-    - (void)setString:(NSString *)value;
+	// Managed property name : String
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * string;
 
 #pragma mark -
 #pragma mark Methods
@@ -35,7 +36,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

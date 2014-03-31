@@ -3,6 +3,12 @@
 //
 // Managed struct : TaskAwaiter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_TaskAwaiter
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsCompleted
+	// Managed property type : System.Boolean
+    @synthesize isCompleted = _isCompleted;
     - (BOOL)isCompleted
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsCompleted"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsCompleted"];
+		_isCompleted = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isCompleted;
 	}
 
 #pragma mark -
@@ -55,5 +64,11 @@
     {
 		[self invokeMonoMethod:"UnsafeOnCompleted(System.Action)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

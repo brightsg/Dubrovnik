@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyName
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyName
 
 #pragma mark -
@@ -32,156 +38,213 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : CodeBase
+	// Managed property type : System.String
+    @synthesize codeBase = _codeBase;
     - (NSString *)codeBase
     {
-		MonoObject * monoObject = [self getMonoProperty:"CodeBase"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CodeBase"];
+		if ([self object:_codeBase isEqualToMonoObject:monoObject]) return _codeBase;					
+		_codeBase = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _codeBase;
 	}
     - (void)setCodeBase:(NSString *)value
 	{
+		_codeBase = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"CodeBase" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Reflection.AssemblyContentType
+	// Managed property name : ContentType
+	// Managed property type : System.Reflection.AssemblyContentType
+    @synthesize contentType = _contentType;
     - (System_Reflection_AssemblyContentType)contentType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ContentType"];
-		System_Reflection_AssemblyContentType result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ContentType"];
+		_contentType = DB_UNBOX_INT32(monoObject);
+
+		return _contentType;
 	}
     - (void)setContentType:(System_Reflection_AssemblyContentType)value
 	{
+		_contentType = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ContentType" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : CultureInfo
+	// Managed property type : System.Globalization.CultureInfo
+    @synthesize cultureInfo = _cultureInfo;
     - (System_Globalization_CultureInfo *)cultureInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"CultureInfo"];
-		System_Globalization_CultureInfo * result = [System_Globalization_CultureInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CultureInfo"];
+		if ([self object:_cultureInfo isEqualToMonoObject:monoObject]) return _cultureInfo;					
+		_cultureInfo = [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
+
+		return _cultureInfo;
 	}
     - (void)setCultureInfo:(System_Globalization_CultureInfo *)value
 	{
+		_cultureInfo = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"CultureInfo" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : CultureName
+	// Managed property type : System.String
+    @synthesize cultureName = _cultureName;
     - (NSString *)cultureName
     {
-		MonoObject * monoObject = [self getMonoProperty:"CultureName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CultureName"];
+		if ([self object:_cultureName isEqualToMonoObject:monoObject]) return _cultureName;					
+		_cultureName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _cultureName;
 	}
 
-	// Managed type : System.String
+	// Managed property name : EscapedCodeBase
+	// Managed property type : System.String
+    @synthesize escapedCodeBase = _escapedCodeBase;
     - (NSString *)escapedCodeBase
     {
-		MonoObject * monoObject = [self getMonoProperty:"EscapedCodeBase"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EscapedCodeBase"];
+		if ([self object:_escapedCodeBase isEqualToMonoObject:monoObject]) return _escapedCodeBase;					
+		_escapedCodeBase = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _escapedCodeBase;
 	}
 
-	// Managed type : System.Reflection.AssemblyNameFlags
+	// Managed property name : Flags
+	// Managed property type : System.Reflection.AssemblyNameFlags
+    @synthesize flags = _flags;
     - (System_Reflection_AssemblyNameFlags)flags
     {
-		MonoObject * monoObject = [self getMonoProperty:"Flags"];
-		System_Reflection_AssemblyNameFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Flags"];
+		_flags = DB_UNBOX_INT32(monoObject);
+
+		return _flags;
 	}
     - (void)setFlags:(System_Reflection_AssemblyNameFlags)value
 	{
+		_flags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Flags" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @synthesize fullName = _fullName;
     - (NSString *)fullName
     {
-		MonoObject * monoObject = [self getMonoProperty:"FullName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FullName"];
+		if ([self object:_fullName isEqualToMonoObject:monoObject]) return _fullName;					
+		_fullName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _fullName;
 	}
 
-	// Managed type : System.Configuration.Assemblies.AssemblyHashAlgorithm
+	// Managed property name : HashAlgorithm
+	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
+    @synthesize hashAlgorithm = _hashAlgorithm;
     - (System_Configuration_Assemblies_AssemblyHashAlgorithm)hashAlgorithm
     {
-		MonoObject * monoObject = [self getMonoProperty:"HashAlgorithm"];
-		System_Configuration_Assemblies_AssemblyHashAlgorithm result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"HashAlgorithm"];
+		_hashAlgorithm = DB_UNBOX_INT32(monoObject);
+
+		return _hashAlgorithm;
 	}
     - (void)setHashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)value
 	{
+		_hashAlgorithm = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"HashAlgorithm" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Reflection.StrongNameKeyPair
+	// Managed property name : KeyPair
+	// Managed property type : System.Reflection.StrongNameKeyPair
+    @synthesize keyPair = _keyPair;
     - (System_Reflection_StrongNameKeyPair *)keyPair
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeyPair"];
-		System_Reflection_StrongNameKeyPair * result = [System_Reflection_StrongNameKeyPair representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeyPair"];
+		if ([self object:_keyPair isEqualToMonoObject:monoObject]) return _keyPair;					
+		_keyPair = [System_Reflection_StrongNameKeyPair objectWithMonoObject:monoObject];
+
+		return _keyPair;
 	}
     - (void)setKeyPair:(System_Reflection_StrongNameKeyPair *)value
 	{
+		_keyPair = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"KeyPair" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
     - (void)setName:(NSString *)value
 	{
+		_name = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Reflection.ProcessorArchitecture
+	// Managed property name : ProcessorArchitecture
+	// Managed property type : System.Reflection.ProcessorArchitecture
+    @synthesize processorArchitecture = _processorArchitecture;
     - (System_Reflection_ProcessorArchitecture)processorArchitecture
     {
-		MonoObject * monoObject = [self getMonoProperty:"ProcessorArchitecture"];
-		System_Reflection_ProcessorArchitecture result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ProcessorArchitecture"];
+		_processorArchitecture = DB_UNBOX_INT32(monoObject);
+
+		return _processorArchitecture;
 	}
     - (void)setProcessorArchitecture:(System_Reflection_ProcessorArchitecture)value
 	{
+		_processorArchitecture = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ProcessorArchitecture" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Version
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @synthesize version = _version;
     - (System_Version *)version
     {
-		MonoObject * monoObject = [self getMonoProperty:"Version"];
-		System_Version * result = [System_Version representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		if ([self object:_version isEqualToMonoObject:monoObject]) return _version;					
+		_version = [System_Version objectWithMonoObject:monoObject];
+
+		return _version;
 	}
     - (void)setVersion:(System_Version *)value
 	{
+		_version = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Version" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Configuration.Assemblies.AssemblyVersionCompatibility
+	// Managed property name : VersionCompatibility
+	// Managed property type : System.Configuration.Assemblies.AssemblyVersionCompatibility
+    @synthesize versionCompatibility = _versionCompatibility;
     - (System_Configuration_Assemblies_AssemblyVersionCompatibility)versionCompatibility
     {
-		MonoObject * monoObject = [self getMonoProperty:"VersionCompatibility"];
-		System_Configuration_Assemblies_AssemblyVersionCompatibility result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"VersionCompatibility"];
+		_versionCompatibility = DB_UNBOX_INT32(monoObject);
+
+		return _versionCompatibility;
 	}
     - (void)setVersionCompatibility:(System_Configuration_Assemblies_AssemblyVersionCompatibility)value
 	{
+		_versionCompatibility = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"VersionCompatibility" valueObject:monoObject];          
 	}
@@ -192,10 +255,10 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone
+    - (System_Object *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAssemblyName
@@ -204,7 +267,7 @@
     - (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_AssemblyName representationWithMonoObject:monoObject];
+		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -236,7 +299,7 @@
 	// Managed method name : OnDeserialization
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)onDeserialization_withSender:(DBMonoObjectRepresentation *)p1
+    - (void)onDeserialization_withSender:(System_Object *)p1
     {
 		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -274,5 +337,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.SecurityZone
-    - (System_Security_SecurityZone)zone;
-    - (void)setZone:(System_Security_SecurityZone)value;
+	// Managed property name : Zone
+	// Managed property type : System.Security.SecurityZone
+    @property (nonatomic) System_Security_SecurityZone zone;
 
 #pragma mark -
 #pragma mark Methods

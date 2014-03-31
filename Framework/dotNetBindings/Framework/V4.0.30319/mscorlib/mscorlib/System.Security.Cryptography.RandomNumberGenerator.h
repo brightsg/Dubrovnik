@@ -2,7 +2,7 @@
 //
 // Managed class : RandomNumberGenerator
 //
-@interface System_Security_Cryptography_RandomNumberGenerator : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_RandomNumberGenerator : System_Object
 
 #pragma mark -
 #pragma mark Setup

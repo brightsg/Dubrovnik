@@ -2,7 +2,7 @@
 //
 // Managed class : TypeEntry
 //
-@interface System_Runtime_Remoting_TypeEntry : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_TypeEntry : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)assemblyName;
-    - (void)setAssemblyName:(NSString *)value;
+	// Managed property name : AssemblyName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * assemblyName;
 
-	// Managed type : System.String
-    - (NSString *)typeName;
-    - (void)setTypeName:(NSString *)value;
+	// Managed property name : TypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * typeName;
 @end
 //--Dubrovnik.CodeGenerator

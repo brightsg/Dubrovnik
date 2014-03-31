@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)value;
+	// Managed property name : Value
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL value;
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed interface : IChannelDataStore
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_IChannelDataStore
 
 #pragma mark -
@@ -21,25 +27,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String[]
+	// Managed property name : ChannelUris
+	// Managed property type : System.String[]
+    @synthesize channelUris = _channelUris;
     - (DBSystem_Array *)channelUris
     {
-		MonoObject * monoObject = [self getMonoProperty:"ChannelUris"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ChannelUris"];
+		if ([self object:_channelUris isEqualToMonoObject:monoObject]) return _channelUris;					
+		_channelUris = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _channelUris;
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)item
+	// Managed property name : Item
+	// Managed property type : System.Object
+    @synthesize item = _item;
+    - (System_Object *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [System_Object objectWithMonoObject:monoObject];
+
+		return _item;
 	}
-    - (void)setItem:(DBMonoObjectRepresentation *)value
+    - (void)setItem:(System_Object *)value
 	{
+		_item = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Item" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

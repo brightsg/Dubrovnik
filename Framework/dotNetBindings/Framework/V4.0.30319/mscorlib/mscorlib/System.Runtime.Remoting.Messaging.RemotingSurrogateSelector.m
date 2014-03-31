@@ -3,6 +3,12 @@
 //
 // Managed class : RemotingSurrogateSelector
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Messaging_RemotingSurrogateSelector
 
 #pragma mark -
@@ -21,15 +27,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Messaging.MessageSurrogateFilter
+	// Managed property name : Filter
+	// Managed property type : System.Runtime.Remoting.Messaging.MessageSurrogateFilter
+    @synthesize filter = _filter;
     - (System_Runtime_Remoting_Messaging_MessageSurrogateFilter *)filter
     {
-		MonoObject * monoObject = [self getMonoProperty:"Filter"];
-		System_Runtime_Remoting_Messaging_MessageSurrogateFilter * result = [System_Runtime_Remoting_Messaging_MessageSurrogateFilter representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Filter"];
+		if ([self object:_filter isEqualToMonoObject:monoObject]) return _filter;					
+		_filter = [System_Runtime_Remoting_Messaging_MessageSurrogateFilter objectWithMonoObject:monoObject];
+
+		return _filter;
 	}
     - (void)setFilter:(System_Runtime_Remoting_Messaging_MessageSurrogateFilter *)value
 	{
+		_filter = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Filter" valueObject:monoObject];          
 	}
@@ -51,16 +62,16 @@
     - (System_Runtime_Serialization_ISurrogateSelector *)getNextSelector
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextSelector()" withNumArgs:0];
-		return [System_Runtime_Serialization_ISurrogateSelector representationWithMonoObject:monoObject];
+		return [System_Runtime_Serialization_ISurrogateSelector objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRootObject
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getRootObject
+    - (System_Object *)getRootObject
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRootObject()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSurrogate
@@ -69,13 +80,13 @@
     - (System_Runtime_Serialization_ISerializationSurrogate *)getSurrogate_withType:(System_Type *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2 ssoutRef:(System_Runtime_Serialization_ISurrogateSelector **)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSurrogate(System.Type,System.Runtime.Serialization.StreamingContext,System.Runtime.Serialization.ISurrogateSelector&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Runtime_Serialization_ISerializationSurrogate representationWithMonoObject:monoObject];
+		return [System_Runtime_Serialization_ISerializationSurrogate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetRootObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)setRootObject_withObj:(DBMonoObjectRepresentation *)p1
+    - (void)setRootObject_withObj:(System_Object *)p1
     {
 		[self invokeMonoMethod:"SetRootObject(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -87,5 +98,11 @@
     {
 		[self invokeMonoMethod:"UseSoapFormat()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

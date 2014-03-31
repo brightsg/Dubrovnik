@@ -3,6 +3,12 @@
 //
 // Managed class : DebuggerTypeProxyAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_DebuggerTypeProxyAttribute
 
 #pragma mark -
@@ -40,38 +46,58 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : ProxyTypeName
+	// Managed property type : System.String
+    @synthesize proxyTypeName = _proxyTypeName;
     - (NSString *)proxyTypeName
     {
-		MonoObject * monoObject = [self getMonoProperty:"ProxyTypeName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ProxyTypeName"];
+		if ([self object:_proxyTypeName isEqualToMonoObject:monoObject]) return _proxyTypeName;					
+		_proxyTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _proxyTypeName;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : Target
+	// Managed property type : System.Type
+    @synthesize target = _target;
     - (System_Type *)target
     {
-		MonoObject * monoObject = [self getMonoProperty:"Target"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Target"];
+		if ([self object:_target isEqualToMonoObject:monoObject]) return _target;					
+		_target = [System_Type objectWithMonoObject:monoObject];
+
+		return _target;
 	}
     - (void)setTarget:(System_Type *)value
 	{
+		_target = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Target" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : TargetTypeName
+	// Managed property type : System.String
+    @synthesize targetTypeName = _targetTypeName;
     - (NSString *)targetTypeName
     {
-		MonoObject * monoObject = [self getMonoProperty:"TargetTypeName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TargetTypeName"];
+		if ([self object:_targetTypeName isEqualToMonoObject:monoObject]) return _targetTypeName;					
+		_targetTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _targetTypeName;
 	}
     - (void)setTargetTypeName:(NSString *)value
 	{
+		_targetTypeName = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"TargetTypeName" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

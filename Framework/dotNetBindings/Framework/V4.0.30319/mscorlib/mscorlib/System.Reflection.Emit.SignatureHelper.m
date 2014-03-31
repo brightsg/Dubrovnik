@@ -3,6 +3,12 @@
 //
 // Managed class : SignatureHelper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_SignatureHelper
 
 #pragma mark -
@@ -64,7 +70,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -76,7 +82,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getFieldSigHelper_withMod:(System_Reflection_Module *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFieldSigHelper(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -94,7 +100,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getLocalVarSigHelper
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLocalVarSigHelper()" withNumArgs:0];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetLocalVarSigHelper
@@ -103,7 +109,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getLocalVarSigHelper_withMod:(System_Reflection_Module *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLocalVarSigHelper(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodSigHelper
@@ -112,7 +118,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getMethodSigHelper_withMod:(System_Reflection_Module *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodSigHelper(System.Reflection.Module,System.Type,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodSigHelper
@@ -121,7 +127,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getMethodSigHelper_withMod:(System_Reflection_Module *)p1 callingConvention:(System_Reflection_CallingConventions)p2 returnType:(System_Type *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodSigHelper(System.Reflection.Module,System.Reflection.CallingConventions,System.Type)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodSigHelper
@@ -130,7 +136,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getMethodSigHelper_withMod:(System_Reflection_Module *)p1 unmanagedCallConv:(System_Runtime_InteropServices_CallingConvention)p2 returnType:(System_Type *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodSigHelper(System.Reflection.Module,System.Runtime.InteropServices.CallingConvention,System.Type)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodSigHelper
@@ -139,7 +145,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getMethodSigHelper_withCallingConvention:(System_Reflection_CallingConventions)p1 returnType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodSigHelper(System.Reflection.CallingConventions,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodSigHelper
@@ -148,7 +154,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getMethodSigHelper_withUnmanagedCallingConvention:(System_Runtime_InteropServices_CallingConvention)p1 returnType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodSigHelper(System.Runtime.InteropServices.CallingConvention,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPropertySigHelper
@@ -157,7 +163,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getPropertySigHelper_withMod:(System_Reflection_Module *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPropertySigHelper(System.Reflection.Module,System.Type,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPropertySigHelper
@@ -166,7 +172,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getPropertySigHelper_withMod:(System_Reflection_Module *)p1 returnType:(System_Type *)p2 requiredReturnTypeCustomModifiers:(DBSystem_Array *)p3 optionalReturnTypeCustomModifiers:(DBSystem_Array *)p4 parameterTypes:(DBSystem_Array *)p5 requiredParameterTypeCustomModifiers:(DBSystem_Array *)p6 optionalParameterTypeCustomModifiers:(DBSystem_Array *)p7
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPropertySigHelper(System.Reflection.Module,System.Type,System.Array[],System.Array[],System.Array[],System.Array[],System.Array[])" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPropertySigHelper
@@ -175,7 +181,7 @@
     - (System_Reflection_Emit_SignatureHelper *)getPropertySigHelper_withMod:(System_Reflection_Module *)p1 callingConvention:(System_Reflection_CallingConventions)p2 returnType:(System_Type *)p3 requiredReturnTypeCustomModifiers:(DBSystem_Array *)p4 optionalReturnTypeCustomModifiers:(DBSystem_Array *)p5 parameterTypes:(DBSystem_Array *)p6 requiredParameterTypeCustomModifiers:(DBSystem_Array *)p7 optionalParameterTypeCustomModifiers:(DBSystem_Array *)p8
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPropertySigHelper(System.Reflection.Module,System.Reflection.CallingConventions,System.Type,System.Array[],System.Array[],System.Array[],System.Array[],System.Array[])" withNumArgs:8, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue], [p8 monoValue]];
-		return [System_Reflection_Emit_SignatureHelper representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_SignatureHelper objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSignature
@@ -195,5 +201,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

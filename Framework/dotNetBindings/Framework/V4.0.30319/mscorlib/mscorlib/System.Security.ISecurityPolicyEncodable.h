@@ -2,7 +2,7 @@
 //
 // Managed interface : ISecurityPolicyEncodable
 //
-@interface System_Security_ISecurityPolicyEncodable : DBMonoObjectRepresentation
+@interface System_Security_ISecurityPolicyEncodable : System_Object
 
 #pragma mark -
 #pragma mark Setup

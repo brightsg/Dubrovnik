@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isSingleByte;
+	// Managed property name : IsSingleByte
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSingleByte;
 
 #pragma mark -
 #pragma mark Methods

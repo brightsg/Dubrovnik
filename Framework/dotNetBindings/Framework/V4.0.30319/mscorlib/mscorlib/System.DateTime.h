@@ -2,7 +2,7 @@
 //
 // Managed struct : DateTime
 //
-@interface System_DateTime : DBMonoObjectRepresentation
+@interface System_DateTime : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -72,62 +72,80 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.DateTime
+	// Managed field name : MaxValue
+	// Managed field type : System.DateTime
     + (NSDate *)maxValue;
 
-	// Managed type : System.DateTime
+	// Managed field name : MinValue
+	// Managed field type : System.DateTime
     + (NSDate *)minValue;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.DateTime
-    - (NSDate *)date;
+	// Managed property name : Date
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * date;
 
-	// Managed type : System.Int32
-    - (int32_t)day;
+	// Managed property name : Day
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t day;
 
-	// Managed type : System.DayOfWeek
-    - (System_DayOfWeek)dayOfWeek;
+	// Managed property name : DayOfWeek
+	// Managed property type : System.DayOfWeek
+    @property (nonatomic, readonly) System_DayOfWeek dayOfWeek;
 
-	// Managed type : System.Int32
-    - (int32_t)dayOfYear;
+	// Managed property name : DayOfYear
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t dayOfYear;
 
-	// Managed type : System.Int32
-    - (int32_t)hour;
+	// Managed property name : Hour
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t hour;
 
-	// Managed type : System.DateTimeKind
-    - (System_DateTimeKind)kind;
+	// Managed property name : Kind
+	// Managed property type : System.DateTimeKind
+    @property (nonatomic, readonly) System_DateTimeKind kind;
 
-	// Managed type : System.Int32
-    - (int32_t)millisecond;
+	// Managed property name : Millisecond
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t millisecond;
 
-	// Managed type : System.Int32
-    - (int32_t)minute;
+	// Managed property name : Minute
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t minute;
 
-	// Managed type : System.Int32
-    - (int32_t)month;
+	// Managed property name : Month
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t month;
 
-	// Managed type : System.DateTime
+	// Managed property name : Now
+	// Managed property type : System.DateTime
     + (NSDate *)now;
 
-	// Managed type : System.Int32
-    - (int32_t)second;
+	// Managed property name : Second
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t second;
 
-	// Managed type : System.Int64
-    - (int64_t)ticks;
+	// Managed property name : Ticks
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t ticks;
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)timeOfDay;
+	// Managed property name : TimeOfDay
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong, readonly) System_TimeSpan * timeOfDay;
 
-	// Managed type : System.DateTime
+	// Managed property name : Today
+	// Managed property type : System.DateTime
     + (NSDate *)today;
 
-	// Managed type : System.DateTime
+	// Managed property name : UtcNow
+	// Managed property type : System.DateTime
     + (NSDate *)utcNow;
 
-	// Managed type : System.Int32
-    - (int32_t)year;
+	// Managed property name : Year
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t year;
 
 #pragma mark -
 #pragma mark Methods
@@ -185,7 +203,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -200,7 +218,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValueObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

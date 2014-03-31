@@ -3,6 +3,12 @@
 //
 // Managed class : EventWrittenEventArgs
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_Tracing_EventWrittenEventArgs
 
 #pragma mark -
@@ -21,87 +27,124 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : EventId
+	// Managed property type : System.Int32
+    @synthesize eventId = _eventId;
     - (int32_t)eventId
     {
-		MonoObject * monoObject = [self getMonoProperty:"EventId"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EventId"];
+		_eventId = DB_UNBOX_INT32(monoObject);
+
+		return _eventId;
 	}
     - (void)setEventId:(int32_t)value
 	{
+		_eventId = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"EventId" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Diagnostics.Tracing.EventSource
+	// Managed property name : EventSource
+	// Managed property type : System.Diagnostics.Tracing.EventSource
+    @synthesize eventSource = _eventSource;
     - (System_Diagnostics_Tracing_EventSource *)eventSource
     {
-		MonoObject * monoObject = [self getMonoProperty:"EventSource"];
-		System_Diagnostics_Tracing_EventSource * result = [System_Diagnostics_Tracing_EventSource representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EventSource"];
+		if ([self object:_eventSource isEqualToMonoObject:monoObject]) return _eventSource;					
+		_eventSource = [System_Diagnostics_Tracing_EventSource objectWithMonoObject:monoObject];
+
+		return _eventSource;
 	}
 
-	// Managed type : System.Diagnostics.Tracing.EventKeywords
+	// Managed property name : Keywords
+	// Managed property type : System.Diagnostics.Tracing.EventKeywords
+    @synthesize keywords = _keywords;
     - (System_Diagnostics_Tracing_EventKeywords)keywords
     {
-		MonoObject * monoObject = [self getMonoProperty:"Keywords"];
-		System_Diagnostics_Tracing_EventKeywords result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Keywords"];
+		_keywords = DB_UNBOX_INT64(monoObject);
+
+		return _keywords;
 	}
 
-	// Managed type : System.Diagnostics.Tracing.EventLevel
+	// Managed property name : Level
+	// Managed property type : System.Diagnostics.Tracing.EventLevel
+    @synthesize level = _level;
     - (System_Diagnostics_Tracing_EventLevel)level
     {
-		MonoObject * monoObject = [self getMonoProperty:"Level"];
-		System_Diagnostics_Tracing_EventLevel result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Level"];
+		_level = DB_UNBOX_INT32(monoObject);
+
+		return _level;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Message
+	// Managed property type : System.String
+    @synthesize message = _message;
     - (NSString *)message
     {
-		MonoObject * monoObject = [self getMonoProperty:"Message"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Message"];
+		if ([self object:_message isEqualToMonoObject:monoObject]) return _message;					
+		_message = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _message;
 	}
 
-	// Managed type : System.Diagnostics.Tracing.EventOpcode
+	// Managed property name : Opcode
+	// Managed property type : System.Diagnostics.Tracing.EventOpcode
+    @synthesize opcode = _opcode;
     - (System_Diagnostics_Tracing_EventOpcode)opcode
     {
-		MonoObject * monoObject = [self getMonoProperty:"Opcode"];
-		System_Diagnostics_Tracing_EventOpcode result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Opcode"];
+		_opcode = DB_UNBOX_INT32(monoObject);
+
+		return _opcode;
 	}
 
-	// Managed type : System.Collections.ObjectModel.ReadOnlyCollection<System.Object>
+	// Managed property name : Payload
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Object>
+    @synthesize payload = _payload;
     - (System_Collections_ObjectModel_ReadOnlyCollection *)payload
     {
-		MonoObject * monoObject = [self getMonoProperty:"Payload"];
-		System_Collections_ObjectModel_ReadOnlyCollection * result = [System_Collections_ObjectModel_ReadOnlyCollection representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"DBMonoObjectRepresentation";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Payload"];
+		if ([self object:_payload isEqualToMonoObject:monoObject]) return _payload;					
+		_payload = [System_Collections_ObjectModel_ReadOnlyCollection objectWithMonoObject:monoObject];
+
+		return _payload;
 	}
     - (void)setPayload:(System_Collections_ObjectModel_ReadOnlyCollection *)value
 	{
+		_payload = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Payload" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Diagnostics.Tracing.EventTask
+	// Managed property name : Task
+	// Managed property type : System.Diagnostics.Tracing.EventTask
+    @synthesize task = _task;
     - (System_Diagnostics_Tracing_EventTask)task
     {
-		MonoObject * monoObject = [self getMonoProperty:"Task"];
-		System_Diagnostics_Tracing_EventTask result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Task"];
+		_task = DB_UNBOX_INT32(monoObject);
+
+		return _task;
 	}
 
-	// Managed type : System.Byte
+	// Managed property name : Version
+	// Managed property type : System.Byte
+    @synthesize version = _version;
     - (uint8_t)version
     {
-		MonoObject * monoObject = [self getMonoProperty:"Version"];
-		uint8_t result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		_version = DB_UNBOX_UINT8(monoObject);
+
+		return _version;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

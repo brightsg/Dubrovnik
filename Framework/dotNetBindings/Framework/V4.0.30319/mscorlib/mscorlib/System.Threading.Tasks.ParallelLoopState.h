@@ -2,7 +2,7 @@
 //
 // Managed class : ParallelLoopState
 //
-@interface System_Threading_Tasks_ParallelLoopState : DBMonoObjectRepresentation
+@interface System_Threading_Tasks_ParallelLoopState : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isExceptional;
+	// Managed property name : IsExceptional
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isExceptional;
 
-	// Managed type : System.Boolean
-    - (BOOL)isStopped;
+	// Managed property name : IsStopped
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isStopped;
 
-	// Managed type : System.Nullable<System.Int64>
-    - (System_Nullable *)lowestBreakIteration;
+	// Managed property name : LowestBreakIteration
+	// Managed property type : System.Nullable<System.Int64>
+    @property (nonatomic, strong, readonly) System_Nullable * lowestBreakIteration;
 
-	// Managed type : System.Boolean
-    - (BOOL)shouldExitCurrentIteration;
+	// Managed property name : ShouldExitCurrentIteration
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL shouldExitCurrentIteration;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolNamespace
 //
-@interface System_Diagnostics_SymbolStore_ISymbolNamespace : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolNamespace : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
 #pragma mark -
 #pragma mark Methods

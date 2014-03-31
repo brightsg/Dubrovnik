@@ -2,7 +2,7 @@
 //
 // Managed class : TimeZoneInfo.AdjustmentRule
 //
-@interface System_TimeZoneInfo__AdjustmentRule : DBMonoObjectRepresentation
+@interface System_TimeZoneInfo__AdjustmentRule : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,20 +14,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.DateTime
-    - (NSDate *)dateEnd;
+	// Managed property name : DateEnd
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * dateEnd;
 
-	// Managed type : System.DateTime
-    - (NSDate *)dateStart;
+	// Managed property name : DateStart
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * dateStart;
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)daylightDelta;
+	// Managed property name : DaylightDelta
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong, readonly) System_TimeSpan * daylightDelta;
 
-	// Managed type : System.TimeZoneInfo+TransitionTime
-    - (System_TimeZoneInfo__TransitionTime *)daylightTransitionEnd;
+	// Managed property name : DaylightTransitionEnd
+	// Managed property type : System.TimeZoneInfo+TransitionTime
+    @property (nonatomic, strong, readonly) System_TimeZoneInfo__TransitionTime * daylightTransitionEnd;
 
-	// Managed type : System.TimeZoneInfo+TransitionTime
-    - (System_TimeZoneInfo__TransitionTime *)daylightTransitionStart;
+	// Managed property name : DaylightTransitionStart
+	// Managed property type : System.TimeZoneInfo+TransitionTime
+    @property (nonatomic, strong, readonly) System_TimeZoneInfo__TransitionTime * daylightTransitionStart;
 
 #pragma mark -
 #pragma mark Methods

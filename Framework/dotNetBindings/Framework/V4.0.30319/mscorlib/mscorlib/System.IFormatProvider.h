@@ -2,7 +2,7 @@
 //
 // Managed interface : IFormatProvider
 //
-@interface System_IFormatProvider : DBMonoObjectRepresentation
+@interface System_IFormatProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : GetFormat
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getFormat_withFormatType:(System_Type *)p1;
+    - (System_Object *)getFormat_withFormatType:(System_Type *)p1;
 @end
 //--Dubrovnik.CodeGenerator

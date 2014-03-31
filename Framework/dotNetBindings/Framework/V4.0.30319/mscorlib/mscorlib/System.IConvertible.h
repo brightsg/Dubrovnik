@@ -2,7 +2,7 @@
 //
 // Managed interface : IConvertible
 //
-@interface System_IConvertible : DBMonoObjectRepresentation
+@interface System_IConvertible : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -82,7 +82,7 @@
 	// Managed method name : ToType
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.IFormatProvider
-    - (DBMonoObjectRepresentation *)toType_withConversionType:(System_Type *)p1 provider:(System_IFormatProvider *)p2;
+    - (System_Object *)toType_withConversionType:(System_Type *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16

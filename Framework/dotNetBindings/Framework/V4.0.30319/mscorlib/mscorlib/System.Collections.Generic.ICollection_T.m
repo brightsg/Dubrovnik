@@ -3,6 +3,12 @@
 //
 // Managed interface : ICollection<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_ICollection
 
 #pragma mark -
@@ -21,20 +27,26 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsReadOnly"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
+		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isReadOnly;
 	}
 
 #pragma mark -
@@ -43,7 +55,7 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)add_withItem:(DBMonoObjectRepresentation *)p1
+    - (void)add_withItem:(DBManagedObject *)p1
     {
 		[self invokeMonoMethod:"Add(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
     }
@@ -59,7 +71,7 @@
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)contains_withItem:(DBMonoObjectRepresentation *)p1
+    - (BOOL)contains_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -76,10 +88,16 @@
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)remove_withItem:(DBMonoObjectRepresentation *)p1
+    - (BOOL)remove_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

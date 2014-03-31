@@ -2,7 +2,7 @@
 //
 // Managed class : Lazy<T>
 //
-@interface System_Lazy : DBMonoObjectRepresentation
+@interface System_Lazy : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,11 +42,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isValueCreated;
+	// Managed property name : IsValueCreated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isValueCreated;
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : <T>
+    @property (nonatomic, strong, readonly) DBManagedObject * value;
 
 #pragma mark -
 #pragma mark Methods

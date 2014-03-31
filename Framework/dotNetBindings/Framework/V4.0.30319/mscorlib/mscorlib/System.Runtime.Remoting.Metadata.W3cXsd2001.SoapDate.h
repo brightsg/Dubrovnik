@@ -2,7 +2,7 @@
 //
 // Managed class : SoapDate
 //
-@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,15 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)sign;
-    - (void)setSign:(int32_t)value;
+	// Managed property name : Sign
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t sign;
 
-	// Managed type : System.DateTime
-    - (NSDate *)value;
-    - (void)setValue:(NSDate *)value;
+	// Managed property name : Value
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * value;
 
-	// Managed type : System.String
+	// Managed property name : XsdType
+	// Managed property type : System.String
     + (NSString *)xsdType;
 
 #pragma mark -

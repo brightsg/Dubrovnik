@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)coClass;
+	// Managed property name : CoClass
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * coClass;
 @end
 //--Dubrovnik.CodeGenerator

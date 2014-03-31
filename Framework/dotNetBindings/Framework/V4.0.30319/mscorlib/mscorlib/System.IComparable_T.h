@@ -2,7 +2,7 @@
 //
 // Managed interface : IComparable<T>
 //
-@interface System_IComparable : DBMonoObjectRepresentation
+@interface System_IComparable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)compareTo_withOther:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withOther:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

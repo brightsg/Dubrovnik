@@ -2,7 +2,7 @@
 //
 // Managed class : WindowsRuntimeMetadata
 //
-@interface System_Runtime_InteropServices_WindowsRuntime_WindowsRuntimeMetadata : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_WindowsRuntime_WindowsRuntimeMetadata : System_Object
 
 #pragma mark -
 #pragma mark Setup

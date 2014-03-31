@@ -3,6 +3,12 @@
 //
 // Managed class : Hash
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_Hash
 
 #pragma mark -
@@ -32,28 +38,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
+	// Managed property name : MD5
+	// Managed property type : System.Byte[]
+    @synthesize mD5 = _mD5;
     - (NSData *)mD5
     {
-		MonoObject * monoObject = [self getMonoProperty:"MD5"];
-		NSData * result = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MD5"];
+		if ([self object:_mD5 isEqualToMonoObject:monoObject]) return _mD5;					
+		_mD5 = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _mD5;
 	}
 
-	// Managed type : System.Byte[]
+	// Managed property name : SHA1
+	// Managed property type : System.Byte[]
+    @synthesize sHA1 = _sHA1;
     - (NSData *)sHA1
     {
-		MonoObject * monoObject = [self getMonoProperty:"SHA1"];
-		NSData * result = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SHA1"];
+		if ([self object:_sHA1 isEqualToMonoObject:monoObject]) return _sHA1;					
+		_sHA1 = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _sHA1;
 	}
 
-	// Managed type : System.Byte[]
+	// Managed property name : SHA256
+	// Managed property type : System.Byte[]
+    @synthesize sHA256 = _sHA256;
     - (NSData *)sHA256
     {
-		MonoObject * monoObject = [self getMonoProperty:"SHA256"];
-		NSData * result = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SHA256"];
+		if ([self object:_sHA256 isEqualToMonoObject:monoObject]) return _sHA256;					
+		_sHA256 = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _sHA256;
 	}
 
 #pragma mark -
@@ -65,7 +83,7 @@
     - (System_Security_Policy_EvidenceBase *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [System_Security_Policy_EvidenceBase representationWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateMD5
@@ -74,7 +92,7 @@
     - (System_Security_Policy_Hash *)createMD5_withMd5:(NSData *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateMD5(byte[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Policy_Hash representationWithMonoObject:monoObject];
+		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSHA1
@@ -83,7 +101,7 @@
     - (System_Security_Policy_Hash *)createSHA1_withSha1:(NSData *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateSHA1(byte[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Policy_Hash representationWithMonoObject:monoObject];
+		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSHA256
@@ -92,7 +110,7 @@
     - (System_Security_Policy_Hash *)createSHA256_withSha256:(NSData *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateSHA256(byte[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Policy_Hash representationWithMonoObject:monoObject];
+		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenerateHash
@@ -120,5 +138,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

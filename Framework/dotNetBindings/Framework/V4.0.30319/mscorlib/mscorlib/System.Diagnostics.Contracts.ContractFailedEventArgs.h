@@ -22,23 +22,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)condition;
+	// Managed property name : Condition
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * condition;
 
-	// Managed type : System.Diagnostics.Contracts.ContractFailureKind
-    - (System_Diagnostics_Contracts_ContractFailureKind)failureKind;
+	// Managed property name : FailureKind
+	// Managed property type : System.Diagnostics.Contracts.ContractFailureKind
+    @property (nonatomic, readonly) System_Diagnostics_Contracts_ContractFailureKind failureKind;
 
-	// Managed type : System.Boolean
-    - (BOOL)handled;
+	// Managed property name : Handled
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL handled;
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 
-	// Managed type : System.Exception
-    - (System_Exception *)originalException;
+	// Managed property name : OriginalException
+	// Managed property type : System.Exception
+    @property (nonatomic, strong, readonly) System_Exception * originalException;
 
-	// Managed type : System.Boolean
-    - (BOOL)unwind;
+	// Managed property name : Unwind
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL unwind;
 
 #pragma mark -
 #pragma mark Methods

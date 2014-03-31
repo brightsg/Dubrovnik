@@ -3,6 +3,12 @@
 //
 // Managed class : ContractClassForAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_Contracts_ContractClassForAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : TypeContractsAreFor
+	// Managed property type : System.Type
+    @synthesize typeContractsAreFor = _typeContractsAreFor;
     - (System_Type *)typeContractsAreFor
     {
-		MonoObject * monoObject = [self getMonoProperty:"TypeContractsAreFor"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TypeContractsAreFor"];
+		if ([self object:_typeContractsAreFor isEqualToMonoObject:monoObject]) return _typeContractsAreFor;					
+		_typeContractsAreFor = [System_Type objectWithMonoObject:monoObject];
+
+		return _typeContractsAreFor;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

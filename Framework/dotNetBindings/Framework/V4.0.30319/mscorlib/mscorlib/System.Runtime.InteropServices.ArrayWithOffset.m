@@ -3,6 +3,12 @@
 //
 // Managed struct : ArrayWithOffset
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ArrayWithOffset
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ArrayWithOffset
 	// Managed param types : System.Object, System.Int32
-    + (System_Runtime_InteropServices_ArrayWithOffset *)new_withArray:(DBMonoObjectRepresentation *)p1 offset:(int32_t)p2
+    + (System_Runtime_InteropServices_ArrayWithOffset *)new_withArray:(System_Object *)p1 offset:(int32_t)p2
     {
 		return [[self alloc] initWithSignature:"object,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -35,7 +41,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -53,10 +59,10 @@
 	// Managed method name : GetArray
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getArray
+    - (System_Object *)getArray
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetArray()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -94,5 +100,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Runtime.InteropServices.ArrayWithOffset,System.Runtime.InteropServices.ArrayWithOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

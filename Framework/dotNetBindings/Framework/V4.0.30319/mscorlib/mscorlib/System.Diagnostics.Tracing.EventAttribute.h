@@ -22,32 +22,32 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)eventId;
-    - (void)setEventId:(int32_t)value;
+	// Managed property name : EventId
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t eventId;
 
-	// Managed type : System.Diagnostics.Tracing.EventKeywords
-    - (System_Diagnostics_Tracing_EventKeywords)keywords;
-    - (void)setKeywords:(System_Diagnostics_Tracing_EventKeywords)value;
+	// Managed property name : Keywords
+	// Managed property type : System.Diagnostics.Tracing.EventKeywords
+    @property (nonatomic) System_Diagnostics_Tracing_EventKeywords keywords;
 
-	// Managed type : System.Diagnostics.Tracing.EventLevel
-    - (System_Diagnostics_Tracing_EventLevel)level;
-    - (void)setLevel:(System_Diagnostics_Tracing_EventLevel)value;
+	// Managed property name : Level
+	// Managed property type : System.Diagnostics.Tracing.EventLevel
+    @property (nonatomic) System_Diagnostics_Tracing_EventLevel level;
 
-	// Managed type : System.String
-    - (NSString *)message;
-    - (void)setMessage:(NSString *)value;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * message;
 
-	// Managed type : System.Diagnostics.Tracing.EventOpcode
-    - (System_Diagnostics_Tracing_EventOpcode)opcode;
-    - (void)setOpcode:(System_Diagnostics_Tracing_EventOpcode)value;
+	// Managed property name : Opcode
+	// Managed property type : System.Diagnostics.Tracing.EventOpcode
+    @property (nonatomic) System_Diagnostics_Tracing_EventOpcode opcode;
 
-	// Managed type : System.Diagnostics.Tracing.EventTask
-    - (System_Diagnostics_Tracing_EventTask)task;
-    - (void)setTask:(System_Diagnostics_Tracing_EventTask)value;
+	// Managed property name : Task
+	// Managed property type : System.Diagnostics.Tracing.EventTask
+    @property (nonatomic) System_Diagnostics_Tracing_EventTask task;
 
-	// Managed type : System.Byte
-    - (uint8_t)version;
-    - (void)setVersion:(uint8_t)value;
+	// Managed property name : Version
+	// Managed property type : System.Byte
+    @property (nonatomic) uint8_t version;
 @end
 //--Dubrovnik.CodeGenerator

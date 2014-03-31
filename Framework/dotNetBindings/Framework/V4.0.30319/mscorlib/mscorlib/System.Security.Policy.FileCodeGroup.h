@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)attributeString;
+	// Managed property name : AttributeString
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * attributeString;
 
-	// Managed type : System.String
-    - (NSString *)mergeLogic;
+	// Managed property name : MergeLogic
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * mergeLogic;
 
-	// Managed type : System.String
-    - (NSString *)permissionSetName;
+	// Managed property name : PermissionSetName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * permissionSetName;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +45,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

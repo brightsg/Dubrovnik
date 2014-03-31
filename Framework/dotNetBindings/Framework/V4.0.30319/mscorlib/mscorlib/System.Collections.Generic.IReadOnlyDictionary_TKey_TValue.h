@@ -2,7 +2,7 @@
 //
 // Managed interface : IReadOnlyDictionary<TKey, TValue>
 //
-@interface System_Collections_Generic_IReadOnlyDictionary : DBMonoObjectRepresentation
+@interface System_Collections_Generic_IReadOnlyDictionary : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <TValue>
-    - (DBMonoObjectRepresentation *)item;
+	// Managed property name : Item
+	// Managed property type : <TValue>
+    @property (nonatomic, strong, readonly) DBManagedObject * item;
 
-	// Managed type : IEnumerable<TKey>
-    - (IEnumerable *)keys;
+	// Managed property name : Keys
+	// Managed property type : IEnumerable<TKey>
+    @property (nonatomic, strong, readonly) IEnumerable * keys;
 
-	// Managed type : IEnumerable<TValue>
-    - (IEnumerable *)values;
+	// Managed property name : Values
+	// Managed property type : IEnumerable<TValue>
+    @property (nonatomic, strong, readonly) IEnumerable * values;
 
 #pragma mark -
 #pragma mark Methods
@@ -29,11 +32,11 @@
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)containsKey_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)containsKey_withKey:(DBManagedObject *)p1;
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(DBMonoObjectRepresentation *)p1 valueRef:(TValue **)p2;
+    - (BOOL)tryGetValue_withKey:(DBManagedObject *)p1 valueRef:(TValue **)p2;
 @end
 //--Dubrovnik.CodeGenerator

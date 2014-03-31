@@ -37,31 +37,33 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.Task<TResult>
 	// Managed param types : Func<System.Object, TResult>, System.Object
-    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2;
+    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(System_Object *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.Task<TResult>
 	// Managed param types : Func<System.Object, TResult>, System.Object, System.Threading.CancellationToken
-    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.Task<TResult>
 	// Managed param types : Func<System.Object, TResult>, System.Object, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p3;
+    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(System_Object *)p2 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.Task<TResult>
 	// Managed param types : Func<System.Object, TResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p4;
+    + (System_Threading_Tasks_Task *)new_withFunction:(Func *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p4;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : TaskFactory<TResult>
+	// Managed property name : Factory
+	// Managed property type : TaskFactory<TResult>
     + (TaskFactory *)factory;
 
-	// Managed type : <TResult>
-    - (DBMonoObjectRepresentation *)result;
+	// Managed property name : Result
+	// Managed property type : <TResult>
+    @property (nonatomic, strong, readonly) DBManagedObject * result;
 
 #pragma mark -
 #pragma mark Methods
@@ -104,27 +106,27 @@
 	// Managed method name : ContinueWith
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : Action<System.Threading.Tasks.Task<TResult>, System.Object>, System.Object
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(System_Object *)p2;
 
 	// Managed method name : ContinueWith
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : Action<System.Threading.Tasks.Task<TResult>, System.Object>, System.Object, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(DBMonoObjectRepresentation *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	// Managed method name : ContinueWith
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : Action<System.Threading.Tasks.Task<TResult>, System.Object>, System.Object, System.Threading.Tasks.TaskScheduler
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(DBMonoObjectRepresentation *)p2 scheduler:(System_Threading_Tasks_TaskScheduler *)p3;
+    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(System_Object *)p2 scheduler:(System_Threading_Tasks_TaskScheduler *)p3;
 
 	// Managed method name : ContinueWith
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : Action<System.Threading.Tasks.Task<TResult>, System.Object>, System.Object, System.Threading.Tasks.TaskContinuationOptions
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(DBMonoObjectRepresentation *)p2 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3;
+    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(System_Object *)p2 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3;
 
 	// Managed method name : ContinueWith
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : Action<System.Threading.Tasks.Task<TResult>, System.Object>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(DBMonoObjectRepresentation *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5;
+    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(Action *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5;
 
 	// Managed method name : ContinueWith
 	// Managed return type : Task<TNewResult>
@@ -149,27 +151,27 @@
 	// Managed method name : ContinueWith
 	// Managed return type : Task<TNewResult>
 	// Managed param types : Func<System.Threading.Tasks.Task<TResult>, System.Object, TNewResult>, System.Object
-    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(System_Object *)p2;
 
 	// Managed method name : ContinueWith
 	// Managed return type : Task<TNewResult>
 	// Managed param types : Func<System.Threading.Tasks.Task<TResult>, System.Object, TNewResult>, System.Object, System.Threading.CancellationToken
-    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	// Managed method name : ContinueWith
 	// Managed return type : Task<TNewResult>
 	// Managed param types : Func<System.Threading.Tasks.Task<TResult>, System.Object, TNewResult>, System.Object, System.Threading.Tasks.TaskScheduler
-    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2 scheduler:(System_Threading_Tasks_TaskScheduler *)p3;
+    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(System_Object *)p2 scheduler:(System_Threading_Tasks_TaskScheduler *)p3;
 
 	// Managed method name : ContinueWith
 	// Managed return type : Task<TNewResult>
 	// Managed param types : Func<System.Threading.Tasks.Task<TResult>, System.Object, TNewResult>, System.Object, System.Threading.Tasks.TaskContinuationOptions
-    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3;
+    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(System_Object *)p2 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3;
 
 	// Managed method name : ContinueWith
 	// Managed return type : Task<TNewResult>
 	// Managed param types : Func<System.Threading.Tasks.Task<TResult>, System.Object, TNewResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
-    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(DBMonoObjectRepresentation *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5;
+    - (Task *)continueWith_withContinuationFunction:(Func *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5;
 
 	// Managed method name : GetAwaiter
 	// Managed return type : TaskAwaiter<TResult>

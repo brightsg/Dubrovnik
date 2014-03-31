@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isInvalid;
+	// Managed property name : IsInvalid
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isInvalid;
 @end
 //--Dubrovnik.CodeGenerator

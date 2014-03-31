@@ -2,7 +2,7 @@
 //
 // Managed class : EventListener
 //
-@interface System_Diagnostics_Tracing_EventListener : DBMonoObjectRepresentation
+@interface System_Diagnostics_Tracing_EventListener : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed class : Console
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Console
 
 #pragma mark -
@@ -21,298 +27,401 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ConsoleColor
+	// Managed property name : BackgroundColor
+	// Managed property type : System.ConsoleColor
+    static System_ConsoleColor m_backgroundColor;
     + (System_ConsoleColor)backgroundColor
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"BackgroundColor"];
-		System_ConsoleColor result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"BackgroundColor"];
+		m_backgroundColor = DB_UNBOX_INT32(monoObject);
+
+		return m_backgroundColor;
 	}
     + (void)setBackgroundColor:(System_ConsoleColor)value
 	{
+		m_backgroundColor = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"BackgroundColor" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : BufferHeight
+	// Managed property type : System.Int32
+    static int32_t m_bufferHeight;
     + (int32_t)bufferHeight
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"BufferHeight"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"BufferHeight"];
+		m_bufferHeight = DB_UNBOX_INT32(monoObject);
+
+		return m_bufferHeight;
 	}
     + (void)setBufferHeight:(int32_t)value
 	{
+		m_bufferHeight = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"BufferHeight" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : BufferWidth
+	// Managed property type : System.Int32
+    static int32_t m_bufferWidth;
     + (int32_t)bufferWidth
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"BufferWidth"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"BufferWidth"];
+		m_bufferWidth = DB_UNBOX_INT32(monoObject);
+
+		return m_bufferWidth;
 	}
     + (void)setBufferWidth:(int32_t)value
 	{
+		m_bufferWidth = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"BufferWidth" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : CapsLock
+	// Managed property type : System.Boolean
+    static BOOL m_capsLock;
     + (BOOL)capsLock
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CapsLock"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CapsLock"];
+		m_capsLock = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_capsLock;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : CursorLeft
+	// Managed property type : System.Int32
+    static int32_t m_cursorLeft;
     + (int32_t)cursorLeft
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CursorLeft"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorLeft"];
+		m_cursorLeft = DB_UNBOX_INT32(monoObject);
+
+		return m_cursorLeft;
 	}
     + (void)setCursorLeft:(int32_t)value
 	{
+		m_cursorLeft = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"CursorLeft" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : CursorSize
+	// Managed property type : System.Int32
+    static int32_t m_cursorSize;
     + (int32_t)cursorSize
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CursorSize"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorSize"];
+		m_cursorSize = DB_UNBOX_INT32(monoObject);
+
+		return m_cursorSize;
 	}
     + (void)setCursorSize:(int32_t)value
 	{
+		m_cursorSize = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"CursorSize" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : CursorTop
+	// Managed property type : System.Int32
+    static int32_t m_cursorTop;
     + (int32_t)cursorTop
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CursorTop"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorTop"];
+		m_cursorTop = DB_UNBOX_INT32(monoObject);
+
+		return m_cursorTop;
 	}
     + (void)setCursorTop:(int32_t)value
 	{
+		m_cursorTop = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"CursorTop" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : CursorVisible
+	// Managed property type : System.Boolean
+    static BOOL m_cursorVisible;
     + (BOOL)cursorVisible
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CursorVisible"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorVisible"];
+		m_cursorVisible = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_cursorVisible;
 	}
     + (void)setCursorVisible:(BOOL)value
 	{
+		m_cursorVisible = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"CursorVisible" valueObject:monoObject];          
 	}
 
-	// Managed type : System.IO.TextWriter
+	// Managed property name : Error
+	// Managed property type : System.IO.TextWriter
+    static System_IO_TextWriter * m_error;
     + (System_IO_TextWriter *)error
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Error"];
-		System_IO_TextWriter * result = [System_IO_TextWriter representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Error"];
+		if ([self object:m_error isEqualToMonoObject:monoObject]) return m_error;					
+		m_error = [System_IO_TextWriter objectWithMonoObject:monoObject];
+
+		return m_error;
 	}
 
-	// Managed type : System.ConsoleColor
+	// Managed property name : ForegroundColor
+	// Managed property type : System.ConsoleColor
+    static System_ConsoleColor m_foregroundColor;
     + (System_ConsoleColor)foregroundColor
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ForegroundColor"];
-		System_ConsoleColor result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ForegroundColor"];
+		m_foregroundColor = DB_UNBOX_INT32(monoObject);
+
+		return m_foregroundColor;
 	}
     + (void)setForegroundColor:(System_ConsoleColor)value
 	{
+		m_foregroundColor = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"ForegroundColor" valueObject:monoObject];          
 	}
 
-	// Managed type : System.IO.TextReader
+	// Managed property name : In
+	// Managed property type : System.IO.TextReader
+    static System_IO_TextReader * m_in;
     + (System_IO_TextReader *)in
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"In"];
-		System_IO_TextReader * result = [System_IO_TextReader representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"In"];
+		if ([self object:m_in isEqualToMonoObject:monoObject]) return m_in;					
+		m_in = [System_IO_TextReader objectWithMonoObject:monoObject];
+
+		return m_in;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : InputEncoding
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_inputEncoding;
     + (System_Text_Encoding *)inputEncoding
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"InputEncoding"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"InputEncoding"];
+		if ([self object:m_inputEncoding isEqualToMonoObject:monoObject]) return m_inputEncoding;					
+		m_inputEncoding = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_inputEncoding;
 	}
     + (void)setInputEncoding:(System_Text_Encoding *)value
 	{
+		m_inputEncoding = value;
 		MonoObject *monoObject = [value monoObject];
 		[[self class] setMonoClassProperty:"InputEncoding" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsErrorRedirected
+	// Managed property type : System.Boolean
+    static BOOL m_isErrorRedirected;
     + (BOOL)isErrorRedirected
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"IsErrorRedirected"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsErrorRedirected"];
+		m_isErrorRedirected = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_isErrorRedirected;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsInputRedirected
+	// Managed property type : System.Boolean
+    static BOOL m_isInputRedirected;
     + (BOOL)isInputRedirected
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"IsInputRedirected"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsInputRedirected"];
+		m_isInputRedirected = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_isInputRedirected;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsOutputRedirected
+	// Managed property type : System.Boolean
+    static BOOL m_isOutputRedirected;
     + (BOOL)isOutputRedirected
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"IsOutputRedirected"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsOutputRedirected"];
+		m_isOutputRedirected = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_isOutputRedirected;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : KeyAvailable
+	// Managed property type : System.Boolean
+    static BOOL m_keyAvailable;
     + (BOOL)keyAvailable
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"KeyAvailable"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"KeyAvailable"];
+		m_keyAvailable = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_keyAvailable;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : LargestWindowHeight
+	// Managed property type : System.Int32
+    static int32_t m_largestWindowHeight;
     + (int32_t)largestWindowHeight
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"LargestWindowHeight"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"LargestWindowHeight"];
+		m_largestWindowHeight = DB_UNBOX_INT32(monoObject);
+
+		return m_largestWindowHeight;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : LargestWindowWidth
+	// Managed property type : System.Int32
+    static int32_t m_largestWindowWidth;
     + (int32_t)largestWindowWidth
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"LargestWindowWidth"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"LargestWindowWidth"];
+		m_largestWindowWidth = DB_UNBOX_INT32(monoObject);
+
+		return m_largestWindowWidth;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : NumberLock
+	// Managed property type : System.Boolean
+    static BOOL m_numberLock;
     + (BOOL)numberLock
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"NumberLock"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"NumberLock"];
+		m_numberLock = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_numberLock;
 	}
 
-	// Managed type : System.IO.TextWriter
+	// Managed property name : Out
+	// Managed property type : System.IO.TextWriter
+    static System_IO_TextWriter * m_out;
     + (System_IO_TextWriter *)out
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Out"];
-		System_IO_TextWriter * result = [System_IO_TextWriter representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Out"];
+		if ([self object:m_out isEqualToMonoObject:monoObject]) return m_out;					
+		m_out = [System_IO_TextWriter objectWithMonoObject:monoObject];
+
+		return m_out;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : OutputEncoding
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_outputEncoding;
     + (System_Text_Encoding *)outputEncoding
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"OutputEncoding"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"OutputEncoding"];
+		if ([self object:m_outputEncoding isEqualToMonoObject:monoObject]) return m_outputEncoding;					
+		m_outputEncoding = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_outputEncoding;
 	}
     + (void)setOutputEncoding:(System_Text_Encoding *)value
 	{
+		m_outputEncoding = value;
 		MonoObject *monoObject = [value monoObject];
 		[[self class] setMonoClassProperty:"OutputEncoding" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : Title
+	// Managed property type : System.String
+    static NSString * m_title;
     + (NSString *)title
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Title"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Title"];
+		if ([self object:m_title isEqualToMonoObject:monoObject]) return m_title;					
+		m_title = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_title;
 	}
     + (void)setTitle:(NSString *)value
 	{
+		m_title = value;
 		MonoObject *monoObject = [value monoValue];
 		[[self class] setMonoClassProperty:"Title" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : TreatControlCAsInput
+	// Managed property type : System.Boolean
+    static BOOL m_treatControlCAsInput;
     + (BOOL)treatControlCAsInput
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"TreatControlCAsInput"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"TreatControlCAsInput"];
+		m_treatControlCAsInput = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_treatControlCAsInput;
 	}
     + (void)setTreatControlCAsInput:(BOOL)value
 	{
+		m_treatControlCAsInput = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"TreatControlCAsInput" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : WindowHeight
+	// Managed property type : System.Int32
+    static int32_t m_windowHeight;
     + (int32_t)windowHeight
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"WindowHeight"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowHeight"];
+		m_windowHeight = DB_UNBOX_INT32(monoObject);
+
+		return m_windowHeight;
 	}
     + (void)setWindowHeight:(int32_t)value
 	{
+		m_windowHeight = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"WindowHeight" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : WindowLeft
+	// Managed property type : System.Int32
+    static int32_t m_windowLeft;
     + (int32_t)windowLeft
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"WindowLeft"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowLeft"];
+		m_windowLeft = DB_UNBOX_INT32(monoObject);
+
+		return m_windowLeft;
 	}
     + (void)setWindowLeft:(int32_t)value
 	{
+		m_windowLeft = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"WindowLeft" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : WindowTop
+	// Managed property type : System.Int32
+    static int32_t m_windowTop;
     + (int32_t)windowTop
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"WindowTop"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowTop"];
+		m_windowTop = DB_UNBOX_INT32(monoObject);
+
+		return m_windowTop;
 	}
     + (void)setWindowTop:(int32_t)value
 	{
+		m_windowTop = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"WindowTop" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : WindowWidth
+	// Managed property type : System.Int32
+    static int32_t m_windowWidth;
     + (int32_t)windowWidth
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"WindowWidth"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowWidth"];
+		m_windowWidth = DB_UNBOX_INT32(monoObject);
+
+		return m_windowWidth;
 	}
     + (void)setWindowWidth:(int32_t)value
 	{
+		m_windowWidth = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"WindowWidth" valueObject:monoObject];          
 	}
@@ -366,7 +475,7 @@
     - (System_IO_Stream *)openStandardError
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenStandardError()" withNumArgs:0];
-		return [System_IO_Stream representationWithMonoObject:monoObject];
+		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardError
@@ -375,7 +484,7 @@
     - (System_IO_Stream *)openStandardError_withBufferSize:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenStandardError(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_IO_Stream representationWithMonoObject:monoObject];
+		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardInput
@@ -384,7 +493,7 @@
     - (System_IO_Stream *)openStandardInput
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenStandardInput()" withNumArgs:0];
-		return [System_IO_Stream representationWithMonoObject:monoObject];
+		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardInput
@@ -393,7 +502,7 @@
     - (System_IO_Stream *)openStandardInput_withBufferSize:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenStandardInput(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_IO_Stream representationWithMonoObject:monoObject];
+		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardOutput
@@ -402,7 +511,7 @@
     - (System_IO_Stream *)openStandardOutput
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenStandardOutput()" withNumArgs:0];
-		return [System_IO_Stream representationWithMonoObject:monoObject];
+		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardOutput
@@ -411,7 +520,7 @@
     - (System_IO_Stream *)openStandardOutput_withBufferSize:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenStandardOutput(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_IO_Stream representationWithMonoObject:monoObject];
+		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Read
@@ -429,7 +538,7 @@
     - (System_ConsoleKeyInfo *)readKey
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadKey()" withNumArgs:0];
-		return [System_ConsoleKeyInfo representationWithMonoObject:monoObject];
+		return [System_ConsoleKeyInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadKey
@@ -438,7 +547,7 @@
     - (System_ConsoleKeyInfo *)readKey_withIntercept:(BOOL)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadKey(bool)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_ConsoleKeyInfo representationWithMonoObject:monoObject];
+		return [System_ConsoleKeyInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadLine
@@ -517,7 +626,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Write(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -525,7 +634,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
 		[self invokeMonoMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -533,7 +642,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
 		[self invokeMonoMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
@@ -541,7 +650,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4 arg3:(DBMonoObjectRepresentation *)p5
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
 		[self invokeMonoMethod:"Write(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
     }
@@ -645,7 +754,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)write_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (void)write_withValueObject:(System_Object *)p1
     {
 		[self invokeMonoMethod:"Write(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -757,7 +866,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)writeLine_withValueObject:(DBMonoObjectRepresentation *)p1
+    - (void)writeLine_withValueObject:(System_Object *)p1
     {
 		[self invokeMonoMethod:"WriteLine(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -773,7 +882,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
 		[self invokeMonoMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -781,7 +890,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
 		[self invokeMonoMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -789,7 +898,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
 		[self invokeMonoMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
@@ -797,7 +906,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4 arg3:(DBMonoObjectRepresentation *)p5
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
 		[self invokeMonoMethod:"WriteLine(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
     }
@@ -809,5 +918,17 @@
     {
 		[self invokeMonoMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_error = nil;
+		m_in = nil;
+		m_inputEncoding = nil;
+		m_out = nil;
+		m_outputEncoding = nil;
+		m_title = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

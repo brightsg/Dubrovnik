@@ -22,7 +22,7 @@
 	// Managed method name : CreateProxy
 	// Managed return type : System.Runtime.Remoting.Proxies.RealProxy
 	// Managed param types : System.Runtime.Remoting.ObjRef, System.Type, System.Object, System.Runtime.Remoting.Contexts.Context
-    - (System_Runtime_Remoting_Proxies_RealProxy *)createProxy_withObjRef:(System_Runtime_Remoting_ObjRef *)p1 serverType:(System_Type *)p2 serverObject:(DBMonoObjectRepresentation *)p3 serverContext:(System_Runtime_Remoting_Contexts_Context *)p4;
+    - (System_Runtime_Remoting_Proxies_RealProxy *)createProxy_withObjRef:(System_Runtime_Remoting_ObjRef *)p1 serverType:(System_Type *)p2 serverObject:(System_Object *)p3 serverContext:(System_Runtime_Remoting_Contexts_Context *)p4;
 
 	// Managed method name : GetPropertiesForNewContext
 	// Managed return type : System.Void

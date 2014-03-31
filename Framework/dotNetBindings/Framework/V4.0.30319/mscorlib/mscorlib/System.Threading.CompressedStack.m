@@ -3,6 +3,12 @@
 //
 // Managed class : CompressedStack
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_CompressedStack
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Threading_CompressedStack *)capture
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Capture()" withNumArgs:0];
-		return [System_Threading_CompressedStack representationWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateCopy
@@ -36,7 +42,7 @@
     - (System_Threading_CompressedStack *)createCopy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
-		return [System_Threading_CompressedStack representationWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCompressedStack
@@ -45,7 +51,7 @@
     - (System_Threading_CompressedStack *)getCompressedStack
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCompressedStack()" withNumArgs:0];
-		return [System_Threading_CompressedStack representationWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -59,9 +65,15 @@
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.CompressedStack, System.Threading.ContextCallback, System.Object
-    - (void)run_withCompressedStack:(System_Threading_CompressedStack *)p1 callback:(System_Threading_ContextCallback *)p2 state:(DBMonoObjectRepresentation *)p3
+    - (void)run_withCompressedStack:(System_Threading_CompressedStack *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
     {
 		[self invokeMonoMethod:"Run(System.Threading.CompressedStack,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed interface : IMessageSink
 //
-@interface System_Runtime_Remoting_Messaging_IMessageSink : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_IMessageSink : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)nextSink;
+	// Managed property name : NextSink
+	// Managed property type : System.Runtime.Remoting.Messaging.IMessageSink
+    @property (nonatomic, strong, readonly) System_Runtime_Remoting_Messaging_IMessageSink * nextSink;
 
 #pragma mark -
 #pragma mark Methods

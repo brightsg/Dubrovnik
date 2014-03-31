@@ -27,10 +27,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)requestingAssembly;
+	// Managed property name : RequestingAssembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * requestingAssembly;
 @end
 //--Dubrovnik.CodeGenerator

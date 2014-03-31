@@ -37,23 +37,28 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : MaxBinaryLength
+	// Managed field type : System.Int32
     + (int32_t)maxBinaryLength;
 
-	// Managed type : System.Int32
+	// Managed field name : MinBinaryLength
+	// Managed field type : System.Int32
     + (int32_t)minBinaryLength;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)accountDomainSid;
+	// Managed property name : AccountDomainSid
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong, readonly) System_Security_Principal_SecurityIdentifier * accountDomainSid;
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.String
-    - (NSString *)value;
+	// Managed property name : Value
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * value;
 
 #pragma mark -
 #pragma mark Methods
@@ -66,7 +71,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

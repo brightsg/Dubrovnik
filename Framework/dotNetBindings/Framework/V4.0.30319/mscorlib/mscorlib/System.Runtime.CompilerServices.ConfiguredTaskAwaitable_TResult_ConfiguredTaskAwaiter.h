@@ -2,7 +2,7 @@
 //
 // Managed struct : ConfiguredTaskAwaitable<TResult>.ConfiguredTaskAwaiter
 //
-@interface System_Runtime_CompilerServices_ConfiguredTaskAwaitable : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_ConfiguredTaskAwaitable : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isCompleted;
+	// Managed property name : IsCompleted
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCompleted;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,7 +24,7 @@
 	// Managed method name : GetResult
 	// Managed return type : <TResult>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getResult;
+    - (DBManagedObject *)getResult;
 
 	// Managed method name : OnCompleted
 	// Managed return type : System.Void

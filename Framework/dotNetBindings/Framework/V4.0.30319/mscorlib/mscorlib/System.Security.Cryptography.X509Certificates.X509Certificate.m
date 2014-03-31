@@ -3,6 +3,12 @@
 //
 // Managed class : X509Certificate
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_X509Certificates_X509Certificate
 
 #pragma mark -
@@ -128,28 +134,39 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IntPtr
+	// Managed property name : Handle
+	// Managed property type : System.IntPtr
+    @synthesize handle = _handle;
     - (void *)handle
     {
-		MonoObject * monoObject = [self getMonoProperty:"Handle"];
-		void * result = DB_UNBOX_PTR(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Handle"];
+		_handle = DB_UNBOX_PTR(monoObject);
+
+		return _handle;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Issuer
+	// Managed property type : System.String
+    @synthesize issuer = _issuer;
     - (NSString *)issuer
     {
-		MonoObject * monoObject = [self getMonoProperty:"Issuer"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Issuer"];
+		if ([self object:_issuer isEqualToMonoObject:monoObject]) return _issuer;					
+		_issuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _issuer;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Subject
+	// Managed property type : System.String
+    @synthesize subject = _subject;
     - (NSString *)subject
     {
-		MonoObject * monoObject = [self getMonoProperty:"Subject"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Subject"];
+		if ([self object:_subject isEqualToMonoObject:monoObject]) return _subject;					
+		_subject = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _subject;
 	}
 
 #pragma mark -
@@ -161,7 +178,7 @@
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromCertFile_withFilename:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromCertFile(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Cryptography_X509Certificates_X509Certificate representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFromSignedFile
@@ -170,13 +187,13 @@
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromSignedFile_withFilename:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromSignedFile(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Cryptography_X509Certificates_X509Certificate representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -444,5 +461,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(bool)" withNumArgs:1, DB_VALUE(p1)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

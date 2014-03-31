@@ -2,7 +2,7 @@
 //
 // Managed class : NumberFormatInfo
 //
-@interface System_Globalization_NumberFormatInfo : DBMonoObjectRepresentation
+@interface System_Globalization_NumberFormatInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,122 +14,125 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)currencyDecimalDigits;
-    - (void)setCurrencyDecimalDigits:(int32_t)value;
+	// Managed property name : CurrencyDecimalDigits
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t currencyDecimalDigits;
 
-	// Managed type : System.String
-    - (NSString *)currencyDecimalSeparator;
-    - (void)setCurrencyDecimalSeparator:(NSString *)value;
+	// Managed property name : CurrencyDecimalSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * currencyDecimalSeparator;
 
-	// Managed type : System.String
-    - (NSString *)currencyGroupSeparator;
-    - (void)setCurrencyGroupSeparator:(NSString *)value;
+	// Managed property name : CurrencyGroupSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * currencyGroupSeparator;
 
-	// Managed type : System.Int32[]
-    - (DBSystem_Array *)currencyGroupSizes;
-    - (void)setCurrencyGroupSizes:(DBSystem_Array *)value;
+	// Managed property name : CurrencyGroupSizes
+	// Managed property type : System.Int32[]
+    @property (nonatomic, strong) DBSystem_Array * currencyGroupSizes;
 
-	// Managed type : System.Int32
-    - (int32_t)currencyNegativePattern;
-    - (void)setCurrencyNegativePattern:(int32_t)value;
+	// Managed property name : CurrencyNegativePattern
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t currencyNegativePattern;
 
-	// Managed type : System.Int32
-    - (int32_t)currencyPositivePattern;
-    - (void)setCurrencyPositivePattern:(int32_t)value;
+	// Managed property name : CurrencyPositivePattern
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t currencyPositivePattern;
 
-	// Managed type : System.String
-    - (NSString *)currencySymbol;
-    - (void)setCurrencySymbol:(NSString *)value;
+	// Managed property name : CurrencySymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * currencySymbol;
 
-	// Managed type : System.Globalization.NumberFormatInfo
+	// Managed property name : CurrentInfo
+	// Managed property type : System.Globalization.NumberFormatInfo
     + (System_Globalization_NumberFormatInfo *)currentInfo;
 
-	// Managed type : System.Globalization.DigitShapes
-    - (System_Globalization_DigitShapes)digitSubstitution;
-    - (void)setDigitSubstitution:(System_Globalization_DigitShapes)value;
+	// Managed property name : DigitSubstitution
+	// Managed property type : System.Globalization.DigitShapes
+    @property (nonatomic) System_Globalization_DigitShapes digitSubstitution;
 
-	// Managed type : System.Globalization.NumberFormatInfo
+	// Managed property name : InvariantInfo
+	// Managed property type : System.Globalization.NumberFormatInfo
     + (System_Globalization_NumberFormatInfo *)invariantInfo;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.String
-    - (NSString *)naNSymbol;
-    - (void)setNaNSymbol:(NSString *)value;
+	// Managed property name : NaNSymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * naNSymbol;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)nativeDigits;
-    - (void)setNativeDigits:(DBSystem_Array *)value;
+	// Managed property name : NativeDigits
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * nativeDigits;
 
-	// Managed type : System.String
-    - (NSString *)negativeInfinitySymbol;
-    - (void)setNegativeInfinitySymbol:(NSString *)value;
+	// Managed property name : NegativeInfinitySymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * negativeInfinitySymbol;
 
-	// Managed type : System.String
-    - (NSString *)negativeSign;
-    - (void)setNegativeSign:(NSString *)value;
+	// Managed property name : NegativeSign
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * negativeSign;
 
-	// Managed type : System.Int32
-    - (int32_t)numberDecimalDigits;
-    - (void)setNumberDecimalDigits:(int32_t)value;
+	// Managed property name : NumberDecimalDigits
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t numberDecimalDigits;
 
-	// Managed type : System.String
-    - (NSString *)numberDecimalSeparator;
-    - (void)setNumberDecimalSeparator:(NSString *)value;
+	// Managed property name : NumberDecimalSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * numberDecimalSeparator;
 
-	// Managed type : System.String
-    - (NSString *)numberGroupSeparator;
-    - (void)setNumberGroupSeparator:(NSString *)value;
+	// Managed property name : NumberGroupSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * numberGroupSeparator;
 
-	// Managed type : System.Int32[]
-    - (DBSystem_Array *)numberGroupSizes;
-    - (void)setNumberGroupSizes:(DBSystem_Array *)value;
+	// Managed property name : NumberGroupSizes
+	// Managed property type : System.Int32[]
+    @property (nonatomic, strong) DBSystem_Array * numberGroupSizes;
 
-	// Managed type : System.Int32
-    - (int32_t)numberNegativePattern;
-    - (void)setNumberNegativePattern:(int32_t)value;
+	// Managed property name : NumberNegativePattern
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t numberNegativePattern;
 
-	// Managed type : System.Int32
-    - (int32_t)percentDecimalDigits;
-    - (void)setPercentDecimalDigits:(int32_t)value;
+	// Managed property name : PercentDecimalDigits
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t percentDecimalDigits;
 
-	// Managed type : System.String
-    - (NSString *)percentDecimalSeparator;
-    - (void)setPercentDecimalSeparator:(NSString *)value;
+	// Managed property name : PercentDecimalSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * percentDecimalSeparator;
 
-	// Managed type : System.String
-    - (NSString *)percentGroupSeparator;
-    - (void)setPercentGroupSeparator:(NSString *)value;
+	// Managed property name : PercentGroupSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * percentGroupSeparator;
 
-	// Managed type : System.Int32[]
-    - (DBSystem_Array *)percentGroupSizes;
-    - (void)setPercentGroupSizes:(DBSystem_Array *)value;
+	// Managed property name : PercentGroupSizes
+	// Managed property type : System.Int32[]
+    @property (nonatomic, strong) DBSystem_Array * percentGroupSizes;
 
-	// Managed type : System.Int32
-    - (int32_t)percentNegativePattern;
-    - (void)setPercentNegativePattern:(int32_t)value;
+	// Managed property name : PercentNegativePattern
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t percentNegativePattern;
 
-	// Managed type : System.Int32
-    - (int32_t)percentPositivePattern;
-    - (void)setPercentPositivePattern:(int32_t)value;
+	// Managed property name : PercentPositivePattern
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t percentPositivePattern;
 
-	// Managed type : System.String
-    - (NSString *)percentSymbol;
-    - (void)setPercentSymbol:(NSString *)value;
+	// Managed property name : PercentSymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * percentSymbol;
 
-	// Managed type : System.String
-    - (NSString *)perMilleSymbol;
-    - (void)setPerMilleSymbol:(NSString *)value;
+	// Managed property name : PerMilleSymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * perMilleSymbol;
 
-	// Managed type : System.String
-    - (NSString *)positiveInfinitySymbol;
-    - (void)setPositiveInfinitySymbol:(NSString *)value;
+	// Managed property name : PositiveInfinitySymbol
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * positiveInfinitySymbol;
 
-	// Managed type : System.String
-    - (NSString *)positiveSign;
-    - (void)setPositiveSign:(NSString *)value;
+	// Managed property name : PositiveSign
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * positiveSign;
 
 #pragma mark -
 #pragma mark Methods
@@ -137,12 +140,12 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : GetFormat
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getFormat_withFormatType:(System_Type *)p1;
+    - (System_Object *)getFormat_withFormatType:(System_Type *)p1;
 
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.NumberFormatInfo

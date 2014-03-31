@@ -2,7 +2,7 @@
 //
 // Managed interface : _FieldBuilder
 //
-@interface System_Runtime_InteropServices__FieldBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__FieldBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

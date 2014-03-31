@@ -3,6 +3,12 @@
 //
 // Managed interface : IEnumerable<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_IEnumerable
 
 #pragma mark -
@@ -27,7 +33,13 @@
     - (IEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [IEnumerator representationWithMonoObject:monoObject];
+		return [IEnumerator objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,8 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.SecurityZone
-    - (System_Security_SecurityZone)securityZone;
+	// Managed property name : SecurityZone
+	// Managed property type : System.Security.SecurityZone
+    @property (nonatomic, readonly) System_Security_SecurityZone securityZone;
 
 #pragma mark -
 #pragma mark Methods
@@ -36,7 +37,7 @@
 	// Managed method name : Copy
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)copy;
+    - (System_Object *)copy;
 
 	// Managed method name : CreateFromUrl
 	// Managed return type : System.Security.Policy.Zone
@@ -51,7 +52,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

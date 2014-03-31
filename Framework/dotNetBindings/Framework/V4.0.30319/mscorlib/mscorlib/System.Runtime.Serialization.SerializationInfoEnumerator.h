@@ -2,7 +2,7 @@
 //
 // Managed class : SerializationInfoEnumerator
 //
-@interface System_Runtime_Serialization_SerializationInfoEnumerator : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_SerializationInfoEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Serialization.SerializationEntry
-    - (System_Runtime_Serialization_SerializationEntry *)current;
+	// Managed property name : Current
+	// Managed property type : System.Runtime.Serialization.SerializationEntry
+    @property (nonatomic, strong, readonly) System_Runtime_Serialization_SerializationEntry * current;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)objectType;
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * objectType;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * value;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed interface : ICustomFactory
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ICustomFactory
 
 #pragma mark -
@@ -27,7 +33,13 @@
     - (System_MarshalByRefObject *)createInstance_withServerType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_MarshalByRefObject representationWithMonoObject:monoObject];
+		return [System_MarshalByRefObject objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : CryptoConfig
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_CryptoConfig
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : AllowOnlyFipsAlgorithms
+	// Managed property type : System.Boolean
+    static BOOL m_allowOnlyFipsAlgorithms;
     + (BOOL)allowOnlyFipsAlgorithms
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"AllowOnlyFipsAlgorithms"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"AllowOnlyFipsAlgorithms"];
+		m_allowOnlyFipsAlgorithms = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_allowOnlyFipsAlgorithms;
 	}
 
 #pragma mark -
@@ -51,19 +60,19 @@
 	// Managed method name : CreateFromName
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Object[]
-    - (DBMonoObjectRepresentation *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2
+    - (System_Object *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromName(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFromName
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)createFromName_withName:(NSString *)p1
+    - (System_Object *)createFromName_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromName(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EncodeOID
@@ -83,5 +92,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"MapNameToOID(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : ThreadPool
 //
-@interface System_Threading_ThreadPool : DBMonoObjectRepresentation
+@interface System_Threading_ThreadPool : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,7 +42,7 @@
 	// Managed method name : QueueUserWorkItem
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitCallback, System.Object
-    - (BOOL)queueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)queueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(System_Object *)p2;
 
 	// Managed method name : QueueUserWorkItem
 	// Managed return type : System.Boolean
@@ -52,22 +52,22 @@
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.UInt32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5;
 
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5;
 
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int64, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5;
 
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.TimeSpan, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(DBMonoObjectRepresentation *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(System_Object *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5;
 
 	// Managed method name : SetMaxThreads
 	// Managed return type : System.Boolean
@@ -87,26 +87,26 @@
 	// Managed method name : UnsafeQueueUserWorkItem
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitCallback, System.Object
-    - (BOOL)unsafeQueueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)unsafeQueueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(System_Object *)p2;
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.UInt32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5;
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5;
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int64, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5;
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.TimeSpan, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(DBMonoObjectRepresentation *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5;
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(System_Object *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5;
 @end
 //--Dubrovnik.CodeGenerator

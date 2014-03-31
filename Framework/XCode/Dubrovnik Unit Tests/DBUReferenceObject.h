@@ -21,7 +21,7 @@
 //
 // Mono struct ReferenceStruct
 //
-@interface DBUReferenceStruct : DBManagedObject
+@interface DBUReferenceStruct : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -61,7 +61,7 @@
 - (NSString *)stringMethodWithS1:(NSString *)p1;
 @end
 
-@interface DBUReferenceObject : DBManagedObject
+@interface DBUReferenceObject : System_Object
 
 // constructors
 + (id)new_withValue:(NSString *)p1;

@@ -2,7 +2,7 @@
 //
 // Managed class : Partitioner
 //
-@interface System_Collections_Concurrent_Partitioner : DBMonoObjectRepresentation
+@interface System_Collections_Concurrent_Partitioner : System_Object
 
 #pragma mark -
 #pragma mark Setup

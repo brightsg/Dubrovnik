@@ -2,7 +2,7 @@
 //
 // Managed interface : IObservable<T>
 //
-@interface System_IObservable : DBMonoObjectRepresentation
+@interface System_IObservable : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed class : SecurityElement
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_SecurityElement
 
 #pragma mark -
@@ -40,54 +46,74 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Hashtable
+	// Managed property name : Attributes
+	// Managed property type : System.Collections.Hashtable
+    @synthesize attributes = _attributes;
     - (System_Collections_Hashtable *)attributes
     {
-		MonoObject * monoObject = [self getMonoProperty:"Attributes"];
-		System_Collections_Hashtable * result = [System_Collections_Hashtable representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Attributes"];
+		if ([self object:_attributes isEqualToMonoObject:monoObject]) return _attributes;					
+		_attributes = [System_Collections_Hashtable objectWithMonoObject:monoObject];
+
+		return _attributes;
 	}
     - (void)setAttributes:(System_Collections_Hashtable *)value
 	{
+		_attributes = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Attributes" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.ArrayList
+	// Managed property name : Children
+	// Managed property type : System.Collections.ArrayList
+    @synthesize children = _children;
     - (DBSystem_Collections_ArrayList *)children
     {
-		MonoObject * monoObject = [self getMonoProperty:"Children"];
-		DBSystem_Collections_ArrayList * result = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Children"];
+		if ([self object:_children isEqualToMonoObject:monoObject]) return _children;					
+		_children = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+
+		return _children;
 	}
     - (void)setChildren:(DBSystem_Collections_ArrayList *)value
 	{
+		_children = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Children" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : Tag
+	// Managed property type : System.String
+    @synthesize tag = _tag;
     - (NSString *)tag
     {
-		MonoObject * monoObject = [self getMonoProperty:"Tag"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Tag"];
+		if ([self object:_tag isEqualToMonoObject:monoObject]) return _tag;					
+		_tag = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _tag;
 	}
     - (void)setTag:(NSString *)value
 	{
+		_tag = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Tag" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : Text
+	// Managed property type : System.String
+    @synthesize text = _text;
     - (NSString *)text
     {
-		MonoObject * monoObject = [self getMonoProperty:"Text"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Text"];
+		if ([self object:_text isEqualToMonoObject:monoObject]) return _text;					
+		_text = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _text;
 	}
     - (void)setText:(NSString *)value
 	{
+		_text = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Text" valueObject:monoObject];          
 	}
@@ -126,7 +152,7 @@
     - (System_Security_SecurityElement *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equal
@@ -153,7 +179,7 @@
     - (System_Security_SecurityElement *)fromString_withXml:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FromString(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsValidAttributeName
@@ -198,7 +224,7 @@
     - (System_Security_SecurityElement *)searchForChildByTag_withTag:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"SearchForChildByTag(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SearchForTextOfTag
@@ -218,5 +244,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

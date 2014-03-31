@@ -3,6 +3,12 @@
 //
 // Managed struct : AsyncTaskMethodBuilder<TResult>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_AsyncTaskMethodBuilder
 
 #pragma mark -
@@ -21,13 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : Task<TResult>
+	// Managed property name : Task
+	// Managed property type : Task<TResult>
+    @synthesize task = _task;
     - (Task *)task
     {
-		MonoObject * monoObject = [self getMonoProperty:"Task"];
-		Task * result = [Task representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"TResult";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Task"];
+		if ([self object:_task isEqualToMonoObject:monoObject]) return _task;					
+		_task = [Task objectWithMonoObject:monoObject];
+
+		return _task;
 	}
 
 #pragma mark -
@@ -55,7 +64,7 @@
     - (System_Runtime_CompilerServices_AsyncTaskMethodBuilder *)create
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
-		return [System_Runtime_CompilerServices_AsyncTaskMethodBuilder representationWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_AsyncTaskMethodBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetException
@@ -69,7 +78,7 @@
 	// Managed method name : SetResult
 	// Managed return type : System.Void
 	// Managed param types : <TResult>
-    - (void)setResult_withResult:(DBMonoObjectRepresentation *)p1
+    - (void)setResult_withResult:(DBManagedObject *)p1
     {
 		[self invokeMonoMethod:"SetResult(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
     }
@@ -89,5 +98,11 @@
     {
 		[self invokeMonoMethod:"Start(TStateMachine&)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

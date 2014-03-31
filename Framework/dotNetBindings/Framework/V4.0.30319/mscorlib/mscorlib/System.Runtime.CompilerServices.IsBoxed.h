@@ -2,7 +2,7 @@
 //
 // Managed class : IsBoxed
 //
-@interface System_Runtime_CompilerServices_IsBoxed : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsBoxed : System_Object
 
 #pragma mark -
 #pragma mark Setup

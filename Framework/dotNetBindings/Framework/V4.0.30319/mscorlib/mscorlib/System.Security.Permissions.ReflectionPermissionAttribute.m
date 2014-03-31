@@ -3,6 +3,12 @@
 //
 // Managed class : ReflectionPermissionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_ReflectionPermissionAttribute
 
 #pragma mark -
@@ -32,67 +38,87 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.ReflectionPermissionFlag
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.ReflectionPermissionFlag
+    @synthesize flags = _flags;
     - (System_Security_Permissions_ReflectionPermissionFlag)flags
     {
-		MonoObject * monoObject = [self getMonoProperty:"Flags"];
-		System_Security_Permissions_ReflectionPermissionFlag result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Flags"];
+		_flags = DB_UNBOX_INT32(monoObject);
+
+		return _flags;
 	}
     - (void)setFlags:(System_Security_Permissions_ReflectionPermissionFlag)value
 	{
+		_flags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Flags" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : MemberAccess
+	// Managed property type : System.Boolean
+    @synthesize memberAccess = _memberAccess;
     - (BOOL)memberAccess
     {
-		MonoObject * monoObject = [self getMonoProperty:"MemberAccess"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MemberAccess"];
+		_memberAccess = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _memberAccess;
 	}
     - (void)setMemberAccess:(BOOL)value
 	{
+		_memberAccess = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"MemberAccess" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : ReflectionEmit
+	// Managed property type : System.Boolean
+    @synthesize reflectionEmit = _reflectionEmit;
     - (BOOL)reflectionEmit
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReflectionEmit"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ReflectionEmit"];
+		_reflectionEmit = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _reflectionEmit;
 	}
     - (void)setReflectionEmit:(BOOL)value
 	{
+		_reflectionEmit = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ReflectionEmit" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : RestrictedMemberAccess
+	// Managed property type : System.Boolean
+    @synthesize restrictedMemberAccess = _restrictedMemberAccess;
     - (BOOL)restrictedMemberAccess
     {
-		MonoObject * monoObject = [self getMonoProperty:"RestrictedMemberAccess"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RestrictedMemberAccess"];
+		_restrictedMemberAccess = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _restrictedMemberAccess;
 	}
     - (void)setRestrictedMemberAccess:(BOOL)value
 	{
+		_restrictedMemberAccess = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"RestrictedMemberAccess" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : TypeInformation
+	// Managed property type : System.Boolean
+    @synthesize typeInformation = _typeInformation;
     - (BOOL)typeInformation
     {
-		MonoObject * monoObject = [self getMonoProperty:"TypeInformation"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TypeInformation"];
+		_typeInformation = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _typeInformation;
 	}
     - (void)setTypeInformation:(BOOL)value
 	{
+		_typeInformation = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"TypeInformation" valueObject:monoObject];          
 	}
@@ -106,7 +132,13 @@
     - (System_Security_IPermission *)createPermission
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

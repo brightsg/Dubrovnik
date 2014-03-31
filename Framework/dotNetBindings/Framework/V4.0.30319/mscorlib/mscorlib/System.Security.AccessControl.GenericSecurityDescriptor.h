@@ -2,7 +2,7 @@
 //
 // Managed class : GenericSecurityDescriptor
 //
-@interface System_Security_AccessControl_GenericSecurityDescriptor : DBMonoObjectRepresentation
+@interface System_Security_AccessControl_GenericSecurityDescriptor : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,21 +14,24 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.Security.AccessControl.ControlFlags
-    - (System_Security_AccessControl_ControlFlags)controlFlags;
+	// Managed property name : ControlFlags
+	// Managed property type : System.Security.AccessControl.ControlFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_ControlFlags controlFlags;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)group;
-    - (void)setGroup:(System_Security_Principal_SecurityIdentifier *)value;
+	// Managed property name : Group
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong) System_Security_Principal_SecurityIdentifier * group;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)owner;
-    - (void)setOwner:(System_Security_Principal_SecurityIdentifier *)value;
+	// Managed property name : Owner
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong) System_Security_Principal_SecurityIdentifier * owner;
 
-	// Managed type : System.Byte
+	// Managed property name : Revision
+	// Managed property type : System.Byte
     + (uint8_t)revision;
 
 #pragma mark -

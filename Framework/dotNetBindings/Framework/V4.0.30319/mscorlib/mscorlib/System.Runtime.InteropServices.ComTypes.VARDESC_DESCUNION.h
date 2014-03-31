@@ -2,7 +2,7 @@
 //
 // Managed struct : VARDESC.DESCUNION
 //
-@interface System_Runtime_InteropServices_ComTypes_VARDESC__DESCUNION : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_VARDESC__DESCUNION : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IntPtr
-    - (void *)lpvarValue;
-    - (void)setLpvarValue:(void *)value;
+	// Managed field name : lpvarValue
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lpvarValue;
 
-	// Managed type : System.Int32
-    - (int32_t)oInst;
-    - (void)setOInst:(int32_t)value;
+	// Managed field name : oInst
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t oInst;
 @end
 //--Dubrovnik.CodeGenerator

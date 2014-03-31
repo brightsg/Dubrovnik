@@ -2,7 +2,7 @@
 //
 // Managed interface : UCOMIEnumMoniker
 //
-@interface System_Runtime_InteropServices_UCOMIEnumMoniker : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_UCOMIEnumMoniker : System_Object
 
 #pragma mark -
 #pragma mark Setup

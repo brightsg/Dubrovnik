@@ -2,7 +2,7 @@
 //
 // Managed class : CustomAttributeExtensions
 //
-@interface System_Reflection_CustomAttributeExtensions : DBMonoObjectRepresentation
+@interface System_Reflection_CustomAttributeExtensions : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -37,22 +37,22 @@
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.Assembly
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1;
+    - (DBManagedObject *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1;
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.Module
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1;
+    - (DBManagedObject *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1;
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.MemberInfo
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1;
+    - (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1;
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.ParameterInfo
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1;
+    - (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1;
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
@@ -67,12 +67,12 @@
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.MemberInfo, System.Boolean
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2;
+    - (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2;
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.ParameterInfo, System.Boolean
-    - (DBMonoObjectRepresentation *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 inheritBool:(BOOL)p2;
+    - (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 inheritBool:(BOOL)p2;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Collections.Generic.IEnumerable<System.Attribute>

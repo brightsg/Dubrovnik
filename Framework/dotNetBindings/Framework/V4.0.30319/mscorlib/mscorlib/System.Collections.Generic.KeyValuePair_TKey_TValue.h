@@ -2,7 +2,7 @@
 //
 // Managed struct : KeyValuePair<TKey, TValue>
 //
-@interface System_Collections_Generic_KeyValuePair : DBMonoObjectRepresentation
+@interface System_Collections_Generic_KeyValuePair : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,16 +17,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Generic.KeyValuePair<TKey, TValue>
 	// Managed param types : <TKey>, <TValue>
-    + (System_Collections_Generic_KeyValuePair *)new_withKey:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2;
+    + (System_Collections_Generic_KeyValuePair *)new_withKey:(DBManagedObject *)p1 value:(DBManagedObject *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <TKey>
-    - (DBMonoObjectRepresentation *)key;
+	// Managed property name : Key
+	// Managed property type : <TKey>
+    @property (nonatomic, strong, readonly) DBManagedObject * key;
 
-	// Managed type : <TValue>
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : <TValue>
+    @property (nonatomic, strong, readonly) DBManagedObject * value;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed interface : _SignatureHelper
 //
-@interface System_Runtime_InteropServices__SignatureHelper : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__SignatureHelper : System_Object
 
 #pragma mark -
 #pragma mark Setup

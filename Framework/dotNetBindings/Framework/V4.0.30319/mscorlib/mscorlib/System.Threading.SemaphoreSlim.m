@@ -3,6 +3,12 @@
 //
 // Managed class : SemaphoreSlim
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_SemaphoreSlim
 
 #pragma mark -
@@ -40,20 +46,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.WaitHandle
+	// Managed property name : AvailableWaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @synthesize availableWaitHandle = _availableWaitHandle;
     - (System_Threading_WaitHandle *)availableWaitHandle
     {
-		MonoObject * monoObject = [self getMonoProperty:"AvailableWaitHandle"];
-		System_Threading_WaitHandle * result = [System_Threading_WaitHandle representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AvailableWaitHandle"];
+		if ([self object:_availableWaitHandle isEqualToMonoObject:monoObject]) return _availableWaitHandle;					
+		_availableWaitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+
+		return _availableWaitHandle;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : CurrentCount
+	// Managed property type : System.Int32
+    @synthesize currentCount = _currentCount;
     - (int32_t)currentCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"CurrentCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CurrentCount"];
+		_currentCount = DB_UNBOX_INT32(monoObject);
+
+		return _currentCount;
 	}
 
 #pragma mark -
@@ -143,7 +156,7 @@
     - (System_Threading_Tasks_Task *)waitAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -152,7 +165,7 @@
     - (System_Threading_Tasks_Task *)waitAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -161,7 +174,7 @@
     - (System_Threading_Tasks_Task *)waitAsync_withMillisecondsTimeout:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -170,7 +183,7 @@
     - (System_Threading_Tasks_Task *)waitAsync_withTimeout:(System_TimeSpan *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -179,7 +192,7 @@
     - (System_Threading_Tasks_Task *)waitAsync_withTimeout:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -188,7 +201,13 @@
     - (System_Threading_Tasks_Task *)waitAsync_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

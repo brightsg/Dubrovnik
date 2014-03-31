@@ -2,7 +2,7 @@
 //
 // Managed interface : IStackWalk
 //
-@interface System_Security_IStackWalk : DBMonoObjectRepresentation
+@interface System_Security_IStackWalk : System_Object
 
 #pragma mark -
 #pragma mark Setup

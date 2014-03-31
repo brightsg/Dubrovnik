@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeLib2
 //
-@interface System_Runtime_InteropServices_ComTypes_ITypeLib2 : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_ITypeLib2 : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : GetCustData
 	// Managed return type : System.Void
 	// Managed param types : ref System.Guid&, ref System.Object&
-    - (void)getCustData_withGuidRef:(System_Guid **)p1 pVarValRef:(DBMonoObjectRepresentation **)p2;
+    - (void)getCustData_withGuidRef:(System_Guid **)p1 pVarValRef:(System_Object **)p2;
 
 	// Managed method name : GetDocumentation
 	// Managed return type : System.Void

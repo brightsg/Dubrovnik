@@ -3,6 +3,12 @@
 //
 // Managed struct : SByte
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_SByte
 
 #pragma mark -
@@ -21,20 +27,26 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.SByte
+	// Managed field name : MaxValue
+	// Managed field type : System.SByte
+    static int8_t m_maxValue;
     + (int8_t)maxValue
     {
 		int8_t monoObject;
 		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_maxValue = monoObject;
+		return m_maxValue;
 	}
 
-	// Managed type : System.SByte
+	// Managed field name : MinValue
+	// Managed field type : System.SByte
+    static int8_t m_minValue;
     + (int8_t)minValue
     {
 		int8_t monoObject;
 		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_minValue = monoObject;
+		return m_minValue;
 	}
 
 #pragma mark -
@@ -43,7 +55,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withObj:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -61,7 +73,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -183,5 +195,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,sbyte&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], p4];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

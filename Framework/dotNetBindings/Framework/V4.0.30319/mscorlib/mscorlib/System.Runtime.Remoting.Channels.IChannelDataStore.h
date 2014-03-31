@@ -2,7 +2,7 @@
 //
 // Managed interface : IChannelDataStore
 //
-@interface System_Runtime_Remoting_Channels_IChannelDataStore : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IChannelDataStore : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)channelUris;
+	// Managed property name : ChannelUris
+	// Managed property type : System.String[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * channelUris;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * item;
 @end
 //--Dubrovnik.CodeGenerator

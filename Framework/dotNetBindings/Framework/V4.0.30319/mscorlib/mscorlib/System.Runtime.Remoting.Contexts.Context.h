@@ -2,7 +2,7 @@
 //
 // Managed class : Context
 //
-@interface System_Runtime_Remoting_Contexts_Context : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Contexts_Context : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)contextID;
+	// Managed property name : ContextID
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t contextID;
 
-	// Managed type : System.Runtime.Remoting.Contexts.IContextProperty[]
-    - (DBSystem_Array *)contextProperties;
+	// Managed property name : ContextProperties
+	// Managed property type : System.Runtime.Remoting.Contexts.IContextProperty[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * contextProperties;
 
-	// Managed type : System.Runtime.Remoting.Contexts.Context
+	// Managed property name : DefaultContext
+	// Managed property type : System.Runtime.Remoting.Contexts.Context
     + (System_Runtime_Remoting_Contexts_Context *)defaultContext;
 
 #pragma mark -
@@ -54,7 +57,7 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.LocalDataStoreSlot
-    - (DBMonoObjectRepresentation *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
+    - (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
 
 	// Managed method name : GetNamedDataSlot
 	// Managed return type : System.LocalDataStoreSlot
@@ -74,7 +77,7 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.LocalDataStoreSlot, System.Object
-    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(DBMonoObjectRepresentation *)p2;
+    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2;
 
 	// Managed method name : SetProperty
 	// Managed return type : System.Void

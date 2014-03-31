@@ -3,6 +3,12 @@
 //
 // Managed interface : IConnectionPoint
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ComTypes_IConnectionPoint
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : Advise
 	// Managed return type : System.Void
 	// Managed param types : System.Object, ref System.Int32&
-    - (void)advise_withPUnkSink:(DBMonoObjectRepresentation *)p1 pdwCookieRef:(int32_t*)p2
+    - (void)advise_withPUnkSink:(System_Object *)p1 pdwCookieRef:(int32_t*)p2
     {
 		[self invokeMonoMethod:"Advise(object,int&)" withNumArgs:2, [p1 monoValue], p2];
     }
@@ -60,5 +66,11 @@
     {
 		[self invokeMonoMethod:"Unadvise(int)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

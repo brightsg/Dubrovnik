@@ -3,6 +3,12 @@
 //
 // Managed class : ConcurrentExclusiveSchedulerPair
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Tasks_ConcurrentExclusiveSchedulerPair
 
 #pragma mark -
@@ -48,28 +54,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.Tasks.Task
+	// Managed property name : Completion
+	// Managed property type : System.Threading.Tasks.Task
+    @synthesize completion = _completion;
     - (System_Threading_Tasks_Task *)completion
     {
-		MonoObject * monoObject = [self getMonoProperty:"Completion"];
-		System_Threading_Tasks_Task * result = [System_Threading_Tasks_Task representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Completion"];
+		if ([self object:_completion isEqualToMonoObject:monoObject]) return _completion;					
+		_completion = [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+
+		return _completion;
 	}
 
-	// Managed type : System.Threading.Tasks.TaskScheduler
+	// Managed property name : ConcurrentScheduler
+	// Managed property type : System.Threading.Tasks.TaskScheduler
+    @synthesize concurrentScheduler = _concurrentScheduler;
     - (System_Threading_Tasks_TaskScheduler *)concurrentScheduler
     {
-		MonoObject * monoObject = [self getMonoProperty:"ConcurrentScheduler"];
-		System_Threading_Tasks_TaskScheduler * result = [System_Threading_Tasks_TaskScheduler representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ConcurrentScheduler"];
+		if ([self object:_concurrentScheduler isEqualToMonoObject:monoObject]) return _concurrentScheduler;					
+		_concurrentScheduler = [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
+
+		return _concurrentScheduler;
 	}
 
-	// Managed type : System.Threading.Tasks.TaskScheduler
+	// Managed property name : ExclusiveScheduler
+	// Managed property type : System.Threading.Tasks.TaskScheduler
+    @synthesize exclusiveScheduler = _exclusiveScheduler;
     - (System_Threading_Tasks_TaskScheduler *)exclusiveScheduler
     {
-		MonoObject * monoObject = [self getMonoProperty:"ExclusiveScheduler"];
-		System_Threading_Tasks_TaskScheduler * result = [System_Threading_Tasks_TaskScheduler representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ExclusiveScheduler"];
+		if ([self object:_exclusiveScheduler isEqualToMonoObject:monoObject]) return _exclusiveScheduler;					
+		_exclusiveScheduler = [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
+
+		return _exclusiveScheduler;
 	}
 
 #pragma mark -
@@ -82,5 +100,11 @@
     {
 		[self invokeMonoMethod:"Complete()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

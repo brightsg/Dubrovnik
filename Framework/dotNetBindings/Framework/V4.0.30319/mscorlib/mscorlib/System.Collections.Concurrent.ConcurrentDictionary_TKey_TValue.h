@@ -2,7 +2,7 @@
 //
 // Managed class : ConcurrentDictionary<TKey, TValue>
 //
-@interface System_Collections_Concurrent_ConcurrentDictionary : DBMonoObjectRepresentation
+@interface System_Collections_Concurrent_ConcurrentDictionary : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -47,21 +47,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isEmpty;
+	// Managed property name : IsEmpty
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isEmpty;
 
-	// Managed type : <TValue>
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : <TValue>
+    @property (nonatomic, strong) DBManagedObject * item;
 
-	// Managed type : ICollection<TKey>
-    - (ICollection *)keys;
+	// Managed property name : Keys
+	// Managed property type : ICollection<TKey>
+    @property (nonatomic, strong, readonly) ICollection * keys;
 
-	// Managed type : ICollection<TValue>
-    - (ICollection *)values;
+	// Managed property name : Values
+	// Managed property type : ICollection<TValue>
+    @property (nonatomic, strong, readonly) ICollection * values;
 
 #pragma mark -
 #pragma mark Methods
@@ -69,12 +73,12 @@
 	// Managed method name : AddOrUpdate
 	// Managed return type : <TValue>
 	// Managed param types : <TKey>, Func<TKey, TValue>, Func<TKey, TValue, TValue>
-    - (DBMonoObjectRepresentation *)addOrUpdate_withKey:(DBMonoObjectRepresentation *)p1 addValueFactory:(Func *)p2 updateValueFactory:(Func *)p3;
+    - (DBManagedObject *)addOrUpdate_withKey:(DBManagedObject *)p1 addValueFactory:(Func *)p2 updateValueFactory:(Func *)p3;
 
 	// Managed method name : AddOrUpdate
 	// Managed return type : <TValue>
 	// Managed param types : <TKey>, <TValue>, Func<TKey, TValue, TValue>
-    - (DBMonoObjectRepresentation *)addOrUpdate_withKey:(DBMonoObjectRepresentation *)p1 addValue:(DBMonoObjectRepresentation *)p2 updateValueFactory:(Func *)p3;
+    - (DBManagedObject *)addOrUpdate_withKey:(DBManagedObject *)p1 addValue:(DBManagedObject *)p2 updateValueFactory:(Func *)p3;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -84,7 +88,7 @@
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)containsKey_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)containsKey_withKey:(DBManagedObject *)p1;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : IEnumerator<KeyValuePair<TKey, TValue>>
@@ -94,12 +98,12 @@
 	// Managed method name : GetOrAdd
 	// Managed return type : <TValue>
 	// Managed param types : <TKey>, Func<TKey, TValue>
-    - (DBMonoObjectRepresentation *)getOrAdd_withKey:(DBMonoObjectRepresentation *)p1 valueFactory:(Func *)p2;
+    - (DBManagedObject *)getOrAdd_withKey:(DBManagedObject *)p1 valueFactory:(Func *)p2;
 
 	// Managed method name : GetOrAdd
 	// Managed return type : <TValue>
 	// Managed param types : <TKey>, <TValue>
-    - (DBMonoObjectRepresentation *)getOrAdd_withKey:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (DBManagedObject *)getOrAdd_withKey:(DBManagedObject *)p1 value:(DBManagedObject *)p2;
 
 	// Managed method name : ToArray
 	// Managed return type : KeyValuePair`2[]
@@ -109,21 +113,21 @@
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, <TValue>
-    - (BOOL)tryAdd_withKey:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)tryAdd_withKey:(DBManagedObject *)p1 value:(DBManagedObject *)p2;
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(DBMonoObjectRepresentation *)p1 valueRef:(TValue **)p2;
+    - (BOOL)tryGetValue_withKey:(DBManagedObject *)p1 valueRef:(TValue **)p2;
 
 	// Managed method name : TryRemove
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryRemove_withKey:(DBMonoObjectRepresentation *)p1 valueRef:(TValue **)p2;
+    - (BOOL)tryRemove_withKey:(DBManagedObject *)p1 valueRef:(TValue **)p2;
 
 	// Managed method name : TryUpdate
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, <TValue>, <TValue>
-    - (BOOL)tryUpdate_withKey:(DBMonoObjectRepresentation *)p1 newValue:(DBMonoObjectRepresentation *)p2 comparisonValue:(DBMonoObjectRepresentation *)p3;
+    - (BOOL)tryUpdate_withKey:(DBManagedObject *)p1 newValue:(DBManagedObject *)p2 comparisonValue:(DBManagedObject *)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : List<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_List
 
 #pragma mark -
@@ -40,36 +46,48 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Capacity
+	// Managed property type : System.Int32
+    @synthesize capacity = _capacity;
     - (int32_t)capacity
     {
-		MonoObject * monoObject = [self getMonoProperty:"Capacity"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Capacity"];
+		_capacity = DB_UNBOX_INT32(monoObject);
+
+		return _capacity;
 	}
     - (void)setCapacity:(int32_t)value
 	{
+		_capacity = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Capacity" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)item
+	// Managed property name : Item
+	// Managed property type : <T>
+    @synthesize item = _item;
+    - (DBManagedObject *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item;
 	}
-    - (void)setItem:(DBMonoObjectRepresentation *)value
+    - (void)setItem:(DBManagedObject *)value
 	{
+		_item = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Item" valueObject:monoObject];          
 	}
@@ -80,7 +98,7 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)add_withItem:(DBMonoObjectRepresentation *)p1
+    - (void)add_withItem:(DBManagedObject *)p1
     {
 		[self invokeMonoMethod:"Add(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
     }
@@ -99,13 +117,13 @@
     - (ReadOnlyCollection *)asReadOnly
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AsReadOnly()" withNumArgs:0];
-		return [ReadOnlyCollection representationWithMonoObject:monoObject];
+		return [ReadOnlyCollection objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Int32, <T>, IComparer<T>
-    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(DBMonoObjectRepresentation *)p3 comparer:(IComparer *)p4
+    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(DBManagedObject *)p3 comparer:(IComparer *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(int,int,Dubrovnik.Generic.Parameter,IComparer<T>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -114,7 +132,7 @@
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : <T>, IComparer<T>
-    - (int32_t)binarySearch_withItem:(DBMonoObjectRepresentation *)p1 comparer:(IComparer *)p2
+    - (int32_t)binarySearch_withItem:(DBManagedObject *)p1 comparer:(IComparer *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(Dubrovnik.Generic.Parameter,IComparer<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -123,7 +141,7 @@
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)binarySearch_withItem:(DBMonoObjectRepresentation *)p1
+    - (int32_t)binarySearch_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -140,7 +158,7 @@
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)contains_withItem:(DBMonoObjectRepresentation *)p1
+    - (BOOL)contains_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -152,7 +170,7 @@
     - (List *)convertAll_withConverter:(Converter *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ConvertAll(Converter<T, TOutput>)" withNumArgs:1, [p1 monoValue]];
-		return [List representationWithMonoObject:monoObject];
+		return [List objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CopyTo
@@ -191,19 +209,19 @@
 	// Managed method name : Find
 	// Managed return type : <T>
 	// Managed param types : Predicate<T>
-    - (DBMonoObjectRepresentation *)find_withMatch:(Predicate *)p1
+    - (DBManagedObject *)find_withMatch:(Predicate *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Find(Predicate<T>)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindAll
 	// Managed return type : System.Collections.Generic.List<T>
 	// Managed param types : Predicate<T>
-    - (DBSystem_Collections_Generic_List *)findAll_withMatch:(Predicate *)p1
+    - (System_Collections_Generic_List *)findAll_withMatch:(Predicate *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(Predicate<T>)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_List objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindIndex
@@ -236,10 +254,10 @@
 	// Managed method name : FindLast
 	// Managed return type : <T>
 	// Managed param types : Predicate<T>
-    - (DBMonoObjectRepresentation *)findLast_withMatch:(Predicate *)p1
+    - (DBManagedObject *)findLast_withMatch:(Predicate *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindLast(Predicate<T>)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindLastIndex
@@ -283,22 +301,22 @@
     - (Enumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [Enumerator representationWithMonoObject:monoObject];
+		return [Enumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRange
 	// Managed return type : System.Collections.Generic.List<T>
 	// Managed param types : System.Int32, System.Int32
-    - (DBSystem_Collections_Generic_List *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2
+    - (System_Collections_Generic_List *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		return [DBSystem_Collections_Generic_List representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_List objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -307,7 +325,7 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(Dubrovnik.Generic.Parameter,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_INT32(monoObject);
@@ -316,7 +334,7 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32, System.Int32
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(Dubrovnik.Generic.Parameter,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return DB_UNBOX_INT32(monoObject);
@@ -325,7 +343,7 @@
 	// Managed method name : Insert
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, <T>
-    - (void)insert_withIndex:(int32_t)p1 item:(DBMonoObjectRepresentation *)p2
+    - (void)insert_withIndex:(int32_t)p1 item:(DBManagedObject *)p2
     {
 		[self invokeMonoMethod:"Insert(int,Dubrovnik.Generic.Parameter)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
     }
@@ -341,7 +359,7 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)lastIndexOf_withItem:(DBMonoObjectRepresentation *)p1
+    - (int32_t)lastIndexOf_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -350,7 +368,7 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32
-    - (int32_t)lastIndexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2
+    - (int32_t)lastIndexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(Dubrovnik.Generic.Parameter,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_INT32(monoObject);
@@ -359,7 +377,7 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>, System.Int32, System.Int32
-    - (int32_t)lastIndexOf_withItem:(DBMonoObjectRepresentation *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (int32_t)lastIndexOf_withItem:(DBManagedObject *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(Dubrovnik.Generic.Parameter,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return DB_UNBOX_INT32(monoObject);
@@ -368,7 +386,7 @@
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)remove_withItem:(DBMonoObjectRepresentation *)p1
+    - (BOOL)remove_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -453,7 +471,7 @@
     - (DBSystem_Array *)toArray
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : TrimExcess
@@ -472,5 +490,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TrueForAll(Predicate<T>)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

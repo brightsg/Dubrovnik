@@ -22,25 +22,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)file;
-    - (void)setFile:(NSString *)value;
+	// Managed property name : File
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * file;
 
-	// Managed type : System.String
-    - (NSString *)hex;
-    - (void)setHex:(NSString *)value;
+	// Managed property name : Hex
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * hex;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.Boolean
-    - (BOOL)unicodeEncoded;
-    - (void)setUnicodeEncoded:(BOOL)value;
+	// Managed property name : UnicodeEncoded
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL unicodeEncoded;
 
-	// Managed type : System.String
-    - (NSString *)xML;
-    - (void)setXML:(NSString *)value;
+	// Managed property name : XML
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xML;
 
 #pragma mark -
 #pragma mark Methods

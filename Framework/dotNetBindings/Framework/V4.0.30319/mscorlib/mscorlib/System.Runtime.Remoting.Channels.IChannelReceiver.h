@@ -2,7 +2,7 @@
 //
 // Managed interface : IChannelReceiver
 //
-@interface System_Runtime_Remoting_Channels_IChannelReceiver : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IChannelReceiver : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)channelData;
+	// Managed property name : ChannelData
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * channelData;
 
 #pragma mark -
 #pragma mark Methods
@@ -28,11 +29,11 @@
 	// Managed method name : StartListening
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)startListening_withData:(DBMonoObjectRepresentation *)p1;
+    - (void)startListening_withData:(System_Object *)p1;
 
 	// Managed method name : StopListening
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)stopListening_withData:(DBMonoObjectRepresentation *)p1;
+    - (void)stopListening_withData:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

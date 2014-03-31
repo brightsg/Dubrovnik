@@ -3,6 +3,12 @@
 //
 // Managed class : BinaryWriter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_BinaryWriter
 
 #pragma mark -
@@ -48,23 +54,31 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.BinaryWriter
+	// Managed field name : Null
+	// Managed field type : System.IO.BinaryWriter
+    static System_IO_BinaryWriter * m_null;
     + (System_IO_BinaryWriter *)null
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Null" valuePtr:DB_PTR(monoObject)];
-		return [System_IO_BinaryWriter representationWithMonoObject:monoObject];
+		if ([self object:m_null isEqualToMonoObject:monoObject]) return m_null;					
+		m_null = [System_IO_BinaryWriter objectWithMonoObject:monoObject];
+		return m_null;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IO.Stream
+	// Managed property name : BaseStream
+	// Managed property type : System.IO.Stream
+    @synthesize baseStream = _baseStream;
     - (System_IO_Stream *)baseStream
     {
-		MonoObject * monoObject = [self getMonoProperty:"BaseStream"];
-		System_IO_Stream * result = [System_IO_Stream representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BaseStream"];
+		if ([self object:_baseStream isEqualToMonoObject:monoObject]) return _baseStream;					
+		_baseStream = [System_IO_Stream objectWithMonoObject:monoObject];
+
+		return _baseStream;
 	}
 
 #pragma mark -
@@ -246,5 +260,12 @@
     {
 		[self invokeMonoMethod:"Write(single)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_null = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

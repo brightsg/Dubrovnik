@@ -2,7 +2,7 @@
 //
 // Managed struct : ELEMDESC.DESCUNION
 //
-@interface System_Runtime_InteropServices_ComTypes_ELEMDESC__DESCUNION : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_ELEMDESC__DESCUNION : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.IDLDESC
-    - (System_Runtime_InteropServices_ComTypes_IDLDESC *)idldesc;
-    - (void)setIdldesc:(System_Runtime_InteropServices_ComTypes_IDLDESC *)value;
+	// Managed field name : idldesc
+	// Managed field type : System.Runtime.InteropServices.ComTypes.IDLDESC
+    @property (nonatomic, strong) System_Runtime_InteropServices_ComTypes_IDLDESC * idldesc;
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.PARAMDESC
-    - (System_Runtime_InteropServices_ComTypes_PARAMDESC *)paramdesc;
-    - (void)setParamdesc:(System_Runtime_InteropServices_ComTypes_PARAMDESC *)value;
+	// Managed field name : paramdesc
+	// Managed field type : System.Runtime.InteropServices.ComTypes.PARAMDESC
+    @property (nonatomic, strong) System_Runtime_InteropServices_ComTypes_PARAMDESC * paramdesc;
 @end
 //--Dubrovnik.CodeGenerator

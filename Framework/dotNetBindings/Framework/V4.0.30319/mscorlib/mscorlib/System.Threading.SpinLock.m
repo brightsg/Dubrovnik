@@ -3,6 +3,12 @@
 //
 // Managed struct : SpinLock
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_SpinLock
 
 #pragma mark -
@@ -32,28 +38,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsHeld
+	// Managed property type : System.Boolean
+    @synthesize isHeld = _isHeld;
     - (BOOL)isHeld
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsHeld"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsHeld"];
+		_isHeld = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isHeld;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsHeldByCurrentThread
+	// Managed property type : System.Boolean
+    @synthesize isHeldByCurrentThread = _isHeldByCurrentThread;
     - (BOOL)isHeldByCurrentThread
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsHeldByCurrentThread"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsHeldByCurrentThread"];
+		_isHeldByCurrentThread = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isHeldByCurrentThread;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsThreadOwnerTrackingEnabled
+	// Managed property type : System.Boolean
+    @synthesize isThreadOwnerTrackingEnabled = _isThreadOwnerTrackingEnabled;
     - (BOOL)isThreadOwnerTrackingEnabled
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsThreadOwnerTrackingEnabled"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsThreadOwnerTrackingEnabled"];
+		_isThreadOwnerTrackingEnabled = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isThreadOwnerTrackingEnabled;
 	}
 
 #pragma mark -
@@ -106,5 +121,11 @@
     {
 		[self invokeMonoMethod:"TryEnter(int,bool&)" withNumArgs:2, DB_VALUE(p1), p2];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

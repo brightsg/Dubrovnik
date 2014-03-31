@@ -2,7 +2,7 @@
 //
 // Managed interface : IExpando
 //
-@interface System_Runtime_InteropServices_Expando_IExpando : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_Expando_IExpando : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed interface : IMethodCallMessage
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Messaging_IMethodCallMessage
 
 #pragma mark -
@@ -21,20 +27,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : InArgCount
+	// Managed property type : System.Int32
+    @synthesize inArgCount = _inArgCount;
     - (int32_t)inArgCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"InArgCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InArgCount"];
+		_inArgCount = DB_UNBOX_INT32(monoObject);
+
+		return _inArgCount;
 	}
 
-	// Managed type : System.Object[]
+	// Managed property name : InArgs
+	// Managed property type : System.Object[]
+    @synthesize inArgs = _inArgs;
     - (DBSystem_Array *)inArgs
     {
-		MonoObject * monoObject = [self getMonoProperty:"InArgs"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InArgs"];
+		if ([self object:_inArgs isEqualToMonoObject:monoObject]) return _inArgs;					
+		_inArgs = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _inArgs;
 	}
 
 #pragma mark -
@@ -43,10 +56,10 @@
 	// Managed method name : GetInArg
 	// Managed return type : System.Object
 	// Managed param types : System.Int32
-    - (DBMonoObjectRepresentation *)getInArg_withArgNum:(int32_t)p1
+    - (System_Object *)getInArg_withArgNum:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInArg(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetInArgName
@@ -57,5 +70,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInArgName(int)" withNumArgs:1, DB_VALUE(p1)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

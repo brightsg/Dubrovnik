@@ -3,6 +3,12 @@
 //
 // Managed class : ConstructorInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_ConstructorInfo
 
 #pragma mark -
@@ -21,31 +27,42 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : ConstructorName
+	// Managed field type : System.String
+    static NSString * m_constructorName;
     + (NSString *)constructorName
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"ConstructorName" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_constructorName isEqualToMonoObject:monoObject]) return m_constructorName;					
+		m_constructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_constructorName;
 	}
 
-	// Managed type : System.String
+	// Managed field name : TypeConstructorName
+	// Managed field type : System.String
+    static NSString * m_typeConstructorName;
     + (NSString *)typeConstructorName
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"TypeConstructorName" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_typeConstructorName isEqualToMonoObject:monoObject]) return m_typeConstructorName;					
+		m_typeConstructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_typeConstructorName;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.MemberTypes
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @synthesize memberType = _memberType;
     - (System_Reflection_MemberTypes)memberType
     {
-		MonoObject * monoObject = [self getMonoProperty:"MemberType"];
-		System_Reflection_MemberTypes result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MemberType"];
+		_memberType = DB_UNBOX_INT32(monoObject);
+
+		return _memberType;
 	}
 
 #pragma mark -
@@ -54,7 +71,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -72,19 +89,19 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object[]
-    - (DBMonoObjectRepresentation *)invoke_withParameters:(DBSystem_Array *)p1
+    - (System_Object *)invoke_withParameters:(DBSystem_Array *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (DBMonoObjectRepresentation *)invoke_withInvokeAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 parameters:(DBSystem_Array *)p3 culture:(System_Globalization_CultureInfo *)p4
+    - (System_Object *)invoke_withInvokeAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 parameters:(DBSystem_Array *)p3 culture:(System_Globalization_CultureInfo *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -104,5 +121,13 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_constructorName = nil;
+		m_typeConstructorName = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

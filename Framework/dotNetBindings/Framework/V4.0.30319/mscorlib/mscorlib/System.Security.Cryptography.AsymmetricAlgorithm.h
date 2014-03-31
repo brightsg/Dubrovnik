@@ -2,7 +2,7 @@
 //
 // Managed class : AsymmetricAlgorithm
 //
-@interface System_Security_Cryptography_AsymmetricAlgorithm : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_AsymmetricAlgorithm : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,18 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)keyExchangeAlgorithm;
+	// Managed property name : KeyExchangeAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * keyExchangeAlgorithm;
 
-	// Managed type : System.Int32
-    - (int32_t)keySize;
-    - (void)setKeySize:(int32_t)value;
+	// Managed property name : KeySize
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t keySize;
 
-	// Managed type : System.Security.Cryptography.KeySizes[]
-    - (DBSystem_Array *)legalKeySizes;
+	// Managed property name : LegalKeySizes
+	// Managed property type : System.Security.Cryptography.KeySizes[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * legalKeySizes;
 
-	// Managed type : System.String
-    - (NSString *)signatureAlgorithm;
+	// Managed property name : SignatureAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * signatureAlgorithm;
 
 #pragma mark -
 #pragma mark Methods

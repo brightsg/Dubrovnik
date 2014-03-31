@@ -2,7 +2,7 @@
 //
 // Managed interface : _Activator
 //
-@interface System_Runtime_InteropServices__Activator : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__Activator : System_Object
 
 #pragma mark -
 #pragma mark Setup

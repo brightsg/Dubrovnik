@@ -42,13 +42,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)iterationCount;
-    - (void)setIterationCount:(int32_t)value;
+	// Managed property name : IterationCount
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t iterationCount;
 
-	// Managed type : System.Byte[]
-    - (NSData *)salt;
-    - (void)setSalt:(NSData *)value;
+	// Managed property name : Salt
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong) NSData * salt;
 
 #pragma mark -
 #pragma mark Methods

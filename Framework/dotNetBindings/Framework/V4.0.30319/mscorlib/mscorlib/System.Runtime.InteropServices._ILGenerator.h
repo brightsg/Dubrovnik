@@ -2,7 +2,7 @@
 //
 // Managed interface : _ILGenerator
 //
-@interface System_Runtime_InteropServices__ILGenerator : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__ILGenerator : System_Object
 
 #pragma mark -
 #pragma mark Setup

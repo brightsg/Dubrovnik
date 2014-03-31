@@ -2,7 +2,7 @@
 //
 // Managed interface : IEnvoyInfo
 //
-@interface System_Runtime_Remoting_IEnvoyInfo : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_IEnvoyInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)envoySinks;
-    - (void)setEnvoySinks:(System_Runtime_Remoting_Messaging_IMessageSink *)value;
+	// Managed property name : EnvoySinks
+	// Managed property type : System.Runtime.Remoting.Messaging.IMessageSink
+    @property (nonatomic, strong) System_Runtime_Remoting_Messaging_IMessageSink * envoySinks;
 @end
 //--Dubrovnik.CodeGenerator

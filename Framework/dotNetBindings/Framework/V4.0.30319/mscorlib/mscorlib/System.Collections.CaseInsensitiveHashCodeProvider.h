@@ -2,7 +2,7 @@
 //
 // Managed class : CaseInsensitiveHashCodeProvider
 //
-@interface System_Collections_CaseInsensitiveHashCodeProvider : DBMonoObjectRepresentation
+@interface System_Collections_CaseInsensitiveHashCodeProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.CaseInsensitiveHashCodeProvider
+	// Managed property name : Default
+	// Managed property type : System.Collections.CaseInsensitiveHashCodeProvider
     + (System_Collections_CaseInsensitiveHashCodeProvider *)default;
 
-	// Managed type : System.Collections.CaseInsensitiveHashCodeProvider
+	// Managed property name : DefaultInvariant
+	// Managed property type : System.Collections.CaseInsensitiveHashCodeProvider
     + (System_Collections_CaseInsensitiveHashCodeProvider *)defaultInvariant;
 
 #pragma mark -
@@ -34,6 +36,6 @@
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)getHashCode_withObj:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)getHashCode_withObj:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

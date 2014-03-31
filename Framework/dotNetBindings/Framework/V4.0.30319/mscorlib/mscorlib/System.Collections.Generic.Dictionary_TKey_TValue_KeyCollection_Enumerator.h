@@ -2,7 +2,7 @@
 //
 // Managed struct : Dictionary<TKey, TValue>.KeyCollection.Enumerator
 //
-@interface System_Collections_Generic_Dictionary : DBMonoObjectRepresentation
+@interface System_Collections_Generic_Dictionary : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <TKey>
-    - (DBMonoObjectRepresentation *)current;
+	// Managed property name : Current
+	// Managed property type : <TKey>
+    @property (nonatomic, strong, readonly) DBManagedObject * current;
 
 #pragma mark -
 #pragma mark Methods

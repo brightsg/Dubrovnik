@@ -14,21 +14,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.TextWriter
+	// Managed field name : Null
+	// Managed field type : System.IO.TextWriter
     + (System_IO_TextWriter *)null;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.Encoding
-    - (System_Text_Encoding *)encoding;
+	// Managed property name : Encoding
+	// Managed property type : System.Text.Encoding
+    @property (nonatomic, strong, readonly) System_Text_Encoding * encoding;
 
-	// Managed type : System.IFormatProvider
-    - (System_IFormatProvider *)formatProvider;
+	// Managed property name : FormatProvider
+	// Managed property type : System.IFormatProvider
+    @property (nonatomic, strong, readonly) System_IFormatProvider * formatProvider;
 
-	// Managed type : System.String
-    - (NSString *)newLine;
-    - (void)setNewLine:(NSString *)value;
+	// Managed property name : NewLine
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * newLine;
 
 #pragma mark -
 #pragma mark Methods
@@ -121,22 +124,22 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)write_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (void)write_withValueObject:(System_Object *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2;
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3;
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4;
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -231,22 +234,22 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)writeLine_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (void)writeLine_withValueObject:(System_Object *)p1;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2;
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3;
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4;
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void

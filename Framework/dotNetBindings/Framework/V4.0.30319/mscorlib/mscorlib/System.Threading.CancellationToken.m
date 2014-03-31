@@ -3,6 +3,12 @@
 //
 // Managed struct : CancellationToken
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_CancellationToken
 
 #pragma mark -
@@ -32,36 +38,50 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : CanBeCanceled
+	// Managed property type : System.Boolean
+    @synthesize canBeCanceled = _canBeCanceled;
     - (BOOL)canBeCanceled
     {
-		MonoObject * monoObject = [self getMonoProperty:"CanBeCanceled"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CanBeCanceled"];
+		_canBeCanceled = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _canBeCanceled;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsCancellationRequested
+	// Managed property type : System.Boolean
+    @synthesize isCancellationRequested = _isCancellationRequested;
     - (BOOL)isCancellationRequested
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsCancellationRequested"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsCancellationRequested"];
+		_isCancellationRequested = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isCancellationRequested;
 	}
 
-	// Managed type : System.Threading.CancellationToken
+	// Managed property name : None
+	// Managed property type : System.Threading.CancellationToken
+    static System_Threading_CancellationToken * m_none;
     + (System_Threading_CancellationToken *)none
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"None"];
-		System_Threading_CancellationToken * result = [System_Threading_CancellationToken representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"None"];
+		if ([self object:m_none isEqualToMonoObject:monoObject]) return m_none;					
+		m_none = [System_Threading_CancellationToken objectWithMonoObject:monoObject];
+
+		return m_none;
 	}
 
-	// Managed type : System.Threading.WaitHandle
+	// Managed property name : WaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @synthesize waitHandle = _waitHandle;
     - (System_Threading_WaitHandle *)waitHandle
     {
-		MonoObject * monoObject = [self getMonoProperty:"WaitHandle"];
-		System_Threading_WaitHandle * result = [System_Threading_WaitHandle representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WaitHandle"];
+		if ([self object:_waitHandle isEqualToMonoObject:monoObject]) return _waitHandle;					
+		_waitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+
+		return _waitHandle;
 	}
 
 #pragma mark -
@@ -79,7 +99,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOtherObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withOtherObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -118,7 +138,7 @@
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_CancellationTokenRegistration representationWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
@@ -127,25 +147,25 @@
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 useSynchronizationContext:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Threading_CancellationTokenRegistration representationWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
 	// Managed param types : System.Action<System.Object>, System.Object
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action<System.Object>,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Threading_CancellationTokenRegistration representationWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
 	// Managed param types : System.Action<System.Object>, System.Object, System.Boolean
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(DBMonoObjectRepresentation *)p2 useSynchronizationContext:(BOOL)p3
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action<System.Object>,object,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Threading_CancellationTokenRegistration representationWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ThrowIfCancellationRequested
@@ -155,5 +175,12 @@
     {
 		[self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_none = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

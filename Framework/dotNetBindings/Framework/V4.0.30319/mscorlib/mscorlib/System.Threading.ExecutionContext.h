@@ -2,7 +2,7 @@
 //
 // Managed class : ExecutionContext
 //
-@interface System_Threading_ExecutionContext : DBMonoObjectRepresentation
+@interface System_Threading_ExecutionContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -47,7 +47,7 @@
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object
-    - (void)run_withExecutionContext:(System_Threading_ExecutionContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(DBMonoObjectRepresentation *)p3;
+    - (void)run_withExecutionContext:(System_Threading_ExecutionContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
 
 	// Managed method name : SuppressFlow
 	// Managed return type : System.Threading.AsyncFlowControl

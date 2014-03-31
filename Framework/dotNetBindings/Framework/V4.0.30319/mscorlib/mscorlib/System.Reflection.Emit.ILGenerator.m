@@ -3,6 +3,12 @@
 //
 // Managed class : ILGenerator
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_ILGenerator
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : ILOffset
+	// Managed property type : System.Int32
+    @synthesize iLOffset = _iLOffset;
     - (int32_t)iLOffset
     {
-		MonoObject * monoObject = [self getMonoProperty:"ILOffset"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ILOffset"];
+		_iLOffset = DB_UNBOX_INT32(monoObject);
+
+		return _iLOffset;
 	}
 
 #pragma mark -
@@ -54,7 +63,7 @@
     - (System_Reflection_Emit_Label *)beginExceptionBlock
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginExceptionBlock()" withNumArgs:0];
-		return [System_Reflection_Emit_Label representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_Label objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BeginFaultBlock
@@ -87,7 +96,7 @@
     - (System_Reflection_Emit_LocalBuilder *)declareLocal_withLocalType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DeclareLocal(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_Emit_LocalBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_LocalBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DeclareLocal
@@ -96,7 +105,7 @@
     - (System_Reflection_Emit_LocalBuilder *)declareLocal_withLocalType:(System_Type *)p1 pinned:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DeclareLocal(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Reflection_Emit_LocalBuilder representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_LocalBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineLabel
@@ -105,7 +114,7 @@
     - (System_Reflection_Emit_Label *)defineLabel
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineLabel()" withNumArgs:0];
-		return [System_Reflection_Emit_Label representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_Label objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Emit
@@ -339,5 +348,11 @@
     {
 		[self invokeMonoMethod:"UsingNamespace(string)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

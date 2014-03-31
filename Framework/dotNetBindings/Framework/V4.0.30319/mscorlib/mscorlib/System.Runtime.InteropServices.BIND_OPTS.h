@@ -2,7 +2,7 @@
 //
 // Managed struct : BIND_OPTS
 //
-@interface System_Runtime_InteropServices_BIND_OPTS : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_BIND_OPTS : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,20 +14,20 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
-    - (int32_t)cbStruct;
-    - (void)setCbStruct:(int32_t)value;
+	// Managed field name : cbStruct
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t cbStruct;
 
-	// Managed type : System.Int32
-    - (int32_t)dwTickCountDeadline;
-    - (void)setDwTickCountDeadline:(int32_t)value;
+	// Managed field name : dwTickCountDeadline
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t dwTickCountDeadline;
 
-	// Managed type : System.Int32
-    - (int32_t)grfFlags;
-    - (void)setGrfFlags:(int32_t)value;
+	// Managed field name : grfFlags
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t grfFlags;
 
-	// Managed type : System.Int32
-    - (int32_t)grfMode;
-    - (void)setGrfMode:(int32_t)value;
+	// Managed field name : grfMode
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t grfMode;
 @end
 //--Dubrovnik.CodeGenerator

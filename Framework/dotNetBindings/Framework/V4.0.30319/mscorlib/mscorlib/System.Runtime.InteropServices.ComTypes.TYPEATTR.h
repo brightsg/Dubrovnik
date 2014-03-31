@@ -2,7 +2,7 @@
 //
 // Managed struct : TYPEATTR
 //
-@interface System_Runtime_InteropServices_ComTypes_TYPEATTR : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_TYPEATTR : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,79 +14,80 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int16
-    - (int16_t)cbAlignment;
-    - (void)setCbAlignment:(int16_t)value;
+	// Managed field name : cbAlignment
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cbAlignment;
 
-	// Managed type : System.Int32
-    - (int32_t)cbSizeInstance;
-    - (void)setCbSizeInstance:(int32_t)value;
+	// Managed field name : cbSizeInstance
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t cbSizeInstance;
 
-	// Managed type : System.Int16
-    - (int16_t)cbSizeVft;
-    - (void)setCbSizeVft:(int16_t)value;
+	// Managed field name : cbSizeVft
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cbSizeVft;
 
-	// Managed type : System.Int16
-    - (int16_t)cFuncs;
-    - (void)setCFuncs:(int16_t)value;
+	// Managed field name : cFuncs
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cFuncs;
 
-	// Managed type : System.Int16
-    - (int16_t)cImplTypes;
-    - (void)setCImplTypes:(int16_t)value;
+	// Managed field name : cImplTypes
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cImplTypes;
 
-	// Managed type : System.Int16
-    - (int16_t)cVars;
-    - (void)setCVars:(int16_t)value;
+	// Managed field name : cVars
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t cVars;
 
-	// Managed type : System.Int32
-    - (int32_t)dwReserved;
-    - (void)setDwReserved:(int32_t)value;
+	// Managed field name : dwReserved
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t dwReserved;
 
-	// Managed type : System.Guid
-    - (System_Guid *)guid;
-    - (void)setGuid:(System_Guid *)value;
+	// Managed field name : guid
+	// Managed field type : System.Guid
+    @property (nonatomic, strong) System_Guid * guid;
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.IDLDESC
-    - (System_Runtime_InteropServices_ComTypes_IDLDESC *)idldescType;
-    - (void)setIdldescType:(System_Runtime_InteropServices_ComTypes_IDLDESC *)value;
+	// Managed field name : idldescType
+	// Managed field type : System.Runtime.InteropServices.ComTypes.IDLDESC
+    @property (nonatomic, strong) System_Runtime_InteropServices_ComTypes_IDLDESC * idldescType;
 
-	// Managed type : System.Int32
-    - (int32_t)lcid;
-    - (void)setLcid:(int32_t)value;
+	// Managed field name : lcid
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t lcid;
 
-	// Managed type : System.IntPtr
-    - (void *)lpstrSchema;
-    - (void)setLpstrSchema:(void *)value;
+	// Managed field name : lpstrSchema
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lpstrSchema;
 
-	// Managed type : System.Int32
+	// Managed field name : MEMBER_ID_NIL
+	// Managed field type : System.Int32
     + (int32_t)mEMBER_ID_NIL;
 
-	// Managed type : System.Int32
-    - (int32_t)memidConstructor;
-    - (void)setMemidConstructor:(int32_t)value;
+	// Managed field name : memidConstructor
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t memidConstructor;
 
-	// Managed type : System.Int32
-    - (int32_t)memidDestructor;
-    - (void)setMemidDestructor:(int32_t)value;
+	// Managed field name : memidDestructor
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t memidDestructor;
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.TYPEDESC
-    - (System_Runtime_InteropServices_ComTypes_TYPEDESC *)tdescAlias;
-    - (void)setTdescAlias:(System_Runtime_InteropServices_ComTypes_TYPEDESC *)value;
+	// Managed field name : tdescAlias
+	// Managed field type : System.Runtime.InteropServices.ComTypes.TYPEDESC
+    @property (nonatomic, strong) System_Runtime_InteropServices_ComTypes_TYPEDESC * tdescAlias;
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.TYPEKIND
-    - (System_Runtime_InteropServices_ComTypes_TYPEKIND)typekind;
-    - (void)setTypekind:(System_Runtime_InteropServices_ComTypes_TYPEKIND)value;
+	// Managed field name : typekind
+	// Managed field type : System.Runtime.InteropServices.ComTypes.TYPEKIND
+    @property (nonatomic) System_Runtime_InteropServices_ComTypes_TYPEKIND typekind;
 
-	// Managed type : System.Int16
-    - (int16_t)wMajorVerNum;
-    - (void)setWMajorVerNum:(int16_t)value;
+	// Managed field name : wMajorVerNum
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wMajorVerNum;
 
-	// Managed type : System.Int16
-    - (int16_t)wMinorVerNum;
-    - (void)setWMinorVerNum:(int16_t)value;
+	// Managed field name : wMinorVerNum
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wMinorVerNum;
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.TYPEFLAGS
-    - (System_Runtime_InteropServices_ComTypes_TYPEFLAGS)wTypeFlags;
-    - (void)setWTypeFlags:(System_Runtime_InteropServices_ComTypes_TYPEFLAGS)value;
+	// Managed field name : wTypeFlags
+	// Managed field type : System.Runtime.InteropServices.ComTypes.TYPEFLAGS
+    @property (nonatomic) System_Runtime_InteropServices_ComTypes_TYPEFLAGS wTypeFlags;
 @end
 //--Dubrovnik.CodeGenerator

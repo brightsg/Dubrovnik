@@ -2,7 +2,7 @@
 //
 // Managed interface : IContributeDynamicSink
 //
-@interface System_Runtime_Remoting_Contexts_IContributeDynamicSink : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Contexts_IContributeDynamicSink : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : WindowsImpersonationContext
 //
-@interface System_Security_Principal_WindowsImpersonationContext : DBMonoObjectRepresentation
+@interface System_Security_Principal_WindowsImpersonationContext : System_Object
 
 #pragma mark -
 #pragma mark Setup

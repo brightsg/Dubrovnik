@@ -2,7 +2,7 @@
 //
 // Managed interface : UCOMITypeComp
 //
-@interface System_Runtime_InteropServices_UCOMITypeComp : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_UCOMITypeComp : System_Object
 
 #pragma mark -
 #pragma mark Setup

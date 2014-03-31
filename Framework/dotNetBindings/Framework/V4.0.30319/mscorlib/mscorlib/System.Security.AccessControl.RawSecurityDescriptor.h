@@ -32,28 +32,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.ControlFlags
-    - (System_Security_AccessControl_ControlFlags)controlFlags;
+	// Managed property name : ControlFlags
+	// Managed property type : System.Security.AccessControl.ControlFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_ControlFlags controlFlags;
 
-	// Managed type : System.Security.AccessControl.RawAcl
-    - (System_Security_AccessControl_RawAcl *)discretionaryAcl;
-    - (void)setDiscretionaryAcl:(System_Security_AccessControl_RawAcl *)value;
+	// Managed property name : DiscretionaryAcl
+	// Managed property type : System.Security.AccessControl.RawAcl
+    @property (nonatomic, strong) System_Security_AccessControl_RawAcl * discretionaryAcl;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)group;
-    - (void)setGroup:(System_Security_Principal_SecurityIdentifier *)value;
+	// Managed property name : Group
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong) System_Security_Principal_SecurityIdentifier * group;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)owner;
-    - (void)setOwner:(System_Security_Principal_SecurityIdentifier *)value;
+	// Managed property name : Owner
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong) System_Security_Principal_SecurityIdentifier * owner;
 
-	// Managed type : System.Byte
-    - (uint8_t)resourceManagerControl;
-    - (void)setResourceManagerControl:(uint8_t)value;
+	// Managed property name : ResourceManagerControl
+	// Managed property type : System.Byte
+    @property (nonatomic) uint8_t resourceManagerControl;
 
-	// Managed type : System.Security.AccessControl.RawAcl
-    - (System_Security_AccessControl_RawAcl *)systemAcl;
-    - (void)setSystemAcl:(System_Security_AccessControl_RawAcl *)value;
+	// Managed property name : SystemAcl
+	// Managed property type : System.Security.AccessControl.RawAcl
+    @property (nonatomic, strong) System_Security_AccessControl_RawAcl * systemAcl;
 
 #pragma mark -
 #pragma mark Methods

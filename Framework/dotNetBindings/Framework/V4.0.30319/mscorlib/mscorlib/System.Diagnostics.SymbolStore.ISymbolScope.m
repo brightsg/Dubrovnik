@@ -3,6 +3,12 @@
 //
 // Managed interface : ISymbolScope
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_SymbolStore_ISymbolScope
 
 #pragma mark -
@@ -21,36 +27,50 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : EndOffset
+	// Managed property type : System.Int32
+    @synthesize endOffset = _endOffset;
     - (int32_t)endOffset
     {
-		MonoObject * monoObject = [self getMonoProperty:"EndOffset"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EndOffset"];
+		_endOffset = DB_UNBOX_INT32(monoObject);
+
+		return _endOffset;
 	}
 
-	// Managed type : System.Diagnostics.SymbolStore.ISymbolMethod
+	// Managed property name : Method
+	// Managed property type : System.Diagnostics.SymbolStore.ISymbolMethod
+    @synthesize method = _method;
     - (System_Diagnostics_SymbolStore_ISymbolMethod *)method
     {
-		MonoObject * monoObject = [self getMonoProperty:"Method"];
-		System_Diagnostics_SymbolStore_ISymbolMethod * result = [System_Diagnostics_SymbolStore_ISymbolMethod representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Method"];
+		if ([self object:_method isEqualToMonoObject:monoObject]) return _method;					
+		_method = [System_Diagnostics_SymbolStore_ISymbolMethod objectWithMonoObject:monoObject];
+
+		return _method;
 	}
 
-	// Managed type : System.Diagnostics.SymbolStore.ISymbolScope
+	// Managed property name : Parent
+	// Managed property type : System.Diagnostics.SymbolStore.ISymbolScope
+    @synthesize parent = _parent;
     - (System_Diagnostics_SymbolStore_ISymbolScope *)parent
     {
-		MonoObject * monoObject = [self getMonoProperty:"Parent"];
-		System_Diagnostics_SymbolStore_ISymbolScope * result = [System_Diagnostics_SymbolStore_ISymbolScope representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Parent"];
+		if ([self object:_parent isEqualToMonoObject:monoObject]) return _parent;					
+		_parent = [System_Diagnostics_SymbolStore_ISymbolScope objectWithMonoObject:monoObject];
+
+		return _parent;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : StartOffset
+	// Managed property type : System.Int32
+    @synthesize startOffset = _startOffset;
     - (int32_t)startOffset
     {
-		MonoObject * monoObject = [self getMonoProperty:"StartOffset"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"StartOffset"];
+		_startOffset = DB_UNBOX_INT32(monoObject);
+
+		return _startOffset;
 	}
 
 #pragma mark -
@@ -62,7 +82,7 @@
     - (DBSystem_Array *)getChildren
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChildren()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetLocals
@@ -71,7 +91,7 @@
     - (DBSystem_Array *)getLocals
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLocals()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetNamespaces
@@ -80,7 +100,13 @@
     - (DBSystem_Array *)getNamespaces
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNamespaces()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

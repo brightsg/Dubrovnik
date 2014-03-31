@@ -3,6 +3,12 @@
 //
 // Managed struct : IDLDESC
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ComTypes_IDLDESC
 
 #pragma mark -
@@ -21,30 +27,44 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IntPtr
+	// Managed field name : dwReserved
+	// Managed field type : System.IntPtr
+    @synthesize dwReserved = _dwReserved;
     - (void *)dwReserved
     {
 		void * monoObject;
 		[self getMonoField:"dwReserved" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_dwReserved = monoObject;
+		return _dwReserved;
 	}
     - (void)setDwReserved:(void *)value
 	{
+		_dwReserved = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"dwReserved" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.IDLFLAG
+	// Managed field name : wIDLFlags
+	// Managed field type : System.Runtime.InteropServices.ComTypes.IDLFLAG
+    @synthesize wIDLFlags = _wIDLFlags;
     - (System_Runtime_InteropServices_ComTypes_IDLFLAG)wIDLFlags
     {
-		MonoObject * monoObject;
+		System_Runtime_InteropServices_ComTypes_IDLFLAG monoObject;
 		[self getMonoField:"wIDLFlags" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT16(monoObject);
+		_wIDLFlags = monoObject;
+		return _wIDLFlags;
 	}
     - (void)setWIDLFlags:(System_Runtime_InteropServices_ComTypes_IDLFLAG)value
 	{
+		_wIDLFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"wIDLFlags" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

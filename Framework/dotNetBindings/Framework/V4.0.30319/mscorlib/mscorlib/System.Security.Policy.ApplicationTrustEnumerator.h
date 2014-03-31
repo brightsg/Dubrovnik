@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationTrustEnumerator
 //
-@interface System_Security_Policy_ApplicationTrustEnumerator : DBMonoObjectRepresentation
+@interface System_Security_Policy_ApplicationTrustEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.ApplicationTrust
-    - (System_Security_Policy_ApplicationTrust *)current;
+	// Managed property name : Current
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @property (nonatomic, strong, readonly) System_Security_Policy_ApplicationTrust * current;
 
 #pragma mark -
 #pragma mark Methods

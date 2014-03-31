@@ -14,20 +14,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : Microsoft.Win32.SafeHandles.SafeRegistryHandle
-    - (Microsoft_Win32_SafeHandles_SafeRegistryHandle *)handle;
+	// Managed property name : Handle
+	// Managed property type : Microsoft.Win32.SafeHandles.SafeRegistryHandle
+    @property (nonatomic, strong, readonly) Microsoft_Win32_SafeHandles_SafeRegistryHandle * handle;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Int32
-    - (int32_t)subKeyCount;
+	// Managed property name : SubKeyCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t subKeyCount;
 
-	// Managed type : System.Int32
-    - (int32_t)valueCount;
+	// Managed property name : ValueCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t valueCount;
 
-	// Managed type : Microsoft.Win32.RegistryView
-    - (Microsoft_Win32_RegistryView)view;
+	// Managed property name : View
+	// Managed property type : Microsoft.Win32.RegistryView
+    @property (nonatomic, readonly) Microsoft_Win32_RegistryView view;
 
 #pragma mark -
 #pragma mark Methods
@@ -130,17 +135,17 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getValue_withName:(NSString *)p1;
+    - (System_Object *)getValue_withName:(NSString *)p1;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Object
-    - (DBMonoObjectRepresentation *)getValue_withName:(NSString *)p1 defaultValue:(DBMonoObjectRepresentation *)p2;
+    - (System_Object *)getValue_withName:(NSString *)p1 defaultValue:(System_Object *)p2;
 
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Object, Microsoft.Win32.RegistryValueOptions
-    - (DBMonoObjectRepresentation *)getValue_withName:(NSString *)p1 defaultValue:(DBMonoObjectRepresentation *)p2 options:(Microsoft_Win32_RegistryValueOptions)p3;
+    - (System_Object *)getValue_withName:(NSString *)p1 defaultValue:(System_Object *)p2 options:(Microsoft_Win32_RegistryValueOptions)p3;
 
 	// Managed method name : GetValueKind
 	// Managed return type : Microsoft.Win32.RegistryValueKind
@@ -195,12 +200,12 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)setValue_withName:(NSString *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (void)setValue_withName:(NSString *)p1 value:(System_Object *)p2;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, Microsoft.Win32.RegistryValueKind
-    - (void)setValue_withName:(NSString *)p1 value:(DBMonoObjectRepresentation *)p2 valueKind:(Microsoft_Win32_RegistryValueKind)p3;
+    - (void)setValue_withName:(NSString *)p1 value:(System_Object *)p2 valueKind:(Microsoft_Win32_RegistryValueKind)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

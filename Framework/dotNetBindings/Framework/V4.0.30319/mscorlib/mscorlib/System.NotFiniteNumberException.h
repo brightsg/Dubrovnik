@@ -42,8 +42,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Double
-    - (double)offendingNumber;
+	// Managed property name : OffendingNumber
+	// Managed property type : System.Double
+    @property (nonatomic, readonly) double offendingNumber;
 
 #pragma mark -
 #pragma mark Methods

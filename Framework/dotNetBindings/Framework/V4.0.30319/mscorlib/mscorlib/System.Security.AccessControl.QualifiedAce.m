@@ -3,6 +3,12 @@
 //
 // Managed class : QualifiedAce
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_QualifiedAce
 
 #pragma mark -
@@ -21,28 +27,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AceQualifier
+	// Managed property name : AceQualifier
+	// Managed property type : System.Security.AccessControl.AceQualifier
+    @synthesize aceQualifier = _aceQualifier;
     - (System_Security_AccessControl_AceQualifier)aceQualifier
     {
-		MonoObject * monoObject = [self getMonoProperty:"AceQualifier"];
-		System_Security_AccessControl_AceQualifier result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AceQualifier"];
+		_aceQualifier = DB_UNBOX_INT32(monoObject);
+
+		return _aceQualifier;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsCallback
+	// Managed property type : System.Boolean
+    @synthesize isCallback = _isCallback;
     - (BOOL)isCallback
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsCallback"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsCallback"];
+		_isCallback = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isCallback;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : OpaqueLength
+	// Managed property type : System.Int32
+    @synthesize opaqueLength = _opaqueLength;
     - (int32_t)opaqueLength
     {
-		MonoObject * monoObject = [self getMonoProperty:"OpaqueLength"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OpaqueLength"];
+		_opaqueLength = DB_UNBOX_INT32(monoObject);
+
+		return _opaqueLength;
 	}
 
 #pragma mark -
@@ -64,5 +79,11 @@
     {
 		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

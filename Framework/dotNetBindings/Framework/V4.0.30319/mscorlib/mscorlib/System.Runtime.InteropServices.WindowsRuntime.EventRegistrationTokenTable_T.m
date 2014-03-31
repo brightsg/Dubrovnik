@@ -3,6 +3,12 @@
 //
 // Managed class : EventRegistrationTokenTable<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable
 
 #pragma mark -
@@ -21,15 +27,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)invocationList
+	// Managed property name : InvocationList
+	// Managed property type : <T>
+    @synthesize invocationList = _invocationList;
+    - (DBManagedObject *)invocationList
     {
-		MonoObject * monoObject = [self getMonoProperty:"InvocationList"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InvocationList"];
+		if ([self object:_invocationList isEqualToMonoObject:monoObject]) return _invocationList;					
+		_invocationList = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _invocationList;
 	}
-    - (void)setInvocationList:(DBMonoObjectRepresentation *)value
+    - (void)setInvocationList:(DBManagedObject *)value
 	{
+		_invocationList = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"InvocationList" valueObject:monoObject];          
 	}
@@ -40,10 +51,10 @@
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
 	// Managed param types : <T>
-    - (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)addEventHandler_withHandler:(DBMonoObjectRepresentation *)p1
+    - (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)addEventHandler_withHandler:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AddEventHandler(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken representationWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrCreateEventRegistrationTokenTable
@@ -52,7 +63,7 @@
     - (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable *)getOrCreateEventRegistrationTokenTable_withRefEventTableRef:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable **)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrCreateEventRegistrationTokenTable(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable<T>&)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable representationWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemoveEventHandler
@@ -66,9 +77,15 @@
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)removeEventHandler_withHandler:(DBMonoObjectRepresentation *)p1
+    - (void)removeEventHandler_withHandler:(DBManagedObject *)p1
     {
 		[self invokeMonoMethod:"RemoveEventHandler(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

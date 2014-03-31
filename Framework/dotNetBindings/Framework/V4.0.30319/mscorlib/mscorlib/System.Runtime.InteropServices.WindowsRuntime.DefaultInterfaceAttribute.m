@@ -3,6 +3,12 @@
 //
 // Managed class : DefaultInterfaceAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_WindowsRuntime_DefaultInterfaceAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : DefaultInterface
+	// Managed property type : System.Type
+    @synthesize defaultInterface = _defaultInterface;
     - (System_Type *)defaultInterface
     {
-		MonoObject * monoObject = [self getMonoProperty:"DefaultInterface"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DefaultInterface"];
+		if ([self object:_defaultInterface isEqualToMonoObject:monoObject]) return _defaultInterface;					
+		_defaultInterface = [System_Type objectWithMonoObject:monoObject];
+
+		return _defaultInterface;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

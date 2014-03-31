@@ -3,6 +3,12 @@
 //
 // Managed class : MissingSatelliteAssemblyException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Resources_MissingSatelliteAssemblyException
 
 #pragma mark -
@@ -48,12 +54,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : CultureName
+	// Managed property type : System.String
+    @synthesize cultureName = _cultureName;
     - (NSString *)cultureName
     {
-		MonoObject * monoObject = [self getMonoProperty:"CultureName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CultureName"];
+		if ([self object:_cultureName isEqualToMonoObject:monoObject]) return _cultureName;					
+		_cultureName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _cultureName;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : Tuple<T1, T2, T3>
 //
-@interface System_Tuple : DBMonoObjectRepresentation
+@interface System_Tuple : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,19 +17,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Tuple<T1, T2, T3>
 	// Managed param types : <T1>, <T2>, <T3>
-    + (System_Tuple *)new_withItem1:(DBMonoObjectRepresentation *)p1 item2:(DBMonoObjectRepresentation *)p2 item3:(DBMonoObjectRepresentation *)p3;
+    + (System_Tuple *)new_withItem1:(DBManagedObject *)p1 item2:(DBManagedObject *)p2 item3:(DBManagedObject *)p3;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T1>
-    - (DBMonoObjectRepresentation *)item1;
+	// Managed property name : Item1
+	// Managed property type : <T1>
+    @property (nonatomic, strong, readonly) DBManagedObject * item1;
 
-	// Managed type : <T2>
-    - (DBMonoObjectRepresentation *)item2;
+	// Managed property name : Item2
+	// Managed property type : <T2>
+    @property (nonatomic, strong, readonly) DBManagedObject * item2;
 
-	// Managed type : <T3>
-    - (DBMonoObjectRepresentation *)item3;
+	// Managed property name : Item3
+	// Managed property type : <T3>
+    @property (nonatomic, strong, readonly) DBManagedObject * item3;
 
 #pragma mark -
 #pragma mark Methods
@@ -37,7 +40,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

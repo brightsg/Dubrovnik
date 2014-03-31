@@ -2,7 +2,7 @@
 //
 // Managed struct : Boolean
 //
-@interface System_Boolean : DBMonoObjectRepresentation
+@interface System_Boolean : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : FalseString
+	// Managed field type : System.String
     + (NSString *)falseString;
 
-	// Managed type : System.String
+	// Managed field name : TrueString
+	// Managed field type : System.String
     + (NSString *)trueString;
 
 #pragma mark -
@@ -26,7 +28,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withObj:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withObj:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -36,7 +38,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

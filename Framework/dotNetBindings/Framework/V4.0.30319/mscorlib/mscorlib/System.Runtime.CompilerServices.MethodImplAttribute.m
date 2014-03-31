@@ -3,6 +3,12 @@
 //
 // Managed class : MethodImplAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_MethodImplAttribute
 
 #pragma mark -
@@ -40,15 +46,19 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.CompilerServices.MethodCodeType
+	// Managed field name : MethodCodeType
+	// Managed field type : System.Runtime.CompilerServices.MethodCodeType
+    @synthesize methodCodeType = _methodCodeType;
     - (System_Runtime_CompilerServices_MethodCodeType)methodCodeType
     {
-		MonoObject * monoObject;
+		System_Runtime_CompilerServices_MethodCodeType monoObject;
 		[self getMonoField:"MethodCodeType" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT32(monoObject);
+		_methodCodeType = monoObject;
+		return _methodCodeType;
 	}
     - (void)setMethodCodeType:(System_Runtime_CompilerServices_MethodCodeType)value
 	{
+		_methodCodeType = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"MethodCodeType" valueObject:monoObject];          
 	}
@@ -56,12 +66,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.CompilerServices.MethodImplOptions
+	// Managed property name : Value
+	// Managed property type : System.Runtime.CompilerServices.MethodImplOptions
+    @synthesize value = _value;
     - (System_Runtime_CompilerServices_MethodImplOptions)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		System_Runtime_CompilerServices_MethodImplOptions result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		_value = DB_UNBOX_INT32(monoObject);
+
+		return _value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

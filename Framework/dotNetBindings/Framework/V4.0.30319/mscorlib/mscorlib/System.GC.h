@@ -2,7 +2,7 @@
 //
 // Managed class : GC
 //
-@interface System_GC : DBMonoObjectRepresentation
+@interface System_GC : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : MaxGeneration
+	// Managed property type : System.Int32
     + (int32_t)maxGeneration;
 
 #pragma mark -
@@ -58,7 +59,7 @@
 	// Managed method name : GetGeneration
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)getGeneration_withObj:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)getGeneration_withObj:(System_Object *)p1;
 
 	// Managed method name : GetGeneration
 	// Managed return type : System.Int32
@@ -73,7 +74,7 @@
 	// Managed method name : KeepAlive
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)keepAlive_withObj:(DBMonoObjectRepresentation *)p1;
+    - (void)keepAlive_withObj:(System_Object *)p1;
 
 	// Managed method name : RegisterForFullGCNotification
 	// Managed return type : System.Void
@@ -88,12 +89,12 @@
 	// Managed method name : ReRegisterForFinalize
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)reRegisterForFinalize_withObj:(DBMonoObjectRepresentation *)p1;
+    - (void)reRegisterForFinalize_withObj:(System_Object *)p1;
 
 	// Managed method name : SuppressFinalize
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)suppressFinalize_withObj:(DBMonoObjectRepresentation *)p1;
+    - (void)suppressFinalize_withObj:(System_Object *)p1;
 
 	// Managed method name : WaitForFullGCApproach
 	// Managed return type : System.GCNotificationStatus

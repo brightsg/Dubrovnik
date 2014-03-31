@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)renewalTime;
-    - (void)setRenewalTime:(System_TimeSpan *)value;
+	// Managed property name : RenewalTime
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong) System_TimeSpan * renewalTime;
 
 #pragma mark -
 #pragma mark Methods
@@ -37,7 +37,7 @@
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)initializeLifetimeService;
+    - (System_Object *)initializeLifetimeService;
 
 	// Managed method name : Register
 	// Managed return type : System.Boolean

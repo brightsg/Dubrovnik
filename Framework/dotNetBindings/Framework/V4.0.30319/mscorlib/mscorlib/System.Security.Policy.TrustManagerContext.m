@@ -3,6 +3,12 @@
 //
 // Managed class : TrustManagerContext
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_TrustManagerContext
 
 #pragma mark -
@@ -32,82 +38,113 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IgnorePersistedDecision
+	// Managed property type : System.Boolean
+    @synthesize ignorePersistedDecision = _ignorePersistedDecision;
     - (BOOL)ignorePersistedDecision
     {
-		MonoObject * monoObject = [self getMonoProperty:"IgnorePersistedDecision"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IgnorePersistedDecision"];
+		_ignorePersistedDecision = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _ignorePersistedDecision;
 	}
     - (void)setIgnorePersistedDecision:(BOOL)value
 	{
+		_ignorePersistedDecision = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IgnorePersistedDecision" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : KeepAlive
+	// Managed property type : System.Boolean
+    @synthesize keepAlive = _keepAlive;
     - (BOOL)keepAlive
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeepAlive"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeepAlive"];
+		_keepAlive = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _keepAlive;
 	}
     - (void)setKeepAlive:(BOOL)value
 	{
+		_keepAlive = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"KeepAlive" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : NoPrompt
+	// Managed property type : System.Boolean
+    @synthesize noPrompt = _noPrompt;
     - (BOOL)noPrompt
     {
-		MonoObject * monoObject = [self getMonoProperty:"NoPrompt"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"NoPrompt"];
+		_noPrompt = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _noPrompt;
 	}
     - (void)setNoPrompt:(BOOL)value
 	{
+		_noPrompt = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"NoPrompt" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Persist
+	// Managed property type : System.Boolean
+    @synthesize persist = _persist;
     - (BOOL)persist
     {
-		MonoObject * monoObject = [self getMonoProperty:"Persist"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Persist"];
+		_persist = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _persist;
 	}
     - (void)setPersist:(BOOL)value
 	{
+		_persist = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Persist" valueObject:monoObject];          
 	}
 
-	// Managed type : System.ApplicationIdentity
+	// Managed property name : PreviousApplicationIdentity
+	// Managed property type : System.ApplicationIdentity
+    @synthesize previousApplicationIdentity = _previousApplicationIdentity;
     - (System_ApplicationIdentity *)previousApplicationIdentity
     {
-		MonoObject * monoObject = [self getMonoProperty:"PreviousApplicationIdentity"];
-		System_ApplicationIdentity * result = [System_ApplicationIdentity representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PreviousApplicationIdentity"];
+		if ([self object:_previousApplicationIdentity isEqualToMonoObject:monoObject]) return _previousApplicationIdentity;					
+		_previousApplicationIdentity = [System_ApplicationIdentity objectWithMonoObject:monoObject];
+
+		return _previousApplicationIdentity;
 	}
     - (void)setPreviousApplicationIdentity:(System_ApplicationIdentity *)value
 	{
+		_previousApplicationIdentity = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"PreviousApplicationIdentity" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Policy.TrustManagerUIContext
+	// Managed property name : UIContext
+	// Managed property type : System.Security.Policy.TrustManagerUIContext
+    @synthesize uIContext = _uIContext;
     - (System_Security_Policy_TrustManagerUIContext)uIContext
     {
-		MonoObject * monoObject = [self getMonoProperty:"UIContext"];
-		System_Security_Policy_TrustManagerUIContext result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UIContext"];
+		_uIContext = DB_UNBOX_INT32(monoObject);
+
+		return _uIContext;
 	}
     - (void)setUIContext:(System_Security_Policy_TrustManagerUIContext)value
 	{
+		_uIContext = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"UIContext" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

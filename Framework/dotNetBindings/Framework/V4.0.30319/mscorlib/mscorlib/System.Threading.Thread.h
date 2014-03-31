@@ -37,54 +37,62 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.ApartmentState
-    - (System_Threading_ApartmentState)apartmentState;
-    - (void)setApartmentState:(System_Threading_ApartmentState)value;
+	// Managed property name : ApartmentState
+	// Managed property type : System.Threading.ApartmentState
+    @property (nonatomic) System_Threading_ApartmentState apartmentState;
 
-	// Managed type : System.Runtime.Remoting.Contexts.Context
+	// Managed property name : CurrentContext
+	// Managed property type : System.Runtime.Remoting.Contexts.Context
     + (System_Runtime_Remoting_Contexts_Context *)currentContext;
 
-	// Managed type : System.Globalization.CultureInfo
-    - (System_Globalization_CultureInfo *)currentCulture;
-    - (void)setCurrentCulture:(System_Globalization_CultureInfo *)value;
+	// Managed property name : CurrentCulture
+	// Managed property type : System.Globalization.CultureInfo
+    @property (nonatomic, strong) System_Globalization_CultureInfo * currentCulture;
 
-	// Managed type : System.Security.Principal.IPrincipal
+	// Managed property name : CurrentPrincipal
+	// Managed property type : System.Security.Principal.IPrincipal
     + (System_Security_Principal_IPrincipal *)currentPrincipal;
     + (void)setCurrentPrincipal:(System_Security_Principal_IPrincipal *)value;
 
-	// Managed type : System.Threading.Thread
+	// Managed property name : CurrentThread
+	// Managed property type : System.Threading.Thread
     + (System_Threading_Thread *)currentThread;
 
-	// Managed type : System.Globalization.CultureInfo
-    - (System_Globalization_CultureInfo *)currentUICulture;
-    - (void)setCurrentUICulture:(System_Globalization_CultureInfo *)value;
+	// Managed property name : CurrentUICulture
+	// Managed property type : System.Globalization.CultureInfo
+    @property (nonatomic, strong) System_Globalization_CultureInfo * currentUICulture;
 
-	// Managed type : System.Threading.ExecutionContext
-    - (System_Threading_ExecutionContext *)executionContext;
+	// Managed property name : ExecutionContext
+	// Managed property type : System.Threading.ExecutionContext
+    @property (nonatomic, strong, readonly) System_Threading_ExecutionContext * executionContext;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAlive;
+	// Managed property name : IsAlive
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAlive;
 
-	// Managed type : System.Boolean
-    - (BOOL)isBackground;
-    - (void)setIsBackground:(BOOL)value;
+	// Managed property name : IsBackground
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL isBackground;
 
-	// Managed type : System.Boolean
-    - (BOOL)isThreadPoolThread;
+	// Managed property name : IsThreadPoolThread
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isThreadPoolThread;
 
-	// Managed type : System.Int32
-    - (int32_t)managedThreadId;
+	// Managed property name : ManagedThreadId
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t managedThreadId;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.Threading.ThreadPriority
-    - (System_Threading_ThreadPriority)priority;
-    - (void)setPriority:(System_Threading_ThreadPriority)value;
+	// Managed property name : Priority
+	// Managed property type : System.Threading.ThreadPriority
+    @property (nonatomic) System_Threading_ThreadPriority priority;
 
-	// Managed type : System.Threading.ThreadState
-    - (System_Threading_ThreadState)threadState;
+	// Managed property name : ThreadState
+	// Managed property type : System.Threading.ThreadState
+    @property (nonatomic, readonly) System_Threading_ThreadState threadState;
 
 #pragma mark -
 #pragma mark Methods
@@ -92,7 +100,7 @@
 	// Managed method name : Abort
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)abort_withStateInfo:(DBMonoObjectRepresentation *)p1;
+    - (void)abort_withStateInfo:(System_Object *)p1;
 
 	// Managed method name : Abort
 	// Managed return type : System.Void
@@ -152,7 +160,7 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.LocalDataStoreSlot
-    - (DBMonoObjectRepresentation *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
+    - (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
 
 	// Managed method name : GetDomain
 	// Managed return type : System.AppDomain
@@ -222,7 +230,7 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.LocalDataStoreSlot, System.Object
-    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(DBMonoObjectRepresentation *)p2;
+    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2;
 
 	// Managed method name : Sleep
 	// Managed return type : System.Void
@@ -247,7 +255,7 @@
 	// Managed method name : Start
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)start_withParameter:(DBMonoObjectRepresentation *)p1;
+    - (void)start_withParameter:(System_Object *)p1;
 
 	// Managed method name : Suspend
 	// Managed return type : System.Void
@@ -322,7 +330,7 @@
 	// Managed method name : VolatileRead
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&
-    - (DBMonoObjectRepresentation *)volatileRead_withAddressObjectRef:(DBMonoObjectRepresentation **)p1;
+    - (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
@@ -387,7 +395,7 @@
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Object&, System.Object
-    - (void)volatileWrite_withAddressObjectRef:(DBMonoObjectRepresentation **)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : Yield
 	// Managed return type : System.Boolean

@@ -2,7 +2,7 @@
 //
 // Managed interface : IAsyncStateMachine
 //
-@interface System_Runtime_CompilerServices_IAsyncStateMachine : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IAsyncStateMachine : System_Object
 
 #pragma mark -
 #pragma mark Setup

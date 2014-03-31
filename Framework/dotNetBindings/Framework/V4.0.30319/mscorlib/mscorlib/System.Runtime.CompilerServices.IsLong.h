@@ -2,7 +2,7 @@
 //
 // Managed class : IsLong
 //
-@interface System_Runtime_CompilerServices_IsLong : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsLong : System_Object
 
 #pragma mark -
 #pragma mark Setup

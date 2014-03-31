@@ -3,6 +3,12 @@
 //
 // Managed interface : IServerChannelSinkProvider
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_IServerChannelSinkProvider
 
 #pragma mark -
@@ -21,15 +27,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Channels.IServerChannelSinkProvider
+	// Managed property name : Next
+	// Managed property type : System.Runtime.Remoting.Channels.IServerChannelSinkProvider
+    @synthesize next = _next;
     - (System_Runtime_Remoting_Channels_IServerChannelSinkProvider *)next
     {
-		MonoObject * monoObject = [self getMonoProperty:"Next"];
-		System_Runtime_Remoting_Channels_IServerChannelSinkProvider * result = [System_Runtime_Remoting_Channels_IServerChannelSinkProvider representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Next"];
+		if ([self object:_next isEqualToMonoObject:monoObject]) return _next;					
+		_next = [System_Runtime_Remoting_Channels_IServerChannelSinkProvider objectWithMonoObject:monoObject];
+
+		return _next;
 	}
     - (void)setNext:(System_Runtime_Remoting_Channels_IServerChannelSinkProvider *)value
 	{
+		_next = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Next" valueObject:monoObject];          
 	}
@@ -43,7 +54,7 @@
     - (System_Runtime_Remoting_Channels_IServerChannelSink *)createSink_withChannel:(System_Runtime_Remoting_Channels_IChannelReceiver *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateSink(System.Runtime.Remoting.Channels.IChannelReceiver)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Channels_IServerChannelSink representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Channels_IServerChannelSink objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetChannelData
@@ -53,5 +64,11 @@
     {
 		[self invokeMonoMethod:"GetChannelData(System.Runtime.Remoting.Channels.IChannelDataStore)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

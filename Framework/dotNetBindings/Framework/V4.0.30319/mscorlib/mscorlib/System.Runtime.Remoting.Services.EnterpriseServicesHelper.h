@@ -2,7 +2,7 @@
 //
 // Managed class : EnterpriseServicesHelper
 //
-@interface System_Runtime_Remoting_Services_EnterpriseServicesHelper : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Services_EnterpriseServicesHelper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,6 +27,6 @@
 	// Managed method name : WrapIUnknownWithComObject
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)wrapIUnknownWithComObject_withPunk:(void *)p1;
+    - (System_Object *)wrapIUnknownWithComObject_withPunk:(void *)p1;
 @end
 //--Dubrovnik.CodeGenerator

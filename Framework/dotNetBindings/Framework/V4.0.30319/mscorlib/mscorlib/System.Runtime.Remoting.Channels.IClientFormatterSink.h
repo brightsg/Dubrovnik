@@ -2,7 +2,7 @@
 //
 // Managed interface : IClientFormatterSink
 //
-@interface System_Runtime_Remoting_Channels_IClientFormatterSink : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IClientFormatterSink : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed class : MaskGenerationMethod
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_MaskGenerationMethod
 
 #pragma mark -
@@ -29,5 +35,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GenerateMask(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,11 +32,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.HostProtectionResource
-    - (System_Security_Permissions_HostProtectionResource)demandedResources;
+	// Managed property name : DemandedResources
+	// Managed property type : System.Security.Permissions.HostProtectionResource
+    @property (nonatomic, readonly) System_Security_Permissions_HostProtectionResource demandedResources;
 
-	// Managed type : System.Security.Permissions.HostProtectionResource
-    - (System_Security_Permissions_HostProtectionResource)protectedResources;
+	// Managed property name : ProtectedResources
+	// Managed property type : System.Security.Permissions.HostProtectionResource
+    @property (nonatomic, readonly) System_Security_Permissions_HostProtectionResource protectedResources;
 
 #pragma mark -
 #pragma mark Methods

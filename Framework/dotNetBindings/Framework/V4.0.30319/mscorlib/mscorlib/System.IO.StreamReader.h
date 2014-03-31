@@ -72,20 +72,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.StreamReader
+	// Managed field name : Null
+	// Managed field type : System.IO.StreamReader
     + (System_IO_StreamReader *)null;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IO.Stream
-    - (System_IO_Stream *)baseStream;
+	// Managed property name : BaseStream
+	// Managed property type : System.IO.Stream
+    @property (nonatomic, strong, readonly) System_IO_Stream * baseStream;
 
-	// Managed type : System.Text.Encoding
-    - (System_Text_Encoding *)currentEncoding;
+	// Managed property name : CurrentEncoding
+	// Managed property type : System.Text.Encoding
+    @property (nonatomic, strong, readonly) System_Text_Encoding * currentEncoding;
 
-	// Managed type : System.Boolean
-    - (BOOL)endOfStream;
+	// Managed property name : EndOfStream
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL endOfStream;
 
 #pragma mark -
 #pragma mark Methods

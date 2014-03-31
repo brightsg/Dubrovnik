@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)destination;
+	// Managed property name : Destination
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * destination;
 @end
 //--Dubrovnik.CodeGenerator

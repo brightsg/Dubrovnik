@@ -2,7 +2,7 @@
 //
 // Managed class : StringBuilder
 //
-@interface System_Text_StringBuilder : DBMonoObjectRepresentation
+@interface System_Text_StringBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,20 +42,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)capacity;
-    - (void)setCapacity:(int32_t)value;
+	// Managed property name : Capacity
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t capacity;
 
-	// Managed type : System.Char
-    - (uint16_t)chars;
-    - (void)setChars:(uint16_t)value;
+	// Managed property name : Chars
+	// Managed property type : System.Char
+    @property (nonatomic) uint16_t chars;
 
-	// Managed type : System.Int32
-    - (int32_t)length;
-    - (void)setLength:(int32_t)value;
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t length;
 
-	// Managed type : System.Int32
-    - (int32_t)maxCapacity;
+	// Managed property name : MaxCapacity
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t maxCapacity;
 
 #pragma mark -
 #pragma mark Methods
@@ -148,7 +149,7 @@
 	// Managed method name : Append
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.Object
-    - (System_Text_StringBuilder *)append_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (System_Text_StringBuilder *)append_withValueObject:(System_Object *)p1;
 
 	// Managed method name : Append
 	// Managed return type : System.Text.StringBuilder
@@ -158,17 +159,17 @@
 	// Managed method name : AppendFormat
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.String, System.Object
-    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2;
+    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
 
 	// Managed method name : AppendFormat
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.String, System.Object, System.Object
-    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3;
+    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
 
 	// Managed method name : AppendFormat
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4;
+    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
 
 	// Managed method name : AppendFormat
 	// Managed return type : System.Text.StringBuilder
@@ -298,7 +299,7 @@
 	// Managed method name : Insert
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.Int32, System.Object
-    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : Remove
 	// Managed return type : System.Text.StringBuilder

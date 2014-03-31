@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationSecurityInfo
 //
-@interface System_Security_Policy_ApplicationSecurityInfo : DBMonoObjectRepresentation
+@interface System_Security_Policy_ApplicationSecurityInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,20 +22,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.Evidence
-    - (System_Security_Policy_Evidence *)applicationEvidence;
-    - (void)setApplicationEvidence:(System_Security_Policy_Evidence *)value;
+	// Managed property name : ApplicationEvidence
+	// Managed property type : System.Security.Policy.Evidence
+    @property (nonatomic, strong) System_Security_Policy_Evidence * applicationEvidence;
 
-	// Managed type : System.ApplicationId
-    - (System_ApplicationId *)applicationId;
-    - (void)setApplicationId:(System_ApplicationId *)value;
+	// Managed property name : ApplicationId
+	// Managed property type : System.ApplicationId
+    @property (nonatomic, strong) System_ApplicationId * applicationId;
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)defaultRequestSet;
-    - (void)setDefaultRequestSet:(System_Security_PermissionSet *)value;
+	// Managed property name : DefaultRequestSet
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong) System_Security_PermissionSet * defaultRequestSet;
 
-	// Managed type : System.ApplicationId
-    - (System_ApplicationId *)deploymentId;
-    - (void)setDeploymentId:(System_ApplicationId *)value;
+	// Managed property name : DeploymentId
+	// Managed property type : System.ApplicationId
+    @property (nonatomic, strong) System_ApplicationId * deploymentId;
 @end
 //--Dubrovnik.CodeGenerator

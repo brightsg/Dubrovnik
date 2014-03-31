@@ -37,14 +37,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ActivationContext
-    - (System_ActivationContext *)activationContext;
+	// Managed property name : ActivationContext
+	// Managed property type : System.ActivationContext
+    @property (nonatomic, strong, readonly) System_ActivationContext * activationContext;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)activationData;
+	// Managed property name : ActivationData
+	// Managed property type : System.String[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * activationData;
 
-	// Managed type : System.ApplicationIdentity
-    - (System_ApplicationIdentity *)applicationIdentity;
+	// Managed property name : ApplicationIdentity
+	// Managed property type : System.ApplicationIdentity
+    @property (nonatomic, strong, readonly) System_ApplicationIdentity * applicationIdentity;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed class : ApplicationId
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_ApplicationId
 
 #pragma mark -
@@ -32,44 +38,64 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Culture
+	// Managed property type : System.String
+    @synthesize culture = _culture;
     - (NSString *)culture
     {
-		MonoObject * monoObject = [self getMonoProperty:"Culture"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Culture"];
+		if ([self object:_culture isEqualToMonoObject:monoObject]) return _culture;					
+		_culture = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _culture;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
 
-	// Managed type : System.String
+	// Managed property name : ProcessorArchitecture
+	// Managed property type : System.String
+    @synthesize processorArchitecture = _processorArchitecture;
     - (NSString *)processorArchitecture
     {
-		MonoObject * monoObject = [self getMonoProperty:"ProcessorArchitecture"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ProcessorArchitecture"];
+		if ([self object:_processorArchitecture isEqualToMonoObject:monoObject]) return _processorArchitecture;					
+		_processorArchitecture = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _processorArchitecture;
 	}
 
-	// Managed type : System.Byte[]
+	// Managed property name : PublicKeyToken
+	// Managed property type : System.Byte[]
+    @synthesize publicKeyToken = _publicKeyToken;
     - (NSData *)publicKeyToken
     {
-		MonoObject * monoObject = [self getMonoProperty:"PublicKeyToken"];
-		NSData * result = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PublicKeyToken"];
+		if ([self object:_publicKeyToken isEqualToMonoObject:monoObject]) return _publicKeyToken;					
+		_publicKeyToken = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _publicKeyToken;
 	}
 
-	// Managed type : System.Version
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @synthesize version = _version;
     - (System_Version *)version
     {
-		MonoObject * monoObject = [self getMonoProperty:"Version"];
-		System_Version * result = [System_Version representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		if ([self object:_version isEqualToMonoObject:monoObject]) return _version;					
+		_version = [System_Version objectWithMonoObject:monoObject];
+
+		return _version;
 	}
 
 #pragma mark -
@@ -81,13 +107,13 @@
     - (System_ApplicationId *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_ApplicationId representationWithMonoObject:monoObject];
+		return [System_ApplicationId objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -110,5 +136,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

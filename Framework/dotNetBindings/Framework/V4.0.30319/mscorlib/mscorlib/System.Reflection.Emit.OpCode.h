@@ -2,7 +2,7 @@
 //
 // Managed struct : OpCode
 //
-@interface System_Reflection_Emit_OpCode : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_OpCode : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,29 +14,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Emit.FlowControl
-    - (System_Reflection_Emit_FlowControl)flowControl;
+	// Managed property name : FlowControl
+	// Managed property type : System.Reflection.Emit.FlowControl
+    @property (nonatomic, readonly) System_Reflection_Emit_FlowControl flowControl;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Reflection.Emit.OpCodeType
-    - (System_Reflection_Emit_OpCodeType)opCodeType;
+	// Managed property name : OpCodeType
+	// Managed property type : System.Reflection.Emit.OpCodeType
+    @property (nonatomic, readonly) System_Reflection_Emit_OpCodeType opCodeType;
 
-	// Managed type : System.Reflection.Emit.OperandType
-    - (System_Reflection_Emit_OperandType)operandType;
+	// Managed property name : OperandType
+	// Managed property type : System.Reflection.Emit.OperandType
+    @property (nonatomic, readonly) System_Reflection_Emit_OperandType operandType;
 
-	// Managed type : System.Int32
-    - (int32_t)size;
+	// Managed property name : Size
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t size;
 
-	// Managed type : System.Reflection.Emit.StackBehaviour
-    - (System_Reflection_Emit_StackBehaviour)stackBehaviourPop;
+	// Managed property name : StackBehaviourPop
+	// Managed property type : System.Reflection.Emit.StackBehaviour
+    @property (nonatomic, readonly) System_Reflection_Emit_StackBehaviour stackBehaviourPop;
 
-	// Managed type : System.Reflection.Emit.StackBehaviour
-    - (System_Reflection_Emit_StackBehaviour)stackBehaviourPush;
+	// Managed property name : StackBehaviourPush
+	// Managed property type : System.Reflection.Emit.StackBehaviour
+    @property (nonatomic, readonly) System_Reflection_Emit_StackBehaviour stackBehaviourPush;
 
-	// Managed type : System.Int16
-    - (int16_t)value;
+	// Managed property name : Value
+	// Managed property type : System.Int16
+    @property (nonatomic, readonly) int16_t value;
 
 #pragma mark -
 #pragma mark Methods
@@ -49,7 +57,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

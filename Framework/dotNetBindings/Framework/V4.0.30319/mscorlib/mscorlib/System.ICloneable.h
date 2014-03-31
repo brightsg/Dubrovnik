@@ -2,7 +2,7 @@
 //
 // Managed interface : ICloneable
 //
-@interface System_ICloneable : DBMonoObjectRepresentation
+@interface System_ICloneable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 @end
 //--Dubrovnik.CodeGenerator

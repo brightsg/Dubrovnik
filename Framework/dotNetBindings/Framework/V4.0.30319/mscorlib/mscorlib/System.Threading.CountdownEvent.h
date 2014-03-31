@@ -2,7 +2,7 @@
 //
 // Managed class : CountdownEvent
 //
-@interface System_Threading_CountdownEvent : DBMonoObjectRepresentation
+@interface System_Threading_CountdownEvent : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,17 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)currentCount;
+	// Managed property name : CurrentCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t currentCount;
 
-	// Managed type : System.Int32
-    - (int32_t)initialCount;
+	// Managed property name : InitialCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t initialCount;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSet;
+	// Managed property name : IsSet
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSet;
 
-	// Managed type : System.Threading.WaitHandle
-    - (System_Threading_WaitHandle *)waitHandle;
+	// Managed property name : WaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @property (nonatomic, strong, readonly) System_Threading_WaitHandle * waitHandle;
 
 #pragma mark -
 #pragma mark Methods

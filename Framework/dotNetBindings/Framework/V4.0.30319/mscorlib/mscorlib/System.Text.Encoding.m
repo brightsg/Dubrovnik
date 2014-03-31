@@ -3,6 +3,12 @@
 //
 // Managed class : Encoding
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Text_Encoding
 
 #pragma mark -
@@ -21,182 +27,260 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : ASCII
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_aSCII;
     + (System_Text_Encoding *)aSCII
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ASCII"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ASCII"];
+		if ([self object:m_aSCII isEqualToMonoObject:monoObject]) return m_aSCII;					
+		m_aSCII = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_aSCII;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : BigEndianUnicode
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_bigEndianUnicode;
     + (System_Text_Encoding *)bigEndianUnicode
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"BigEndianUnicode"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"BigEndianUnicode"];
+		if ([self object:m_bigEndianUnicode isEqualToMonoObject:monoObject]) return m_bigEndianUnicode;					
+		m_bigEndianUnicode = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_bigEndianUnicode;
 	}
 
-	// Managed type : System.String
+	// Managed property name : BodyName
+	// Managed property type : System.String
+    @synthesize bodyName = _bodyName;
     - (NSString *)bodyName
     {
-		MonoObject * monoObject = [self getMonoProperty:"BodyName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BodyName"];
+		if ([self object:_bodyName isEqualToMonoObject:monoObject]) return _bodyName;					
+		_bodyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _bodyName;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : CodePage
+	// Managed property type : System.Int32
+    @synthesize codePage = _codePage;
     - (int32_t)codePage
     {
-		MonoObject * monoObject = [self getMonoProperty:"CodePage"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CodePage"];
+		_codePage = DB_UNBOX_INT32(monoObject);
+
+		return _codePage;
 	}
 
-	// Managed type : System.Text.DecoderFallback
+	// Managed property name : DecoderFallback
+	// Managed property type : System.Text.DecoderFallback
+    @synthesize decoderFallback = _decoderFallback;
     - (System_Text_DecoderFallback *)decoderFallback
     {
-		MonoObject * monoObject = [self getMonoProperty:"DecoderFallback"];
-		System_Text_DecoderFallback * result = [System_Text_DecoderFallback representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DecoderFallback"];
+		if ([self object:_decoderFallback isEqualToMonoObject:monoObject]) return _decoderFallback;					
+		_decoderFallback = [System_Text_DecoderFallback objectWithMonoObject:monoObject];
+
+		return _decoderFallback;
 	}
     - (void)setDecoderFallback:(System_Text_DecoderFallback *)value
 	{
+		_decoderFallback = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"DecoderFallback" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : Default
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_default;
     + (System_Text_Encoding *)default
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Default"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Default"];
+		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
+		m_default = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_default;
 	}
 
-	// Managed type : System.Text.EncoderFallback
+	// Managed property name : EncoderFallback
+	// Managed property type : System.Text.EncoderFallback
+    @synthesize encoderFallback = _encoderFallback;
     - (System_Text_EncoderFallback *)encoderFallback
     {
-		MonoObject * monoObject = [self getMonoProperty:"EncoderFallback"];
-		System_Text_EncoderFallback * result = [System_Text_EncoderFallback representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EncoderFallback"];
+		if ([self object:_encoderFallback isEqualToMonoObject:monoObject]) return _encoderFallback;					
+		_encoderFallback = [System_Text_EncoderFallback objectWithMonoObject:monoObject];
+
+		return _encoderFallback;
 	}
     - (void)setEncoderFallback:(System_Text_EncoderFallback *)value
 	{
+		_encoderFallback = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"EncoderFallback" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : EncodingName
+	// Managed property type : System.String
+    @synthesize encodingName = _encodingName;
     - (NSString *)encodingName
     {
-		MonoObject * monoObject = [self getMonoProperty:"EncodingName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EncodingName"];
+		if ([self object:_encodingName isEqualToMonoObject:monoObject]) return _encodingName;					
+		_encodingName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _encodingName;
 	}
 
-	// Managed type : System.String
+	// Managed property name : HeaderName
+	// Managed property type : System.String
+    @synthesize headerName = _headerName;
     - (NSString *)headerName
     {
-		MonoObject * monoObject = [self getMonoProperty:"HeaderName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"HeaderName"];
+		if ([self object:_headerName isEqualToMonoObject:monoObject]) return _headerName;					
+		_headerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _headerName;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsBrowserDisplay
+	// Managed property type : System.Boolean
+    @synthesize isBrowserDisplay = _isBrowserDisplay;
     - (BOOL)isBrowserDisplay
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsBrowserDisplay"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsBrowserDisplay"];
+		_isBrowserDisplay = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isBrowserDisplay;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsBrowserSave
+	// Managed property type : System.Boolean
+    @synthesize isBrowserSave = _isBrowserSave;
     - (BOOL)isBrowserSave
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsBrowserSave"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsBrowserSave"];
+		_isBrowserSave = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isBrowserSave;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsMailNewsDisplay
+	// Managed property type : System.Boolean
+    @synthesize isMailNewsDisplay = _isMailNewsDisplay;
     - (BOOL)isMailNewsDisplay
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsMailNewsDisplay"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsMailNewsDisplay"];
+		_isMailNewsDisplay = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isMailNewsDisplay;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsMailNewsSave
+	// Managed property type : System.Boolean
+    @synthesize isMailNewsSave = _isMailNewsSave;
     - (BOOL)isMailNewsSave
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsMailNewsSave"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsMailNewsSave"];
+		_isMailNewsSave = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isMailNewsSave;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsReadOnly"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
+		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isReadOnly;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsSingleByte
+	// Managed property type : System.Boolean
+    @synthesize isSingleByte = _isSingleByte;
     - (BOOL)isSingleByte
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsSingleByte"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsSingleByte"];
+		_isSingleByte = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isSingleByte;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : Unicode
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_unicode;
     + (System_Text_Encoding *)unicode
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Unicode"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Unicode"];
+		if ([self object:m_unicode isEqualToMonoObject:monoObject]) return m_unicode;					
+		m_unicode = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_unicode;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : UTF32
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_uTF32;
     + (System_Text_Encoding *)uTF32
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UTF32"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UTF32"];
+		if ([self object:m_uTF32 isEqualToMonoObject:monoObject]) return m_uTF32;					
+		m_uTF32 = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_uTF32;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : UTF7
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_uTF7;
     + (System_Text_Encoding *)uTF7
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UTF7"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UTF7"];
+		if ([self object:m_uTF7 isEqualToMonoObject:monoObject]) return m_uTF7;					
+		m_uTF7 = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_uTF7;
 	}
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : UTF8
+	// Managed property type : System.Text.Encoding
+    static System_Text_Encoding * m_uTF8;
     + (System_Text_Encoding *)uTF8
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"UTF8"];
-		System_Text_Encoding * result = [System_Text_Encoding representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"UTF8"];
+		if ([self object:m_uTF8 isEqualToMonoObject:monoObject]) return m_uTF8;					
+		m_uTF8 = [System_Text_Encoding objectWithMonoObject:monoObject];
+
+		return m_uTF8;
 	}
 
-	// Managed type : System.String
+	// Managed property name : WebName
+	// Managed property type : System.String
+    @synthesize webName = _webName;
     - (NSString *)webName
     {
-		MonoObject * monoObject = [self getMonoProperty:"WebName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WebName"];
+		if ([self object:_webName isEqualToMonoObject:monoObject]) return _webName;					
+		_webName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _webName;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : WindowsCodePage
+	// Managed property type : System.Int32
+    @synthesize windowsCodePage = _windowsCodePage;
     - (int32_t)windowsCodePage
     {
-		MonoObject * monoObject = [self getMonoProperty:"WindowsCodePage"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WindowsCodePage"];
+		_windowsCodePage = DB_UNBOX_INT32(monoObject);
+
+		return _windowsCodePage;
 	}
 
 #pragma mark -
@@ -205,10 +289,10 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone
+    - (System_Object *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Convert
@@ -232,7 +316,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withValue:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -361,7 +445,7 @@
     - (DBSystem_Array *)getChars_withBytes:(NSData *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[])" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetChars
@@ -370,7 +454,7 @@
     - (DBSystem_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetChars
@@ -397,7 +481,7 @@
     - (System_Text_Decoder *)getDecoder
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
-		return [System_Text_Decoder representationWithMonoObject:monoObject];
+		return [System_Text_Decoder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoder
@@ -406,7 +490,7 @@
     - (System_Text_Encoder *)getEncoder
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
-		return [System_Text_Encoder representationWithMonoObject:monoObject];
+		return [System_Text_Encoder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -415,7 +499,7 @@
     - (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoding(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Text_Encoding representationWithMonoObject:monoObject];
+		return [System_Text_Encoding objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -424,7 +508,7 @@
     - (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoding(int,System.Text.EncoderFallback,System.Text.DecoderFallback)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
-		return [System_Text_Encoding representationWithMonoObject:monoObject];
+		return [System_Text_Encoding objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -433,7 +517,7 @@
     - (System_Text_Encoding *)getEncoding_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoding(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Text_Encoding representationWithMonoObject:monoObject];
+		return [System_Text_Encoding objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -442,7 +526,7 @@
     - (System_Text_Encoding *)getEncoding_withName:(NSString *)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoding(string,System.Text.EncoderFallback,System.Text.DecoderFallback)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Text_Encoding representationWithMonoObject:monoObject];
+		return [System_Text_Encoding objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncodings
@@ -451,7 +535,7 @@
     - (DBSystem_Array *)getEncodings
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncodings()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetHashCode
@@ -525,5 +609,18 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsAlwaysNormalized(System.Text.NormalizationForm)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_aSCII = nil;
+		m_bigEndianUnicode = nil;
+		m_default = nil;
+		m_unicode = nil;
+		m_uTF32 = nil;
+		m_uTF7 = nil;
+		m_uTF8 = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

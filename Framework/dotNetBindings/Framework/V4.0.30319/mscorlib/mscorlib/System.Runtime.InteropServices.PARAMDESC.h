@@ -2,7 +2,7 @@
 //
 // Managed struct : PARAMDESC
 //
-@interface System_Runtime_InteropServices_PARAMDESC : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_PARAMDESC : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IntPtr
-    - (void *)lpVarValue;
-    - (void)setLpVarValue:(void *)value;
+	// Managed field name : lpVarValue
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lpVarValue;
 
-	// Managed type : System.Runtime.InteropServices.PARAMFLAG
-    - (System_Runtime_InteropServices_PARAMFLAG)wParamFlags;
-    - (void)setWParamFlags:(System_Runtime_InteropServices_PARAMFLAG)value;
+	// Managed field name : wParamFlags
+	// Managed field type : System.Runtime.InteropServices.PARAMFLAG
+    @property (nonatomic) System_Runtime_InteropServices_PARAMFLAG wParamFlags;
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : ResourceReader
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Resources_ResourceReader
 
 #pragma mark -
@@ -62,7 +68,7 @@
     - (System_Collections_IDictionaryEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Collections_IDictionaryEnumerator representationWithMonoObject:monoObject];
+		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetResourceData
@@ -73,5 +79,11 @@
     {
 		[self invokeMonoMethod:"GetResourceData(string,string&,System.Byte[]&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

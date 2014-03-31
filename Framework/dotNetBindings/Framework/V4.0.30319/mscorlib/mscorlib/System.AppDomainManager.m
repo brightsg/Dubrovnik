@@ -3,6 +3,12 @@
 //
 // Managed class : AppDomainManager
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_AppDomainManager
 
 #pragma mark -
@@ -21,47 +27,67 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Hosting.ApplicationActivator
+	// Managed property name : ApplicationActivator
+	// Managed property type : System.Runtime.Hosting.ApplicationActivator
+    @synthesize applicationActivator = _applicationActivator;
     - (System_Runtime_Hosting_ApplicationActivator *)applicationActivator
     {
-		MonoObject * monoObject = [self getMonoProperty:"ApplicationActivator"];
-		System_Runtime_Hosting_ApplicationActivator * result = [System_Runtime_Hosting_ApplicationActivator representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ApplicationActivator"];
+		if ([self object:_applicationActivator isEqualToMonoObject:monoObject]) return _applicationActivator;					
+		_applicationActivator = [System_Runtime_Hosting_ApplicationActivator objectWithMonoObject:monoObject];
+
+		return _applicationActivator;
 	}
 
-	// Managed type : System.Reflection.Assembly
+	// Managed property name : EntryAssembly
+	// Managed property type : System.Reflection.Assembly
+    @synthesize entryAssembly = _entryAssembly;
     - (System_Reflection_Assembly *)entryAssembly
     {
-		MonoObject * monoObject = [self getMonoProperty:"EntryAssembly"];
-		System_Reflection_Assembly * result = [System_Reflection_Assembly representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EntryAssembly"];
+		if ([self object:_entryAssembly isEqualToMonoObject:monoObject]) return _entryAssembly;					
+		_entryAssembly = [System_Reflection_Assembly objectWithMonoObject:monoObject];
+
+		return _entryAssembly;
 	}
 
-	// Managed type : System.Threading.HostExecutionContextManager
+	// Managed property name : HostExecutionContextManager
+	// Managed property type : System.Threading.HostExecutionContextManager
+    @synthesize hostExecutionContextManager = _hostExecutionContextManager;
     - (System_Threading_HostExecutionContextManager *)hostExecutionContextManager
     {
-		MonoObject * monoObject = [self getMonoProperty:"HostExecutionContextManager"];
-		System_Threading_HostExecutionContextManager * result = [System_Threading_HostExecutionContextManager representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"HostExecutionContextManager"];
+		if ([self object:_hostExecutionContextManager isEqualToMonoObject:monoObject]) return _hostExecutionContextManager;					
+		_hostExecutionContextManager = [System_Threading_HostExecutionContextManager objectWithMonoObject:monoObject];
+
+		return _hostExecutionContextManager;
 	}
 
-	// Managed type : System.Security.HostSecurityManager
+	// Managed property name : HostSecurityManager
+	// Managed property type : System.Security.HostSecurityManager
+    @synthesize hostSecurityManager = _hostSecurityManager;
     - (System_Security_HostSecurityManager *)hostSecurityManager
     {
-		MonoObject * monoObject = [self getMonoProperty:"HostSecurityManager"];
-		System_Security_HostSecurityManager * result = [System_Security_HostSecurityManager representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"HostSecurityManager"];
+		if ([self object:_hostSecurityManager isEqualToMonoObject:monoObject]) return _hostSecurityManager;					
+		_hostSecurityManager = [System_Security_HostSecurityManager objectWithMonoObject:monoObject];
+
+		return _hostSecurityManager;
 	}
 
-	// Managed type : System.AppDomainManagerInitializationOptions
+	// Managed property name : InitializationFlags
+	// Managed property type : System.AppDomainManagerInitializationOptions
+    @synthesize initializationFlags = _initializationFlags;
     - (System_AppDomainManagerInitializationOptions)initializationFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"InitializationFlags"];
-		System_AppDomainManagerInitializationOptions result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InitializationFlags"];
+		_initializationFlags = DB_UNBOX_INT32(monoObject);
+
+		return _initializationFlags;
 	}
     - (void)setInitializationFlags:(System_AppDomainManagerInitializationOptions)value
 	{
+		_initializationFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"InitializationFlags" valueObject:monoObject];          
 	}
@@ -84,7 +110,7 @@
     - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 appDomainInfo:(System_AppDomainSetup *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence,System.AppDomainSetup)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_AppDomain representationWithMonoObject:monoObject];
+		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : InitializeNewDomain
@@ -94,5 +120,11 @@
     {
 		[self invokeMonoMethod:"InitializeNewDomain(System.AppDomainSetup)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

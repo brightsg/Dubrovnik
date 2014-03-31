@@ -3,6 +3,12 @@
 //
 // Managed class : CspParameters
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_CspParameters
 
 #pragma mark -
@@ -64,54 +70,72 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : KeyContainerName
+	// Managed field type : System.String
+    @synthesize keyContainerName = _keyContainerName;
     - (NSString *)keyContainerName
     {
 		MonoObject * monoObject;
 		[self getMonoField:"KeyContainerName" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_keyContainerName isEqualToMonoObject:monoObject]) return _keyContainerName;					
+		_keyContainerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _keyContainerName;
 	}
     - (void)setKeyContainerName:(NSString *)value
 	{
+		_keyContainerName = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"KeyContainerName" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : KeyNumber
+	// Managed field type : System.Int32
+    @synthesize keyNumber = _keyNumber;
     - (int32_t)keyNumber
     {
 		int32_t monoObject;
 		[self getMonoField:"KeyNumber" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_keyNumber = monoObject;
+		return _keyNumber;
 	}
     - (void)setKeyNumber:(int32_t)value
 	{
+		_keyNumber = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"KeyNumber" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed field name : ProviderName
+	// Managed field type : System.String
+    @synthesize providerName = _providerName;
     - (NSString *)providerName
     {
 		MonoObject * monoObject;
 		[self getMonoField:"ProviderName" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_providerName isEqualToMonoObject:monoObject]) return _providerName;					
+		_providerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _providerName;
 	}
     - (void)setProviderName:(NSString *)value
 	{
+		_providerName = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"ProviderName" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : ProviderType
+	// Managed field type : System.Int32
+    @synthesize providerType = _providerType;
     - (int32_t)providerType
     {
 		int32_t monoObject;
 		[self getMonoField:"ProviderType" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_providerType = monoObject;
+		return _providerType;
 	}
     - (void)setProviderType:(int32_t)value
 	{
+		_providerType = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"ProviderType" valueObject:monoObject];          
 	}
@@ -119,56 +143,80 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.CryptoKeySecurity
+	// Managed property name : CryptoKeySecurity
+	// Managed property type : System.Security.AccessControl.CryptoKeySecurity
+    @synthesize cryptoKeySecurity = _cryptoKeySecurity;
     - (System_Security_AccessControl_CryptoKeySecurity *)cryptoKeySecurity
     {
-		MonoObject * monoObject = [self getMonoProperty:"CryptoKeySecurity"];
-		System_Security_AccessControl_CryptoKeySecurity * result = [System_Security_AccessControl_CryptoKeySecurity representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CryptoKeySecurity"];
+		if ([self object:_cryptoKeySecurity isEqualToMonoObject:monoObject]) return _cryptoKeySecurity;					
+		_cryptoKeySecurity = [System_Security_AccessControl_CryptoKeySecurity objectWithMonoObject:monoObject];
+
+		return _cryptoKeySecurity;
 	}
     - (void)setCryptoKeySecurity:(System_Security_AccessControl_CryptoKeySecurity *)value
 	{
+		_cryptoKeySecurity = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"CryptoKeySecurity" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Cryptography.CspProviderFlags
+	// Managed property name : Flags
+	// Managed property type : System.Security.Cryptography.CspProviderFlags
+    @synthesize flags = _flags;
     - (System_Security_Cryptography_CspProviderFlags)flags
     {
-		MonoObject * monoObject = [self getMonoProperty:"Flags"];
-		System_Security_Cryptography_CspProviderFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Flags"];
+		_flags = DB_UNBOX_INT32(monoObject);
+
+		return _flags;
 	}
     - (void)setFlags:(System_Security_Cryptography_CspProviderFlags)value
 	{
+		_flags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Flags" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.SecureString
+	// Managed property name : KeyPassword
+	// Managed property type : System.Security.SecureString
+    @synthesize keyPassword = _keyPassword;
     - (System_Security_SecureString *)keyPassword
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeyPassword"];
-		System_Security_SecureString * result = [System_Security_SecureString representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeyPassword"];
+		if ([self object:_keyPassword isEqualToMonoObject:monoObject]) return _keyPassword;					
+		_keyPassword = [System_Security_SecureString objectWithMonoObject:monoObject];
+
+		return _keyPassword;
 	}
     - (void)setKeyPassword:(System_Security_SecureString *)value
 	{
+		_keyPassword = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"KeyPassword" valueObject:monoObject];          
 	}
 
-	// Managed type : System.IntPtr
+	// Managed property name : ParentWindowHandle
+	// Managed property type : System.IntPtr
+    @synthesize parentWindowHandle = _parentWindowHandle;
     - (void *)parentWindowHandle
     {
-		MonoObject * monoObject = [self getMonoProperty:"ParentWindowHandle"];
-		void * result = DB_UNBOX_PTR(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ParentWindowHandle"];
+		_parentWindowHandle = DB_UNBOX_PTR(monoObject);
+
+		return _parentWindowHandle;
 	}
     - (void)setParentWindowHandle:(void *)value
 	{
+		_parentWindowHandle = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ParentWindowHandle" valueObject:monoObject];          
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

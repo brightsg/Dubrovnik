@@ -3,6 +3,12 @@
 //
 // Managed class : DaylightTime
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Globalization_DaylightTime
 
 #pragma mark -
@@ -32,28 +38,46 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
+	// Managed property name : Delta
+	// Managed property type : System.TimeSpan
+    @synthesize delta = _delta;
     - (System_TimeSpan *)delta
     {
-		MonoObject * monoObject = [self getMonoProperty:"Delta"];
-		System_TimeSpan * result = [System_TimeSpan representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Delta"];
+		if ([self object:_delta isEqualToMonoObject:monoObject]) return _delta;					
+		_delta = [System_TimeSpan objectWithMonoObject:monoObject];
+
+		return _delta;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : End
+	// Managed property type : System.DateTime
+    @synthesize end = _end;
     - (NSDate *)end
     {
-		MonoObject * monoObject = [self getMonoProperty:"End"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"End"];
+		if ([self object:_end isEqualToMonoObject:monoObject]) return _end;					
+		_end = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _end;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : Start
+	// Managed property type : System.DateTime
+    @synthesize start = _start;
     - (NSDate *)start
     {
-		MonoObject * monoObject = [self getMonoProperty:"Start"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Start"];
+		if ([self object:_start isEqualToMonoObject:monoObject]) return _start;					
+		_start = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _start;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : ResourceManager
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Resources_ResourceManager
 
 #pragma mark -
@@ -48,52 +54,70 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : HeaderVersionNumber
+	// Managed field type : System.Int32
+    static int32_t m_headerVersionNumber;
     + (int32_t)headerVersionNumber
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"HeaderVersionNumber" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_headerVersionNumber = monoObject;
+		return m_headerVersionNumber;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : MagicNumber
+	// Managed field type : System.Int32
+    static int32_t m_magicNumber;
     + (int32_t)magicNumber
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"MagicNumber" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_magicNumber = monoObject;
+		return m_magicNumber;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : BaseName
+	// Managed property type : System.String
+    @synthesize baseName = _baseName;
     - (NSString *)baseName
     {
-		MonoObject * monoObject = [self getMonoProperty:"BaseName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BaseName"];
+		if ([self object:_baseName isEqualToMonoObject:monoObject]) return _baseName;					
+		_baseName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _baseName;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IgnoreCase
+	// Managed property type : System.Boolean
+    @synthesize ignoreCase = _ignoreCase;
     - (BOOL)ignoreCase
     {
-		MonoObject * monoObject = [self getMonoProperty:"IgnoreCase"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IgnoreCase"];
+		_ignoreCase = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _ignoreCase;
 	}
     - (void)setIgnoreCase:(BOOL)value
 	{
+		_ignoreCase = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IgnoreCase" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Type
+	// Managed property name : ResourceSetType
+	// Managed property type : System.Type
+    @synthesize resourceSetType = _resourceSetType;
     - (System_Type *)resourceSetType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ResourceSetType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ResourceSetType"];
+		if ([self object:_resourceSetType isEqualToMonoObject:monoObject]) return _resourceSetType;					
+		_resourceSetType = [System_Type objectWithMonoObject:monoObject];
+
+		return _resourceSetType;
 	}
 
 #pragma mark -
@@ -105,25 +129,25 @@
     - (System_Resources_ResourceManager *)createFileBasedResourceManager_withBaseName:(NSString *)p1 resourceDir:(NSString *)p2 usingResourceSet:(System_Type *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFileBasedResourceManager(string,string,System.Type)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Resources_ResourceManager representationWithMonoObject:monoObject];
+		return [System_Resources_ResourceManager objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1
+    - (System_Object *)getObject_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Globalization.CultureInfo
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2
+    - (System_Object *)getObject_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetResourceSet
@@ -132,7 +156,7 @@
     - (System_Resources_ResourceSet *)getResourceSet_withCulture:(System_Globalization_CultureInfo *)p1 createIfNotExists:(BOOL)p2 tryParents:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetResourceSet(System.Globalization.CultureInfo,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Resources_ResourceSet representationWithMonoObject:monoObject];
+		return [System_Resources_ResourceSet objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStream
@@ -141,7 +165,7 @@
     - (System_IO_UnmanagedMemoryStream *)getStream_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_UnmanagedMemoryStream representationWithMonoObject:monoObject];
+		return [System_IO_UnmanagedMemoryStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStream
@@ -150,7 +174,7 @@
     - (System_IO_UnmanagedMemoryStream *)getStream_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_IO_UnmanagedMemoryStream representationWithMonoObject:monoObject];
+		return [System_IO_UnmanagedMemoryStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetString
@@ -178,5 +202,11 @@
     {
 		[self invokeMonoMethod:"ReleaseAllResources()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

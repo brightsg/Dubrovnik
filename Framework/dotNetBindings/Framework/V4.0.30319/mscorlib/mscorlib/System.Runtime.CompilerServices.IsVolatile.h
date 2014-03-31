@@ -2,7 +2,7 @@
 //
 // Managed class : IsVolatile
 //
-@interface System_Runtime_CompilerServices_IsVolatile : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsVolatile : System_Object
 
 #pragma mark -
 #pragma mark Setup

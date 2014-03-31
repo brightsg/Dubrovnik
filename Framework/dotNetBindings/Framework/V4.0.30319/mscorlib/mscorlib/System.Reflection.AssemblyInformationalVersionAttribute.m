@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyInformationalVersionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyInformationalVersionAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : InformationalVersion
+	// Managed property type : System.String
+    @synthesize informationalVersion = _informationalVersion;
     - (NSString *)informationalVersion
     {
-		MonoObject * monoObject = [self getMonoProperty:"InformationalVersion"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InformationalVersion"];
+		if ([self object:_informationalVersion isEqualToMonoObject:monoObject]) return _informationalVersion;					
+		_informationalVersion = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _informationalVersion;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

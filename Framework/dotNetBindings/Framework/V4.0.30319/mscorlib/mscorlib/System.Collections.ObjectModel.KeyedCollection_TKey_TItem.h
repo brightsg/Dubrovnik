@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : IEqualityComparer<TKey>
-    - (IEqualityComparer *)comparer;
+	// Managed property name : Comparer
+	// Managed property type : IEqualityComparer<TKey>
+    @property (nonatomic, strong, readonly) IEqualityComparer * comparer;
 
-	// Managed type : <TItem>
-    - (DBMonoObjectRepresentation *)item;
+	// Managed property name : Item
+	// Managed property type : <TItem>
+    @property (nonatomic, strong, readonly) DBManagedObject * item;
 
 #pragma mark -
 #pragma mark Methods
@@ -26,11 +28,11 @@
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)contains_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)contains_withKey:(DBManagedObject *)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)remove_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)remove_withKey:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

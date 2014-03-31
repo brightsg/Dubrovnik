@@ -22,17 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)exists;
+	// Managed property name : Exists
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL exists;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.IO.DirectoryInfo
-    - (System_IO_DirectoryInfo *)parent;
+	// Managed property name : Parent
+	// Managed property type : System.IO.DirectoryInfo
+    @property (nonatomic, strong, readonly) System_IO_DirectoryInfo * parent;
 
-	// Managed type : System.IO.DirectoryInfo
-    - (System_IO_DirectoryInfo *)root;
+	// Managed property name : Root
+	// Managed property type : System.IO.DirectoryInfo
+    @property (nonatomic, strong, readonly) System_IO_DirectoryInfo * root;
 
 #pragma mark -
 #pragma mark Methods

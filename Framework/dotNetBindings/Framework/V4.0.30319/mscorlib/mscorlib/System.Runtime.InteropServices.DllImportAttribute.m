@@ -3,6 +3,12 @@
 //
 // Managed class : DllImportAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_DllImportAttribute
 
 #pragma mark -
@@ -32,106 +38,139 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Boolean
+	// Managed field name : BestFitMapping
+	// Managed field type : System.Boolean
+    @synthesize bestFitMapping = _bestFitMapping;
     - (BOOL)bestFitMapping
     {
 		BOOL monoObject;
 		[self getMonoField:"BestFitMapping" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_bestFitMapping = monoObject;
+		return _bestFitMapping;
 	}
     - (void)setBestFitMapping:(BOOL)value
 	{
+		_bestFitMapping = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"BestFitMapping" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.InteropServices.CallingConvention
+	// Managed field name : CallingConvention
+	// Managed field type : System.Runtime.InteropServices.CallingConvention
+    @synthesize callingConvention = _callingConvention;
     - (System_Runtime_InteropServices_CallingConvention)callingConvention
     {
-		MonoObject * monoObject;
+		System_Runtime_InteropServices_CallingConvention monoObject;
 		[self getMonoField:"CallingConvention" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT32(monoObject);
+		_callingConvention = monoObject;
+		return _callingConvention;
 	}
     - (void)setCallingConvention:(System_Runtime_InteropServices_CallingConvention)value
 	{
+		_callingConvention = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"CallingConvention" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.InteropServices.CharSet
+	// Managed field name : CharSet
+	// Managed field type : System.Runtime.InteropServices.CharSet
+    @synthesize charSet = _charSet;
     - (System_Runtime_InteropServices_CharSet)charSet
     {
-		MonoObject * monoObject;
+		System_Runtime_InteropServices_CharSet monoObject;
 		[self getMonoField:"CharSet" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT32(monoObject);
+		_charSet = monoObject;
+		return _charSet;
 	}
     - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value
 	{
+		_charSet = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"CharSet" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed field name : EntryPoint
+	// Managed field type : System.String
+    @synthesize entryPoint = _entryPoint;
     - (NSString *)entryPoint
     {
 		MonoObject * monoObject;
 		[self getMonoField:"EntryPoint" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:_entryPoint isEqualToMonoObject:monoObject]) return _entryPoint;					
+		_entryPoint = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return _entryPoint;
 	}
     - (void)setEntryPoint:(NSString *)value
 	{
+		_entryPoint = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoField:"EntryPoint" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed field name : ExactSpelling
+	// Managed field type : System.Boolean
+    @synthesize exactSpelling = _exactSpelling;
     - (BOOL)exactSpelling
     {
 		BOOL monoObject;
 		[self getMonoField:"ExactSpelling" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_exactSpelling = monoObject;
+		return _exactSpelling;
 	}
     - (void)setExactSpelling:(BOOL)value
 	{
+		_exactSpelling = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"ExactSpelling" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed field name : PreserveSig
+	// Managed field type : System.Boolean
+    @synthesize preserveSig = _preserveSig;
     - (BOOL)preserveSig
     {
 		BOOL monoObject;
 		[self getMonoField:"PreserveSig" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_preserveSig = monoObject;
+		return _preserveSig;
 	}
     - (void)setPreserveSig:(BOOL)value
 	{
+		_preserveSig = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"PreserveSig" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed field name : SetLastError
+	// Managed field type : System.Boolean
+    @synthesize setLastError = _setLastError;
     - (BOOL)setLastError
     {
 		BOOL monoObject;
 		[self getMonoField:"SetLastError" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_setLastError = monoObject;
+		return _setLastError;
 	}
     - (void)setSetLastError:(BOOL)value
 	{
+		_setLastError = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"SetLastError" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed field name : ThrowOnUnmappableChar
+	// Managed field type : System.Boolean
+    @synthesize throwOnUnmappableChar = _throwOnUnmappableChar;
     - (BOOL)throwOnUnmappableChar
     {
 		BOOL monoObject;
 		[self getMonoField:"ThrowOnUnmappableChar" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_throwOnUnmappableChar = monoObject;
+		return _throwOnUnmappableChar;
 	}
     - (void)setThrowOnUnmappableChar:(BOOL)value
 	{
+		_throwOnUnmappableChar = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"ThrowOnUnmappableChar" valueObject:monoObject];          
 	}
@@ -139,12 +178,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Value
+	// Managed property type : System.String
+    @synthesize value = _value;
     - (NSString *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

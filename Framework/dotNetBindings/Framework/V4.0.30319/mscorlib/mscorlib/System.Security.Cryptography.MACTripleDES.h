@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.PaddingMode
-    - (System_Security_Cryptography_PaddingMode)padding;
-    - (void)setPadding:(System_Security_Cryptography_PaddingMode)value;
+	// Managed property name : Padding
+	// Managed property type : System.Security.Cryptography.PaddingMode
+    @property (nonatomic) System_Security_Cryptography_PaddingMode padding;
 
 #pragma mark -
 #pragma mark Methods

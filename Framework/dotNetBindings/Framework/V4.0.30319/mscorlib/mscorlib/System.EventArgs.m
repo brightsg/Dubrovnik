@@ -3,6 +3,12 @@
 //
 // Managed class : EventArgs
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_EventArgs
 
 #pragma mark -
@@ -21,12 +27,23 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.EventArgs
+	// Managed field name : Empty
+	// Managed field type : System.EventArgs
+    static System_EventArgs * m_empty;
     + (System_EventArgs *)empty
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Empty" valuePtr:DB_PTR(monoObject)];
-		return [System_EventArgs representationWithMonoObject:monoObject];
+		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
+		m_empty = [System_EventArgs objectWithMonoObject:monoObject];
+		return m_empty;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_empty = nil;
 	}
 @end
 //--Dubrovnik.CodeGenerator

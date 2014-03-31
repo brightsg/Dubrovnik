@@ -3,6 +3,12 @@
 //
 // Managed class : RealProxy
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Proxies_RealProxy
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Runtime_Remoting_ObjRef *)createObjRef_withRequestedType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateObjRef(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_ObjRef representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCOMIUnknown
@@ -53,25 +59,25 @@
     - (System_Type *)getProxiedType
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProxiedType()" withNumArgs:0];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStubData
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy
-    - (DBMonoObjectRepresentation *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1
+    - (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStubData(System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTransparentProxy
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getTransparentProxy
+    - (System_Object *)getTransparentProxy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTransparentProxy()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : InitializeServerObject
@@ -80,7 +86,7 @@
     - (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)initializeServerObject_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeServerObject(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Invoke
@@ -89,7 +95,7 @@
     - (System_Runtime_Remoting_Messaging_IMessage *)invoke_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessage representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetCOMIUnknown
@@ -103,7 +109,7 @@
 	// Managed method name : SetStubData
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy, System.Object
-    - (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(DBMonoObjectRepresentation *)p2
+    - (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2
     {
 		[self invokeMonoMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -116,5 +122,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"SupportsInterface(System.Guid&)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

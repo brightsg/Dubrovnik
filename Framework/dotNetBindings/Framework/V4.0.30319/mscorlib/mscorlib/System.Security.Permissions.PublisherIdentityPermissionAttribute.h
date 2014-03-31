@@ -22,17 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)certFile;
-    - (void)setCertFile:(NSString *)value;
+	// Managed property name : CertFile
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * certFile;
 
-	// Managed type : System.String
-    - (NSString *)signedFile;
-    - (void)setSignedFile:(NSString *)value;
+	// Managed property name : SignedFile
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * signedFile;
 
-	// Managed type : System.String
-    - (NSString *)x509Certificate;
-    - (void)setX509Certificate:(NSString *)value;
+	// Managed property name : X509Certificate
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * x509Certificate;
 
 #pragma mark -
 #pragma mark Methods

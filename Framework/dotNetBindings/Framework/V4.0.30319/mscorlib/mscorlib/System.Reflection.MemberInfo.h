@@ -2,7 +2,7 @@
 //
 // Managed class : MemberInfo
 //
-@interface System_Reflection_MemberInfo : DBMonoObjectRepresentation
+@interface System_Reflection_MemberInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,26 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    - (System_Collections_Generic_IEnumerable *)customAttributes;
+	// Managed property name : CustomAttributes
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
 
-	// Managed type : System.Type
-    - (System_Type *)declaringType;
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * declaringType;
 
-	// Managed type : System.Reflection.MemberTypes
-    - (System_Reflection_MemberTypes)memberType;
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
 
-	// Managed type : System.Int32
-    - (int32_t)metadataToken;
+	// Managed property name : MetadataToken
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t metadataToken;
 
-	// Managed type : System.Reflection.Module
-    - (System_Reflection_Module *)module;
+	// Managed property name : Module
+	// Managed property type : System.Reflection.Module
+    @property (nonatomic, strong, readonly) System_Reflection_Module * module;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)reflectedType;
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
 #pragma mark -
 #pragma mark Methods
@@ -41,7 +48,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Object[]

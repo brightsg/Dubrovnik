@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)accessRightType;
+	// Managed property name : AccessRightType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * accessRightType;
 
-	// Managed type : System.Type
-    - (System_Type *)accessRuleType;
+	// Managed property name : AccessRuleType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * accessRuleType;
 
-	// Managed type : System.Type
-    - (System_Type *)auditRuleType;
+	// Managed property name : AuditRuleType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * auditRuleType;
 
 #pragma mark -
 #pragma mark Methods

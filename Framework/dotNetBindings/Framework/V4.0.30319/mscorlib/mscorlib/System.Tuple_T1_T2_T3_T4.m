@@ -3,6 +3,12 @@
 //
 // Managed class : Tuple<T1, T2, T3, T4>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Tuple
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Tuple<T1, T2, T3, T4>
 	// Managed param types : <T1>, <T2>, <T3>, <T4>
-    + (System_Tuple *)new_withItem1:(DBMonoObjectRepresentation *)p1 item2:(DBMonoObjectRepresentation *)p2 item3:(DBMonoObjectRepresentation *)p3 item4:(DBMonoObjectRepresentation *)p4
+    + (System_Tuple *)new_withItem1:(DBManagedObject *)p1 item2:(DBManagedObject *)p2 item3:(DBManagedObject *)p3 item4:(DBManagedObject *)p4
     {
 		return [[self alloc] initWithSignature:"Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
@@ -32,36 +38,52 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T1>
-    - (DBMonoObjectRepresentation *)item1
+	// Managed property name : Item1
+	// Managed property type : <T1>
+    @synthesize item1 = _item1;
+    - (DBManagedObject *)item1
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item1"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item1"];
+		if ([self object:_item1 isEqualToMonoObject:monoObject]) return _item1;					
+		_item1 = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item1;
 	}
 
-	// Managed type : <T2>
-    - (DBMonoObjectRepresentation *)item2
+	// Managed property name : Item2
+	// Managed property type : <T2>
+    @synthesize item2 = _item2;
+    - (DBManagedObject *)item2
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item2"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item2"];
+		if ([self object:_item2 isEqualToMonoObject:monoObject]) return _item2;					
+		_item2 = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item2;
 	}
 
-	// Managed type : <T3>
-    - (DBMonoObjectRepresentation *)item3
+	// Managed property name : Item3
+	// Managed property type : <T3>
+    @synthesize item3 = _item3;
+    - (DBManagedObject *)item3
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item3"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item3"];
+		if ([self object:_item3 isEqualToMonoObject:monoObject]) return _item3;					
+		_item3 = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item3;
 	}
 
-	// Managed type : <T4>
-    - (DBMonoObjectRepresentation *)item4
+	// Managed property name : Item4
+	// Managed property type : <T4>
+    @synthesize item4 = _item4;
+    - (DBManagedObject *)item4
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item4"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item4"];
+		if ([self object:_item4 isEqualToMonoObject:monoObject]) return _item4;					
+		_item4 = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item4;
 	}
 
 #pragma mark -
@@ -70,7 +92,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -93,5 +115,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

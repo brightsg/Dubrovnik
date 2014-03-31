@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyTargetedPatchBandAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_AssemblyTargetedPatchBandAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : TargetedPatchBand
+	// Managed property type : System.String
+    @synthesize targetedPatchBand = _targetedPatchBand;
     - (NSString *)targetedPatchBand
     {
-		MonoObject * monoObject = [self getMonoProperty:"TargetedPatchBand"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TargetedPatchBand"];
+		if ([self object:_targetedPatchBand isEqualToMonoObject:monoObject]) return _targetedPatchBand;					
+		_targetedPatchBand = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _targetedPatchBand;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

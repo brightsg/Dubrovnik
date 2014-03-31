@@ -8,6 +8,8 @@
 #import <Cocoa/Cocoa.h>
 #import "DBType.h"
 
+@class DBManagedObject;
+
 extern NSString * DBType_System_Object;
 extern NSString * DBType_System_Byte;
 extern NSString * DBType_System_Void;
@@ -83,6 +85,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 - (NSString *)aliasForName:(NSString *)name;
 - (MonoClass *)monoClassWithName:(NSString *)name;
 - (id)objectWithMonoObject:(MonoObject *)monoObject;
+- (id)objectWithManagedObject:(DBManagedObject *)managedObject;
 - (NSString *)monoAliasNameForMonoObject:(MonoObject *)monoObject;
 - (NSString *)monoArgumentTypeNameForMonoObject:(MonoObject *)monoObject;
 - (NSString *)monoArgumentTypeNameForMonoType:(MonoType *)monoType;

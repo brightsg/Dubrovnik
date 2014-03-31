@@ -22,11 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.SecurityRuleSet
-    - (System_Security_SecurityRuleSet)ruleSet;
+	// Managed property name : RuleSet
+	// Managed property type : System.Security.SecurityRuleSet
+    @property (nonatomic, readonly) System_Security_SecurityRuleSet ruleSet;
 
-	// Managed type : System.Boolean
-    - (BOOL)skipVerificationInFullTrust;
-    - (void)setSkipVerificationInFullTrust:(BOOL)value;
+	// Managed property name : SkipVerificationInFullTrust
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL skipVerificationInFullTrust;
 @end
 //--Dubrovnik.CodeGenerator

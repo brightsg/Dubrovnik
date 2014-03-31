@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityState
 //
-@interface System_Security_SecurityState : DBMonoObjectRepresentation
+@interface System_Security_SecurityState : System_Object
 
 #pragma mark -
 #pragma mark Setup

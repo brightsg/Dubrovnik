@@ -2,7 +2,7 @@
 //
 // Managed interface : IReadOnlyList<T>
 //
-@interface System_Collections_Generic_IReadOnlyList : DBMonoObjectRepresentation
+@interface System_Collections_Generic_IReadOnlyList : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)item;
+	// Managed property name : Item
+	// Managed property type : <T>
+    @property (nonatomic, strong, readonly) DBManagedObject * item;
 @end
 //--Dubrovnik.CodeGenerator

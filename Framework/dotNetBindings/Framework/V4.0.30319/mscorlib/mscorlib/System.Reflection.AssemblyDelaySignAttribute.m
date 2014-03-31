@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyDelaySignAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyDelaySignAttribute
 
 #pragma mark -
@@ -32,12 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : DelaySign
+	// Managed property type : System.Boolean
+    @synthesize delaySign = _delaySign;
     - (BOOL)delaySign
     {
-		MonoObject * monoObject = [self getMonoProperty:"DelaySign"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DelaySign"];
+		_delaySign = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _delaySign;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : Dictionary<TKey, TValue>
 //
-@interface System_Collections_Generic_Dictionary : DBMonoObjectRepresentation
+@interface System_Collections_Generic_Dictionary : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,21 +42,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : IEqualityComparer<TKey>
-    - (IEqualityComparer *)comparer;
+	// Managed property name : Comparer
+	// Managed property type : IEqualityComparer<TKey>
+    @property (nonatomic, strong, readonly) IEqualityComparer * comparer;
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : <TValue>
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : <TValue>
+    @property (nonatomic, strong) DBManagedObject * item;
 
-	// Managed type : KeyCollection
-    - (KeyCollection *)keys;
+	// Managed property name : Keys
+	// Managed property type : KeyCollection
+    @property (nonatomic, strong, readonly) KeyCollection * keys;
 
-	// Managed type : ValueCollection
-    - (ValueCollection *)values;
+	// Managed property name : Values
+	// Managed property type : ValueCollection
+    @property (nonatomic, strong, readonly) ValueCollection * values;
 
 #pragma mark -
 #pragma mark Methods
@@ -64,7 +68,7 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : <TKey>, <TValue>
-    - (void)add_withKey:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (void)add_withKey:(DBManagedObject *)p1 value:(DBManagedObject *)p2;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -74,12 +78,12 @@
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)containsKey_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)containsKey_withKey:(DBManagedObject *)p1;
 
 	// Managed method name : ContainsValue
 	// Managed return type : System.Boolean
 	// Managed param types : <TValue>
-    - (BOOL)containsValue_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)containsValue_withValue:(DBManagedObject *)p1;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : Enumerator
@@ -94,16 +98,16 @@
 	// Managed method name : OnDeserialization
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)onDeserialization_withSender:(DBMonoObjectRepresentation *)p1;
+    - (void)onDeserialization_withSender:(System_Object *)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)remove_withKey:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)remove_withKey:(DBManagedObject *)p1;
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(DBMonoObjectRepresentation *)p1 valueRef:(TValue **)p2;
+    - (BOOL)tryGetValue_withKey:(DBManagedObject *)p1 valueRef:(TValue **)p2;
 @end
 //--Dubrovnik.CodeGenerator

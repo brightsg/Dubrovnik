@@ -42,10 +42,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.Mutex
-    - (System_Threading_Mutex *)mutex;
+	// Managed property name : Mutex
+	// Managed property type : System.Threading.Mutex
+    @property (nonatomic, strong, readonly) System_Threading_Mutex * mutex;
 
-	// Managed type : System.Int32
-    - (int32_t)mutexIndex;
+	// Managed property name : MutexIndex
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t mutexIndex;
 @end
 //--Dubrovnik.CodeGenerator

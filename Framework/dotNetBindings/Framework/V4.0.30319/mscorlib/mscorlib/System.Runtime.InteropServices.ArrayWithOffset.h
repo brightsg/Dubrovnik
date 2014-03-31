@@ -2,7 +2,7 @@
 //
 // Managed struct : ArrayWithOffset
 //
-@interface System_Runtime_InteropServices_ArrayWithOffset : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ArrayWithOffset : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ArrayWithOffset
 	// Managed param types : System.Object, System.Int32
-    + (System_Runtime_InteropServices_ArrayWithOffset *)new_withArray:(DBMonoObjectRepresentation *)p1 offset:(int32_t)p2;
+    + (System_Runtime_InteropServices_ArrayWithOffset *)new_withArray:(System_Object *)p1 offset:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -25,7 +25,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -35,7 +35,7 @@
 	// Managed method name : GetArray
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getArray;
+    - (System_Object *)getArray;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

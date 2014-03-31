@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.DllImportSearchPath
-    - (System_Runtime_InteropServices_DllImportSearchPath)paths;
+	// Managed property name : Paths
+	// Managed property type : System.Runtime.InteropServices.DllImportSearchPath
+    @property (nonatomic, readonly) System_Runtime_InteropServices_DllImportSearchPath paths;
 @end
 //--Dubrovnik.CodeGenerator

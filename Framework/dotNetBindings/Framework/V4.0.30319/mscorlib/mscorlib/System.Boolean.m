@@ -3,6 +3,12 @@
 //
 // Managed struct : Boolean
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Boolean
 
 #pragma mark -
@@ -21,20 +27,28 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : FalseString
+	// Managed field type : System.String
+    static NSString * m_falseString;
     + (NSString *)falseString
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"FalseString" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_falseString isEqualToMonoObject:monoObject]) return m_falseString;					
+		m_falseString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_falseString;
 	}
 
-	// Managed type : System.String
+	// Managed field name : TrueString
+	// Managed field type : System.String
+    static NSString * m_trueString;
     + (NSString *)trueString
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"TrueString" valuePtr:DB_PTR(monoObject)];
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+		if ([self object:m_trueString isEqualToMonoObject:monoObject]) return m_trueString;					
+		m_trueString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		return m_trueString;
 	}
 
 #pragma mark -
@@ -43,7 +57,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withObj:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -61,7 +75,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -129,5 +143,13 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoValue], p2];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_falseString = nil;
+		m_trueString = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

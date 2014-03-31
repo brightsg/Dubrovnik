@@ -2,7 +2,7 @@
 //
 // Managed interface : IContextAttribute
 //
-@interface System_Runtime_Remoting_Contexts_IContextAttribute : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Contexts_IContextAttribute : System_Object
 
 #pragma mark -
 #pragma mark Setup

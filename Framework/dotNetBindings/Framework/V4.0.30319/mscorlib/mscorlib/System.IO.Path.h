@@ -2,7 +2,7 @@
 //
 // Managed class : Path
 //
-@interface System_IO_Path : DBMonoObjectRepresentation
+@interface System_IO_Path : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,19 +14,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Char
+	// Managed field name : AltDirectorySeparatorChar
+	// Managed field type : System.Char
     + (uint16_t)altDirectorySeparatorChar;
 
-	// Managed type : System.Char
+	// Managed field name : DirectorySeparatorChar
+	// Managed field type : System.Char
     + (uint16_t)directorySeparatorChar;
 
-	// Managed type : System.Char[]
+	// Managed field name : InvalidPathChars
+	// Managed field type : System.Char[]
     + (DBSystem_Array *)invalidPathChars;
 
-	// Managed type : System.Char
+	// Managed field name : PathSeparator
+	// Managed field type : System.Char
     + (uint16_t)pathSeparator;
 
-	// Managed type : System.Char
+	// Managed field name : VolumeSeparatorChar
+	// Managed field type : System.Char
     + (uint16_t)volumeSeparatorChar;
 
 #pragma mark -

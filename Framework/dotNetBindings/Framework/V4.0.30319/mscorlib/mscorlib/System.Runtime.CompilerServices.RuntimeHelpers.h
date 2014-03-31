@@ -2,7 +2,7 @@
 //
 // Managed class : RuntimeHelpers
 //
-@interface System_Runtime_CompilerServices_RuntimeHelpers : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_RuntimeHelpers : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : OffsetToStringData
+	// Managed property type : System.Int32
     + (int32_t)offsetToStringData;
 
 #pragma mark -
@@ -28,22 +29,22 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object
-    - (BOOL)equals_withO1:(DBMonoObjectRepresentation *)p1 o2:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)equals_withO1:(System_Object *)p1 o2:(System_Object *)p2;
 
 	// Managed method name : ExecuteCodeWithGuaranteedCleanup
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.CompilerServices.RuntimeHelpers+TryCode, System.Runtime.CompilerServices.RuntimeHelpers+CleanupCode, System.Object
-    - (void)executeCodeWithGuaranteedCleanup_withCode:(System_Runtime_CompilerServices_RuntimeHelpers__TryCode *)p1 backoutCode:(System_Runtime_CompilerServices_RuntimeHelpers__CleanupCode *)p2 userData:(DBMonoObjectRepresentation *)p3;
+    - (void)executeCodeWithGuaranteedCleanup_withCode:(System_Runtime_CompilerServices_RuntimeHelpers__TryCode *)p1 backoutCode:(System_Runtime_CompilerServices_RuntimeHelpers__CleanupCode *)p2 userData:(System_Object *)p3;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)getHashCode_withO:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)getHashCode_withO:(System_Object *)p1;
 
 	// Managed method name : GetObjectValue
 	// Managed return type : System.Object
 	// Managed param types : System.Object
-    - (DBMonoObjectRepresentation *)getObjectValue_withObj:(DBMonoObjectRepresentation *)p1;
+    - (System_Object *)getObjectValue_withObj:(System_Object *)p1;
 
 	// Managed method name : InitializeArray
 	// Managed return type : System.Void

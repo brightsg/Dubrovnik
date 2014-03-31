@@ -2,7 +2,7 @@
 //
 // Managed class : EncodingInfo
 //
-@interface System_Text_EncodingInfo : DBMonoObjectRepresentation
+@interface System_Text_EncodingInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)codePage;
+	// Managed property name : CodePage
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t codePage;
 
-	// Managed type : System.String
-    - (NSString *)displayName;
+	// Managed property name : DisplayName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * displayName;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
 #pragma mark -
 #pragma mark Methods
@@ -29,7 +32,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetEncoding
 	// Managed return type : System.Text.Encoding

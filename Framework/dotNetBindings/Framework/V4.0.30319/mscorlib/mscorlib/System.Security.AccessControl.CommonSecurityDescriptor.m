@@ -3,6 +3,12 @@
 //
 // Managed class : CommonSecurityDescriptor
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_CommonSecurityDescriptor
 
 #pragma mark -
@@ -56,94 +62,129 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.ControlFlags
+	// Managed property name : ControlFlags
+	// Managed property type : System.Security.AccessControl.ControlFlags
+    @synthesize controlFlags = _controlFlags;
     - (System_Security_AccessControl_ControlFlags)controlFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"ControlFlags"];
-		System_Security_AccessControl_ControlFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ControlFlags"];
+		_controlFlags = DB_UNBOX_INT32(monoObject);
+
+		return _controlFlags;
 	}
 
-	// Managed type : System.Security.AccessControl.DiscretionaryAcl
+	// Managed property name : DiscretionaryAcl
+	// Managed property type : System.Security.AccessControl.DiscretionaryAcl
+    @synthesize discretionaryAcl = _discretionaryAcl;
     - (System_Security_AccessControl_DiscretionaryAcl *)discretionaryAcl
     {
-		MonoObject * monoObject = [self getMonoProperty:"DiscretionaryAcl"];
-		System_Security_AccessControl_DiscretionaryAcl * result = [System_Security_AccessControl_DiscretionaryAcl representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DiscretionaryAcl"];
+		if ([self object:_discretionaryAcl isEqualToMonoObject:monoObject]) return _discretionaryAcl;					
+		_discretionaryAcl = [System_Security_AccessControl_DiscretionaryAcl objectWithMonoObject:monoObject];
+
+		return _discretionaryAcl;
 	}
     - (void)setDiscretionaryAcl:(System_Security_AccessControl_DiscretionaryAcl *)value
 	{
+		_discretionaryAcl = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"DiscretionaryAcl" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
+	// Managed property name : Group
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @synthesize group = _group;
     - (System_Security_Principal_SecurityIdentifier *)group
     {
-		MonoObject * monoObject = [self getMonoProperty:"Group"];
-		System_Security_Principal_SecurityIdentifier * result = [System_Security_Principal_SecurityIdentifier representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Group"];
+		if ([self object:_group isEqualToMonoObject:monoObject]) return _group;					
+		_group = [System_Security_Principal_SecurityIdentifier objectWithMonoObject:monoObject];
+
+		return _group;
 	}
     - (void)setGroup:(System_Security_Principal_SecurityIdentifier *)value
 	{
+		_group = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Group" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsContainer
+	// Managed property type : System.Boolean
+    @synthesize isContainer = _isContainer;
     - (BOOL)isContainer
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsContainer"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsContainer"];
+		_isContainer = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isContainer;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsDiscretionaryAclCanonical
+	// Managed property type : System.Boolean
+    @synthesize isDiscretionaryAclCanonical = _isDiscretionaryAclCanonical;
     - (BOOL)isDiscretionaryAclCanonical
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsDiscretionaryAclCanonical"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsDiscretionaryAclCanonical"];
+		_isDiscretionaryAclCanonical = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isDiscretionaryAclCanonical;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsDS
+	// Managed property type : System.Boolean
+    @synthesize isDS = _isDS;
     - (BOOL)isDS
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsDS"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsDS"];
+		_isDS = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isDS;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsSystemAclCanonical
+	// Managed property type : System.Boolean
+    @synthesize isSystemAclCanonical = _isSystemAclCanonical;
     - (BOOL)isSystemAclCanonical
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsSystemAclCanonical"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsSystemAclCanonical"];
+		_isSystemAclCanonical = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isSystemAclCanonical;
 	}
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
+	// Managed property name : Owner
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @synthesize owner = _owner;
     - (System_Security_Principal_SecurityIdentifier *)owner
     {
-		MonoObject * monoObject = [self getMonoProperty:"Owner"];
-		System_Security_Principal_SecurityIdentifier * result = [System_Security_Principal_SecurityIdentifier representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Owner"];
+		if ([self object:_owner isEqualToMonoObject:monoObject]) return _owner;					
+		_owner = [System_Security_Principal_SecurityIdentifier objectWithMonoObject:monoObject];
+
+		return _owner;
 	}
     - (void)setOwner:(System_Security_Principal_SecurityIdentifier *)value
 	{
+		_owner = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Owner" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.AccessControl.SystemAcl
+	// Managed property name : SystemAcl
+	// Managed property type : System.Security.AccessControl.SystemAcl
+    @synthesize systemAcl = _systemAcl;
     - (System_Security_AccessControl_SystemAcl *)systemAcl
     {
-		MonoObject * monoObject = [self getMonoProperty:"SystemAcl"];
-		System_Security_AccessControl_SystemAcl * result = [System_Security_AccessControl_SystemAcl representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SystemAcl"];
+		if ([self object:_systemAcl isEqualToMonoObject:monoObject]) return _systemAcl;					
+		_systemAcl = [System_Security_AccessControl_SystemAcl objectWithMonoObject:monoObject];
+
+		return _systemAcl;
 	}
     - (void)setSystemAcl:(System_Security_AccessControl_SystemAcl *)value
 	{
+		_systemAcl = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"SystemAcl" valueObject:monoObject];          
 	}
@@ -182,5 +223,11 @@
     {
 		[self invokeMonoMethod:"SetSystemAclProtection(bool,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

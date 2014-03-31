@@ -2,7 +2,7 @@
 //
 // Managed interface : IIdentityPermissionFactory
 //
-@interface System_Security_Policy_IIdentityPermissionFactory : DBMonoObjectRepresentation
+@interface System_Security_Policy_IIdentityPermissionFactory : System_Object
 
 #pragma mark -
 #pragma mark Setup

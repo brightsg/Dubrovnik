@@ -3,6 +3,12 @@
 //
 // Managed class : Volatile
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Volatile
 
 #pragma mark -
@@ -141,10 +147,10 @@
 	// Managed method name : Read
 	// Managed return type : <T>
 	// Managed param types : ref T&
-    - (DBMonoObjectRepresentation *)read_withLocationTRef:(T **)p1
+    - (DBManagedObject *)read_withLocationTRef:(T **)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Read(T&)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Write
@@ -254,9 +260,15 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : ref T&, <T>
-    - (void)write_withLocationTRef:(T **)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2
+    - (void)write_withLocationTRef:(T **)p1 valueDGParameter:(DBManagedObject *)p2
     {
 		[self invokeMonoMethod:"Write(T&,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

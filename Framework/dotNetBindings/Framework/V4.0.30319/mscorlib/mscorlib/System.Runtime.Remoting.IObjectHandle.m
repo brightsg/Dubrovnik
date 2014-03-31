@@ -3,6 +3,12 @@
 //
 // Managed interface : IObjectHandle
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_IObjectHandle
 
 #pragma mark -
@@ -24,10 +30,16 @@
 	// Managed method name : Unwrap
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)unwrap
+    - (System_Object *)unwrap
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Unwrap()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

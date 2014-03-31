@@ -2,7 +2,7 @@
 //
 // Managed interface : IChannelSender
 //
-@interface System_Runtime_Remoting_Channels_IChannelSender : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IChannelSender : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : CreateMessageSink
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.String, System.Object, ref System.String&
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)createMessageSink_withUrl:(NSString *)p1 remoteChannelData:(DBMonoObjectRepresentation *)p2 objectURIRef:(NSString **)p3;
+    - (System_Runtime_Remoting_Messaging_IMessageSink *)createMessageSink_withUrl:(NSString *)p1 remoteChannelData:(System_Object *)p2 objectURIRef:(NSString **)p3;
 @end
 //--Dubrovnik.CodeGenerator

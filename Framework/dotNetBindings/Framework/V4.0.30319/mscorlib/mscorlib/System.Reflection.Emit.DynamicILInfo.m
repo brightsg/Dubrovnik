@@ -3,6 +3,12 @@
 //
 // Managed class : DynamicILInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_DynamicILInfo
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Emit.DynamicMethod
+	// Managed property name : DynamicMethod
+	// Managed property type : System.Reflection.Emit.DynamicMethod
+    @synthesize dynamicMethod = _dynamicMethod;
     - (System_Reflection_Emit_DynamicMethod *)dynamicMethod
     {
-		MonoObject * monoObject = [self getMonoProperty:"DynamicMethod"];
-		System_Reflection_Emit_DynamicMethod * result = [System_Reflection_Emit_DynamicMethod representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DynamicMethod"];
+		if ([self object:_dynamicMethod isEqualToMonoObject:monoObject]) return _dynamicMethod;					
+		_dynamicMethod = [System_Reflection_Emit_DynamicMethod objectWithMonoObject:monoObject];
+
+		return _dynamicMethod;
 	}
 
 #pragma mark -
@@ -151,5 +161,11 @@
     {
 		[self invokeMonoMethod:"SetLocalSignature(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

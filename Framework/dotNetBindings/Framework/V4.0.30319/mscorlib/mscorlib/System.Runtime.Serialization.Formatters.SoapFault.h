@@ -2,7 +2,7 @@
 //
 // Managed class : SoapFault
 //
-@interface System_Runtime_Serialization_Formatters_SoapFault : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_Formatters_SoapFault : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,21 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)detail;
-    - (void)setDetail:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Detail
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * detail;
 
-	// Managed type : System.String
-    - (NSString *)faultActor;
-    - (void)setFaultActor:(NSString *)value;
+	// Managed property name : FaultActor
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * faultActor;
 
-	// Managed type : System.String
-    - (NSString *)faultCode;
-    - (void)setFaultCode:(NSString *)value;
+	// Managed property name : FaultCode
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * faultCode;
 
-	// Managed type : System.String
-    - (NSString *)faultString;
-    - (void)setFaultString:(NSString *)value;
+	// Managed property name : FaultString
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * faultString;
 
 #pragma mark -
 #pragma mark Methods

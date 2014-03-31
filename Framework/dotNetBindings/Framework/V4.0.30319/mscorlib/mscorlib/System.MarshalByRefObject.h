@@ -2,7 +2,7 @@
 //
 // Managed class : MarshalByRefObject
 //
-@interface System_MarshalByRefObject : DBMonoObjectRepresentation
+@interface System_MarshalByRefObject : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,11 +22,11 @@
 	// Managed method name : GetLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getLifetimeService;
+    - (System_Object *)getLifetimeService;
 
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)initializeLifetimeService;
+    - (System_Object *)initializeLifetimeService;
 @end
 //--Dubrovnik.CodeGenerator

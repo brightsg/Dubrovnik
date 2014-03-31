@@ -2,7 +2,7 @@
 //
 // Managed struct : Label
 //
-@interface System_Reflection_Emit_Label : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_Label : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

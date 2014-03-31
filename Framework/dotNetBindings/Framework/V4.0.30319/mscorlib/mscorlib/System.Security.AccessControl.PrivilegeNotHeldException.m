@@ -3,6 +3,12 @@
 //
 // Managed class : PrivilegeNotHeldException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_PrivilegeNotHeldException
 
 #pragma mark -
@@ -40,12 +46,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : PrivilegeName
+	// Managed property type : System.String
+    @synthesize privilegeName = _privilegeName;
     - (NSString *)privilegeName
     {
-		MonoObject * monoObject = [self getMonoProperty:"PrivilegeName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PrivilegeName"];
+		if ([self object:_privilegeName isEqualToMonoObject:monoObject]) return _privilegeName;					
+		_privilegeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _privilegeName;
 	}
 
 #pragma mark -
@@ -58,5 +68,11 @@
     {
 		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

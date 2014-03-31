@@ -3,6 +3,12 @@
 //
 // Managed class : TaskCompletionSource<TResult>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Tasks_TaskCompletionSource
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource<TResult>
 	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(DBMonoObjectRepresentation *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2
+    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(System_Object *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2
     {
 		return [[self alloc] initWithSignature:"object,System.Threading.Tasks.TaskCreationOptions" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -40,7 +46,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource<TResult>
 	// Managed param types : System.Object
-    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(DBMonoObjectRepresentation *)p1
+    + (System_Threading_Tasks_TaskCompletionSource *)new_withState:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
     }
@@ -48,13 +54,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : Task<TResult>
+	// Managed property name : Task
+	// Managed property type : Task<TResult>
+    @synthesize task = _task;
     - (Task *)task
     {
-		MonoObject * monoObject = [self getMonoProperty:"Task"];
-		Task * result = [Task representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"TResult";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Task"];
+		if ([self object:_task isEqualToMonoObject:monoObject]) return _task;					
+		_task = [Task objectWithMonoObject:monoObject];
+
+		return _task;
 	}
 
 #pragma mark -
@@ -87,7 +96,7 @@
 	// Managed method name : SetResult
 	// Managed return type : System.Void
 	// Managed param types : <TResult>
-    - (void)setResult_withResult:(DBMonoObjectRepresentation *)p1
+    - (void)setResult_withResult:(DBManagedObject *)p1
     {
 		[self invokeMonoMethod:"SetResult(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
     }
@@ -122,10 +131,16 @@
 	// Managed method name : TrySetResult
 	// Managed return type : System.Boolean
 	// Managed param types : <TResult>
-    - (BOOL)trySetResult_withResult:(DBMonoObjectRepresentation *)p1
+    - (BOOL)trySetResult_withResult:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"TrySetResult(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

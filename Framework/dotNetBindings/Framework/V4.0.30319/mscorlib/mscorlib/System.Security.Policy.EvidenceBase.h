@@ -2,7 +2,7 @@
 //
 // Managed class : EvidenceBase
 //
-@interface System_Security_Policy_EvidenceBase : DBMonoObjectRepresentation
+@interface System_Security_Policy_EvidenceBase : System_Object
 
 #pragma mark -
 #pragma mark Setup

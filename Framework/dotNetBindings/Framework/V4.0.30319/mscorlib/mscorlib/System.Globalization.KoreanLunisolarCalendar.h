@@ -14,20 +14,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : GregorianEra
+	// Managed field type : System.Int32
     + (int32_t)gregorianEra;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32[]
-    - (DBSystem_Array *)eras;
+	// Managed property name : Eras
+	// Managed property type : System.Int32[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * eras;
 
-	// Managed type : System.DateTime
-    - (NSDate *)maxSupportedDateTime;
+	// Managed property name : MaxSupportedDateTime
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * maxSupportedDateTime;
 
-	// Managed type : System.DateTime
-    - (NSDate *)minSupportedDateTime;
+	// Managed property name : MinSupportedDateTime
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * minSupportedDateTime;
 
 #pragma mark -
 #pragma mark Methods

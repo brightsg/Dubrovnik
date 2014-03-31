@@ -22,13 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.UIPermissionClipboard
-    - (System_Security_Permissions_UIPermissionClipboard)clipboard;
-    - (void)setClipboard:(System_Security_Permissions_UIPermissionClipboard)value;
+	// Managed property name : Clipboard
+	// Managed property type : System.Security.Permissions.UIPermissionClipboard
+    @property (nonatomic) System_Security_Permissions_UIPermissionClipboard clipboard;
 
-	// Managed type : System.Security.Permissions.UIPermissionWindow
-    - (System_Security_Permissions_UIPermissionWindow)window;
-    - (void)setWindow:(System_Security_Permissions_UIPermissionWindow)value;
+	// Managed property name : Window
+	// Managed property type : System.Security.Permissions.UIPermissionWindow
+    @property (nonatomic) System_Security_Permissions_UIPermissionWindow window;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed class : RuntimeHelpers
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_RuntimeHelpers
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : OffsetToStringData
+	// Managed property type : System.Int32
+    static int32_t m_offsetToStringData;
     + (int32_t)offsetToStringData
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"OffsetToStringData"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"OffsetToStringData"];
+		m_offsetToStringData = DB_UNBOX_INT32(monoObject);
+
+		return m_offsetToStringData;
 	}
 
 #pragma mark -
@@ -43,7 +52,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object
-    - (BOOL)equals_withO1:(DBMonoObjectRepresentation *)p1 o2:(DBMonoObjectRepresentation *)p2
+    - (BOOL)equals_withO1:(System_Object *)p1 o2:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -52,7 +61,7 @@
 	// Managed method name : ExecuteCodeWithGuaranteedCleanup
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.CompilerServices.RuntimeHelpers+TryCode, System.Runtime.CompilerServices.RuntimeHelpers+CleanupCode, System.Object
-    - (void)executeCodeWithGuaranteedCleanup_withCode:(System_Runtime_CompilerServices_RuntimeHelpers__TryCode *)p1 backoutCode:(System_Runtime_CompilerServices_RuntimeHelpers__CleanupCode *)p2 userData:(DBMonoObjectRepresentation *)p3
+    - (void)executeCodeWithGuaranteedCleanup_withCode:(System_Runtime_CompilerServices_RuntimeHelpers__TryCode *)p1 backoutCode:(System_Runtime_CompilerServices_RuntimeHelpers__CleanupCode *)p2 userData:(System_Object *)p3
     {
 		[self invokeMonoMethod:"ExecuteCodeWithGuaranteedCleanup(System.Runtime.CompilerServices.RuntimeHelpers+TryCode,System.Runtime.CompilerServices.RuntimeHelpers+CleanupCode,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -60,7 +69,7 @@
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)getHashCode_withO:(DBMonoObjectRepresentation *)p1
+    - (int32_t)getHashCode_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -69,10 +78,10 @@
 	// Managed method name : GetObjectValue
 	// Managed return type : System.Object
 	// Managed param types : System.Object
-    - (DBMonoObjectRepresentation *)getObjectValue_withObj:(DBMonoObjectRepresentation *)p1
+    - (System_Object *)getObjectValue_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObjectValue(object)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : InitializeArray
@@ -154,5 +163,11 @@
     {
 		[self invokeMonoMethod:"RunModuleConstructor(System.ModuleHandle)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

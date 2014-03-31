@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.X509Certificates.X509Certificate
-    - (System_Security_Cryptography_X509Certificates_X509Certificate *)certificate;
-    - (void)setCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)value;
+	// Managed property name : Certificate
+	// Managed property type : System.Security.Cryptography.X509Certificates.X509Certificate
+    @property (nonatomic, strong) System_Security_Cryptography_X509Certificates_X509Certificate * certificate;
 
 #pragma mark -
 #pragma mark Methods

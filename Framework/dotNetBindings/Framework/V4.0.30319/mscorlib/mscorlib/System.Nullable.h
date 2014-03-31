@@ -2,7 +2,7 @@
 //
 // Managed class : Nullable
 //
-@interface System_Nullable : DBMonoObjectRepresentation
+@interface System_Nullable : System_Object
 
 #pragma mark -
 #pragma mark Setup

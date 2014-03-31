@@ -3,6 +3,12 @@
 //
 // Managed class : ReaderWriterLock
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_ReaderWriterLock
 
 #pragma mark -
@@ -21,28 +27,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsReaderLockHeld
+	// Managed property type : System.Boolean
+    @synthesize isReaderLockHeld = _isReaderLockHeld;
     - (BOOL)isReaderLockHeld
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsReaderLockHeld"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsReaderLockHeld"];
+		_isReaderLockHeld = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isReaderLockHeld;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsWriterLockHeld
+	// Managed property type : System.Boolean
+    @synthesize isWriterLockHeld = _isWriterLockHeld;
     - (BOOL)isWriterLockHeld
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsWriterLockHeld"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsWriterLockHeld"];
+		_isWriterLockHeld = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isWriterLockHeld;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : WriterSeqNum
+	// Managed property type : System.Int32
+    @synthesize writerSeqNum = _writerSeqNum;
     - (int32_t)writerSeqNum
     {
-		MonoObject * monoObject = [self getMonoProperty:"WriterSeqNum"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WriterSeqNum"];
+		_writerSeqNum = DB_UNBOX_INT32(monoObject);
+
+		return _writerSeqNum;
 	}
 
 #pragma mark -
@@ -103,7 +118,7 @@
     - (System_Threading_LockCookie *)releaseLock
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReleaseLock()" withNumArgs:0];
-		return [System_Threading_LockCookie representationWithMonoObject:monoObject];
+		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReleaseReaderLock
@@ -136,7 +151,7 @@
     - (System_Threading_LockCookie *)upgradeToWriterLock_withMillisecondsTimeout:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_LockCookie representationWithMonoObject:monoObject];
+		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UpgradeToWriterLock
@@ -145,7 +160,13 @@
     - (System_Threading_LockCookie *)upgradeToWriterLock_withTimeout:(System_TimeSpan *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_LockCookie representationWithMonoObject:monoObject];
+		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

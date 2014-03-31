@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)keyFile;
+	// Managed property name : KeyFile
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * keyFile;
 @end
 //--Dubrovnik.CodeGenerator

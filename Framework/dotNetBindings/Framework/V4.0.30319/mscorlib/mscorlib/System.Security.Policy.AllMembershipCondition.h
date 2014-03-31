@@ -2,7 +2,7 @@
 //
 // Managed class : AllMembershipCondition
 //
-@interface System_Security_Policy_AllMembershipCondition : DBMonoObjectRepresentation
+@interface System_Security_Policy_AllMembershipCondition : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

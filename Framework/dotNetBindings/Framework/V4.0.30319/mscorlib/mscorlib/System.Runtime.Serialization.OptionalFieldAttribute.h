@@ -14,8 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)versionAdded;
-    - (void)setVersionAdded:(int32_t)value;
+	// Managed property name : VersionAdded
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t versionAdded;
 @end
 //--Dubrovnik.CodeGenerator

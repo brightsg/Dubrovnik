@@ -3,6 +3,12 @@
 //
 // Managed class : ServerChannelSinkStack
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_ServerChannelSinkStack
 
 #pragma mark -
@@ -35,22 +41,22 @@
     - (System_IO_Stream *)getResponseStream_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 headers:(System_Runtime_Remoting_Channels_ITransportHeaders *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Channels.ITransportHeaders)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_IO_Stream representationWithMonoObject:monoObject];
+		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Pop
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink
-    - (DBMonoObjectRepresentation *)pop_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1
+    - (System_Object *)pop_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Pop(System.Runtime.Remoting.Channels.IServerChannelSink)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink, System.Object
-    - (void)push_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (void)push_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Push(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -66,7 +72,7 @@
 	// Managed method name : Store
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink, System.Object
-    - (void)store_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (void)store_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Store(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -74,9 +80,15 @@
 	// Managed method name : StoreAndDispatch
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink, System.Object
-    - (void)storeAndDispatch_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (void)storeAndDispatch_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(System_Object *)p2
     {
 		[self invokeMonoMethod:"StoreAndDispatch(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

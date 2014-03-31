@@ -2,7 +2,7 @@
 //
 // Managed interface : IServiceProvider
 //
-@interface System_IServiceProvider : DBMonoObjectRepresentation
+@interface System_IServiceProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : GetService
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getService_withServiceType:(System_Type *)p1;
+    - (System_Object *)getService_withServiceType:(System_Type *)p1;
 @end
 //--Dubrovnik.CodeGenerator

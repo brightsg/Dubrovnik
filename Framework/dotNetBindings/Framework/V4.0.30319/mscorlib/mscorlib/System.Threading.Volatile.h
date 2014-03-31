@@ -2,7 +2,7 @@
 //
 // Managed class : Volatile
 //
-@interface System_Threading_Volatile : DBMonoObjectRepresentation
+@interface System_Threading_Volatile : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -82,7 +82,7 @@
 	// Managed method name : Read
 	// Managed return type : <T>
 	// Managed param types : ref T&
-    - (DBMonoObjectRepresentation *)read_withLocationTRef:(T **)p1;
+    - (DBManagedObject *)read_withLocationTRef:(T **)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -152,6 +152,6 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : ref T&, <T>
-    - (void)write_withLocationTRef:(T **)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2;
+    - (void)write_withLocationTRef:(T **)p1 valueDGParameter:(DBManagedObject *)p2;
 @end
 //--Dubrovnik.CodeGenerator

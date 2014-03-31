@@ -3,6 +3,12 @@
 //
 // Managed class : IsolatedStorageFile
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_IsolatedStorage_IsolatedStorageFile
 
 #pragma mark -
@@ -21,57 +27,76 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int64
+	// Managed property name : AvailableFreeSpace
+	// Managed property type : System.Int64
+    @synthesize availableFreeSpace = _availableFreeSpace;
     - (int64_t)availableFreeSpace
     {
-		MonoObject * monoObject = [self getMonoProperty:"AvailableFreeSpace"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AvailableFreeSpace"];
+		_availableFreeSpace = DB_UNBOX_INT64(monoObject);
+
+		return _availableFreeSpace;
 	}
 
-	// Managed type : System.UInt64
+	// Managed property name : CurrentSize
+	// Managed property type : System.UInt64
+    @synthesize currentSize = _currentSize;
     - (uint64_t)currentSize
     {
-		MonoObject * monoObject = [self getMonoProperty:"CurrentSize"];
-		uint64_t result = DB_UNBOX_UINT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CurrentSize"];
+		_currentSize = DB_UNBOX_UINT64(monoObject);
+
+		return _currentSize;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsEnabled
+	// Managed property type : System.Boolean
+    static BOOL m_isEnabled;
     + (BOOL)isEnabled
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"IsEnabled"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsEnabled"];
+		m_isEnabled = DB_UNBOX_BOOLEAN(monoObject);
+
+		return m_isEnabled;
 	}
 
-	// Managed type : System.UInt64
+	// Managed property name : MaximumSize
+	// Managed property type : System.UInt64
+    @synthesize maximumSize = _maximumSize;
     - (uint64_t)maximumSize
     {
-		MonoObject * monoObject = [self getMonoProperty:"MaximumSize"];
-		uint64_t result = DB_UNBOX_UINT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MaximumSize"];
+		_maximumSize = DB_UNBOX_UINT64(monoObject);
+
+		return _maximumSize;
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : Quota
+	// Managed property type : System.Int64
+    @synthesize quota = _quota;
     - (int64_t)quota
     {
-		MonoObject * monoObject = [self getMonoProperty:"Quota"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Quota"];
+		_quota = DB_UNBOX_INT64(monoObject);
+
+		return _quota;
 	}
     - (void)setQuota:(int64_t)value
 	{
+		_quota = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Quota" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int64
+	// Managed property name : UsedSize
+	// Managed property type : System.Int64
+    @synthesize usedSize = _usedSize;
     - (int64_t)usedSize
     {
-		MonoObject * monoObject = [self getMonoProperty:"UsedSize"];
-		int64_t result = DB_UNBOX_INT64(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UsedSize"];
+		_usedSize = DB_UNBOX_INT64(monoObject);
+
+		return _usedSize;
 	}
 
 #pragma mark -
@@ -115,7 +140,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)createFile_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFile(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_IsolatedStorage_IsolatedStorageFileStream representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DeleteDirectory
@@ -166,7 +191,7 @@
     - (System_DateTimeOffset *)getCreationTime_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCreationTime(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDirectoryNames
@@ -175,7 +200,7 @@
     - (DBSystem_Array *)getDirectoryNames
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectoryNames()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetDirectoryNames
@@ -184,7 +209,7 @@
     - (DBSystem_Array *)getDirectoryNames_withSearchPattern:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectoryNames(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetEnumerator
@@ -193,7 +218,7 @@
     - (System_Collections_IEnumerator *)getEnumerator_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator(System.IO.IsolatedStorage.IsolatedStorageScope)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Collections_IEnumerator representationWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFileNames
@@ -202,7 +227,7 @@
     - (DBSystem_Array *)getFileNames
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFileNames()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetFileNames
@@ -211,7 +236,7 @@
     - (DBSystem_Array *)getFileNames_withSearchPattern:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFileNames(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetLastAccessTime
@@ -220,7 +245,7 @@
     - (System_DateTimeOffset *)getLastAccessTime_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLastAccessTime(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetLastWriteTime
@@ -229,7 +254,7 @@
     - (System_DateTimeOffset *)getLastWriteTime_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLastWriteTime(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_DateTimeOffset representationWithMonoObject:monoObject];
+		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMachineStoreForApplication
@@ -238,7 +263,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForApplication
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMachineStoreForApplication()" withNumArgs:0];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMachineStoreForAssembly
@@ -247,7 +272,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForAssembly
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMachineStoreForAssembly()" withNumArgs:0];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMachineStoreForDomain
@@ -256,7 +281,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForDomain
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMachineStoreForDomain()" withNumArgs:0];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
@@ -265,16 +290,16 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type,System.Type)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(DBMonoObjectRepresentation *)p2 assemblyIdentity:(DBMonoObjectRepresentation *)p3
+    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
@@ -283,7 +308,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Security.Policy.Evidence,System.Type,System.Security.Policy.Evidence,System.Type)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
@@ -292,16 +317,16 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationEvidenceType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(DBMonoObjectRepresentation *)p2
+    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForApplication
@@ -310,7 +335,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForApplication
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForApplication()" withNumArgs:0];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForAssembly
@@ -319,7 +344,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForAssembly
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForAssembly()" withNumArgs:0];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForDomain
@@ -328,7 +353,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForDomain
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForDomain()" withNumArgs:0];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForSite
@@ -337,7 +362,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForSite
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForSite()" withNumArgs:0];
-		return [System_IO_IsolatedStorage_IsolatedStorageFile representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IncreaseQuotaTo
@@ -371,7 +396,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_IO_IsolatedStorage_IsolatedStorageFileStream representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenFile
@@ -380,7 +405,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode,System.IO.FileAccess)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_IO_IsolatedStorage_IsolatedStorageFileStream representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenFile
@@ -389,7 +414,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
-		return [System_IO_IsolatedStorage_IsolatedStorageFileStream representationWithMonoObject:monoObject];
+		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Remove
@@ -407,5 +432,11 @@
     {
 		[self invokeMonoMethod:"Remove(System.IO.IsolatedStorage.IsolatedStorageScope)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

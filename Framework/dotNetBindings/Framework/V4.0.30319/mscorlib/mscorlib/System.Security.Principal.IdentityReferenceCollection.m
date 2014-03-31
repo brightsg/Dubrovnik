@@ -3,6 +3,12 @@
 //
 // Managed class : IdentityReferenceCollection
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Principal_IdentityReferenceCollection
 
 #pragma mark -
@@ -32,31 +38,42 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsReadOnly"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
+		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isReadOnly;
 	}
 
-	// Managed type : System.Security.Principal.IdentityReference
+	// Managed property name : Item
+	// Managed property type : System.Security.Principal.IdentityReference
+    @synthesize item = _item;
     - (System_Security_Principal_IdentityReference *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		System_Security_Principal_IdentityReference * result = [System_Security_Principal_IdentityReference representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [System_Security_Principal_IdentityReference objectWithMonoObject:monoObject];
+
+		return _item;
 	}
     - (void)setItem:(System_Security_Principal_IdentityReference *)value
 	{
+		_item = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Item" valueObject:monoObject];          
 	}
@@ -103,7 +120,7 @@
     - (System_Collections_Generic_IEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Collections_Generic_IEnumerator representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Remove
@@ -121,7 +138,7 @@
     - (System_Security_Principal_IdentityReferenceCollection *)translate_withTargetType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Principal_IdentityReferenceCollection representationWithMonoObject:monoObject];
+		return [System_Security_Principal_IdentityReferenceCollection objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Translate
@@ -130,7 +147,13 @@
     - (System_Security_Principal_IdentityReferenceCollection *)translate_withTargetType:(System_Type *)p1 forceSuccess:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Security_Principal_IdentityReferenceCollection representationWithMonoObject:monoObject];
+		return [System_Security_Principal_IdentityReferenceCollection objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

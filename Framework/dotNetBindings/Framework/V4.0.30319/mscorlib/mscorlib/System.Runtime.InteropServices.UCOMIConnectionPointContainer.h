@@ -2,7 +2,7 @@
 //
 // Managed interface : UCOMIConnectionPointContainer
 //
-@interface System_Runtime_InteropServices_UCOMIConnectionPointContainer : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_UCOMIConnectionPointContainer : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed interface : INotifyCompletion
 //
-@interface System_Runtime_CompilerServices_INotifyCompletion : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_INotifyCompletion : System_Object
 
 #pragma mark -
 #pragma mark Setup

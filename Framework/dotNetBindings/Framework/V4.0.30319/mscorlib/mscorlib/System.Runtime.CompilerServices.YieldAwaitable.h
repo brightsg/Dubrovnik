@@ -2,7 +2,7 @@
 //
 // Managed struct : YieldAwaitable
 //
-@interface System_Runtime_CompilerServices_YieldAwaitable : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_YieldAwaitable : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup

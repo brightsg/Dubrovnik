@@ -2,7 +2,7 @@
 //
 // Managed interface : _EnumBuilder
 //
-@interface System_Runtime_InteropServices__EnumBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__EnumBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : InternalRM
 //
-@interface System_Runtime_Serialization_Formatters_InternalRM : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_Formatters_InternalRM : System_Object
 
 #pragma mark -
 #pragma mark Setup

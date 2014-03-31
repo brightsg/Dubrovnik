@@ -2,7 +2,7 @@
 //
 // Managed class : ConcurrentExclusiveSchedulerPair
 //
-@interface System_Threading_Tasks_ConcurrentExclusiveSchedulerPair : DBMonoObjectRepresentation
+@interface System_Threading_Tasks_ConcurrentExclusiveSchedulerPair : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,14 +32,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.Tasks.Task
-    - (System_Threading_Tasks_Task *)completion;
+	// Managed property name : Completion
+	// Managed property type : System.Threading.Tasks.Task
+    @property (nonatomic, strong, readonly) System_Threading_Tasks_Task * completion;
 
-	// Managed type : System.Threading.Tasks.TaskScheduler
-    - (System_Threading_Tasks_TaskScheduler *)concurrentScheduler;
+	// Managed property name : ConcurrentScheduler
+	// Managed property type : System.Threading.Tasks.TaskScheduler
+    @property (nonatomic, strong, readonly) System_Threading_Tasks_TaskScheduler * concurrentScheduler;
 
-	// Managed type : System.Threading.Tasks.TaskScheduler
-    - (System_Threading_Tasks_TaskScheduler *)exclusiveScheduler;
+	// Managed property name : ExclusiveScheduler
+	// Managed property type : System.Threading.Tasks.TaskScheduler
+    @property (nonatomic, strong, readonly) System_Threading_Tasks_TaskScheduler * exclusiveScheduler;
 
 #pragma mark -
 #pragma mark Methods

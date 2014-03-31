@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)compilationRelaxations;
+	// Managed property name : CompilationRelaxations
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t compilationRelaxations;
 @end
 //--Dubrovnik.CodeGenerator

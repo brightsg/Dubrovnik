@@ -2,7 +2,7 @@
 //
 // Managed struct : CustomAttributeTypedArgument
 //
-@interface System_Reflection_CustomAttributeTypedArgument : DBMonoObjectRepresentation
+@interface System_Reflection_CustomAttributeTypedArgument : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,21 +17,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.CustomAttributeTypedArgument
 	// Managed param types : System.Type, System.Object
-    + (System_Reflection_CustomAttributeTypedArgument *)new_withArgumentType:(System_Type *)p1 value:(DBMonoObjectRepresentation *)p2;
+    + (System_Reflection_CustomAttributeTypedArgument *)new_withArgumentType:(System_Type *)p1 value:(System_Object *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.CustomAttributeTypedArgument
 	// Managed param types : System.Object
-    + (System_Reflection_CustomAttributeTypedArgument *)new_withValue:(DBMonoObjectRepresentation *)p1;
+    + (System_Reflection_CustomAttributeTypedArgument *)new_withValue:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)argumentType;
+	// Managed property name : ArgumentType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * argumentType;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * value;
 
 #pragma mark -
 #pragma mark Methods
@@ -39,7 +41,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

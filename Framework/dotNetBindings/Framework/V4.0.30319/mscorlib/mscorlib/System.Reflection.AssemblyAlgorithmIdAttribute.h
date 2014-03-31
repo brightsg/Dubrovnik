@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.UInt32
-    - (uint32_t)algorithmId;
+	// Managed property name : AlgorithmId
+	// Managed property type : System.UInt32
+    @property (nonatomic, readonly) uint32_t algorithmId;
 @end
 //--Dubrovnik.CodeGenerator

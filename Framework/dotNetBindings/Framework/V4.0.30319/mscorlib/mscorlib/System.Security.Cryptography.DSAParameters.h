@@ -2,7 +2,7 @@
 //
 // Managed struct : DSAParameters
 //
-@interface System_Security_Cryptography_DSAParameters : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_DSAParameters : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,36 +14,36 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
-    - (int32_t)counter;
-    - (void)setCounter:(int32_t)value;
+	// Managed field name : Counter
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t counter;
 
-	// Managed type : System.Byte[]
-    - (NSData *)g;
-    - (void)setG:(NSData *)value;
+	// Managed field name : G
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * g;
 
-	// Managed type : System.Byte[]
-    - (NSData *)j;
-    - (void)setJ:(NSData *)value;
+	// Managed field name : J
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * j;
 
-	// Managed type : System.Byte[]
-    - (NSData *)p;
-    - (void)setP:(NSData *)value;
+	// Managed field name : P
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * p;
 
-	// Managed type : System.Byte[]
-    - (NSData *)q;
-    - (void)setQ:(NSData *)value;
+	// Managed field name : Q
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * q;
 
-	// Managed type : System.Byte[]
-    - (NSData *)seed;
-    - (void)setSeed:(NSData *)value;
+	// Managed field name : Seed
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * seed;
 
-	// Managed type : System.Byte[]
-    - (NSData *)x;
-    - (void)setX:(NSData *)value;
+	// Managed field name : X
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * x;
 
-	// Managed type : System.Byte[]
-    - (NSData *)y;
-    - (void)setY:(NSData *)value;
+	// Managed field name : Y
+	// Managed field type : System.Byte[]
+    @property (nonatomic, strong) NSData * y;
 @end
 //--Dubrovnik.CodeGenerator

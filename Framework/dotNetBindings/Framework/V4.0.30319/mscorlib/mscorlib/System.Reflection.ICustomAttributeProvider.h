@@ -2,7 +2,7 @@
 //
 // Managed interface : ICustomAttributeProvider
 //
-@interface System_Reflection_ICustomAttributeProvider : DBMonoObjectRepresentation
+@interface System_Reflection_ICustomAttributeProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup

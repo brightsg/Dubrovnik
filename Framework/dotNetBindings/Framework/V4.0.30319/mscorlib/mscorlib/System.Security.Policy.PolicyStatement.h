@@ -2,7 +2,7 @@
 //
 // Managed class : PolicyStatement
 //
-@interface System_Security_Policy_PolicyStatement : DBMonoObjectRepresentation
+@interface System_Security_Policy_PolicyStatement : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,16 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.PolicyStatementAttribute
-    - (System_Security_Policy_PolicyStatementAttribute)attributes;
-    - (void)setAttributes:(System_Security_Policy_PolicyStatementAttribute)value;
+	// Managed property name : Attributes
+	// Managed property type : System.Security.Policy.PolicyStatementAttribute
+    @property (nonatomic) System_Security_Policy_PolicyStatementAttribute attributes;
 
-	// Managed type : System.String
-    - (NSString *)attributeString;
+	// Managed property name : AttributeString
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * attributeString;
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)permissionSet;
-    - (void)setPermissionSet:(System_Security_PermissionSet *)value;
+	// Managed property name : PermissionSet
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong) System_Security_PermissionSet * permissionSet;
 
 #pragma mark -
 #pragma mark Methods
@@ -49,7 +50,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

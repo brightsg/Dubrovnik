@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityContext
 //
-@interface System_Security_SecurityContext : DBMonoObjectRepresentation
+@interface System_Security_SecurityContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -47,7 +47,7 @@
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Security.SecurityContext, System.Threading.ContextCallback, System.Object
-    - (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(DBMonoObjectRepresentation *)p3;
+    - (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
 
 	// Managed method name : SuppressFlow
 	// Managed return type : System.Threading.AsyncFlowControl

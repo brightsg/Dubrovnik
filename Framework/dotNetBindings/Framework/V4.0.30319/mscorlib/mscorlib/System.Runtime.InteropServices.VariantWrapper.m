@@ -3,6 +3,12 @@
 //
 // Managed class : VariantWrapper
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_VariantWrapper
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.VariantWrapper
 	// Managed param types : System.Object
-    + (System_Runtime_InteropServices_VariantWrapper *)new_withObj:(DBMonoObjectRepresentation *)p1
+    + (System_Runtime_InteropServices_VariantWrapper *)new_withObj:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
     }
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)wrappedObject
+	// Managed property name : WrappedObject
+	// Managed property type : System.Object
+    @synthesize wrappedObject = _wrappedObject;
+    - (System_Object *)wrappedObject
     {
-		MonoObject * monoObject = [self getMonoProperty:"WrappedObject"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"WrappedObject"];
+		if ([self object:_wrappedObject isEqualToMonoObject:monoObject]) return _wrappedObject;					
+		_wrappedObject = [System_Object objectWithMonoObject:monoObject];
+
+		return _wrappedObject;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed interface : ITypeLib2
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ComTypes_ITypeLib2
 
 #pragma mark -
@@ -40,7 +46,7 @@
 	// Managed method name : GetCustData
 	// Managed return type : System.Void
 	// Managed param types : ref System.Guid&, ref System.Object&
-    - (void)getCustData_withGuidRef:(System_Guid **)p1 pVarValRef:(DBMonoObjectRepresentation **)p2
+    - (void)getCustData_withGuidRef:(System_Guid **)p1 pVarValRef:(System_Object **)p2
     {
 		[self invokeMonoMethod:"GetCustData(System.Guid&,object&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -139,5 +145,11 @@
     {
 		[self invokeMonoMethod:"ReleaseTLibAttr(intptr)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

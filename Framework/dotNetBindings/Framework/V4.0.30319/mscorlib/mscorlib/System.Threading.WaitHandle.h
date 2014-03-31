@@ -14,19 +14,20 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : WaitTimeout
+	// Managed field type : System.Int32
     + (int32_t)waitTimeout;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IntPtr
-    - (void *)handle;
-    - (void)setHandle:(void *)value;
+	// Managed property name : Handle
+	// Managed property type : System.IntPtr
+    @property (nonatomic) void * handle;
 
-	// Managed type : Microsoft.Win32.SafeHandles.SafeWaitHandle
-    - (Microsoft_Win32_SafeHandles_SafeWaitHandle *)safeWaitHandle;
-    - (void)setSafeWaitHandle:(Microsoft_Win32_SafeHandles_SafeWaitHandle *)value;
+	// Managed property name : SafeWaitHandle
+	// Managed property type : Microsoft.Win32.SafeHandles.SafeWaitHandle
+    @property (nonatomic, strong) Microsoft_Win32_SafeHandles_SafeWaitHandle * safeWaitHandle;
 
 #pragma mark -
 #pragma mark Methods

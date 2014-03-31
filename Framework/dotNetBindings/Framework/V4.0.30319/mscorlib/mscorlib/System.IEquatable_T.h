@@ -2,7 +2,7 @@
 //
 // Managed interface : IEquatable<T>
 //
-@interface System_IEquatable : DBMonoObjectRepresentation
+@interface System_IEquatable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

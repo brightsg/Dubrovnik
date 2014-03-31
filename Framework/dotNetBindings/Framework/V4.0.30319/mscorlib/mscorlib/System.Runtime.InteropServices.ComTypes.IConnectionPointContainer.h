@@ -2,7 +2,7 @@
 //
 // Managed interface : IConnectionPointContainer
 //
-@interface System_Runtime_InteropServices_ComTypes_IConnectionPointContainer : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IConnectionPointContainer : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isReaderLockHeld;
+	// Managed property name : IsReaderLockHeld
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReaderLockHeld;
 
-	// Managed type : System.Boolean
-    - (BOOL)isWriterLockHeld;
+	// Managed property name : IsWriterLockHeld
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isWriterLockHeld;
 
-	// Managed type : System.Int32
-    - (int32_t)writerSeqNum;
+	// Managed property name : WriterSeqNum
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t writerSeqNum;
 
 #pragma mark -
 #pragma mark Methods

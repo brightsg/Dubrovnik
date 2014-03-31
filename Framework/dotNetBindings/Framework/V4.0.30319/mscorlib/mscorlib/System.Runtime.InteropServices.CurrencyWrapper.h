@@ -2,7 +2,7 @@
 //
 // Managed class : CurrencyWrapper
 //
-@interface System_Runtime_InteropServices_CurrencyWrapper : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_CurrencyWrapper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,12 +22,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.CurrencyWrapper
 	// Managed param types : System.Object
-    + (System_Runtime_InteropServices_CurrencyWrapper *)new_withObjObject:(DBMonoObjectRepresentation *)p1;
+    + (System_Runtime_InteropServices_CurrencyWrapper *)new_withObjObject:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Decimal
-    - (NSDecimalNumber *)wrappedObject;
+	// Managed property name : WrappedObject
+	// Managed property type : System.Decimal
+    @property (nonatomic, strong, readonly) NSDecimalNumber * wrappedObject;
 @end
 //--Dubrovnik.CodeGenerator

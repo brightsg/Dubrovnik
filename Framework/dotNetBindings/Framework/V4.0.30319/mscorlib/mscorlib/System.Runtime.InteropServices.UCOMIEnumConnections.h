@@ -2,7 +2,7 @@
 //
 // Managed interface : UCOMIEnumConnections
 //
-@interface System_Runtime_InteropServices_UCOMIEnumConnections : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_UCOMIEnumConnections : System_Object
 
 #pragma mark -
 #pragma mark Setup

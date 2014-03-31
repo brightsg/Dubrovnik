@@ -2,7 +2,7 @@
 //
 // Managed class : Decoder
 //
-@interface System_Text_Decoder : DBMonoObjectRepresentation
+@interface System_Text_Decoder : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.DecoderFallback
-    - (System_Text_DecoderFallback *)fallback;
-    - (void)setFallback:(System_Text_DecoderFallback *)value;
+	// Managed property name : Fallback
+	// Managed property type : System.Text.DecoderFallback
+    @property (nonatomic, strong) System_Text_DecoderFallback * fallback;
 
-	// Managed type : System.Text.DecoderFallbackBuffer
-    - (System_Text_DecoderFallbackBuffer *)fallbackBuffer;
+	// Managed property name : FallbackBuffer
+	// Managed property type : System.Text.DecoderFallbackBuffer
+    @property (nonatomic, strong, readonly) System_Text_DecoderFallbackBuffer * fallbackBuffer;
 
 #pragma mark -
 #pragma mark Methods

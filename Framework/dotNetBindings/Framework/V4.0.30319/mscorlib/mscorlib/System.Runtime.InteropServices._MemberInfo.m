@@ -3,6 +3,12 @@
 //
 // Managed interface : _MemberInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices__MemberInfo
 
 #pragma mark -
@@ -21,36 +27,51 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @synthesize declaringType = _declaringType;
     - (System_Type *)declaringType
     {
-		MonoObject * monoObject = [self getMonoProperty:"DeclaringType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DeclaringType"];
+		if ([self object:_declaringType isEqualToMonoObject:monoObject]) return _declaringType;					
+		_declaringType = [System_Type objectWithMonoObject:monoObject];
+
+		return _declaringType;
 	}
 
-	// Managed type : System.Reflection.MemberTypes
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @synthesize memberType = _memberType;
     - (System_Reflection_MemberTypes)memberType
     {
-		MonoObject * monoObject = [self getMonoProperty:"MemberType"];
-		System_Reflection_MemberTypes result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MemberType"];
+		_memberType = DB_UNBOX_INT32(monoObject);
+
+		return _memberType;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @synthesize reflectedType = _reflectedType;
     - (System_Type *)reflectedType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ReflectedType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ReflectedType"];
+		if ([self object:_reflectedType isEqualToMonoObject:monoObject]) return _reflectedType;					
+		_reflectedType = [System_Type objectWithMonoObject:monoObject];
+
+		return _reflectedType;
 	}
 
 #pragma mark -
@@ -59,7 +80,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withOther:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -71,7 +92,7 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -80,7 +101,7 @@
     - (DBSystem_Array *)getCustomAttributes_withInherit:(BOOL)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetHashCode
@@ -106,7 +127,7 @@
     - (System_Type *)getType
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeInfo
@@ -150,5 +171,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

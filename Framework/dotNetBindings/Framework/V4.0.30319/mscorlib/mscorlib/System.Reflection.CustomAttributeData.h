@@ -2,7 +2,7 @@
 //
 // Managed class : CustomAttributeData
 //
-@interface System_Reflection_CustomAttributeData : DBMonoObjectRepresentation
+@interface System_Reflection_CustomAttributeData : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)attributeType;
+	// Managed property name : AttributeType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * attributeType;
 
-	// Managed type : System.Reflection.ConstructorInfo
-    - (System_Reflection_ConstructorInfo *)constructor;
+	// Managed property name : Constructor
+	// Managed property type : System.Reflection.ConstructorInfo
+    @property (nonatomic, strong, readonly) System_Reflection_ConstructorInfo * constructor;
 
-	// Managed type : System.Collections.Generic.IList<System.Reflection.CustomAttributeTypedArgument>
-    - (System_Collections_Generic_IList *)constructorArguments;
+	// Managed property name : ConstructorArguments
+	// Managed property type : System.Collections.Generic.IList<System.Reflection.CustomAttributeTypedArgument>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * constructorArguments;
 
-	// Managed type : System.Collections.Generic.IList<System.Reflection.CustomAttributeNamedArgument>
-    - (System_Collections_Generic_IList *)namedArguments;
+	// Managed property name : NamedArguments
+	// Managed property type : System.Collections.Generic.IList<System.Reflection.CustomAttributeNamedArgument>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * namedArguments;
 
 #pragma mark -
 #pragma mark Methods
@@ -32,7 +36,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>

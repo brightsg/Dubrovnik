@@ -2,7 +2,7 @@
 //
 // Managed struct : SerializationEntry
 //
-@interface System_Runtime_Serialization_SerializationEntry : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_SerializationEntry : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)objectType;
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * objectType;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * value;
 @end
 //--Dubrovnik.CodeGenerator

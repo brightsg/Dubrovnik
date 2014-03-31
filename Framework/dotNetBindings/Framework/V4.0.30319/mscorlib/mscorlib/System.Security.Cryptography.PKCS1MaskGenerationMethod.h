@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)hashName;
-    - (void)setHashName:(NSString *)value;
+	// Managed property name : HashName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * hashName;
 
 #pragma mark -
 #pragma mark Methods

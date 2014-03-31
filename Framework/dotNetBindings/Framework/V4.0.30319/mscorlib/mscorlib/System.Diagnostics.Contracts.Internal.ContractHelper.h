@@ -2,7 +2,7 @@
 //
 // Managed class : ContractHelper
 //
-@interface System_Diagnostics_Contracts_Internal_ContractHelper : DBMonoObjectRepresentation
+@interface System_Diagnostics_Contracts_Internal_ContractHelper : System_Object
 
 #pragma mark -
 #pragma mark Setup

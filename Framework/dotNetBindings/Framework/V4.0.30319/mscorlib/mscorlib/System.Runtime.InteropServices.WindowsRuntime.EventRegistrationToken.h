@@ -2,7 +2,7 @@
 //
 // Managed struct : EventRegistrationToken
 //
-@interface System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

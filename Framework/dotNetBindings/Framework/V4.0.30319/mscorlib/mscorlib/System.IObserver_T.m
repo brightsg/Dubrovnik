@@ -3,6 +3,12 @@
 //
 // Managed interface : IObserver<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IObserver
 
 #pragma mark -
@@ -40,9 +46,15 @@
 	// Managed method name : OnNext
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)onNext_withValue:(DBMonoObjectRepresentation *)p1
+    - (void)onNext_withValue:(DBManagedObject *)p1
     {
 		[self invokeMonoMethod:"OnNext(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed interface : IObjectReference
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Serialization_IObjectReference
 
 #pragma mark -
@@ -24,10 +30,16 @@
 	// Managed method name : GetRealObject
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Serialization.StreamingContext
-    - (DBMonoObjectRepresentation *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1
+    - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRealObject(System.Runtime.Serialization.StreamingContext)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

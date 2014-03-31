@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)classType;
+	// Managed property name : ClassType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * classType;
 
-	// Managed type : System.String
-    - (NSString *)methodName;
+	// Managed property name : MethodName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * methodName;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : BinaryReader
 //
-@interface System_IO_BinaryReader : DBMonoObjectRepresentation
+@interface System_IO_BinaryReader : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,8 +32,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IO.Stream
-    - (System_IO_Stream *)baseStream;
+	// Managed property name : BaseStream
+	// Managed property type : System.IO.Stream
+    @property (nonatomic, strong, readonly) System_IO_Stream * baseStream;
 
 #pragma mark -
 #pragma mark Methods

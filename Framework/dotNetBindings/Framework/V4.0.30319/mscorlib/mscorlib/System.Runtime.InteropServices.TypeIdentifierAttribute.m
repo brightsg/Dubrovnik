@@ -3,6 +3,12 @@
 //
 // Managed class : TypeIdentifierAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_TypeIdentifierAttribute
 
 #pragma mark -
@@ -32,20 +38,34 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Identifier
+	// Managed property type : System.String
+    @synthesize identifier = _identifier;
     - (NSString *)identifier
     {
-		MonoObject * monoObject = [self getMonoProperty:"Identifier"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Identifier"];
+		if ([self object:_identifier isEqualToMonoObject:monoObject]) return _identifier;					
+		_identifier = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _identifier;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Scope
+	// Managed property type : System.String
+    @synthesize scope = _scope;
     - (NSString *)scope
     {
-		MonoObject * monoObject = [self getMonoProperty:"Scope"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Scope"];
+		if ([self object:_scope isEqualToMonoObject:monoObject]) return _scope;					
+		_scope = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _scope;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,17 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)all;
-    - (void)setAll:(NSString *)value;
+	// Managed property name : All
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * all;
 
-	// Managed type : System.String
-    - (NSString *)read;
-    - (void)setRead:(NSString *)value;
+	// Managed property name : Read
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * read;
 
-	// Managed type : System.String
-    - (NSString *)write;
-    - (void)setWrite:(NSString *)value;
+	// Managed property name : Write
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * write;
 
 #pragma mark -
 #pragma mark Methods

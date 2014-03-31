@@ -27,17 +27,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)authenticationType;
+	// Managed property name : AuthenticationType
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * authenticationType;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)claims;
+	// Managed property name : Claims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * claims;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAuthenticated;
+	// Managed property name : IsAuthenticated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAuthenticated;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
 #pragma mark -
 #pragma mark Methods

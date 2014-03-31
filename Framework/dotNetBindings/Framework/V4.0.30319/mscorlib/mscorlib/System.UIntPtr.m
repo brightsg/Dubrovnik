@@ -3,6 +3,12 @@
 //
 // Managed struct : UIntPtr
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_UIntPtr
 
 #pragma mark -
@@ -48,23 +54,29 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.UIntPtr
+	// Managed field name : Zero
+	// Managed field type : System.UIntPtr
+    static void * m_zero;
     + (void *)zero
     {
 		void * monoObject;
 		[[self class] getMonoClassField:"Zero" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_zero = monoObject;
+		return m_zero;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Size
+	// Managed property type : System.Int32
+    static int32_t m_size;
     + (int32_t)size
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"Size"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"Size"];
+		m_size = DB_UNBOX_INT32(monoObject);
+
+		return m_size;
 	}
 
 #pragma mark -
@@ -82,7 +94,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -204,5 +216,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUInt64()" withNumArgs:0];
 		return DB_UNBOX_UINT64(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

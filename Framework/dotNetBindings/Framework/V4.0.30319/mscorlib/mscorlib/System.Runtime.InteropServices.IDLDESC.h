@@ -2,7 +2,7 @@
 //
 // Managed struct : IDLDESC
 //
-@interface System_Runtime_InteropServices_IDLDESC : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_IDLDESC : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
-    - (int32_t)dwReserved;
-    - (void)setDwReserved:(int32_t)value;
+	// Managed field name : dwReserved
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t dwReserved;
 
-	// Managed type : System.Runtime.InteropServices.IDLFLAG
-    - (System_Runtime_InteropServices_IDLFLAG)wIDLFlags;
-    - (void)setWIDLFlags:(System_Runtime_InteropServices_IDLFLAG)value;
+	// Managed field name : wIDLFlags
+	// Managed field type : System.Runtime.InteropServices.IDLFLAG
+    @property (nonatomic) System_Runtime_InteropServices_IDLFLAG wIDLFlags;
 @end
 //--Dubrovnik.CodeGenerator

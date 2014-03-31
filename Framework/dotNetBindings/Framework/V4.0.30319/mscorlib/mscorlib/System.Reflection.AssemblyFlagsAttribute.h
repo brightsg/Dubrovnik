@@ -32,10 +32,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)assemblyFlags;
+	// Managed property name : AssemblyFlags
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t assemblyFlags;
 
-	// Managed type : System.UInt32
-    - (uint32_t)flags;
+	// Managed property name : Flags
+	// Managed property type : System.UInt32
+    @property (nonatomic, readonly) uint32_t flags;
 @end
 //--Dubrovnik.CodeGenerator

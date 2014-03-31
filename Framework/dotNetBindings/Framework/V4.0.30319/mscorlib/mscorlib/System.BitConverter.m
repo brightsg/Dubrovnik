@@ -3,6 +3,12 @@
 //
 // Managed class : BitConverter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_BitConverter
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Boolean
+	// Managed field name : IsLittleEndian
+	// Managed field type : System.Boolean
+    static BOOL m_isLittleEndian;
     + (BOOL)isLittleEndian
     {
 		BOOL monoObject;
 		[[self class] getMonoClassField:"IsLittleEndian" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_isLittleEndian = monoObject;
+		return m_isLittleEndian;
 	}
 
 #pragma mark -
@@ -256,5 +265,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUInt64(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_UINT64(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

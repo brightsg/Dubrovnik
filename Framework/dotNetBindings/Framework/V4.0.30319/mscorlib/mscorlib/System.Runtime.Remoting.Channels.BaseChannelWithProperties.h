@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IDictionary
-    - (System_Collections_IDictionary *)properties;
+	// Managed property name : Properties
+	// Managed property type : System.Collections.IDictionary
+    @property (nonatomic, strong, readonly) System_Collections_IDictionary * properties;
 @end
 //--Dubrovnik.CodeGenerator

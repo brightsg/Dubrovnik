@@ -14,13 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IDictionary<System.String, System.String>
-    - (System_Collections_Generic_IDictionary *)arguments;
-    - (void)setArguments:(System_Collections_Generic_IDictionary *)value;
+	// Managed property name : Arguments
+	// Managed property type : System.Collections.Generic.IDictionary<System.String, System.String>
+    @property (nonatomic, strong) System_Collections_Generic_IDictionary * arguments;
 
-	// Managed type : System.Diagnostics.Tracing.EventCommand
-    - (System_Diagnostics_Tracing_EventCommand)command;
-    - (void)setCommand:(System_Diagnostics_Tracing_EventCommand)value;
+	// Managed property name : Command
+	// Managed property type : System.Diagnostics.Tracing.EventCommand
+    @property (nonatomic) System_Diagnostics_Tracing_EventCommand command;
 
 #pragma mark -
 #pragma mark Methods

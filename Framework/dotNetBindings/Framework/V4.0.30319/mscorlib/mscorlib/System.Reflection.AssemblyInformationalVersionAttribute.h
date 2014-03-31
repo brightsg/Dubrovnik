@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)informationalVersion;
+	// Managed property name : InformationalVersion
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * informationalVersion;
 @end
 //--Dubrovnik.CodeGenerator

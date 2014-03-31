@@ -3,6 +3,12 @@
 //
 // Managed class : AggregateException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_AggregateException
 
 #pragma mark -
@@ -72,13 +78,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.ObjectModel.ReadOnlyCollection<System.Exception>
+	// Managed property name : InnerExceptions
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Exception>
+    @synthesize innerExceptions = _innerExceptions;
     - (System_Collections_ObjectModel_ReadOnlyCollection *)innerExceptions
     {
-		MonoObject * monoObject = [self getMonoProperty:"InnerExceptions"];
-		System_Collections_ObjectModel_ReadOnlyCollection * result = [System_Collections_ObjectModel_ReadOnlyCollection representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Exception";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InnerExceptions"];
+		if ([self object:_innerExceptions isEqualToMonoObject:monoObject]) return _innerExceptions;					
+		_innerExceptions = [System_Collections_ObjectModel_ReadOnlyCollection objectWithMonoObject:monoObject];
+
+		return _innerExceptions;
 	}
 
 #pragma mark -
@@ -90,7 +99,7 @@
     - (System_AggregateException *)flatten
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Flatten()" withNumArgs:0];
-		return [System_AggregateException representationWithMonoObject:monoObject];
+		return [System_AggregateException objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetBaseException
@@ -99,7 +108,7 @@
     - (System_Exception *)getBaseException
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBaseException()" withNumArgs:0];
-		return [System_Exception representationWithMonoObject:monoObject];
+		return [System_Exception objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -126,5 +135,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : AceEnumerator
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_AceEnumerator
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.GenericAce
+	// Managed property name : Current
+	// Managed property type : System.Security.AccessControl.GenericAce
+    @synthesize current = _current;
     - (System_Security_AccessControl_GenericAce *)current
     {
-		MonoObject * monoObject = [self getMonoProperty:"Current"];
-		System_Security_AccessControl_GenericAce * result = [System_Security_AccessControl_GenericAce representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Current"];
+		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
+		_current = [System_Security_AccessControl_GenericAce objectWithMonoObject:monoObject];
+
+		return _current;
 	}
 
 #pragma mark -
@@ -48,5 +58,11 @@
     {
 		[self invokeMonoMethod:"Reset()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

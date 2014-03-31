@@ -27,16 +27,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)category;
+	// Managed property name : Category
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * category;
 
-	// Managed type : System.Boolean
-    - (BOOL)enabled;
+	// Managed property name : Enabled
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL enabled;
 
-	// Managed type : System.String
-    - (NSString *)setting;
+	// Managed property name : Setting
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * setting;
 
-	// Managed type : System.String
-    - (NSString *)value;
+	// Managed property name : Value
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * value;
 @end
 //--Dubrovnik.CodeGenerator

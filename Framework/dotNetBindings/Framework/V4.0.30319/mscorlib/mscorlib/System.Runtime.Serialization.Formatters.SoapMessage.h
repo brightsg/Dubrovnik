@@ -2,7 +2,7 @@
 //
 // Managed class : SoapMessage
 //
-@interface System_Runtime_Serialization_Formatters_SoapMessage : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_Formatters_SoapMessage : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,28 +14,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Messaging.Header[]
-    - (DBSystem_Array *)headers;
-    - (void)setHeaders:(DBSystem_Array *)value;
+	// Managed property name : Headers
+	// Managed property type : System.Runtime.Remoting.Messaging.Header[]
+    @property (nonatomic, strong) DBSystem_Array * headers;
 
-	// Managed type : System.String
-    - (NSString *)methodName;
-    - (void)setMethodName:(NSString *)value;
+	// Managed property name : MethodName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * methodName;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)paramNames;
-    - (void)setParamNames:(DBSystem_Array *)value;
+	// Managed property name : ParamNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * paramNames;
 
-	// Managed type : System.Type[]
-    - (DBSystem_Array *)paramTypes;
-    - (void)setParamTypes:(DBSystem_Array *)value;
+	// Managed property name : ParamTypes
+	// Managed property type : System.Type[]
+    @property (nonatomic, strong) DBSystem_Array * paramTypes;
 
-	// Managed type : System.Object[]
-    - (DBSystem_Array *)paramValues;
-    - (void)setParamValues:(DBSystem_Array *)value;
+	// Managed property name : ParamValues
+	// Managed property type : System.Object[]
+    @property (nonatomic, strong) DBSystem_Array * paramValues;
 
-	// Managed type : System.String
-    - (NSString *)xmlNameSpace;
-    - (void)setXmlNameSpace:(NSString *)value;
+	// Managed property name : XmlNameSpace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlNameSpace;
 @end
 //--Dubrovnik.CodeGenerator

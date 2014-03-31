@@ -2,7 +2,7 @@
 //
 // Managed struct : TYPELIBATTR
 //
-@interface System_Runtime_InteropServices_TYPELIBATTR : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_TYPELIBATTR : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,28 +14,28 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Guid
-    - (System_Guid *)guid;
-    - (void)setGuid:(System_Guid *)value;
+	// Managed field name : guid
+	// Managed field type : System.Guid
+    @property (nonatomic, strong) System_Guid * guid;
 
-	// Managed type : System.Int32
-    - (int32_t)lcid;
-    - (void)setLcid:(int32_t)value;
+	// Managed field name : lcid
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t lcid;
 
-	// Managed type : System.Runtime.InteropServices.SYSKIND
-    - (System_Runtime_InteropServices_SYSKIND)syskind;
-    - (void)setSyskind:(System_Runtime_InteropServices_SYSKIND)value;
+	// Managed field name : syskind
+	// Managed field type : System.Runtime.InteropServices.SYSKIND
+    @property (nonatomic) System_Runtime_InteropServices_SYSKIND syskind;
 
-	// Managed type : System.Runtime.InteropServices.LIBFLAGS
-    - (System_Runtime_InteropServices_LIBFLAGS)wLibFlags;
-    - (void)setWLibFlags:(System_Runtime_InteropServices_LIBFLAGS)value;
+	// Managed field name : wLibFlags
+	// Managed field type : System.Runtime.InteropServices.LIBFLAGS
+    @property (nonatomic) System_Runtime_InteropServices_LIBFLAGS wLibFlags;
 
-	// Managed type : System.Int16
-    - (int16_t)wMajorVerNum;
-    - (void)setWMajorVerNum:(int16_t)value;
+	// Managed field name : wMajorVerNum
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wMajorVerNum;
 
-	// Managed type : System.Int16
-    - (int16_t)wMinorVerNum;
-    - (void)setWMinorVerNum:(int16_t)value;
+	// Managed field name : wMinorVerNum
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wMinorVerNum;
 @end
 //--Dubrovnik.CodeGenerator

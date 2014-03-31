@@ -3,6 +3,12 @@
 //
 // Managed class : TrackingServices
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Services_TrackingServices
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Services.ITrackingHandler[]
+	// Managed property name : RegisteredHandlers
+	// Managed property type : System.Runtime.Remoting.Services.ITrackingHandler[]
+    static DBSystem_Array * m_registeredHandlers;
     + (DBSystem_Array *)registeredHandlers
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"RegisteredHandlers"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"RegisteredHandlers"];
+		if ([self object:m_registeredHandlers isEqualToMonoObject:monoObject]) return m_registeredHandlers;					
+		m_registeredHandlers = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return m_registeredHandlers;
 	}
 
 #pragma mark -
@@ -47,5 +57,12 @@
     {
 		[self invokeMonoMethod:"UnregisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_registeredHandlers = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

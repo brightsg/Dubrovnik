@@ -2,7 +2,7 @@
 //
 // Managed class : TimeZone
 //
-@interface System_TimeZone : DBMonoObjectRepresentation
+@interface System_TimeZone : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeZone
+	// Managed property name : CurrentTimeZone
+	// Managed property type : System.TimeZone
     + (System_TimeZone *)currentTimeZone;
 
-	// Managed type : System.String
-    - (NSString *)daylightName;
+	// Managed property name : DaylightName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * daylightName;
 
-	// Managed type : System.String
-    - (NSString *)standardName;
+	// Managed property name : StandardName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * standardName;
 
 #pragma mark -
 #pragma mark Methods

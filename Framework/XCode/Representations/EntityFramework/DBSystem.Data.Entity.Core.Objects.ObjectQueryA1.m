@@ -56,4 +56,6 @@
     return [[self list] array];
 }
 
+#warning Add addtional methods such as count!
+
 @end

@@ -3,6 +3,12 @@
 //
 // Managed interface : IPrincipal
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Principal_IPrincipal
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Principal.IIdentity
+	// Managed property name : Identity
+	// Managed property type : System.Security.Principal.IIdentity
+    @synthesize identity = _identity;
     - (System_Security_Principal_IIdentity *)identity
     {
-		MonoObject * monoObject = [self getMonoProperty:"Identity"];
-		System_Security_Principal_IIdentity * result = [System_Security_Principal_IIdentity representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Identity"];
+		if ([self object:_identity isEqualToMonoObject:monoObject]) return _identity;					
+		_identity = [System_Security_Principal_IIdentity objectWithMonoObject:monoObject];
+
+		return _identity;
 	}
 
 #pragma mark -
@@ -40,5 +50,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

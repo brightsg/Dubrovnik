@@ -2,7 +2,7 @@
 //
 // Managed interface : IFieldInfo
 //
-@interface System_Runtime_Serialization_Formatters_IFieldInfo : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_Formatters_IFieldInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)fieldNames;
-    - (void)setFieldNames:(DBSystem_Array *)value;
+	// Managed property name : FieldNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * fieldNames;
 
-	// Managed type : System.Type[]
-    - (DBSystem_Array *)fieldTypes;
-    - (void)setFieldTypes:(DBSystem_Array *)value;
+	// Managed property name : FieldTypes
+	// Managed property type : System.Type[]
+    @property (nonatomic, strong) DBSystem_Array * fieldTypes;
 @end
 //--Dubrovnik.CodeGenerator

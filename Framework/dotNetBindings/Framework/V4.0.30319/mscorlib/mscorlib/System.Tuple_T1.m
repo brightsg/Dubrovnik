@@ -3,6 +3,12 @@
 //
 // Managed class : Tuple<T1>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Tuple
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Tuple<T1>
 	// Managed param types : <T1>
-    + (System_Tuple *)new_withItem1:(DBMonoObjectRepresentation *)p1
+    + (System_Tuple *)new_withItem1:(DBManagedObject *)p1
     {
 		return [[self alloc] initWithSignature:"Dubrovnik.Generic.Parameter" withNumArgs:1, [p1 monoValue]];
     }
@@ -32,12 +38,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T1>
-    - (DBMonoObjectRepresentation *)item1
+	// Managed property name : Item1
+	// Managed property type : <T1>
+    @synthesize item1 = _item1;
+    - (DBManagedObject *)item1
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item1"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item1"];
+		if ([self object:_item1 isEqualToMonoObject:monoObject]) return _item1;					
+		_item1 = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item1;
 	}
 
 #pragma mark -
@@ -46,7 +56,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -69,5 +79,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

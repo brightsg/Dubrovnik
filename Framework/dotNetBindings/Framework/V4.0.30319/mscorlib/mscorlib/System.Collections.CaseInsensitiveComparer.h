@@ -2,7 +2,7 @@
 //
 // Managed class : CaseInsensitiveComparer
 //
-@interface System_Collections_CaseInsensitiveComparer : DBMonoObjectRepresentation
+@interface System_Collections_CaseInsensitiveComparer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.CaseInsensitiveComparer
+	// Managed property name : Default
+	// Managed property type : System.Collections.CaseInsensitiveComparer
     + (System_Collections_CaseInsensitiveComparer *)default;
 
-	// Managed type : System.Collections.CaseInsensitiveComparer
+	// Managed property name : DefaultInvariant
+	// Managed property type : System.Collections.CaseInsensitiveComparer
     + (System_Collections_CaseInsensitiveComparer *)defaultInvariant;
 
 #pragma mark -
@@ -34,6 +36,6 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Object
-    - (int32_t)compare_withA:(DBMonoObjectRepresentation *)p1 b:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)compare_withA:(System_Object *)p1 b:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

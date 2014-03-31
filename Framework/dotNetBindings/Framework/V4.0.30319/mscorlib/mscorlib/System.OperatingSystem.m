@@ -3,6 +3,12 @@
 //
 // Managed class : OperatingSystem
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_OperatingSystem
 
 #pragma mark -
@@ -32,36 +38,51 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.PlatformID
+	// Managed property name : Platform
+	// Managed property type : System.PlatformID
+    @synthesize platform = _platform;
     - (System_PlatformID)platform
     {
-		MonoObject * monoObject = [self getMonoProperty:"Platform"];
-		System_PlatformID result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Platform"];
+		_platform = DB_UNBOX_INT32(monoObject);
+
+		return _platform;
 	}
 
-	// Managed type : System.String
+	// Managed property name : ServicePack
+	// Managed property type : System.String
+    @synthesize servicePack = _servicePack;
     - (NSString *)servicePack
     {
-		MonoObject * monoObject = [self getMonoProperty:"ServicePack"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ServicePack"];
+		if ([self object:_servicePack isEqualToMonoObject:monoObject]) return _servicePack;					
+		_servicePack = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _servicePack;
 	}
 
-	// Managed type : System.Version
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @synthesize version = _version;
     - (System_Version *)version
     {
-		MonoObject * monoObject = [self getMonoProperty:"Version"];
-		System_Version * result = [System_Version representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		if ([self object:_version isEqualToMonoObject:monoObject]) return _version;					
+		_version = [System_Version objectWithMonoObject:monoObject];
+
+		return _version;
 	}
 
-	// Managed type : System.String
+	// Managed property name : VersionString
+	// Managed property type : System.String
+    @synthesize versionString = _versionString;
     - (NSString *)versionString
     {
-		MonoObject * monoObject = [self getMonoProperty:"VersionString"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"VersionString"];
+		if ([self object:_versionString isEqualToMonoObject:monoObject]) return _versionString;					
+		_versionString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _versionString;
 	}
 
 #pragma mark -
@@ -70,10 +91,10 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone
+    - (System_Object *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -92,5 +113,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

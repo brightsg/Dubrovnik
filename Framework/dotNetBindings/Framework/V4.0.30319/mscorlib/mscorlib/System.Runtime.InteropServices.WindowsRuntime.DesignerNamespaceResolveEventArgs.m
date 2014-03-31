@@ -3,6 +3,12 @@
 //
 // Managed class : DesignerNamespaceResolveEventArgs
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_WindowsRuntime_DesignerNamespaceResolveEventArgs
 
 #pragma mark -
@@ -32,21 +38,34 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : NamespaceName
+	// Managed property type : System.String
+    @synthesize namespaceName = _namespaceName;
     - (NSString *)namespaceName
     {
-		MonoObject * monoObject = [self getMonoProperty:"NamespaceName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"NamespaceName"];
+		if ([self object:_namespaceName isEqualToMonoObject:monoObject]) return _namespaceName;					
+		_namespaceName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _namespaceName;
 	}
 
-	// Managed type : System.Collections.ObjectModel.Collection<System.String>
+	// Managed property name : ResolvedAssemblyFiles
+	// Managed property type : System.Collections.ObjectModel.Collection<System.String>
+    @synthesize resolvedAssemblyFiles = _resolvedAssemblyFiles;
     - (System_Collections_ObjectModel_Collection *)resolvedAssemblyFiles
     {
-		MonoObject * monoObject = [self getMonoProperty:"ResolvedAssemblyFiles"];
-		System_Collections_ObjectModel_Collection * result = [System_Collections_ObjectModel_Collection representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"NSString";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ResolvedAssemblyFiles"];
+		if ([self object:_resolvedAssemblyFiles isEqualToMonoObject:monoObject]) return _resolvedAssemblyFiles;					
+		_resolvedAssemblyFiles = [System_Collections_ObjectModel_Collection objectWithMonoObject:monoObject];
+
+		return _resolvedAssemblyFiles;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

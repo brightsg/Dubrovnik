@@ -3,6 +3,12 @@
 //
 // Managed class : ResourceWriter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Resources_ResourceWriter
 
 #pragma mark -
@@ -40,16 +46,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Func<System.Type, System.String>
+	// Managed property name : TypeNameConverter
+	// Managed property type : System.Func<System.Type, System.String>
+    @synthesize typeNameConverter = _typeNameConverter;
     - (System_Func *)typeNameConverter
     {
-		MonoObject * monoObject = [self getMonoProperty:"TypeNameConverter"];
-		System_Func * result = [System_Func representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Type,NSString";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TypeNameConverter"];
+		if ([self object:_typeNameConverter isEqualToMonoObject:monoObject]) return _typeNameConverter;					
+		_typeNameConverter = [System_Func objectWithMonoObject:monoObject];
+
+		return _typeNameConverter;
 	}
     - (void)setTypeNameConverter:(System_Func *)value
 	{
+		_typeNameConverter = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"TypeNameConverter" valueObject:monoObject];          
 	}
@@ -68,7 +78,7 @@
 	// Managed method name : AddResource
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)addResource_withNameString:(NSString *)p1 valueObject:(DBMonoObjectRepresentation *)p2
+    - (void)addResource_withNameString:(NSString *)p1 valueObject:(System_Object *)p2
     {
 		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -128,5 +138,11 @@
     {
 		[self invokeMonoMethod:"Generate()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

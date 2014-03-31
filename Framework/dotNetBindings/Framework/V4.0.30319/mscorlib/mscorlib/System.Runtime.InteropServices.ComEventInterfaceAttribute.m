@@ -3,6 +3,12 @@
 //
 // Managed class : ComEventInterfaceAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ComEventInterfaceAttribute
 
 #pragma mark -
@@ -32,20 +38,34 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : EventProvider
+	// Managed property type : System.Type
+    @synthesize eventProvider = _eventProvider;
     - (System_Type *)eventProvider
     {
-		MonoObject * monoObject = [self getMonoProperty:"EventProvider"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EventProvider"];
+		if ([self object:_eventProvider isEqualToMonoObject:monoObject]) return _eventProvider;					
+		_eventProvider = [System_Type objectWithMonoObject:monoObject];
+
+		return _eventProvider;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : SourceInterface
+	// Managed property type : System.Type
+    @synthesize sourceInterface = _sourceInterface;
     - (System_Type *)sourceInterface
     {
-		MonoObject * monoObject = [self getMonoProperty:"SourceInterface"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SourceInterface"];
+		if ([self object:_sourceInterface isEqualToMonoObject:monoObject]) return _sourceInterface;					
+		_sourceInterface = [System_Type objectWithMonoObject:monoObject];
+
+		return _sourceInterface;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

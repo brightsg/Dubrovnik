@@ -3,6 +3,12 @@
 //
 // Managed class : ProxyAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Proxies_ProxyAttribute
 
 #pragma mark -
@@ -27,16 +33,16 @@
     - (System_MarshalByRefObject *)createInstance_withServerType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_MarshalByRefObject representationWithMonoObject:monoObject];
+		return [System_MarshalByRefObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateProxy
 	// Managed return type : System.Runtime.Remoting.Proxies.RealProxy
 	// Managed param types : System.Runtime.Remoting.ObjRef, System.Type, System.Object, System.Runtime.Remoting.Contexts.Context
-    - (System_Runtime_Remoting_Proxies_RealProxy *)createProxy_withObjRef:(System_Runtime_Remoting_ObjRef *)p1 serverType:(System_Type *)p2 serverObject:(DBMonoObjectRepresentation *)p3 serverContext:(System_Runtime_Remoting_Contexts_Context *)p4
+    - (System_Runtime_Remoting_Proxies_RealProxy *)createProxy_withObjRef:(System_Runtime_Remoting_ObjRef *)p1 serverType:(System_Type *)p2 serverObject:(System_Object *)p3 serverContext:(System_Runtime_Remoting_Contexts_Context *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateProxy(System.Runtime.Remoting.ObjRef,System.Type,object,System.Runtime.Remoting.Contexts.Context)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
-		return [System_Runtime_Remoting_Proxies_RealProxy representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Proxies_RealProxy objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPropertiesForNewContext
@@ -55,5 +61,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsContextOK(System.Runtime.Remoting.Contexts.Context,System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

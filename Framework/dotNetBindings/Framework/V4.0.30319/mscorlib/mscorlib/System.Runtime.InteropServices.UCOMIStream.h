@@ -2,7 +2,7 @@
 //
 // Managed interface : UCOMIStream
 //
-@interface System_Runtime_InteropServices_UCOMIStream : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_UCOMIStream : System_Object
 
 #pragma mark -
 #pragma mark Setup

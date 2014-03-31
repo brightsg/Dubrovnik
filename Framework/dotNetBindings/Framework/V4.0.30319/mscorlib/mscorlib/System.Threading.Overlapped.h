@@ -2,7 +2,7 @@
 //
 // Managed class : Overlapped
 //
-@interface System_Threading_Overlapped : DBMonoObjectRepresentation
+@interface System_Threading_Overlapped : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,25 +27,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IAsyncResult
-    - (System_IAsyncResult *)asyncResult;
-    - (void)setAsyncResult:(System_IAsyncResult *)value;
+	// Managed property name : AsyncResult
+	// Managed property type : System.IAsyncResult
+    @property (nonatomic, strong) System_IAsyncResult * asyncResult;
 
-	// Managed type : System.Int32
-    - (int32_t)eventHandle;
-    - (void)setEventHandle:(int32_t)value;
+	// Managed property name : EventHandle
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t eventHandle;
 
-	// Managed type : System.IntPtr
-    - (void *)eventHandleIntPtr;
-    - (void)setEventHandleIntPtr:(void *)value;
+	// Managed property name : EventHandleIntPtr
+	// Managed property type : System.IntPtr
+    @property (nonatomic) void * eventHandleIntPtr;
 
-	// Managed type : System.Int32
-    - (int32_t)offsetHigh;
-    - (void)setOffsetHigh:(int32_t)value;
+	// Managed property name : OffsetHigh
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t offsetHigh;
 
-	// Managed type : System.Int32
-    - (int32_t)offsetLow;
-    - (void)setOffsetLow:(int32_t)value;
+	// Managed property name : OffsetLow
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t offsetLow;
 
 #pragma mark -
 #pragma mark Methods
@@ -58,7 +58,7 @@
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
 	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(DBMonoObjectRepresentation *)p2;
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
@@ -73,7 +73,7 @@
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
 	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(DBMonoObjectRepresentation *)p2;
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*

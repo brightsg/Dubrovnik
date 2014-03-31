@@ -2,7 +2,7 @@
 //
 // Managed struct : CancellationToken
 //
-@interface System_Threading_CancellationToken : DBMonoObjectRepresentation
+@interface System_Threading_CancellationToken : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -22,17 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)canBeCanceled;
+	// Managed property name : CanBeCanceled
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canBeCanceled;
 
-	// Managed type : System.Boolean
-    - (BOOL)isCancellationRequested;
+	// Managed property name : IsCancellationRequested
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCancellationRequested;
 
-	// Managed type : System.Threading.CancellationToken
+	// Managed property name : None
+	// Managed property type : System.Threading.CancellationToken
     + (System_Threading_CancellationToken *)none;
 
-	// Managed type : System.Threading.WaitHandle
-    - (System_Threading_WaitHandle *)waitHandle;
+	// Managed property name : WaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @property (nonatomic, strong, readonly) System_Threading_WaitHandle * waitHandle;
 
 #pragma mark -
 #pragma mark Methods
@@ -45,7 +49,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOtherObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOtherObject:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -75,12 +79,12 @@
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
 	// Managed param types : System.Action<System.Object>, System.Object
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(DBMonoObjectRepresentation *)p2;
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2;
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
 	// Managed param types : System.Action<System.Object>, System.Object, System.Boolean
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(DBMonoObjectRepresentation *)p2 useSynchronizationContext:(BOOL)p3;
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3;
 
 	// Managed method name : ThrowIfCancellationRequested
 	// Managed return type : System.Void

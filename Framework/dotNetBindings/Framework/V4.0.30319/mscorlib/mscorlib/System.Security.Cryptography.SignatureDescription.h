@@ -2,7 +2,7 @@
 //
 // Managed class : SignatureDescription
 //
-@interface System_Security_Cryptography_SignatureDescription : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_SignatureDescription : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,21 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)deformatterAlgorithm;
-    - (void)setDeformatterAlgorithm:(NSString *)value;
+	// Managed property name : DeformatterAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * deformatterAlgorithm;
 
-	// Managed type : System.String
-    - (NSString *)digestAlgorithm;
-    - (void)setDigestAlgorithm:(NSString *)value;
+	// Managed property name : DigestAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * digestAlgorithm;
 
-	// Managed type : System.String
-    - (NSString *)formatterAlgorithm;
-    - (void)setFormatterAlgorithm:(NSString *)value;
+	// Managed property name : FormatterAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * formatterAlgorithm;
 
-	// Managed type : System.String
-    - (NSString *)keyAlgorithm;
-    - (void)setKeyAlgorithm:(NSString *)value;
+	// Managed property name : KeyAlgorithm
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * keyAlgorithm;
 
 #pragma mark -
 #pragma mark Methods

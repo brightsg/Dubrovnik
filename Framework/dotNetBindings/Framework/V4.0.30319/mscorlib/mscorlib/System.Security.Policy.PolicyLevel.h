@@ -2,7 +2,7 @@
 //
 // Managed class : PolicyLevel
 //
-@interface System_Security_Policy_PolicyLevel : DBMonoObjectRepresentation
+@interface System_Security_Policy_PolicyLevel : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,24 +14,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IList
-    - (System_Collections_IList *)fullTrustAssemblies;
+	// Managed property name : FullTrustAssemblies
+	// Managed property type : System.Collections.IList
+    @property (nonatomic, strong, readonly) System_Collections_IList * fullTrustAssemblies;
 
-	// Managed type : System.String
-    - (NSString *)label;
+	// Managed property name : Label
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * label;
 
-	// Managed type : System.Collections.IList
-    - (System_Collections_IList *)namedPermissionSets;
+	// Managed property name : NamedPermissionSets
+	// Managed property type : System.Collections.IList
+    @property (nonatomic, strong, readonly) System_Collections_IList * namedPermissionSets;
 
-	// Managed type : System.Security.Policy.CodeGroup
-    - (System_Security_Policy_CodeGroup *)rootCodeGroup;
-    - (void)setRootCodeGroup:(System_Security_Policy_CodeGroup *)value;
+	// Managed property name : RootCodeGroup
+	// Managed property type : System.Security.Policy.CodeGroup
+    @property (nonatomic, strong) System_Security_Policy_CodeGroup * rootCodeGroup;
 
-	// Managed type : System.String
-    - (NSString *)storeLocation;
+	// Managed property name : StoreLocation
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * storeLocation;
 
-	// Managed type : System.Security.PolicyLevelType
-    - (System_Security_PolicyLevelType)type;
+	// Managed property name : Type
+	// Managed property type : System.Security.PolicyLevelType
+    @property (nonatomic, readonly) System_Security_PolicyLevelType type;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed class : Interlocked
 //
-@interface System_Threading_Interlocked : DBMonoObjectRepresentation
+@interface System_Threading_Interlocked : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -47,7 +47,7 @@
 	// Managed method name : CompareExchange
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&, System.Object, System.Object
-    - (DBMonoObjectRepresentation *)compareExchange_withLocation1ObjectRef:(DBMonoObjectRepresentation **)p1 valueObject:(DBMonoObjectRepresentation *)p2 comparandObject:(DBMonoObjectRepresentation *)p3;
+    - (System_Object *)compareExchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2 comparandObject:(System_Object *)p3;
 
 	// Managed method name : CompareExchange
 	// Managed return type : System.IntPtr
@@ -57,7 +57,7 @@
 	// Managed method name : CompareExchange
 	// Managed return type : <T>
 	// Managed param types : ref T&, <T>, <T>
-    - (DBMonoObjectRepresentation *)compareExchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2 comparandDGParameter:(DBMonoObjectRepresentation *)p3;
+    - (DBManagedObject *)compareExchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBManagedObject *)p2 comparandDGParameter:(DBManagedObject *)p3;
 
 	// Managed method name : Decrement
 	// Managed return type : System.Int32
@@ -92,7 +92,7 @@
 	// Managed method name : Exchange
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&, System.Object
-    - (DBMonoObjectRepresentation *)exchange_withLocation1ObjectRef:(DBMonoObjectRepresentation **)p1 valueObject:(DBMonoObjectRepresentation *)p2;
+    - (System_Object *)exchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : Exchange
 	// Managed return type : System.IntPtr
@@ -102,7 +102,7 @@
 	// Managed method name : Exchange
 	// Managed return type : <T>
 	// Managed param types : ref T&, <T>
-    - (DBMonoObjectRepresentation *)exchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBMonoObjectRepresentation *)p2;
+    - (DBManagedObject *)exchange_withLocation1TRef:(T **)p1 valueDGParameter:(DBManagedObject *)p2;
 
 	// Managed method name : Increment
 	// Managed return type : System.Int32

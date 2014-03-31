@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.SecurityPermissionFlag
-    - (System_Security_Permissions_SecurityPermissionFlag)flags;
-    - (void)setFlags:(System_Security_Permissions_SecurityPermissionFlag)value;
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.SecurityPermissionFlag
+    @property (nonatomic) System_Security_Permissions_SecurityPermissionFlag flags;
 
 #pragma mark -
 #pragma mark Methods

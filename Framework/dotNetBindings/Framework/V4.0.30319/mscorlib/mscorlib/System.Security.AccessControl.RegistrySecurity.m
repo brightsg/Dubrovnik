@@ -3,6 +3,12 @@
 //
 // Managed class : RegistrySecurity
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_RegistrySecurity
 
 #pragma mark -
@@ -21,28 +27,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : AccessRightType
+	// Managed property type : System.Type
+    @synthesize accessRightType = _accessRightType;
     - (System_Type *)accessRightType
     {
-		MonoObject * monoObject = [self getMonoProperty:"AccessRightType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AccessRightType"];
+		if ([self object:_accessRightType isEqualToMonoObject:monoObject]) return _accessRightType;					
+		_accessRightType = [System_Type objectWithMonoObject:monoObject];
+
+		return _accessRightType;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : AccessRuleType
+	// Managed property type : System.Type
+    @synthesize accessRuleType = _accessRuleType;
     - (System_Type *)accessRuleType
     {
-		MonoObject * monoObject = [self getMonoProperty:"AccessRuleType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AccessRuleType"];
+		if ([self object:_accessRuleType isEqualToMonoObject:monoObject]) return _accessRuleType;					
+		_accessRuleType = [System_Type objectWithMonoObject:monoObject];
+
+		return _accessRuleType;
 	}
 
-	// Managed type : System.Type
+	// Managed property name : AuditRuleType
+	// Managed property type : System.Type
+    @synthesize auditRuleType = _auditRuleType;
     - (System_Type *)auditRuleType
     {
-		MonoObject * monoObject = [self getMonoProperty:"AuditRuleType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AuditRuleType"];
+		if ([self object:_auditRuleType isEqualToMonoObject:monoObject]) return _auditRuleType;					
+		_auditRuleType = [System_Type objectWithMonoObject:monoObject];
+
+		return _auditRuleType;
 	}
 
 #pragma mark -
@@ -54,7 +72,7 @@
     - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 type:(System_Security_AccessControl_AccessControlType)p6
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
-		return [System_Security_AccessControl_AccessRule representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AccessRule objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddAccessRule
@@ -79,7 +97,7 @@
     - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 flags:(System_Security_AccessControl_AuditFlags)p6
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
-		return [System_Security_AccessControl_AuditRule representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuditRule objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemoveAccessRule
@@ -155,5 +173,11 @@
     {
 		[self invokeMonoMethod:"SetAuditRule(System.Security.AccessControl.RegistryAuditRule)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

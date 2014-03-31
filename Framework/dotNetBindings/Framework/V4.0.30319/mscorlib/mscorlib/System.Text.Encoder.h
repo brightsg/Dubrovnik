@@ -2,7 +2,7 @@
 //
 // Managed class : Encoder
 //
-@interface System_Text_Encoder : DBMonoObjectRepresentation
+@interface System_Text_Encoder : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.EncoderFallback
-    - (System_Text_EncoderFallback *)fallback;
-    - (void)setFallback:(System_Text_EncoderFallback *)value;
+	// Managed property name : Fallback
+	// Managed property type : System.Text.EncoderFallback
+    @property (nonatomic, strong) System_Text_EncoderFallback * fallback;
 
-	// Managed type : System.Text.EncoderFallbackBuffer
-    - (System_Text_EncoderFallbackBuffer *)fallbackBuffer;
+	// Managed property name : FallbackBuffer
+	// Managed property type : System.Text.EncoderFallbackBuffer
+    @property (nonatomic, strong, readonly) System_Text_EncoderFallbackBuffer * fallbackBuffer;
 
 #pragma mark -
 #pragma mark Methods

@@ -32,10 +32,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
-    - (NSData *)bytesUnknown;
+	// Managed property name : BytesUnknown
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * bytesUnknown;
 
-	// Managed type : System.Int32
-    - (int32_t)index;
+	// Managed property name : Index
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t index;
 @end
 //--Dubrovnik.CodeGenerator

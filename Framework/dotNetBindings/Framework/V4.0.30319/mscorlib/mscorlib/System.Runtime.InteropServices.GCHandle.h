@@ -2,7 +2,7 @@
 //
 // Managed struct : GCHandle
 //
-@interface System_Runtime_InteropServices_GCHandle : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_GCHandle : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isAllocated;
+	// Managed property name : IsAllocated
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAllocated;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)target;
-    - (void)setTarget:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Target
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * target;
 
 #pragma mark -
 #pragma mark Methods
@@ -32,17 +33,17 @@
 	// Managed method name : Alloc
 	// Managed return type : System.Runtime.InteropServices.GCHandle
 	// Managed param types : System.Object
-    - (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(DBMonoObjectRepresentation *)p1;
+    - (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1;
 
 	// Managed method name : Alloc
 	// Managed return type : System.Runtime.InteropServices.GCHandle
 	// Managed param types : System.Object, System.Runtime.InteropServices.GCHandleType
-    - (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(DBMonoObjectRepresentation *)p1 type:(System_Runtime_InteropServices_GCHandleType)p2;
+    - (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1 type:(System_Runtime_InteropServices_GCHandleType)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : Free
 	// Managed return type : System.Void

@@ -2,7 +2,7 @@
 //
 // Managed interface : _FieldInfo
 //
-@interface System_Runtime_InteropServices__FieldInfo : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__FieldInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,62 +14,81 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.FieldAttributes
-    - (System_Reflection_FieldAttributes)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Reflection.FieldAttributes
+    @property (nonatomic, readonly) System_Reflection_FieldAttributes attributes;
 
-	// Managed type : System.Type
-    - (System_Type *)declaringType;
+	// Managed property name : DeclaringType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * declaringType;
 
-	// Managed type : System.RuntimeFieldHandle
-    - (System_RuntimeFieldHandle *)fieldHandle;
+	// Managed property name : FieldHandle
+	// Managed property type : System.RuntimeFieldHandle
+    @property (nonatomic, strong, readonly) System_RuntimeFieldHandle * fieldHandle;
 
-	// Managed type : System.Type
-    - (System_Type *)fieldType;
+	// Managed property name : FieldType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * fieldType;
 
-	// Managed type : System.Boolean
-    - (BOOL)isAssembly;
+	// Managed property name : IsAssembly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isAssembly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFamily;
+	// Managed property name : IsFamily
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFamily;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFamilyAndAssembly;
+	// Managed property name : IsFamilyAndAssembly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFamilyAndAssembly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isFamilyOrAssembly;
+	// Managed property name : IsFamilyOrAssembly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isFamilyOrAssembly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isInitOnly;
+	// Managed property name : IsInitOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isInitOnly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isLiteral;
+	// Managed property name : IsLiteral
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isLiteral;
 
-	// Managed type : System.Boolean
-    - (BOOL)isNotSerialized;
+	// Managed property name : IsNotSerialized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isNotSerialized;
 
-	// Managed type : System.Boolean
-    - (BOOL)isPinvokeImpl;
+	// Managed property name : IsPinvokeImpl
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isPinvokeImpl;
 
-	// Managed type : System.Boolean
-    - (BOOL)isPrivate;
+	// Managed property name : IsPrivate
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isPrivate;
 
-	// Managed type : System.Boolean
-    - (BOOL)isPublic;
+	// Managed property name : IsPublic
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isPublic;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSpecialName;
+	// Managed property name : IsSpecialName
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSpecialName;
 
-	// Managed type : System.Boolean
-    - (BOOL)isStatic;
+	// Managed property name : IsStatic
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isStatic;
 
-	// Managed type : System.Reflection.MemberTypes
-    - (System_Reflection_MemberTypes)memberType;
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)reflectedType;
+	// Managed property name : ReflectedType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
 #pragma mark -
 #pragma mark Methods
@@ -77,7 +96,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Object[]
@@ -117,12 +136,12 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Object
-    - (DBMonoObjectRepresentation *)getValue_withObj:(DBMonoObjectRepresentation *)p1;
+    - (System_Object *)getValue_withObj:(System_Object *)p1;
 
 	// Managed method name : GetValueDirect
 	// Managed return type : System.Object
 	// Managed param types : System.TypedReference
-    - (DBMonoObjectRepresentation *)getValueDirect_withObj:(System_TypedReference *)p1;
+    - (System_Object *)getValueDirect_withObj:(System_TypedReference *)p1;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
@@ -137,17 +156,17 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Globalization.CultureInfo
-    - (void)setValue_withObj:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object
-    - (void)setValue_withObj:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2;
 
 	// Managed method name : SetValueDirect
 	// Managed return type : System.Void
 	// Managed param types : System.TypedReference, System.Object
-    - (void)setValueDirect_withObj:(System_TypedReference *)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (void)setValueDirect_withObj:(System_TypedReference *)p1 value:(System_Object *)p2;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

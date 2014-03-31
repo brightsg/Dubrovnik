@@ -3,6 +3,12 @@
 //
 // Managed class : ApplicationDirectory
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_ApplicationDirectory
 
 #pragma mark -
@@ -32,12 +38,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Directory
+	// Managed property type : System.String
+    @synthesize directory = _directory;
     - (NSString *)directory
     {
-		MonoObject * monoObject = [self getMonoProperty:"Directory"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Directory"];
+		if ([self object:_directory isEqualToMonoObject:monoObject]) return _directory;					
+		_directory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _directory;
 	}
 
 #pragma mark -
@@ -49,22 +59,22 @@
     - (System_Security_Policy_EvidenceBase *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [System_Security_Policy_EvidenceBase representationWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Copy
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)copy
+    - (System_Object *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -87,5 +97,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

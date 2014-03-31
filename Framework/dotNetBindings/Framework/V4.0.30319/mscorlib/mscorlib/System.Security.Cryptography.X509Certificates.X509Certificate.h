@@ -2,7 +2,7 @@
 //
 // Managed class : X509Certificate
 //
-@interface System_Security_Cryptography_X509Certificates_X509Certificate : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_X509Certificates_X509Certificate : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -82,14 +82,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IntPtr
-    - (void *)handle;
+	// Managed property name : Handle
+	// Managed property type : System.IntPtr
+    @property (nonatomic, readonly) void * handle;
 
-	// Managed type : System.String
-    - (NSString *)issuer;
+	// Managed property name : Issuer
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * issuer;
 
-	// Managed type : System.String
-    - (NSString *)subject;
+	// Managed property name : Subject
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * subject;
 
 #pragma mark -
 #pragma mark Methods
@@ -107,7 +110,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

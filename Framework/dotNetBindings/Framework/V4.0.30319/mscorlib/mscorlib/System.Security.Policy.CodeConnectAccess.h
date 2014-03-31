@@ -2,7 +2,7 @@
 //
 // Managed class : CodeConnectAccess
 //
-@interface System_Security_Policy_CodeConnectAccess : DBMonoObjectRepresentation
+@interface System_Security_Policy_CodeConnectAccess : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,26 +22,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
+	// Managed field name : AnyScheme
+	// Managed field type : System.String
     + (NSString *)anyScheme;
 
-	// Managed type : System.Int32
+	// Managed field name : DefaultPort
+	// Managed field type : System.Int32
     + (int32_t)defaultPort;
 
-	// Managed type : System.Int32
+	// Managed field name : OriginPort
+	// Managed field type : System.Int32
     + (int32_t)originPort;
 
-	// Managed type : System.String
+	// Managed field name : OriginScheme
+	// Managed field type : System.String
     + (NSString *)originScheme;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)port;
+	// Managed property name : Port
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t port;
 
-	// Managed type : System.String
-    - (NSString *)scheme;
+	// Managed property name : Scheme
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * scheme;
 
 #pragma mark -
 #pragma mark Methods
@@ -59,7 +65,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

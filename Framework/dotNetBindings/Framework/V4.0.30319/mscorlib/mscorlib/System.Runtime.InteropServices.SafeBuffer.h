@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.UInt64
-    - (uint64_t)byteLength;
+	// Managed property name : ByteLength
+	// Managed property type : System.UInt64
+    @property (nonatomic, readonly) uint64_t byteLength;
 
 #pragma mark -
 #pragma mark Methods
@@ -43,7 +44,7 @@
 	// Managed method name : Read
 	// Managed return type : <T>
 	// Managed param types : System.UInt64
-    - (DBMonoObjectRepresentation *)read_withByteOffset:(uint64_t)p1;
+    - (DBManagedObject *)read_withByteOffset:(uint64_t)p1;
 
 	// Managed method name : ReadArray
 	// Managed return type : System.Void
@@ -58,7 +59,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.UInt64, <T>
-    - (void)write_withByteOffset:(uint64_t)p1 value:(DBMonoObjectRepresentation *)p2;
+    - (void)write_withByteOffset:(uint64_t)p1 value:(DBManagedObject *)p2;
 
 	// Managed method name : WriteArray
 	// Managed return type : System.Void

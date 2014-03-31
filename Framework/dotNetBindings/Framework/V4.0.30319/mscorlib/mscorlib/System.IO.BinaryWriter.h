@@ -2,7 +2,7 @@
 //
 // Managed class : BinaryWriter
 //
-@interface System_IO_BinaryWriter : DBMonoObjectRepresentation
+@interface System_IO_BinaryWriter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,14 +32,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.BinaryWriter
+	// Managed field name : Null
+	// Managed field type : System.IO.BinaryWriter
     + (System_IO_BinaryWriter *)null;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IO.Stream
-    - (System_IO_Stream *)baseStream;
+	// Managed property name : BaseStream
+	// Managed property type : System.IO.Stream
+    @property (nonatomic, strong, readonly) System_IO_Stream * baseStream;
 
 #pragma mark -
 #pragma mark Methods

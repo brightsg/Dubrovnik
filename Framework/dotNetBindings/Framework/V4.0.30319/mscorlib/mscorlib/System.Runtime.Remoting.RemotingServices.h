@@ -2,7 +2,7 @@
 //
 // Managed class : RemotingServices
 //
-@interface System_Runtime_Remoting_RemotingServices : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_RemotingServices : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,12 +17,12 @@
 	// Managed method name : Connect
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String
-    - (DBMonoObjectRepresentation *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2;
+    - (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2;
 
 	// Managed method name : Connect
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String, System.Object
-    - (DBMonoObjectRepresentation *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2 data:(DBMonoObjectRepresentation *)p3;
+    - (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2 data:(System_Object *)p3;
 
 	// Managed method name : Disconnect
 	// Managed return type : System.Boolean
@@ -42,7 +42,7 @@
 	// Managed method name : GetLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : System.MarshalByRefObject
-    - (DBMonoObjectRepresentation *)getLifetimeService_withObj:(System_MarshalByRefObject *)p1;
+    - (System_Object *)getLifetimeService_withObj:(System_MarshalByRefObject *)p1;
 
 	// Managed method name : GetMethodBaseFromMethodMessage
 	// Managed return type : System.Reflection.MethodBase
@@ -52,7 +52,7 @@
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
-    - (void)getObjectData_withObj:(DBMonoObjectRepresentation *)p1 info:(System_Runtime_Serialization_SerializationInfo *)p2 context:(System_Runtime_Serialization_StreamingContext *)p3;
+    - (void)getObjectData_withObj:(System_Object *)p1 info:(System_Runtime_Serialization_SerializationInfo *)p2 context:(System_Runtime_Serialization_StreamingContext *)p3;
 
 	// Managed method name : GetObjectUri
 	// Managed return type : System.String
@@ -67,7 +67,7 @@
 	// Managed method name : GetRealProxy
 	// Managed return type : System.Runtime.Remoting.Proxies.RealProxy
 	// Managed param types : System.Object
-    - (System_Runtime_Remoting_Proxies_RealProxy *)getRealProxy_withProxy:(DBMonoObjectRepresentation *)p1;
+    - (System_Runtime_Remoting_Proxies_RealProxy *)getRealProxy_withProxy:(System_Object *)p1;
 
 	// Managed method name : GetServerTypeForUri
 	// Managed return type : System.Type
@@ -87,12 +87,12 @@
 	// Managed method name : IsObjectOutOfAppDomain
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isObjectOutOfAppDomain_withTp:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)isObjectOutOfAppDomain_withTp:(System_Object *)p1;
 
 	// Managed method name : IsObjectOutOfContext
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isObjectOutOfContext_withTp:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)isObjectOutOfContext_withTp:(System_Object *)p1;
 
 	// Managed method name : IsOneWay
 	// Managed return type : System.Boolean
@@ -102,7 +102,7 @@
 	// Managed method name : IsTransparentProxy
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isTransparentProxy_withProxy:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)isTransparentProxy_withProxy:(System_Object *)p1;
 
 	// Managed method name : LogRemotingStage
 	// Managed return type : System.Void
@@ -132,11 +132,11 @@
 	// Managed method name : Unmarshal
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.ObjRef
-    - (DBMonoObjectRepresentation *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1;
+    - (System_Object *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1;
 
 	// Managed method name : Unmarshal
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.ObjRef, System.Boolean
-    - (DBMonoObjectRepresentation *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1 fRefine:(BOOL)p2;
+    - (System_Object *)unmarshal_withObjectRef:(System_Runtime_Remoting_ObjRef *)p1 fRefine:(BOOL)p2;
 @end
 //--Dubrovnik.CodeGenerator

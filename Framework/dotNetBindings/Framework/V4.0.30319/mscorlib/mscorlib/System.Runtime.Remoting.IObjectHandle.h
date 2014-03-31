@@ -2,7 +2,7 @@
 //
 // Managed interface : IObjectHandle
 //
-@interface System_Runtime_Remoting_IObjectHandle : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_IObjectHandle : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : Unwrap
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)unwrap;
+    - (System_Object *)unwrap;
 @end
 //--Dubrovnik.CodeGenerator

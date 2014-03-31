@@ -2,7 +2,7 @@
 //
 // Managed class : KeyContainerPermissionAccessEntryEnumerator
 //
-@interface System_Security_Permissions_KeyContainerPermissionAccessEntryEnumerator : DBMonoObjectRepresentation
+@interface System_Security_Permissions_KeyContainerPermissionAccessEntryEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.KeyContainerPermissionAccessEntry
-    - (System_Security_Permissions_KeyContainerPermissionAccessEntry *)current;
+	// Managed property name : Current
+	// Managed property type : System.Security.Permissions.KeyContainerPermissionAccessEntry
+    @property (nonatomic, strong, readonly) System_Security_Permissions_KeyContainerPermissionAccessEntry * current;
 
 #pragma mark -
 #pragma mark Methods

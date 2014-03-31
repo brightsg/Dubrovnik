@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)elementType;
+	// Managed property name : ElementType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * elementType;
 
-	// Managed type : System.Int32
-    - (int32_t)length;
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t length;
 @end
 //--Dubrovnik.CodeGenerator

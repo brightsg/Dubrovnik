@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.SecurityException
 	// Managed param types : System.String, System.Reflection.AssemblyName, System.Security.PermissionSet, System.Security.PermissionSet, System.Reflection.MethodInfo, System.Security.Permissions.SecurityAction, System.Object, System.Security.IPermission, System.Security.Policy.Evidence
-    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 assemblyName:(System_Reflection_AssemblyName *)p2 grant:(System_Security_PermissionSet *)p3 refused:(System_Security_PermissionSet *)p4 method:(System_Reflection_MethodInfo *)p5 action:(System_Security_Permissions_SecurityAction)p6 demanded:(DBMonoObjectRepresentation *)p7 permThatFailed:(System_Security_IPermission *)p8 evidence:(System_Security_Policy_Evidence *)p9;
+    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 assemblyName:(System_Reflection_AssemblyName *)p2 grant:(System_Security_PermissionSet *)p3 refused:(System_Security_PermissionSet *)p4 method:(System_Reflection_MethodInfo *)p5 action:(System_Security_Permissions_SecurityAction)p6 demanded:(System_Object *)p7 permThatFailed:(System_Security_IPermission *)p8 evidence:(System_Security_Policy_Evidence *)p9;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.SecurityException
@@ -42,62 +42,62 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.SecurityException
 	// Managed param types : System.String, System.Object, System.Object, System.Reflection.MethodInfo, System.Object, System.Security.IPermission
-    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 deny:(DBMonoObjectRepresentation *)p2 permitOnly:(DBMonoObjectRepresentation *)p3 method:(System_Reflection_MethodInfo *)p4 demanded:(DBMonoObjectRepresentation *)p5 permThatFailed:(System_Security_IPermission *)p6;
+    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 deny:(System_Object *)p2 permitOnly:(System_Object *)p3 method:(System_Reflection_MethodInfo *)p4 demanded:(System_Object *)p5 permThatFailed:(System_Security_IPermission *)p6;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.SecurityAction
-    - (System_Security_Permissions_SecurityAction)action;
-    - (void)setAction:(System_Security_Permissions_SecurityAction)value;
+	// Managed property name : Action
+	// Managed property type : System.Security.Permissions.SecurityAction
+    @property (nonatomic) System_Security_Permissions_SecurityAction action;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)demanded;
-    - (void)setDemanded:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Demanded
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * demanded;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)denySetInstance;
-    - (void)setDenySetInstance:(DBMonoObjectRepresentation *)value;
+	// Managed property name : DenySetInstance
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * denySetInstance;
 
-	// Managed type : System.Reflection.AssemblyName
-    - (System_Reflection_AssemblyName *)failedAssemblyInfo;
-    - (void)setFailedAssemblyInfo:(System_Reflection_AssemblyName *)value;
+	// Managed property name : FailedAssemblyInfo
+	// Managed property type : System.Reflection.AssemblyName
+    @property (nonatomic, strong) System_Reflection_AssemblyName * failedAssemblyInfo;
 
-	// Managed type : System.Security.IPermission
-    - (System_Security_IPermission *)firstPermissionThatFailed;
-    - (void)setFirstPermissionThatFailed:(System_Security_IPermission *)value;
+	// Managed property name : FirstPermissionThatFailed
+	// Managed property type : System.Security.IPermission
+    @property (nonatomic, strong) System_Security_IPermission * firstPermissionThatFailed;
 
-	// Managed type : System.String
-    - (NSString *)grantedSet;
-    - (void)setGrantedSet:(NSString *)value;
+	// Managed property name : GrantedSet
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * grantedSet;
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)method;
-    - (void)setMethod:(System_Reflection_MethodInfo *)value;
+	// Managed property name : Method
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong) System_Reflection_MethodInfo * method;
 
-	// Managed type : System.String
-    - (NSString *)permissionState;
-    - (void)setPermissionState:(NSString *)value;
+	// Managed property name : PermissionState
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * permissionState;
 
-	// Managed type : System.Type
-    - (System_Type *)permissionType;
-    - (void)setPermissionType:(System_Type *)value;
+	// Managed property name : PermissionType
+	// Managed property type : System.Type
+    @property (nonatomic, strong) System_Type * permissionType;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)permitOnlySetInstance;
-    - (void)setPermitOnlySetInstance:(DBMonoObjectRepresentation *)value;
+	// Managed property name : PermitOnlySetInstance
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * permitOnlySetInstance;
 
-	// Managed type : System.String
-    - (NSString *)refusedSet;
-    - (void)setRefusedSet:(NSString *)value;
+	// Managed property name : RefusedSet
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * refusedSet;
 
-	// Managed type : System.String
-    - (NSString *)url;
-    - (void)setUrl:(NSString *)value;
+	// Managed property name : Url
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * url;
 
-	// Managed type : System.Security.SecurityZone
-    - (System_Security_SecurityZone)zone;
-    - (void)setZone:(System_Security_SecurityZone)value;
+	// Managed property name : Zone
+	// Managed property type : System.Security.SecurityZone
+    @property (nonatomic) System_Security_SecurityZone zone;
 
 #pragma mark -
 #pragma mark Methods

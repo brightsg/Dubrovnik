@@ -3,6 +3,12 @@
 //
 // Managed class : SecurityContext
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_SecurityContext
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Security_SecurityContext *)capture
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Capture()" withNumArgs:0];
-		return [System_Security_SecurityContext representationWithMonoObject:monoObject];
+		return [System_Security_SecurityContext objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateCopy
@@ -36,7 +42,7 @@
     - (System_Security_SecurityContext *)createCopy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
-		return [System_Security_SecurityContext representationWithMonoObject:monoObject];
+		return [System_Security_SecurityContext objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -76,7 +82,7 @@
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Security.SecurityContext, System.Threading.ContextCallback, System.Object
-    - (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(DBMonoObjectRepresentation *)p3
+    - (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
     {
 		[self invokeMonoMethod:"Run(System.Security.SecurityContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
@@ -87,7 +93,7 @@
     - (System_Threading_AsyncFlowControl *)suppressFlow
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"SuppressFlow()" withNumArgs:0];
-		return [System_Threading_AsyncFlowControl representationWithMonoObject:monoObject];
+		return [System_Threading_AsyncFlowControl objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SuppressFlowWindowsIdentity
@@ -96,7 +102,13 @@
     - (System_Threading_AsyncFlowControl *)suppressFlowWindowsIdentity
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"SuppressFlowWindowsIdentity()" withNumArgs:0];
-		return [System_Threading_AsyncFlowControl representationWithMonoObject:monoObject];
+		return [System_Threading_AsyncFlowControl objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

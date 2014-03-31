@@ -3,6 +3,12 @@
 //
 // Managed class : SoapEntity
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Metadata_W3cXsd2001_SoapEntity
 
 #pragma mark -
@@ -32,25 +38,34 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Value
+	// Managed property type : System.String
+    @synthesize value = _value;
     - (NSString *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _value;
 	}
     - (void)setValue:(NSString *)value
 	{
+		_value = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Value" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : XsdType
+	// Managed property type : System.String
+    static NSString * m_xsdType;
     + (NSString *)xsdType
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"XsdType"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"XsdType"];
+		if ([self object:m_xsdType isEqualToMonoObject:monoObject]) return m_xsdType;					
+		m_xsdType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_xsdType;
 	}
 
 #pragma mark -
@@ -71,7 +86,7 @@
     - (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapEntity *)parse_withValue:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapEntity representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapEntity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -82,5 +97,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_xsdType = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

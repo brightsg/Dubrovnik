@@ -2,7 +2,7 @@
 //
 // Managed class : CryptoAPITransform
 //
-@interface System_Security_Cryptography_CryptoAPITransform : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_CryptoAPITransform : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,20 +14,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)canReuseTransform;
+	// Managed property name : CanReuseTransform
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canReuseTransform;
 
-	// Managed type : System.Boolean
-    - (BOOL)canTransformMultipleBlocks;
+	// Managed property name : CanTransformMultipleBlocks
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL canTransformMultipleBlocks;
 
-	// Managed type : System.Int32
-    - (int32_t)inputBlockSize;
+	// Managed property name : InputBlockSize
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t inputBlockSize;
 
-	// Managed type : System.IntPtr
-    - (void *)keyHandle;
+	// Managed property name : KeyHandle
+	// Managed property type : System.IntPtr
+    @property (nonatomic, readonly) void * keyHandle;
 
-	// Managed type : System.Int32
-    - (int32_t)outputBlockSize;
+	// Managed property name : OutputBlockSize
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t outputBlockSize;
 
 #pragma mark -
 #pragma mark Methods

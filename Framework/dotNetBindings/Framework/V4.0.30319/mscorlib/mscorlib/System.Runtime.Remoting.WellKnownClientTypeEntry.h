@@ -27,15 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)applicationUrl;
-    - (void)setApplicationUrl:(NSString *)value;
+	// Managed property name : ApplicationUrl
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * applicationUrl;
 
-	// Managed type : System.Type
-    - (System_Type *)objectType;
+	// Managed property name : ObjectType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * objectType;
 
-	// Managed type : System.String
-    - (NSString *)objectUrl;
+	// Managed property name : ObjectUrl
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * objectUrl;
 
 #pragma mark -
 #pragma mark Methods

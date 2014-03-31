@@ -2,7 +2,7 @@
 //
 // Managed class : Collection<T>
 //
-@interface System_Collections_ObjectModel_Collection : DBMonoObjectRepresentation
+@interface System_Collections_ObjectModel_Collection : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,12 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : <T>
+    @property (nonatomic, strong) DBManagedObject * item;
 
 #pragma mark -
 #pragma mark Methods
@@ -35,7 +36,7 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)add_withItem:(DBMonoObjectRepresentation *)p1;
+    - (void)add_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -45,7 +46,7 @@
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)contains_withItem:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)contains_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
@@ -60,17 +61,17 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)indexOf_withItem:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)indexOf_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : Insert
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, <T>
-    - (void)insert_withIndex:(int32_t)p1 item:(DBMonoObjectRepresentation *)p2;
+    - (void)insert_withIndex:(int32_t)p1 item:(DBManagedObject *)p2;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)remove_withItem:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)remove_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : RemoveAt
 	// Managed return type : System.Void

@@ -3,6 +3,12 @@
 //
 // Managed class : DefaultDllImportSearchPathsAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_DefaultDllImportSearchPathsAttribute
 
 #pragma mark -
@@ -32,12 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.DllImportSearchPath
+	// Managed property name : Paths
+	// Managed property type : System.Runtime.InteropServices.DllImportSearchPath
+    @synthesize paths = _paths;
     - (System_Runtime_InteropServices_DllImportSearchPath)paths
     {
-		MonoObject * monoObject = [self getMonoProperty:"Paths"];
-		System_Runtime_InteropServices_DllImportSearchPath result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Paths"];
+		_paths = DB_UNBOX_INT32(monoObject);
+
+		return _paths;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

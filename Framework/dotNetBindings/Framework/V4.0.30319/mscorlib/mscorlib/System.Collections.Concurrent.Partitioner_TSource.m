@@ -3,6 +3,12 @@
 //
 // Managed class : Partitioner<TSource>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Concurrent_Partitioner
 
 #pragma mark -
@@ -21,12 +27,15 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : SupportsDynamicPartitions
+	// Managed property type : System.Boolean
+    @synthesize supportsDynamicPartitions = _supportsDynamicPartitions;
     - (BOOL)supportsDynamicPartitions
     {
-		MonoObject * monoObject = [self getMonoProperty:"SupportsDynamicPartitions"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SupportsDynamicPartitions"];
+		_supportsDynamicPartitions = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _supportsDynamicPartitions;
 	}
 
 #pragma mark -
@@ -38,7 +47,7 @@
     - (IEnumerable *)getDynamicPartitions
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicPartitions()" withNumArgs:0];
-		return [IEnumerable representationWithMonoObject:monoObject];
+		return [IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPartitions
@@ -47,7 +56,13 @@
     - (IList *)getPartitions_withPartitionCount:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [IList representationWithMonoObject:monoObject];
+		return [IList objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

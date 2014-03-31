@@ -3,6 +3,12 @@
 //
 // Managed class : RemotingConfiguration
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_RemotingConfiguration
 
 #pragma mark -
@@ -21,46 +27,63 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : ApplicationId
+	// Managed property type : System.String
+    static NSString * m_applicationId;
     + (NSString *)applicationId
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ApplicationId"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ApplicationId"];
+		if ([self object:m_applicationId isEqualToMonoObject:monoObject]) return m_applicationId;					
+		m_applicationId = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_applicationId;
 	}
 
-	// Managed type : System.String
+	// Managed property name : ApplicationName
+	// Managed property type : System.String
+    static NSString * m_applicationName;
     + (NSString *)applicationName
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ApplicationName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ApplicationName"];
+		if ([self object:m_applicationName isEqualToMonoObject:monoObject]) return m_applicationName;					
+		m_applicationName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_applicationName;
 	}
     + (void)setApplicationName:(NSString *)value
 	{
+		m_applicationName = value;
 		MonoObject *monoObject = [value monoValue];
 		[[self class] setMonoClassProperty:"ApplicationName" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.Remoting.CustomErrorsModes
+	// Managed property name : CustomErrorsMode
+	// Managed property type : System.Runtime.Remoting.CustomErrorsModes
+    static System_Runtime_Remoting_CustomErrorsModes m_customErrorsMode;
     + (System_Runtime_Remoting_CustomErrorsModes)customErrorsMode
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CustomErrorsMode"];
-		System_Runtime_Remoting_CustomErrorsModes result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CustomErrorsMode"];
+		m_customErrorsMode = DB_UNBOX_INT32(monoObject);
+
+		return m_customErrorsMode;
 	}
     + (void)setCustomErrorsMode:(System_Runtime_Remoting_CustomErrorsModes)value
 	{
+		m_customErrorsMode = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[[self class] setMonoClassProperty:"CustomErrorsMode" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : ProcessId
+	// Managed property type : System.String
+    static NSString * m_processId;
     + (NSString *)processId
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ProcessId"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ProcessId"];
+		if ([self object:m_processId isEqualToMonoObject:monoObject]) return m_processId;					
+		m_processId = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_processId;
 	}
 
 #pragma mark -
@@ -97,7 +120,7 @@
     - (DBSystem_Array *)getRegisteredActivatedClientTypes
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRegisteredActivatedClientTypes()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetRegisteredActivatedServiceTypes
@@ -106,7 +129,7 @@
     - (DBSystem_Array *)getRegisteredActivatedServiceTypes
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRegisteredActivatedServiceTypes()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetRegisteredWellKnownClientTypes
@@ -115,7 +138,7 @@
     - (DBSystem_Array *)getRegisteredWellKnownClientTypes
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRegisteredWellKnownClientTypes()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetRegisteredWellKnownServiceTypes
@@ -124,7 +147,7 @@
     - (DBSystem_Array *)getRegisteredWellKnownServiceTypes
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRegisteredWellKnownServiceTypes()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : IsActivationAllowed
@@ -142,7 +165,7 @@
     - (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withSvrType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsRemotelyActivatedClientType(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_ActivatedClientTypeEntry representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ActivatedClientTypeEntry objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsRemotelyActivatedClientType
@@ -151,7 +174,7 @@
     - (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsRemotelyActivatedClientType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_ActivatedClientTypeEntry representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ActivatedClientTypeEntry objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsWellKnownClientType
@@ -160,7 +183,7 @@
     - (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withSvrType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsWellKnownClientType(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_WellKnownClientTypeEntry representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_WellKnownClientTypeEntry objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsWellKnownClientType
@@ -169,7 +192,7 @@
     - (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsWellKnownClientType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_WellKnownClientTypeEntry representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_WellKnownClientTypeEntry objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterActivatedClientType
@@ -235,5 +258,14 @@
     {
 		[self invokeMonoMethod:"RegisterWellKnownServiceType(System.Runtime.Remoting.WellKnownServiceTypeEntry)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_applicationId = nil;
+		m_applicationName = nil;
+		m_processId = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : DBNull
 //
-@interface System_DBNull : DBMonoObjectRepresentation
+@interface System_DBNull : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.DBNull
+	// Managed field name : Value
+	// Managed field type : System.DBNull
     + (System_DBNull *)value;
 
 #pragma mark -

@@ -22,11 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)allInternalsVisible;
-    - (void)setAllInternalsVisible:(BOOL)value;
+	// Managed property name : AllInternalsVisible
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL allInternalsVisible;
 
-	// Managed type : System.String
-    - (NSString *)assemblyName;
+	// Managed property name : AssemblyName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * assemblyName;
 @end
 //--Dubrovnik.CodeGenerator

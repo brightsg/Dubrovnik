@@ -2,7 +2,7 @@
 //
 // Managed interface : ISymbolDocumentWriter
 //
-@interface System_Diagnostics_SymbolStore_ISymbolDocumentWriter : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_ISymbolDocumentWriter : System_Object
 
 #pragma mark -
 #pragma mark Setup

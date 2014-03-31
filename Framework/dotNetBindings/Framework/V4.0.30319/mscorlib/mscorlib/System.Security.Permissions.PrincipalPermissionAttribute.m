@@ -3,6 +3,12 @@
 //
 // Managed class : PrincipalPermissionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_PrincipalPermissionAttribute
 
 #pragma mark -
@@ -32,41 +38,55 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : Authenticated
+	// Managed property type : System.Boolean
+    @synthesize authenticated = _authenticated;
     - (BOOL)authenticated
     {
-		MonoObject * monoObject = [self getMonoProperty:"Authenticated"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Authenticated"];
+		_authenticated = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _authenticated;
 	}
     - (void)setAuthenticated:(BOOL)value
 	{
+		_authenticated = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Authenticated" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
     - (void)setName:(NSString *)value
 	{
+		_name = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : Role
+	// Managed property type : System.String
+    @synthesize role = _role;
     - (NSString *)role
     {
-		MonoObject * monoObject = [self getMonoProperty:"Role"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Role"];
+		if ([self object:_role isEqualToMonoObject:monoObject]) return _role;					
+		_role = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _role;
 	}
     - (void)setRole:(NSString *)value
 	{
+		_role = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Role" valueObject:monoObject];          
 	}
@@ -80,7 +100,13 @@
     - (System_Security_IPermission *)createPermission
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

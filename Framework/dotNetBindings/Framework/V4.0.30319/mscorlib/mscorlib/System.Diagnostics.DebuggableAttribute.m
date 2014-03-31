@@ -3,6 +3,12 @@
 //
 // Managed class : DebuggableAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_DebuggableAttribute
 
 #pragma mark -
@@ -40,28 +46,43 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Diagnostics.DebuggableAttribute+DebuggingModes
+	// Managed property name : DebuggingFlags
+	// Managed property type : System.Diagnostics.DebuggableAttribute+DebuggingModes
+    @synthesize debuggingFlags = _debuggingFlags;
     - (System_Diagnostics_DebuggableAttribute__DebuggingModes)debuggingFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"DebuggingFlags"];
-		System_Diagnostics_DebuggableAttribute__DebuggingModes result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DebuggingFlags"];
+		_debuggingFlags = DB_UNBOX_INT32(monoObject);
+
+		return _debuggingFlags;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsJITOptimizerDisabled
+	// Managed property type : System.Boolean
+    @synthesize isJITOptimizerDisabled = _isJITOptimizerDisabled;
     - (BOOL)isJITOptimizerDisabled
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsJITOptimizerDisabled"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsJITOptimizerDisabled"];
+		_isJITOptimizerDisabled = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isJITOptimizerDisabled;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsJITTrackingEnabled
+	// Managed property type : System.Boolean
+    @synthesize isJITTrackingEnabled = _isJITTrackingEnabled;
     - (BOOL)isJITTrackingEnabled
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsJITTrackingEnabled"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsJITTrackingEnabled"];
+		_isJITTrackingEnabled = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isJITTrackingEnabled;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

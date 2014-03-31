@@ -2,7 +2,7 @@
 //
 // Managed class : StructuralComparisons
 //
-@interface System_Collections_StructuralComparisons : DBMonoObjectRepresentation
+@interface System_Collections_StructuralComparisons : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IComparer
+	// Managed property name : StructuralComparer
+	// Managed property type : System.Collections.IComparer
     + (System_Collections_IComparer *)structuralComparer;
 
-	// Managed type : System.Collections.IEqualityComparer
+	// Managed property name : StructuralEqualityComparer
+	// Managed property type : System.Collections.IEqualityComparer
     + (System_Collections_IEqualityComparer *)structuralEqualityComparer;
 @end
 //--Dubrovnik.CodeGenerator

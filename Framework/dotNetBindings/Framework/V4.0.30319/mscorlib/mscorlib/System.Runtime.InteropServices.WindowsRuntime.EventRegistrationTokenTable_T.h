@@ -2,7 +2,7 @@
 //
 // Managed class : EventRegistrationTokenTable<T>
 //
-@interface System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)invocationList;
-    - (void)setInvocationList:(DBMonoObjectRepresentation *)value;
+	// Managed property name : InvocationList
+	// Managed property type : <T>
+    @property (nonatomic, strong) DBManagedObject * invocationList;
 
 #pragma mark -
 #pragma mark Methods
@@ -24,7 +24,7 @@
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
 	// Managed param types : <T>
-    - (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)addEventHandler_withHandler:(DBMonoObjectRepresentation *)p1;
+    - (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)addEventHandler_withHandler:(DBManagedObject *)p1;
 
 	// Managed method name : GetOrCreateEventRegistrationTokenTable
 	// Managed return type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable<T>
@@ -39,6 +39,6 @@
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)removeEventHandler_withHandler:(DBMonoObjectRepresentation *)p1;
+    - (void)removeEventHandler_withHandler:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

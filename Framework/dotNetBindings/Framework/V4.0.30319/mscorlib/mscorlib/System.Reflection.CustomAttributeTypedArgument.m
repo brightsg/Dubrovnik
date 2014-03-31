@@ -3,6 +3,12 @@
 //
 // Managed struct : CustomAttributeTypedArgument
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_CustomAttributeTypedArgument
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.CustomAttributeTypedArgument
 	// Managed param types : System.Type, System.Object
-    + (System_Reflection_CustomAttributeTypedArgument *)new_withArgumentType:(System_Type *)p1 value:(DBMonoObjectRepresentation *)p2
+    + (System_Reflection_CustomAttributeTypedArgument *)new_withArgumentType:(System_Type *)p1 value:(System_Object *)p2
     {
 		return [[self alloc] initWithSignature:"System.Type,object" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -32,7 +38,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.CustomAttributeTypedArgument
 	// Managed param types : System.Object
-    + (System_Reflection_CustomAttributeTypedArgument *)new_withValue:(DBMonoObjectRepresentation *)p1
+    + (System_Reflection_CustomAttributeTypedArgument *)new_withValue:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
     }
@@ -40,20 +46,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : ArgumentType
+	// Managed property type : System.Type
+    @synthesize argumentType = _argumentType;
     - (System_Type *)argumentType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ArgumentType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ArgumentType"];
+		if ([self object:_argumentType isEqualToMonoObject:monoObject]) return _argumentType;					
+		_argumentType = [System_Type objectWithMonoObject:monoObject];
+
+		return _argumentType;
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)value
+	// Managed property name : Value
+	// Managed property type : System.Object
+    @synthesize value = _value;
+    - (System_Object *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [System_Object objectWithMonoObject:monoObject];
+
+		return _value;
 	}
 
 #pragma mark -
@@ -62,7 +76,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -103,5 +117,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

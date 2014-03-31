@@ -2,7 +2,7 @@
 //
 // Managed interface : IProgress<T>
 //
-@interface System_IProgress : DBMonoObjectRepresentation
+@interface System_IProgress : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : Report
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)report_withValue:(DBMonoObjectRepresentation *)p1;
+    - (void)report_withValue:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

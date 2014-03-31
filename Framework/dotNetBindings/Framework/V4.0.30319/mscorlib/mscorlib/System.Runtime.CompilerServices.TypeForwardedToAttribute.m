@@ -3,6 +3,12 @@
 //
 // Managed class : TypeForwardedToAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_TypeForwardedToAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : Destination
+	// Managed property type : System.Type
+    @synthesize destination = _destination;
     - (System_Type *)destination
     {
-		MonoObject * monoObject = [self getMonoProperty:"Destination"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Destination"];
+		if ([self object:_destination isEqualToMonoObject:monoObject]) return _destination;					
+		_destination = [System_Type objectWithMonoObject:monoObject];
+
+		return _destination;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

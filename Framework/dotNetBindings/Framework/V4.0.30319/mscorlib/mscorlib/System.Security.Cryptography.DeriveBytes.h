@@ -2,7 +2,7 @@
 //
 // Managed class : DeriveBytes
 //
-@interface System_Security_Cryptography_DeriveBytes : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_DeriveBytes : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : CryptoConfig
 //
-@interface System_Security_Cryptography_CryptoConfig : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_CryptoConfig : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : AllowOnlyFipsAlgorithms
+	// Managed property type : System.Boolean
     + (BOOL)allowOnlyFipsAlgorithms;
 
 #pragma mark -
@@ -33,12 +34,12 @@
 	// Managed method name : CreateFromName
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Object[]
-    - (DBMonoObjectRepresentation *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2;
+    - (System_Object *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2;
 
 	// Managed method name : CreateFromName
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)createFromName_withName:(NSString *)p1;
+    - (System_Object *)createFromName_withName:(NSString *)p1;
 
 	// Managed method name : EncodeOID
 	// Managed return type : System.Byte[]

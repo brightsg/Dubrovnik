@@ -2,7 +2,7 @@
 //
 // Managed class : RealProxy
 //
-@interface System_Runtime_Remoting_Proxies_RealProxy : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Proxies_RealProxy : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -37,12 +37,12 @@
 	// Managed method name : GetStubData
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy
-    - (DBMonoObjectRepresentation *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1;
+    - (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1;
 
 	// Managed method name : GetTransparentProxy
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getTransparentProxy;
+    - (System_Object *)getTransparentProxy;
 
 	// Managed method name : InitializeServerObject
 	// Managed return type : System.Runtime.Remoting.Activation.IConstructionReturnMessage
@@ -62,7 +62,7 @@
 	// Managed method name : SetStubData
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy, System.Object
-    - (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(DBMonoObjectRepresentation *)p2;
+    - (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2;
 
 	// Managed method name : SupportsInterface
 	// Managed return type : System.IntPtr

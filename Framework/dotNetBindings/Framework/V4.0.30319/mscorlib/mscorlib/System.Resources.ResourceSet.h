@@ -2,7 +2,7 @@
 //
 // Managed class : ResourceSet
 //
-@interface System_Resources_ResourceSet : DBMonoObjectRepresentation
+@interface System_Resources_ResourceSet : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -60,12 +60,12 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1;
+    - (System_Object *)getObject_withName:(NSString *)p1;
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1 ignoreCase:(BOOL)p2;
+    - (System_Object *)getObject_withName:(NSString *)p1 ignoreCase:(BOOL)p2;
 
 	// Managed method name : GetString
 	// Managed return type : System.String

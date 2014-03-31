@@ -2,7 +2,7 @@
 //
 // Managed class : InternalMessageWrapper
 //
-@interface System_Runtime_Remoting_Messaging_InternalMessageWrapper : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_InternalMessageWrapper : System_Object
 
 #pragma mark -
 #pragma mark Setup

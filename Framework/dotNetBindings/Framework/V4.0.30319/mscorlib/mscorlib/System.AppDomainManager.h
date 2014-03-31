@@ -14,21 +14,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Hosting.ApplicationActivator
-    - (System_Runtime_Hosting_ApplicationActivator *)applicationActivator;
+	// Managed property name : ApplicationActivator
+	// Managed property type : System.Runtime.Hosting.ApplicationActivator
+    @property (nonatomic, strong, readonly) System_Runtime_Hosting_ApplicationActivator * applicationActivator;
 
-	// Managed type : System.Reflection.Assembly
-    - (System_Reflection_Assembly *)entryAssembly;
+	// Managed property name : EntryAssembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * entryAssembly;
 
-	// Managed type : System.Threading.HostExecutionContextManager
-    - (System_Threading_HostExecutionContextManager *)hostExecutionContextManager;
+	// Managed property name : HostExecutionContextManager
+	// Managed property type : System.Threading.HostExecutionContextManager
+    @property (nonatomic, strong, readonly) System_Threading_HostExecutionContextManager * hostExecutionContextManager;
 
-	// Managed type : System.Security.HostSecurityManager
-    - (System_Security_HostSecurityManager *)hostSecurityManager;
+	// Managed property name : HostSecurityManager
+	// Managed property type : System.Security.HostSecurityManager
+    @property (nonatomic, strong, readonly) System_Security_HostSecurityManager * hostSecurityManager;
 
-	// Managed type : System.AppDomainManagerInitializationOptions
-    - (System_AppDomainManagerInitializationOptions)initializationFlags;
-    - (void)setInitializationFlags:(System_AppDomainManagerInitializationOptions)value;
+	// Managed property name : InitializationFlags
+	// Managed property type : System.AppDomainManagerInitializationOptions
+    @property (nonatomic) System_AppDomainManagerInitializationOptions initializationFlags;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed interface : IEqualityComparer<T>
 //
-@interface System_Collections_Generic_IEqualityComparer : DBMonoObjectRepresentation
+@interface System_Collections_Generic_IEqualityComparer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,11 +17,11 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : <T>, <T>
-    - (BOOL)equals_withX:(DBMonoObjectRepresentation *)p1 y:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)equals_withX:(DBManagedObject *)p1 y:(DBManagedObject *)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)getHashCode_withObj:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)getHashCode_withObj:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

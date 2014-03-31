@@ -2,7 +2,7 @@
 //
 // Managed interface : _Thread
 //
-@interface System_Runtime_InteropServices__Thread : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__Thread : System_Object
 
 #pragma mark -
 #pragma mark Setup

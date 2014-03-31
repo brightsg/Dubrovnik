@@ -2,7 +2,7 @@
 //
 // Managed interface : IHashCodeProvider
 //
-@interface System_Collections_IHashCodeProvider : DBMonoObjectRepresentation
+@interface System_Collections_IHashCodeProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)getHashCode_withObj:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)getHashCode_withObj:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

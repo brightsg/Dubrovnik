@@ -2,7 +2,7 @@
 //
 // Managed struct : Single
 //
-@interface System_Single : DBMonoObjectRepresentation
+@interface System_Single : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,22 +14,28 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Single
+	// Managed field name : Epsilon
+	// Managed field type : System.Single
     + (float)epsilon;
 
-	// Managed type : System.Single
+	// Managed field name : MaxValue
+	// Managed field type : System.Single
     + (float)maxValue;
 
-	// Managed type : System.Single
+	// Managed field name : MinValue
+	// Managed field type : System.Single
     + (float)minValue;
 
-	// Managed type : System.Single
+	// Managed field name : NaN
+	// Managed field type : System.Single
     + (float)naN;
 
-	// Managed type : System.Single
+	// Managed field name : NegativeInfinity
+	// Managed field type : System.Single
     + (float)negativeInfinity;
 
-	// Managed type : System.Single
+	// Managed field name : PositiveInfinity
+	// Managed field type : System.Single
     + (float)positiveInfinity;
 
 #pragma mark -
@@ -38,7 +44,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -48,7 +54,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

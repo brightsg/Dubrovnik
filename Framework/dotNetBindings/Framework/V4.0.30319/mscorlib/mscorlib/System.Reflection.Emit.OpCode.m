@@ -3,6 +3,12 @@
 //
 // Managed struct : OpCode
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_OpCode
 
 #pragma mark -
@@ -21,68 +27,93 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.Emit.FlowControl
+	// Managed property name : FlowControl
+	// Managed property type : System.Reflection.Emit.FlowControl
+    @synthesize flowControl = _flowControl;
     - (System_Reflection_Emit_FlowControl)flowControl
     {
-		MonoObject * monoObject = [self getMonoProperty:"FlowControl"];
-		System_Reflection_Emit_FlowControl result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FlowControl"];
+		_flowControl = DB_UNBOX_INT32(monoObject);
+
+		return _flowControl;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
 
-	// Managed type : System.Reflection.Emit.OpCodeType
+	// Managed property name : OpCodeType
+	// Managed property type : System.Reflection.Emit.OpCodeType
+    @synthesize opCodeType = _opCodeType;
     - (System_Reflection_Emit_OpCodeType)opCodeType
     {
-		MonoObject * monoObject = [self getMonoProperty:"OpCodeType"];
-		System_Reflection_Emit_OpCodeType result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OpCodeType"];
+		_opCodeType = DB_UNBOX_INT32(monoObject);
+
+		return _opCodeType;
 	}
 
-	// Managed type : System.Reflection.Emit.OperandType
+	// Managed property name : OperandType
+	// Managed property type : System.Reflection.Emit.OperandType
+    @synthesize operandType = _operandType;
     - (System_Reflection_Emit_OperandType)operandType
     {
-		MonoObject * monoObject = [self getMonoProperty:"OperandType"];
-		System_Reflection_Emit_OperandType result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OperandType"];
+		_operandType = DB_UNBOX_INT32(monoObject);
+
+		return _operandType;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Size
+	// Managed property type : System.Int32
+    @synthesize size = _size;
     - (int32_t)size
     {
-		MonoObject * monoObject = [self getMonoProperty:"Size"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Size"];
+		_size = DB_UNBOX_INT32(monoObject);
+
+		return _size;
 	}
 
-	// Managed type : System.Reflection.Emit.StackBehaviour
+	// Managed property name : StackBehaviourPop
+	// Managed property type : System.Reflection.Emit.StackBehaviour
+    @synthesize stackBehaviourPop = _stackBehaviourPop;
     - (System_Reflection_Emit_StackBehaviour)stackBehaviourPop
     {
-		MonoObject * monoObject = [self getMonoProperty:"StackBehaviourPop"];
-		System_Reflection_Emit_StackBehaviour result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"StackBehaviourPop"];
+		_stackBehaviourPop = DB_UNBOX_INT32(monoObject);
+
+		return _stackBehaviourPop;
 	}
 
-	// Managed type : System.Reflection.Emit.StackBehaviour
+	// Managed property name : StackBehaviourPush
+	// Managed property type : System.Reflection.Emit.StackBehaviour
+    @synthesize stackBehaviourPush = _stackBehaviourPush;
     - (System_Reflection_Emit_StackBehaviour)stackBehaviourPush
     {
-		MonoObject * monoObject = [self getMonoProperty:"StackBehaviourPush"];
-		System_Reflection_Emit_StackBehaviour result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"StackBehaviourPush"];
+		_stackBehaviourPush = DB_UNBOX_INT32(monoObject);
+
+		return _stackBehaviourPush;
 	}
 
-	// Managed type : System.Int16
+	// Managed property name : Value
+	// Managed property type : System.Int16
+    @synthesize value = _value;
     - (int16_t)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		int16_t result = DB_UNBOX_INT16(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		_value = DB_UNBOX_INT16(monoObject);
+
+		return _value;
 	}
 
 #pragma mark -
@@ -100,7 +131,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -141,5 +172,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

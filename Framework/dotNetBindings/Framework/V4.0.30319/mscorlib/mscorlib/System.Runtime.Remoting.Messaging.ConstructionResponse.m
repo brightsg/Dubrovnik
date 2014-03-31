@@ -3,6 +3,12 @@
 //
 // Managed class : ConstructionResponse
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Messaging_ConstructionResponse
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.IDictionary
+	// Managed property name : Properties
+	// Managed property type : System.Collections.IDictionary
+    @synthesize properties = _properties;
     - (System_Collections_IDictionary *)properties
     {
-		MonoObject * monoObject = [self getMonoProperty:"Properties"];
-		System_Collections_IDictionary * result = [System_Collections_IDictionary representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
+		_properties = [System_Collections_IDictionary objectWithMonoObject:monoObject];
+
+		return _properties;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

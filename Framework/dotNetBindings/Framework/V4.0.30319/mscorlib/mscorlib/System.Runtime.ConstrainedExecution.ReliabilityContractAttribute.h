@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.ConstrainedExecution.Cer
-    - (System_Runtime_ConstrainedExecution_Cer)cer;
+	// Managed property name : Cer
+	// Managed property type : System.Runtime.ConstrainedExecution.Cer
+    @property (nonatomic, readonly) System_Runtime_ConstrainedExecution_Cer cer;
 
-	// Managed type : System.Runtime.ConstrainedExecution.Consistency
-    - (System_Runtime_ConstrainedExecution_Consistency)consistencyGuarantee;
+	// Managed property name : ConsistencyGuarantee
+	// Managed property type : System.Runtime.ConstrainedExecution.Consistency
+    @property (nonatomic, readonly) System_Runtime_ConstrainedExecution_Consistency consistencyGuarantee;
 @end
 //--Dubrovnik.CodeGenerator

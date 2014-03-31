@@ -3,6 +3,12 @@
 //
 // Managed class : Claim
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Claims_Claim
 
 #pragma mark -
@@ -64,66 +70,94 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Issuer
+	// Managed property type : System.String
+    @synthesize issuer = _issuer;
     - (NSString *)issuer
     {
-		MonoObject * monoObject = [self getMonoProperty:"Issuer"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Issuer"];
+		if ([self object:_issuer isEqualToMonoObject:monoObject]) return _issuer;					
+		_issuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _issuer;
 	}
 
-	// Managed type : System.String
+	// Managed property name : OriginalIssuer
+	// Managed property type : System.String
+    @synthesize originalIssuer = _originalIssuer;
     - (NSString *)originalIssuer
     {
-		MonoObject * monoObject = [self getMonoProperty:"OriginalIssuer"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OriginalIssuer"];
+		if ([self object:_originalIssuer isEqualToMonoObject:monoObject]) return _originalIssuer;					
+		_originalIssuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _originalIssuer;
 	}
 
-	// Managed type : System.Collections.Generic.IDictionary<System.String, System.String>
+	// Managed property name : Properties
+	// Managed property type : System.Collections.Generic.IDictionary<System.String, System.String>
+    @synthesize properties = _properties;
     - (System_Collections_Generic_IDictionary *)properties
     {
-		MonoObject * monoObject = [self getMonoProperty:"Properties"];
-		System_Collections_Generic_IDictionary * result = [System_Collections_Generic_IDictionary representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"NSString,NSString";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
+		_properties = [System_Collections_Generic_IDictionary objectWithMonoObject:monoObject];
+
+		return _properties;
 	}
 
-	// Managed type : System.Security.Claims.ClaimsIdentity
+	// Managed property name : Subject
+	// Managed property type : System.Security.Claims.ClaimsIdentity
+    @synthesize subject = _subject;
     - (System_Security_Claims_ClaimsIdentity *)subject
     {
-		MonoObject * monoObject = [self getMonoProperty:"Subject"];
-		System_Security_Claims_ClaimsIdentity * result = [System_Security_Claims_ClaimsIdentity representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Subject"];
+		if ([self object:_subject isEqualToMonoObject:monoObject]) return _subject;					
+		_subject = [System_Security_Claims_ClaimsIdentity objectWithMonoObject:monoObject];
+
+		return _subject;
 	}
     - (void)setSubject:(System_Security_Claims_ClaimsIdentity *)value
 	{
+		_subject = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Subject" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : Type
+	// Managed property type : System.String
+    @synthesize type = _type;
     - (NSString *)type
     {
-		MonoObject * monoObject = [self getMonoProperty:"Type"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Type"];
+		if ([self object:_type isEqualToMonoObject:monoObject]) return _type;					
+		_type = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _type;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Value
+	// Managed property type : System.String
+    @synthesize value = _value;
     - (NSString *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _value;
 	}
 
-	// Managed type : System.String
+	// Managed property name : ValueType
+	// Managed property type : System.String
+    @synthesize valueType = _valueType;
     - (NSString *)valueType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ValueType"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ValueType"];
+		if ([self object:_valueType isEqualToMonoObject:monoObject]) return _valueType;					
+		_valueType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _valueType;
 	}
 
 #pragma mark -
@@ -135,7 +169,7 @@
     - (System_Security_Claims_Claim *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [System_Security_Claims_Claim representationWithMonoObject:monoObject];
+		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Clone
@@ -144,7 +178,7 @@
     - (System_Security_Claims_Claim *)clone_withIdentity:(System_Security_Claims_ClaimsIdentity *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone(System.Security.Claims.ClaimsIdentity)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Claims_Claim representationWithMonoObject:monoObject];
+		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -155,5 +189,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : AutoResetEvent
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_AutoResetEvent
 
 #pragma mark -
@@ -28,5 +34,11 @@
     {
 		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

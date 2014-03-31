@@ -27,7 +27,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.LoaderOptimization
-    - (System_LoaderOptimization)value;
+	// Managed property name : Value
+	// Managed property type : System.LoaderOptimization
+    @property (nonatomic, readonly) System_LoaderOptimization value;
 @end
 //--Dubrovnik.CodeGenerator

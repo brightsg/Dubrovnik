@@ -22,19 +22,24 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte
-    - (uint8_t)buildVersion;
+	// Managed property name : BuildVersion
+	// Managed property type : System.Byte
+    @property (nonatomic, readonly) uint8_t buildVersion;
 
-	// Managed type : System.Type
-    - (System_Type *)interfaceType;
+	// Managed property name : InterfaceType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * interfaceType;
 
-	// Managed type : System.Byte
-    - (uint8_t)majorVersion;
+	// Managed property name : MajorVersion
+	// Managed property type : System.Byte
+    @property (nonatomic, readonly) uint8_t majorVersion;
 
-	// Managed type : System.Byte
-    - (uint8_t)minorVersion;
+	// Managed property name : MinorVersion
+	// Managed property type : System.Byte
+    @property (nonatomic, readonly) uint8_t minorVersion;
 
-	// Managed type : System.Byte
-    - (uint8_t)revisionVersion;
+	// Managed property name : RevisionVersion
+	// Managed property type : System.Byte
+    @property (nonatomic, readonly) uint8_t revisionVersion;
 @end
 //--Dubrovnik.CodeGenerator

@@ -14,17 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)keysNormalized;
-    - (void)setKeysNormalized:(BOOL)value;
+	// Managed property name : KeysNormalized
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL keysNormalized;
 
-	// Managed type : System.Boolean
-    - (BOOL)keysOrderedAcrossPartitions;
-    - (void)setKeysOrderedAcrossPartitions:(BOOL)value;
+	// Managed property name : KeysOrderedAcrossPartitions
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL keysOrderedAcrossPartitions;
 
-	// Managed type : System.Boolean
-    - (BOOL)keysOrderedInEachPartition;
-    - (void)setKeysOrderedInEachPartition:(BOOL)value;
+	// Managed property name : KeysOrderedInEachPartition
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL keysOrderedInEachPartition;
 
 #pragma mark -
 #pragma mark Methods

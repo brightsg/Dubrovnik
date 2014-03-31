@@ -37,36 +37,41 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.ControlFlags
-    - (System_Security_AccessControl_ControlFlags)controlFlags;
+	// Managed property name : ControlFlags
+	// Managed property type : System.Security.AccessControl.ControlFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_ControlFlags controlFlags;
 
-	// Managed type : System.Security.AccessControl.DiscretionaryAcl
-    - (System_Security_AccessControl_DiscretionaryAcl *)discretionaryAcl;
-    - (void)setDiscretionaryAcl:(System_Security_AccessControl_DiscretionaryAcl *)value;
+	// Managed property name : DiscretionaryAcl
+	// Managed property type : System.Security.AccessControl.DiscretionaryAcl
+    @property (nonatomic, strong) System_Security_AccessControl_DiscretionaryAcl * discretionaryAcl;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)group;
-    - (void)setGroup:(System_Security_Principal_SecurityIdentifier *)value;
+	// Managed property name : Group
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong) System_Security_Principal_SecurityIdentifier * group;
 
-	// Managed type : System.Boolean
-    - (BOOL)isContainer;
+	// Managed property name : IsContainer
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isContainer;
 
-	// Managed type : System.Boolean
-    - (BOOL)isDiscretionaryAclCanonical;
+	// Managed property name : IsDiscretionaryAclCanonical
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isDiscretionaryAclCanonical;
 
-	// Managed type : System.Boolean
-    - (BOOL)isDS;
+	// Managed property name : IsDS
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isDS;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSystemAclCanonical;
+	// Managed property name : IsSystemAclCanonical
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSystemAclCanonical;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)owner;
-    - (void)setOwner:(System_Security_Principal_SecurityIdentifier *)value;
+	// Managed property name : Owner
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong) System_Security_Principal_SecurityIdentifier * owner;
 
-	// Managed type : System.Security.AccessControl.SystemAcl
-    - (System_Security_AccessControl_SystemAcl *)systemAcl;
-    - (void)setSystemAcl:(System_Security_AccessControl_SystemAcl *)value;
+	// Managed property name : SystemAcl
+	// Managed property type : System.Security.AccessControl.SystemAcl
+    @property (nonatomic, strong) System_Security_AccessControl_SystemAcl * systemAcl;
 
 #pragma mark -
 #pragma mark Methods

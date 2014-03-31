@@ -2,7 +2,7 @@
 //
 // Managed class : ParameterBuilder
 //
-@interface System_Reflection_Emit_ParameterBuilder : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_ParameterBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,23 +14,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t attributes;
 
-	// Managed type : System.Boolean
-    - (BOOL)isIn;
+	// Managed property name : IsIn
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isIn;
 
-	// Managed type : System.Boolean
-    - (BOOL)isOptional;
+	// Managed property name : IsOptional
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isOptional;
 
-	// Managed type : System.Boolean
-    - (BOOL)isOut;
+	// Managed property name : IsOut
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isOut;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Int32
-    - (int32_t)position;
+	// Managed property name : Position
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t position;
 
 #pragma mark -
 #pragma mark Methods
@@ -43,7 +49,7 @@
 	// Managed method name : SetConstant
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)setConstant_withDefaultValue:(DBMonoObjectRepresentation *)p1;
+    - (void)setConstant_withDefaultValue:(System_Object *)p1;
 
 	// Managed method name : SetCustomAttribute
 	// Managed return type : System.Void

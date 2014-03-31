@@ -2,7 +2,7 @@
 //
 // Managed interface : IEnumConnectionPoints
 //
-@interface System_Runtime_InteropServices_ComTypes_IEnumConnectionPoints : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IEnumConnectionPoints : System_Object
 
 #pragma mark -
 #pragma mark Setup

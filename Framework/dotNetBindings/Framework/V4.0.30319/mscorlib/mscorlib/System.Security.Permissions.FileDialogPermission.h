@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.FileDialogPermissionAccess
-    - (System_Security_Permissions_FileDialogPermissionAccess)access;
-    - (void)setAccess:(System_Security_Permissions_FileDialogPermissionAccess)value;
+	// Managed property name : Access
+	// Managed property type : System.Security.Permissions.FileDialogPermissionAccess
+    @property (nonatomic) System_Security_Permissions_FileDialogPermissionAccess access;
 
 #pragma mark -
 #pragma mark Methods

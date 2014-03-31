@@ -2,7 +2,7 @@
 //
 // Managed class : Evidence
 //
-@interface System_Security_Policy_Evidence : DBMonoObjectRepresentation
+@interface System_Security_Policy_Evidence : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,21 +32,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSynchronized;
+	// Managed property name : IsSynchronized
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed type : System.Boolean
-    - (BOOL)locked;
-    - (void)setLocked:(BOOL)value;
+	// Managed property name : Locked
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL locked;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)syncRoot;
+	// Managed property name : SyncRoot
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * syncRoot;
 
 #pragma mark -
 #pragma mark Methods
@@ -54,22 +58,22 @@
 	// Managed method name : AddAssembly
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)addAssembly_withId:(DBMonoObjectRepresentation *)p1;
+    - (void)addAssembly_withId:(System_Object *)p1;
 
 	// Managed method name : AddAssemblyEvidence
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)addAssemblyEvidence_withEvidence:(DBMonoObjectRepresentation *)p1;
+    - (void)addAssemblyEvidence_withEvidence:(DBManagedObject *)p1;
 
 	// Managed method name : AddHost
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)addHost_withId:(DBMonoObjectRepresentation *)p1;
+    - (void)addHost_withId:(System_Object *)p1;
 
 	// Managed method name : AddHostEvidence
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)addHostEvidence_withEvidence:(DBMonoObjectRepresentation *)p1;
+    - (void)addHostEvidence_withEvidence:(DBManagedObject *)p1;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -94,7 +98,7 @@
 	// Managed method name : GetAssemblyEvidence
 	// Managed return type : <T>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getAssemblyEvidence;
+    - (DBManagedObject *)getAssemblyEvidence;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
@@ -109,7 +113,7 @@
 	// Managed method name : GetHostEvidence
 	// Managed return type : <T>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getHostEvidence;
+    - (DBManagedObject *)getHostEvidence;
 
 	// Managed method name : Merge
 	// Managed return type : System.Void

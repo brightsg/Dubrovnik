@@ -2,7 +2,7 @@
 //
 // Managed class : DriveInfo
 //
-@interface System_IO_DriveInfo : DBMonoObjectRepresentation
+@interface System_IO_DriveInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,33 +22,41 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int64
-    - (int64_t)availableFreeSpace;
+	// Managed property name : AvailableFreeSpace
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t availableFreeSpace;
 
-	// Managed type : System.String
-    - (NSString *)driveFormat;
+	// Managed property name : DriveFormat
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * driveFormat;
 
-	// Managed type : System.IO.DriveType
-    - (System_IO_DriveType)driveType;
+	// Managed property name : DriveType
+	// Managed property type : System.IO.DriveType
+    @property (nonatomic, readonly) System_IO_DriveType driveType;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReady;
+	// Managed property name : IsReady
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReady;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.IO.DirectoryInfo
-    - (System_IO_DirectoryInfo *)rootDirectory;
+	// Managed property name : RootDirectory
+	// Managed property type : System.IO.DirectoryInfo
+    @property (nonatomic, strong, readonly) System_IO_DirectoryInfo * rootDirectory;
 
-	// Managed type : System.Int64
-    - (int64_t)totalFreeSpace;
+	// Managed property name : TotalFreeSpace
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t totalFreeSpace;
 
-	// Managed type : System.Int64
-    - (int64_t)totalSize;
+	// Managed property name : TotalSize
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t totalSize;
 
-	// Managed type : System.String
-    - (NSString *)volumeLabel;
-    - (void)setVolumeLabel:(NSString *)value;
+	// Managed property name : VolumeLabel
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * volumeLabel;
 
 #pragma mark -
 #pragma mark Methods

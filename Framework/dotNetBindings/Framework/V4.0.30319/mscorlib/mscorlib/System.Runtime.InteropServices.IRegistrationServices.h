@@ -2,7 +2,7 @@
 //
 // Managed interface : IRegistrationServices
 //
-@interface System_Runtime_InteropServices_IRegistrationServices : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_IRegistrationServices : System_Object
 
 #pragma mark -
 #pragma mark Setup

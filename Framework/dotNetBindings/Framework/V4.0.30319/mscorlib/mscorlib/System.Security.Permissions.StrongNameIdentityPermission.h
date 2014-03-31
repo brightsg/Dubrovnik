@@ -27,17 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.Security.Permissions.StrongNamePublicKeyBlob
-    - (System_Security_Permissions_StrongNamePublicKeyBlob *)publicKey;
-    - (void)setPublicKey:(System_Security_Permissions_StrongNamePublicKeyBlob *)value;
+	// Managed property name : PublicKey
+	// Managed property type : System.Security.Permissions.StrongNamePublicKeyBlob
+    @property (nonatomic, strong) System_Security_Permissions_StrongNamePublicKeyBlob * publicKey;
 
-	// Managed type : System.Version
-    - (System_Version *)version;
-    - (void)setVersion:(System_Version *)value;
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @property (nonatomic, strong) System_Version * version;
 
 #pragma mark -
 #pragma mark Methods

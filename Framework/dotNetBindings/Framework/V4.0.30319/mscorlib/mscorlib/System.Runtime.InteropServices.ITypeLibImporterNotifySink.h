@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeLibImporterNotifySink
 //
-@interface System_Runtime_InteropServices_ITypeLibImporterNotifySink : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ITypeLibImporterNotifySink : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,6 +22,6 @@
 	// Managed method name : ResolveRef
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Object
-    - (System_Reflection_Assembly *)resolveRef_withTypeLib:(DBMonoObjectRepresentation *)p1;
+    - (System_Reflection_Assembly *)resolveRef_withTypeLib:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

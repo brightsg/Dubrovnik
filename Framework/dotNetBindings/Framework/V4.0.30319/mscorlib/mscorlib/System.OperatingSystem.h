@@ -2,7 +2,7 @@
 //
 // Managed class : OperatingSystem
 //
-@interface System_OperatingSystem : DBMonoObjectRepresentation
+@interface System_OperatingSystem : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,17 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.PlatformID
-    - (System_PlatformID)platform;
+	// Managed property name : Platform
+	// Managed property type : System.PlatformID
+    @property (nonatomic, readonly) System_PlatformID platform;
 
-	// Managed type : System.String
-    - (NSString *)servicePack;
+	// Managed property name : ServicePack
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * servicePack;
 
-	// Managed type : System.Version
-    - (System_Version *)version;
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @property (nonatomic, strong, readonly) System_Version * version;
 
-	// Managed type : System.String
-    - (NSString *)versionString;
+	// Managed property name : VersionString
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * versionString;
 
 #pragma mark -
 #pragma mark Methods
@@ -40,7 +44,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void

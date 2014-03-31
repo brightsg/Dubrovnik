@@ -3,6 +3,12 @@
 //
 // Managed class : ResourceExposureAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Versioning_ResourceExposureAttribute
 
 #pragma mark -
@@ -32,12 +38,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Versioning.ResourceScope
+	// Managed property name : ResourceExposureLevel
+	// Managed property type : System.Runtime.Versioning.ResourceScope
+    @synthesize resourceExposureLevel = _resourceExposureLevel;
     - (System_Runtime_Versioning_ResourceScope)resourceExposureLevel
     {
-		MonoObject * monoObject = [self getMonoProperty:"ResourceExposureLevel"];
-		System_Runtime_Versioning_ResourceScope result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ResourceExposureLevel"];
+		_resourceExposureLevel = DB_UNBOX_INT32(monoObject);
+
+		return _resourceExposureLevel;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

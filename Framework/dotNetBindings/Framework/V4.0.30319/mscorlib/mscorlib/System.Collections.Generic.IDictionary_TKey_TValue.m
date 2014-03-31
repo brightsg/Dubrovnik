@@ -3,6 +3,12 @@
 //
 // Managed interface : IDictionary<TKey, TValue>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Generic_IDictionary
 
 #pragma mark -
@@ -21,35 +27,46 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <TValue>
-    - (DBMonoObjectRepresentation *)item
+	// Managed property name : Item
+	// Managed property type : <TValue>
+    @synthesize item = _item;
+    - (DBManagedObject *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item;
 	}
-    - (void)setItem:(DBMonoObjectRepresentation *)value
+    - (void)setItem:(DBManagedObject *)value
 	{
+		_item = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Item" valueObject:monoObject];          
 	}
 
-	// Managed type : ICollection<TKey>
+	// Managed property name : Keys
+	// Managed property type : ICollection<TKey>
+    @synthesize keys = _keys;
     - (ICollection *)keys
     {
-		MonoObject * monoObject = [self getMonoProperty:"Keys"];
-		ICollection * result = [ICollection representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"TKey";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Keys"];
+		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
+		_keys = [ICollection objectWithMonoObject:monoObject];
+
+		return _keys;
 	}
 
-	// Managed type : ICollection<TValue>
+	// Managed property name : Values
+	// Managed property type : ICollection<TValue>
+    @synthesize values = _values;
     - (ICollection *)values
     {
-		MonoObject * monoObject = [self getMonoProperty:"Values"];
-		ICollection * result = [ICollection representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"TValue";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Values"];
+		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
+		_values = [ICollection objectWithMonoObject:monoObject];
+
+		return _values;
 	}
 
 #pragma mark -
@@ -58,7 +75,7 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : <TKey>, <TValue>
-    - (void)add_withKey:(DBMonoObjectRepresentation *)p1 value:(DBMonoObjectRepresentation *)p2
+    - (void)add_withKey:(DBManagedObject *)p1 value:(DBManagedObject *)p2
     {
 		[self invokeMonoMethod:"Add(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -66,7 +83,7 @@
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)containsKey_withKey:(DBMonoObjectRepresentation *)p1
+    - (BOOL)containsKey_withKey:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -75,7 +92,7 @@
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)remove_withKey:(DBMonoObjectRepresentation *)p1
+    - (BOOL)remove_withKey:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -84,10 +101,16 @@
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(DBMonoObjectRepresentation *)p1 valueRef:(TValue **)p2
+    - (BOOL)tryGetValue_withKey:(DBManagedObject *)p1 valueRef:(TValue **)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(Dubrovnik.Generic.Parameter,TValue&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

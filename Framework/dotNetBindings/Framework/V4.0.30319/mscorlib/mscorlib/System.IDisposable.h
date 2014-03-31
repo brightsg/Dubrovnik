@@ -2,7 +2,7 @@
 //
 // Managed interface : IDisposable
 //
-@interface System_IDisposable : DBMonoObjectRepresentation
+@interface System_IDisposable : System_Object
 
 #pragma mark -
 #pragma mark Setup

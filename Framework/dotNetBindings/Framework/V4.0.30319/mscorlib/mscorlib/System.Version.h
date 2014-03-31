@@ -2,7 +2,7 @@
 //
 // Managed class : Version
 //
-@interface System_Version : DBMonoObjectRepresentation
+@interface System_Version : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -37,23 +37,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)build;
+	// Managed property name : Build
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t build;
 
-	// Managed type : System.Int32
-    - (int32_t)major;
+	// Managed property name : Major
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t major;
 
-	// Managed type : System.Int16
-    - (int16_t)majorRevision;
+	// Managed property name : MajorRevision
+	// Managed property type : System.Int16
+    @property (nonatomic, readonly) int16_t majorRevision;
 
-	// Managed type : System.Int32
-    - (int32_t)minor;
+	// Managed property name : Minor
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t minor;
 
-	// Managed type : System.Int16
-    - (int16_t)minorRevision;
+	// Managed property name : MinorRevision
+	// Managed property type : System.Int16
+    @property (nonatomic, readonly) int16_t minorRevision;
 
-	// Managed type : System.Int32
-    - (int32_t)revision;
+	// Managed property name : Revision
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t revision;
 
 #pragma mark -
 #pragma mark Methods
@@ -61,12 +67,12 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withVersion:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withVersion:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -76,7 +82,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

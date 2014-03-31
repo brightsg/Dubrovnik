@@ -3,6 +3,12 @@
 //
 // Managed class : ParameterBuilder
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_ParameterBuilder
 
 #pragma mark -
@@ -21,52 +27,71 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Attributes
+	// Managed property type : System.Int32
+    @synthesize attributes = _attributes;
     - (int32_t)attributes
     {
-		MonoObject * monoObject = [self getMonoProperty:"Attributes"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Attributes"];
+		_attributes = DB_UNBOX_INT32(monoObject);
+
+		return _attributes;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsIn
+	// Managed property type : System.Boolean
+    @synthesize isIn = _isIn;
     - (BOOL)isIn
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsIn"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsIn"];
+		_isIn = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isIn;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsOptional
+	// Managed property type : System.Boolean
+    @synthesize isOptional = _isOptional;
     - (BOOL)isOptional
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsOptional"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsOptional"];
+		_isOptional = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isOptional;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsOut
+	// Managed property type : System.Boolean
+    @synthesize isOut = _isOut;
     - (BOOL)isOut
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsOut"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsOut"];
+		_isOut = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isOut;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Position
+	// Managed property type : System.Int32
+    @synthesize position = _position;
     - (int32_t)position
     {
-		MonoObject * monoObject = [self getMonoProperty:"Position"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Position"];
+		_position = DB_UNBOX_INT32(monoObject);
+
+		return _position;
 	}
 
 #pragma mark -
@@ -78,13 +103,13 @@
     - (System_Reflection_Emit_ParameterToken *)getToken
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetToken()" withNumArgs:0];
-		return [System_Reflection_Emit_ParameterToken representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_ParameterToken objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetConstant
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)setConstant_withDefaultValue:(DBMonoObjectRepresentation *)p1
+    - (void)setConstant_withDefaultValue:(System_Object *)p1
     {
 		[self invokeMonoMethod:"SetConstant(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -112,5 +137,11 @@
     {
 		[self invokeMonoMethod:"SetMarshal(System.Reflection.Emit.UnmanagedMarshal)" withNumArgs:1, [p1 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

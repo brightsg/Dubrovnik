@@ -3,6 +3,12 @@
 //
 // Managed class : KoreanLunisolarCalendar
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Globalization_KoreanLunisolarCalendar
 
 #pragma mark -
@@ -21,39 +27,54 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : GregorianEra
+	// Managed field type : System.Int32
+    static int32_t m_gregorianEra;
     + (int32_t)gregorianEra
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"GregorianEra" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_gregorianEra = monoObject;
+		return m_gregorianEra;
 	}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32[]
+	// Managed property name : Eras
+	// Managed property type : System.Int32[]
+    @synthesize eras = _eras;
     - (DBSystem_Array *)eras
     {
-		MonoObject * monoObject = [self getMonoProperty:"Eras"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Eras"];
+		if ([self object:_eras isEqualToMonoObject:monoObject]) return _eras;					
+		_eras = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _eras;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : MaxSupportedDateTime
+	// Managed property type : System.DateTime
+    @synthesize maxSupportedDateTime = _maxSupportedDateTime;
     - (NSDate *)maxSupportedDateTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"MaxSupportedDateTime"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MaxSupportedDateTime"];
+		if ([self object:_maxSupportedDateTime isEqualToMonoObject:monoObject]) return _maxSupportedDateTime;					
+		_maxSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _maxSupportedDateTime;
 	}
 
-	// Managed type : System.DateTime
+	// Managed property name : MinSupportedDateTime
+	// Managed property type : System.DateTime
+    @synthesize minSupportedDateTime = _minSupportedDateTime;
     - (NSDate *)minSupportedDateTime
     {
-		MonoObject * monoObject = [self getMonoProperty:"MinSupportedDateTime"];
-		NSDate * result = [NSDate dateWithMonoDateTime:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MinSupportedDateTime"];
+		if ([self object:_minSupportedDateTime isEqualToMonoObject:monoObject]) return _minSupportedDateTime;					
+		_minSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _minSupportedDateTime;
 	}
 
 #pragma mark -
@@ -67,5 +88,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEra(System.DateTime)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

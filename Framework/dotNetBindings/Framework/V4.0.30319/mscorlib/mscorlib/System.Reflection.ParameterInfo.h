@@ -2,7 +2,7 @@
 //
 // Managed class : ParameterInfo
 //
-@interface System_Reflection_ParameterInfo : DBMonoObjectRepresentation
+@interface System_Reflection_ParameterInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,50 +14,65 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.ParameterAttributes
-    - (System_Reflection_ParameterAttributes)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Reflection.ParameterAttributes
+    @property (nonatomic, readonly) System_Reflection_ParameterAttributes attributes;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    - (System_Collections_Generic_IEnumerable *)customAttributes;
+	// Managed property name : CustomAttributes
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)defaultValue;
+	// Managed property name : DefaultValue
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * defaultValue;
 
-	// Managed type : System.Boolean
-    - (BOOL)hasDefaultValue;
+	// Managed property name : HasDefaultValue
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL hasDefaultValue;
 
-	// Managed type : System.Boolean
-    - (BOOL)isIn;
+	// Managed property name : IsIn
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isIn;
 
-	// Managed type : System.Boolean
-    - (BOOL)isLcid;
+	// Managed property name : IsLcid
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isLcid;
 
-	// Managed type : System.Boolean
-    - (BOOL)isOptional;
+	// Managed property name : IsOptional
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isOptional;
 
-	// Managed type : System.Boolean
-    - (BOOL)isOut;
+	// Managed property name : IsOut
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isOut;
 
-	// Managed type : System.Boolean
-    - (BOOL)isRetval;
+	// Managed property name : IsRetval
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isRetval;
 
-	// Managed type : System.Reflection.MemberInfo
-    - (System_Reflection_MemberInfo *)member;
+	// Managed property name : Member
+	// Managed property type : System.Reflection.MemberInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MemberInfo * member;
 
-	// Managed type : System.Int32
-    - (int32_t)metadataToken;
+	// Managed property name : MetadataToken
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t metadataToken;
 
-	// Managed type : System.String
-    - (NSString *)name;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
 
-	// Managed type : System.Type
-    - (System_Type *)parameterType;
+	// Managed property name : ParameterType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * parameterType;
 
-	// Managed type : System.Int32
-    - (int32_t)position;
+	// Managed property name : Position
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t position;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)rawDefaultValue;
+	// Managed property name : RawDefaultValue
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * rawDefaultValue;
 
 #pragma mark -
 #pragma mark Methods
@@ -85,7 +100,7 @@
 	// Managed method name : GetRealObject
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Serialization.StreamingContext
-    - (DBMonoObjectRepresentation *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1;
+    - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1;
 
 	// Managed method name : GetRequiredCustomModifiers
 	// Managed return type : System.Type[]

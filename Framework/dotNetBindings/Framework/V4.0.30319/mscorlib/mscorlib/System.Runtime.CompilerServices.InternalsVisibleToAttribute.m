@@ -3,6 +3,12 @@
 //
 // Managed class : InternalsVisibleToAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_InternalsVisibleToAttribute
 
 #pragma mark -
@@ -32,25 +38,39 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : AllInternalsVisible
+	// Managed property type : System.Boolean
+    @synthesize allInternalsVisible = _allInternalsVisible;
     - (BOOL)allInternalsVisible
     {
-		MonoObject * monoObject = [self getMonoProperty:"AllInternalsVisible"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AllInternalsVisible"];
+		_allInternalsVisible = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _allInternalsVisible;
 	}
     - (void)setAllInternalsVisible:(BOOL)value
 	{
+		_allInternalsVisible = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"AllInternalsVisible" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : AssemblyName
+	// Managed property type : System.String
+    @synthesize assemblyName = _assemblyName;
     - (NSString *)assemblyName
     {
-		MonoObject * monoObject = [self getMonoProperty:"AssemblyName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AssemblyName"];
+		if ([self object:_assemblyName isEqualToMonoObject:monoObject]) return _assemblyName;					
+		_assemblyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _assemblyName;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

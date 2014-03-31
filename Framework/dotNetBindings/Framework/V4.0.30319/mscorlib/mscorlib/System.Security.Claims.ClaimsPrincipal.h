@@ -2,7 +2,7 @@
 //
 // Managed class : ClaimsPrincipal
 //
-@interface System_Security_Claims_ClaimsPrincipal : DBMonoObjectRepresentation
+@interface System_Security_Claims_ClaimsPrincipal : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -32,23 +32,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)claims;
+	// Managed property name : Claims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * claims;
 
-	// Managed type : System.Func<System.Security.Claims.ClaimsPrincipal>
+	// Managed property name : ClaimsPrincipalSelector
+	// Managed property type : System.Func<System.Security.Claims.ClaimsPrincipal>
     + (System_Func *)claimsPrincipalSelector;
     + (void)setClaimsPrincipalSelector:(System_Func *)value;
 
-	// Managed type : System.Security.Claims.ClaimsPrincipal
+	// Managed property name : Current
+	// Managed property type : System.Security.Claims.ClaimsPrincipal
     + (System_Security_Claims_ClaimsPrincipal *)current;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>
-    - (System_Collections_Generic_IEnumerable *)identities;
+	// Managed property name : Identities
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * identities;
 
-	// Managed type : System.Security.Principal.IIdentity
-    - (System_Security_Principal_IIdentity *)identity;
+	// Managed property name : Identity
+	// Managed property type : System.Security.Principal.IIdentity
+    @property (nonatomic, strong, readonly) System_Security_Principal_IIdentity * identity;
 
-	// Managed type : System.Func<System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>, System.Security.Claims.ClaimsIdentity>
+	// Managed property name : PrimaryIdentitySelector
+	// Managed property type : System.Func<System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>, System.Security.Claims.ClaimsIdentity>
     + (System_Func *)primaryIdentitySelector;
     + (void)setPrimaryIdentitySelector:(System_Func *)value;
 

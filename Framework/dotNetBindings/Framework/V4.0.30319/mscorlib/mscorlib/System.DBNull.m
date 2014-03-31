@@ -3,6 +3,12 @@
 //
 // Managed class : DBNull
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_DBNull
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.DBNull
+	// Managed field name : Value
+	// Managed field type : System.DBNull
+    static System_DBNull * m_value;
     + (System_DBNull *)value
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Value" valuePtr:DB_PTR(monoObject)];
-		return [System_DBNull representationWithMonoObject:monoObject];
+		if ([self object:m_value isEqualToMonoObject:monoObject]) return m_value;					
+		m_value = [System_DBNull objectWithMonoObject:monoObject];
+		return m_value;
 	}
 
 #pragma mark -
@@ -66,5 +76,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_value = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

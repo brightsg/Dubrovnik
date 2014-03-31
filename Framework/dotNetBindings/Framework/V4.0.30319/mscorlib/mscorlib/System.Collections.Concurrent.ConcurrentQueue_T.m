@@ -3,6 +3,12 @@
 //
 // Managed class : ConcurrentQueue<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Concurrent_ConcurrentQueue
 
 #pragma mark -
@@ -32,20 +38,26 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsEmpty
+	// Managed property type : System.Boolean
+    @synthesize isEmpty = _isEmpty;
     - (BOOL)isEmpty
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsEmpty"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsEmpty"];
+		_isEmpty = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isEmpty;
 	}
 
 #pragma mark -
@@ -62,7 +74,7 @@
 	// Managed method name : Enqueue
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)enqueue_withItem:(DBMonoObjectRepresentation *)p1
+    - (void)enqueue_withItem:(DBManagedObject *)p1
     {
 		[self invokeMonoMethod:"Enqueue(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
     }
@@ -73,7 +85,7 @@
     - (IEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [IEnumerator representationWithMonoObject:monoObject];
+		return [IEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToArray
@@ -82,7 +94,7 @@
     - (DBSystem_Array *)toArray
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : TryDequeue
@@ -102,5 +114,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryPeek(T&)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

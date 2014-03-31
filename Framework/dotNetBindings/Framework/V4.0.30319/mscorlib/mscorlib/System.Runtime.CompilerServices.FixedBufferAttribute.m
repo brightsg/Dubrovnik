@@ -3,6 +3,12 @@
 //
 // Managed class : FixedBufferAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_FixedBufferAttribute
 
 #pragma mark -
@@ -32,20 +38,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : ElementType
+	// Managed property type : System.Type
+    @synthesize elementType = _elementType;
     - (System_Type *)elementType
     {
-		MonoObject * monoObject = [self getMonoProperty:"ElementType"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ElementType"];
+		if ([self object:_elementType isEqualToMonoObject:monoObject]) return _elementType;					
+		_elementType = [System_Type objectWithMonoObject:monoObject];
+
+		return _elementType;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @synthesize length = _length;
     - (int32_t)length
     {
-		MonoObject * monoObject = [self getMonoProperty:"Length"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Length"];
+		_length = DB_UNBOX_INT32(monoObject);
+
+		return _length;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

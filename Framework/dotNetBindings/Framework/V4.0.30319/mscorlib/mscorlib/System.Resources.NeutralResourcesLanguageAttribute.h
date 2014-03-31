@@ -27,10 +27,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)cultureName;
+	// Managed property name : CultureName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * cultureName;
 
-	// Managed type : System.Resources.UltimateResourceFallbackLocation
-    - (System_Resources_UltimateResourceFallbackLocation)location;
+	// Managed property name : Location
+	// Managed property type : System.Resources.UltimateResourceFallbackLocation
+    @property (nonatomic, readonly) System_Resources_UltimateResourceFallbackLocation location;
 @end
 //--Dubrovnik.CodeGenerator

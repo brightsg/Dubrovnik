@@ -2,7 +2,7 @@
 //
 // Managed interface : IEnumerator<T>
 //
-@interface System_Collections_Generic_IEnumerator : DBMonoObjectRepresentation
+@interface System_Collections_Generic_IEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)current;
+	// Managed property name : Current
+	// Managed property type : <T>
+    @property (nonatomic, strong, readonly) DBManagedObject * current;
 @end
 //--Dubrovnik.CodeGenerator

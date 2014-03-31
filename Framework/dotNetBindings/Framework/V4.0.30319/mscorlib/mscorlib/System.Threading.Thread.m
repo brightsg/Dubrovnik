@@ -3,6 +3,12 @@
 //
 // Managed class : Thread
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Thread
 
 #pragma mark -
@@ -56,151 +62,207 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.ApartmentState
+	// Managed property name : ApartmentState
+	// Managed property type : System.Threading.ApartmentState
+    @synthesize apartmentState = _apartmentState;
     - (System_Threading_ApartmentState)apartmentState
     {
-		MonoObject * monoObject = [self getMonoProperty:"ApartmentState"];
-		System_Threading_ApartmentState result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ApartmentState"];
+		_apartmentState = DB_UNBOX_INT32(monoObject);
+
+		return _apartmentState;
 	}
     - (void)setApartmentState:(System_Threading_ApartmentState)value
 	{
+		_apartmentState = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"ApartmentState" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.Remoting.Contexts.Context
+	// Managed property name : CurrentContext
+	// Managed property type : System.Runtime.Remoting.Contexts.Context
+    static System_Runtime_Remoting_Contexts_Context * m_currentContext;
     + (System_Runtime_Remoting_Contexts_Context *)currentContext
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CurrentContext"];
-		System_Runtime_Remoting_Contexts_Context * result = [System_Runtime_Remoting_Contexts_Context representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentContext"];
+		if ([self object:m_currentContext isEqualToMonoObject:monoObject]) return m_currentContext;					
+		m_currentContext = [System_Runtime_Remoting_Contexts_Context objectWithMonoObject:monoObject];
+
+		return m_currentContext;
 	}
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : CurrentCulture
+	// Managed property type : System.Globalization.CultureInfo
+    @synthesize currentCulture = _currentCulture;
     - (System_Globalization_CultureInfo *)currentCulture
     {
-		MonoObject * monoObject = [self getMonoProperty:"CurrentCulture"];
-		System_Globalization_CultureInfo * result = [System_Globalization_CultureInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CurrentCulture"];
+		if ([self object:_currentCulture isEqualToMonoObject:monoObject]) return _currentCulture;					
+		_currentCulture = [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
+
+		return _currentCulture;
 	}
     - (void)setCurrentCulture:(System_Globalization_CultureInfo *)value
 	{
+		_currentCulture = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"CurrentCulture" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Principal.IPrincipal
+	// Managed property name : CurrentPrincipal
+	// Managed property type : System.Security.Principal.IPrincipal
+    static System_Security_Principal_IPrincipal * m_currentPrincipal;
     + (System_Security_Principal_IPrincipal *)currentPrincipal
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CurrentPrincipal"];
-		System_Security_Principal_IPrincipal * result = [System_Security_Principal_IPrincipal representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentPrincipal"];
+		if ([self object:m_currentPrincipal isEqualToMonoObject:monoObject]) return m_currentPrincipal;					
+		m_currentPrincipal = [System_Security_Principal_IPrincipal objectWithMonoObject:monoObject];
+
+		return m_currentPrincipal;
 	}
     + (void)setCurrentPrincipal:(System_Security_Principal_IPrincipal *)value
 	{
+		m_currentPrincipal = value;
 		MonoObject *monoObject = [value monoObject];
 		[[self class] setMonoClassProperty:"CurrentPrincipal" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Threading.Thread
+	// Managed property name : CurrentThread
+	// Managed property type : System.Threading.Thread
+    static System_Threading_Thread * m_currentThread;
     + (System_Threading_Thread *)currentThread
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"CurrentThread"];
-		System_Threading_Thread * result = [System_Threading_Thread representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentThread"];
+		if ([self object:m_currentThread isEqualToMonoObject:monoObject]) return m_currentThread;					
+		m_currentThread = [System_Threading_Thread objectWithMonoObject:monoObject];
+
+		return m_currentThread;
 	}
 
-	// Managed type : System.Globalization.CultureInfo
+	// Managed property name : CurrentUICulture
+	// Managed property type : System.Globalization.CultureInfo
+    @synthesize currentUICulture = _currentUICulture;
     - (System_Globalization_CultureInfo *)currentUICulture
     {
-		MonoObject * monoObject = [self getMonoProperty:"CurrentUICulture"];
-		System_Globalization_CultureInfo * result = [System_Globalization_CultureInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CurrentUICulture"];
+		if ([self object:_currentUICulture isEqualToMonoObject:monoObject]) return _currentUICulture;					
+		_currentUICulture = [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
+
+		return _currentUICulture;
 	}
     - (void)setCurrentUICulture:(System_Globalization_CultureInfo *)value
 	{
+		_currentUICulture = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"CurrentUICulture" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Threading.ExecutionContext
+	// Managed property name : ExecutionContext
+	// Managed property type : System.Threading.ExecutionContext
+    @synthesize executionContext = _executionContext;
     - (System_Threading_ExecutionContext *)executionContext
     {
-		MonoObject * monoObject = [self getMonoProperty:"ExecutionContext"];
-		System_Threading_ExecutionContext * result = [System_Threading_ExecutionContext representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ExecutionContext"];
+		if ([self object:_executionContext isEqualToMonoObject:monoObject]) return _executionContext;					
+		_executionContext = [System_Threading_ExecutionContext objectWithMonoObject:monoObject];
+
+		return _executionContext;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsAlive
+	// Managed property type : System.Boolean
+    @synthesize isAlive = _isAlive;
     - (BOOL)isAlive
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsAlive"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsAlive"];
+		_isAlive = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isAlive;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsBackground
+	// Managed property type : System.Boolean
+    @synthesize isBackground = _isBackground;
     - (BOOL)isBackground
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsBackground"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsBackground"];
+		_isBackground = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isBackground;
 	}
     - (void)setIsBackground:(BOOL)value
 	{
+		_isBackground = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IsBackground" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsThreadPoolThread
+	// Managed property type : System.Boolean
+    @synthesize isThreadPoolThread = _isThreadPoolThread;
     - (BOOL)isThreadPoolThread
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsThreadPoolThread"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsThreadPoolThread"];
+		_isThreadPoolThread = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isThreadPoolThread;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : ManagedThreadId
+	// Managed property type : System.Int32
+    @synthesize managedThreadId = _managedThreadId;
     - (int32_t)managedThreadId
     {
-		MonoObject * monoObject = [self getMonoProperty:"ManagedThreadId"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ManagedThreadId"];
+		_managedThreadId = DB_UNBOX_INT32(monoObject);
+
+		return _managedThreadId;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Name
+	// Managed property type : System.String
+    @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject = [self getMonoProperty:"Name"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
+		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _name;
 	}
     - (void)setName:(NSString *)value
 	{
+		_name = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Threading.ThreadPriority
+	// Managed property name : Priority
+	// Managed property type : System.Threading.ThreadPriority
+    @synthesize priority = _priority;
     - (System_Threading_ThreadPriority)priority
     {
-		MonoObject * monoObject = [self getMonoProperty:"Priority"];
-		System_Threading_ThreadPriority result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Priority"];
+		_priority = DB_UNBOX_INT32(monoObject);
+
+		return _priority;
 	}
     - (void)setPriority:(System_Threading_ThreadPriority)value
 	{
+		_priority = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Priority" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Threading.ThreadState
+	// Managed property name : ThreadState
+	// Managed property type : System.Threading.ThreadState
+    @synthesize threadState = _threadState;
     - (System_Threading_ThreadState)threadState
     {
-		MonoObject * monoObject = [self getMonoProperty:"ThreadState"];
-		System_Threading_ThreadState result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ThreadState"];
+		_threadState = DB_UNBOX_INT32(monoObject);
+
+		return _threadState;
 	}
 
 #pragma mark -
@@ -209,7 +271,7 @@
 	// Managed method name : Abort
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)abort_withStateInfo:(DBMonoObjectRepresentation *)p1
+    - (void)abort_withStateInfo:(System_Object *)p1
     {
 		[self invokeMonoMethod:"Abort(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -228,7 +290,7 @@
     - (System_LocalDataStoreSlot *)allocateDataSlot
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AllocateDataSlot()" withNumArgs:0];
-		return [System_LocalDataStoreSlot representationWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AllocateNamedDataSlot
@@ -237,7 +299,7 @@
     - (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_LocalDataStoreSlot representationWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BeginCriticalRegion
@@ -303,16 +365,16 @@
     - (System_Threading_CompressedStack *)getCompressedStack
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCompressedStack()" withNumArgs:0];
-		return [System_Threading_CompressedStack representationWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.LocalDataStoreSlot
-    - (DBMonoObjectRepresentation *)getData_withSlot:(System_LocalDataStoreSlot *)p1
+    - (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDomain
@@ -321,7 +383,7 @@
     - (System_AppDomain *)getDomain
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDomain()" withNumArgs:0];
-		return [System_AppDomain representationWithMonoObject:monoObject];
+		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDomainID
@@ -348,7 +410,7 @@
     - (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_LocalDataStoreSlot representationWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Interrupt
@@ -428,7 +490,7 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.LocalDataStoreSlot, System.Object
-    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(DBMonoObjectRepresentation *)p2
+    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
     {
 		[self invokeMonoMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -468,7 +530,7 @@
 	// Managed method name : Start
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)start_withParameter:(DBMonoObjectRepresentation *)p1
+    - (void)start_withParameter:(System_Object *)p1
     {
 		[self invokeMonoMethod:"Start(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -601,10 +663,10 @@
 	// Managed method name : VolatileRead
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&
-    - (DBMonoObjectRepresentation *)volatileRead_withAddressObjectRef:(DBMonoObjectRepresentation **)p1
+    - (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(object&)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : VolatileWrite
@@ -706,7 +768,7 @@
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Object&, System.Object
-    - (void)volatileWrite_withAddressObjectRef:(DBMonoObjectRepresentation **)p1 valueObject:(DBMonoObjectRepresentation *)p2
+    - (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
 		[self invokeMonoMethod:"VolatileWrite(object&,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -719,5 +781,14 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"Yield()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_currentContext = nil;
+		m_currentPrincipal = nil;
+		m_currentThread = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

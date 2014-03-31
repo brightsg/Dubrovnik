@@ -14,13 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)effectiveKeySize;
-    - (void)setEffectiveKeySize:(int32_t)value;
+	// Managed property name : EffectiveKeySize
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t effectiveKeySize;
 
-	// Managed type : System.Int32
-    - (int32_t)keySize;
-    - (void)setKeySize:(int32_t)value;
+	// Managed property name : KeySize
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t keySize;
 
 #pragma mark -
 #pragma mark Methods

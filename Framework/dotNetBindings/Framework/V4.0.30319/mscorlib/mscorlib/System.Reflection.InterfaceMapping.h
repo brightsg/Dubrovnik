@@ -2,7 +2,7 @@
 //
 // Managed struct : InterfaceMapping
 //
-@interface System_Reflection_InterfaceMapping : DBMonoObjectRepresentation
+@interface System_Reflection_InterfaceMapping : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,20 +14,20 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Reflection.MethodInfo[]
-    - (DBSystem_Array *)interfaceMethods;
-    - (void)setInterfaceMethods:(DBSystem_Array *)value;
+	// Managed field name : InterfaceMethods
+	// Managed field type : System.Reflection.MethodInfo[]
+    @property (nonatomic, strong) DBSystem_Array * interfaceMethods;
 
-	// Managed type : System.Type
-    - (System_Type *)interfaceType;
-    - (void)setInterfaceType:(System_Type *)value;
+	// Managed field name : InterfaceType
+	// Managed field type : System.Type
+    @property (nonatomic, strong) System_Type * interfaceType;
 
-	// Managed type : System.Reflection.MethodInfo[]
-    - (DBSystem_Array *)targetMethods;
-    - (void)setTargetMethods:(DBSystem_Array *)value;
+	// Managed field name : TargetMethods
+	// Managed field type : System.Reflection.MethodInfo[]
+    @property (nonatomic, strong) DBSystem_Array * targetMethods;
 
-	// Managed type : System.Type
-    - (System_Type *)targetType;
-    - (void)setTargetType:(System_Type *)value;
+	// Managed field name : TargetType
+	// Managed field type : System.Type
+    @property (nonatomic, strong) System_Type * targetType;
 @end
 //--Dubrovnik.CodeGenerator

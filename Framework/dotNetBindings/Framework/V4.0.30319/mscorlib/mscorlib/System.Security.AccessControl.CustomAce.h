@@ -22,17 +22,20 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : MaxOpaqueLength
+	// Managed field type : System.Int32
     + (int32_t)maxOpaqueLength;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.Int32
-    - (int32_t)opaqueLength;
+	// Managed property name : OpaqueLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t opaqueLength;
 
 #pragma mark -
 #pragma mark Methods

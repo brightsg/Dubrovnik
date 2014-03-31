@@ -2,7 +2,7 @@
 //
 // Managed class : TrackingServices
 //
-@interface System_Runtime_Remoting_Services_TrackingServices : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Services_TrackingServices : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Services.ITrackingHandler[]
+	// Managed property name : RegisteredHandlers
+	// Managed property type : System.Runtime.Remoting.Services.ITrackingHandler[]
     + (DBSystem_Array *)registeredHandlers;
 
 #pragma mark -

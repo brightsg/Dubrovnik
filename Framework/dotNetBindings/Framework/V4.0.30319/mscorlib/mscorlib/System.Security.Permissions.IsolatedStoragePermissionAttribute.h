@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.IsolatedStorageContainment
-    - (System_Security_Permissions_IsolatedStorageContainment)usageAllowed;
-    - (void)setUsageAllowed:(System_Security_Permissions_IsolatedStorageContainment)value;
+	// Managed property name : UsageAllowed
+	// Managed property type : System.Security.Permissions.IsolatedStorageContainment
+    @property (nonatomic) System_Security_Permissions_IsolatedStorageContainment usageAllowed;
 
-	// Managed type : System.Int64
-    - (int64_t)userQuota;
-    - (void)setUserQuota:(int64_t)value;
+	// Managed property name : UserQuota
+	// Managed property type : System.Int64
+    @property (nonatomic) int64_t userQuota;
 @end
 //--Dubrovnik.CodeGenerator

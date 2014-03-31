@@ -3,6 +3,12 @@
 //
 // Managed class : Context
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Contexts_Context
 
 #pragma mark -
@@ -21,28 +27,39 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : ContextID
+	// Managed property type : System.Int32
+    @synthesize contextID = _contextID;
     - (int32_t)contextID
     {
-		MonoObject * monoObject = [self getMonoProperty:"ContextID"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ContextID"];
+		_contextID = DB_UNBOX_INT32(monoObject);
+
+		return _contextID;
 	}
 
-	// Managed type : System.Runtime.Remoting.Contexts.IContextProperty[]
+	// Managed property name : ContextProperties
+	// Managed property type : System.Runtime.Remoting.Contexts.IContextProperty[]
+    @synthesize contextProperties = _contextProperties;
     - (DBSystem_Array *)contextProperties
     {
-		MonoObject * monoObject = [self getMonoProperty:"ContextProperties"];
-		DBSystem_Array * result = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ContextProperties"];
+		if ([self object:_contextProperties isEqualToMonoObject:monoObject]) return _contextProperties;					
+		_contextProperties = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _contextProperties;
 	}
 
-	// Managed type : System.Runtime.Remoting.Contexts.Context
+	// Managed property name : DefaultContext
+	// Managed property type : System.Runtime.Remoting.Contexts.Context
+    static System_Runtime_Remoting_Contexts_Context * m_defaultContext;
     + (System_Runtime_Remoting_Contexts_Context *)defaultContext
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"DefaultContext"];
-		System_Runtime_Remoting_Contexts_Context * result = [System_Runtime_Remoting_Contexts_Context representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"DefaultContext"];
+		if ([self object:m_defaultContext isEqualToMonoObject:monoObject]) return m_defaultContext;					
+		m_defaultContext = [System_Runtime_Remoting_Contexts_Context objectWithMonoObject:monoObject];
+
+		return m_defaultContext;
 	}
 
 #pragma mark -
@@ -54,7 +71,7 @@
     - (System_LocalDataStoreSlot *)allocateDataSlot
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AllocateDataSlot()" withNumArgs:0];
-		return [System_LocalDataStoreSlot representationWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AllocateNamedDataSlot
@@ -63,7 +80,7 @@
     - (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_LocalDataStoreSlot representationWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DoCallBack
@@ -93,10 +110,10 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.LocalDataStoreSlot
-    - (DBMonoObjectRepresentation *)getData_withSlot:(System_LocalDataStoreSlot *)p1
+    - (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNamedDataSlot
@@ -105,7 +122,7 @@
     - (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_LocalDataStoreSlot representationWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetProperty
@@ -114,7 +131,7 @@
     - (System_Runtime_Remoting_Contexts_IContextProperty *)getProperty_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Contexts_IContextProperty representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Contexts_IContextProperty objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterDynamicProperty
@@ -129,7 +146,7 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.LocalDataStoreSlot, System.Object
-    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(DBMonoObjectRepresentation *)p2
+    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
     {
 		[self invokeMonoMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -159,5 +176,12 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"UnregisterDynamicProperty(string,System.ContextBoundObject,System.Runtime.Remoting.Contexts.Context)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_defaultContext = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

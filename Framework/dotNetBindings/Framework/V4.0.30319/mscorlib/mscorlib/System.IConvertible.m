@@ -3,6 +3,12 @@
 //
 // Managed interface : IConvertible
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IConvertible
 
 #pragma mark -
@@ -141,10 +147,10 @@
 	// Managed method name : ToType
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.IFormatProvider
-    - (DBMonoObjectRepresentation *)toType_withConversionType:(System_Type *)p1 provider:(System_IFormatProvider *)p2
+    - (System_Object *)toType_withConversionType:(System_Type *)p1 provider:(System_IFormatProvider *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToType(System.Type,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToUInt16
@@ -173,5 +179,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUInt64(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_UINT64(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

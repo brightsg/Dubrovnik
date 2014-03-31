@@ -2,7 +2,7 @@
 //
 // Managed interface : ICustomFormatter
 //
-@interface System_ICustomFormatter : DBMonoObjectRepresentation
+@interface System_ICustomFormatter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : Format
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object, System.IFormatProvider
-    - (NSString *)format_withFormat:(NSString *)p1 arg:(DBMonoObjectRepresentation *)p2 formatProvider:(System_IFormatProvider *)p3;
+    - (NSString *)format_withFormat:(NSString *)p1 arg:(System_Object *)p2 formatProvider:(System_IFormatProvider *)p3;
 @end
 //--Dubrovnik.CodeGenerator

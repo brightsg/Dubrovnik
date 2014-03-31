@@ -22,8 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.X509Certificates.X509Certificate
-    - (System_Security_Cryptography_X509Certificates_X509Certificate *)certificate;
+	// Managed property name : Certificate
+	// Managed property type : System.Security.Cryptography.X509Certificates.X509Certificate
+    @property (nonatomic, strong, readonly) System_Security_Cryptography_X509Certificates_X509Certificate * certificate;
 
 #pragma mark -
 #pragma mark Methods
@@ -36,7 +37,7 @@
 	// Managed method name : Copy
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)copy;
+    - (System_Object *)copy;
 
 	// Managed method name : CreateIdentityPermission
 	// Managed return type : System.Security.IPermission
@@ -46,7 +47,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

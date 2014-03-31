@@ -3,6 +3,12 @@
 //
 // Managed class : ExceptionDispatchInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_ExceptionServices_ExceptionDispatchInfo
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Exception
+	// Managed property name : SourceException
+	// Managed property type : System.Exception
+    @synthesize sourceException = _sourceException;
     - (System_Exception *)sourceException
     {
-		MonoObject * monoObject = [self getMonoProperty:"SourceException"];
-		System_Exception * result = [System_Exception representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SourceException"];
+		if ([self object:_sourceException isEqualToMonoObject:monoObject]) return _sourceException;					
+		_sourceException = [System_Exception objectWithMonoObject:monoObject];
+
+		return _sourceException;
 	}
 
 #pragma mark -
@@ -38,7 +48,7 @@
     - (System_Runtime_ExceptionServices_ExceptionDispatchInfo *)capture_withSource:(System_Exception *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Capture(System.Exception)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_ExceptionServices_ExceptionDispatchInfo representationWithMonoObject:monoObject];
+		return [System_Runtime_ExceptionServices_ExceptionDispatchInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Throw
@@ -48,5 +58,11 @@
     {
 		[self invokeMonoMethod:"Throw()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

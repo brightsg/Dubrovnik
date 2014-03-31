@@ -2,7 +2,7 @@
 //
 // Managed interface : IClientChannelSink
 //
-@interface System_Runtime_Remoting_Channels_IClientChannelSink : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_IClientChannelSink : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Channels.IClientChannelSink
-    - (System_Runtime_Remoting_Channels_IClientChannelSink *)nextChannelSink;
+	// Managed property name : NextChannelSink
+	// Managed property type : System.Runtime.Remoting.Channels.IClientChannelSink
+    @property (nonatomic, strong, readonly) System_Runtime_Remoting_Channels_IClientChannelSink * nextChannelSink;
 
 #pragma mark -
 #pragma mark Methods
@@ -28,7 +29,7 @@
 	// Managed method name : AsyncProcessResponse
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack, System.Object, System.Runtime.Remoting.Channels.ITransportHeaders, System.IO.Stream
-    - (void)asyncProcessResponse_withSinkStack:(System_Runtime_Remoting_Channels_IClientResponseChannelSinkStack *)p1 state:(DBMonoObjectRepresentation *)p2 headers:(System_Runtime_Remoting_Channels_ITransportHeaders *)p3 stream:(System_IO_Stream *)p4;
+    - (void)asyncProcessResponse_withSinkStack:(System_Runtime_Remoting_Channels_IClientResponseChannelSinkStack *)p1 state:(System_Object *)p2 headers:(System_Runtime_Remoting_Channels_ITransportHeaders *)p3 stream:(System_IO_Stream *)p4;
 
 	// Managed method name : GetRequestStream
 	// Managed return type : System.IO.Stream

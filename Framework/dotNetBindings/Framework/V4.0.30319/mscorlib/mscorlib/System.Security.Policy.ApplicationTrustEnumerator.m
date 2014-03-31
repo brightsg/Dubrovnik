@@ -3,6 +3,12 @@
 //
 // Managed class : ApplicationTrustEnumerator
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_ApplicationTrustEnumerator
 
 #pragma mark -
@@ -21,12 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Policy.ApplicationTrust
+	// Managed property name : Current
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @synthesize current = _current;
     - (System_Security_Policy_ApplicationTrust *)current
     {
-		MonoObject * monoObject = [self getMonoProperty:"Current"];
-		System_Security_Policy_ApplicationTrust * result = [System_Security_Policy_ApplicationTrust representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Current"];
+		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
+		_current = [System_Security_Policy_ApplicationTrust objectWithMonoObject:monoObject];
+
+		return _current;
 	}
 
 #pragma mark -
@@ -48,5 +58,11 @@
     {
 		[self invokeMonoMethod:"Reset()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : TextInfo
 //
-@interface System_Globalization_TextInfo : DBMonoObjectRepresentation
+@interface System_Globalization_TextInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,33 +14,41 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)aNSICodePage;
+	// Managed property name : ANSICodePage
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t aNSICodePage;
 
-	// Managed type : System.String
-    - (NSString *)cultureName;
+	// Managed property name : CultureName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * cultureName;
 
-	// Managed type : System.Int32
-    - (int32_t)eBCDICCodePage;
+	// Managed property name : EBCDICCodePage
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t eBCDICCodePage;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.Boolean
-    - (BOOL)isRightToLeft;
+	// Managed property name : IsRightToLeft
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isRightToLeft;
 
-	// Managed type : System.Int32
-    - (int32_t)lCID;
+	// Managed property name : LCID
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t lCID;
 
-	// Managed type : System.String
-    - (NSString *)listSeparator;
-    - (void)setListSeparator:(NSString *)value;
+	// Managed property name : ListSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * listSeparator;
 
-	// Managed type : System.Int32
-    - (int32_t)macCodePage;
+	// Managed property name : MacCodePage
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t macCodePage;
 
-	// Managed type : System.Int32
-    - (int32_t)oEMCodePage;
+	// Managed property name : OEMCodePage
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t oEMCodePage;
 
 #pragma mark -
 #pragma mark Methods
@@ -48,12 +56,12 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

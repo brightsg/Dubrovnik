@@ -2,7 +2,7 @@
 //
 // Managed class : Claim
 //
-@interface System_Security_Claims_Claim : DBMonoObjectRepresentation
+@interface System_Security_Claims_Claim : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,27 +42,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)issuer;
+	// Managed property name : Issuer
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * issuer;
 
-	// Managed type : System.String
-    - (NSString *)originalIssuer;
+	// Managed property name : OriginalIssuer
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * originalIssuer;
 
-	// Managed type : System.Collections.Generic.IDictionary<System.String, System.String>
-    - (System_Collections_Generic_IDictionary *)properties;
+	// Managed property name : Properties
+	// Managed property type : System.Collections.Generic.IDictionary<System.String, System.String>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IDictionary * properties;
 
-	// Managed type : System.Security.Claims.ClaimsIdentity
-    - (System_Security_Claims_ClaimsIdentity *)subject;
-    - (void)setSubject:(System_Security_Claims_ClaimsIdentity *)value;
+	// Managed property name : Subject
+	// Managed property type : System.Security.Claims.ClaimsIdentity
+    @property (nonatomic, strong) System_Security_Claims_ClaimsIdentity * subject;
 
-	// Managed type : System.String
-    - (NSString *)type;
+	// Managed property name : Type
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * type;
 
-	// Managed type : System.String
-    - (NSString *)value;
+	// Managed property name : Value
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * value;
 
-	// Managed type : System.String
-    - (NSString *)valueType;
+	// Managed property name : ValueType
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * valueType;
 
 #pragma mark -
 #pragma mark Methods

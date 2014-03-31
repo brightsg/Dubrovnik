@@ -2,7 +2,7 @@
 //
 // Managed class : TransportHeaders
 //
-@interface System_Runtime_Remoting_Channels_TransportHeaders : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Channels_TransportHeaders : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)item;
-    - (void)setItem:(DBMonoObjectRepresentation *)value;
+	// Managed property name : Item
+	// Managed property type : System.Object
+    @property (nonatomic, strong) System_Object * item;
 
 #pragma mark -
 #pragma mark Methods

@@ -3,6 +3,12 @@
 //
 // Managed interface : IProducerConsumerCollection<T>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Concurrent_IProducerConsumerCollection
 
 #pragma mark -
@@ -35,13 +41,13 @@
     - (DBSystem_Array *)toArray
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)tryAdd_withItem:(DBMonoObjectRepresentation *)p1
+    - (BOOL)tryAdd_withItem:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -55,5 +61,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(T&)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

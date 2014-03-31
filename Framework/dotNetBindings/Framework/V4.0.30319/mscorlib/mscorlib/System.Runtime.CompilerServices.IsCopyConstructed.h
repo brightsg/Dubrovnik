@@ -2,7 +2,7 @@
 //
 // Managed class : IsCopyConstructed
 //
-@interface System_Runtime_CompilerServices_IsCopyConstructed : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsCopyConstructed : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : Math
 //
-@interface System_Math : DBMonoObjectRepresentation
+@interface System_Math : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Double
+	// Managed field name : E
+	// Managed field type : System.Double
     + (double)e;
 
-	// Managed type : System.Double
+	// Managed field name : PI
+	// Managed field type : System.Double
     + (double)pI;
 
 #pragma mark -

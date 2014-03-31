@@ -3,6 +3,12 @@
 //
 // Managed interface : ICustomMarshaler
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_ICustomMarshaler
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : CleanUpManagedData
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)cleanUpManagedData_withManagedObj:(DBMonoObjectRepresentation *)p1
+    - (void)cleanUpManagedData_withManagedObj:(System_Object *)p1
     {
 		[self invokeMonoMethod:"CleanUpManagedData(object)" withNumArgs:1, [p1 monoValue]];
     }
@@ -49,7 +55,7 @@
 	// Managed method name : MarshalManagedToNative
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)marshalManagedToNative_withManagedObj:(DBMonoObjectRepresentation *)p1
+    - (void *)marshalManagedToNative_withManagedObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"MarshalManagedToNative(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -58,10 +64,16 @@
 	// Managed method name : MarshalNativeToManaged
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)marshalNativeToManaged_withPNativeData:(void *)p1
+    - (System_Object *)marshalNativeToManaged_withPNativeData:(void *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"MarshalNativeToManaged(intptr)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : ObjectSecurity
 //
-@interface System_Security_AccessControl_ObjectSecurity : DBMonoObjectRepresentation
+@interface System_Security_AccessControl_ObjectSecurity : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,26 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)accessRightType;
+	// Managed property name : AccessRightType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * accessRightType;
 
-	// Managed type : System.Type
-    - (System_Type *)accessRuleType;
+	// Managed property name : AccessRuleType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * accessRuleType;
 
-	// Managed type : System.Boolean
-    - (BOOL)areAccessRulesCanonical;
+	// Managed property name : AreAccessRulesCanonical
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL areAccessRulesCanonical;
 
-	// Managed type : System.Boolean
-    - (BOOL)areAccessRulesProtected;
+	// Managed property name : AreAccessRulesProtected
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL areAccessRulesProtected;
 
-	// Managed type : System.Boolean
-    - (BOOL)areAuditRulesCanonical;
+	// Managed property name : AreAuditRulesCanonical
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL areAuditRulesCanonical;
 
-	// Managed type : System.Boolean
-    - (BOOL)areAuditRulesProtected;
+	// Managed property name : AreAuditRulesProtected
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL areAuditRulesProtected;
 
-	// Managed type : System.Type
-    - (System_Type *)auditRuleType;
+	// Managed property name : AuditRuleType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * auditRuleType;
 
 #pragma mark -
 #pragma mark Methods

@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.EventWaitHandleRights
-    - (System_Security_AccessControl_EventWaitHandleRights)eventWaitHandleRights;
+	// Managed property name : EventWaitHandleRights
+	// Managed property type : System.Security.AccessControl.EventWaitHandleRights
+    @property (nonatomic, readonly) System_Security_AccessControl_EventWaitHandleRights eventWaitHandleRights;
 @end
 //--Dubrovnik.CodeGenerator

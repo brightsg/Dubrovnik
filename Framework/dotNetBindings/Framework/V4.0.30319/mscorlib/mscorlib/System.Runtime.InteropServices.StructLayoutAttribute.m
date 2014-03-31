@@ -3,6 +3,12 @@
 //
 // Managed class : StructLayoutAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_StructLayoutAttribute
 
 #pragma mark -
@@ -40,41 +46,53 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.CharSet
+	// Managed field name : CharSet
+	// Managed field type : System.Runtime.InteropServices.CharSet
+    @synthesize charSet = _charSet;
     - (System_Runtime_InteropServices_CharSet)charSet
     {
-		MonoObject * monoObject;
+		System_Runtime_InteropServices_CharSet monoObject;
 		[self getMonoField:"CharSet" valuePtr:DB_PTR(monoObject)];
-		return DB_UNBOX_INT32(monoObject);
+		_charSet = monoObject;
+		return _charSet;
 	}
     - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value
 	{
+		_charSet = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"CharSet" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : Pack
+	// Managed field type : System.Int32
+    @synthesize pack = _pack;
     - (int32_t)pack
     {
 		int32_t monoObject;
 		[self getMonoField:"Pack" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_pack = monoObject;
+		return _pack;
 	}
     - (void)setPack:(int32_t)value
 	{
+		_pack = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"Pack" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : Size
+	// Managed field type : System.Int32
+    @synthesize size = _size;
     - (int32_t)size
     {
 		int32_t monoObject;
 		[self getMonoField:"Size" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		_size = monoObject;
+		return _size;
 	}
     - (void)setSize:(int32_t)value
 	{
+		_size = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoField:"Size" valueObject:monoObject];          
 	}
@@ -82,12 +100,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.LayoutKind
+	// Managed property name : Value
+	// Managed property type : System.Runtime.InteropServices.LayoutKind
+    @synthesize value = _value;
     - (System_Runtime_InteropServices_LayoutKind)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		System_Runtime_InteropServices_LayoutKind result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		_value = DB_UNBOX_INT32(monoObject);
+
+		return _value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

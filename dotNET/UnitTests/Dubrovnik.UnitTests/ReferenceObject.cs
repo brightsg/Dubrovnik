@@ -7,6 +7,7 @@ using Dubrovnik.UnitTests;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Reflection;
 
 // all default string values must include the following unit test : Dubrovnik
 namespace Dubrovnik.UnitTests
@@ -43,12 +44,43 @@ namespace Dubrovnik.UnitTests
 		// the unmanaged event handlers
 		public static void AttachEvent(ReferenceObject refObject) 
 		{ 
-			refObject.TestEvent += DubrovnikEventHandlerICall; 
+			ConfigureStaticEventHandler(refObject, "TestEvent", "Dubrovnik.UnitTests.ReferenceObject", "DubrovnikEventHandlerICall", true);
 		} 
 
 		public static void DetachEvent(ReferenceObject refObject) 
 		{ 
-			refObject.TestEvent -= DubrovnikEventHandlerICall; 
+			ConfigureStaticEventHandler(refObject, "TestEvent", "Dubrovnik.UnitTests.ReferenceObject", "DubrovnikEventHandlerICall", false);
+		} 
+
+		public static void OnTestEvent() 
+		{ 
+			Console.WriteLine ("Called: OnTestEvent() ");
+		} 
+
+		/*
+		 * Note: this function is also included in the FrameworkHelper to assist with registering event delegates from Obj-C
+		 */
+		public static void ConfigureStaticEventHandler(object obj, string objEventName, string handlerClassName, string handlerMethodName, bool attach) 
+		{ 
+			// use reflection to assign delegate method to event
+
+			// get info for the event
+			EventInfo evInfo = obj.GetType().GetEvent(objEventName);
+
+			// get type for the handler class
+			Type handlerClassType = Type.GetType(handlerClassName);
+
+			// get method info for the handler method
+			MethodInfo miHandler = handlerClassType.GetMethod(handlerMethodName, BindingFlags.Public | BindingFlags.FlattenHierarchy | BindingFlags.Static);
+
+			// create delegate
+			Type tDelegate = evInfo.EventHandlerType;
+			Delegate d = Delegate.CreateDelegate(tDelegate, null, miHandler);
+
+			// invoke the add | remove method on the event
+			MethodInfo evMethod = attach ? evInfo.GetAddMethod() : evInfo.GetRemoveMethod();
+			Object[] args = { d };
+			evMethod.Invoke(obj, args);
 		} 
 
 		//==============================
@@ -508,6 +540,27 @@ namespace Dubrovnik.UnitTests
 			if (TestEvent != null) {
 				TestEvent ();
 			}
+		}
+
+		//=====================
+		// Equality
+		//=====================
+		public override bool Equals(Object obj)
+		{
+			//Check for null and compare run-time types. 
+			if ((obj == null) || ! this.GetType().Equals(obj.GetType())) {
+				return false;
+			}
+			else { 
+				// the equality of one property will suffice 
+				ReferenceObject otherObject = (ReferenceObject) obj; 
+				return this.StringProperty.Equals(otherObject.StringProperty);
+			}
+		}
+
+		public override int GetHashCode()
+		{
+			return this.StringProperty.GetHashCode(); 
 		}
 	}
 

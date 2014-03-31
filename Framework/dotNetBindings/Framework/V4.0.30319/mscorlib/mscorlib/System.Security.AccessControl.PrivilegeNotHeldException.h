@@ -27,8 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)privilegeName;
+	// Managed property name : PrivilegeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * privilegeName;
 
 #pragma mark -
 #pragma mark Methods

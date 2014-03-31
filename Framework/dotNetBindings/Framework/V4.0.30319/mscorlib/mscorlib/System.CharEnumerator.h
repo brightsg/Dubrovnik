@@ -2,7 +2,7 @@
 //
 // Managed class : CharEnumerator
 //
-@interface System_CharEnumerator : DBMonoObjectRepresentation
+@interface System_CharEnumerator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Char
-    - (uint16_t)current;
+	// Managed property name : Current
+	// Managed property type : System.Char
+    @property (nonatomic, readonly) uint16_t current;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,7 +24,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : Dispose
 	// Managed return type : System.Void

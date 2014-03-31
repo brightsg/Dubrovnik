@@ -2,7 +2,7 @@
 //
 // Managed class : Comparer
 //
-@interface System_Collections_Comparer : DBMonoObjectRepresentation
+@interface System_Collections_Comparer : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Collections.Comparer
+	// Managed field name : Default
+	// Managed field type : System.Collections.Comparer
     + (System_Collections_Comparer *)default;
 
-	// Managed type : System.Collections.Comparer
+	// Managed field name : DefaultInvariant
+	// Managed field type : System.Collections.Comparer
     + (System_Collections_Comparer *)defaultInvariant;
 
 #pragma mark -
@@ -34,7 +36,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Object
-    - (int32_t)compare_withA:(DBMonoObjectRepresentation *)p1 b:(DBMonoObjectRepresentation *)p2;
+    - (int32_t)compare_withA:(System_Object *)p1 b:(System_Object *)p2;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void

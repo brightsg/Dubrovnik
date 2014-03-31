@@ -3,6 +3,12 @@
 //
 // Managed interface : IResourceWriter
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Resources_IResourceWriter
 
 #pragma mark -
@@ -32,7 +38,7 @@
 	// Managed method name : AddResource
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)addResource_withNameString:(NSString *)p1 valueObject:(DBMonoObjectRepresentation *)p2
+    - (void)addResource_withNameString:(NSString *)p1 valueObject:(System_Object *)p2
     {
 		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
@@ -60,5 +66,11 @@
     {
 		[self invokeMonoMethod:"Generate()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

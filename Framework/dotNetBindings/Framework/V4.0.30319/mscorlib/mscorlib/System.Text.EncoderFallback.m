@@ -3,6 +3,12 @@
 //
 // Managed class : EncoderFallback
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Text_EncoderFallback
 
 #pragma mark -
@@ -21,28 +27,39 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.EncoderFallback
+	// Managed property name : ExceptionFallback
+	// Managed property type : System.Text.EncoderFallback
+    static System_Text_EncoderFallback * m_exceptionFallback;
     + (System_Text_EncoderFallback *)exceptionFallback
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ExceptionFallback"];
-		System_Text_EncoderFallback * result = [System_Text_EncoderFallback representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ExceptionFallback"];
+		if ([self object:m_exceptionFallback isEqualToMonoObject:monoObject]) return m_exceptionFallback;					
+		m_exceptionFallback = [System_Text_EncoderFallback objectWithMonoObject:monoObject];
+
+		return m_exceptionFallback;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : MaxCharCount
+	// Managed property type : System.Int32
+    @synthesize maxCharCount = _maxCharCount;
     - (int32_t)maxCharCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"MaxCharCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"MaxCharCount"];
+		_maxCharCount = DB_UNBOX_INT32(monoObject);
+
+		return _maxCharCount;
 	}
 
-	// Managed type : System.Text.EncoderFallback
+	// Managed property name : ReplacementFallback
+	// Managed property type : System.Text.EncoderFallback
+    static System_Text_EncoderFallback * m_replacementFallback;
     + (System_Text_EncoderFallback *)replacementFallback
     {
-		MonoObject * monoObject = [[self class] getMonoClassProperty:"ReplacementFallback"];
-		System_Text_EncoderFallback * result = [System_Text_EncoderFallback representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ReplacementFallback"];
+		if ([self object:m_replacementFallback isEqualToMonoObject:monoObject]) return m_replacementFallback;					
+		m_replacementFallback = [System_Text_EncoderFallback objectWithMonoObject:monoObject];
+
+		return m_replacementFallback;
 	}
 
 #pragma mark -
@@ -54,7 +71,15 @@
     - (System_Text_EncoderFallbackBuffer *)createFallbackBuffer
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFallbackBuffer()" withNumArgs:0];
-		return [System_Text_EncoderFallbackBuffer representationWithMonoObject:monoObject];
+		return [System_Text_EncoderFallbackBuffer objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_exceptionFallback = nil;
+		m_replacementFallback = nil;
+	}
 @end
 //--Dubrovnik.CodeGenerator

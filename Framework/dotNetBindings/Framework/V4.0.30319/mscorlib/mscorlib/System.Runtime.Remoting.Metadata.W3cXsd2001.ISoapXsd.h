@@ -2,7 +2,7 @@
 //
 // Managed interface : ISoapXsd
 //
-@interface System_Runtime_Remoting_Metadata_W3cXsd2001_ISoapXsd : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Metadata_W3cXsd2001_ISoapXsd : System_Object
 
 #pragma mark -
 #pragma mark Setup

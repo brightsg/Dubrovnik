@@ -3,6 +3,12 @@
 //
 // Managed class : Timeout
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Timeout
 
 #pragma mark -
@@ -21,20 +27,34 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : Infinite
+	// Managed field type : System.Int32
+    static int32_t m_infinite;
     + (int32_t)infinite
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"Infinite" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_infinite = monoObject;
+		return m_infinite;
 	}
 
-	// Managed type : System.TimeSpan
+	// Managed field name : InfiniteTimeSpan
+	// Managed field type : System.TimeSpan
+    static System_TimeSpan * m_infiniteTimeSpan;
     + (System_TimeSpan *)infiniteTimeSpan
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"InfiniteTimeSpan" valuePtr:DB_PTR(monoObject)];
-		return [System_TimeSpan representationWithMonoObject:monoObject];
+		if ([self object:m_infiniteTimeSpan isEqualToMonoObject:monoObject]) return m_infiniteTimeSpan;					
+		m_infiniteTimeSpan = [System_TimeSpan objectWithMonoObject:monoObject];
+		return m_infiniteTimeSpan;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_infiniteTimeSpan = nil;
 	}
 @end
 //--Dubrovnik.CodeGenerator

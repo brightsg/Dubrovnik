@@ -14,29 +14,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)addMethod;
+	// Managed property name : AddMethod
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * addMethod;
 
-	// Managed type : System.Reflection.EventAttributes
-    - (System_Reflection_EventAttributes)attributes;
+	// Managed property name : Attributes
+	// Managed property type : System.Reflection.EventAttributes
+    @property (nonatomic, readonly) System_Reflection_EventAttributes attributes;
 
-	// Managed type : System.Type
-    - (System_Type *)eventHandlerType;
+	// Managed property name : EventHandlerType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * eventHandlerType;
 
-	// Managed type : System.Boolean
-    - (BOOL)isMulticast;
+	// Managed property name : IsMulticast
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isMulticast;
 
-	// Managed type : System.Boolean
-    - (BOOL)isSpecialName;
+	// Managed property name : IsSpecialName
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isSpecialName;
 
-	// Managed type : System.Reflection.MemberTypes
-    - (System_Reflection_MemberTypes)memberType;
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)raiseMethod;
+	// Managed property name : RaiseMethod
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * raiseMethod;
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)removeMethod;
+	// Managed property name : RemoveMethod
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * removeMethod;
 
 #pragma mark -
 #pragma mark Methods
@@ -44,12 +52,12 @@
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Delegate
-    - (void)addEventHandler_withTarget:(DBMonoObjectRepresentation *)p1 handler:(System_Delegate *)p2;
+    - (void)addEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetAddMethod
 	// Managed return type : System.Reflection.MethodInfo
@@ -109,6 +117,6 @@
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Delegate
-    - (void)removeEventHandler_withTarget:(DBMonoObjectRepresentation *)p1 handler:(System_Delegate *)p2;
+    - (void)removeEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2;
 @end
 //--Dubrovnik.CodeGenerator

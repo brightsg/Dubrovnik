@@ -27,9 +27,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.ReflectionPermissionFlag
-    - (System_Security_Permissions_ReflectionPermissionFlag)flags;
-    - (void)setFlags:(System_Security_Permissions_ReflectionPermissionFlag)value;
+	// Managed property name : Flags
+	// Managed property type : System.Security.Permissions.ReflectionPermissionFlag
+    @property (nonatomic) System_Security_Permissions_ReflectionPermissionFlag flags;
 
 #pragma mark -
 #pragma mark Methods

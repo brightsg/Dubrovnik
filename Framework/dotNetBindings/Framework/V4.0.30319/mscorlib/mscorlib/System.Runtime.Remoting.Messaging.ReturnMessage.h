@@ -2,7 +2,7 @@
 //
 // Managed class : ReturnMessage
 //
-@interface System_Runtime_Remoting_Messaging_ReturnMessage : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_ReturnMessage : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ReturnMessage
 	// Managed param types : System.Object, System.Object[], System.Int32, System.Runtime.Remoting.Messaging.LogicalCallContext, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(DBMonoObjectRepresentation *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p5;
+    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(System_Object *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p5;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ReturnMessage
@@ -27,48 +27,61 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)argCount;
+	// Managed property name : ArgCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t argCount;
 
-	// Managed type : System.Object[]
-    - (DBSystem_Array *)args;
+	// Managed property name : Args
+	// Managed property type : System.Object[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * args;
 
-	// Managed type : System.Exception
-    - (System_Exception *)exception;
+	// Managed property name : Exception
+	// Managed property type : System.Exception
+    @property (nonatomic, strong, readonly) System_Exception * exception;
 
-	// Managed type : System.Boolean
-    - (BOOL)hasVarArgs;
+	// Managed property name : HasVarArgs
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL hasVarArgs;
 
-	// Managed type : System.Runtime.Remoting.Messaging.LogicalCallContext
-    - (System_Runtime_Remoting_Messaging_LogicalCallContext *)logicalCallContext;
+	// Managed property name : LogicalCallContext
+	// Managed property type : System.Runtime.Remoting.Messaging.LogicalCallContext
+    @property (nonatomic, strong, readonly) System_Runtime_Remoting_Messaging_LogicalCallContext * logicalCallContext;
 
-	// Managed type : System.Reflection.MethodBase
-    - (System_Reflection_MethodBase *)methodBase;
+	// Managed property name : MethodBase
+	// Managed property type : System.Reflection.MethodBase
+    @property (nonatomic, strong, readonly) System_Reflection_MethodBase * methodBase;
 
-	// Managed type : System.String
-    - (NSString *)methodName;
+	// Managed property name : MethodName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * methodName;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)methodSignature;
+	// Managed property name : MethodSignature
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * methodSignature;
 
-	// Managed type : System.Int32
-    - (int32_t)outArgCount;
+	// Managed property name : OutArgCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t outArgCount;
 
-	// Managed type : System.Object[]
-    - (DBSystem_Array *)outArgs;
+	// Managed property name : OutArgs
+	// Managed property type : System.Object[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * outArgs;
 
-	// Managed type : System.Collections.IDictionary
-    - (System_Collections_IDictionary *)properties;
+	// Managed property name : Properties
+	// Managed property type : System.Collections.IDictionary
+    @property (nonatomic, strong, readonly) System_Collections_IDictionary * properties;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)returnValue;
+	// Managed property name : ReturnValue
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * returnValue;
 
-	// Managed type : System.String
-    - (NSString *)typeName;
+	// Managed property name : TypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * typeName;
 
-	// Managed type : System.String
-    - (NSString *)uri;
-    - (void)setUri:(NSString *)value;
+	// Managed property name : Uri
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * uri;
 
 #pragma mark -
 #pragma mark Methods
@@ -76,7 +89,7 @@
 	// Managed method name : GetArg
 	// Managed return type : System.Object
 	// Managed param types : System.Int32
-    - (DBMonoObjectRepresentation *)getArg_withArgNum:(int32_t)p1;
+    - (System_Object *)getArg_withArgNum:(int32_t)p1;
 
 	// Managed method name : GetArgName
 	// Managed return type : System.String
@@ -86,7 +99,7 @@
 	// Managed method name : GetOutArg
 	// Managed return type : System.Object
 	// Managed param types : System.Int32
-    - (DBMonoObjectRepresentation *)getOutArg_withArgNum:(int32_t)p1;
+    - (System_Object *)getOutArg_withArgNum:(int32_t)p1;
 
 	// Managed method name : GetOutArgName
 	// Managed return type : System.String

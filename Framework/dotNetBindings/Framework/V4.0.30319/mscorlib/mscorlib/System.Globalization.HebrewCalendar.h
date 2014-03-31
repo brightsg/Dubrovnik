@@ -14,27 +14,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : HebrewEra
+	// Managed field type : System.Int32
     + (int32_t)hebrewEra;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Globalization.CalendarAlgorithmType
-    - (System_Globalization_CalendarAlgorithmType)algorithmType;
+	// Managed property name : AlgorithmType
+	// Managed property type : System.Globalization.CalendarAlgorithmType
+    @property (nonatomic, readonly) System_Globalization_CalendarAlgorithmType algorithmType;
 
-	// Managed type : System.Int32[]
-    - (DBSystem_Array *)eras;
+	// Managed property name : Eras
+	// Managed property type : System.Int32[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * eras;
 
-	// Managed type : System.DateTime
-    - (NSDate *)maxSupportedDateTime;
+	// Managed property name : MaxSupportedDateTime
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * maxSupportedDateTime;
 
-	// Managed type : System.DateTime
-    - (NSDate *)minSupportedDateTime;
+	// Managed property name : MinSupportedDateTime
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong, readonly) NSDate * minSupportedDateTime;
 
-	// Managed type : System.Int32
-    - (int32_t)twoDigitYearMax;
-    - (void)setTwoDigitYearMax:(int32_t)value;
+	// Managed property name : TwoDigitYearMax
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t twoDigitYearMax;
 
 #pragma mark -
 #pragma mark Methods

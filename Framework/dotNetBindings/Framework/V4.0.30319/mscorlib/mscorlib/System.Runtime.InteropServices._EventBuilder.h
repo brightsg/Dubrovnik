@@ -2,7 +2,7 @@
 //
 // Managed interface : _EventBuilder
 //
-@interface System_Runtime_InteropServices__EventBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__EventBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

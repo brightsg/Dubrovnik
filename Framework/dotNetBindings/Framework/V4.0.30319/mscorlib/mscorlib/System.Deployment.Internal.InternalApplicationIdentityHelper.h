@@ -2,7 +2,7 @@
 //
 // Managed class : InternalApplicationIdentityHelper
 //
-@interface System_Deployment_Internal_InternalApplicationIdentityHelper : DBMonoObjectRepresentation
+@interface System_Deployment_Internal_InternalApplicationIdentityHelper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : GetInternalAppId
 	// Managed return type : System.Object
 	// Managed param types : System.ApplicationIdentity
-    - (DBMonoObjectRepresentation *)getInternalAppId_withId:(System_ApplicationIdentity *)p1;
+    - (System_Object *)getInternalAppId_withId:(System_ApplicationIdentity *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed struct : RuntimeFieldHandle
 //
-@interface System_RuntimeFieldHandle : DBMonoObjectRepresentation
+@interface System_RuntimeFieldHandle : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IntPtr
-    - (void *)value;
+	// Managed property name : Value
+	// Managed property type : System.IntPtr
+    @property (nonatomic, readonly) void * value;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,7 +24,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

@@ -3,6 +3,12 @@
 //
 // Managed class : RequiredAttributeAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_CompilerServices_RequiredAttributeAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
+	// Managed property name : RequiredContract
+	// Managed property type : System.Type
+    @synthesize requiredContract = _requiredContract;
     - (System_Type *)requiredContract
     {
-		MonoObject * monoObject = [self getMonoProperty:"RequiredContract"];
-		System_Type * result = [System_Type representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"RequiredContract"];
+		if ([self object:_requiredContract isEqualToMonoObject:monoObject]) return _requiredContract;					
+		_requiredContract = [System_Type objectWithMonoObject:monoObject];
+
+		return _requiredContract;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

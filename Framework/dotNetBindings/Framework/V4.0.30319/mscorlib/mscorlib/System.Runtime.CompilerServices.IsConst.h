@@ -2,7 +2,7 @@
 //
 // Managed class : IsConst
 //
-@interface System_Runtime_CompilerServices_IsConst : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsConst : System_Object
 
 #pragma mark -
 #pragma mark Setup

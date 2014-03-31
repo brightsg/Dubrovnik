@@ -47,22 +47,24 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)description;
-    - (void)setDescription:(NSString *)value;
+	// Managed property name : Description
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * description;
 
-	// Managed type : System.Type
-    - (System_Type *)target;
-    - (void)setTarget:(System_Type *)value;
+	// Managed property name : Target
+	// Managed property type : System.Type
+    @property (nonatomic, strong) System_Type * target;
 
-	// Managed type : System.String
-    - (NSString *)targetTypeName;
-    - (void)setTargetTypeName:(NSString *)value;
+	// Managed property name : TargetTypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * targetTypeName;
 
-	// Managed type : System.String
-    - (NSString *)visualizerObjectSourceTypeName;
+	// Managed property name : VisualizerObjectSourceTypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * visualizerObjectSourceTypeName;
 
-	// Managed type : System.String
-    - (NSString *)visualizerTypeName;
+	// Managed property name : VisualizerTypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * visualizerTypeName;
 @end
 //--Dubrovnik.CodeGenerator

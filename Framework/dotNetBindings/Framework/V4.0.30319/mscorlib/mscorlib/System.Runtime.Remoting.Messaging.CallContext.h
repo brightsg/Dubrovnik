@@ -2,7 +2,7 @@
 //
 // Managed class : CallContext
 //
-@interface System_Runtime_Remoting_Messaging_CallContext : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_CallContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,9 +14,10 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    + (DBMonoObjectRepresentation *)hostContext;
-    + (void)setHostContext:(DBMonoObjectRepresentation *)value;
+	// Managed property name : HostContext
+	// Managed property type : System.Object
+    + (System_Object *)hostContext;
+    + (void)setHostContext:(System_Object *)value;
 
 #pragma mark -
 #pragma mark Methods
@@ -29,7 +30,7 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getData_withName:(NSString *)p1;
+    - (System_Object *)getData_withName:(NSString *)p1;
 
 	// Managed method name : GetHeaders
 	// Managed return type : System.Runtime.Remoting.Messaging.Header[]
@@ -39,17 +40,17 @@
 	// Managed method name : LogicalGetData
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)logicalGetData_withName:(NSString *)p1;
+    - (System_Object *)logicalGetData_withName:(NSString *)p1;
 
 	// Managed method name : LogicalSetData
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)logicalSetData_withName:(NSString *)p1 data:(DBMonoObjectRepresentation *)p2;
+    - (void)logicalSetData_withName:(NSString *)p1 data:(System_Object *)p2;
 
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)setData_withName:(NSString *)p1 data:(DBMonoObjectRepresentation *)p2;
+    - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
 
 	// Managed method name : SetHeaders
 	// Managed return type : System.Void

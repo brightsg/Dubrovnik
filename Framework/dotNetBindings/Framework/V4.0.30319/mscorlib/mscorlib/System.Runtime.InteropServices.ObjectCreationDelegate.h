@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ObjectCreationDelegate
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Runtime_InteropServices_ObjectCreationDelegate *)new_withObject:(DBMonoObjectRepresentation *)p1 method:(void *)p2;
+    + (System_Runtime_InteropServices_ObjectCreationDelegate *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -25,7 +25,7 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.IntPtr, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withAggregator:(void *)p1 callback:(System_AsyncCallback *)p2 object:(DBMonoObjectRepresentation *)p3;
+    - (System_IAsyncResult *)beginInvoke_withAggregator:(void *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3;
 
 	// Managed method name : EndInvoke
 	// Managed return type : System.IntPtr

@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.MutexRights
-    - (System_Security_AccessControl_MutexRights)mutexRights;
+	// Managed property name : MutexRights
+	// Managed property type : System.Security.AccessControl.MutexRights
+    @property (nonatomic, readonly) System_Security_AccessControl_MutexRights mutexRights;
 @end
 //--Dubrovnik.CodeGenerator

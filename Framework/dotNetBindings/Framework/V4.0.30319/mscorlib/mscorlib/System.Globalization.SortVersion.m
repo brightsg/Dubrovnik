@@ -3,6 +3,12 @@
 //
 // Managed class : SortVersion
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Globalization_SortVersion
 
 #pragma mark -
@@ -32,20 +38,27 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : FullVersion
+	// Managed property type : System.Int32
+    @synthesize fullVersion = _fullVersion;
     - (int32_t)fullVersion
     {
-		MonoObject * monoObject = [self getMonoProperty:"FullVersion"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FullVersion"];
+		_fullVersion = DB_UNBOX_INT32(monoObject);
+
+		return _fullVersion;
 	}
 
-	// Managed type : System.Guid
+	// Managed property name : SortId
+	// Managed property type : System.Guid
+    @synthesize sortId = _sortId;
     - (System_Guid *)sortId
     {
-		MonoObject * monoObject = [self getMonoProperty:"SortId"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SortId"];
+		if ([self object:_sortId isEqualToMonoObject:monoObject]) return _sortId;					
+		_sortId = [System_Guid objectWithMonoObject:monoObject];
+
+		return _sortId;
 	}
 
 #pragma mark -
@@ -54,7 +67,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -95,5 +108,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Globalization.SortVersion,System.Globalization.SortVersion)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

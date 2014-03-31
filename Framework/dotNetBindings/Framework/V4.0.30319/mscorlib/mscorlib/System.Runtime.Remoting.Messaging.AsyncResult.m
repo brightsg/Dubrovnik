@@ -3,6 +3,12 @@
 //
 // Managed class : AsyncResult
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Messaging_AsyncResult
 
 #pragma mark -
@@ -21,65 +27,91 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)asyncDelegate
+	// Managed property name : AsyncDelegate
+	// Managed property type : System.Object
+    @synthesize asyncDelegate = _asyncDelegate;
+    - (System_Object *)asyncDelegate
     {
-		MonoObject * monoObject = [self getMonoProperty:"AsyncDelegate"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AsyncDelegate"];
+		if ([self object:_asyncDelegate isEqualToMonoObject:monoObject]) return _asyncDelegate;					
+		_asyncDelegate = [System_Object objectWithMonoObject:monoObject];
+
+		return _asyncDelegate;
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)asyncState
+	// Managed property name : AsyncState
+	// Managed property type : System.Object
+    @synthesize asyncState = _asyncState;
+    - (System_Object *)asyncState
     {
-		MonoObject * monoObject = [self getMonoProperty:"AsyncState"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AsyncState"];
+		if ([self object:_asyncState isEqualToMonoObject:monoObject]) return _asyncState;					
+		_asyncState = [System_Object objectWithMonoObject:monoObject];
+
+		return _asyncState;
 	}
 
-	// Managed type : System.Threading.WaitHandle
+	// Managed property name : AsyncWaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @synthesize asyncWaitHandle = _asyncWaitHandle;
     - (System_Threading_WaitHandle *)asyncWaitHandle
     {
-		MonoObject * monoObject = [self getMonoProperty:"AsyncWaitHandle"];
-		System_Threading_WaitHandle * result = [System_Threading_WaitHandle representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AsyncWaitHandle"];
+		if ([self object:_asyncWaitHandle isEqualToMonoObject:monoObject]) return _asyncWaitHandle;					
+		_asyncWaitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+
+		return _asyncWaitHandle;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : CompletedSynchronously
+	// Managed property type : System.Boolean
+    @synthesize completedSynchronously = _completedSynchronously;
     - (BOOL)completedSynchronously
     {
-		MonoObject * monoObject = [self getMonoProperty:"CompletedSynchronously"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CompletedSynchronously"];
+		_completedSynchronously = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _completedSynchronously;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : EndInvokeCalled
+	// Managed property type : System.Boolean
+    @synthesize endInvokeCalled = _endInvokeCalled;
     - (BOOL)endInvokeCalled
     {
-		MonoObject * monoObject = [self getMonoProperty:"EndInvokeCalled"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EndInvokeCalled"];
+		_endInvokeCalled = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _endInvokeCalled;
 	}
     - (void)setEndInvokeCalled:(BOOL)value
 	{
+		_endInvokeCalled = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"EndInvokeCalled" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsCompleted
+	// Managed property type : System.Boolean
+    @synthesize isCompleted = _isCompleted;
     - (BOOL)isCompleted
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsCompleted"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsCompleted"];
+		_isCompleted = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isCompleted;
 	}
 
-	// Managed type : System.Runtime.Remoting.Messaging.IMessageSink
+	// Managed property name : NextSink
+	// Managed property type : System.Runtime.Remoting.Messaging.IMessageSink
+    @synthesize nextSink = _nextSink;
     - (System_Runtime_Remoting_Messaging_IMessageSink *)nextSink
     {
-		MonoObject * monoObject = [self getMonoProperty:"NextSink"];
-		System_Runtime_Remoting_Messaging_IMessageSink * result = [System_Runtime_Remoting_Messaging_IMessageSink representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"NextSink"];
+		if ([self object:_nextSink isEqualToMonoObject:monoObject]) return _nextSink;					
+		_nextSink = [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
+
+		return _nextSink;
 	}
 
 #pragma mark -
@@ -91,7 +123,7 @@
     - (System_Runtime_Remoting_Messaging_IMessageCtrl *)asyncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 replySink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AsyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessageCtrl representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageCtrl objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetReplyMessage
@@ -100,7 +132,7 @@
     - (System_Runtime_Remoting_Messaging_IMessage *)getReplyMessage
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetReplyMessage()" withNumArgs:0];
-		return [System_Runtime_Remoting_Messaging_IMessage representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetMessageCtrl
@@ -117,7 +149,13 @@
     - (System_Runtime_Remoting_Messaging_IMessage *)syncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoValue]];
-		return [System_Runtime_Remoting_Messaging_IMessage representationWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

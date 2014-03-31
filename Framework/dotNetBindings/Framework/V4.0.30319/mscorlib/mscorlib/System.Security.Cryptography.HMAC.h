@@ -14,13 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)hashName;
-    - (void)setHashName:(NSString *)value;
+	// Managed property name : HashName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * hashName;
 
-	// Managed type : System.Byte[]
-    - (NSData *)key;
-    - (void)setKey:(NSData *)value;
+	// Managed property name : Key
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong) NSData * key;
 
 #pragma mark -
 #pragma mark Methods

@@ -27,11 +27,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Exception[]
-    - (DBSystem_Array *)loaderExceptions;
+	// Managed property name : LoaderExceptions
+	// Managed property type : System.Exception[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * loaderExceptions;
 
-	// Managed type : System.Type[]
-    - (DBSystem_Array *)types;
+	// Managed property name : Types
+	// Managed property type : System.Type[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * types;
 
 #pragma mark -
 #pragma mark Methods

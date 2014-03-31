@@ -22,10 +22,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)majorVersion;
+	// Managed property name : MajorVersion
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t majorVersion;
 
-	// Managed type : System.Int32
-    - (int32_t)minorVersion;
+	// Managed property name : MinorVersion
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t minorVersion;
 @end
 //--Dubrovnik.CodeGenerator

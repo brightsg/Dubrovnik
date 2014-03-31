@@ -3,6 +3,12 @@
 //
 // Managed interface : ITransportHeaders
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_Channels_ITransportHeaders
 
 #pragma mark -
@@ -21,15 +27,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)item
+	// Managed property name : Item
+	// Managed property type : System.Object
+    @synthesize item = _item;
+    - (System_Object *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [System_Object objectWithMonoObject:monoObject];
+
+		return _item;
 	}
-    - (void)setItem:(DBMonoObjectRepresentation *)value
+    - (void)setItem:(System_Object *)value
 	{
+		_item = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"Item" valueObject:monoObject];          
 	}
@@ -43,7 +54,13 @@
     - (System_Collections_IEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Collections_IEnumerator representationWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

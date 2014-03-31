@@ -2,7 +2,7 @@
 //
 // Managed class : ManualResetEventSlim
 //
-@interface System_Threading_ManualResetEventSlim : DBMonoObjectRepresentation
+@interface System_Threading_ManualResetEventSlim : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,16 +27,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isSet;
-    - (void)setIsSet:(BOOL)value;
+	// Managed property name : IsSet
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL isSet;
 
-	// Managed type : System.Int32
-    - (int32_t)spinCount;
-    - (void)setSpinCount:(int32_t)value;
+	// Managed property name : SpinCount
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t spinCount;
 
-	// Managed type : System.Threading.WaitHandle
-    - (System_Threading_WaitHandle *)waitHandle;
+	// Managed property name : WaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @property (nonatomic, strong, readonly) System_Threading_WaitHandle * waitHandle;
 
 #pragma mark -
 #pragma mark Methods

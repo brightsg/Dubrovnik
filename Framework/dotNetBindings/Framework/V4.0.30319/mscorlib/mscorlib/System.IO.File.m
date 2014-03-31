@@ -3,6 +3,12 @@
 //
 // Managed class : File
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IO_File
 
 #pragma mark -
@@ -59,7 +65,7 @@
     - (System_IO_StreamWriter *)appendText_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"AppendText(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_StreamWriter representationWithMonoObject:monoObject];
+		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Copy
@@ -84,7 +90,7 @@
     - (System_IO_FileStream *)create_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -93,7 +99,7 @@
     - (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -102,7 +108,7 @@
     - (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(System_IO_FileOptions)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string,int,System.IO.FileOptions)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -111,7 +117,7 @@
     - (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(System_IO_FileOptions)p3 fileSecurity:(System_Security_AccessControl_FileSecurity *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string,int,System.IO.FileOptions,System.Security.AccessControl.FileSecurity)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateText
@@ -120,7 +126,7 @@
     - (System_IO_StreamWriter *)createText_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateText(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_StreamWriter representationWithMonoObject:monoObject];
+		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Decrypt
@@ -162,7 +168,7 @@
     - (System_Security_AccessControl_FileSecurity *)getAccessControl_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_AccessControl_FileSecurity representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessControl
@@ -171,7 +177,7 @@
     - (System_Security_AccessControl_FileSecurity *)getAccessControl_withPath:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl(string,System.Security.AccessControl.AccessControlSections)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Security_AccessControl_FileSecurity representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAttributes
@@ -251,7 +257,7 @@
     - (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(string,System.IO.FileMode)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Open
@@ -260,7 +266,7 @@
     - (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(string,System.IO.FileMode,System.IO.FileAccess)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Open
@@ -269,7 +275,7 @@
     - (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenRead
@@ -278,7 +284,7 @@
     - (System_IO_FileStream *)openRead_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenRead(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenText
@@ -287,7 +293,7 @@
     - (System_IO_StreamReader *)openText_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenText(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_StreamReader representationWithMonoObject:monoObject];
+		return [System_IO_StreamReader objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenWrite
@@ -296,7 +302,7 @@
     - (System_IO_FileStream *)openWrite_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenWrite(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_IO_FileStream representationWithMonoObject:monoObject];
+		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadAllBytes
@@ -314,7 +320,7 @@
     - (DBSystem_Array *)readAllLines_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAllLines(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : ReadAllLines
@@ -323,7 +329,7 @@
     - (DBSystem_Array *)readAllLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAllLines(string,System.Text.Encoding)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : ReadAllText
@@ -350,7 +356,7 @@
     - (System_Collections_Generic_IEnumerable *)readLines_withPath:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadLines(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadLines
@@ -359,7 +365,7 @@
     - (System_Collections_Generic_IEnumerable *)readLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadLines(string,System.Text.Encoding)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Replace
@@ -497,5 +503,11 @@
     {
 		[self invokeMonoMethod:"WriteAllText(string,string,System.Text.Encoding)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : WindowsPrincipal
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Principal_WindowsPrincipal
 
 #pragma mark -
@@ -32,30 +38,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property name : DeviceClaims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @synthesize deviceClaims = _deviceClaims;
     - (System_Collections_Generic_IEnumerable *)deviceClaims
     {
-		MonoObject * monoObject = [self getMonoProperty:"DeviceClaims"];
-		System_Collections_Generic_IEnumerable * result = [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Security_Claims_Claim";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DeviceClaims"];
+		if ([self object:_deviceClaims isEqualToMonoObject:monoObject]) return _deviceClaims;					
+		_deviceClaims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+
+		return _deviceClaims;
 	}
 
-	// Managed type : System.Security.Principal.IIdentity
+	// Managed property name : Identity
+	// Managed property type : System.Security.Principal.IIdentity
+    @synthesize identity = _identity;
     - (System_Security_Principal_IIdentity *)identity
     {
-		MonoObject * monoObject = [self getMonoProperty:"Identity"];
-		System_Security_Principal_IIdentity * result = [System_Security_Principal_IIdentity representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Identity"];
+		if ([self object:_identity isEqualToMonoObject:monoObject]) return _identity;					
+		_identity = [System_Security_Principal_IIdentity objectWithMonoObject:monoObject];
+
+		return _identity;
 	}
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property name : UserClaims
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+    @synthesize userClaims = _userClaims;
     - (System_Collections_Generic_IEnumerable *)userClaims
     {
-		MonoObject * monoObject = [self getMonoProperty:"UserClaims"];
-		System_Collections_Generic_IEnumerable * result = [System_Collections_Generic_IEnumerable representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Security_Claims_Claim";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UserClaims"];
+		if ([self object:_userClaims isEqualToMonoObject:monoObject]) return _userClaims;					
+		_userClaims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+
+		return _userClaims;
 	}
 
 #pragma mark -
@@ -96,5 +112,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

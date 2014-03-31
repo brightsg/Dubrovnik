@@ -14,33 +14,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)eventId;
-    - (void)setEventId:(int32_t)value;
+	// Managed property name : EventId
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t eventId;
 
-	// Managed type : System.Diagnostics.Tracing.EventSource
-    - (System_Diagnostics_Tracing_EventSource *)eventSource;
+	// Managed property name : EventSource
+	// Managed property type : System.Diagnostics.Tracing.EventSource
+    @property (nonatomic, strong, readonly) System_Diagnostics_Tracing_EventSource * eventSource;
 
-	// Managed type : System.Diagnostics.Tracing.EventKeywords
-    - (System_Diagnostics_Tracing_EventKeywords)keywords;
+	// Managed property name : Keywords
+	// Managed property type : System.Diagnostics.Tracing.EventKeywords
+    @property (nonatomic, readonly) System_Diagnostics_Tracing_EventKeywords keywords;
 
-	// Managed type : System.Diagnostics.Tracing.EventLevel
-    - (System_Diagnostics_Tracing_EventLevel)level;
+	// Managed property name : Level
+	// Managed property type : System.Diagnostics.Tracing.EventLevel
+    @property (nonatomic, readonly) System_Diagnostics_Tracing_EventLevel level;
 
-	// Managed type : System.String
-    - (NSString *)message;
+	// Managed property name : Message
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * message;
 
-	// Managed type : System.Diagnostics.Tracing.EventOpcode
-    - (System_Diagnostics_Tracing_EventOpcode)opcode;
+	// Managed property name : Opcode
+	// Managed property type : System.Diagnostics.Tracing.EventOpcode
+    @property (nonatomic, readonly) System_Diagnostics_Tracing_EventOpcode opcode;
 
-	// Managed type : System.Collections.ObjectModel.ReadOnlyCollection<System.Object>
-    - (System_Collections_ObjectModel_ReadOnlyCollection *)payload;
-    - (void)setPayload:(System_Collections_ObjectModel_ReadOnlyCollection *)value;
+	// Managed property name : Payload
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Object>
+    @property (nonatomic, strong) System_Collections_ObjectModel_ReadOnlyCollection * payload;
 
-	// Managed type : System.Diagnostics.Tracing.EventTask
-    - (System_Diagnostics_Tracing_EventTask)task;
+	// Managed property name : Task
+	// Managed property type : System.Diagnostics.Tracing.EventTask
+    @property (nonatomic, readonly) System_Diagnostics_Tracing_EventTask task;
 
-	// Managed type : System.Byte
-    - (uint8_t)version;
+	// Managed property name : Version
+	// Managed property type : System.Byte
+    @property (nonatomic, readonly) uint8_t version;
 @end
 //--Dubrovnik.CodeGenerator

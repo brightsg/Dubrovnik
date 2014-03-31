@@ -3,6 +3,12 @@
 //
 // Managed class : CriticalHandleMinusOneIsInvalid
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation Microsoft_Win32_SafeHandles_CriticalHandleMinusOneIsInvalid
 
 #pragma mark -
@@ -21,12 +27,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : IsInvalid
+	// Managed property type : System.Boolean
+    @synthesize isInvalid = _isInvalid;
     - (BOOL)isInvalid
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsInvalid"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsInvalid"];
+		_isInvalid = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isInvalid;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

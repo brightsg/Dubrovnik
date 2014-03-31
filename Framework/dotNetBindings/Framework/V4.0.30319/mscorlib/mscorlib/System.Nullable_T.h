@@ -2,7 +2,7 @@
 //
 // Managed struct : Nullable<T>
 //
-@interface System_Nullable : DBMonoObjectRepresentation
+@interface System_Nullable : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -17,16 +17,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Nullable<T>
 	// Managed param types : <T>
-    + (System_Nullable *)new_withValue:(DBMonoObjectRepresentation *)p1;
+    + (System_Nullable *)new_withValue:(DBManagedObject *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)hasValue;
+	// Managed property name : HasValue
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL hasValue;
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)value;
+	// Managed property name : Value
+	// Managed property type : <T>
+    @property (nonatomic, strong, readonly) DBManagedObject * value;
 
 #pragma mark -
 #pragma mark Methods
@@ -34,7 +36,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withOther:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -44,22 +46,22 @@
 	// Managed method name : GetValueOrDefault
 	// Managed return type : <T>
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)getValueOrDefault;
+    - (DBManagedObject *)getValueOrDefault;
 
 	// Managed method name : GetValueOrDefault
 	// Managed return type : <T>
 	// Managed param types : <T>
-    - (DBMonoObjectRepresentation *)getValueOrDefault_withDefaultValue:(DBMonoObjectRepresentation *)p1;
+    - (DBManagedObject *)getValueOrDefault_withDefaultValue:(DBManagedObject *)p1;
 
 	// Managed method name : op_Explicit
 	// Managed return type : <T>
 	// Managed param types : System.Nullable<T>
-    - (DBMonoObjectRepresentation *)op_Explicit_withValue:(System_Nullable *)p1;
+    - (DBManagedObject *)op_Explicit_withValue:(System_Nullable *)p1;
 
 	// Managed method name : op_Implicit
 	// Managed return type : System.Nullable<T>
 	// Managed param types : <T>
-    - (System_Nullable *)op_Implicit_withValue:(DBMonoObjectRepresentation *)p1;
+    - (System_Nullable *)op_Implicit_withValue:(DBManagedObject *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

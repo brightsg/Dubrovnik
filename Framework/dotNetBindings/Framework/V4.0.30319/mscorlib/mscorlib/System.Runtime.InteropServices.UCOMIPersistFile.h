@@ -2,7 +2,7 @@
 //
 // Managed interface : UCOMIPersistFile
 //
-@interface System_Runtime_InteropServices_UCOMIPersistFile : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_UCOMIPersistFile : System_Object
 
 #pragma mark -
 #pragma mark Setup

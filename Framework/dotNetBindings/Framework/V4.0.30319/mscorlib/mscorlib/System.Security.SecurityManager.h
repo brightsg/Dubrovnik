@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityManager
 //
-@interface System_Security_SecurityManager : DBMonoObjectRepresentation
+@interface System_Security_SecurityManager : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : CheckExecutionRights
+	// Managed property type : System.Boolean
     + (BOOL)checkExecutionRights;
     + (void)setCheckExecutionRights:(BOOL)value;
 
-	// Managed type : System.Boolean
+	// Managed property name : SecurityEnabled
+	// Managed property type : System.Boolean
     + (BOOL)securityEnabled;
     + (void)setSecurityEnabled:(BOOL)value;
 

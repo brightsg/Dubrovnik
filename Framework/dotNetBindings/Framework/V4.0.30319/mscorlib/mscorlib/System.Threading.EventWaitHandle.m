@@ -3,6 +3,12 @@
 //
 // Managed class : EventWaitHandle
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_EventWaitHandle
 
 #pragma mark -
@@ -62,7 +68,7 @@
     - (System_Security_AccessControl_EventWaitHandleSecurity *)getAccessControl
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl()" withNumArgs:0];
-		return [System_Security_AccessControl_EventWaitHandleSecurity representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_EventWaitHandleSecurity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenExisting
@@ -71,7 +77,7 @@
     - (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_EventWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_EventWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenExisting
@@ -80,7 +86,7 @@
     - (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenExisting(string,System.Security.AccessControl.EventWaitHandleRights)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Threading_EventWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_EventWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Reset
@@ -126,5 +132,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryOpenExisting(string,System.Security.AccessControl.EventWaitHandleRights,System.Threading.EventWaitHandle&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

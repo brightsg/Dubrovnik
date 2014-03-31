@@ -3,6 +3,12 @@
 //
 // Managed class : PublisherMembershipCondition
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_PublisherMembershipCondition
 
 #pragma mark -
@@ -32,15 +38,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Cryptography.X509Certificates.X509Certificate
+	// Managed property name : Certificate
+	// Managed property type : System.Security.Cryptography.X509Certificates.X509Certificate
+    @synthesize certificate = _certificate;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)certificate
     {
-		MonoObject * monoObject = [self getMonoProperty:"Certificate"];
-		System_Security_Cryptography_X509Certificates_X509Certificate * result = [System_Security_Cryptography_X509Certificates_X509Certificate representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Certificate"];
+		if ([self object:_certificate isEqualToMonoObject:monoObject]) return _certificate;					
+		_certificate = [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
+
+		return _certificate;
 	}
     - (void)setCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)value
 	{
+		_certificate = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Certificate" valueObject:monoObject];          
 	}
@@ -63,13 +74,13 @@
     - (System_Security_Policy_IMembershipCondition *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_Policy_IMembershipCondition representationWithMonoObject:monoObject];
+		return [System_Security_Policy_IMembershipCondition objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -115,7 +126,7 @@
     - (System_Security_SecurityElement *)toXml
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToXml
@@ -124,7 +135,13 @@
     - (System_Security_SecurityElement *)toXml_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

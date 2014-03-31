@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyNameProxy
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyNameProxy
 
 #pragma mark -
@@ -27,7 +33,13 @@
     - (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Reflection_AssemblyName representationWithMonoObject:monoObject];
+		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

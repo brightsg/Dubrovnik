@@ -14,24 +14,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int64
-    - (int64_t)availableFreeSpace;
+	// Managed property name : AvailableFreeSpace
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t availableFreeSpace;
 
-	// Managed type : System.UInt64
-    - (uint64_t)currentSize;
+	// Managed property name : CurrentSize
+	// Managed property type : System.UInt64
+    @property (nonatomic, readonly) uint64_t currentSize;
 
-	// Managed type : System.Boolean
+	// Managed property name : IsEnabled
+	// Managed property type : System.Boolean
     + (BOOL)isEnabled;
 
-	// Managed type : System.UInt64
-    - (uint64_t)maximumSize;
+	// Managed property name : MaximumSize
+	// Managed property type : System.UInt64
+    @property (nonatomic, readonly) uint64_t maximumSize;
 
-	// Managed type : System.Int64
-    - (int64_t)quota;
-    - (void)setQuota:(int64_t)value;
+	// Managed property name : Quota
+	// Managed property type : System.Int64
+    @property (nonatomic) int64_t quota;
 
-	// Managed type : System.Int64
-    - (int64_t)usedSize;
+	// Managed property name : UsedSize
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t usedSize;
 
 #pragma mark -
 #pragma mark Methods
@@ -149,7 +154,7 @@
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(DBMonoObjectRepresentation *)p2 assemblyIdentity:(DBMonoObjectRepresentation *)p3;
+    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
@@ -164,7 +169,7 @@
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(DBMonoObjectRepresentation *)p2;
+    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2;
 
 	// Managed method name : GetUserStoreForApplication
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile

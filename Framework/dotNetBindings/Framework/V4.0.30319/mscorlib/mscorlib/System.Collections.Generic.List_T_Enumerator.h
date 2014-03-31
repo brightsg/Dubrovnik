@@ -2,7 +2,7 @@
 //
 // Managed struct : List<T>.Enumerator
 //
-@interface System_Collections_Generic_List : DBMonoObjectRepresentation
+@interface System_Collections_Generic_List : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)current;
+	// Managed property name : Current
+	// Managed property type : <T>
+    @property (nonatomic, strong, readonly) DBManagedObject * current;
 
 #pragma mark -
 #pragma mark Methods

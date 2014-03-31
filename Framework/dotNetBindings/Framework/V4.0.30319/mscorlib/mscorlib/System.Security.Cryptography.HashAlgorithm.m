@@ -3,6 +3,12 @@
 //
 // Managed class : HashAlgorithm
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Cryptography_HashAlgorithm
 
 #pragma mark -
@@ -21,52 +27,71 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : CanReuseTransform
+	// Managed property type : System.Boolean
+    @synthesize canReuseTransform = _canReuseTransform;
     - (BOOL)canReuseTransform
     {
-		MonoObject * monoObject = [self getMonoProperty:"CanReuseTransform"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CanReuseTransform"];
+		_canReuseTransform = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _canReuseTransform;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : CanTransformMultipleBlocks
+	// Managed property type : System.Boolean
+    @synthesize canTransformMultipleBlocks = _canTransformMultipleBlocks;
     - (BOOL)canTransformMultipleBlocks
     {
-		MonoObject * monoObject = [self getMonoProperty:"CanTransformMultipleBlocks"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CanTransformMultipleBlocks"];
+		_canTransformMultipleBlocks = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _canTransformMultipleBlocks;
 	}
 
-	// Managed type : System.Byte[]
+	// Managed property name : Hash
+	// Managed property type : System.Byte[]
+    @synthesize hash = _hash;
     - (NSData *)hash
     {
-		MonoObject * monoObject = [self getMonoProperty:"Hash"];
-		NSData * result = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Hash"];
+		if ([self object:_hash isEqualToMonoObject:monoObject]) return _hash;					
+		_hash = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
+		return _hash;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : HashSize
+	// Managed property type : System.Int32
+    @synthesize hashSize = _hashSize;
     - (int32_t)hashSize
     {
-		MonoObject * monoObject = [self getMonoProperty:"HashSize"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"HashSize"];
+		_hashSize = DB_UNBOX_INT32(monoObject);
+
+		return _hashSize;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : InputBlockSize
+	// Managed property type : System.Int32
+    @synthesize inputBlockSize = _inputBlockSize;
     - (int32_t)inputBlockSize
     {
-		MonoObject * monoObject = [self getMonoProperty:"InputBlockSize"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InputBlockSize"];
+		_inputBlockSize = DB_UNBOX_INT32(monoObject);
+
+		return _inputBlockSize;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : OutputBlockSize
+	// Managed property type : System.Int32
+    @synthesize outputBlockSize = _outputBlockSize;
     - (int32_t)outputBlockSize
     {
-		MonoObject * monoObject = [self getMonoProperty:"OutputBlockSize"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OutputBlockSize"];
+		_outputBlockSize = DB_UNBOX_INT32(monoObject);
+
+		return _outputBlockSize;
 	}
 
 #pragma mark -
@@ -113,7 +138,7 @@
     - (System_Security_Cryptography_HashAlgorithm *)create
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
-		return [System_Security_Cryptography_HashAlgorithm representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_HashAlgorithm objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -122,7 +147,7 @@
     - (System_Security_Cryptography_HashAlgorithm *)create_withHashName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Security_Cryptography_HashAlgorithm representationWithMonoObject:monoObject];
+		return [System_Security_Cryptography_HashAlgorithm objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -158,5 +183,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TransformFinalBlock(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

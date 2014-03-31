@@ -2,7 +2,7 @@
 //
 // Managed class : SecureString
 //
-@interface System_Security_SecureString : DBMonoObjectRepresentation
+@interface System_Security_SecureString : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,8 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)length;
+	// Managed property name : Length
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t length;
 
 #pragma mark -
 #pragma mark Methods

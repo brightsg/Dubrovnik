@@ -14,44 +14,57 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)codeBase;
+	// Managed property name : CodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * codeBase;
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)entryPoint;
+	// Managed property name : EntryPoint
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * entryPoint;
 
-	// Managed type : System.Security.Policy.Evidence
-    - (System_Security_Policy_Evidence *)evidence;
+	// Managed property name : Evidence
+	// Managed property type : System.Security.Policy.Evidence
+    @property (nonatomic, strong, readonly) System_Security_Policy_Evidence * evidence;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
-	// Managed type : System.Boolean
-    - (BOOL)globalAssemblyCache;
+	// Managed property name : GlobalAssemblyCache
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL globalAssemblyCache;
 
-	// Managed type : System.Int64
-    - (int64_t)hostContext;
+	// Managed property name : HostContext
+	// Managed property type : System.Int64
+    @property (nonatomic, readonly) int64_t hostContext;
 
-	// Managed type : System.String
-    - (NSString *)imageRuntimeVersion;
+	// Managed property name : ImageRuntimeVersion
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * imageRuntimeVersion;
 
-	// Managed type : System.Boolean
-    - (BOOL)isDynamic;
+	// Managed property name : IsDynamic
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isDynamic;
 
-	// Managed type : System.String
-    - (NSString *)location;
+	// Managed property name : Location
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * location;
 
-	// Managed type : System.Reflection.Module
-    - (System_Reflection_Module *)manifestModule;
+	// Managed property name : ManifestModule
+	// Managed property type : System.Reflection.Module
+    @property (nonatomic, strong, readonly) System_Reflection_Module * manifestModule;
 
-	// Managed type : System.Security.PermissionSet
-    - (System_Security_PermissionSet *)permissionSet;
+	// Managed property name : PermissionSet
+	// Managed property type : System.Security.PermissionSet
+    @property (nonatomic, strong, readonly) System_Security_PermissionSet * permissionSet;
 
-	// Managed type : System.Boolean
-    - (BOOL)reflectionOnly;
+	// Managed property name : ReflectionOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL reflectionOnly;
 
-	// Managed type : System.Security.SecurityRuleSet
-    - (System_Security_SecurityRuleSet)securityRuleSet;
+	// Managed property name : SecurityRuleSet
+	// Managed property type : System.Security.SecurityRuleSet
+    @property (nonatomic, readonly) System_Security_SecurityRuleSet securityRuleSet;
 
 #pragma mark -
 #pragma mark Methods
@@ -129,7 +142,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Object[]

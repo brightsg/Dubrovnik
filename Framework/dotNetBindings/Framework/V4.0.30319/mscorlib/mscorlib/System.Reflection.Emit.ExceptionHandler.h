@@ -2,7 +2,7 @@
 //
 // Managed struct : ExceptionHandler
 //
-@interface System_Reflection_Emit_ExceptionHandler : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_ExceptionHandler : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -22,26 +22,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)exceptionTypeToken;
+	// Managed property name : ExceptionTypeToken
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t exceptionTypeToken;
 
-	// Managed type : System.Int32
-    - (int32_t)filterOffset;
+	// Managed property name : FilterOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t filterOffset;
 
-	// Managed type : System.Int32
-    - (int32_t)handlerLength;
+	// Managed property name : HandlerLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t handlerLength;
 
-	// Managed type : System.Int32
-    - (int32_t)handlerOffset;
+	// Managed property name : HandlerOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t handlerOffset;
 
-	// Managed type : System.Reflection.ExceptionHandlingClauseOptions
-    - (System_Reflection_ExceptionHandlingClauseOptions)kind;
+	// Managed property name : Kind
+	// Managed property type : System.Reflection.ExceptionHandlingClauseOptions
+    @property (nonatomic, readonly) System_Reflection_ExceptionHandlingClauseOptions kind;
 
-	// Managed type : System.Int32
-    - (int32_t)tryLength;
+	// Managed property name : TryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t tryLength;
 
-	// Managed type : System.Int32
-    - (int32_t)tryOffset;
+	// Managed property name : TryOffset
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t tryOffset;
 
 #pragma mark -
 #pragma mark Methods
@@ -49,7 +56,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

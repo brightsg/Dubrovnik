@@ -27,22 +27,23 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.CharSet
-    - (System_Runtime_InteropServices_CharSet)charSet;
-    - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value;
+	// Managed field name : CharSet
+	// Managed field type : System.Runtime.InteropServices.CharSet
+    @property (nonatomic) System_Runtime_InteropServices_CharSet charSet;
 
-	// Managed type : System.Int32
-    - (int32_t)pack;
-    - (void)setPack:(int32_t)value;
+	// Managed field name : Pack
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t pack;
 
-	// Managed type : System.Int32
-    - (int32_t)size;
-    - (void)setSize:(int32_t)value;
+	// Managed field name : Size
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t size;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.LayoutKind
-    - (System_Runtime_InteropServices_LayoutKind)value;
+	// Managed property name : Value
+	// Managed property type : System.Runtime.InteropServices.LayoutKind
+    @property (nonatomic, readonly) System_Runtime_InteropServices_LayoutKind value;
 @end
 //--Dubrovnik.CodeGenerator

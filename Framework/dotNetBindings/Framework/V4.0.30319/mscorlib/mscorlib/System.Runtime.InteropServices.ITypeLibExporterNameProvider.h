@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeLibExporterNameProvider
 //
-@interface System_Runtime_InteropServices_ITypeLibExporterNameProvider : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ITypeLibExporterNameProvider : System_Object
 
 #pragma mark -
 #pragma mark Setup

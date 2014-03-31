@@ -27,13 +27,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Diagnostics.DebuggableAttribute+DebuggingModes
-    - (System_Diagnostics_DebuggableAttribute__DebuggingModes)debuggingFlags;
+	// Managed property name : DebuggingFlags
+	// Managed property type : System.Diagnostics.DebuggableAttribute+DebuggingModes
+    @property (nonatomic, readonly) System_Diagnostics_DebuggableAttribute__DebuggingModes debuggingFlags;
 
-	// Managed type : System.Boolean
-    - (BOOL)isJITOptimizerDisabled;
+	// Managed property name : IsJITOptimizerDisabled
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isJITOptimizerDisabled;
 
-	// Managed type : System.Boolean
-    - (BOOL)isJITTrackingEnabled;
+	// Managed property name : IsJITTrackingEnabled
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isJITTrackingEnabled;
 @end
 //--Dubrovnik.CodeGenerator

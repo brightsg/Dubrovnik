@@ -14,9 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
-    - (NSData *)key;
-    - (void)setKey:(NSData *)value;
+	// Managed property name : Key
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong) NSData * key;
 
 #pragma mark -
 #pragma mark Methods

@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)exceptionState;
+	// Managed property name : ExceptionState
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * exceptionState;
 @end
 //--Dubrovnik.CodeGenerator

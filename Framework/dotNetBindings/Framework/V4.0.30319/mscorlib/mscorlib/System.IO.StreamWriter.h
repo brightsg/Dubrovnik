@@ -57,21 +57,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IO.StreamWriter
+	// Managed field name : Null
+	// Managed field type : System.IO.StreamWriter
     + (System_IO_StreamWriter *)null;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)autoFlush;
-    - (void)setAutoFlush:(BOOL)value;
+	// Managed property name : AutoFlush
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL autoFlush;
 
-	// Managed type : System.IO.Stream
-    - (System_IO_Stream *)baseStream;
+	// Managed property name : BaseStream
+	// Managed property type : System.IO.Stream
+    @property (nonatomic, strong, readonly) System_IO_Stream * baseStream;
 
-	// Managed type : System.Text.Encoding
-    - (System_Text_Encoding *)encoding;
+	// Managed property name : Encoding
+	// Managed property type : System.Text.Encoding
+    @property (nonatomic, strong, readonly) System_Text_Encoding * encoding;
 
 #pragma mark -
 #pragma mark Methods

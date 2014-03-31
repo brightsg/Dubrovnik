@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Action<T1, T2>
 	// Managed param types : System.Object, System.IntPtr
-    + (System_Action *)new_withObject:(DBMonoObjectRepresentation *)p1 method:(void *)p2;
+    + (System_Action *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -25,7 +25,7 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : <T1>, <T2>, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withArg1:(DBMonoObjectRepresentation *)p1 arg2:(DBMonoObjectRepresentation *)p2 callback:(System_AsyncCallback *)p3 object:(DBMonoObjectRepresentation *)p4;
+    - (System_IAsyncResult *)beginInvoke_withArg1:(DBManagedObject *)p1 arg2:(DBManagedObject *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
 
 	// Managed method name : EndInvoke
 	// Managed return type : System.Void
@@ -35,6 +35,6 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Void
 	// Managed param types : <T1>, <T2>
-    - (void)invoke_withArg1:(DBMonoObjectRepresentation *)p1 arg2:(DBMonoObjectRepresentation *)p2;
+    - (void)invoke_withArg1:(DBManagedObject *)p1 arg2:(DBManagedObject *)p2;
 @end
 //--Dubrovnik.CodeGenerator

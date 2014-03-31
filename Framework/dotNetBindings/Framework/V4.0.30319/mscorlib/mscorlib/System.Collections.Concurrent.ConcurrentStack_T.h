@@ -2,7 +2,7 @@
 //
 // Managed class : ConcurrentStack<T>
 //
-@interface System_Collections_Concurrent_ConcurrentStack : DBMonoObjectRepresentation
+@interface System_Collections_Concurrent_ConcurrentStack : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,11 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : System.Boolean
-    - (BOOL)isEmpty;
+	// Managed property name : IsEmpty
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isEmpty;
 
 #pragma mark -
 #pragma mark Methods
@@ -49,7 +51,7 @@
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : <T>
-    - (void)push_withItem:(DBMonoObjectRepresentation *)p1;
+    - (void)push_withItem:(DBManagedObject *)p1;
 
 	// Managed method name : PushRange
 	// Managed return type : System.Void

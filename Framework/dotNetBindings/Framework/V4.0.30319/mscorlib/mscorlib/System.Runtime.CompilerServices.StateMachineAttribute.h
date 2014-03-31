@@ -22,8 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Type
-    - (System_Type *)stateMachineType;
-    - (void)setStateMachineType:(System_Type *)value;
+	// Managed property name : StateMachineType
+	// Managed property type : System.Type
+    @property (nonatomic, strong) System_Type * stateMachineType;
 @end
 //--Dubrovnik.CodeGenerator

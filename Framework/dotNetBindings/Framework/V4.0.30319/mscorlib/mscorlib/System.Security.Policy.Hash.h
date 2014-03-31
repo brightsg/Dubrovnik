@@ -22,14 +22,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
-    - (NSData *)mD5;
+	// Managed property name : MD5
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * mD5;
 
-	// Managed type : System.Byte[]
-    - (NSData *)sHA1;
+	// Managed property name : SHA1
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * sHA1;
 
-	// Managed type : System.Byte[]
-    - (NSData *)sHA256;
+	// Managed property name : SHA256
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * sHA256;
 
 #pragma mark -
 #pragma mark Methods

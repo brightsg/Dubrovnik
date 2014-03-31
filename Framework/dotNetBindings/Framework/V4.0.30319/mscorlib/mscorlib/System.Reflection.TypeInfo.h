@@ -14,32 +14,41 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.ConstructorInfo>
-    - (System_Collections_Generic_IEnumerable *)declaredConstructors;
+	// Managed property name : DeclaredConstructors
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.ConstructorInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredConstructors;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.EventInfo>
-    - (System_Collections_Generic_IEnumerable *)declaredEvents;
+	// Managed property name : DeclaredEvents
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.EventInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredEvents;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.FieldInfo>
-    - (System_Collections_Generic_IEnumerable *)declaredFields;
+	// Managed property name : DeclaredFields
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.FieldInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredFields;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>
-    - (System_Collections_Generic_IEnumerable *)declaredMembers;
+	// Managed property name : DeclaredMembers
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredMembers;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.MethodInfo>
-    - (System_Collections_Generic_IEnumerable *)declaredMethods;
+	// Managed property name : DeclaredMethods
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.MethodInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredMethods;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.TypeInfo>
-    - (System_Collections_Generic_IEnumerable *)declaredNestedTypes;
+	// Managed property name : DeclaredNestedTypes
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.TypeInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredNestedTypes;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Reflection.PropertyInfo>
-    - (System_Collections_Generic_IEnumerable *)declaredProperties;
+	// Managed property name : DeclaredProperties
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.PropertyInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredProperties;
 
-	// Managed type : System.Type[]
-    - (DBSystem_Array *)genericTypeParameters;
+	// Managed property name : GenericTypeParameters
+	// Managed property type : System.Type[]
+    @property (nonatomic, strong, readonly) DBSystem_Array * genericTypeParameters;
 
-	// Managed type : System.Collections.Generic.IEnumerable<System.Type>
-    - (System_Collections_Generic_IEnumerable *)implementedInterfaces;
+	// Managed property name : ImplementedInterfaces
+	// Managed property type : System.Collections.Generic.IEnumerable<System.Type>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * implementedInterfaces;
 
 #pragma mark -
 #pragma mark Methods

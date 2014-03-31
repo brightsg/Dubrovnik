@@ -2,7 +2,7 @@
 //
 // Managed struct : Guid
 //
-@interface System_Guid : DBMonoObjectRepresentation
+@interface System_Guid : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -42,7 +42,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Guid
+	// Managed field name : Empty
+	// Managed field type : System.Guid
     + (System_Guid *)empty;
 
 #pragma mark -
@@ -51,7 +52,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -61,7 +62,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

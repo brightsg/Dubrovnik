@@ -2,7 +2,7 @@
 //
 // Managed class : SemaphoreSlim
 //
-@interface System_Threading_SemaphoreSlim : DBMonoObjectRepresentation
+@interface System_Threading_SemaphoreSlim : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,11 +27,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Threading.WaitHandle
-    - (System_Threading_WaitHandle *)availableWaitHandle;
+	// Managed property name : AvailableWaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @property (nonatomic, strong, readonly) System_Threading_WaitHandle * availableWaitHandle;
 
-	// Managed type : System.Int32
-    - (int32_t)currentCount;
+	// Managed property name : CurrentCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t currentCount;
 
 #pragma mark -
 #pragma mark Methods

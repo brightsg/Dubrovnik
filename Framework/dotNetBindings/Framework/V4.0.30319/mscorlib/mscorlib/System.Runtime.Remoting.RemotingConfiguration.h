@@ -2,7 +2,7 @@
 //
 // Managed class : RemotingConfiguration
 //
-@interface System_Runtime_Remoting_RemotingConfiguration : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_RemotingConfiguration : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,18 +14,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : ApplicationId
+	// Managed property type : System.String
     + (NSString *)applicationId;
 
-	// Managed type : System.String
+	// Managed property name : ApplicationName
+	// Managed property type : System.String
     + (NSString *)applicationName;
     + (void)setApplicationName:(NSString *)value;
 
-	// Managed type : System.Runtime.Remoting.CustomErrorsModes
+	// Managed property name : CustomErrorsMode
+	// Managed property type : System.Runtime.Remoting.CustomErrorsModes
     + (System_Runtime_Remoting_CustomErrorsModes)customErrorsMode;
     + (void)setCustomErrorsMode:(System_Runtime_Remoting_CustomErrorsModes)value;
 
-	// Managed type : System.String
+	// Managed property name : ProcessId
+	// Managed property type : System.String
     + (NSString *)processId;
 
 #pragma mark -

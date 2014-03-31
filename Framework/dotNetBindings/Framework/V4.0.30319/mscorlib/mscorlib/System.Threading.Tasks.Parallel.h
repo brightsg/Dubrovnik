@@ -2,7 +2,7 @@
 //
 // Managed class : Parallel
 //
-@interface System_Threading_Tasks_Parallel : DBMonoObjectRepresentation
+@interface System_Threading_Tasks_Parallel : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -117,12 +117,12 @@
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
 	// Managed param types : IEnumerable<TSource>, Func<TLocal>, Func`5, Action<TLocal>
-    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceIEnumerable_TSource:(IEnumerable *)p1 localInitFunc_TLocal:(Func *)p2 bodyFunc_P5:(Func_P5 *)p3 localFinallyAction_TLocal:(Action *)p4;
+    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceIEnumerable_TSource:(IEnumerable *)p1 localInitFunc_TLocal:(Func *)p2 bodyFuncA5:(FuncA5 *)p3 localFinallyAction_TLocal:(Action *)p4;
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
 	// Managed param types : IEnumerable<TSource>, System.Threading.Tasks.ParallelOptions, Func<TLocal>, Func`5, Action<TLocal>
-    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceIEnumerable_TSource:(IEnumerable *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitFunc_TLocal:(Func *)p3 bodyFunc_P5:(Func_P5 *)p4 localFinallyAction_TLocal:(Action *)p5;
+    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceIEnumerable_TSource:(IEnumerable *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitFunc_TLocal:(Func *)p3 bodyFuncA5:(FuncA5 *)p4 localFinallyAction_TLocal:(Action *)p5;
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
@@ -147,7 +147,7 @@
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
 	// Managed param types : OrderablePartitioner<TSource>, Func<TLocal>, Func`5, Action<TLocal>
-    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceOrderablePartitioner_TSource:(OrderablePartitioner *)p1 localInitFunc_TLocal:(Func *)p2 bodyFunc_P5:(Func_P5 *)p3 localFinallyAction_TLocal:(Action *)p4;
+    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceOrderablePartitioner_TSource:(OrderablePartitioner *)p1 localInitFunc_TLocal:(Func *)p2 bodyFuncA5:(FuncA5 *)p3 localFinallyAction_TLocal:(Action *)p4;
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
@@ -172,7 +172,7 @@
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
 	// Managed param types : OrderablePartitioner<TSource>, System.Threading.Tasks.ParallelOptions, Func<TLocal>, Func`5, Action<TLocal>
-    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceOrderablePartitioner_TSource:(OrderablePartitioner *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitFunc_TLocal:(Func *)p3 bodyFunc_P5:(Func_P5 *)p4 localFinallyAction_TLocal:(Action *)p5;
+    - (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceOrderablePartitioner_TSource:(OrderablePartitioner *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitFunc_TLocal:(Func *)p3 bodyFuncA5:(FuncA5 *)p4 localFinallyAction_TLocal:(Action *)p5;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void

@@ -2,7 +2,7 @@
 //
 // Managed struct : EXCEPINFO
 //
-@interface System_Runtime_InteropServices_EXCEPINFO : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_EXCEPINFO : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,36 +14,36 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.String
-    - (NSString *)bstrDescription;
-    - (void)setBstrDescription:(NSString *)value;
+	// Managed field name : bstrDescription
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * bstrDescription;
 
-	// Managed type : System.String
-    - (NSString *)bstrHelpFile;
-    - (void)setBstrHelpFile:(NSString *)value;
+	// Managed field name : bstrHelpFile
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * bstrHelpFile;
 
-	// Managed type : System.String
-    - (NSString *)bstrSource;
-    - (void)setBstrSource:(NSString *)value;
+	// Managed field name : bstrSource
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * bstrSource;
 
-	// Managed type : System.Int32
-    - (int32_t)dwHelpContext;
-    - (void)setDwHelpContext:(int32_t)value;
+	// Managed field name : dwHelpContext
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t dwHelpContext;
 
-	// Managed type : System.IntPtr
-    - (void *)pfnDeferredFillIn;
-    - (void)setPfnDeferredFillIn:(void *)value;
+	// Managed field name : pfnDeferredFillIn
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * pfnDeferredFillIn;
 
-	// Managed type : System.IntPtr
-    - (void *)pvReserved;
-    - (void)setPvReserved:(void *)value;
+	// Managed field name : pvReserved
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * pvReserved;
 
-	// Managed type : System.Int16
-    - (int16_t)wCode;
-    - (void)setWCode:(int16_t)value;
+	// Managed field name : wCode
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wCode;
 
-	// Managed type : System.Int16
-    - (int16_t)wReserved;
-    - (void)setWReserved:(int16_t)value;
+	// Managed field name : wReserved
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t wReserved;
 @end
 //--Dubrovnik.CodeGenerator

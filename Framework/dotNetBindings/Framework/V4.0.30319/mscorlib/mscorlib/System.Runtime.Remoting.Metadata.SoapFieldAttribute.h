@@ -14,13 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)order;
-    - (void)setOrder:(int32_t)value;
+	// Managed property name : Order
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t order;
 
-	// Managed type : System.String
-    - (NSString *)xmlElementName;
-    - (void)setXmlElementName:(NSString *)value;
+	// Managed property name : XmlElementName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlElementName;
 
 #pragma mark -
 #pragma mark Methods

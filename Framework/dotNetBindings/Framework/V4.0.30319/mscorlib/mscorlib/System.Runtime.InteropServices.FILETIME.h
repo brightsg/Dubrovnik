@@ -2,7 +2,7 @@
 //
 // Managed struct : FILETIME
 //
-@interface System_Runtime_InteropServices_FILETIME : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_FILETIME : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
-    - (int32_t)dwHighDateTime;
-    - (void)setDwHighDateTime:(int32_t)value;
+	// Managed field name : dwHighDateTime
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t dwHighDateTime;
 
-	// Managed type : System.Int32
-    - (int32_t)dwLowDateTime;
-    - (void)setDwLowDateTime:(int32_t)value;
+	// Managed field name : dwLowDateTime
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t dwLowDateTime;
 @end
 //--Dubrovnik.CodeGenerator

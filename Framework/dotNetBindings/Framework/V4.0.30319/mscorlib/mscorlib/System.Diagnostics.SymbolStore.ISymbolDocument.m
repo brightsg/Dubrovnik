@@ -3,6 +3,12 @@
 //
 // Managed interface : ISymbolDocument
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_SymbolStore_ISymbolDocument
 
 #pragma mark -
@@ -21,60 +27,86 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Guid
+	// Managed property name : CheckSumAlgorithmId
+	// Managed property type : System.Guid
+    @synthesize checkSumAlgorithmId = _checkSumAlgorithmId;
     - (System_Guid *)checkSumAlgorithmId
     {
-		MonoObject * monoObject = [self getMonoProperty:"CheckSumAlgorithmId"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"CheckSumAlgorithmId"];
+		if ([self object:_checkSumAlgorithmId isEqualToMonoObject:monoObject]) return _checkSumAlgorithmId;					
+		_checkSumAlgorithmId = [System_Guid objectWithMonoObject:monoObject];
+
+		return _checkSumAlgorithmId;
 	}
 
-	// Managed type : System.Guid
+	// Managed property name : DocumentType
+	// Managed property type : System.Guid
+    @synthesize documentType = _documentType;
     - (System_Guid *)documentType
     {
-		MonoObject * monoObject = [self getMonoProperty:"DocumentType"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DocumentType"];
+		if ([self object:_documentType isEqualToMonoObject:monoObject]) return _documentType;					
+		_documentType = [System_Guid objectWithMonoObject:monoObject];
+
+		return _documentType;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : HasEmbeddedSource
+	// Managed property type : System.Boolean
+    @synthesize hasEmbeddedSource = _hasEmbeddedSource;
     - (BOOL)hasEmbeddedSource
     {
-		MonoObject * monoObject = [self getMonoProperty:"HasEmbeddedSource"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"HasEmbeddedSource"];
+		_hasEmbeddedSource = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _hasEmbeddedSource;
 	}
 
-	// Managed type : System.Guid
+	// Managed property name : Language
+	// Managed property type : System.Guid
+    @synthesize language = _language;
     - (System_Guid *)language
     {
-		MonoObject * monoObject = [self getMonoProperty:"Language"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Language"];
+		if ([self object:_language isEqualToMonoObject:monoObject]) return _language;					
+		_language = [System_Guid objectWithMonoObject:monoObject];
+
+		return _language;
 	}
 
-	// Managed type : System.Guid
+	// Managed property name : LanguageVendor
+	// Managed property type : System.Guid
+    @synthesize languageVendor = _languageVendor;
     - (System_Guid *)languageVendor
     {
-		MonoObject * monoObject = [self getMonoProperty:"LanguageVendor"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"LanguageVendor"];
+		if ([self object:_languageVendor isEqualToMonoObject:monoObject]) return _languageVendor;					
+		_languageVendor = [System_Guid objectWithMonoObject:monoObject];
+
+		return _languageVendor;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : SourceLength
+	// Managed property type : System.Int32
+    @synthesize sourceLength = _sourceLength;
     - (int32_t)sourceLength
     {
-		MonoObject * monoObject = [self getMonoProperty:"SourceLength"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"SourceLength"];
+		_sourceLength = DB_UNBOX_INT32(monoObject);
+
+		return _sourceLength;
 	}
 
-	// Managed type : System.String
+	// Managed property name : URL
+	// Managed property type : System.String
+    @synthesize uRL = _uRL;
     - (NSString *)uRL
     {
-		MonoObject * monoObject = [self getMonoProperty:"URL"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"URL"];
+		if ([self object:_uRL isEqualToMonoObject:monoObject]) return _uRL;					
+		_uRL = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _uRL;
 	}
 
 #pragma mark -
@@ -106,5 +138,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSourceRange(int,int,int,int)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : Delegate
 //
-@interface System_Delegate : DBMonoObjectRepresentation
+@interface System_Delegate : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)method;
+	// Managed property name : Method
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * method;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)target;
+	// Managed property name : Target
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * target;
 
 #pragma mark -
 #pragma mark Methods
@@ -26,7 +28,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : Combine
 	// Managed return type : System.Delegate
@@ -41,17 +43,17 @@
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.String
-    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(DBMonoObjectRepresentation *)p2 methodString:(NSString *)p3;
+    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3;
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.String, System.Boolean
-    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(DBMonoObjectRepresentation *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4;
+    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4;
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.String, System.Boolean, System.Boolean
-    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(DBMonoObjectRepresentation *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
+    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
@@ -76,12 +78,12 @@
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.Reflection.MethodInfo
-    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(DBMonoObjectRepresentation *)p2 method:(System_Reflection_MethodInfo *)p3;
+    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3;
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.Reflection.MethodInfo, System.Boolean
-    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(DBMonoObjectRepresentation *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4;
+    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4;
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
@@ -91,12 +93,12 @@
 	// Managed method name : DynamicInvoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object[]
-    - (DBMonoObjectRepresentation *)dynamicInvoke_withArgs:(DBSystem_Array *)p1;
+    - (System_Object *)dynamicInvoke_withArgs:(DBSystem_Array *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

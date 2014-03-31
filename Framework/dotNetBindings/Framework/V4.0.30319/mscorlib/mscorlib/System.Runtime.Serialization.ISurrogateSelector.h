@@ -2,7 +2,7 @@
 //
 // Managed interface : ISurrogateSelector
 //
-@interface System_Runtime_Serialization_ISurrogateSelector : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_ISurrogateSelector : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -3,6 +3,12 @@
 //
 // Managed interface : IServiceProvider
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_IServiceProvider
 
 #pragma mark -
@@ -24,10 +30,16 @@
 	// Managed method name : GetService
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getService_withServiceType:(System_Type *)p1
+    - (System_Object *)getService_withServiceType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetService(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

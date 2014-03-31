@@ -3,6 +3,12 @@
 //
 // Managed class : Math
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Math
 
 #pragma mark -
@@ -21,20 +27,26 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Double
+	// Managed field name : E
+	// Managed field type : System.Double
+    static double m_e;
     + (double)e
     {
 		double monoObject;
 		[[self class] getMonoClassField:"E" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_e = monoObject;
+		return m_e;
 	}
 
-	// Managed type : System.Double
+	// Managed field name : PI
+	// Managed field type : System.Double
+    static double m_pI;
     + (double)pI
     {
 		double monoObject;
 		[[self class] getMonoClassField:"PI" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_pI = monoObject;
+		return m_pI;
 	}
 
 #pragma mark -
@@ -669,5 +681,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"Truncate(double)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_DOUBLE(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

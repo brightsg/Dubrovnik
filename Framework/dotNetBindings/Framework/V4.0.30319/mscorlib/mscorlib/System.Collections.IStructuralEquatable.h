@@ -2,7 +2,7 @@
 //
 // Managed interface : IStructuralEquatable
 //
-@interface System_Collections_IStructuralEquatable : DBMonoObjectRepresentation
+@interface System_Collections_IStructuralEquatable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Collections.IEqualityComparer
-    - (BOOL)equals_withOther:(DBMonoObjectRepresentation *)p1 comparer:(System_Collections_IEqualityComparer *)p2;
+    - (BOOL)equals_withOther:(System_Object *)p1 comparer:(System_Collections_IEqualityComparer *)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

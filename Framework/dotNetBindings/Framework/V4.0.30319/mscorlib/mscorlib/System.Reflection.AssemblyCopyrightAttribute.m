@@ -3,6 +3,12 @@
 //
 // Managed class : AssemblyCopyrightAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_AssemblyCopyrightAttribute
 
 #pragma mark -
@@ -32,12 +38,22 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Copyright
+	// Managed property type : System.String
+    @synthesize copyright = _copyright;
     - (NSString *)copyright
     {
-		MonoObject * monoObject = [self getMonoProperty:"Copyright"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Copyright"];
+		if ([self object:_copyright isEqualToMonoObject:monoObject]) return _copyright;					
+		_copyright = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _copyright;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

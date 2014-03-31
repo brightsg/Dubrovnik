@@ -3,6 +3,12 @@
 //
 // Managed class : GenericAce
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_AccessControl_GenericAce
 
 #pragma mark -
@@ -21,65 +27,87 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AceFlags
+	// Managed property name : AceFlags
+	// Managed property type : System.Security.AccessControl.AceFlags
+    @synthesize aceFlags = _aceFlags;
     - (System_Security_AccessControl_AceFlags)aceFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"AceFlags"];
-		System_Security_AccessControl_AceFlags result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AceFlags"];
+		_aceFlags = DB_UNBOX_UINT8(monoObject);
+
+		return _aceFlags;
 	}
     - (void)setAceFlags:(System_Security_AccessControl_AceFlags)value
 	{
+		_aceFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"AceFlags" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.AccessControl.AceType
+	// Managed property name : AceType
+	// Managed property type : System.Security.AccessControl.AceType
+    @synthesize aceType = _aceType;
     - (System_Security_AccessControl_AceType)aceType
     {
-		MonoObject * monoObject = [self getMonoProperty:"AceType"];
-		System_Security_AccessControl_AceType result = DB_UNBOX_UINT8(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AceType"];
+		_aceType = DB_UNBOX_UINT8(monoObject);
+
+		return _aceType;
 	}
 
-	// Managed type : System.Security.AccessControl.AuditFlags
+	// Managed property name : AuditFlags
+	// Managed property type : System.Security.AccessControl.AuditFlags
+    @synthesize auditFlags = _auditFlags;
     - (System_Security_AccessControl_AuditFlags)auditFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"AuditFlags"];
-		System_Security_AccessControl_AuditFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AuditFlags"];
+		_auditFlags = DB_UNBOX_INT32(monoObject);
+
+		return _auditFlags;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject * monoObject = [self getMonoProperty:"BinaryLength"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
+		_binaryLength = DB_UNBOX_INT32(monoObject);
+
+		return _binaryLength;
 	}
 
-	// Managed type : System.Security.AccessControl.InheritanceFlags
+	// Managed property name : InheritanceFlags
+	// Managed property type : System.Security.AccessControl.InheritanceFlags
+    @synthesize inheritanceFlags = _inheritanceFlags;
     - (System_Security_AccessControl_InheritanceFlags)inheritanceFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"InheritanceFlags"];
-		System_Security_AccessControl_InheritanceFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InheritanceFlags"];
+		_inheritanceFlags = DB_UNBOX_INT32(monoObject);
+
+		return _inheritanceFlags;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsInherited
+	// Managed property type : System.Boolean
+    @synthesize isInherited = _isInherited;
     - (BOOL)isInherited
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsInherited"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsInherited"];
+		_isInherited = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isInherited;
 	}
 
-	// Managed type : System.Security.AccessControl.PropagationFlags
+	// Managed property name : PropagationFlags
+	// Managed property type : System.Security.AccessControl.PropagationFlags
+    @synthesize propagationFlags = _propagationFlags;
     - (System_Security_AccessControl_PropagationFlags)propagationFlags
     {
-		MonoObject * monoObject = [self getMonoProperty:"PropagationFlags"];
-		System_Security_AccessControl_PropagationFlags result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"PropagationFlags"];
+		_propagationFlags = DB_UNBOX_INT32(monoObject);
+
+		return _propagationFlags;
 	}
 
 #pragma mark -
@@ -91,7 +119,7 @@
     - (System_Security_AccessControl_GenericAce *)copy
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
-		return [System_Security_AccessControl_GenericAce representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_GenericAce objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFromBinaryForm
@@ -100,13 +128,13 @@
     - (System_Security_AccessControl_GenericAce *)createFromBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Security_AccessControl_GenericAce representationWithMonoObject:monoObject];
+		return [System_Security_AccessControl_GenericAce objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -146,5 +174,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Security.AccessControl.GenericAce,System.Security.AccessControl.GenericAce)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

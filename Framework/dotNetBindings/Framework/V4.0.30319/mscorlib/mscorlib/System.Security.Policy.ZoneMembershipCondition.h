@@ -2,7 +2,7 @@
 //
 // Managed class : ZoneMembershipCondition
 //
-@interface System_Security_Policy_ZoneMembershipCondition : DBMonoObjectRepresentation
+@interface System_Security_Policy_ZoneMembershipCondition : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.SecurityZone
-    - (System_Security_SecurityZone)securityZone;
-    - (void)setSecurityZone:(System_Security_SecurityZone)value;
+	// Managed property name : SecurityZone
+	// Managed property type : System.Security.SecurityZone
+    @property (nonatomic) System_Security_SecurityZone securityZone;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +42,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

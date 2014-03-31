@@ -2,7 +2,7 @@
 //
 // Managed class : RuntimeEnvironment
 //
-@interface System_Runtime_InteropServices_RuntimeEnvironment : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_RuntimeEnvironment : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : SystemConfigurationFile
+	// Managed property type : System.String
     + (NSString *)systemConfigurationFile;
 
 #pragma mark -
@@ -38,7 +39,7 @@
 	// Managed method name : GetRuntimeInterfaceAsObject
 	// Managed return type : System.Object
 	// Managed param types : System.Guid, System.Guid
-    - (DBMonoObjectRepresentation *)getRuntimeInterfaceAsObject_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2;
+    - (System_Object *)getRuntimeInterfaceAsObject_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2;
 
 	// Managed method name : GetSystemVersion
 	// Managed return type : System.String

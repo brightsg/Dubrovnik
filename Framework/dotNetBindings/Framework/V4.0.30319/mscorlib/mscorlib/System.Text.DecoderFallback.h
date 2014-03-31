@@ -2,7 +2,7 @@
 //
 // Managed class : DecoderFallback
 //
-@interface System_Text_DecoderFallback : DBMonoObjectRepresentation
+@interface System_Text_DecoderFallback : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.DecoderFallback
+	// Managed property name : ExceptionFallback
+	// Managed property type : System.Text.DecoderFallback
     + (System_Text_DecoderFallback *)exceptionFallback;
 
-	// Managed type : System.Int32
-    - (int32_t)maxCharCount;
+	// Managed property name : MaxCharCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t maxCharCount;
 
-	// Managed type : System.Text.DecoderFallback
+	// Managed property name : ReplacementFallback
+	// Managed property type : System.Text.DecoderFallback
     + (System_Text_DecoderFallback *)replacementFallback;
 
 #pragma mark -

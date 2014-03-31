@@ -2,7 +2,7 @@
 //
 // Managed class : Buffer
 //
-@interface System_Buffer : DBMonoObjectRepresentation
+@interface System_Buffer : System_Object
 
 #pragma mark -
 #pragma mark Setup

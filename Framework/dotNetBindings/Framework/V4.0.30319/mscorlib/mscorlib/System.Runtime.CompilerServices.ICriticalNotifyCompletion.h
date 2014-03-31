@@ -2,7 +2,7 @@
 //
 // Managed interface : ICriticalNotifyCompletion
 //
-@interface System_Runtime_CompilerServices_ICriticalNotifyCompletion : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_ICriticalNotifyCompletion : System_Object
 
 #pragma mark -
 #pragma mark Setup

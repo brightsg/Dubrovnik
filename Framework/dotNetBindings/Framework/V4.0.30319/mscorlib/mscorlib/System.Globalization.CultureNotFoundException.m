@@ -3,6 +3,12 @@
 //
 // Managed class : CultureNotFoundException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Globalization_CultureNotFoundException
 
 #pragma mark -
@@ -80,29 +86,40 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Nullable<System.Int32>
+	// Managed property name : InvalidCultureId
+	// Managed property type : System.Nullable<System.Int32>
+    @synthesize invalidCultureId = _invalidCultureId;
     - (System_Nullable *)invalidCultureId
     {
-		MonoObject * monoObject = [self getMonoProperty:"InvalidCultureId"];
-		System_Nullable * result = [System_Nullable representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"int32_t";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InvalidCultureId"];
+		if ([self object:_invalidCultureId isEqualToMonoObject:monoObject]) return _invalidCultureId;					
+		_invalidCultureId = [System_Nullable objectWithMonoObject:monoObject];
+
+		return _invalidCultureId;
 	}
 
-	// Managed type : System.String
+	// Managed property name : InvalidCultureName
+	// Managed property type : System.String
+    @synthesize invalidCultureName = _invalidCultureName;
     - (NSString *)invalidCultureName
     {
-		MonoObject * monoObject = [self getMonoProperty:"InvalidCultureName"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"InvalidCultureName"];
+		if ([self object:_invalidCultureName isEqualToMonoObject:monoObject]) return _invalidCultureName;					
+		_invalidCultureName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _invalidCultureName;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Message
+	// Managed property type : System.String
+    @synthesize message = _message;
     - (NSString *)message
     {
-		MonoObject * monoObject = [self getMonoProperty:"Message"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Message"];
+		if ([self object:_message isEqualToMonoObject:monoObject]) return _message;					
+		_message = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _message;
 	}
 
 #pragma mark -
@@ -115,5 +132,11 @@
     {
 		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -14,28 +14,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)responseXmlElementName;
-    - (void)setResponseXmlElementName:(NSString *)value;
+	// Managed property name : ResponseXmlElementName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * responseXmlElementName;
 
-	// Managed type : System.String
-    - (NSString *)responseXmlNamespace;
-    - (void)setResponseXmlNamespace:(NSString *)value;
+	// Managed property name : ResponseXmlNamespace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * responseXmlNamespace;
 
-	// Managed type : System.String
-    - (NSString *)returnXmlElementName;
-    - (void)setReturnXmlElementName:(NSString *)value;
+	// Managed property name : ReturnXmlElementName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * returnXmlElementName;
 
-	// Managed type : System.String
-    - (NSString *)soapAction;
-    - (void)setSoapAction:(NSString *)value;
+	// Managed property name : SoapAction
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * soapAction;
 
-	// Managed type : System.Boolean
-    - (BOOL)useAttribute;
-    - (void)setUseAttribute:(BOOL)value;
+	// Managed property name : UseAttribute
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL useAttribute;
 
-	// Managed type : System.String
-    - (NSString *)xmlNamespace;
-    - (void)setXmlNamespace:(NSString *)value;
+	// Managed property name : XmlNamespace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlNamespace;
 @end
 //--Dubrovnik.CodeGenerator

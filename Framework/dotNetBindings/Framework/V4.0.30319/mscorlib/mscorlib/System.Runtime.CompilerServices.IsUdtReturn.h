@@ -2,7 +2,7 @@
 //
 // Managed class : IsUdtReturn
 //
-@interface System_Runtime_CompilerServices_IsUdtReturn : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsUdtReturn : System_Object
 
 #pragma mark -
 #pragma mark Setup

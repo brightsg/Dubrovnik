@@ -22,45 +22,45 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)externalProcessMgmt;
-    - (void)setExternalProcessMgmt:(BOOL)value;
+	// Managed property name : ExternalProcessMgmt
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL externalProcessMgmt;
 
-	// Managed type : System.Boolean
-    - (BOOL)externalThreading;
-    - (void)setExternalThreading:(BOOL)value;
+	// Managed property name : ExternalThreading
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL externalThreading;
 
-	// Managed type : System.Boolean
-    - (BOOL)mayLeakOnAbort;
-    - (void)setMayLeakOnAbort:(BOOL)value;
+	// Managed property name : MayLeakOnAbort
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL mayLeakOnAbort;
 
-	// Managed type : System.Security.Permissions.HostProtectionResource
-    - (System_Security_Permissions_HostProtectionResource)resources;
-    - (void)setResources:(System_Security_Permissions_HostProtectionResource)value;
+	// Managed property name : Resources
+	// Managed property type : System.Security.Permissions.HostProtectionResource
+    @property (nonatomic) System_Security_Permissions_HostProtectionResource resources;
 
-	// Managed type : System.Boolean
-    - (BOOL)securityInfrastructure;
-    - (void)setSecurityInfrastructure:(BOOL)value;
+	// Managed property name : SecurityInfrastructure
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL securityInfrastructure;
 
-	// Managed type : System.Boolean
-    - (BOOL)selfAffectingProcessMgmt;
-    - (void)setSelfAffectingProcessMgmt:(BOOL)value;
+	// Managed property name : SelfAffectingProcessMgmt
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL selfAffectingProcessMgmt;
 
-	// Managed type : System.Boolean
-    - (BOOL)selfAffectingThreading;
-    - (void)setSelfAffectingThreading:(BOOL)value;
+	// Managed property name : SelfAffectingThreading
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL selfAffectingThreading;
 
-	// Managed type : System.Boolean
-    - (BOOL)sharedState;
-    - (void)setSharedState:(BOOL)value;
+	// Managed property name : SharedState
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL sharedState;
 
-	// Managed type : System.Boolean
-    - (BOOL)synchronization;
-    - (void)setSynchronization:(BOOL)value;
+	// Managed property name : Synchronization
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL synchronization;
 
-	// Managed type : System.Boolean
-    - (BOOL)uI;
-    - (void)setUI:(BOOL)value;
+	// Managed property name : UI
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL uI;
 
 #pragma mark -
 #pragma mark Methods

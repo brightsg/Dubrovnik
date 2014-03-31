@@ -2,7 +2,7 @@
 //
 // Managed class : MethodRental
 //
-@interface System_Reflection_Emit_MethodRental : DBMonoObjectRepresentation
+@interface System_Reflection_Emit_MethodRental : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : JitImmediate
+	// Managed field type : System.Int32
     + (int32_t)jitImmediate;
 
-	// Managed type : System.Int32
+	// Managed field name : JitOnDemand
+	// Managed field type : System.Int32
     + (int32_t)jitOnDemand;
 
 #pragma mark -

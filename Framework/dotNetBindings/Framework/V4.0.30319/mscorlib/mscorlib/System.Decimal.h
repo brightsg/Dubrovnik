@@ -2,7 +2,7 @@
 //
 // Managed struct : Decimal
 //
-@interface System_Decimal : DBMonoObjectRepresentation
+@interface System_Decimal : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -57,19 +57,24 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Decimal
+	// Managed field name : MaxValue
+	// Managed field type : System.Decimal
     + (NSDecimalNumber *)maxValue;
 
-	// Managed type : System.Decimal
+	// Managed field name : MinusOne
+	// Managed field type : System.Decimal
     + (NSDecimalNumber *)minusOne;
 
-	// Managed type : System.Decimal
+	// Managed field name : MinValue
+	// Managed field type : System.Decimal
     + (NSDecimalNumber *)minValue;
 
-	// Managed type : System.Decimal
+	// Managed field name : One
+	// Managed field type : System.Decimal
     + (NSDecimalNumber *)one;
 
-	// Managed type : System.Decimal
+	// Managed field name : Zero
+	// Managed field type : System.Decimal
     + (NSDecimalNumber *)zero;
 
 #pragma mark -
@@ -93,7 +98,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -108,7 +113,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValueObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

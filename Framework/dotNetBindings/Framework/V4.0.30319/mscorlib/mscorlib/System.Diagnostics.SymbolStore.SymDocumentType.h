@@ -2,7 +2,7 @@
 //
 // Managed class : SymDocumentType
 //
-@interface System_Diagnostics_SymbolStore_SymDocumentType : DBMonoObjectRepresentation
+@interface System_Diagnostics_SymbolStore_SymDocumentType : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Guid
+	// Managed field name : Text
+	// Managed field type : System.Guid
     + (System_Guid *)text;
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : Delegate
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Delegate
 
 #pragma mark -
@@ -21,20 +27,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.MethodInfo
+	// Managed property name : Method
+	// Managed property type : System.Reflection.MethodInfo
+    @synthesize method = _method;
     - (System_Reflection_MethodInfo *)method
     {
-		MonoObject * monoObject = [self getMonoProperty:"Method"];
-		System_Reflection_MethodInfo * result = [System_Reflection_MethodInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Method"];
+		if ([self object:_method isEqualToMonoObject:monoObject]) return _method;					
+		_method = [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+
+		return _method;
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)target
+	// Managed property name : Target
+	// Managed property type : System.Object
+    @synthesize target = _target;
+    - (System_Object *)target
     {
-		MonoObject * monoObject = [self getMonoProperty:"Target"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Target"];
+		if ([self object:_target isEqualToMonoObject:monoObject]) return _target;					
+		_target = [System_Object objectWithMonoObject:monoObject];
+
+		return _target;
 	}
 
 #pragma mark -
@@ -43,10 +57,10 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone
+    - (System_Object *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Combine
@@ -55,7 +69,7 @@
     - (System_Delegate *)combine_withA:(System_Delegate *)p1 b:(System_Delegate *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Combine(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Combine
@@ -64,34 +78,34 @@
     - (System_Delegate *)combine_withDelegates:(DBSystem_Array *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Combine(System.Array[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.String
-    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(DBMonoObjectRepresentation *)p2 methodString:(NSString *)p3
+    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.String, System.Boolean
-    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(DBMonoObjectRepresentation *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
+    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object,string,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.String, System.Boolean, System.Boolean
-    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(DBMonoObjectRepresentation *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
+    - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object,string,bool,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -100,7 +114,7 @@
     - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,System.Type,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -109,7 +123,7 @@
     - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,System.Type,string,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -118,7 +132,7 @@
     - (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,System.Type,string,bool,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -127,25 +141,25 @@
     - (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2 throwOnBindFailure:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.Reflection.MethodInfo
-    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(DBMonoObjectRepresentation *)p2 method:(System_Reflection_MethodInfo *)p3
+    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object, System.Reflection.MethodInfo, System.Boolean
-    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(DBMonoObjectRepresentation *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4
+    - (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -154,22 +168,22 @@
     - (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DynamicInvoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object[]
-    - (DBMonoObjectRepresentation *)dynamicInvoke_withArgs:(DBSystem_Array *)p1
+    - (System_Object *)dynamicInvoke_withArgs:(DBSystem_Array *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DynamicInvoke(object[])" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -190,7 +204,7 @@
     - (DBSystem_Array *)getInvocationList
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInvocationList()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetObjectData
@@ -225,7 +239,7 @@
     - (System_Delegate *)remove_withSource:(System_Delegate *)p1 value:(System_Delegate *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemoveAll
@@ -234,7 +248,13 @@
     - (System_Delegate *)removeAll_withSource:(System_Delegate *)p1 value:(System_Delegate *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAll(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

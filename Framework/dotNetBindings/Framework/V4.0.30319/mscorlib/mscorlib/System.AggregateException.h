@@ -47,8 +47,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Collections.ObjectModel.ReadOnlyCollection<System.Exception>
-    - (System_Collections_ObjectModel_ReadOnlyCollection *)innerExceptions;
+	// Managed property name : InnerExceptions
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Exception>
+    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_ReadOnlyCollection * innerExceptions;
 
 #pragma mark -
 #pragma mark Methods

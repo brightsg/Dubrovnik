@@ -3,6 +3,12 @@
 //
 // Managed struct : ArgIterator
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_ArgIterator
 
 #pragma mark -
@@ -51,7 +57,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -72,7 +78,7 @@
     - (System_TypedReference *)getNextArg
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg()" withNumArgs:0];
-		return [System_TypedReference representationWithMonoObject:monoObject];
+		return [System_TypedReference objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNextArg
@@ -81,7 +87,7 @@
     - (System_TypedReference *)getNextArg_withRth:(System_RuntimeTypeHandle *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoValue]];
-		return [System_TypedReference representationWithMonoObject:monoObject];
+		return [System_TypedReference objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNextArgType
@@ -90,7 +96,7 @@
     - (System_RuntimeTypeHandle *)getNextArgType
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArgType()" withNumArgs:0];
-		return [System_RuntimeTypeHandle representationWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRemainingCount
@@ -101,5 +107,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRemainingCount()" withNumArgs:0];
 		return DB_UNBOX_INT32(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

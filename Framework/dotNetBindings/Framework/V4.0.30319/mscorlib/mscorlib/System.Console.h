@@ -2,7 +2,7 @@
 //
 // Managed class : Console
 //
-@interface System_Console : DBMonoObjectRepresentation
+@interface System_Console : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,100 +14,127 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ConsoleColor
+	// Managed property name : BackgroundColor
+	// Managed property type : System.ConsoleColor
     + (System_ConsoleColor)backgroundColor;
     + (void)setBackgroundColor:(System_ConsoleColor)value;
 
-	// Managed type : System.Int32
+	// Managed property name : BufferHeight
+	// Managed property type : System.Int32
     + (int32_t)bufferHeight;
     + (void)setBufferHeight:(int32_t)value;
 
-	// Managed type : System.Int32
+	// Managed property name : BufferWidth
+	// Managed property type : System.Int32
     + (int32_t)bufferWidth;
     + (void)setBufferWidth:(int32_t)value;
 
-	// Managed type : System.Boolean
+	// Managed property name : CapsLock
+	// Managed property type : System.Boolean
     + (BOOL)capsLock;
 
-	// Managed type : System.Int32
+	// Managed property name : CursorLeft
+	// Managed property type : System.Int32
     + (int32_t)cursorLeft;
     + (void)setCursorLeft:(int32_t)value;
 
-	// Managed type : System.Int32
+	// Managed property name : CursorSize
+	// Managed property type : System.Int32
     + (int32_t)cursorSize;
     + (void)setCursorSize:(int32_t)value;
 
-	// Managed type : System.Int32
+	// Managed property name : CursorTop
+	// Managed property type : System.Int32
     + (int32_t)cursorTop;
     + (void)setCursorTop:(int32_t)value;
 
-	// Managed type : System.Boolean
+	// Managed property name : CursorVisible
+	// Managed property type : System.Boolean
     + (BOOL)cursorVisible;
     + (void)setCursorVisible:(BOOL)value;
 
-	// Managed type : System.IO.TextWriter
+	// Managed property name : Error
+	// Managed property type : System.IO.TextWriter
     + (System_IO_TextWriter *)error;
 
-	// Managed type : System.ConsoleColor
+	// Managed property name : ForegroundColor
+	// Managed property type : System.ConsoleColor
     + (System_ConsoleColor)foregroundColor;
     + (void)setForegroundColor:(System_ConsoleColor)value;
 
-	// Managed type : System.IO.TextReader
+	// Managed property name : In
+	// Managed property type : System.IO.TextReader
     + (System_IO_TextReader *)in;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : InputEncoding
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)inputEncoding;
     + (void)setInputEncoding:(System_Text_Encoding *)value;
 
-	// Managed type : System.Boolean
+	// Managed property name : IsErrorRedirected
+	// Managed property type : System.Boolean
     + (BOOL)isErrorRedirected;
 
-	// Managed type : System.Boolean
+	// Managed property name : IsInputRedirected
+	// Managed property type : System.Boolean
     + (BOOL)isInputRedirected;
 
-	// Managed type : System.Boolean
+	// Managed property name : IsOutputRedirected
+	// Managed property type : System.Boolean
     + (BOOL)isOutputRedirected;
 
-	// Managed type : System.Boolean
+	// Managed property name : KeyAvailable
+	// Managed property type : System.Boolean
     + (BOOL)keyAvailable;
 
-	// Managed type : System.Int32
+	// Managed property name : LargestWindowHeight
+	// Managed property type : System.Int32
     + (int32_t)largestWindowHeight;
 
-	// Managed type : System.Int32
+	// Managed property name : LargestWindowWidth
+	// Managed property type : System.Int32
     + (int32_t)largestWindowWidth;
 
-	// Managed type : System.Boolean
+	// Managed property name : NumberLock
+	// Managed property type : System.Boolean
     + (BOOL)numberLock;
 
-	// Managed type : System.IO.TextWriter
+	// Managed property name : Out
+	// Managed property type : System.IO.TextWriter
     + (System_IO_TextWriter *)out;
 
-	// Managed type : System.Text.Encoding
+	// Managed property name : OutputEncoding
+	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)outputEncoding;
     + (void)setOutputEncoding:(System_Text_Encoding *)value;
 
-	// Managed type : System.String
+	// Managed property name : Title
+	// Managed property type : System.String
     + (NSString *)title;
     + (void)setTitle:(NSString *)value;
 
-	// Managed type : System.Boolean
+	// Managed property name : TreatControlCAsInput
+	// Managed property type : System.Boolean
     + (BOOL)treatControlCAsInput;
     + (void)setTreatControlCAsInput:(BOOL)value;
 
-	// Managed type : System.Int32
+	// Managed property name : WindowHeight
+	// Managed property type : System.Int32
     + (int32_t)windowHeight;
     + (void)setWindowHeight:(int32_t)value;
 
-	// Managed type : System.Int32
+	// Managed property name : WindowLeft
+	// Managed property type : System.Int32
     + (int32_t)windowLeft;
     + (void)setWindowLeft:(int32_t)value;
 
-	// Managed type : System.Int32
+	// Managed property name : WindowTop
+	// Managed property type : System.Int32
     + (int32_t)windowTop;
     + (void)setWindowTop:(int32_t)value;
 
-	// Managed type : System.Int32
+	// Managed property name : WindowWidth
+	// Managed property type : System.Int32
     + (int32_t)windowWidth;
     + (void)setWindowWidth:(int32_t)value;
 
@@ -232,22 +259,22 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2;
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3;
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4;
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
-    - (void)write_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4 arg3:(DBMonoObjectRepresentation *)p5;
+    - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -312,7 +339,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)write_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (void)write_withValueObject:(System_Object *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -382,7 +409,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)writeLine_withValueObject:(DBMonoObjectRepresentation *)p1;
+    - (void)writeLine_withValueObject:(System_Object *)p1;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
@@ -392,22 +419,22 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2;
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3;
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4;
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
-    - (void)writeLine_withFormat:(NSString *)p1 arg0:(DBMonoObjectRepresentation *)p2 arg1:(DBMonoObjectRepresentation *)p3 arg2:(DBMonoObjectRepresentation *)p4 arg3:(DBMonoObjectRepresentation *)p5;
+    - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void

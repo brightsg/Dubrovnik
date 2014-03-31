@@ -3,6 +3,12 @@
 //
 // Managed class : Enum
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Enum
 
 #pragma mark -
@@ -24,7 +30,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)compareTo_withTarget:(DBMonoObjectRepresentation *)p1
+    - (int32_t)compareTo_withTarget:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -33,7 +39,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withObj:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -42,7 +48,7 @@
 	// Managed method name : Format
 	// Managed return type : System.String
 	// Managed param types : System.Type, System.Object, System.String
-    - (NSString *)format_withEnumType:(System_Type *)p1 value:(DBMonoObjectRepresentation *)p2 format:(NSString *)p3
+    - (NSString *)format_withEnumType:(System_Type *)p1 value:(System_Object *)p2 format:(NSString *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Format(System.Type,object,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -60,7 +66,7 @@
 	// Managed method name : GetName
 	// Managed return type : System.String
 	// Managed param types : System.Type, System.Object
-    - (NSString *)getName_withEnumType:(System_Type *)p1 value:(DBMonoObjectRepresentation *)p2
+    - (NSString *)getName_withEnumType:(System_Type *)p1 value:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetName(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -72,7 +78,7 @@
     - (DBSystem_Array *)getNames_withEnumType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNames(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetTypeCode
@@ -90,7 +96,7 @@
     - (System_Type *)getUnderlyingType_withEnumType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUnderlyingType(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetValues
@@ -99,7 +105,7 @@
     - (DBSystem_Array *)getValues_withEnumType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValues(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : HasFlag
@@ -114,7 +120,7 @@
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type, System.Object
-    - (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(DBMonoObjectRepresentation *)p2
+    - (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -123,100 +129,100 @@
 	// Managed method name : Parse
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String
-    - (DBMonoObjectRepresentation *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2
+    - (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.String, System.Boolean
-    - (DBMonoObjectRepresentation *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3
+    - (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Parse(System.Type,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Object
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(DBMonoObjectRepresentation *)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.SByte
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,sbyte)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Int16
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,int16)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Int32
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Byte
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,byte)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.UInt16
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,uint16)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.UInt32
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,uint)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.Int64
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,long)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type, System.UInt64
-    - (DBMonoObjectRepresentation *)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2
+    - (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.Type,ulong)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -272,5 +278,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,bool,TEnum&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

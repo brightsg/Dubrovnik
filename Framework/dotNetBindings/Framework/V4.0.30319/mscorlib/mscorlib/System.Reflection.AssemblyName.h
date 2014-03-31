@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblyName
 //
-@interface System_Reflection_AssemblyName : DBMonoObjectRepresentation
+@interface System_Reflection_AssemblyName : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,54 +22,57 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)codeBase;
-    - (void)setCodeBase:(NSString *)value;
+	// Managed property name : CodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * codeBase;
 
-	// Managed type : System.Reflection.AssemblyContentType
-    - (System_Reflection_AssemblyContentType)contentType;
-    - (void)setContentType:(System_Reflection_AssemblyContentType)value;
+	// Managed property name : ContentType
+	// Managed property type : System.Reflection.AssemblyContentType
+    @property (nonatomic) System_Reflection_AssemblyContentType contentType;
 
-	// Managed type : System.Globalization.CultureInfo
-    - (System_Globalization_CultureInfo *)cultureInfo;
-    - (void)setCultureInfo:(System_Globalization_CultureInfo *)value;
+	// Managed property name : CultureInfo
+	// Managed property type : System.Globalization.CultureInfo
+    @property (nonatomic, strong) System_Globalization_CultureInfo * cultureInfo;
 
-	// Managed type : System.String
-    - (NSString *)cultureName;
+	// Managed property name : CultureName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * cultureName;
 
-	// Managed type : System.String
-    - (NSString *)escapedCodeBase;
+	// Managed property name : EscapedCodeBase
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * escapedCodeBase;
 
-	// Managed type : System.Reflection.AssemblyNameFlags
-    - (System_Reflection_AssemblyNameFlags)flags;
-    - (void)setFlags:(System_Reflection_AssemblyNameFlags)value;
+	// Managed property name : Flags
+	// Managed property type : System.Reflection.AssemblyNameFlags
+    @property (nonatomic) System_Reflection_AssemblyNameFlags flags;
 
-	// Managed type : System.String
-    - (NSString *)fullName;
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
 
-	// Managed type : System.Configuration.Assemblies.AssemblyHashAlgorithm
-    - (System_Configuration_Assemblies_AssemblyHashAlgorithm)hashAlgorithm;
-    - (void)setHashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)value;
+	// Managed property name : HashAlgorithm
+	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
+    @property (nonatomic) System_Configuration_Assemblies_AssemblyHashAlgorithm hashAlgorithm;
 
-	// Managed type : System.Reflection.StrongNameKeyPair
-    - (System_Reflection_StrongNameKeyPair *)keyPair;
-    - (void)setKeyPair:(System_Reflection_StrongNameKeyPair *)value;
+	// Managed property name : KeyPair
+	// Managed property type : System.Reflection.StrongNameKeyPair
+    @property (nonatomic, strong) System_Reflection_StrongNameKeyPair * keyPair;
 
-	// Managed type : System.String
-    - (NSString *)name;
-    - (void)setName:(NSString *)value;
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * name;
 
-	// Managed type : System.Reflection.ProcessorArchitecture
-    - (System_Reflection_ProcessorArchitecture)processorArchitecture;
-    - (void)setProcessorArchitecture:(System_Reflection_ProcessorArchitecture)value;
+	// Managed property name : ProcessorArchitecture
+	// Managed property type : System.Reflection.ProcessorArchitecture
+    @property (nonatomic) System_Reflection_ProcessorArchitecture processorArchitecture;
 
-	// Managed type : System.Version
-    - (System_Version *)version;
-    - (void)setVersion:(System_Version *)value;
+	// Managed property name : Version
+	// Managed property type : System.Version
+    @property (nonatomic, strong) System_Version * version;
 
-	// Managed type : System.Configuration.Assemblies.AssemblyVersionCompatibility
-    - (System_Configuration_Assemblies_AssemblyVersionCompatibility)versionCompatibility;
-    - (void)setVersionCompatibility:(System_Configuration_Assemblies_AssemblyVersionCompatibility)value;
+	// Managed property name : VersionCompatibility
+	// Managed property type : System.Configuration.Assemblies.AssemblyVersionCompatibility
+    @property (nonatomic) System_Configuration_Assemblies_AssemblyVersionCompatibility versionCompatibility;
 
 #pragma mark -
 #pragma mark Methods
@@ -77,7 +80,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : GetAssemblyName
 	// Managed return type : System.Reflection.AssemblyName
@@ -102,7 +105,7 @@
 	// Managed method name : OnDeserialization
 	// Managed return type : System.Void
 	// Managed param types : System.Object
-    - (void)onDeserialization_withSender:(DBMonoObjectRepresentation *)p1;
+    - (void)onDeserialization_withSender:(System_Object *)p1;
 
 	// Managed method name : ReferenceMatchesDefinition
 	// Managed return type : System.Boolean

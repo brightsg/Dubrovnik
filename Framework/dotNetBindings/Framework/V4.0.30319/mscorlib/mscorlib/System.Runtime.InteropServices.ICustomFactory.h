@@ -2,7 +2,7 @@
 //
 // Managed interface : ICustomFactory
 //
-@interface System_Runtime_InteropServices_ICustomFactory : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ICustomFactory : System_Object
 
 #pragma mark -
 #pragma mark Setup

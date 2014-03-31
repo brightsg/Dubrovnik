@@ -3,6 +3,12 @@
 //
 // Managed class : ReadOnlyDictionary<TKey, TValue>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_ObjectModel_ReadOnlyDictionary
 
 #pragma mark -
@@ -32,38 +38,51 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject * monoObject = [self getMonoProperty:"Count"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Count"];
+		_count = DB_UNBOX_INT32(monoObject);
+
+		return _count;
 	}
 
-	// Managed type : <TValue>
-    - (DBMonoObjectRepresentation *)item
+	// Managed property name : Item
+	// Managed property type : <TValue>
+    @synthesize item = _item;
+    - (DBManagedObject *)item
     {
-		MonoObject * monoObject = [self getMonoProperty:"Item"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
+		_item = [DBManagedObject objectWithMonoObject:monoObject];
+
+		return _item;
 	}
 
-	// Managed type : KeyCollection
+	// Managed property name : Keys
+	// Managed property type : KeyCollection
+    @synthesize keys = _keys;
     - (KeyCollection *)keys
     {
-		MonoObject * monoObject = [self getMonoProperty:"Keys"];
-		KeyCollection * result = [KeyCollection representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Keys"];
+		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
+		_keys = [KeyCollection objectWithMonoObject:monoObject];
+
+		return _keys;
 	}
 
-	// Managed type : ValueCollection
+	// Managed property name : Values
+	// Managed property type : ValueCollection
+    @synthesize values = _values;
     - (ValueCollection *)values
     {
-		MonoObject * monoObject = [self getMonoProperty:"Values"];
-		ValueCollection * result = [ValueCollection representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Values"];
+		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
+		_values = [ValueCollection objectWithMonoObject:monoObject];
+
+		return _values;
 	}
 
 #pragma mark -
@@ -72,7 +91,7 @@
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>
-    - (BOOL)containsKey_withKey:(DBMonoObjectRepresentation *)p1
+    - (BOOL)containsKey_withKey:(DBManagedObject *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(Dubrovnik.Generic.Parameter)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -84,16 +103,22 @@
     - (IEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [IEnumerator representationWithMonoObject:monoObject];
+		return [IEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
 	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(DBMonoObjectRepresentation *)p1 valueRef:(TValue **)p2
+    - (BOOL)tryGetValue_withKey:(DBManagedObject *)p1 valueRef:(TValue **)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(Dubrovnik.Generic.Parameter,TValue&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

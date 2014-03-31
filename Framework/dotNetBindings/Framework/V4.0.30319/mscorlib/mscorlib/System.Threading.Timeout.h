@@ -2,7 +2,7 @@
 //
 // Managed class : Timeout
 //
-@interface System_Threading_Timeout : DBMonoObjectRepresentation
+@interface System_Threading_Timeout : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,10 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : Infinite
+	// Managed field type : System.Int32
     + (int32_t)infinite;
 
-	// Managed type : System.TimeSpan
+	// Managed field name : InfiniteTimeSpan
+	// Managed field type : System.TimeSpan
     + (System_TimeSpan *)infiniteTimeSpan;
 @end
 //--Dubrovnik.CodeGenerator

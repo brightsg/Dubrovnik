@@ -2,7 +2,7 @@
 //
 // Managed class : BitConverter
 //
-@interface System_BitConverter : DBMonoObjectRepresentation
+@interface System_BitConverter : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Boolean
+	// Managed field name : IsLittleEndian
+	// Managed field type : System.Boolean
     + (BOOL)isLittleEndian;
 
 #pragma mark -

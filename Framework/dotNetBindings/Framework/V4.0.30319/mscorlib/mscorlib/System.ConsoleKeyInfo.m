@@ -3,6 +3,12 @@
 //
 // Managed struct : ConsoleKeyInfo
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_ConsoleKeyInfo
 
 #pragma mark -
@@ -32,28 +38,37 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ConsoleKey
+	// Managed property name : Key
+	// Managed property type : System.ConsoleKey
+    @synthesize key = _key;
     - (System_ConsoleKey)key
     {
-		MonoObject * monoObject = [self getMonoProperty:"Key"];
-		System_ConsoleKey result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Key"];
+		_key = DB_UNBOX_INT32(monoObject);
+
+		return _key;
 	}
 
-	// Managed type : System.Char
+	// Managed property name : KeyChar
+	// Managed property type : System.Char
+    @synthesize keyChar = _keyChar;
     - (uint16_t)keyChar
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeyChar"];
-		uint16_t result = DB_UNBOX_UINT16(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeyChar"];
+		_keyChar = DB_UNBOX_UINT16(monoObject);
+
+		return _keyChar;
 	}
 
-	// Managed type : System.ConsoleModifiers
+	// Managed property name : Modifiers
+	// Managed property type : System.ConsoleModifiers
+    @synthesize modifiers = _modifiers;
     - (System_ConsoleModifiers)modifiers
     {
-		MonoObject * monoObject = [self getMonoProperty:"Modifiers"];
-		System_ConsoleModifiers result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Modifiers"];
+		_modifiers = DB_UNBOX_INT32(monoObject);
+
+		return _modifiers;
 	}
 
 #pragma mark -
@@ -62,7 +77,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1
+    - (BOOL)equals_withValue:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -103,5 +118,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.ConsoleKeyInfo,System.ConsoleKeyInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

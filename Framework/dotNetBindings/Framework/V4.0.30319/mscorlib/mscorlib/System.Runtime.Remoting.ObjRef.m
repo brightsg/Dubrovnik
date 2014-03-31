@@ -3,6 +3,12 @@
 //
 // Managed class : ObjRef
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_Remoting_ObjRef
 
 #pragma mark -
@@ -32,54 +38,74 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.IChannelInfo
+	// Managed property name : ChannelInfo
+	// Managed property type : System.Runtime.Remoting.IChannelInfo
+    @synthesize channelInfo = _channelInfo;
     - (System_Runtime_Remoting_IChannelInfo *)channelInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"ChannelInfo"];
-		System_Runtime_Remoting_IChannelInfo * result = [System_Runtime_Remoting_IChannelInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ChannelInfo"];
+		if ([self object:_channelInfo isEqualToMonoObject:monoObject]) return _channelInfo;					
+		_channelInfo = [System_Runtime_Remoting_IChannelInfo objectWithMonoObject:monoObject];
+
+		return _channelInfo;
 	}
     - (void)setChannelInfo:(System_Runtime_Remoting_IChannelInfo *)value
 	{
+		_channelInfo = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"ChannelInfo" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.Remoting.IEnvoyInfo
+	// Managed property name : EnvoyInfo
+	// Managed property type : System.Runtime.Remoting.IEnvoyInfo
+    @synthesize envoyInfo = _envoyInfo;
     - (System_Runtime_Remoting_IEnvoyInfo *)envoyInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"EnvoyInfo"];
-		System_Runtime_Remoting_IEnvoyInfo * result = [System_Runtime_Remoting_IEnvoyInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EnvoyInfo"];
+		if ([self object:_envoyInfo isEqualToMonoObject:monoObject]) return _envoyInfo;					
+		_envoyInfo = [System_Runtime_Remoting_IEnvoyInfo objectWithMonoObject:monoObject];
+
+		return _envoyInfo;
 	}
     - (void)setEnvoyInfo:(System_Runtime_Remoting_IEnvoyInfo *)value
 	{
+		_envoyInfo = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"EnvoyInfo" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Runtime.Remoting.IRemotingTypeInfo
+	// Managed property name : TypeInfo
+	// Managed property type : System.Runtime.Remoting.IRemotingTypeInfo
+    @synthesize typeInfo = _typeInfo;
     - (System_Runtime_Remoting_IRemotingTypeInfo *)typeInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"TypeInfo"];
-		System_Runtime_Remoting_IRemotingTypeInfo * result = [System_Runtime_Remoting_IRemotingTypeInfo representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"TypeInfo"];
+		if ([self object:_typeInfo isEqualToMonoObject:monoObject]) return _typeInfo;					
+		_typeInfo = [System_Runtime_Remoting_IRemotingTypeInfo objectWithMonoObject:monoObject];
+
+		return _typeInfo;
 	}
     - (void)setTypeInfo:(System_Runtime_Remoting_IRemotingTypeInfo *)value
 	{
+		_typeInfo = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"TypeInfo" valueObject:monoObject];          
 	}
 
-	// Managed type : System.String
+	// Managed property name : URI
+	// Managed property type : System.String
+    @synthesize uRI = _uRI;
     - (NSString *)uRI
     {
-		MonoObject * monoObject = [self getMonoProperty:"URI"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"URI"];
+		if ([self object:_uRI isEqualToMonoObject:monoObject]) return _uRI;					
+		_uRI = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _uRI;
 	}
     - (void)setURI:(NSString *)value
 	{
+		_uRI = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"URI" valueObject:monoObject];          
 	}
@@ -98,10 +124,10 @@
 	// Managed method name : GetRealObject
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Serialization.StreamingContext
-    - (DBMonoObjectRepresentation *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1
+    - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRealObject(System.Runtime.Serialization.StreamingContext)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsFromThisAppDomain
@@ -121,5 +147,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"IsFromThisProcess()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

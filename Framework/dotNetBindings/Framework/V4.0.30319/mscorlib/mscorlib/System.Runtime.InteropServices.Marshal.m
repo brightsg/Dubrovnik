@@ -3,6 +3,12 @@
 //
 // Managed class : Marshal
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_Marshal
 
 #pragma mark -
@@ -21,20 +27,26 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Int32
+	// Managed field name : SystemDefaultCharSize
+	// Managed field type : System.Int32
+    static int32_t m_systemDefaultCharSize;
     + (int32_t)systemDefaultCharSize
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"SystemDefaultCharSize" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_systemDefaultCharSize = monoObject;
+		return m_systemDefaultCharSize;
 	}
 
-	// Managed type : System.Int32
+	// Managed field name : SystemMaxDBCSCharSize
+	// Managed field type : System.Int32
+    static int32_t m_systemMaxDBCSCharSize;
     + (int32_t)systemMaxDBCSCharSize
     {
 		int32_t monoObject;
 		[[self class] getMonoClassField:"SystemMaxDBCSCharSize" valuePtr:DB_PTR(monoObject)];
-		return monoObject;
+		m_systemMaxDBCSCharSize = monoObject;
+		return m_systemMaxDBCSCharSize;
 	}
 
 #pragma mark -
@@ -88,16 +100,16 @@
 	// Managed method name : BindToMoniker
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)bindToMoniker_withMonikerName:(NSString *)p1
+    - (System_Object *)bindToMoniker_withMonikerName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"BindToMoniker(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ChangeWrapperHandleStrength
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Boolean
-    - (void)changeWrapperHandleStrength_withOtp:(DBMonoObjectRepresentation *)p1 fIsWeak:(BOOL)p2
+    - (void)changeWrapperHandleStrength_withOtp:(System_Object *)p1 fIsWeak:(BOOL)p2
     {
 		[self invokeMonoMethod:"ChangeWrapperHandleStrength(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -241,7 +253,7 @@
 	// Managed method name : CreateAggregatedObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Object
-    - (void *)createAggregatedObject_withPOuter:(void *)p1 o:(DBMonoObjectRepresentation *)p2
+    - (void *)createAggregatedObject_withPOuter:(void *)p1 o:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateAggregatedObject(intptr,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -250,10 +262,10 @@
 	// Managed method name : CreateWrapperOfType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Type
-    - (DBMonoObjectRepresentation *)createWrapperOfType_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2
+    - (System_Object *)createWrapperOfType_withO:(System_Object *)p1 t:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateWrapperOfType(object,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DestroyStructure
@@ -267,7 +279,7 @@
 	// Managed method name : FinalReleaseComObject
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)finalReleaseComObject_withO:(DBMonoObjectRepresentation *)p1
+    - (int32_t)finalReleaseComObject_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FinalReleaseComObject(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -303,7 +315,7 @@
     - (System_Guid *)generateGuidForType_withType:(System_Type *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GenerateGuidForType(System.Type)" withNumArgs:1, [p1 monoValue]];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenerateProgIdForType
@@ -318,16 +330,16 @@
 	// Managed method name : GetActiveObject
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getActiveObject_withProgID:(NSString *)p1
+    - (System_Object *)getActiveObject_withProgID:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetActiveObject(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetComInterfaceForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Type
-    - (void *)getComInterfaceForObject_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2
+    - (void *)getComInterfaceForObject_withO:(System_Object *)p1 t:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetComInterfaceForObject(object,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -336,7 +348,7 @@
 	// Managed method name : GetComInterfaceForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Type, System.Runtime.InteropServices.CustomQueryInterfaceMode
-    - (void *)getComInterfaceForObject_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2 mode:(System_Runtime_InteropServices_CustomQueryInterfaceMode)p3
+    - (void *)getComInterfaceForObject_withO:(System_Object *)p1 t:(System_Type *)p2 mode:(System_Runtime_InteropServices_CustomQueryInterfaceMode)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetComInterfaceForObject(object,System.Type,System.Runtime.InteropServices.CustomQueryInterfaceMode)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return DB_UNBOX_PTR(monoObject);
@@ -345,7 +357,7 @@
 	// Managed method name : GetComInterfaceForObjectInContext
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Type
-    - (void *)getComInterfaceForObjectInContext_withO:(DBMonoObjectRepresentation *)p1 t:(System_Type *)p2
+    - (void *)getComInterfaceForObjectInContext_withO:(System_Object *)p1 t:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetComInterfaceForObjectInContext(object,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -354,10 +366,10 @@
 	// Managed method name : GetComObjectData
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Object
-    - (DBMonoObjectRepresentation *)getComObjectData_withObj:(DBMonoObjectRepresentation *)p1 key:(DBMonoObjectRepresentation *)p2
+    - (System_Object *)getComObjectData_withObj:(System_Object *)p1 key:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetComObjectData(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetComSlotForMethodInfo
@@ -375,7 +387,7 @@
     - (System_Delegate *)getDelegateForFunctionPointer_withPtr:(void *)p1 t:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDelegateForFunctionPointer(intptr,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [System_Delegate representationWithMonoObject:monoObject];
+		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEndComSlot
@@ -402,7 +414,7 @@
     - (System_Exception *)getExceptionForHR_withErrorCode:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetExceptionForHR(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Exception representationWithMonoObject:monoObject];
+		return [System_Exception objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetExceptionForHR
@@ -411,7 +423,7 @@
     - (System_Exception *)getExceptionForHR_withErrorCode:(int32_t)p1 errorInfo:(void *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetExceptionForHR(int,intptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		return [System_Exception representationWithMonoObject:monoObject];
+		return [System_Exception objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetExceptionPointers
@@ -462,7 +474,7 @@
 	// Managed method name : GetIDispatchForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIDispatchForObject_withO:(DBMonoObjectRepresentation *)p1
+    - (void *)getIDispatchForObject_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetIDispatchForObject(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -471,7 +483,7 @@
 	// Managed method name : GetIDispatchForObjectInContext
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIDispatchForObjectInContext_withO:(DBMonoObjectRepresentation *)p1
+    - (void *)getIDispatchForObjectInContext_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetIDispatchForObjectInContext(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -489,7 +501,7 @@
 	// Managed method name : GetIUnknownForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIUnknownForObject_withO:(DBMonoObjectRepresentation *)p1
+    - (void *)getIUnknownForObject_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetIUnknownForObject(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -498,7 +510,7 @@
 	// Managed method name : GetIUnknownForObjectInContext
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object
-    - (void *)getIUnknownForObjectInContext_withO:(DBMonoObjectRepresentation *)p1
+    - (void *)getIUnknownForObjectInContext_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetIUnknownForObjectInContext(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
@@ -528,13 +540,13 @@
     - (System_Reflection_MemberInfo *)getMethodInfoForComSlot_withT:(System_Type *)p1 slot:(int32_t)p2 memberTypeRef:(System_Runtime_InteropServices_ComMemberType **)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodInfoForComSlot(System.Type,int,System.Runtime.InteropServices.ComMemberType&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
-		return [System_Reflection_MemberInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_MemberInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNativeVariantForObject
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.IntPtr
-    - (void)getNativeVariantForObject_withObj:(DBMonoObjectRepresentation *)p1 pDstNativeVariant:(void *)p2
+    - (void)getNativeVariantForObject_withObj:(System_Object *)p1 pDstNativeVariant:(void *)p2
     {
 		[self invokeMonoMethod:"GetNativeVariantForObject(object,intptr)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
@@ -542,19 +554,19 @@
 	// Managed method name : GetObjectForIUnknown
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)getObjectForIUnknown_withPUnk:(void *)p1
+    - (System_Object *)getObjectForIUnknown_withPUnk:(void *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObjectForIUnknown(intptr)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectForNativeVariant
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)getObjectForNativeVariant_withPSrcNativeVariant:(void *)p1
+    - (System_Object *)getObjectForNativeVariant_withPSrcNativeVariant:(void *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObjectForNativeVariant(intptr)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectsForNativeVariants
@@ -563,7 +575,7 @@
     - (DBSystem_Array *)getObjectsForNativeVariants_withASrcNativeVariant:(void *)p1 cVars:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObjectsForNativeVariants(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetStartComSlot
@@ -581,16 +593,16 @@
     - (System_Threading_Thread *)getThreadFromFiberCookie_withCookie:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetThreadFromFiberCookie(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Thread representationWithMonoObject:monoObject];
+		return [System_Threading_Thread objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypedObjectForIUnknown
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr, System.Type
-    - (DBMonoObjectRepresentation *)getTypedObjectForIUnknown_withPUnk:(void *)p1 t:(System_Type *)p2
+    - (System_Object *)getTypedObjectForIUnknown_withPUnk:(void *)p1 t:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypedObjectForIUnknown(intptr,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeForITypeInfo
@@ -599,7 +611,7 @@
     - (System_Type *)getTypeForITypeInfo_withPiTypeInfo:(void *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeForITypeInfo(intptr)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromCLSID
@@ -608,7 +620,7 @@
     - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromCLSID(System.Guid)" withNumArgs:1, [p1 monoValue]];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeInfoName
@@ -635,7 +647,7 @@
     - (System_Guid *)getTypeLibGuid_withPTLB:(System_Runtime_InteropServices_UCOMITypeLib *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeLibGuid(System.Runtime.InteropServices.UCOMITypeLib)" withNumArgs:1, [p1 monoValue]];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeLibGuid
@@ -644,7 +656,7 @@
     - (System_Guid *)getTypeLibGuid_withTypelib:(System_Runtime_InteropServices_ComTypes_ITypeLib *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeLibGuid(System.Runtime.InteropServices.ComTypes.ITypeLib)" withNumArgs:1, [p1 monoValue]];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeLibGuidForAssembly
@@ -653,7 +665,7 @@
     - (System_Guid *)getTypeLibGuidForAssembly_withAsm:(System_Reflection_Assembly *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeLibGuidForAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeLibLcid
@@ -703,10 +715,10 @@
 	// Managed method name : GetUniqueObjectForIUnknown
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr
-    - (DBMonoObjectRepresentation *)getUniqueObjectForIUnknown_withUnknown:(void *)p1
+    - (System_Object *)getUniqueObjectForIUnknown_withUnknown:(void *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUniqueObjectForIUnknown(intptr)" withNumArgs:1, DB_VALUE(p1)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUnmanagedThunkForManagedMethodPtr
@@ -721,7 +733,7 @@
 	// Managed method name : IsComObject
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)isComObject_withO:(DBMonoObjectRepresentation *)p1
+    - (BOOL)isComObject_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsComObject(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -836,7 +848,7 @@
 	// Managed method name : PtrToStructure
 	// Managed return type : System.Void
 	// Managed param types : System.IntPtr, System.Object
-    - (void)ptrToStructure_withPtr:(void *)p1 structure:(DBMonoObjectRepresentation *)p2
+    - (void)ptrToStructure_withPtr:(void *)p1 structure:(System_Object *)p2
     {
 		[self invokeMonoMethod:"PtrToStructure(intptr,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
     }
@@ -844,10 +856,10 @@
 	// Managed method name : PtrToStructure
 	// Managed return type : System.Object
 	// Managed param types : System.IntPtr, System.Type
-    - (DBMonoObjectRepresentation *)ptrToStructure_withPtr:(void *)p1 structureType:(System_Type *)p2
+    - (System_Object *)ptrToStructure_withPtr:(void *)p1 structureType:(System_Type *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"PtrToStructure(intptr,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : QueryInterface
@@ -862,7 +874,7 @@
 	// Managed method name : ReadByte
 	// Managed return type : System.Byte
 	// Managed param types : System.Object, System.Int32
-    - (uint8_t)readByte_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2
+    - (uint8_t)readByte_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadByte(object,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_UINT8(monoObject);
@@ -889,7 +901,7 @@
 	// Managed method name : ReadInt16
 	// Managed return type : System.Int16
 	// Managed param types : System.Object, System.Int32
-    - (int16_t)readInt16_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2
+    - (int16_t)readInt16_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadInt16(object,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_INT16(monoObject);
@@ -916,7 +928,7 @@
 	// Managed method name : ReadInt32
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Int32
-    - (int32_t)readInt32_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2
+    - (int32_t)readInt32_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadInt32(object,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_INT32(monoObject);
@@ -943,7 +955,7 @@
 	// Managed method name : ReadInt64
 	// Managed return type : System.Int64
 	// Managed param types : System.Object, System.Int32
-    - (int64_t)readInt64_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2
+    - (int64_t)readInt64_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadInt64(object,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_INT64(monoObject);
@@ -970,7 +982,7 @@
 	// Managed method name : ReadIntPtr
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Int32
-    - (void *)readIntPtr_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2
+    - (void *)readIntPtr_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadIntPtr(object,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_PTR(monoObject);
@@ -1024,7 +1036,7 @@
 	// Managed method name : ReleaseComObject
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)releaseComObject_withO:(DBMonoObjectRepresentation *)p1
+    - (int32_t)releaseComObject_withO:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReleaseComObject(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -1086,7 +1098,7 @@
 	// Managed method name : SetComObjectData
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object, System.Object
-    - (BOOL)setComObjectData_withObj:(DBMonoObjectRepresentation *)p1 key:(DBMonoObjectRepresentation *)p2 data:(DBMonoObjectRepresentation *)p3
+    - (BOOL)setComObjectData_withObj:(System_Object *)p1 key:(System_Object *)p2 data:(System_Object *)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"SetComObjectData(object,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -1095,7 +1107,7 @@
 	// Managed method name : SizeOf
 	// Managed return type : System.Int32
 	// Managed param types : System.Object
-    - (int32_t)sizeOf_withStructure:(DBMonoObjectRepresentation *)p1
+    - (int32_t)sizeOf_withStructure:(System_Object *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"SizeOf(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
@@ -1176,7 +1188,7 @@
 	// Managed method name : StructureToPtr
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.IntPtr, System.Boolean
-    - (void)structureToPtr_withStructure:(DBMonoObjectRepresentation *)p1 ptr:(void *)p2 fDeleteOld:(BOOL)p3
+    - (void)structureToPtr_withStructure:(System_Object *)p1 ptr:(void *)p2 fDeleteOld:(BOOL)p3
     {
 		[self invokeMonoMethod:"StructureToPtr(object,intptr,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
@@ -1217,7 +1229,7 @@
 	// Managed method name : WriteByte
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Byte
-    - (void)writeByte_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valByte:(uint8_t)p3
+    - (void)writeByte_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valByte:(uint8_t)p3
     {
 		[self invokeMonoMethod:"WriteByte(object,int,byte)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
@@ -1241,7 +1253,7 @@
 	// Managed method name : WriteInt16
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int16
-    - (void)writeInt16_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valInt16:(int16_t)p3
+    - (void)writeInt16_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valInt16:(int16_t)p3
     {
 		[self invokeMonoMethod:"WriteInt16(object,int,int16)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
@@ -1265,7 +1277,7 @@
 	// Managed method name : WriteInt16
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Char
-    - (void)writeInt16_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valChar:(uint16_t)p3
+    - (void)writeInt16_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valChar:(uint16_t)p3
     {
 		[self invokeMonoMethod:"WriteInt16(object,int,char)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
@@ -1289,7 +1301,7 @@
 	// Managed method name : WriteInt32
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int32
-    - (void)writeInt32_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valInt:(int32_t)p3
+    - (void)writeInt32_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valInt:(int32_t)p3
     {
 		[self invokeMonoMethod:"WriteInt32(object,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
@@ -1313,7 +1325,7 @@
 	// Managed method name : WriteInt64
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.Int64
-    - (void)writeInt64_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valLong:(int64_t)p3
+    - (void)writeInt64_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valLong:(int64_t)p3
     {
 		[self invokeMonoMethod:"WriteInt64(object,int,long)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
@@ -1337,7 +1349,7 @@
 	// Managed method name : WriteIntPtr
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Int32, System.IntPtr
-    - (void)writeIntPtr_withPtrObject:(DBMonoObjectRepresentation *)p1 ofsInt:(int32_t)p2 valIntptr:(void *)p3
+    - (void)writeIntPtr_withPtrObject:(System_Object *)p1 ofsInt:(int32_t)p2 valIntptr:(void *)p3
     {
 		[self invokeMonoMethod:"WriteIntPtr(object,int,intptr)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
     }
@@ -1389,5 +1401,11 @@
     {
 		[self invokeMonoMethod:"ZeroFreeGlobalAllocUnicode(intptr)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

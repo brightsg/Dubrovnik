@@ -22,15 +22,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)allowMultiple;
-    - (void)setAllowMultiple:(BOOL)value;
+	// Managed property name : AllowMultiple
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL allowMultiple;
 
-	// Managed type : System.Boolean
-    - (BOOL)inherited;
-    - (void)setInherited:(BOOL)value;
+	// Managed property name : Inherited
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL inherited;
 
-	// Managed type : System.AttributeTargets
-    - (System_AttributeTargets)validOn;
+	// Managed property name : ValidOn
+	// Managed property type : System.AttributeTargets
+    @property (nonatomic, readonly) System_AttributeTargets validOn;
 @end
 //--Dubrovnik.CodeGenerator

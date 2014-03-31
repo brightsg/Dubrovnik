@@ -2,7 +2,7 @@
 //
 // Managed class : IsPinned
 //
-@interface System_Runtime_CompilerServices_IsPinned : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_IsPinned : System_Object
 
 #pragma mark -
 #pragma mark Setup

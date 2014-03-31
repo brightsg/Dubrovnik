@@ -2,7 +2,7 @@
 //
 // Managed class : AppDomainSetup
 //
-@interface System_AppDomainSetup : DBMonoObjectRepresentation
+@interface System_AppDomainSetup : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,101 +27,101 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Hosting.ActivationArguments
-    - (System_Runtime_Hosting_ActivationArguments *)activationArguments;
-    - (void)setActivationArguments:(System_Runtime_Hosting_ActivationArguments *)value;
+	// Managed property name : ActivationArguments
+	// Managed property type : System.Runtime.Hosting.ActivationArguments
+    @property (nonatomic, strong) System_Runtime_Hosting_ActivationArguments * activationArguments;
 
-	// Managed type : System.AppDomainInitializer
-    - (System_AppDomainInitializer *)appDomainInitializer;
-    - (void)setAppDomainInitializer:(System_AppDomainInitializer *)value;
+	// Managed property name : AppDomainInitializer
+	// Managed property type : System.AppDomainInitializer
+    @property (nonatomic, strong) System_AppDomainInitializer * appDomainInitializer;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)appDomainInitializerArguments;
-    - (void)setAppDomainInitializerArguments:(DBSystem_Array *)value;
+	// Managed property name : AppDomainInitializerArguments
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * appDomainInitializerArguments;
 
-	// Managed type : System.String
-    - (NSString *)appDomainManagerAssembly;
-    - (void)setAppDomainManagerAssembly:(NSString *)value;
+	// Managed property name : AppDomainManagerAssembly
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * appDomainManagerAssembly;
 
-	// Managed type : System.String
-    - (NSString *)appDomainManagerType;
-    - (void)setAppDomainManagerType:(NSString *)value;
+	// Managed property name : AppDomainManagerType
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * appDomainManagerType;
 
-	// Managed type : System.String
-    - (NSString *)applicationBase;
-    - (void)setApplicationBase:(NSString *)value;
+	// Managed property name : ApplicationBase
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * applicationBase;
 
-	// Managed type : System.String
-    - (NSString *)applicationName;
-    - (void)setApplicationName:(NSString *)value;
+	// Managed property name : ApplicationName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * applicationName;
 
-	// Managed type : System.Security.Policy.ApplicationTrust
-    - (System_Security_Policy_ApplicationTrust *)applicationTrust;
-    - (void)setApplicationTrust:(System_Security_Policy_ApplicationTrust *)value;
+	// Managed property name : ApplicationTrust
+	// Managed property type : System.Security.Policy.ApplicationTrust
+    @property (nonatomic, strong) System_Security_Policy_ApplicationTrust * applicationTrust;
 
-	// Managed type : System.String
-    - (NSString *)cachePath;
-    - (void)setCachePath:(NSString *)value;
+	// Managed property name : CachePath
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * cachePath;
 
-	// Managed type : System.String
-    - (NSString *)configurationFile;
-    - (void)setConfigurationFile:(NSString *)value;
+	// Managed property name : ConfigurationFile
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * configurationFile;
 
-	// Managed type : System.Boolean
-    - (BOOL)disallowApplicationBaseProbing;
-    - (void)setDisallowApplicationBaseProbing:(BOOL)value;
+	// Managed property name : DisallowApplicationBaseProbing
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL disallowApplicationBaseProbing;
 
-	// Managed type : System.Boolean
-    - (BOOL)disallowBindingRedirects;
-    - (void)setDisallowBindingRedirects:(BOOL)value;
+	// Managed property name : DisallowBindingRedirects
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL disallowBindingRedirects;
 
-	// Managed type : System.Boolean
-    - (BOOL)disallowCodeDownload;
-    - (void)setDisallowCodeDownload:(BOOL)value;
+	// Managed property name : DisallowCodeDownload
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL disallowCodeDownload;
 
-	// Managed type : System.Boolean
-    - (BOOL)disallowPublisherPolicy;
-    - (void)setDisallowPublisherPolicy:(BOOL)value;
+	// Managed property name : DisallowPublisherPolicy
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL disallowPublisherPolicy;
 
-	// Managed type : System.String
-    - (NSString *)dynamicBase;
-    - (void)setDynamicBase:(NSString *)value;
+	// Managed property name : DynamicBase
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * dynamicBase;
 
-	// Managed type : System.String
-    - (NSString *)licenseFile;
-    - (void)setLicenseFile:(NSString *)value;
+	// Managed property name : LicenseFile
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * licenseFile;
 
-	// Managed type : System.LoaderOptimization
-    - (System_LoaderOptimization)loaderOptimization;
-    - (void)setLoaderOptimization:(System_LoaderOptimization)value;
+	// Managed property name : LoaderOptimization
+	// Managed property type : System.LoaderOptimization
+    @property (nonatomic) System_LoaderOptimization loaderOptimization;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)partialTrustVisibleAssemblies;
-    - (void)setPartialTrustVisibleAssemblies:(DBSystem_Array *)value;
+	// Managed property name : PartialTrustVisibleAssemblies
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * partialTrustVisibleAssemblies;
 
-	// Managed type : System.String
-    - (NSString *)privateBinPath;
-    - (void)setPrivateBinPath:(NSString *)value;
+	// Managed property name : PrivateBinPath
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * privateBinPath;
 
-	// Managed type : System.String
-    - (NSString *)privateBinPathProbe;
-    - (void)setPrivateBinPathProbe:(NSString *)value;
+	// Managed property name : PrivateBinPathProbe
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * privateBinPathProbe;
 
-	// Managed type : System.Boolean
-    - (BOOL)sandboxInterop;
-    - (void)setSandboxInterop:(BOOL)value;
+	// Managed property name : SandboxInterop
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL sandboxInterop;
 
-	// Managed type : System.String
-    - (NSString *)shadowCopyDirectories;
-    - (void)setShadowCopyDirectories:(NSString *)value;
+	// Managed property name : ShadowCopyDirectories
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * shadowCopyDirectories;
 
-	// Managed type : System.String
-    - (NSString *)shadowCopyFiles;
-    - (void)setShadowCopyFiles:(NSString *)value;
+	// Managed property name : ShadowCopyFiles
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * shadowCopyFiles;
 
-	// Managed type : System.String
-    - (NSString *)targetFrameworkName;
-    - (void)setTargetFrameworkName:(NSString *)value;
+	// Managed property name : TargetFrameworkName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * targetFrameworkName;
 
 #pragma mark -
 #pragma mark Methods

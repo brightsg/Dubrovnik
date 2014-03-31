@@ -2,7 +2,7 @@
 //
 // Managed struct : STATSTG
 //
-@interface System_Runtime_InteropServices_ComTypes_STATSTG : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_STATSTG : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,48 +14,48 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.FILETIME
-    - (System_Runtime_InteropServices_ComTypes_FILETIME *)atime;
-    - (void)setAtime:(System_Runtime_InteropServices_ComTypes_FILETIME *)value;
+	// Managed field name : atime
+	// Managed field type : System.Runtime.InteropServices.ComTypes.FILETIME
+    @property (nonatomic, strong) System_Runtime_InteropServices_ComTypes_FILETIME * atime;
 
-	// Managed type : System.Int64
-    - (int64_t)cbSize;
-    - (void)setCbSize:(int64_t)value;
+	// Managed field name : cbSize
+	// Managed field type : System.Int64
+    @property (nonatomic) int64_t cbSize;
 
-	// Managed type : System.Guid
-    - (System_Guid *)clsid;
-    - (void)setClsid:(System_Guid *)value;
+	// Managed field name : clsid
+	// Managed field type : System.Guid
+    @property (nonatomic, strong) System_Guid * clsid;
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.FILETIME
-    - (System_Runtime_InteropServices_ComTypes_FILETIME *)ctime;
-    - (void)setCtime:(System_Runtime_InteropServices_ComTypes_FILETIME *)value;
+	// Managed field name : ctime
+	// Managed field type : System.Runtime.InteropServices.ComTypes.FILETIME
+    @property (nonatomic, strong) System_Runtime_InteropServices_ComTypes_FILETIME * ctime;
 
-	// Managed type : System.Int32
-    - (int32_t)grfLocksSupported;
-    - (void)setGrfLocksSupported:(int32_t)value;
+	// Managed field name : grfLocksSupported
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t grfLocksSupported;
 
-	// Managed type : System.Int32
-    - (int32_t)grfMode;
-    - (void)setGrfMode:(int32_t)value;
+	// Managed field name : grfMode
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t grfMode;
 
-	// Managed type : System.Int32
-    - (int32_t)grfStateBits;
-    - (void)setGrfStateBits:(int32_t)value;
+	// Managed field name : grfStateBits
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t grfStateBits;
 
-	// Managed type : System.Runtime.InteropServices.ComTypes.FILETIME
-    - (System_Runtime_InteropServices_ComTypes_FILETIME *)mtime;
-    - (void)setMtime:(System_Runtime_InteropServices_ComTypes_FILETIME *)value;
+	// Managed field name : mtime
+	// Managed field type : System.Runtime.InteropServices.ComTypes.FILETIME
+    @property (nonatomic, strong) System_Runtime_InteropServices_ComTypes_FILETIME * mtime;
 
-	// Managed type : System.String
-    - (NSString *)pwcsName;
-    - (void)setPwcsName:(NSString *)value;
+	// Managed field name : pwcsName
+	// Managed field type : System.String
+    @property (nonatomic, strong) NSString * pwcsName;
 
-	// Managed type : System.Int32
-    - (int32_t)reserved;
-    - (void)setReserved:(int32_t)value;
+	// Managed field name : reserved
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t reserved;
 
-	// Managed type : System.Int32
-    - (int32_t)type;
-    - (void)setType:(int32_t)value;
+	// Managed field name : type
+	// Managed field type : System.Int32
+    @property (nonatomic) int32_t type;
 @end
 //--Dubrovnik.CodeGenerator

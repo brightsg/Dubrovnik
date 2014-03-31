@@ -3,6 +3,12 @@
 //
 // Managed class : RegisteredWaitHandle
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_RegisteredWaitHandle
 
 #pragma mark -
@@ -29,5 +35,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"Unregister(System.Threading.WaitHandle)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

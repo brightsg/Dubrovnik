@@ -3,6 +3,12 @@
 //
 // Managed class : Overlapped
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_Overlapped
 
 #pragma mark -
@@ -40,67 +46,88 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IAsyncResult
+	// Managed property name : AsyncResult
+	// Managed property type : System.IAsyncResult
+    @synthesize asyncResult = _asyncResult;
     - (System_IAsyncResult *)asyncResult
     {
-		MonoObject * monoObject = [self getMonoProperty:"AsyncResult"];
-		System_IAsyncResult * result = [System_IAsyncResult representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"AsyncResult"];
+		if ([self object:_asyncResult isEqualToMonoObject:monoObject]) return _asyncResult;					
+		_asyncResult = [System_IAsyncResult objectWithMonoObject:monoObject];
+
+		return _asyncResult;
 	}
     - (void)setAsyncResult:(System_IAsyncResult *)value
 	{
+		_asyncResult = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"AsyncResult" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : EventHandle
+	// Managed property type : System.Int32
+    @synthesize eventHandle = _eventHandle;
     - (int32_t)eventHandle
     {
-		MonoObject * monoObject = [self getMonoProperty:"EventHandle"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EventHandle"];
+		_eventHandle = DB_UNBOX_INT32(monoObject);
+
+		return _eventHandle;
 	}
     - (void)setEventHandle:(int32_t)value
 	{
+		_eventHandle = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"EventHandle" valueObject:monoObject];          
 	}
 
-	// Managed type : System.IntPtr
+	// Managed property name : EventHandleIntPtr
+	// Managed property type : System.IntPtr
+    @synthesize eventHandleIntPtr = _eventHandleIntPtr;
     - (void *)eventHandleIntPtr
     {
-		MonoObject * monoObject = [self getMonoProperty:"EventHandleIntPtr"];
-		void * result = DB_UNBOX_PTR(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"EventHandleIntPtr"];
+		_eventHandleIntPtr = DB_UNBOX_PTR(monoObject);
+
+		return _eventHandleIntPtr;
 	}
     - (void)setEventHandleIntPtr:(void *)value
 	{
+		_eventHandleIntPtr = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"EventHandleIntPtr" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : OffsetHigh
+	// Managed property type : System.Int32
+    @synthesize offsetHigh = _offsetHigh;
     - (int32_t)offsetHigh
     {
-		MonoObject * monoObject = [self getMonoProperty:"OffsetHigh"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OffsetHigh"];
+		_offsetHigh = DB_UNBOX_INT32(monoObject);
+
+		return _offsetHigh;
 	}
     - (void)setOffsetHigh:(int32_t)value
 	{
+		_offsetHigh = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"OffsetHigh" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : OffsetLow
+	// Managed property type : System.Int32
+    @synthesize offsetLow = _offsetLow;
     - (int32_t)offsetLow
     {
-		MonoObject * monoObject = [self getMonoProperty:"OffsetLow"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"OffsetLow"];
+		_offsetLow = DB_UNBOX_INT32(monoObject);
+
+		return _offsetLow;
 	}
     - (void)setOffsetLow:(int32_t)value
 	{
+		_offsetLow = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"OffsetLow" valueObject:monoObject];          
 	}
@@ -113,16 +140,16 @@
 	// Managed param types : System.Threading.NativeOverlapped*
     - (void)free_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1
     {
-		[self invokeMonoMethod:"Free(System.Threading.NativeOverlapped*)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Free(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
     }
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
 	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(DBMonoObjectRepresentation *)p2
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Threading_NativeOverlapped representationWithMonoObject:monoObject];
+		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Pack
@@ -131,7 +158,7 @@
     - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_NativeOverlapped representationWithMonoObject:monoObject];
+		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unpack
@@ -139,17 +166,17 @@
 	// Managed param types : System.Threading.NativeOverlapped*
     - (System_Threading_Overlapped *)unpack_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Unpack(System.Threading.NativeOverlapped*)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Overlapped representationWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoMethod:"Unpack(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
+		return [System_Threading_Overlapped objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
 	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(DBMonoObjectRepresentation *)p2
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Threading_NativeOverlapped representationWithMonoObject:monoObject];
+		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafePack
@@ -158,7 +185,13 @@
     - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_NativeOverlapped representationWithMonoObject:monoObject];
+		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

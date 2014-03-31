@@ -2,7 +2,7 @@
 //
 // Managed interface : IConnectionPoint
 //
-@interface System_Runtime_InteropServices_ComTypes_IConnectionPoint : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IConnectionPoint : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : Advise
 	// Managed return type : System.Void
 	// Managed param types : System.Object, ref System.Int32&
-    - (void)advise_withPUnkSink:(DBMonoObjectRepresentation *)p1 pdwCookieRef:(int32_t*)p2;
+    - (void)advise_withPUnkSink:(System_Object *)p1 pdwCookieRef:(int32_t*)p2;
 
 	// Managed method name : EnumConnections
 	// Managed return type : System.Void

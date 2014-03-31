@@ -2,7 +2,7 @@
 //
 // Managed class : AsyncResult
 //
-@interface System_Runtime_Remoting_Messaging_AsyncResult : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_AsyncResult : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,27 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)asyncDelegate;
+	// Managed property name : AsyncDelegate
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * asyncDelegate;
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)asyncState;
+	// Managed property name : AsyncState
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * asyncState;
 
-	// Managed type : System.Threading.WaitHandle
-    - (System_Threading_WaitHandle *)asyncWaitHandle;
+	// Managed property name : AsyncWaitHandle
+	// Managed property type : System.Threading.WaitHandle
+    @property (nonatomic, strong, readonly) System_Threading_WaitHandle * asyncWaitHandle;
 
-	// Managed type : System.Boolean
-    - (BOOL)completedSynchronously;
+	// Managed property name : CompletedSynchronously
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL completedSynchronously;
 
-	// Managed type : System.Boolean
-    - (BOOL)endInvokeCalled;
-    - (void)setEndInvokeCalled:(BOOL)value;
+	// Managed property name : EndInvokeCalled
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL endInvokeCalled;
 
-	// Managed type : System.Boolean
-    - (BOOL)isCompleted;
+	// Managed property name : IsCompleted
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCompleted;
 
-	// Managed type : System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)nextSink;
+	// Managed property name : NextSink
+	// Managed property type : System.Runtime.Remoting.Messaging.IMessageSink
+    @property (nonatomic, strong, readonly) System_Runtime_Remoting_Messaging_IMessageSink * nextSink;
 
 #pragma mark -
 #pragma mark Methods

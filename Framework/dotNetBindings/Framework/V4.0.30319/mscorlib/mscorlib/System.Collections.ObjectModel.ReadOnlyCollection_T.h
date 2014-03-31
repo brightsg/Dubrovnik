@@ -2,7 +2,7 @@
 //
 // Managed class : ReadOnlyCollection<T>
 //
-@interface System_Collections_ObjectModel_ReadOnlyCollection : DBMonoObjectRepresentation
+@interface System_Collections_ObjectModel_ReadOnlyCollection : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,11 +22,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
-	// Managed type : <T>
-    - (DBMonoObjectRepresentation *)item;
+	// Managed property name : Item
+	// Managed property type : <T>
+    @property (nonatomic, strong, readonly) DBManagedObject * item;
 
 #pragma mark -
 #pragma mark Methods
@@ -34,7 +36,7 @@
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
 	// Managed param types : <T>
-    - (BOOL)contains_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)contains_withValue:(DBManagedObject *)p1;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
@@ -49,6 +51,6 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : <T>
-    - (int32_t)indexOf_withValue:(DBMonoObjectRepresentation *)p1;
+    - (int32_t)indexOf_withValue:(DBManagedObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

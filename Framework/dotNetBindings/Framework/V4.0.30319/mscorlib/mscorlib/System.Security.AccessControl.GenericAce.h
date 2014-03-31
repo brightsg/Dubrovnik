@@ -2,7 +2,7 @@
 //
 // Managed class : GenericAce
 //
-@interface System_Security_AccessControl_GenericAce : DBMonoObjectRepresentation
+@interface System_Security_AccessControl_GenericAce : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,27 +14,33 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AceFlags
-    - (System_Security_AccessControl_AceFlags)aceFlags;
-    - (void)setAceFlags:(System_Security_AccessControl_AceFlags)value;
+	// Managed property name : AceFlags
+	// Managed property type : System.Security.AccessControl.AceFlags
+    @property (nonatomic) System_Security_AccessControl_AceFlags aceFlags;
 
-	// Managed type : System.Security.AccessControl.AceType
-    - (System_Security_AccessControl_AceType)aceType;
+	// Managed property name : AceType
+	// Managed property type : System.Security.AccessControl.AceType
+    @property (nonatomic, readonly) System_Security_AccessControl_AceType aceType;
 
-	// Managed type : System.Security.AccessControl.AuditFlags
-    - (System_Security_AccessControl_AuditFlags)auditFlags;
+	// Managed property name : AuditFlags
+	// Managed property type : System.Security.AccessControl.AuditFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_AuditFlags auditFlags;
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.Security.AccessControl.InheritanceFlags
-    - (System_Security_AccessControl_InheritanceFlags)inheritanceFlags;
+	// Managed property name : InheritanceFlags
+	// Managed property type : System.Security.AccessControl.InheritanceFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_InheritanceFlags inheritanceFlags;
 
-	// Managed type : System.Boolean
-    - (BOOL)isInherited;
+	// Managed property name : IsInherited
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isInherited;
 
-	// Managed type : System.Security.AccessControl.PropagationFlags
-    - (System_Security_AccessControl_PropagationFlags)propagationFlags;
+	// Managed property name : PropagationFlags
+	// Managed property type : System.Security.AccessControl.PropagationFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_PropagationFlags propagationFlags;
 
 #pragma mark -
 #pragma mark Methods
@@ -52,7 +58,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withO:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withO:(System_Object *)p1;
 
 	// Managed method name : GetBinaryForm
 	// Managed return type : System.Void

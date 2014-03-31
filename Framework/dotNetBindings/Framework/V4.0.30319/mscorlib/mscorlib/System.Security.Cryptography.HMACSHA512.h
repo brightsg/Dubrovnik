@@ -22,8 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)produceLegacyHmacValues;
-    - (void)setProduceLegacyHmacValues:(BOOL)value;
+	// Managed property name : ProduceLegacyHmacValues
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL produceLegacyHmacValues;
 @end
 //--Dubrovnik.CodeGenerator

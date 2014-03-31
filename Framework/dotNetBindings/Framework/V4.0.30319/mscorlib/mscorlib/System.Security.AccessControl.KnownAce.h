@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)accessMask;
-    - (void)setAccessMask:(int32_t)value;
+	// Managed property name : AccessMask
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t accessMask;
 
-	// Managed type : System.Security.Principal.SecurityIdentifier
-    - (System_Security_Principal_SecurityIdentifier *)securityIdentifier;
-    - (void)setSecurityIdentifier:(System_Security_Principal_SecurityIdentifier *)value;
+	// Managed property name : SecurityIdentifier
+	// Managed property type : System.Security.Principal.SecurityIdentifier
+    @property (nonatomic, strong) System_Security_Principal_SecurityIdentifier * securityIdentifier;
 @end
 //--Dubrovnik.CodeGenerator

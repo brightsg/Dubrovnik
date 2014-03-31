@@ -2,7 +2,7 @@
 //
 // Managed class : FormatterServices
 //
-@interface System_Runtime_Serialization_FormatterServices : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_FormatterServices : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,12 +22,12 @@
 	// Managed method name : GetObjectData
 	// Managed return type : System.Object[]
 	// Managed param types : System.Object, System.Reflection.MemberInfo[]
-    - (DBSystem_Array *)getObjectData_withObj:(DBMonoObjectRepresentation *)p1 members:(DBSystem_Array *)p2;
+    - (DBSystem_Array *)getObjectData_withObj:(System_Object *)p1 members:(DBSystem_Array *)p2;
 
 	// Managed method name : GetSafeUninitializedObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getSafeUninitializedObject_withType:(System_Type *)p1;
+    - (System_Object *)getSafeUninitializedObject_withType:(System_Type *)p1;
 
 	// Managed method name : GetSerializableMembers
 	// Managed return type : System.Reflection.MemberInfo[]
@@ -52,11 +52,11 @@
 	// Managed method name : GetUninitializedObject
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getUninitializedObject_withType:(System_Type *)p1;
+    - (System_Object *)getUninitializedObject_withType:(System_Type *)p1;
 
 	// Managed method name : PopulateObjectMembers
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.MemberInfo[], System.Object[]
-    - (DBMonoObjectRepresentation *)populateObjectMembers_withObj:(DBMonoObjectRepresentation *)p1 members:(DBSystem_Array *)p2 data:(DBSystem_Array *)p3;
+    - (System_Object *)populateObjectMembers_withObj:(System_Object *)p1 members:(DBSystem_Array *)p2 data:(DBSystem_Array *)p3;
 @end
 //--Dubrovnik.CodeGenerator

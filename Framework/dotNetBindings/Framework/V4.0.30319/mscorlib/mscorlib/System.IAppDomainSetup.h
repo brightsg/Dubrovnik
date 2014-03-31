@@ -2,7 +2,7 @@
 //
 // Managed interface : IAppDomainSetup
 //
-@interface System_IAppDomainSetup : DBMonoObjectRepresentation
+@interface System_IAppDomainSetup : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,44 +14,44 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)applicationBase;
-    - (void)setApplicationBase:(NSString *)value;
+	// Managed property name : ApplicationBase
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * applicationBase;
 
-	// Managed type : System.String
-    - (NSString *)applicationName;
-    - (void)setApplicationName:(NSString *)value;
+	// Managed property name : ApplicationName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * applicationName;
 
-	// Managed type : System.String
-    - (NSString *)cachePath;
-    - (void)setCachePath:(NSString *)value;
+	// Managed property name : CachePath
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * cachePath;
 
-	// Managed type : System.String
-    - (NSString *)configurationFile;
-    - (void)setConfigurationFile:(NSString *)value;
+	// Managed property name : ConfigurationFile
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * configurationFile;
 
-	// Managed type : System.String
-    - (NSString *)dynamicBase;
-    - (void)setDynamicBase:(NSString *)value;
+	// Managed property name : DynamicBase
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * dynamicBase;
 
-	// Managed type : System.String
-    - (NSString *)licenseFile;
-    - (void)setLicenseFile:(NSString *)value;
+	// Managed property name : LicenseFile
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * licenseFile;
 
-	// Managed type : System.String
-    - (NSString *)privateBinPath;
-    - (void)setPrivateBinPath:(NSString *)value;
+	// Managed property name : PrivateBinPath
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * privateBinPath;
 
-	// Managed type : System.String
-    - (NSString *)privateBinPathProbe;
-    - (void)setPrivateBinPathProbe:(NSString *)value;
+	// Managed property name : PrivateBinPathProbe
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * privateBinPathProbe;
 
-	// Managed type : System.String
-    - (NSString *)shadowCopyDirectories;
-    - (void)setShadowCopyDirectories:(NSString *)value;
+	// Managed property name : ShadowCopyDirectories
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * shadowCopyDirectories;
 
-	// Managed type : System.String
-    - (NSString *)shadowCopyFiles;
-    - (void)setShadowCopyFiles:(NSString *)value;
+	// Managed property name : ShadowCopyFiles
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * shadowCopyFiles;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : DictionaryBase
 //
-@interface System_Collections_DictionaryBase : DBMonoObjectRepresentation
+@interface System_Collections_DictionaryBase : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)count;
+	// Managed property name : Count
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t count;
 
 #pragma mark -
 #pragma mark Methods

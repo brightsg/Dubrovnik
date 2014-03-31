@@ -2,7 +2,7 @@
 //
 // Managed interface : ILease
 //
-@interface System_Runtime_Remoting_Lifetime_ILease : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Lifetime_ILease : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,23 +14,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)currentLeaseTime;
+	// Managed property name : CurrentLeaseTime
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong, readonly) System_TimeSpan * currentLeaseTime;
 
-	// Managed type : System.Runtime.Remoting.Lifetime.LeaseState
-    - (System_Runtime_Remoting_Lifetime_LeaseState)currentState;
+	// Managed property name : CurrentState
+	// Managed property type : System.Runtime.Remoting.Lifetime.LeaseState
+    @property (nonatomic, readonly) System_Runtime_Remoting_Lifetime_LeaseState currentState;
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)initialLeaseTime;
-    - (void)setInitialLeaseTime:(System_TimeSpan *)value;
+	// Managed property name : InitialLeaseTime
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong) System_TimeSpan * initialLeaseTime;
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)renewOnCallTime;
-    - (void)setRenewOnCallTime:(System_TimeSpan *)value;
+	// Managed property name : RenewOnCallTime
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong) System_TimeSpan * renewOnCallTime;
 
-	// Managed type : System.TimeSpan
-    - (System_TimeSpan *)sponsorshipTimeout;
-    - (void)setSponsorshipTimeout:(System_TimeSpan *)value;
+	// Managed property name : SponsorshipTimeout
+	// Managed property type : System.TimeSpan
+    @property (nonatomic, strong) System_TimeSpan * sponsorshipTimeout;
 
 #pragma mark -
 #pragma mark Methods

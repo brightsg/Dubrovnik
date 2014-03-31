@@ -2,7 +2,7 @@
 //
 // Managed interface : UCOMIRunningObjectTable
 //
-@interface System_Runtime_InteropServices_UCOMIRunningObjectTable : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_UCOMIRunningObjectTable : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker, ref System.Object&
-    - (void)getObject_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 ppunkObjectRef:(DBMonoObjectRepresentation **)p2;
+    - (void)getObject_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 ppunkObjectRef:(System_Object **)p2;
 
 	// Managed method name : GetTimeOfLastChange
 	// Managed return type : System.Void
@@ -42,7 +42,7 @@
 	// Managed method name : Register
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Object, System.Runtime.InteropServices.UCOMIMoniker, ref System.Int32&
-    - (void)register_withGrfFlags:(int32_t)p1 punkObject:(DBMonoObjectRepresentation *)p2 pmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p3 pdwRegisterRef:(int32_t*)p4;
+    - (void)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p3 pdwRegisterRef:(int32_t*)p4;
 
 	// Managed method name : Revoke
 	// Managed return type : System.Void

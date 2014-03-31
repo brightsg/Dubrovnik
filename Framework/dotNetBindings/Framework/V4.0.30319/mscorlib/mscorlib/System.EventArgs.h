@@ -2,7 +2,7 @@
 //
 // Managed class : EventArgs
 //
-@interface System_EventArgs : DBMonoObjectRepresentation
+@interface System_EventArgs : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.EventArgs
+	// Managed field name : Empty
+	// Managed field type : System.EventArgs
     + (System_EventArgs *)empty;
 @end
 //--Dubrovnik.CodeGenerator

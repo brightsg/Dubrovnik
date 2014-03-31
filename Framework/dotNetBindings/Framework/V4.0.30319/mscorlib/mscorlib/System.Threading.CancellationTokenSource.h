@@ -2,7 +2,7 @@
 //
 // Managed class : CancellationTokenSource
 //
-@interface System_Threading_CancellationTokenSource : DBMonoObjectRepresentation
+@interface System_Threading_CancellationTokenSource : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -27,11 +27,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)isCancellationRequested;
+	// Managed property name : IsCancellationRequested
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCancellationRequested;
 
-	// Managed type : System.Threading.CancellationToken
-    - (System_Threading_CancellationToken *)token;
+	// Managed property name : Token
+	// Managed property type : System.Threading.CancellationToken
+    @property (nonatomic, strong, readonly) System_Threading_CancellationToken * token;
 
 #pragma mark -
 #pragma mark Methods

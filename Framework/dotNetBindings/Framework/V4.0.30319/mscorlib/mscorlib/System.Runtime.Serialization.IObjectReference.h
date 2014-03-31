@@ -2,7 +2,7 @@
 //
 // Managed interface : IObjectReference
 //
-@interface System_Runtime_Serialization_IObjectReference : DBMonoObjectRepresentation
+@interface System_Runtime_Serialization_IObjectReference : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,6 +17,6 @@
 	// Managed method name : GetRealObject
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Serialization.StreamingContext
-    - (DBMonoObjectRepresentation *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1;
+    - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1;
 @end
 //--Dubrovnik.CodeGenerator

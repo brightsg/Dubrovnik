@@ -3,6 +3,12 @@
 //
 // Managed class : ApplicationTrust
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Policy_ApplicationTrust
 
 #pragma mark -
@@ -40,76 +46,102 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.ApplicationIdentity
+	// Managed property name : ApplicationIdentity
+	// Managed property type : System.ApplicationIdentity
+    @synthesize applicationIdentity = _applicationIdentity;
     - (System_ApplicationIdentity *)applicationIdentity
     {
-		MonoObject * monoObject = [self getMonoProperty:"ApplicationIdentity"];
-		System_ApplicationIdentity * result = [System_ApplicationIdentity representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ApplicationIdentity"];
+		if ([self object:_applicationIdentity isEqualToMonoObject:monoObject]) return _applicationIdentity;					
+		_applicationIdentity = [System_ApplicationIdentity objectWithMonoObject:monoObject];
+
+		return _applicationIdentity;
 	}
     - (void)setApplicationIdentity:(System_ApplicationIdentity *)value
 	{
+		_applicationIdentity = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"ApplicationIdentity" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Security.Policy.PolicyStatement
+	// Managed property name : DefaultGrantSet
+	// Managed property type : System.Security.Policy.PolicyStatement
+    @synthesize defaultGrantSet = _defaultGrantSet;
     - (System_Security_Policy_PolicyStatement *)defaultGrantSet
     {
-		MonoObject * monoObject = [self getMonoProperty:"DefaultGrantSet"];
-		System_Security_Policy_PolicyStatement * result = [System_Security_Policy_PolicyStatement representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"DefaultGrantSet"];
+		if ([self object:_defaultGrantSet isEqualToMonoObject:monoObject]) return _defaultGrantSet;					
+		_defaultGrantSet = [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
+
+		return _defaultGrantSet;
 	}
     - (void)setDefaultGrantSet:(System_Security_Policy_PolicyStatement *)value
 	{
+		_defaultGrantSet = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"DefaultGrantSet" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)extraInfo
+	// Managed property name : ExtraInfo
+	// Managed property type : System.Object
+    @synthesize extraInfo = _extraInfo;
+    - (System_Object *)extraInfo
     {
-		MonoObject * monoObject = [self getMonoProperty:"ExtraInfo"];
-		DBMonoObjectRepresentation * result = [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ExtraInfo"];
+		if ([self object:_extraInfo isEqualToMonoObject:monoObject]) return _extraInfo;					
+		_extraInfo = [System_Object objectWithMonoObject:monoObject];
+
+		return _extraInfo;
 	}
-    - (void)setExtraInfo:(DBMonoObjectRepresentation *)value
+    - (void)setExtraInfo:(System_Object *)value
 	{
+		_extraInfo = value;
 		MonoObject *monoObject = [value monoValue];
 		[self setMonoProperty:"ExtraInfo" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Collections.Generic.IList<System.Security.Policy.StrongName>
+	// Managed property name : FullTrustAssemblies
+	// Managed property type : System.Collections.Generic.IList<System.Security.Policy.StrongName>
+    @synthesize fullTrustAssemblies = _fullTrustAssemblies;
     - (System_Collections_Generic_IList *)fullTrustAssemblies
     {
-		MonoObject * monoObject = [self getMonoProperty:"FullTrustAssemblies"];
-		System_Collections_Generic_IList * result = [System_Collections_Generic_IList representationWithMonoObject:monoObject];
-		result.monoGenericTypeArgumentNames = @"System_Security_Policy_StrongName";
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FullTrustAssemblies"];
+		if ([self object:_fullTrustAssemblies isEqualToMonoObject:monoObject]) return _fullTrustAssemblies;					
+		_fullTrustAssemblies = [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+
+		return _fullTrustAssemblies;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : IsApplicationTrustedToRun
+	// Managed property type : System.Boolean
+    @synthesize isApplicationTrustedToRun = _isApplicationTrustedToRun;
     - (BOOL)isApplicationTrustedToRun
     {
-		MonoObject * monoObject = [self getMonoProperty:"IsApplicationTrustedToRun"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IsApplicationTrustedToRun"];
+		_isApplicationTrustedToRun = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _isApplicationTrustedToRun;
 	}
     - (void)setIsApplicationTrustedToRun:(BOOL)value
 	{
+		_isApplicationTrustedToRun = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"IsApplicationTrustedToRun" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Persist
+	// Managed property type : System.Boolean
+    @synthesize persist = _persist;
     - (BOOL)persist
     {
-		MonoObject * monoObject = [self getMonoProperty:"Persist"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Persist"];
+		_persist = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _persist;
 	}
     - (void)setPersist:(BOOL)value
 	{
+		_persist = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Persist" valueObject:monoObject];          
 	}
@@ -123,7 +155,7 @@
     - (System_Security_Policy_EvidenceBase *)clone
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		return [System_Security_Policy_EvidenceBase representationWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -140,7 +172,13 @@
     - (System_Security_SecurityElement *)toXml
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
-		return [System_Security_SecurityElement representationWithMonoObject:monoObject];
+		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

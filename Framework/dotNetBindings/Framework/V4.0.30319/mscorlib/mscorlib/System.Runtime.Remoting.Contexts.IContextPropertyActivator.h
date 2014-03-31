@@ -2,7 +2,7 @@
 //
 // Managed interface : IContextPropertyActivator
 //
-@interface System_Runtime_Remoting_Contexts_IContextPropertyActivator : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Contexts_IContextPropertyActivator : System_Object
 
 #pragma mark -
 #pragma mark Setup

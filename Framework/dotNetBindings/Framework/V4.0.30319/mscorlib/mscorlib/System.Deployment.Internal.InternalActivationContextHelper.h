@@ -2,7 +2,7 @@
 //
 // Managed class : InternalActivationContextHelper
 //
-@interface System_Deployment_Internal_InternalActivationContextHelper : DBMonoObjectRepresentation
+@interface System_Deployment_Internal_InternalActivationContextHelper : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,12 +17,12 @@
 	// Managed method name : GetActivationContextData
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (DBMonoObjectRepresentation *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1;
+    - (System_Object *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1;
 
 	// Managed method name : GetApplicationComponentManifest
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (DBMonoObjectRepresentation *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1;
+    - (System_Object *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1;
 
 	// Managed method name : GetApplicationManifestBytes
 	// Managed return type : System.Byte[]
@@ -32,7 +32,7 @@
 	// Managed method name : GetDeploymentComponentManifest
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (DBMonoObjectRepresentation *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1;
+    - (System_Object *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1;
 
 	// Managed method name : GetDeploymentManifestBytes
 	// Managed return type : System.Byte[]

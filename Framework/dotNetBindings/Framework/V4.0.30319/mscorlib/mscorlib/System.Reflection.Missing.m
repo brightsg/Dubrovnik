@@ -3,6 +3,12 @@
 //
 // Managed class : Missing
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Missing
 
 #pragma mark -
@@ -21,12 +27,23 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.Reflection.Missing
+	// Managed field name : Value
+	// Managed field type : System.Reflection.Missing
+    static System_Reflection_Missing * m_value;
     + (System_Reflection_Missing *)value
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"Value" valuePtr:DB_PTR(monoObject)];
-		return [System_Reflection_Missing representationWithMonoObject:monoObject];
+		if ([self object:m_value isEqualToMonoObject:monoObject]) return m_value;					
+		m_value = [System_Reflection_Missing objectWithMonoObject:monoObject];
+		return m_value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+		m_value = nil;
 	}
 @end
 //--Dubrovnik.CodeGenerator

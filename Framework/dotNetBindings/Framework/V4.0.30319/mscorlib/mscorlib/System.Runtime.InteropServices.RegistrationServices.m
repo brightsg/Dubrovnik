@@ -3,6 +3,12 @@
 //
 // Managed class : RegistrationServices
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Runtime_InteropServices_RegistrationServices
 
 #pragma mark -
@@ -27,7 +33,7 @@
     - (System_Guid *)getManagedCategoryGuid
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManagedCategoryGuid()" withNumArgs:0];
-		return [System_Guid representationWithMonoObject:monoObject];
+		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetProgIdForType
@@ -45,7 +51,7 @@
     - (DBSystem_Array *)getRegistrableTypesInAssembly_withAssembly:(System_Reflection_Assembly *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRegistrableTypesInAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject) withRepresentationClass:[DBMonoObjectRepresentation class]];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : RegisterAssembly
@@ -108,5 +114,11 @@
     {
 		[self invokeMonoMethod:"UnregisterTypeForComClients(int)" withNumArgs:1, DB_VALUE(p1)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

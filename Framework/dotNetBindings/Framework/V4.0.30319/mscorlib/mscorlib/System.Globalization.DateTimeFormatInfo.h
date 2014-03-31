@@ -2,7 +2,7 @@
 //
 // Managed class : DateTimeFormatInfo
 //
-@interface System_Globalization_DateTimeFormatInfo : DBMonoObjectRepresentation
+@interface System_Globalization_DateTimeFormatInfo : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,110 +14,117 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)abbreviatedDayNames;
-    - (void)setAbbreviatedDayNames:(DBSystem_Array *)value;
+	// Managed property name : AbbreviatedDayNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * abbreviatedDayNames;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)abbreviatedMonthGenitiveNames;
-    - (void)setAbbreviatedMonthGenitiveNames:(DBSystem_Array *)value;
+	// Managed property name : AbbreviatedMonthGenitiveNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * abbreviatedMonthGenitiveNames;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)abbreviatedMonthNames;
-    - (void)setAbbreviatedMonthNames:(DBSystem_Array *)value;
+	// Managed property name : AbbreviatedMonthNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * abbreviatedMonthNames;
 
-	// Managed type : System.String
-    - (NSString *)aMDesignator;
-    - (void)setAMDesignator:(NSString *)value;
+	// Managed property name : AMDesignator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * aMDesignator;
 
-	// Managed type : System.Globalization.Calendar
-    - (System_Globalization_Calendar *)calendar;
-    - (void)setCalendar:(System_Globalization_Calendar *)value;
+	// Managed property name : Calendar
+	// Managed property type : System.Globalization.Calendar
+    @property (nonatomic, strong) System_Globalization_Calendar * calendar;
 
-	// Managed type : System.Globalization.CalendarWeekRule
-    - (System_Globalization_CalendarWeekRule)calendarWeekRule;
-    - (void)setCalendarWeekRule:(System_Globalization_CalendarWeekRule)value;
+	// Managed property name : CalendarWeekRule
+	// Managed property type : System.Globalization.CalendarWeekRule
+    @property (nonatomic) System_Globalization_CalendarWeekRule calendarWeekRule;
 
-	// Managed type : System.Globalization.DateTimeFormatInfo
+	// Managed property name : CurrentInfo
+	// Managed property type : System.Globalization.DateTimeFormatInfo
     + (System_Globalization_DateTimeFormatInfo *)currentInfo;
 
-	// Managed type : System.String
-    - (NSString *)dateSeparator;
-    - (void)setDateSeparator:(NSString *)value;
+	// Managed property name : DateSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * dateSeparator;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)dayNames;
-    - (void)setDayNames:(DBSystem_Array *)value;
+	// Managed property name : DayNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * dayNames;
 
-	// Managed type : System.DayOfWeek
-    - (System_DayOfWeek)firstDayOfWeek;
-    - (void)setFirstDayOfWeek:(System_DayOfWeek)value;
+	// Managed property name : FirstDayOfWeek
+	// Managed property type : System.DayOfWeek
+    @property (nonatomic) System_DayOfWeek firstDayOfWeek;
 
-	// Managed type : System.String
-    - (NSString *)fullDateTimePattern;
-    - (void)setFullDateTimePattern:(NSString *)value;
+	// Managed property name : FullDateTimePattern
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * fullDateTimePattern;
 
-	// Managed type : System.Globalization.DateTimeFormatInfo
+	// Managed property name : InvariantInfo
+	// Managed property type : System.Globalization.DateTimeFormatInfo
     + (System_Globalization_DateTimeFormatInfo *)invariantInfo;
 
-	// Managed type : System.Boolean
-    - (BOOL)isReadOnly;
+	// Managed property name : IsReadOnly
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed type : System.String
-    - (NSString *)longDatePattern;
-    - (void)setLongDatePattern:(NSString *)value;
+	// Managed property name : LongDatePattern
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * longDatePattern;
 
-	// Managed type : System.String
-    - (NSString *)longTimePattern;
-    - (void)setLongTimePattern:(NSString *)value;
+	// Managed property name : LongTimePattern
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * longTimePattern;
 
-	// Managed type : System.String
-    - (NSString *)monthDayPattern;
-    - (void)setMonthDayPattern:(NSString *)value;
+	// Managed property name : MonthDayPattern
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * monthDayPattern;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)monthGenitiveNames;
-    - (void)setMonthGenitiveNames:(DBSystem_Array *)value;
+	// Managed property name : MonthGenitiveNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * monthGenitiveNames;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)monthNames;
-    - (void)setMonthNames:(DBSystem_Array *)value;
+	// Managed property name : MonthNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * monthNames;
 
-	// Managed type : System.String
-    - (NSString *)nativeCalendarName;
+	// Managed property name : NativeCalendarName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * nativeCalendarName;
 
-	// Managed type : System.String
-    - (NSString *)pMDesignator;
-    - (void)setPMDesignator:(NSString *)value;
+	// Managed property name : PMDesignator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * pMDesignator;
 
-	// Managed type : System.String
-    - (NSString *)rFC1123Pattern;
+	// Managed property name : RFC1123Pattern
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * rFC1123Pattern;
 
-	// Managed type : System.String
-    - (NSString *)shortDatePattern;
-    - (void)setShortDatePattern:(NSString *)value;
+	// Managed property name : ShortDatePattern
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * shortDatePattern;
 
-	// Managed type : System.String[]
-    - (DBSystem_Array *)shortestDayNames;
-    - (void)setShortestDayNames:(DBSystem_Array *)value;
+	// Managed property name : ShortestDayNames
+	// Managed property type : System.String[]
+    @property (nonatomic, strong) DBSystem_Array * shortestDayNames;
 
-	// Managed type : System.String
-    - (NSString *)shortTimePattern;
-    - (void)setShortTimePattern:(NSString *)value;
+	// Managed property name : ShortTimePattern
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * shortTimePattern;
 
-	// Managed type : System.String
-    - (NSString *)sortableDateTimePattern;
+	// Managed property name : SortableDateTimePattern
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * sortableDateTimePattern;
 
-	// Managed type : System.String
-    - (NSString *)timeSeparator;
-    - (void)setTimeSeparator:(NSString *)value;
+	// Managed property name : TimeSeparator
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * timeSeparator;
 
-	// Managed type : System.String
-    - (NSString *)universalSortableDateTimePattern;
+	// Managed property name : UniversalSortableDateTimePattern
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * universalSortableDateTimePattern;
 
-	// Managed type : System.String
-    - (NSString *)yearMonthPattern;
-    - (void)setYearMonthPattern:(NSString *)value;
+	// Managed property name : YearMonthPattern
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * yearMonthPattern;
 
 #pragma mark -
 #pragma mark Methods
@@ -125,7 +132,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : GetAbbreviatedDayName
 	// Managed return type : System.String
@@ -170,7 +177,7 @@
 	// Managed method name : GetFormat
 	// Managed return type : System.Object
 	// Managed param types : System.Type
-    - (DBMonoObjectRepresentation *)getFormat_withFormatType:(System_Type *)p1;
+    - (System_Object *)getFormat_withFormatType:(System_Type *)p1;
 
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.DateTimeFormatInfo

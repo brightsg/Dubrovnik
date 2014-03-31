@@ -2,7 +2,7 @@
 //
 // Managed class : LocalDataStoreSlot
 //
-@interface System_LocalDataStoreSlot : DBMonoObjectRepresentation
+@interface System_LocalDataStoreSlot : System_Object
 
 #pragma mark -
 #pragma mark Setup

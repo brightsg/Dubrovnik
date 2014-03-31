@@ -2,7 +2,7 @@
 //
 // Managed struct : RuntimeTypeHandle
 //
-@interface System_RuntimeTypeHandle : DBMonoObjectRepresentation
+@interface System_RuntimeTypeHandle : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.IntPtr
-    - (void *)value;
+	// Managed property name : Value
+	// Managed property type : System.IntPtr
+    @property (nonatomic, readonly) void * value;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,7 +24,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -48,21 +49,21 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.RuntimeTypeHandle, System.Object
-    - (BOOL)op_Equality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)op_Equality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(System_Object *)p2;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.RuntimeTypeHandle
-    - (BOOL)op_Equality_withLeftObject:(DBMonoObjectRepresentation *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
+    - (BOOL)op_Equality_withLeftObject:(System_Object *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.RuntimeTypeHandle, System.Object
-    - (BOOL)op_Inequality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(DBMonoObjectRepresentation *)p2;
+    - (BOOL)op_Inequality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(System_Object *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.RuntimeTypeHandle
-    - (BOOL)op_Inequality_withLeftObject:(DBMonoObjectRepresentation *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
+    - (BOOL)op_Inequality_withLeftObject:(System_Object *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
 @end
 //--Dubrovnik.CodeGenerator

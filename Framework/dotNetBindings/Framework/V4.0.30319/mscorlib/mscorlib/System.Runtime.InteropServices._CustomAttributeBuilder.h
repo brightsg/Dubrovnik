@@ -2,7 +2,7 @@
 //
 // Managed interface : _CustomAttributeBuilder
 //
-@interface System_Runtime_InteropServices__CustomAttributeBuilder : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices__CustomAttributeBuilder : System_Object
 
 #pragma mark -
 #pragma mark Setup

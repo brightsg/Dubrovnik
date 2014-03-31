@@ -3,6 +3,12 @@
 //
 // Managed class : SecurityAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Permissions_SecurityAttribute
 
 #pragma mark -
@@ -21,28 +27,36 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Permissions.SecurityAction
+	// Managed property name : Action
+	// Managed property type : System.Security.Permissions.SecurityAction
+    @synthesize action = _action;
     - (System_Security_Permissions_SecurityAction)action
     {
-		MonoObject * monoObject = [self getMonoProperty:"Action"];
-		System_Security_Permissions_SecurityAction result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Action"];
+		_action = DB_UNBOX_INT32(monoObject);
+
+		return _action;
 	}
     - (void)setAction:(System_Security_Permissions_SecurityAction)value
 	{
+		_action = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Action" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Unrestricted
+	// Managed property type : System.Boolean
+    @synthesize unrestricted = _unrestricted;
     - (BOOL)unrestricted
     {
-		MonoObject * monoObject = [self getMonoProperty:"Unrestricted"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Unrestricted"];
+		_unrestricted = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _unrestricted;
 	}
     - (void)setUnrestricted:(BOOL)value
 	{
+		_unrestricted = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"Unrestricted" valueObject:monoObject];          
 	}
@@ -56,7 +70,13 @@
     - (System_Security_IPermission *)createPermission
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
-		return [System_Security_IPermission representationWithMonoObject:monoObject];
+		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

@@ -3,6 +3,12 @@
 //
 // Managed class : UnmanagedMarshal
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_Emit_UnmanagedMarshal
 
 #pragma mark -
@@ -21,36 +27,49 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
+	// Managed property name : BaseType
+	// Managed property type : System.Runtime.InteropServices.UnmanagedType
+    @synthesize baseType = _baseType;
     - (System_Runtime_InteropServices_UnmanagedType)baseType
     {
-		MonoObject * monoObject = [self getMonoProperty:"BaseType"];
-		System_Runtime_InteropServices_UnmanagedType result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"BaseType"];
+		_baseType = DB_UNBOX_INT32(monoObject);
+
+		return _baseType;
 	}
 
-	// Managed type : System.Int32
+	// Managed property name : ElementCount
+	// Managed property type : System.Int32
+    @synthesize elementCount = _elementCount;
     - (int32_t)elementCount
     {
-		MonoObject * monoObject = [self getMonoProperty:"ElementCount"];
-		int32_t result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"ElementCount"];
+		_elementCount = DB_UNBOX_INT32(monoObject);
+
+		return _elementCount;
 	}
 
-	// Managed type : System.Runtime.InteropServices.UnmanagedType
+	// Managed property name : GetUnmanagedType
+	// Managed property type : System.Runtime.InteropServices.UnmanagedType
+    @synthesize getUnmanagedType = _getUnmanagedType;
     - (System_Runtime_InteropServices_UnmanagedType)getUnmanagedType
     {
-		MonoObject * monoObject = [self getMonoProperty:"GetUnmanagedType"];
-		System_Runtime_InteropServices_UnmanagedType result = DB_UNBOX_INT32(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"GetUnmanagedType"];
+		_getUnmanagedType = DB_UNBOX_INT32(monoObject);
+
+		return _getUnmanagedType;
 	}
 
-	// Managed type : System.Guid
+	// Managed property name : IIDGuid
+	// Managed property type : System.Guid
+    @synthesize iIDGuid = _iIDGuid;
     - (System_Guid *)iIDGuid
     {
-		MonoObject * monoObject = [self getMonoProperty:"IIDGuid"];
-		System_Guid * result = [System_Guid representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"IIDGuid"];
+		if ([self object:_iIDGuid isEqualToMonoObject:monoObject]) return _iIDGuid;					
+		_iIDGuid = [System_Guid objectWithMonoObject:monoObject];
+
+		return _iIDGuid;
 	}
 
 #pragma mark -
@@ -62,7 +81,7 @@
     - (System_Reflection_Emit_UnmanagedMarshal *)defineByValArray_withElemCount:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineByValArray(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Reflection_Emit_UnmanagedMarshal representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_UnmanagedMarshal objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineByValTStr
@@ -71,7 +90,7 @@
     - (System_Reflection_Emit_UnmanagedMarshal *)defineByValTStr_withElemCount:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineByValTStr(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Reflection_Emit_UnmanagedMarshal representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_UnmanagedMarshal objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineLPArray
@@ -80,7 +99,7 @@
     - (System_Reflection_Emit_UnmanagedMarshal *)defineLPArray_withElemType:(System_Runtime_InteropServices_UnmanagedType)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineLPArray(System.Runtime.InteropServices.UnmanagedType)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Reflection_Emit_UnmanagedMarshal representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_UnmanagedMarshal objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineSafeArray
@@ -89,7 +108,7 @@
     - (System_Reflection_Emit_UnmanagedMarshal *)defineSafeArray_withElemType:(System_Runtime_InteropServices_UnmanagedType)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineSafeArray(System.Runtime.InteropServices.UnmanagedType)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Reflection_Emit_UnmanagedMarshal representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_UnmanagedMarshal objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineUnmanagedMarshal
@@ -98,7 +117,13 @@
     - (System_Reflection_Emit_UnmanagedMarshal *)defineUnmanagedMarshal_withUnmanagedType:(System_Runtime_InteropServices_UnmanagedType)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineUnmanagedMarshal(System.Runtime.InteropServices.UnmanagedType)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Reflection_Emit_UnmanagedMarshal representationWithMonoObject:monoObject];
+		return [System_Reflection_Emit_UnmanagedMarshal objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

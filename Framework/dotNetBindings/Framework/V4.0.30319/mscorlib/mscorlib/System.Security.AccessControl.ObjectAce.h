@@ -22,20 +22,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Int32
-    - (int32_t)binaryLength;
+	// Managed property name : BinaryLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t binaryLength;
 
-	// Managed type : System.Guid
-    - (System_Guid *)inheritedObjectAceType;
-    - (void)setInheritedObjectAceType:(System_Guid *)value;
+	// Managed property name : InheritedObjectAceType
+	// Managed property type : System.Guid
+    @property (nonatomic, strong) System_Guid * inheritedObjectAceType;
 
-	// Managed type : System.Security.AccessControl.ObjectAceFlags
-    - (System_Security_AccessControl_ObjectAceFlags)objectAceFlags;
-    - (void)setObjectAceFlags:(System_Security_AccessControl_ObjectAceFlags)value;
+	// Managed property name : ObjectAceFlags
+	// Managed property type : System.Security.AccessControl.ObjectAceFlags
+    @property (nonatomic) System_Security_AccessControl_ObjectAceFlags objectAceFlags;
 
-	// Managed type : System.Guid
-    - (System_Guid *)objectAceType;
-    - (void)setObjectAceType:(System_Guid *)value;
+	// Managed property name : ObjectAceType
+	// Managed property type : System.Guid
+    @property (nonatomic, strong) System_Guid * objectAceType;
 
 #pragma mark -
 #pragma mark Methods

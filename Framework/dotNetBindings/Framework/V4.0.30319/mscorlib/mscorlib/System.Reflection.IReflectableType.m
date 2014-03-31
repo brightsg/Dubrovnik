@@ -3,6 +3,12 @@
 //
 // Managed interface : IReflectableType
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Reflection_IReflectableType
 
 #pragma mark -
@@ -27,7 +33,13 @@
     - (System_Reflection_TypeInfo *)getTypeInfo
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeInfo()" withNumArgs:0];
-		return [System_Reflection_TypeInfo representationWithMonoObject:monoObject];
+		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

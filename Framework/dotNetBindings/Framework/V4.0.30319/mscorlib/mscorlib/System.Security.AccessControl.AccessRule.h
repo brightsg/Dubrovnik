@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AccessControlType
-    - (System_Security_AccessControl_AccessControlType)accessControlType;
+	// Managed property name : AccessControlType
+	// Managed property type : System.Security.AccessControl.AccessControlType
+    @property (nonatomic, readonly) System_Security_AccessControl_AccessControlType accessControlType;
 @end
 //--Dubrovnik.CodeGenerator

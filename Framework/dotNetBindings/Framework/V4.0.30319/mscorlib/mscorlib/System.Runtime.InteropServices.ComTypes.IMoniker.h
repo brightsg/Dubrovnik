@@ -2,7 +2,7 @@
 //
 // Managed interface : IMoniker
 //
-@interface System_Runtime_InteropServices_ComTypes_IMoniker : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IMoniker : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -17,12 +17,12 @@
 	// Managed method name : BindToObject
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Guid&, ref System.Object&
-    - (void)bindToObject_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidResultRef:(System_Guid **)p3 ppvResultRef:(DBMonoObjectRepresentation **)p4;
+    - (void)bindToObject_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidResultRef:(System_Guid **)p3 ppvResultRef:(System_Object **)p4;
 
 	// Managed method name : BindToStorage
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Guid&, ref System.Object&
-    - (void)bindToStorage_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidRef:(System_Guid **)p3 ppvObjRef:(DBMonoObjectRepresentation **)p4;
+    - (void)bindToStorage_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidRef:(System_Guid **)p3 ppvObjRef:(System_Object **)p4;
 
 	// Managed method name : CommonPrefixWith
 	// Managed return type : System.Void

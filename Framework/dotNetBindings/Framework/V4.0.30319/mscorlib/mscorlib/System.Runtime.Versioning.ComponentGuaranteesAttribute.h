@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Versioning.ComponentGuaranteesOptions
-    - (System_Runtime_Versioning_ComponentGuaranteesOptions)guarantees;
+	// Managed property name : Guarantees
+	// Managed property type : System.Runtime.Versioning.ComponentGuaranteesOptions
+    @property (nonatomic, readonly) System_Runtime_Versioning_ComponentGuaranteesOptions guarantees;
 @end
 //--Dubrovnik.CodeGenerator

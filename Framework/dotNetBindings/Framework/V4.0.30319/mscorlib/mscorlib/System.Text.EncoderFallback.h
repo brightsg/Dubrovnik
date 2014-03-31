@@ -2,7 +2,7 @@
 //
 // Managed class : EncoderFallback
 //
-@interface System_Text_EncoderFallback : DBMonoObjectRepresentation
+@interface System_Text_EncoderFallback : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.EncoderFallback
+	// Managed property name : ExceptionFallback
+	// Managed property type : System.Text.EncoderFallback
     + (System_Text_EncoderFallback *)exceptionFallback;
 
-	// Managed type : System.Int32
-    - (int32_t)maxCharCount;
+	// Managed property name : MaxCharCount
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t maxCharCount;
 
-	// Managed type : System.Text.EncoderFallback
+	// Managed property name : ReplacementFallback
+	// Managed property type : System.Text.EncoderFallback
     + (System_Text_EncoderFallback *)replacementFallback;
 
 #pragma mark -

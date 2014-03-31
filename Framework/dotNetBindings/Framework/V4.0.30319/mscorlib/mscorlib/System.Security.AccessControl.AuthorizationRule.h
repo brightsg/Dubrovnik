@@ -2,7 +2,7 @@
 //
 // Managed class : AuthorizationRule
 //
-@interface System_Security_AccessControl_AuthorizationRule : DBMonoObjectRepresentation
+@interface System_Security_AccessControl_AuthorizationRule : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,16 +14,20 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Principal.IdentityReference
-    - (System_Security_Principal_IdentityReference *)identityReference;
+	// Managed property name : IdentityReference
+	// Managed property type : System.Security.Principal.IdentityReference
+    @property (nonatomic, strong, readonly) System_Security_Principal_IdentityReference * identityReference;
 
-	// Managed type : System.Security.AccessControl.InheritanceFlags
-    - (System_Security_AccessControl_InheritanceFlags)inheritanceFlags;
+	// Managed property name : InheritanceFlags
+	// Managed property type : System.Security.AccessControl.InheritanceFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_InheritanceFlags inheritanceFlags;
 
-	// Managed type : System.Boolean
-    - (BOOL)isInherited;
+	// Managed property name : IsInherited
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isInherited;
 
-	// Managed type : System.Security.AccessControl.PropagationFlags
-    - (System_Security_AccessControl_PropagationFlags)propagationFlags;
+	// Managed property name : PropagationFlags
+	// Managed property type : System.Security.AccessControl.PropagationFlags
+    @property (nonatomic, readonly) System_Security_AccessControl_PropagationFlags propagationFlags;
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,26 +22,28 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
-    - (NSString *)category;
+	// Managed property name : Category
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * category;
 
-	// Managed type : System.String
-    - (NSString *)checkId;
+	// Managed property name : CheckId
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * checkId;
 
-	// Managed type : System.String
-    - (NSString *)justification;
-    - (void)setJustification:(NSString *)value;
+	// Managed property name : Justification
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * justification;
 
-	// Managed type : System.String
-    - (NSString *)messageId;
-    - (void)setMessageId:(NSString *)value;
+	// Managed property name : MessageId
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * messageId;
 
-	// Managed type : System.String
-    - (NSString *)scope;
-    - (void)setScope:(NSString *)value;
+	// Managed property name : Scope
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * scope;
 
-	// Managed type : System.String
-    - (NSString *)target;
-    - (void)setTarget:(NSString *)value;
+	// Managed property name : Target
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * target;
 @end
 //--Dubrovnik.CodeGenerator

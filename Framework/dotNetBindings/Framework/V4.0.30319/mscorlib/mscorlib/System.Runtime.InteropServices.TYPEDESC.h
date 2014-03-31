@@ -2,7 +2,7 @@
 //
 // Managed struct : TYPEDESC
 //
-@interface System_Runtime_InteropServices_TYPEDESC : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_TYPEDESC : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -14,12 +14,12 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed type : System.IntPtr
-    - (void *)lpValue;
-    - (void)setLpValue:(void *)value;
+	// Managed field name : lpValue
+	// Managed field type : System.IntPtr
+    @property (nonatomic) void * lpValue;
 
-	// Managed type : System.Int16
-    - (int16_t)vt;
-    - (void)setVt:(int16_t)value;
+	// Managed field name : vt
+	// Managed field type : System.Int16
+    @property (nonatomic) int16_t vt;
 @end
 //--Dubrovnik.CodeGenerator

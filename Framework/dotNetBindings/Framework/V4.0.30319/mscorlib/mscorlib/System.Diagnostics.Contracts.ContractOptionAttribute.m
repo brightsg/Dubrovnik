@@ -3,6 +3,12 @@
 //
 // Managed class : ContractOptionAttribute
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Diagnostics_Contracts_ContractOptionAttribute
 
 #pragma mark -
@@ -40,36 +46,57 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.String
+	// Managed property name : Category
+	// Managed property type : System.String
+    @synthesize category = _category;
     - (NSString *)category
     {
-		MonoObject * monoObject = [self getMonoProperty:"Category"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Category"];
+		if ([self object:_category isEqualToMonoObject:monoObject]) return _category;					
+		_category = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _category;
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : Enabled
+	// Managed property type : System.Boolean
+    @synthesize enabled = _enabled;
     - (BOOL)enabled
     {
-		MonoObject * monoObject = [self getMonoProperty:"Enabled"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Enabled"];
+		_enabled = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _enabled;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Setting
+	// Managed property type : System.String
+    @synthesize setting = _setting;
     - (NSString *)setting
     {
-		MonoObject * monoObject = [self getMonoProperty:"Setting"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Setting"];
+		if ([self object:_setting isEqualToMonoObject:monoObject]) return _setting;					
+		_setting = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _setting;
 	}
 
-	// Managed type : System.String
+	// Managed property name : Value
+	// Managed property type : System.String
+    @synthesize value = _value;
     - (NSString *)value
     {
-		MonoObject * monoObject = [self getMonoProperty:"Value"];
-		NSString * result = [NSString stringWithMonoString:DB_STRING(monoObject)];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
+		_value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _value;
+	}
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
 	}
 @end
 //--Dubrovnik.CodeGenerator

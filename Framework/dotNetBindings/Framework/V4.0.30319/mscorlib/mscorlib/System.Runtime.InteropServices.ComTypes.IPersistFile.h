@@ -2,7 +2,7 @@
 //
 // Managed interface : IPersistFile
 //
-@interface System_Runtime_InteropServices_ComTypes_IPersistFile : DBMonoObjectRepresentation
+@interface System_Runtime_InteropServices_ComTypes_IPersistFile : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : MaskGenerationMethod
 //
-@interface System_Security_Cryptography_MaskGenerationMethod : DBMonoObjectRepresentation
+@interface System_Security_Cryptography_MaskGenerationMethod : System_Object
 
 #pragma mark -
 #pragma mark Setup

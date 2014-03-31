@@ -22,7 +22,8 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)delaySign;
+	// Managed property name : DelaySign
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL delaySign;
 @end
 //--Dubrovnik.CodeGenerator

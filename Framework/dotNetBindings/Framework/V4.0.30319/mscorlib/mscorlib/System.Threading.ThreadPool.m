@@ -3,6 +3,12 @@
 //
 // Managed class : ThreadPool
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Threading_ThreadPool
 
 #pragma mark -
@@ -66,7 +72,7 @@
 	// Managed method name : QueueUserWorkItem
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitCallback, System.Object
-    - (BOOL)queueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (BOOL)queueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"QueueUserWorkItem(System.Threading.WaitCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -84,37 +90,37 @@
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.UInt32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int64, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.TimeSpan, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(DBMonoObjectRepresentation *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(System_Object *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetMaxThreads
@@ -140,14 +146,14 @@
 	// Managed param types : System.Threading.NativeOverlapped*
     - (BOOL)unsafeQueueNativeOverlapped_withOverlapped:(System_Threading_NativeOverlapped **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeQueueNativeOverlapped(System.Threading.NativeOverlapped*)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeQueueNativeOverlapped(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : UnsafeQueueUserWorkItem
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitCallback, System.Object
-    - (BOOL)unsafeQueueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(DBMonoObjectRepresentation *)p2
+    - (BOOL)unsafeQueueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeQueueUserWorkItem(System.Threading.WaitCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
@@ -156,37 +162,43 @@
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.UInt32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int32, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.Int64, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(DBMonoObjectRepresentation *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
 	// Managed return type : System.Threading.RegisteredWaitHandle
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitOrTimerCallback, System.Object, System.TimeSpan, System.Boolean
-    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(DBMonoObjectRepresentation *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5
+    - (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(System_Object *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
-		return [System_Threading_RegisteredWaitHandle representationWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

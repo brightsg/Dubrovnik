@@ -14,32 +14,32 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Runtime.Remoting.Metadata.SoapOption
-    - (System_Runtime_Remoting_Metadata_SoapOption)soapOptions;
-    - (void)setSoapOptions:(System_Runtime_Remoting_Metadata_SoapOption)value;
+	// Managed property name : SoapOptions
+	// Managed property type : System.Runtime.Remoting.Metadata.SoapOption
+    @property (nonatomic) System_Runtime_Remoting_Metadata_SoapOption soapOptions;
 
-	// Managed type : System.Boolean
-    - (BOOL)useAttribute;
-    - (void)setUseAttribute:(BOOL)value;
+	// Managed property name : UseAttribute
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL useAttribute;
 
-	// Managed type : System.String
-    - (NSString *)xmlElementName;
-    - (void)setXmlElementName:(NSString *)value;
+	// Managed property name : XmlElementName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlElementName;
 
-	// Managed type : System.Runtime.Remoting.Metadata.XmlFieldOrderOption
-    - (System_Runtime_Remoting_Metadata_XmlFieldOrderOption)xmlFieldOrder;
-    - (void)setXmlFieldOrder:(System_Runtime_Remoting_Metadata_XmlFieldOrderOption)value;
+	// Managed property name : XmlFieldOrder
+	// Managed property type : System.Runtime.Remoting.Metadata.XmlFieldOrderOption
+    @property (nonatomic) System_Runtime_Remoting_Metadata_XmlFieldOrderOption xmlFieldOrder;
 
-	// Managed type : System.String
-    - (NSString *)xmlNamespace;
-    - (void)setXmlNamespace:(NSString *)value;
+	// Managed property name : XmlNamespace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlNamespace;
 
-	// Managed type : System.String
-    - (NSString *)xmlTypeName;
-    - (void)setXmlTypeName:(NSString *)value;
+	// Managed property name : XmlTypeName
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlTypeName;
 
-	// Managed type : System.String
-    - (NSString *)xmlTypeNamespace;
-    - (void)setXmlTypeNamespace:(NSString *)value;
+	// Managed property name : XmlTypeNamespace
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * xmlTypeNamespace;
 @end
 //--Dubrovnik.CodeGenerator

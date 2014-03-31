@@ -3,6 +3,12 @@
 //
 // Managed class : ResourceSet
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Resources_ResourceSet
 
 #pragma mark -
@@ -70,7 +76,7 @@
     - (System_Type *)getDefaultReader
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDefaultReader()" withNumArgs:0];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDefaultWriter
@@ -79,7 +85,7 @@
     - (System_Type *)getDefaultWriter
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDefaultWriter()" withNumArgs:0];
-		return [System_Type representationWithMonoObject:monoObject];
+		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnumerator
@@ -88,25 +94,25 @@
     - (System_Collections_IDictionaryEnumerator *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Collections_IDictionaryEnumerator representationWithMonoObject:monoObject];
+		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1
+    - (System_Object *)getObject_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string)" withNumArgs:1, [p1 monoValue]];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean
-    - (DBMonoObjectRepresentation *)getObject_withName:(NSString *)p1 ignoreCase:(BOOL)p2
+    - (System_Object *)getObject_withName:(NSString *)p1 ignoreCase:(BOOL)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [DBMonoObjectRepresentation representationWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetString
@@ -126,5 +132,11 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"GetString(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

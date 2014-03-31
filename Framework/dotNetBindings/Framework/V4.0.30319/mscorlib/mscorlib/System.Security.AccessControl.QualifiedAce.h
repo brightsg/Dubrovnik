@@ -14,14 +14,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.AccessControl.AceQualifier
-    - (System_Security_AccessControl_AceQualifier)aceQualifier;
+	// Managed property name : AceQualifier
+	// Managed property type : System.Security.AccessControl.AceQualifier
+    @property (nonatomic, readonly) System_Security_AccessControl_AceQualifier aceQualifier;
 
-	// Managed type : System.Boolean
-    - (BOOL)isCallback;
+	// Managed property name : IsCallback
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isCallback;
 
-	// Managed type : System.Int32
-    - (int32_t)opaqueLength;
+	// Managed property name : OpaqueLength
+	// Managed property type : System.Int32
+    @property (nonatomic, readonly) int32_t opaqueLength;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed class : Random
 //
-@interface System_Random : DBMonoObjectRepresentation
+@interface System_Random : System_Object
 
 #pragma mark -
 #pragma mark Setup

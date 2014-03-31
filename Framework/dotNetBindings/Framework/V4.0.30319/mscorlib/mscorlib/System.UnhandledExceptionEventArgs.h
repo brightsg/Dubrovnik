@@ -17,15 +17,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.UnhandledExceptionEventArgs
 	// Managed param types : System.Object, System.Boolean
-    + (System_UnhandledExceptionEventArgs *)new_withException:(DBMonoObjectRepresentation *)p1 isTerminating:(BOOL)p2;
+    + (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Object
-    - (DBMonoObjectRepresentation *)exceptionObject;
+	// Managed property name : ExceptionObject
+	// Managed property type : System.Object
+    @property (nonatomic, strong, readonly) System_Object * exceptionObject;
 
-	// Managed type : System.Boolean
-    - (BOOL)isTerminating;
+	// Managed property name : IsTerminating
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL isTerminating;
 @end
 //--Dubrovnik.CodeGenerator

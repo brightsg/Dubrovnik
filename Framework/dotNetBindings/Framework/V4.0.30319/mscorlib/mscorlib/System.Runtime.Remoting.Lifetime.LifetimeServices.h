@@ -2,7 +2,7 @@
 //
 // Managed class : LifetimeServices
 //
-@interface System_Runtime_Remoting_Lifetime_LifetimeServices : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Lifetime_LifetimeServices : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,19 +14,23 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.TimeSpan
+	// Managed property name : LeaseManagerPollTime
+	// Managed property type : System.TimeSpan
     + (System_TimeSpan *)leaseManagerPollTime;
     + (void)setLeaseManagerPollTime:(System_TimeSpan *)value;
 
-	// Managed type : System.TimeSpan
+	// Managed property name : LeaseTime
+	// Managed property type : System.TimeSpan
     + (System_TimeSpan *)leaseTime;
     + (void)setLeaseTime:(System_TimeSpan *)value;
 
-	// Managed type : System.TimeSpan
+	// Managed property name : RenewOnCallTime
+	// Managed property type : System.TimeSpan
     + (System_TimeSpan *)renewOnCallTime;
     + (void)setRenewOnCallTime:(System_TimeSpan *)value;
 
-	// Managed type : System.TimeSpan
+	// Managed property name : SponsorshipTimeout
+	// Managed property type : System.TimeSpan
     + (System_TimeSpan *)sponsorshipTimeout;
     + (void)setSponsorshipTimeout:(System_TimeSpan *)value;
 @end

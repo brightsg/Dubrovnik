@@ -2,7 +2,7 @@
 //
 // Managed class : LogicalCallContext
 //
-@interface System_Runtime_Remoting_Messaging_LogicalCallContext : DBMonoObjectRepresentation
+@interface System_Runtime_Remoting_Messaging_LogicalCallContext : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,8 +14,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
-    - (BOOL)hasInfo;
+	// Managed property name : HasInfo
+	// Managed property type : System.Boolean
+    @property (nonatomic, readonly) BOOL hasInfo;
 
 #pragma mark -
 #pragma mark Methods
@@ -23,7 +24,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (DBMonoObjectRepresentation *)clone;
+    - (System_Object *)clone;
 
 	// Managed method name : FreeNamedDataSlot
 	// Managed return type : System.Void
@@ -33,7 +34,7 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (DBMonoObjectRepresentation *)getData_withName:(NSString *)p1;
+    - (System_Object *)getData_withName:(NSString *)p1;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void
@@ -43,6 +44,6 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object
-    - (void)setData_withName:(NSString *)p1 data:(DBMonoObjectRepresentation *)p2;
+    - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

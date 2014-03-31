@@ -2,7 +2,7 @@
 //
 // Managed class : CompilerMarshalOverride
 //
-@interface System_Runtime_CompilerServices_CompilerMarshalOverride : DBMonoObjectRepresentation
+@interface System_Runtime_CompilerServices_CompilerMarshalOverride : System_Object
 
 #pragma mark -
 #pragma mark Setup

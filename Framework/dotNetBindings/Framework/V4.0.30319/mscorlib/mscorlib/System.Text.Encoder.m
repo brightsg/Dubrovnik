@@ -3,6 +3,12 @@
 //
 // Managed class : Encoder
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Text_Encoder
 
 #pragma mark -
@@ -21,25 +27,34 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.EncoderFallback
+	// Managed property name : Fallback
+	// Managed property type : System.Text.EncoderFallback
+    @synthesize fallback = _fallback;
     - (System_Text_EncoderFallback *)fallback
     {
-		MonoObject * monoObject = [self getMonoProperty:"Fallback"];
-		System_Text_EncoderFallback * result = [System_Text_EncoderFallback representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"Fallback"];
+		if ([self object:_fallback isEqualToMonoObject:monoObject]) return _fallback;					
+		_fallback = [System_Text_EncoderFallback objectWithMonoObject:monoObject];
+
+		return _fallback;
 	}
     - (void)setFallback:(System_Text_EncoderFallback *)value
 	{
+		_fallback = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Fallback" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Text.EncoderFallbackBuffer
+	// Managed property name : FallbackBuffer
+	// Managed property type : System.Text.EncoderFallbackBuffer
+    @synthesize fallbackBuffer = _fallbackBuffer;
     - (System_Text_EncoderFallbackBuffer *)fallbackBuffer
     {
-		MonoObject * monoObject = [self getMonoProperty:"FallbackBuffer"];
-		System_Text_EncoderFallbackBuffer * result = [System_Text_EncoderFallbackBuffer representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"FallbackBuffer"];
+		if ([self object:_fallbackBuffer isEqualToMonoObject:monoObject]) return _fallbackBuffer;					
+		_fallbackBuffer = [System_Text_EncoderFallbackBuffer objectWithMonoObject:monoObject];
+
+		return _fallbackBuffer;
 	}
 
 #pragma mark -
@@ -104,5 +119,11 @@
     {
 		[self invokeMonoMethod:"Reset()" withNumArgs:0];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

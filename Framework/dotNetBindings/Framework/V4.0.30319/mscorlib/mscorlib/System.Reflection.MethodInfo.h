@@ -14,17 +14,21 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Reflection.MemberTypes
-    - (System_Reflection_MemberTypes)memberType;
+	// Managed property name : MemberType
+	// Managed property type : System.Reflection.MemberTypes
+    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
 
-	// Managed type : System.Reflection.ParameterInfo
-    - (System_Reflection_ParameterInfo *)returnParameter;
+	// Managed property name : ReturnParameter
+	// Managed property type : System.Reflection.ParameterInfo
+    @property (nonatomic, strong, readonly) System_Reflection_ParameterInfo * returnParameter;
 
-	// Managed type : System.Type
-    - (System_Type *)returnType;
+	// Managed property name : ReturnType
+	// Managed property type : System.Type
+    @property (nonatomic, strong, readonly) System_Type * returnType;
 
-	// Managed type : System.Reflection.ICustomAttributeProvider
-    - (System_Reflection_ICustomAttributeProvider *)returnTypeCustomAttributes;
+	// Managed property name : ReturnTypeCustomAttributes
+	// Managed property type : System.Reflection.ICustomAttributeProvider
+    @property (nonatomic, strong, readonly) System_Reflection_ICustomAttributeProvider * returnTypeCustomAttributes;
 
 #pragma mark -
 #pragma mark Methods
@@ -37,12 +41,12 @@
 	// Managed method name : CreateDelegate
 	// Managed return type : System.Delegate
 	// Managed param types : System.Type, System.Object
-    - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(DBMonoObjectRepresentation *)p2;
+    - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(System_Object *)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withObj:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetBaseDefinition
 	// Managed return type : System.Reflection.MethodInfo

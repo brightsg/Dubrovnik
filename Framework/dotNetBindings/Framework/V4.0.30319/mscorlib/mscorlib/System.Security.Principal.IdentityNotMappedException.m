@@ -3,6 +3,12 @@
 //
 // Managed class : IdentityNotMappedException
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Security_Principal_IdentityNotMappedException
 
 #pragma mark -
@@ -40,12 +46,16 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Security.Principal.IdentityReferenceCollection
+	// Managed property name : UnmappedIdentities
+	// Managed property type : System.Security.Principal.IdentityReferenceCollection
+    @synthesize unmappedIdentities = _unmappedIdentities;
     - (System_Security_Principal_IdentityReferenceCollection *)unmappedIdentities
     {
-		MonoObject * monoObject = [self getMonoProperty:"UnmappedIdentities"];
-		System_Security_Principal_IdentityReferenceCollection * result = [System_Security_Principal_IdentityReferenceCollection representationWithMonoObject:monoObject];
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"UnmappedIdentities"];
+		if ([self object:_unmappedIdentities isEqualToMonoObject:monoObject]) return _unmappedIdentities;					
+		_unmappedIdentities = [System_Security_Principal_IdentityReferenceCollection objectWithMonoObject:monoObject];
+
+		return _unmappedIdentities;
 	}
 
 #pragma mark -
@@ -58,5 +68,11 @@
     {
 		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

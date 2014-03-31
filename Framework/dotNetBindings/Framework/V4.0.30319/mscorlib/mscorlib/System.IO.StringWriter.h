@@ -32,8 +32,9 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Text.Encoding
-    - (System_Text_Encoding *)encoding;
+	// Managed property name : Encoding
+	// Managed property type : System.Text.Encoding
+    @property (nonatomic, strong, readonly) System_Text_Encoding * encoding;
 
 #pragma mark -
 #pragma mark Methods

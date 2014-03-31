@@ -3,6 +3,12 @@
 //
 // Managed class : OrderablePartitioner<TSource>
 //
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
 @implementation System_Collections_Concurrent_OrderablePartitioner
 
 #pragma mark -
@@ -21,41 +27,53 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Boolean
+	// Managed property name : KeysNormalized
+	// Managed property type : System.Boolean
+    @synthesize keysNormalized = _keysNormalized;
     - (BOOL)keysNormalized
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeysNormalized"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeysNormalized"];
+		_keysNormalized = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _keysNormalized;
 	}
     - (void)setKeysNormalized:(BOOL)value
 	{
+		_keysNormalized = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"KeysNormalized" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : KeysOrderedAcrossPartitions
+	// Managed property type : System.Boolean
+    @synthesize keysOrderedAcrossPartitions = _keysOrderedAcrossPartitions;
     - (BOOL)keysOrderedAcrossPartitions
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeysOrderedAcrossPartitions"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeysOrderedAcrossPartitions"];
+		_keysOrderedAcrossPartitions = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _keysOrderedAcrossPartitions;
 	}
     - (void)setKeysOrderedAcrossPartitions:(BOOL)value
 	{
+		_keysOrderedAcrossPartitions = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"KeysOrderedAcrossPartitions" valueObject:monoObject];          
 	}
 
-	// Managed type : System.Boolean
+	// Managed property name : KeysOrderedInEachPartition
+	// Managed property type : System.Boolean
+    @synthesize keysOrderedInEachPartition = _keysOrderedInEachPartition;
     - (BOOL)keysOrderedInEachPartition
     {
-		MonoObject * monoObject = [self getMonoProperty:"KeysOrderedInEachPartition"];
-		BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-		return result;
+		MonoObject *monoObject = [self getMonoProperty:"KeysOrderedInEachPartition"];
+		_keysOrderedInEachPartition = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _keysOrderedInEachPartition;
 	}
     - (void)setKeysOrderedInEachPartition:(BOOL)value
 	{
+		_keysOrderedInEachPartition = value;
 		MonoObject *monoObject = DB_VALUE(value);
 		[self setMonoProperty:"KeysOrderedInEachPartition" valueObject:monoObject];          
 	}
@@ -69,7 +87,7 @@
     - (IEnumerable *)getDynamicPartitions
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicPartitions()" withNumArgs:0];
-		return [IEnumerable representationWithMonoObject:monoObject];
+		return [IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrderableDynamicPartitions
@@ -78,7 +96,7 @@
     - (IEnumerable *)getOrderableDynamicPartitions
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrderableDynamicPartitions()" withNumArgs:0];
-		return [IEnumerable representationWithMonoObject:monoObject];
+		return [IEnumerable objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrderablePartitions
@@ -87,7 +105,7 @@
     - (IList *)getOrderablePartitions_withPartitionCount:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrderablePartitions(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [IList representationWithMonoObject:monoObject];
+		return [IList objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPartitions
@@ -96,7 +114,13 @@
     - (IList *)getPartitions_withPartitionCount:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [IList representationWithMonoObject:monoObject];
+		return [IList objectWithMonoObject:monoObject];
     }
+
+#pragma mark -
+#pragma mark Teardown
+	- (void)dealloc
+	{
+	}
 @end
 //--Dubrovnik.CodeGenerator

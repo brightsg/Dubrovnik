@@ -2,7 +2,7 @@
 //
 // Managed class : CompressedStack
 //
-@interface System_Threading_CompressedStack : DBMonoObjectRepresentation
+@interface System_Threading_CompressedStack : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -37,6 +37,6 @@
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.CompressedStack, System.Threading.ContextCallback, System.Object
-    - (void)run_withCompressedStack:(System_Threading_CompressedStack *)p1 callback:(System_Threading_ContextCallback *)p2 state:(DBMonoObjectRepresentation *)p3;
+    - (void)run_withCompressedStack:(System_Threading_CompressedStack *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
 @end
 //--Dubrovnik.CodeGenerator

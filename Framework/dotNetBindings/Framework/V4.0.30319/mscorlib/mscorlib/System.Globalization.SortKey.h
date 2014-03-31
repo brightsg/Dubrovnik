@@ -2,7 +2,7 @@
 //
 // Managed class : SortKey
 //
-@interface System_Globalization_SortKey : DBMonoObjectRepresentation
+@interface System_Globalization_SortKey : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,11 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : System.Byte[]
-    - (NSData *)keyData;
+	// Managed property name : KeyData
+	// Managed property type : System.Byte[]
+    @property (nonatomic, strong, readonly) NSData * keyData;
 
-	// Managed type : System.String
-    - (NSString *)originalString;
+	// Managed property name : OriginalString
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * originalString;
 
 #pragma mark -
 #pragma mark Methods
@@ -31,7 +33,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
-    - (BOOL)equals_withValue:(DBMonoObjectRepresentation *)p1;
+    - (BOOL)equals_withValue:(System_Object *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
