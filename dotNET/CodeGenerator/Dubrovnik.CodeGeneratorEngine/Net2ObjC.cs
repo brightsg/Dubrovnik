@@ -24,6 +24,7 @@ namespace Dubrovnik
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class Net2ObjC : Net2ObjCBase
     {
+#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
@@ -606,7 +607,7 @@ this.Write("\r\n//\r\n// Forward class declarations and class aliases\r\n//\r\n"
 public void WriteClassPredeclaration(CodeFacet facet)
 {
 	string namespacePrefix = ObjCAcronymFromMonoName(facet.TypeNamespace);
-	string classDefine = ObjCNameFromMonoName(namespacePrefix, facet.Name) + "_";
+	string classDefine = ObjCTypeFromMonoType(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
 
 

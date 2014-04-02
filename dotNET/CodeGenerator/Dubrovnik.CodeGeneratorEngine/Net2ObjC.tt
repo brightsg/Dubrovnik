@@ -190,7 +190,7 @@ public void WriteInterfaceFilePreliminaries()
 public void WriteClassPredeclaration(CodeFacet facet)
 {
 	string namespacePrefix = ObjCAcronymFromMonoName(facet.TypeNamespace);
-	string classDefine = ObjCNameFromMonoName(namespacePrefix, facet.Name) + "_";
+	string classDefine = ObjCTypeFromMonoType(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
 
 #>

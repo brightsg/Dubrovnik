@@ -613,13 +613,13 @@ namespace Dubrovnik
                         // Just as we provide a class rep for a generic the same will be required for an array.
                         if (monoFacet.IsArray)
                         {
-                            getterArgs.Add("DBManagedObject");
+                            getterArgs.Add("System_Object");
                         }
 
                         // We may require at least two arguments.
                         if (getterArgs.Count < 2)
                         {
-                            getterArgs.Add("DBManagedObject");
+                            getterArgs.Add("System_Object");
                         }
 
                         // add additional arguments
@@ -897,7 +897,7 @@ namespace Dubrovnik
 
             // Dubrovnik.Generic.Parameter
             monoTA = new MonoTypeAssociation { MonoType = "Dubrovnik.Generic.Parameter" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBManagedObject", GetterFormat = "[DBManagedObject objectWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object objectWithMonoObject:{0}]" };
             AssociateTypes(monoTA, objcTA);
 
             // System.Object
