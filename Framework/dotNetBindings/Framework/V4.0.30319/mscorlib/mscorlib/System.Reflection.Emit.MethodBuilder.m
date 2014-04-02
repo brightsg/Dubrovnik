@@ -455,10 +455,10 @@
 
 	// Managed method name : SetMethodBody
 	// Managed return type : System.Void
-	// Managed param types : System.Byte[], System.Int32, System.Byte[], System.Collections.Generic.IEnumerable<System.Reflection.Emit.ExceptionHandler>, System.Collections.Generic.IEnumerable<System.Int32>
-    - (void)setMethodBody_withIl:(NSData *)p1 maxStack:(int32_t)p2 localSignature:(NSData *)p3 exceptionHandlers:(System_Collections_Generic_IEnumerable *)p4 tokenFixups:(System_Collections_Generic_IEnumerable *)p5
+	// Managed param types : System.Byte[], System.Int32, System.Byte[], System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.ExceptionHandler>, System.Collections.Generic.IEnumerable`1<System.Int32>
+    - (void)setMethodBody_withIl:(NSData *)p1 maxStack:(int32_t)p2 localSignature:(NSData *)p3 exceptionHandlers:(System_Collections_Generic_IEnumerableA1 *)p4 tokenFixups:(System_Collections_Generic_IEnumerableA1 *)p5
     {
-		[self invokeMonoMethod:"SetMethodBody(byte[],int,byte[],System.Collections.Generic.IEnumerable<System.Reflection.Emit.ExceptionHandler>,System.Collections.Generic.IEnumerable<System.Int32>)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		[self invokeMonoMethod:"SetMethodBody(byte[],int,byte[],System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.ExceptionHandler>,System.Collections.Generic.IEnumerable`1<System.Int32>)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
     }
 
 	// Managed method name : SetParameters

@@ -17,11 +17,11 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.MD5
 	// Managed param types : 
-    - (System_Security_Cryptography_MD5 *)create;
+    + (System_Security_Cryptography_MD5 *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.MD5
 	// Managed param types : System.String
-    - (System_Security_Cryptography_MD5 *)create_withAlgName:(NSString *)p1;
+    + (System_Security_Cryptography_MD5 *)create_withAlgName:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

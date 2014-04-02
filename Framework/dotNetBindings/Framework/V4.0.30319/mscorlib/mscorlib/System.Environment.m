@@ -275,122 +275,122 @@
 	// Managed method name : Exit
 	// Managed return type : System.Void
 	// Managed param types : System.Int32
-    - (void)exit_withExitCode:(int32_t)p1
+    + (void)exit_withExitCode:(int32_t)p1
     {
-		[self invokeMonoMethod:"Exit(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Exit(int)" withNumArgs:1, DB_VALUE(p1)];
     }
 
 	// Managed method name : ExpandEnvironmentVariables
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)expandEnvironmentVariables_withName:(NSString *)p1
+    + (NSString *)expandEnvironmentVariables_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ExpandEnvironmentVariables(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExpandEnvironmentVariables(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : FailFast
 	// Managed return type : System.Void
 	// Managed param types : System.String
-    - (void)failFast_withMessage:(NSString *)p1
+    + (void)failFast_withMessage:(NSString *)p1
     {
-		[self invokeMonoMethod:"FailFast(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"FailFast(string)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : FailFast
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Exception
-    - (void)failFast_withMessage:(NSString *)p1 exception:(System_Exception *)p2
+    + (void)failFast_withMessage:(NSString *)p1 exception:(System_Exception *)p2
     {
-		[self invokeMonoMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : GetCommandLineArgs
 	// Managed return type : System.String[]
 	// Managed param types : 
-    - (DBSystem_Array *)getCommandLineArgs
+    + (DBSystem_Array *)getCommandLineArgs
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCommandLineArgs()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCommandLineArgs()" withNumArgs:0];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetEnvironmentVariable
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1
+    + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvironmentVariable(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetEnvironmentVariable
 	// Managed return type : System.String
 	// Managed param types : System.String, System.EnvironmentVariableTarget
-    - (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(System_EnvironmentVariableTarget)p2
+    + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(System_EnvironmentVariableTarget)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvironmentVariable(string,System.EnvironmentVariableTarget)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string,System.EnvironmentVariableTarget)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetEnvironmentVariables
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : 
-    - (System_Collections_IDictionary *)getEnvironmentVariables
+    + (System_Collections_IDictionary *)getEnvironmentVariables
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvironmentVariables()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariables()" withNumArgs:0];
 		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnvironmentVariables
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : System.EnvironmentVariableTarget
-    - (System_Collections_IDictionary *)getEnvironmentVariables_withTarget:(System_EnvironmentVariableTarget)p1
+    + (System_Collections_IDictionary *)getEnvironmentVariables_withTarget:(System_EnvironmentVariableTarget)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvironmentVariables(System.EnvironmentVariableTarget)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariables(System.EnvironmentVariableTarget)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFolderPath
 	// Managed return type : System.String
 	// Managed param types : System.Environment+SpecialFolder
-    - (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1
+    + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFolderPath(System.Environment+SpecialFolder)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment+SpecialFolder)" withNumArgs:1, DB_VALUE(p1)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetFolderPath
 	// Managed return type : System.String
 	// Managed param types : System.Environment+SpecialFolder, System.Environment+SpecialFolderOption
-    - (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1 option:(System_Environment__SpecialFolderOption)p2
+    + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1 option:(System_Environment__SpecialFolderOption)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFolderPath(System.Environment+SpecialFolder,System.Environment+SpecialFolderOption)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment+SpecialFolder,System.Environment+SpecialFolderOption)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetLogicalDrives
 	// Managed return type : System.String[]
 	// Managed param types : 
-    - (DBSystem_Array *)getLogicalDrives
+    + (DBSystem_Array *)getLogicalDrives
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetLogicalDrives()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetLogicalDrives()" withNumArgs:0];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : SetEnvironmentVariable
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String
-    - (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2
+    + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2
     {
-		[self invokeMonoMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : SetEnvironmentVariable
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.EnvironmentVariableTarget
-    - (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(System_EnvironmentVariableTarget)p3
+    + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(System_EnvironmentVariableTarget)p3
     {
-		[self invokeMonoMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
     }
 
 #pragma mark -

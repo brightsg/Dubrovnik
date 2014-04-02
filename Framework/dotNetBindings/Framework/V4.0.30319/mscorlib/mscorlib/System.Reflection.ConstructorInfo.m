@@ -88,15 +88,6 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Object
-	// Managed param types : System.Object[]
-    - (System_Object *)invoke_withParameters:(DBSystem_Array *)p1
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoValue]];
-		return [System_Object objectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : Invoke
-	// Managed return type : System.Object
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
     - (System_Object *)invoke_withInvokeAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 parameters:(DBSystem_Array *)p3 culture:(System_Globalization_CultureInfo *)p4
     {
@@ -104,21 +95,30 @@
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
+	// Managed method name : Invoke
+	// Managed return type : System.Object
+	// Managed param types : System.Object[]
+    - (System_Object *)invoke_withParameters:(DBSystem_Array *)p1
+    {
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoValue]];
+		return [System_Object objectWithMonoObject:monoObject];
+    }
+
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.ConstructorInfo, System.Reflection.ConstructorInfo
-    - (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
+    + (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.ConstructorInfo, System.Reflection.ConstructorInfo
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -37,10 +37,10 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerable *)p1
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : .ctor
@@ -53,18 +53,18 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>, System.String
-    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerable *)p1 authenticationType:(NSString *)p2
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String
+    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1 authenticationType:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
-	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerable *)p2
+	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerableA1 *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : .ctor
@@ -77,18 +77,18 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>, System.String, System.String, System.String
-    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerable *)p1 authenticationType:(NSString *)p2 nameType:(NSString *)p3 roleType:(NSString *)p4
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String, System.String, System.String
+    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1 authenticationType:(NSString *)p2 nameType:(NSString *)p3 roleType:(NSString *)p4
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>,string,string,string" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string,string,string" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
-	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>, System.String, System.String, System.String
-    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerable *)p2 authenticationType:(NSString *)p3 nameType:(NSString *)p4 roleType:(NSString *)p5
+	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String, System.String, System.String
+    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerableA1 *)p2 authenticationType:(NSString *)p3 nameType:(NSString *)p4 roleType:(NSString *)p5
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>,string,string,string" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string,string,string" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
     }
 
 #pragma mark -
@@ -182,13 +182,13 @@
 	}
 
 	// Managed property name : Claims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize claims = _claims;
-    - (System_Collections_Generic_IEnumerable *)claims
+    - (System_Collections_Generic_IEnumerableA1 *)claims
     {
 		MonoObject *monoObject = [self getMonoProperty:"Claims"];
 		if ([self object:_claims isEqualToMonoObject:monoObject]) return _claims;					
-		_claims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_claims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _claims;
 	}
@@ -271,10 +271,10 @@
 
 	// Managed method name : AddClaims
 	// Managed return type : System.Void
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    - (void)addClaims_withClaims:(System_Collections_Generic_IEnumerable *)p1
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+    - (void)addClaims_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		[self invokeMonoMethod:"AddClaims(System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AddClaims(System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : Clone
@@ -287,29 +287,29 @@
     }
 
 	// Managed method name : FindAll
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-	// Managed param types : System.Predicate<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)findAll_withMatch:(System_Predicate *)p1
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+	// Managed param types : System.Predicate`1<System.Security.Claims.Claim>
+    - (System_Collections_Generic_IEnumerableA1 *)findAll_withMatch:(System_PredicateA1 *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindAll
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)findAll_withType:(NSString *)p1
+    - (System_Collections_Generic_IEnumerableA1 *)findAll_withType:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindFirst
 	// Managed return type : System.Security.Claims.Claim
-	// Managed param types : System.Predicate<System.Security.Claims.Claim>
-    - (System_Security_Claims_Claim *)findFirst_withMatch:(System_Predicate *)p1
+	// Managed param types : System.Predicate`1<System.Security.Claims.Claim>
+    - (System_Security_Claims_Claim *)findFirst_withMatch:(System_PredicateA1 *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
 
@@ -324,10 +324,10 @@
 
 	// Managed method name : HasClaim
 	// Managed return type : System.Boolean
-	// Managed param types : System.Predicate<System.Security.Claims.Claim>
-    - (BOOL)hasClaim_withMatch:(System_Predicate *)p1
+	// Managed param types : System.Predicate`1<System.Security.Claims.Claim>
+    - (BOOL)hasClaim_withMatch:(System_PredicateA1 *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -46,9 +46,9 @@
 	// Managed method name : Create
 	// Managed return type : System.Runtime.CompilerServices.AsyncVoidMethodBuilder
 	// Managed param types : 
-    - (System_Runtime_CompilerServices_AsyncVoidMethodBuilder *)create
+    + (System_Runtime_CompilerServices_AsyncVoidMethodBuilder *)create
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		return [System_Runtime_CompilerServices_AsyncVoidMethodBuilder objectWithMonoObject:monoObject];
     }
 

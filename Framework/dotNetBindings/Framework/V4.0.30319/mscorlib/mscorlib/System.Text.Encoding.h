@@ -109,12 +109,12 @@
 	// Managed method name : Convert
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Text.Encoding, System.Text.Encoding, System.Byte[]
-    - (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3;
+    + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3;
 
 	// Managed method name : Convert
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Text.Encoding, System.Text.Encoding, System.Byte[], System.Int32, System.Int32
-    - (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3 index:(int32_t)p4 count:(int32_t)p5;
+    + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3 index:(int32_t)p4 count:(int32_t)p5;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -219,27 +219,27 @@
 	// Managed method name : GetEncoding
 	// Managed return type : System.Text.Encoding
 	// Managed param types : System.Int32
-    - (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1;
+    + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1;
 
 	// Managed method name : GetEncoding
 	// Managed return type : System.Text.Encoding
 	// Managed param types : System.Int32, System.Text.EncoderFallback, System.Text.DecoderFallback
-    - (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3;
+    + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3;
 
 	// Managed method name : GetEncoding
 	// Managed return type : System.Text.Encoding
 	// Managed param types : System.String
-    - (System_Text_Encoding *)getEncoding_withName:(NSString *)p1;
+    + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1;
 
 	// Managed method name : GetEncoding
 	// Managed return type : System.Text.Encoding
 	// Managed param types : System.String, System.Text.EncoderFallback, System.Text.DecoderFallback
-    - (System_Text_Encoding *)getEncoding_withName:(NSString *)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3;
+    + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3;
 
 	// Managed method name : GetEncodings
 	// Managed return type : System.Text.EncodingInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getEncodings;
+    + (DBSystem_Array *)getEncodings;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

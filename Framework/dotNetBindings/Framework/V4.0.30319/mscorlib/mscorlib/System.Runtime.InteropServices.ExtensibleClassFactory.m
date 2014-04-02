@@ -30,9 +30,9 @@
 	// Managed method name : RegisterObjectCreationCallback
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ObjectCreationDelegate
-    - (void)registerObjectCreationCallback_withCallback:(System_Runtime_InteropServices_ObjectCreationDelegate *)p1
+    + (void)registerObjectCreationCallback_withCallback:(System_Runtime_InteropServices_ObjectCreationDelegate *)p1
     {
-		[self invokeMonoMethod:"RegisterObjectCreationCallback(System.Runtime.InteropServices.ObjectCreationDelegate)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"RegisterObjectCreationCallback(System.Runtime.InteropServices.ObjectCreationDelegate)" withNumArgs:1, [p1 monoValue]];
     }
 
 #pragma mark -

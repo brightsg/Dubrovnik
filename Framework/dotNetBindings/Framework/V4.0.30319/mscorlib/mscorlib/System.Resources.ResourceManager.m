@@ -126,9 +126,9 @@
 	// Managed method name : CreateFileBasedResourceManager
 	// Managed return type : System.Resources.ResourceManager
 	// Managed param types : System.String, System.String, System.Type
-    - (System_Resources_ResourceManager *)createFileBasedResourceManager_withBaseName:(NSString *)p1 resourceDir:(NSString *)p2 usingResourceSet:(System_Type *)p3
+    + (System_Resources_ResourceManager *)createFileBasedResourceManager_withBaseName:(NSString *)p1 resourceDir:(NSString *)p2 usingResourceSet:(System_Type *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFileBasedResourceManager(string,string,System.Type)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFileBasedResourceManager(string,string,System.Type)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return [System_Resources_ResourceManager objectWithMonoObject:monoObject];
     }
 

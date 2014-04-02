@@ -64,7 +64,7 @@
 	// Managed method name : ConvertPermissionSet
 	// Managed return type : System.Byte[]
 	// Managed param types : System.String, System.Byte[], System.String
-    - (NSData *)convertPermissionSet_withInFormat:(NSString *)p1 inData:(NSData *)p2 outFormat:(NSString *)p3;
+    + (NSData *)convertPermissionSet_withInFormat:(NSString *)p1 inData:(NSData *)p2 outFormat:(NSString *)p3;
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.PermissionSet
@@ -144,7 +144,7 @@
 	// Managed method name : RevertAssert
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertAssert;
+    + (void)revertAssert;
 
 	// Managed method name : SetPermission
 	// Managed return type : System.Security.IPermission

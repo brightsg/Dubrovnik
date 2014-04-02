@@ -101,12 +101,12 @@
 	// Managed method name : GetFieldFromHandle
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.RuntimeFieldHandle
-    - (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1;
+    + (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1;
 
 	// Managed method name : GetFieldFromHandle
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.RuntimeFieldHandle, System.RuntimeTypeHandle
-    - (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2;
+    + (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -141,12 +141,12 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.FieldInfo, System.Reflection.FieldInfo
-    - (BOOL)op_Equality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.FieldInfo, System.Reflection.FieldInfo
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void

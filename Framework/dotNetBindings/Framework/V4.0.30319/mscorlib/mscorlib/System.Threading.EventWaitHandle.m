@@ -74,18 +74,18 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.String
-    - (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1
+    + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Threading_EventWaitHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.String, System.Security.AccessControl.EventWaitHandleRights
-    - (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2
+    + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenExisting(string,System.Security.AccessControl.EventWaitHandleRights)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string,System.Security.AccessControl.EventWaitHandleRights)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Threading_EventWaitHandle objectWithMonoObject:monoObject];
     }
 
@@ -118,18 +118,18 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Threading.EventWaitHandle&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_EventWaitHandle **)p2
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_EventWaitHandle **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryOpenExisting(string,System.Threading.EventWaitHandle&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Threading.EventWaitHandle&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.EventWaitHandleRights, ref System.Threading.EventWaitHandle&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2 resultRef:(System_Threading_EventWaitHandle **)p3
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2 resultRef:(System_Threading_EventWaitHandle **)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryOpenExisting(string,System.Security.AccessControl.EventWaitHandleRights,System.Threading.EventWaitHandle&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Security.AccessControl.EventWaitHandleRights,System.Threading.EventWaitHandle&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

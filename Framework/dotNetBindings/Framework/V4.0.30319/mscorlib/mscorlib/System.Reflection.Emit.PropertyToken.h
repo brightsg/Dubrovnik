@@ -46,11 +46,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Emit.PropertyToken, System.Reflection.Emit.PropertyToken
-    - (BOOL)op_Equality_withA:(System_Reflection_Emit_PropertyToken *)p1 b:(System_Reflection_Emit_PropertyToken *)p2;
+    + (BOOL)op_Equality_withA:(System_Reflection_Emit_PropertyToken *)p1 b:(System_Reflection_Emit_PropertyToken *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Emit.PropertyToken, System.Reflection.Emit.PropertyToken
-    - (BOOL)op_Inequality_withA:(System_Reflection_Emit_PropertyToken *)p1 b:(System_Reflection_Emit_PropertyToken *)p2;
+    + (BOOL)op_Inequality_withA:(System_Reflection_Emit_PropertyToken *)p1 b:(System_Reflection_Emit_PropertyToken *)p2;
 @end
 //--Dubrovnik.CodeGenerator

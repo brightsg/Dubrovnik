@@ -16,22 +16,22 @@
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&, Func<T>
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 valueFactory:(Func *)p2;
+	// Managed param types : ref T&, Func`1<T>
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 valueFactory:(FuncA1 *)p2;
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
 	// Managed param types : ref T&
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1;
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1;
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
 	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3;
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3;
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&, Func<T>
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(Func *)p4;
+	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&, Func`1<T>
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(FuncA1 *)p4;
 @end
 //--Dubrovnik.CodeGenerator

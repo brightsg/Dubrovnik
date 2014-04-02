@@ -22,7 +22,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object
-    - (BOOL)equals_withObjA:(System_Object *)p1 objB:(System_Object *)p2;
+    + (BOOL)equals_withObjA:(System_Object *)p1 objB:(System_Object *)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -37,7 +37,7 @@
 	// Managed method name : ReferenceEquals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Object
-    - (BOOL)referenceEquals_withObjA:(System_Object *)p1 objB:(System_Object *)p2;
+    + (BOOL)referenceEquals_withObjA:(System_Object *)p1 objB:(System_Object *)p2;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

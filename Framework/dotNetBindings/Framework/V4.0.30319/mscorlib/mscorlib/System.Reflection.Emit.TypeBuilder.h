@@ -297,7 +297,7 @@
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Type, System.Reflection.ConstructorInfo
-    - (System_Reflection_ConstructorInfo *)getConstructor_withType:(System_Type *)p1 constructor:(System_Reflection_ConstructorInfo *)p2;
+    + (System_Reflection_ConstructorInfo *)getConstructor_withType:(System_Type *)p1 constructor:(System_Reflection_ConstructorInfo *)p2;
 
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
@@ -337,7 +337,7 @@
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.Type, System.Reflection.FieldInfo
-    - (System_Reflection_FieldInfo *)getField_withType:(System_Type *)p1 field:(System_Reflection_FieldInfo *)p2;
+    + (System_Reflection_FieldInfo *)getField_withType:(System_Type *)p1 field:(System_Reflection_FieldInfo *)p2;
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
@@ -387,7 +387,7 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.Type, System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)getMethod_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2;
+    + (System_Reflection_MethodInfo *)getMethod_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2;
 
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]

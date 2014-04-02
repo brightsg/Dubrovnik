@@ -334,54 +334,54 @@
 	// Managed method name : CreateDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : System.String, System.Security.Policy.Evidence
-    - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2
+    + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.String, System.String, System.Boolean
-    - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 appBasePath:(NSString *)p3 appRelativeSearchPath:(NSString *)p4 shadowCopyFiles:(BOOL)p5
+    + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 appBasePath:(NSString *)p3 appRelativeSearchPath:(NSString *)p4 shadowCopyFiles:(BOOL)p5
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence,string,string,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string,System.Security.Policy.Evidence,string,string,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : System.String
-    - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1
+    + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.AppDomainSetup
-    - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 info:(System_AppDomainSetup *)p3
+    + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 info:(System_AppDomainSetup *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence,System.AppDomainSetup)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string,System.Security.Policy.Evidence,System.AppDomainSetup)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.AppDomainSetup, System.Security.PermissionSet, System.Security.Policy.StrongName[]
-    - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 info:(System_AppDomainSetup *)p3 grantSet:(System_Security_PermissionSet *)p4 fullTrustAssemblies:(DBSystem_Array *)p5
+    + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 info:(System_AppDomainSetup *)p3 grantSet:(System_Security_PermissionSet *)p4 fullTrustAssemblies:(DBSystem_Array *)p5
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence,System.AppDomainSetup,System.Security.PermissionSet,System.Array[])" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string,System.Security.Policy.Evidence,System.AppDomainSetup,System.Security.PermissionSet,System.Array[])" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.String, System.String, System.Boolean, System.AppDomainInitializer, System.String[]
-    - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 appBasePath:(NSString *)p3 appRelativeSearchPath:(NSString *)p4 shadowCopyFiles:(BOOL)p5 adInit:(System_AppDomainInitializer *)p6 adInitArgs:(DBSystem_Array *)p7
+    + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 appBasePath:(NSString *)p3 appRelativeSearchPath:(NSString *)p4 shadowCopyFiles:(BOOL)p5 adInit:(System_AppDomainInitializer *)p6 adInitArgs:(DBSystem_Array *)p7
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence,string,string,bool,System.AppDomainInitializer,string[])" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5), [p6 monoValue], [p7 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string,System.Security.Policy.Evidence,string,string,bool,System.AppDomainInitializer,string[])" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5), [p6 monoValue], [p7 monoValue]];
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
@@ -540,19 +540,19 @@
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
-	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerable *)p3
+	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>
+    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerableA1 *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
-	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>, System.Security.SecurityContextSource
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerable *)p3 securityContextSource:(System_Security_SecurityContextSource)p4
+	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>, System.Security.SecurityContextSource
+    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerableA1 *)p3 securityContextSource:(System_Security_SecurityContextSource)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>,System.Security.SecurityContextSource)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>,System.Security.SecurityContextSource)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
 		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
@@ -630,19 +630,19 @@
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
-	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.String, System.Security.Policy.Evidence, System.Security.PermissionSet, System.Security.PermissionSet, System.Security.PermissionSet, System.Boolean, System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 evidence:(System_Security_Policy_Evidence *)p4 requiredPermissions:(System_Security_PermissionSet *)p5 optionalPermissions:(System_Security_PermissionSet *)p6 refusedPermissions:(System_Security_PermissionSet *)p7 isSynchronized:(BOOL)p8 assemblyAttributes:(System_Collections_Generic_IEnumerable *)p9
+	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.String, System.Security.Policy.Evidence, System.Security.PermissionSet, System.Security.PermissionSet, System.Security.PermissionSet, System.Boolean, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>
+    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 evidence:(System_Security_Policy_Evidence *)p4 requiredPermissions:(System_Security_PermissionSet *)p5 optionalPermissions:(System_Security_PermissionSet *)p6 refusedPermissions:(System_Security_PermissionSet *)p7 isSynchronized:(BOOL)p8 assemblyAttributes:(System_Collections_Generic_IEnumerableA1 *)p9
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet,bool,System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:9, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue], DB_VALUE(p8), [p9 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet,bool,System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:9, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue], DB_VALUE(p8), [p9 monoValue]];
 		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
-	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.String, System.Boolean, System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 isSynchronized:(BOOL)p4 assemblyAttributes:(System_Collections_Generic_IEnumerable *)p5
+	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.String, System.Boolean, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>
+    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 dir:(NSString *)p3 isSynchronized:(BOOL)p4 assemblyAttributes:(System_Collections_Generic_IEnumerableA1 *)p5
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,bool,System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,string,bool,System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
 		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
@@ -774,9 +774,9 @@
 	// Managed method name : GetCurrentThreadId
 	// Managed return type : System.Int32
 	// Managed param types : 
-    - (int32_t)getCurrentThreadId
+    + (int32_t)getCurrentThreadId
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCurrentThreadId()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrentThreadId()" withNumArgs:0];
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -808,12 +808,12 @@
     }
 
 	// Managed method name : IsCompatibilitySwitchSet
-	// Managed return type : System.Nullable<System.Boolean>
+	// Managed return type : System.Nullable`1<System.Boolean>
 	// Managed param types : System.String
-    - (System_Nullable *)isCompatibilitySwitchSet_withValue:(NSString *)p1
+    - (System_NullableA1 *)isCompatibilitySwitchSet_withValue:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"IsCompatibilitySwitchSet(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Nullable objectWithMonoObject:monoObject];
+		return [System_NullableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsDefaultAppDomain
@@ -990,9 +990,9 @@
 	// Managed method name : Unload
 	// Managed return type : System.Void
 	// Managed param types : System.AppDomain
-    - (void)unload_withDomain:(System_AppDomain *)p1
+    + (void)unload_withDomain:(System_AppDomain *)p1
     {
-		[self invokeMonoMethod:"Unload(System.AppDomain)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Unload(System.AppDomain)" withNumArgs:1, [p1 monoValue]];
     }
 
 #pragma mark -

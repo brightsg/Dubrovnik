@@ -14,6 +14,10 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed property name : ActivityId
+	// Managed property type : System.Guid
+    @property (nonatomic, strong, readonly) System_Guid * activityId;
+
 	// Managed property name : EventId
 	// Managed property type : System.Int32
     @property (nonatomic) int32_t eventId;
@@ -32,15 +36,19 @@
 
 	// Managed property name : Message
 	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * message;
+    @property (nonatomic, strong) NSString * message;
 
 	// Managed property name : Opcode
 	// Managed property type : System.Diagnostics.Tracing.EventOpcode
     @property (nonatomic, readonly) System_Diagnostics_Tracing_EventOpcode opcode;
 
 	// Managed property name : Payload
-	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Object>
-    @property (nonatomic, strong) System_Collections_ObjectModel_ReadOnlyCollection * payload;
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Object>
+    @property (nonatomic, strong) System_Collections_ObjectModel_ReadOnlyCollectionA1 * payload;
+
+	// Managed property name : RelatedActivityId
+	// Managed property type : System.Guid
+    @property (nonatomic, strong) System_Guid * relatedActivityId;
 
 	// Managed property name : Task
 	// Managed property type : System.Diagnostics.Tracing.EventTask

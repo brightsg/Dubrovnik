@@ -150,11 +150,11 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.NumberFormatInfo
 	// Managed param types : System.IFormatProvider
-    - (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1;
+    + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1;
 
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.NumberFormatInfo
 	// Managed param types : System.Globalization.NumberFormatInfo
-    - (System_Globalization_NumberFormatInfo *)readOnly_withNfi:(System_Globalization_NumberFormatInfo *)p1;
+    + (System_Globalization_NumberFormatInfo *)readOnly_withNfi:(System_Globalization_NumberFormatInfo *)p1;
 @end
 //--Dubrovnik.CodeGenerator

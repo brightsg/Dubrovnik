@@ -427,9 +427,9 @@
 	// Managed method name : CreateSpecificCulture
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String
-    - (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1
+    + (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateSpecificCulture(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSpecificCulture(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -454,45 +454,45 @@
 	// Managed method name : GetCultureInfo
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.Int32
-    - (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1
+    + (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCultureInfo(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(int)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCultureInfo
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String
-    - (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1
+    + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCultureInfo(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCultureInfo
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String, System.String
-    - (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2
+    + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCultureInfo(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCultureInfoByIetfLanguageTag
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String
-    - (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1
+    + (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCultureInfoByIetfLanguageTag(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfoByIetfLanguageTag(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCultures
 	// Managed return type : System.Globalization.CultureInfo[]
 	// Managed param types : System.Globalization.CultureTypes
-    - (DBSystem_Array *)getCultures_withTypes:(System_Globalization_CultureTypes)p1
+    + (DBSystem_Array *)getCultures_withTypes:(System_Globalization_CultureTypes)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCultures(System.Globalization.CultureTypes)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultures(System.Globalization.CultureTypes)" withNumArgs:1, DB_VALUE(p1)];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -517,9 +517,9 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.Globalization.CultureInfo
-    - (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1
+    + (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadOnly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 

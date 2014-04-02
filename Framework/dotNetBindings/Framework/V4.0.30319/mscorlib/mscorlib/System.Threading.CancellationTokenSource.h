@@ -61,12 +61,12 @@
 	// Managed method name : CreateLinkedTokenSource
 	// Managed return type : System.Threading.CancellationTokenSource
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-    - (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withToken1:(System_Threading_CancellationToken *)p1 token2:(System_Threading_CancellationToken *)p2;
+    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withToken1:(System_Threading_CancellationToken *)p1 token2:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : CreateLinkedTokenSource
 	// Managed return type : System.Threading.CancellationTokenSource
 	// Managed param types : System.Threading.CancellationToken[]
-    - (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1;
+    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1;
 
 	// Managed method name : Dispose
 	// Managed return type : System.Void

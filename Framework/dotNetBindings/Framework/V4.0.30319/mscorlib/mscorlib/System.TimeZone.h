@@ -47,7 +47,7 @@
 	// Managed method name : IsDaylightSavingTime
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.Globalization.DaylightTime
-    - (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1 daylightTimes:(System_Globalization_DaylightTime *)p2;
+    + (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1 daylightTimes:(System_Globalization_DaylightTime *)p2;
 
 	// Managed method name : ToLocalTime
 	// Managed return type : System.DateTime

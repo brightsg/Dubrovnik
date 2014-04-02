@@ -49,21 +49,21 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.RuntimeTypeHandle, System.Object
-    - (BOOL)op_Equality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(System_Object *)p2;
+    + (BOOL)op_Equality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(System_Object *)p2;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.RuntimeTypeHandle
-    - (BOOL)op_Equality_withLeftObject:(System_Object *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
+    + (BOOL)op_Equality_withLeftObject:(System_Object *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.RuntimeTypeHandle, System.Object
-    - (BOOL)op_Inequality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(System_Object *)p2;
+    + (BOOL)op_Inequality_withLeftSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p1 rightObject:(System_Object *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.RuntimeTypeHandle
-    - (BOOL)op_Inequality_withLeftObject:(System_Object *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
+    + (BOOL)op_Inequality_withLeftObject:(System_Object *)p1 rightSRuntimeTypeHandle:(System_RuntimeTypeHandle *)p2;
 @end
 //--Dubrovnik.CodeGenerator

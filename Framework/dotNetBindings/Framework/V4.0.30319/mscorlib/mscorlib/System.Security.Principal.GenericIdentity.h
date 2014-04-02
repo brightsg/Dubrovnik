@@ -32,8 +32,8 @@
     @property (nonatomic, strong, readonly) NSString * authenticationType;
 
 	// Managed property name : Claims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * claims;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * claims;
 
 	// Managed property name : IsAuthenticated
 	// Managed property type : System.Boolean

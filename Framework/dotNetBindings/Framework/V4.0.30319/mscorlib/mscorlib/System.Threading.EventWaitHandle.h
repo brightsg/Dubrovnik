@@ -45,12 +45,12 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.String
-    - (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1;
+    + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1;
 
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.String, System.Security.AccessControl.EventWaitHandleRights
-    - (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2;
+    + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2;
 
 	// Managed method name : Reset
 	// Managed return type : System.Boolean
@@ -70,11 +70,11 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Threading.EventWaitHandle&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_EventWaitHandle **)p2;
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_EventWaitHandle **)p2;
 
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.EventWaitHandleRights, ref System.Threading.EventWaitHandle&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2 resultRef:(System_Threading_EventWaitHandle **)p3;
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2 resultRef:(System_Threading_EventWaitHandle **)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -50,6 +50,6 @@
 	// Managed method name : IsSddlConversionSupported
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isSddlConversionSupported;
+    + (BOOL)isSddlConversionSupported;
 @end
 //--Dubrovnik.CodeGenerator

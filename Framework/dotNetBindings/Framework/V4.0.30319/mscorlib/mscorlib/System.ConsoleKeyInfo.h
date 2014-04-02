@@ -55,11 +55,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.ConsoleKeyInfo, System.ConsoleKeyInfo
-    - (BOOL)op_Equality_withA:(System_ConsoleKeyInfo *)p1 b:(System_ConsoleKeyInfo *)p2;
+    + (BOOL)op_Equality_withA:(System_ConsoleKeyInfo *)p1 b:(System_ConsoleKeyInfo *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.ConsoleKeyInfo, System.ConsoleKeyInfo
-    - (BOOL)op_Inequality_withA:(System_ConsoleKeyInfo *)p1 b:(System_ConsoleKeyInfo *)p2;
+    + (BOOL)op_Inequality_withA:(System_ConsoleKeyInfo *)p1 b:(System_ConsoleKeyInfo *)p2;
 @end
 //--Dubrovnik.CodeGenerator

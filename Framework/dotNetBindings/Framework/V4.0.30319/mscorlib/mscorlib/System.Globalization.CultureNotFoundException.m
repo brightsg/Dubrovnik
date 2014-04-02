@@ -87,13 +87,13 @@
 #pragma mark Properties
 
 	// Managed property name : InvalidCultureId
-	// Managed property type : System.Nullable<System.Int32>
+	// Managed property type : System.Nullable`1<System.Int32>
     @synthesize invalidCultureId = _invalidCultureId;
-    - (System_Nullable *)invalidCultureId
+    - (System_NullableA1 *)invalidCultureId
     {
 		MonoObject *monoObject = [self getMonoProperty:"InvalidCultureId"];
 		if ([self object:_invalidCultureId isEqualToMonoObject:monoObject]) return _invalidCultureId;					
-		_invalidCultureId = [System_Nullable objectWithMonoObject:monoObject];
+		_invalidCultureId = [System_NullableA1 objectWithMonoObject:monoObject];
 
 		return _invalidCultureId;
 	}

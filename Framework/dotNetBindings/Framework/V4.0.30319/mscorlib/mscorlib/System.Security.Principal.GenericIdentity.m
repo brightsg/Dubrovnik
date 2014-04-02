@@ -59,13 +59,13 @@
 	}
 
 	// Managed property name : Claims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize claims = _claims;
-    - (System_Collections_Generic_IEnumerable *)claims
+    - (System_Collections_Generic_IEnumerableA1 *)claims
     {
 		MonoObject *monoObject = [self getMonoProperty:"Claims"];
 		if ([self object:_claims isEqualToMonoObject:monoObject]) return _claims;					
-		_claims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_claims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _claims;
 	}

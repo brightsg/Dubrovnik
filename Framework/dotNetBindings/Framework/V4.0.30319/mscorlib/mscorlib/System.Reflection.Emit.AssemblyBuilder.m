@@ -200,18 +200,18 @@
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
 	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2
+    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
-	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerable *)p3
+	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>
+    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerableA1 *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"DefineDynamicAssembly(System.Reflection.AssemblyName,System.Reflection.Emit.AssemblyBuilderAccess,System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return [System_Reflection_Emit_AssemblyBuilder objectWithMonoObject:monoObject];
     }
 
@@ -329,12 +329,12 @@
     }
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
-		return [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDynamicModule

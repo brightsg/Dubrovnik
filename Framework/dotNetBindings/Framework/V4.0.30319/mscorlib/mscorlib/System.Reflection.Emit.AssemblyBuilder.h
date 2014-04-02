@@ -82,12 +82,12 @@
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
 	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2;
+    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2;
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
-	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable<System.Reflection.Emit.CustomAttributeBuilder>
-    - (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerable *)p3;
+	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>
+    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerableA1 *)p3;
 
 	// Managed method name : DefineDynamicModule
 	// Managed return type : System.Reflection.Emit.ModuleBuilder
@@ -155,9 +155,9 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData;
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
 
 	// Managed method name : GetDynamicModule
 	// Managed return type : System.Reflection.Emit.ModuleBuilder

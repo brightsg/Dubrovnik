@@ -1325,162 +1325,162 @@
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
+    + (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2
+    + (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String
-    - (System_Type *)getType_withTypeName:(NSString *)p1
+    + (System_Type *)getType_withTypeName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
-	// Managed param types : System.String, System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
-    - (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_Func *)p2 typeResolver:(System_Func *)p3
+	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
-	// Managed param types : System.String, System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_Func *)p2 typeResolver:(System_Func *)p3 throwOnError:(BOOL)p4
+	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
-	// Managed param types : System.String, System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_Func *)p2 typeResolver:(System_Func *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5
+	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean, System.Boolean
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>,bool,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>,bool,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeArray
 	// Managed return type : System.Type[]
 	// Managed param types : System.Object[]
-    - (DBSystem_Array *)getTypeArray_withArgs:(DBSystem_Array *)p1
+    + (DBSystem_Array *)getTypeArray_withArgs:(DBSystem_Array *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeArray(object[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeArray(object[])" withNumArgs:1, [p1 monoValue]];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : System.Type
-    - (System_TypeCode)getTypeCode_withType:(System_Type *)p1
+    + (System_TypeCode)getTypeCode_withType:(System_Type *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeCode(System.Type)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromCLSID(System.Guid)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromCLSID(System.Guid)" withNumArgs:1, [p1 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid, System.Boolean
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 throwOnError:(BOOL)p2
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 throwOnError:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromCLSID(System.Guid,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromCLSID(System.Guid,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid, System.String
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromCLSID(System.Guid,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromCLSID(System.Guid,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid, System.String, System.Boolean
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromCLSID(System.Guid,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromCLSID(System.Guid,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromHandle
 	// Managed return type : System.Type
 	// Managed param types : System.RuntimeTypeHandle
-    - (System_Type *)getTypeFromHandle_withHandle:(System_RuntimeTypeHandle *)p1
+    + (System_Type *)getTypeFromHandle_withHandle:(System_RuntimeTypeHandle *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromHandle(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromHandle(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromProgID(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromProgID(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 throwOnError:(BOOL)p2
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 throwOnError:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromProgID(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromProgID(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.String
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromProgID(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromProgID(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.String, System.Boolean
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeFromProgID(string,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromProgID(string,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeHandle
 	// Managed return type : System.RuntimeTypeHandle
 	// Managed param types : System.Object
-    - (System_RuntimeTypeHandle *)getTypeHandle_withO:(System_Object *)p1
+    + (System_RuntimeTypeHandle *)getTypeHandle_withO:(System_Object *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeHandle(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeHandle(object)" withNumArgs:1, [p1 monoValue]];
 		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
@@ -1604,27 +1604,27 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type, System.Type
-    - (BOOL)op_Equality_withLeft:(System_Type *)p1 right:(System_Type *)p2
+    + (BOOL)op_Equality_withLeft:(System_Type *)p1 right:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Type,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Type,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type, System.Type
-    - (BOOL)op_Inequality_withLeft:(System_Type *)p1 right:(System_Type *)p2
+    + (BOOL)op_Inequality_withLeft:(System_Type *)p1 right:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Type,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Type,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : ReflectionOnlyGetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean, System.Boolean
-    - (System_Type *)reflectionOnlyGetType_withTypeName:(NSString *)p1 throwIfNotFound:(BOOL)p2 ignoreCase:(BOOL)p3
+    + (System_Type *)reflectionOnlyGetType_withTypeName:(NSString *)p1 throwIfNotFound:(BOOL)p2 ignoreCase:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ReflectionOnlyGetType(string,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyGetType(string,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 

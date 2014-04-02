@@ -100,12 +100,12 @@
 	// Managed method name : CreateFromCertFile
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String
-    - (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromCertFile_withFilename:(NSString *)p1;
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromCertFile_withFilename:(NSString *)p1;
 
 	// Managed method name : CreateFromSignedFile
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String
-    - (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromSignedFile_withFilename:(NSString *)p1;
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromSignedFile_withFilename:(NSString *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

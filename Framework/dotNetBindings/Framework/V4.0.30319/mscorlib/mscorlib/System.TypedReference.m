@@ -48,44 +48,44 @@
 	// Managed method name : GetTargetType
 	// Managed return type : System.Type
 	// Managed param types : System.TypedReference
-    - (System_Type *)getTargetType_withValue:(System_TypedReference *)p1
+    + (System_Type *)getTargetType_withValue:(System_TypedReference *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTargetType(System.TypedReference)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTargetType(System.TypedReference)" withNumArgs:1, [p1 monoValue]];
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : MakeTypedReference
 	// Managed return type : System.TypedReference
 	// Managed param types : System.Object, System.Reflection.FieldInfo[]
-    - (System_TypedReference *)makeTypedReference_withTarget:(System_Object *)p1 flds:(DBSystem_Array *)p2
+    + (System_TypedReference *)makeTypedReference_withTarget:(System_Object *)p1 flds:(DBSystem_Array *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"MakeTypedReference(object,System.Array[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"MakeTypedReference(object,System.Array[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_TypedReference objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetTypedReference
 	// Managed return type : System.Void
 	// Managed param types : System.TypedReference, System.Object
-    - (void)setTypedReference_withTarget:(System_TypedReference *)p1 value:(System_Object *)p2
+    + (void)setTypedReference_withTarget:(System_TypedReference *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"SetTypedReference(System.TypedReference,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetTypedReference(System.TypedReference,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : TargetTypeToken
 	// Managed return type : System.RuntimeTypeHandle
 	// Managed param types : System.TypedReference
-    - (System_RuntimeTypeHandle *)targetTypeToken_withValue:(System_TypedReference *)p1
+    + (System_RuntimeTypeHandle *)targetTypeToken_withValue:(System_TypedReference *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TargetTypeToken(System.TypedReference)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TargetTypeToken(System.TypedReference)" withNumArgs:1, [p1 monoValue]];
 		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.TypedReference
-    - (System_Object *)toObject_withValue:(System_TypedReference *)p1
+    + (System_Object *)toObject_withValue:(System_TypedReference *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ToObject(System.TypedReference)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.TypedReference)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

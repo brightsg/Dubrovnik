@@ -59,12 +59,12 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-    - (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-    - (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
@@ -78,13 +78,13 @@
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
-	// Managed param types : System.Action<System.Object>, System.Object
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2;
+	// Managed param types : System.Action`1<System.Object>, System.Object
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2;
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
-	// Managed param types : System.Action<System.Object>, System.Object, System.Boolean
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3;
+	// Managed param types : System.Action`1<System.Object>, System.Object, System.Boolean
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3;
 
 	// Managed method name : ThrowIfCancellationRequested
 	// Managed return type : System.Void

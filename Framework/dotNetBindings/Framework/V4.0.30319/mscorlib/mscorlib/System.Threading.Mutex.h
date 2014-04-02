@@ -45,12 +45,12 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.Mutex
 	// Managed param types : System.String
-    - (System_Threading_Mutex *)openExisting_withName:(NSString *)p1;
+    + (System_Threading_Mutex *)openExisting_withName:(NSString *)p1;
 
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.Mutex
 	// Managed param types : System.String, System.Security.AccessControl.MutexRights
-    - (System_Threading_Mutex *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2;
+    + (System_Threading_Mutex *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2;
 
 	// Managed method name : ReleaseMutex
 	// Managed return type : System.Void
@@ -65,11 +65,11 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Threading.Mutex&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_Mutex **)p2;
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_Mutex **)p2;
 
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.MutexRights, ref System.Threading.Mutex&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2 resultRef:(System_Threading_Mutex **)p3;
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2 resultRef:(System_Threading_Mutex **)p3;
 @end
 //--Dubrovnik.CodeGenerator

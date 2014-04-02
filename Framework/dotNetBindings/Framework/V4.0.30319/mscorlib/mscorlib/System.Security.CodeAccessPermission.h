@@ -67,22 +67,22 @@
 	// Managed method name : RevertAll
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertAll;
+    + (void)revertAll;
 
 	// Managed method name : RevertAssert
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertAssert;
+    + (void)revertAssert;
 
 	// Managed method name : RevertDeny
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertDeny;
+    + (void)revertDeny;
 
 	// Managed method name : RevertPermitOnly
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertPermitOnly;
+    + (void)revertPermitOnly;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

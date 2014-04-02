@@ -253,18 +253,18 @@
 	// Managed method name : GetFieldFromHandle
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.RuntimeFieldHandle
-    - (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1
+    + (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFieldFromHandle(System.RuntimeFieldHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFieldFromHandle(System.RuntimeFieldHandle)" withNumArgs:1, [p1 monoValue]];
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFieldFromHandle
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.RuntimeFieldHandle, System.RuntimeTypeHandle
-    - (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2
+    + (System_Reflection_FieldInfo *)getFieldFromHandle_withHandle:(System_RuntimeFieldHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFieldFromHandle(System.RuntimeFieldHandle,System.RuntimeTypeHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFieldFromHandle(System.RuntimeFieldHandle,System.RuntimeTypeHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
 
@@ -325,18 +325,18 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.FieldInfo, System.Reflection.FieldInfo
-    - (BOOL)op_Equality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2
+    + (BOOL)op_Equality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Reflection.FieldInfo,System.Reflection.FieldInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.FieldInfo,System.Reflection.FieldInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.FieldInfo, System.Reflection.FieldInfo
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_FieldInfo *)p1 right:(System_Reflection_FieldInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Reflection.FieldInfo,System.Reflection.FieldInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.FieldInfo,System.Reflection.FieldInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

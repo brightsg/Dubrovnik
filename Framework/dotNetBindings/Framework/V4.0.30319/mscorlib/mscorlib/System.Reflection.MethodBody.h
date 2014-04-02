@@ -15,8 +15,8 @@
 #pragma mark Properties
 
 	// Managed property name : ExceptionHandlingClauses
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.ExceptionHandlingClause>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * exceptionHandlingClauses;
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.ExceptionHandlingClause>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IListA1 * exceptionHandlingClauses;
 
 	// Managed property name : InitLocals
 	// Managed property type : System.Boolean
@@ -27,8 +27,8 @@
     @property (nonatomic, readonly) int32_t localSignatureMetadataToken;
 
 	// Managed property name : LocalVariables
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.LocalVariableInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * localVariables;
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.LocalVariableInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IListA1 * localVariables;
 
 	// Managed property name : MaxStackSize
 	// Managed property type : System.Int32

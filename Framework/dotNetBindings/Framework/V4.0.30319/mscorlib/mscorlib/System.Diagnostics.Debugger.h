@@ -31,26 +31,26 @@
 	// Managed method name : Break
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)break;
+    + (void)break;
 
 	// Managed method name : IsLogging
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isLogging;
+    + (BOOL)isLogging;
 
 	// Managed method name : Launch
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)launch;
+    + (BOOL)launch;
 
 	// Managed method name : Log
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.String, System.String
-    - (void)log_withLevel:(int32_t)p1 category:(NSString *)p2 message:(NSString *)p3;
+    + (void)log_withLevel:(int32_t)p1 category:(NSString *)p2 message:(NSString *)p3;
 
 	// Managed method name : NotifyOfCrossThreadDependency
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)notifyOfCrossThreadDependency;
+    + (void)notifyOfCrossThreadDependency;
 @end
 //--Dubrovnik.CodeGenerator

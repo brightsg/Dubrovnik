@@ -15,8 +15,8 @@
 #pragma mark Properties
 
 	// Managed property name : Arguments
-	// Managed property type : System.Collections.Generic.IDictionary<System.String, System.String>
-    @property (nonatomic, strong) System_Collections_Generic_IDictionary * arguments;
+	// Managed property type : System.Collections.Generic.IDictionary`2<System.String, System.String>
+    @property (nonatomic, strong) System_Collections_Generic_IDictionaryA2 * arguments;
 
 	// Managed property name : Command
 	// Managed property type : System.Diagnostics.Tracing.EventCommand

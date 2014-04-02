@@ -167,9 +167,9 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.TextInfo
 	// Managed param types : System.Globalization.TextInfo
-    - (System_Globalization_TextInfo *)readOnly_withTextInfo:(System_Globalization_TextInfo *)p1
+    + (System_Globalization_TextInfo *)readOnly_withTextInfo:(System_Globalization_TextInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadOnly(System.Globalization.TextInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.TextInfo)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_TextInfo objectWithMonoObject:monoObject];
     }
 

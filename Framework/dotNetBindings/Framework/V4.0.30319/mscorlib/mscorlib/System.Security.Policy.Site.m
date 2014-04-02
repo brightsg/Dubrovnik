@@ -74,9 +74,9 @@
 	// Managed method name : CreateFromUrl
 	// Managed return type : System.Security.Policy.Site
 	// Managed param types : System.String
-    - (System_Security_Policy_Site *)createFromUrl_withUrl:(NSString *)p1
+    + (System_Security_Policy_Site *)createFromUrl_withUrl:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromUrl(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromUrl(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Policy_Site objectWithMonoObject:monoObject];
     }
 

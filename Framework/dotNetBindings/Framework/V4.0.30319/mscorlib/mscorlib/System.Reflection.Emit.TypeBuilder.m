@@ -639,9 +639,9 @@
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Type, System.Reflection.ConstructorInfo
-    - (System_Reflection_ConstructorInfo *)getConstructor_withType:(System_Type *)p1 constructor:(System_Reflection_ConstructorInfo *)p2
+    + (System_Reflection_ConstructorInfo *)getConstructor_withType:(System_Type *)p1 constructor:(System_Reflection_ConstructorInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Type,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetConstructor(System.Type,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Reflection_ConstructorInfo objectWithMonoObject:monoObject];
     }
 
@@ -711,9 +711,9 @@
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.Type, System.Reflection.FieldInfo
-    - (System_Reflection_FieldInfo *)getField_withType:(System_Type *)p1 field:(System_Reflection_FieldInfo *)p2
+    + (System_Reflection_FieldInfo *)getField_withType:(System_Type *)p1 field:(System_Reflection_FieldInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetField(System.Type,System.Reflection.FieldInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetField(System.Type,System.Reflection.FieldInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
 
@@ -801,9 +801,9 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.Type, System.Reflection.MethodInfo
-    - (System_Reflection_MethodInfo *)getMethod_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2
+    + (System_Reflection_MethodInfo *)getMethod_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(System.Type,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethod(System.Type,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 

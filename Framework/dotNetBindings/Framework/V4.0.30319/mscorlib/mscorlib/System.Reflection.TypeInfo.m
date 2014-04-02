@@ -28,85 +28,85 @@
 #pragma mark Properties
 
 	// Managed property name : DeclaredConstructors
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.ConstructorInfo>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.ConstructorInfo>
     @synthesize declaredConstructors = _declaredConstructors;
-    - (System_Collections_Generic_IEnumerable *)declaredConstructors
+    - (System_Collections_Generic_IEnumerableA1 *)declaredConstructors
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeclaredConstructors"];
 		if ([self object:_declaredConstructors isEqualToMonoObject:monoObject]) return _declaredConstructors;					
-		_declaredConstructors = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_declaredConstructors = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _declaredConstructors;
 	}
 
 	// Managed property name : DeclaredEvents
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.EventInfo>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.EventInfo>
     @synthesize declaredEvents = _declaredEvents;
-    - (System_Collections_Generic_IEnumerable *)declaredEvents
+    - (System_Collections_Generic_IEnumerableA1 *)declaredEvents
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeclaredEvents"];
 		if ([self object:_declaredEvents isEqualToMonoObject:monoObject]) return _declaredEvents;					
-		_declaredEvents = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_declaredEvents = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _declaredEvents;
 	}
 
 	// Managed property name : DeclaredFields
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.FieldInfo>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.FieldInfo>
     @synthesize declaredFields = _declaredFields;
-    - (System_Collections_Generic_IEnumerable *)declaredFields
+    - (System_Collections_Generic_IEnumerableA1 *)declaredFields
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeclaredFields"];
 		if ([self object:_declaredFields isEqualToMonoObject:monoObject]) return _declaredFields;					
-		_declaredFields = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_declaredFields = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _declaredFields;
 	}
 
 	// Managed property name : DeclaredMembers
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.MemberInfo>
     @synthesize declaredMembers = _declaredMembers;
-    - (System_Collections_Generic_IEnumerable *)declaredMembers
+    - (System_Collections_Generic_IEnumerableA1 *)declaredMembers
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeclaredMembers"];
 		if ([self object:_declaredMembers isEqualToMonoObject:monoObject]) return _declaredMembers;					
-		_declaredMembers = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_declaredMembers = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _declaredMembers;
 	}
 
 	// Managed property name : DeclaredMethods
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.MethodInfo>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
     @synthesize declaredMethods = _declaredMethods;
-    - (System_Collections_Generic_IEnumerable *)declaredMethods
+    - (System_Collections_Generic_IEnumerableA1 *)declaredMethods
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeclaredMethods"];
 		if ([self object:_declaredMethods isEqualToMonoObject:monoObject]) return _declaredMethods;					
-		_declaredMethods = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_declaredMethods = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _declaredMethods;
 	}
 
 	// Managed property name : DeclaredNestedTypes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.TypeInfo>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.TypeInfo>
     @synthesize declaredNestedTypes = _declaredNestedTypes;
-    - (System_Collections_Generic_IEnumerable *)declaredNestedTypes
+    - (System_Collections_Generic_IEnumerableA1 *)declaredNestedTypes
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeclaredNestedTypes"];
 		if ([self object:_declaredNestedTypes isEqualToMonoObject:monoObject]) return _declaredNestedTypes;					
-		_declaredNestedTypes = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_declaredNestedTypes = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _declaredNestedTypes;
 	}
 
 	// Managed property name : DeclaredProperties
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.PropertyInfo>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.PropertyInfo>
     @synthesize declaredProperties = _declaredProperties;
-    - (System_Collections_Generic_IEnumerable *)declaredProperties
+    - (System_Collections_Generic_IEnumerableA1 *)declaredProperties
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeclaredProperties"];
 		if ([self object:_declaredProperties isEqualToMonoObject:monoObject]) return _declaredProperties;					
-		_declaredProperties = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_declaredProperties = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _declaredProperties;
 	}
@@ -124,13 +124,13 @@
 	}
 
 	// Managed property name : ImplementedInterfaces
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Type>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Type>
     @synthesize implementedInterfaces = _implementedInterfaces;
-    - (System_Collections_Generic_IEnumerable *)implementedInterfaces
+    - (System_Collections_Generic_IEnumerableA1 *)implementedInterfaces
     {
 		MonoObject *monoObject = [self getMonoProperty:"ImplementedInterfaces"];
 		if ([self object:_implementedInterfaces isEqualToMonoObject:monoObject]) return _implementedInterfaces;					
-		_implementedInterfaces = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_implementedInterfaces = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _implementedInterfaces;
 	}
@@ -175,12 +175,12 @@
     }
 
 	// Managed method name : GetDeclaredMethods
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Reflection.MethodInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)getDeclaredMethods_withName:(NSString *)p1
+    - (System_Collections_Generic_IEnumerableA1 *)getDeclaredMethods_withName:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethods(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeclaredNestedType

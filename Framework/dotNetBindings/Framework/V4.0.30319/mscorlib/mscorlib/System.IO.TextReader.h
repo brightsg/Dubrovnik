@@ -47,9 +47,9 @@
     - (int32_t)read_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_Task *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadBlock
 	// Managed return type : System.Int32
@@ -57,9 +57,9 @@
     - (int32_t)readBlock_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadBlockAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_Task *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadLine
 	// Managed return type : System.String
@@ -67,9 +67,9 @@
     - (NSString *)readLine;
 
 	// Managed method name : ReadLineAsync
-	// Managed return type : System.Threading.Tasks.Task<System.String>
+	// Managed return type : System.Threading.Tasks.Task`1<System.String>
 	// Managed param types : 
-    - (System_Threading_Tasks_Task *)readLineAsync;
+    - (System_Threading_Tasks_TaskA1 *)readLineAsync;
 
 	// Managed method name : ReadToEnd
 	// Managed return type : System.String
@@ -77,13 +77,13 @@
     - (NSString *)readToEnd;
 
 	// Managed method name : ReadToEndAsync
-	// Managed return type : System.Threading.Tasks.Task<System.String>
+	// Managed return type : System.Threading.Tasks.Task`1<System.String>
 	// Managed param types : 
-    - (System_Threading_Tasks_Task *)readToEndAsync;
+    - (System_Threading_Tasks_TaskA1 *)readToEndAsync;
 
 	// Managed method name : Synchronized
 	// Managed return type : System.IO.TextReader
 	// Managed param types : System.IO.TextReader
-    - (System_IO_TextReader *)synchronized_withReader:(System_IO_TextReader *)p1;
+    + (System_IO_TextReader *)synchronized_withReader:(System_IO_TextReader *)p1;
 @end
 //--Dubrovnik.CodeGenerator

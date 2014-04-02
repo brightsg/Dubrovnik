@@ -17,7 +17,7 @@
 	// Managed method name : Capture
 	// Managed return type : System.Threading.ExecutionContext
 	// Managed param types : 
-    - (System_Threading_ExecutionContext *)capture;
+    + (System_Threading_ExecutionContext *)capture;
 
 	// Managed method name : CreateCopy
 	// Managed return type : System.Threading.ExecutionContext
@@ -37,21 +37,21 @@
 	// Managed method name : IsFlowSuppressed
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isFlowSuppressed;
+    + (BOOL)isFlowSuppressed;
 
 	// Managed method name : RestoreFlow
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)restoreFlow;
+    + (void)restoreFlow;
 
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object
-    - (void)run_withExecutionContext:(System_Threading_ExecutionContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
+    + (void)run_withExecutionContext:(System_Threading_ExecutionContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
 
 	// Managed method name : SuppressFlow
 	// Managed return type : System.Threading.AsyncFlowControl
 	// Managed param types : 
-    - (System_Threading_AsyncFlowControl *)suppressFlow;
+    + (System_Threading_AsyncFlowControl *)suppressFlow;
 @end
 //--Dubrovnik.CodeGenerator

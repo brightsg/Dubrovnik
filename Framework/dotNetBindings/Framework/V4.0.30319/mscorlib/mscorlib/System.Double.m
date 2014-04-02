@@ -153,126 +153,126 @@
 	// Managed method name : IsInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isInfinity_withD:(double)p1
+    + (BOOL)isInfinity_withD:(double)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsNaN
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isNaN_withD:(double)p1
+    + (BOOL)isNaN_withD:(double)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsNaN(double)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsNaN(double)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsNegativeInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isNegativeInfinity_withD:(double)p1
+    + (BOOL)isNegativeInfinity_withD:(double)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsNegativeInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsNegativeInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsPositiveInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isPositiveInfinity_withD:(double)p1
+    + (BOOL)isPositiveInfinity_withD:(double)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsPositiveInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsPositiveInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_Equality_withLeft:(double)p1 right:(double)p2
+    + (BOOL)op_Equality_withLeft:(double)p1 right:(double)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_GreaterThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_GreaterThan_withLeft:(double)p1 right:(double)p2
+    + (BOOL)op_GreaterThan_withLeft:(double)p1 right:(double)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_GreaterThan(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_GreaterThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_GreaterThanOrEqual_withLeft:(double)p1 right:(double)p2
+    + (BOOL)op_GreaterThanOrEqual_withLeft:(double)p1 right:(double)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_GreaterThanOrEqual(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_Inequality_withLeft:(double)p1 right:(double)p2
+    + (BOOL)op_Inequality_withLeft:(double)p1 right:(double)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_LessThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_LessThan_withLeft:(double)p1 right:(double)p2
+    + (BOOL)op_LessThan_withLeft:(double)p1 right:(double)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_LessThan(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_LessThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_LessThanOrEqual_withLeft:(double)p1 right:(double)p2
+    + (BOOL)op_LessThanOrEqual_withLeft:(double)p1 right:(double)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_LessThanOrEqual(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String
-    - (double)parse_withS:(NSString *)p1
+    + (double)parse_withS:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    - (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2
+    + (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.Globalization.NumberStyles)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.IFormatProvider
-    - (double)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    + (double)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    - (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3
+    + (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.Globalization.NumberStyles,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
@@ -315,18 +315,18 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Double&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(double*)p2
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(double*)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,double&)" withNumArgs:2, [p1 monoValue], p2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,double&)" withNumArgs:2, [p1 monoValue], p2];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Double&
-    - (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(double*)p4
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(double*)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,double&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], p4];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,double&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], p4];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

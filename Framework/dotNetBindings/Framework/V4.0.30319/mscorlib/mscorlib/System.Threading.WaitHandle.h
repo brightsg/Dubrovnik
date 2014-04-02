@@ -45,67 +45,67 @@
 	// Managed method name : SignalAndWait
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitHandle
-    - (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2;
+    + (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2;
 
 	// Managed method name : SignalAndWait
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitHandle, System.TimeSpan, System.Boolean
-    - (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 timeout:(System_TimeSpan *)p3 exitContext:(BOOL)p4;
+    + (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 timeout:(System_TimeSpan *)p3 exitContext:(BOOL)p4;
 
 	// Managed method name : SignalAndWait
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitHandle, System.Int32, System.Boolean
-    - (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 millisecondsTimeout:(int32_t)p3 exitContext:(BOOL)p4;
+    + (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 millisecondsTimeout:(int32_t)p3 exitContext:(BOOL)p4;
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.Int32, System.Boolean
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3;
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3;
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan, System.Boolean
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3;
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3;
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[]
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1;
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1;
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.Int32
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2;
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2;
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2;
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2;
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.Int32, System.Boolean
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3;
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3;
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan, System.Boolean
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3;
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3;
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2;
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2;
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[]
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1;
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1;
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.Int32
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2;
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2;
 
 	// Managed method name : WaitOne
 	// Managed return type : System.Boolean

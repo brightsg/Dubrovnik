@@ -30,8 +30,8 @@
     @property (nonatomic, strong, readonly) System_Reflection_Assembly * assembly;
 
 	// Managed property name : CustomAttributes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * customAttributes;
 
 	// Managed property name : FullyQualifiedName
 	// Managed property type : System.String
@@ -85,9 +85,9 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData;
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
@@ -187,12 +187,12 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Module, System.Reflection.Module
-    - (BOOL)op_Equality_withLeft:(System_Reflection_Module *)p1 right:(System_Reflection_Module *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Reflection_Module *)p1 right:(System_Reflection_Module *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Module, System.Reflection.Module
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_Module *)p1 right:(System_Reflection_Module *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_Module *)p1 right:(System_Reflection_Module *)p2;
 
 	// Managed method name : ResolveField
 	// Managed return type : System.Reflection.FieldInfo

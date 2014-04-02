@@ -24,11 +24,11 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.KeyedHashAlgorithm
 	// Managed param types : 
-    - (System_Security_Cryptography_KeyedHashAlgorithm *)create;
+    + (System_Security_Cryptography_KeyedHashAlgorithm *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.KeyedHashAlgorithm
 	// Managed param types : System.String
-    - (System_Security_Cryptography_KeyedHashAlgorithm *)create_withAlgName:(NSString *)p1;
+    + (System_Security_Cryptography_KeyedHashAlgorithm *)create_withAlgName:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

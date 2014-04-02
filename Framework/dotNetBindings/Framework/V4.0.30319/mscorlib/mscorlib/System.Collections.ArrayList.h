@@ -61,7 +61,7 @@
 	// Managed method name : Adapter
 	// Managed return type : System.Collections.ArrayList
 	// Managed param types : System.Collections.IList
-    - (DBSystem_Collections_ArrayList *)adapter_withList:(System_Collections_IList *)p1;
+    + (DBSystem_Collections_ArrayList *)adapter_withList:(System_Collections_IList *)p1;
 
 	// Managed method name : Add
 	// Managed return type : System.Int32
@@ -121,12 +121,12 @@
 	// Managed method name : FixedSize
 	// Managed return type : System.Collections.IList
 	// Managed param types : System.Collections.IList
-    - (System_Collections_IList *)fixedSize_withListSCIList:(System_Collections_IList *)p1;
+    + (System_Collections_IList *)fixedSize_withListSCIList:(System_Collections_IList *)p1;
 
 	// Managed method name : FixedSize
 	// Managed return type : System.Collections.ArrayList
 	// Managed param types : System.Collections.ArrayList
-    - (DBSystem_Collections_ArrayList *)fixedSize_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
+    + (DBSystem_Collections_ArrayList *)fixedSize_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
@@ -186,12 +186,12 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Collections.IList
 	// Managed param types : System.Collections.IList
-    - (System_Collections_IList *)readOnly_withListSCIList:(System_Collections_IList *)p1;
+    + (System_Collections_IList *)readOnly_withListSCIList:(System_Collections_IList *)p1;
 
 	// Managed method name : ReadOnly
 	// Managed return type : System.Collections.ArrayList
 	// Managed param types : System.Collections.ArrayList
-    - (DBSystem_Collections_ArrayList *)readOnly_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
+    + (DBSystem_Collections_ArrayList *)readOnly_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
@@ -211,7 +211,7 @@
 	// Managed method name : Repeat
 	// Managed return type : System.Collections.ArrayList
 	// Managed param types : System.Object, System.Int32
-    - (DBSystem_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2;
+    + (DBSystem_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2;
 
 	// Managed method name : Reverse
 	// Managed return type : System.Void
@@ -246,12 +246,12 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.IList
 	// Managed param types : System.Collections.IList
-    - (System_Collections_IList *)synchronized_withListSCIList:(System_Collections_IList *)p1;
+    + (System_Collections_IList *)synchronized_withListSCIList:(System_Collections_IList *)p1;
 
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.ArrayList
 	// Managed param types : System.Collections.ArrayList
-    - (DBSystem_Collections_ArrayList *)synchronized_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
+    + (DBSystem_Collections_ArrayList *)synchronized_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
 
 	// Managed method name : ToArray
 	// Managed return type : System.Object[]

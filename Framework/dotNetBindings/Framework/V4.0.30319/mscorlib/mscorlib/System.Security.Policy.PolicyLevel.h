@@ -64,7 +64,7 @@
 	// Managed method name : CreateAppDomainLevel
 	// Managed return type : System.Security.Policy.PolicyLevel
 	// Managed param types : 
-    - (System_Security_Policy_PolicyLevel *)createAppDomainLevel;
+    + (System_Security_Policy_PolicyLevel *)createAppDomainLevel;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void

@@ -21,8 +21,8 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.ApplicationTrust
-	// Managed param types : System.Security.PermissionSet, System.Collections.Generic.IEnumerable<System.Security.Policy.StrongName>
-    + (System_Security_Policy_ApplicationTrust *)new_withDefaultGrantSet:(System_Security_PermissionSet *)p1 fullTrustAssemblies:(System_Collections_Generic_IEnumerable *)p2;
+	// Managed param types : System.Security.PermissionSet, System.Collections.Generic.IEnumerable`1<System.Security.Policy.StrongName>
+    + (System_Security_Policy_ApplicationTrust *)new_withDefaultGrantSet:(System_Security_PermissionSet *)p1 fullTrustAssemblies:(System_Collections_Generic_IEnumerableA1 *)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -40,8 +40,8 @@
     @property (nonatomic, strong) System_Object * extraInfo;
 
 	// Managed property name : FullTrustAssemblies
-	// Managed property type : System.Collections.Generic.IList<System.Security.Policy.StrongName>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * fullTrustAssemblies;
+	// Managed property type : System.Collections.Generic.IList`1<System.Security.Policy.StrongName>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IListA1 * fullTrustAssemblies;
 
 	// Managed property name : IsApplicationTrustedToRun
 	// Managed property type : System.Boolean

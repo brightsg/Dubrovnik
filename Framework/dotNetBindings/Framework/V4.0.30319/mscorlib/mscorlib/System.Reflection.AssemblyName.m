@@ -264,9 +264,9 @@
 	// Managed method name : GetAssemblyName
 	// Managed return type : System.Reflection.AssemblyName
 	// Managed param types : System.String
-    - (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
+    + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
 
@@ -307,9 +307,9 @@
 	// Managed method name : ReferenceMatchesDefinition
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.AssemblyName, System.Reflection.AssemblyName
-    - (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
+    + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

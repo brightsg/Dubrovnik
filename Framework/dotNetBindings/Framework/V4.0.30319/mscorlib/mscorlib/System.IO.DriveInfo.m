@@ -153,9 +153,9 @@
 	// Managed method name : GetDrives
 	// Managed return type : System.IO.DriveInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getDrives
+    + (DBSystem_Array *)getDrives
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDrives()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDrives()" withNumArgs:0];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 

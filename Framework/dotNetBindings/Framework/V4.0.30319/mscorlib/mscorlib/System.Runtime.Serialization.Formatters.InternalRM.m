@@ -30,17 +30,17 @@
 	// Managed method name : InfoSoap
 	// Managed return type : System.Void
 	// Managed param types : System.Object[]
-    - (void)infoSoap_withMessages:(DBSystem_Array *)p1
+    + (void)infoSoap_withMessages:(DBSystem_Array *)p1
     {
-		[self invokeMonoMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : SoapCheckEnabled
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)soapCheckEnabled
+    + (BOOL)soapCheckEnabled
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"SoapCheckEnabled()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SoapCheckEnabled()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

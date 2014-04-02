@@ -44,22 +44,22 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Object
-	// Managed param types : System.Object[]
-    - (System_Object *)invoke_withParameters:(DBSystem_Array *)p1;
+	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
+    - (System_Object *)invoke_withInvokeAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 parameters:(DBSystem_Array *)p3 culture:(System_Globalization_CultureInfo *)p4;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Object
-	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invoke_withInvokeAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 parameters:(DBSystem_Array *)p3 culture:(System_Globalization_CultureInfo *)p4;
+	// Managed param types : System.Object[]
+    - (System_Object *)invoke_withParameters:(DBSystem_Array *)p1;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.ConstructorInfo, System.Reflection.ConstructorInfo
-    - (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.ConstructorInfo, System.Reflection.ConstructorInfo
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2;
 @end
 //--Dubrovnik.CodeGenerator

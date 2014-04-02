@@ -37,7 +37,7 @@
 	// Managed method name : GetStubData
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy
-    - (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1;
+    + (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1;
 
 	// Managed method name : GetTransparentProxy
 	// Managed return type : System.Object
@@ -62,7 +62,7 @@
 	// Managed method name : SetStubData
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy, System.Object
-    - (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2;
+    + (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2;
 
 	// Managed method name : SupportsInterface
 	// Managed return type : System.IntPtr

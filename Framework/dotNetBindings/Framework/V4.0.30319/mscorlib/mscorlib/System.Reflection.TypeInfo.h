@@ -15,40 +15,40 @@
 #pragma mark Properties
 
 	// Managed property name : DeclaredConstructors
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.ConstructorInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredConstructors;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.ConstructorInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * declaredConstructors;
 
 	// Managed property name : DeclaredEvents
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.EventInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredEvents;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.EventInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * declaredEvents;
 
 	// Managed property name : DeclaredFields
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.FieldInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredFields;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.FieldInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * declaredFields;
 
 	// Managed property name : DeclaredMembers
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredMembers;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.MemberInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * declaredMembers;
 
 	// Managed property name : DeclaredMethods
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.MethodInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredMethods;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * declaredMethods;
 
 	// Managed property name : DeclaredNestedTypes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.TypeInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredNestedTypes;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.TypeInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * declaredNestedTypes;
 
 	// Managed property name : DeclaredProperties
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.PropertyInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * declaredProperties;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.PropertyInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * declaredProperties;
 
 	// Managed property name : GenericTypeParameters
 	// Managed property type : System.Type[]
     @property (nonatomic, strong, readonly) DBSystem_Array * genericTypeParameters;
 
 	// Managed property name : ImplementedInterfaces
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Type>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * implementedInterfaces;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Type>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * implementedInterfaces;
 
 #pragma mark -
 #pragma mark Methods
@@ -74,9 +74,9 @@
     - (System_Reflection_MethodInfo *)getDeclaredMethod_withName:(NSString *)p1;
 
 	// Managed method name : GetDeclaredMethods
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Reflection.MethodInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)getDeclaredMethods_withName:(NSString *)p1;
+    - (System_Collections_Generic_IEnumerableA1 *)getDeclaredMethods_withName:(NSString *)p1;
 
 	// Managed method name : GetDeclaredNestedType
 	// Managed return type : System.Reflection.TypeInfo

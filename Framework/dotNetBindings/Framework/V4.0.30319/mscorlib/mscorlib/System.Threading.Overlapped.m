@@ -138,9 +138,9 @@
 	// Managed method name : Free
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.NativeOverlapped*
-    - (void)free_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1
+    + (void)free_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1
     {
-		[self invokeMonoMethod:"Free(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
+		[self invokeMonoClassMethod:"Free(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
     }
 
 	// Managed method name : Pack
@@ -164,9 +164,9 @@
 	// Managed method name : Unpack
 	// Managed return type : System.Threading.Overlapped
 	// Managed param types : System.Threading.NativeOverlapped*
-    - (System_Threading_Overlapped *)unpack_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1
+    + (System_Threading_Overlapped *)unpack_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Unpack(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Unpack(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
 		return [System_Threading_Overlapped objectWithMonoObject:monoObject];
     }
 

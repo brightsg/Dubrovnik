@@ -89,27 +89,27 @@
 	// Managed method name : CreateMD5
 	// Managed return type : System.Security.Policy.Hash
 	// Managed param types : System.Byte[]
-    - (System_Security_Policy_Hash *)createMD5_withMd5:(NSData *)p1
+    + (System_Security_Policy_Hash *)createMD5_withMd5:(NSData *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateMD5(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateMD5(byte[])" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSHA1
 	// Managed return type : System.Security.Policy.Hash
 	// Managed param types : System.Byte[]
-    - (System_Security_Policy_Hash *)createSHA1_withSha1:(NSData *)p1
+    + (System_Security_Policy_Hash *)createSHA1_withSha1:(NSData *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateSHA1(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSHA1(byte[])" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSHA256
 	// Managed return type : System.Security.Policy.Hash
 	// Managed param types : System.Byte[]
-    - (System_Security_Policy_Hash *)createSHA256_withSha256:(NSData *)p1
+    + (System_Security_Policy_Hash *)createSHA256_withSha256:(NSData *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateSHA256(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSHA256(byte[])" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 

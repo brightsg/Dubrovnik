@@ -36,6 +36,6 @@
 	// Managed method name : FromCurrentSynchronizationContext
 	// Managed return type : System.Threading.Tasks.TaskScheduler
 	// Managed param types : 
-    - (System_Threading_Tasks_TaskScheduler *)fromCurrentSynchronizationContext;
+    + (System_Threading_Tasks_TaskScheduler *)fromCurrentSynchronizationContext;
 @end
 //--Dubrovnik.CodeGenerator

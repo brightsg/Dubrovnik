@@ -117,7 +117,7 @@
 	// Managed method name : GetCurrentMethod
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : 
-    - (System_Reflection_MethodBase *)getCurrentMethod;
+    + (System_Reflection_MethodBase *)getCurrentMethod;
 
 	// Managed method name : GetGenericArguments
 	// Managed return type : System.Type[]
@@ -137,12 +137,12 @@
 	// Managed method name : GetMethodFromHandle
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.RuntimeMethodHandle
-    - (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1;
+    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1;
 
 	// Managed method name : GetMethodFromHandle
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.RuntimeMethodHandle, System.RuntimeTypeHandle
-    - (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2;
+    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2;
 
 	// Managed method name : GetMethodImplementationFlags
 	// Managed return type : System.Reflection.MethodImplAttributes
@@ -167,11 +167,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-    - (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -41,12 +41,12 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.AsymmetricAlgorithm
 	// Managed param types : 
-    - (System_Security_Cryptography_AsymmetricAlgorithm *)create;
+    + (System_Security_Cryptography_AsymmetricAlgorithm *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.AsymmetricAlgorithm
 	// Managed param types : System.String
-    - (System_Security_Cryptography_AsymmetricAlgorithm *)create_withAlgName:(NSString *)p1;
+    + (System_Security_Cryptography_AsymmetricAlgorithm *)create_withAlgName:(NSString *)p1;
 
 	// Managed method name : Dispose
 	// Managed return type : System.Void

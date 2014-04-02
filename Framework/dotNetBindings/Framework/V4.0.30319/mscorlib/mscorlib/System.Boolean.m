@@ -111,9 +111,9 @@
 	// Managed method name : Parse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)parse_withValue:(NSString *)p1
+    + (BOOL)parse_withValue:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -138,9 +138,9 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Boolean&
-    - (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2
+    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoValue], p2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoValue], p2];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

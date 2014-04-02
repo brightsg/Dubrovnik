@@ -30,9 +30,9 @@
 	// Managed method name : GetTypeInfo
 	// Managed return type : System.Reflection.TypeInfo
 	// Managed param types : System.Type
-    - (System_Reflection_TypeInfo *)getTypeInfo_withType:(System_Type *)p1
+    + (System_Reflection_TypeInfo *)getTypeInfo_withType:(System_Type *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeInfo(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeInfo(System.Type)" withNumArgs:1, [p1 monoValue]];
 		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
 

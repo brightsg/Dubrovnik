@@ -338,9 +338,9 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.SortedList
-    - (System_Collections_SortedList *)synchronized_withList:(System_Collections_SortedList *)p1
+    + (System_Collections_SortedList *)synchronized_withList:(System_Collections_SortedList *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Synchronized(System.Collections.SortedList)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.SortedList)" withNumArgs:1, [p1 monoValue]];
 		return [System_Collections_SortedList objectWithMonoObject:monoObject];
     }
 

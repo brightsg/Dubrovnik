@@ -139,84 +139,84 @@
     }
 
 	// Managed method name : EnumerateDirectories
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.DirectoryInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerable *)enumerateDirectories
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateDirectories()" withNumArgs:0];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateDirectories
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.DirectoryInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)enumerateDirectories_withSearchPattern:(NSString *)p1
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withSearchPattern:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateDirectories(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateDirectories
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.DirectoryInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerable *)enumerateDirectories_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateDirectories(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFiles
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerable *)enumerateFiles
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFiles()" withNumArgs:0];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFiles
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)enumerateFiles_withSearchPattern:(NSString *)p1
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withSearchPattern:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFiles(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFiles
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerable *)enumerateFiles_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFiles(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFileSystemInfos
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileSystemInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerable *)enumerateFileSystemInfos
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFileSystemInfos()" withNumArgs:0];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFileSystemInfos
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileSystemInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFileSystemInfos(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFileSystemInfos
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileSystemInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerable *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFileSystemInfos(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessControl

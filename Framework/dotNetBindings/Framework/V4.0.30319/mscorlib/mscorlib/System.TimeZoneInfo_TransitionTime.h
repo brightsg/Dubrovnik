@@ -44,12 +44,12 @@
 	// Managed method name : CreateFixedDateRule
 	// Managed return type : System.TimeZoneInfo+TransitionTime
 	// Managed param types : System.DateTime, System.Int32, System.Int32
-    - (System_TimeZoneInfo__TransitionTime *)createFixedDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 day:(int32_t)p3;
+    + (System_TimeZoneInfo__TransitionTime *)createFixedDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 day:(int32_t)p3;
 
 	// Managed method name : CreateFloatingDateRule
 	// Managed return type : System.TimeZoneInfo+TransitionTime
 	// Managed param types : System.DateTime, System.Int32, System.Int32, System.DayOfWeek
-    - (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(System_DayOfWeek)p4;
+    + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(System_DayOfWeek)p4;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -69,11 +69,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.TimeZoneInfo+TransitionTime, System.TimeZoneInfo+TransitionTime
-    - (BOOL)op_Equality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
+    + (BOOL)op_Equality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.TimeZoneInfo+TransitionTime, System.TimeZoneInfo+TransitionTime
-    - (BOOL)op_Inequality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
+    + (BOOL)op_Inequality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
 @end
 //--Dubrovnik.CodeGenerator

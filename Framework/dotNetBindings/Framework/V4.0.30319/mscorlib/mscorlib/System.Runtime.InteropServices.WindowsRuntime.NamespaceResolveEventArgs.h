@@ -31,7 +31,7 @@
     @property (nonatomic, strong, readonly) System_Reflection_Assembly * requestingAssembly;
 
 	// Managed property name : ResolvedAssemblies
-	// Managed property type : System.Collections.ObjectModel.Collection<System.Reflection.Assembly>
-    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_Collection * resolvedAssemblies;
+	// Managed property type : System.Collections.ObjectModel.Collection`1<System.Reflection.Assembly>
+    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_CollectionA1 * resolvedAssemblies;
 @end
 //--Dubrovnik.CodeGenerator

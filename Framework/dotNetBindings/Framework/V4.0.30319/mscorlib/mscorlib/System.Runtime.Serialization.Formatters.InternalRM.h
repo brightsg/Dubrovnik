@@ -17,11 +17,11 @@
 	// Managed method name : InfoSoap
 	// Managed return type : System.Void
 	// Managed param types : System.Object[]
-    - (void)infoSoap_withMessages:(DBSystem_Array *)p1;
+    + (void)infoSoap_withMessages:(DBSystem_Array *)p1;
 
 	// Managed method name : SoapCheckEnabled
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)soapCheckEnabled;
+    + (BOOL)soapCheckEnabled;
 @end
 //--Dubrovnik.CodeGenerator

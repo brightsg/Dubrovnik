@@ -30,18 +30,18 @@
 	// Managed method name : Box
 	// Managed return type : System.Object
 	// Managed param types : System.Void*, System.Type
-    - (System_Object *)box_withPtr:(void*)p1 type:(System_Type *)p2
+    + (System_Object *)box_withPtr:(void*)p1 type:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Box(void*,System.Type)" withNumArgs:2, p1, [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Box(void*,System.Type)" withNumArgs:2, p1, [p2 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unbox
 	// Managed return type : System.Void*
 	// Managed param types : System.Object
-    - (void *)unbox_withPtr:(System_Object *)p1
+    + (void *)unbox_withPtr:(System_Object *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Unbox(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Unbox(object)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
     }
 

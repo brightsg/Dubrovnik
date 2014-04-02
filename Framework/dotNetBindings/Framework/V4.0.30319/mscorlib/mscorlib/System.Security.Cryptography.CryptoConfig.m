@@ -44,52 +44,52 @@
 	// Managed method name : AddAlgorithm
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.String[]
-    - (void)addAlgorithm_withAlgorithm:(System_Type *)p1 names:(DBSystem_Array *)p2
+    + (void)addAlgorithm_withAlgorithm:(System_Type *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : AddOID
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String[]
-    - (void)addOID_withOid:(NSString *)p1 names:(DBSystem_Array *)p2
+    + (void)addOID_withOid:(NSString *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : CreateFromName
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Object[]
-    - (System_Object *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2
+    + (System_Object *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromName(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFromName
 	// Managed return type : System.Object
 	// Managed param types : System.String
-    - (System_Object *)createFromName_withName:(NSString *)p1
+    + (System_Object *)createFromName_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EncodeOID
 	// Managed return type : System.Byte[]
 	// Managed param types : System.String
-    - (NSData *)encodeOID_withStr:(NSString *)p1
+    + (NSData *)encodeOID_withStr:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"EncodeOID(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EncodeOID(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : MapNameToOID
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)mapNameToOID_withName:(NSString *)p1
+    + (NSString *)mapNameToOID_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"MapNameToOID(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"MapNameToOID(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

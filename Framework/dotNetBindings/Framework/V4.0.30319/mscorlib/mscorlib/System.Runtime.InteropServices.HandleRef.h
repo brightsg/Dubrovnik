@@ -36,11 +36,11 @@
 	// Managed method name : op_Explicit
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Runtime.InteropServices.HandleRef
-    - (void *)op_Explicit_withValue:(System_Runtime_InteropServices_HandleRef *)p1;
+    + (void *)op_Explicit_withValue:(System_Runtime_InteropServices_HandleRef *)p1;
 
 	// Managed method name : ToIntPtr
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Runtime.InteropServices.HandleRef
-    - (void *)toIntPtr_withValue:(System_Runtime_InteropServices_HandleRef *)p1;
+    + (void *)toIntPtr_withValue:(System_Runtime_InteropServices_HandleRef *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -117,18 +117,18 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-    - (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
+    + (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-    - (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
+    + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -152,19 +152,19 @@
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
-	// Managed param types : System.Action<System.Object>, System.Object
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2
+	// Managed param types : System.Action`1<System.Object>, System.Object
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action<System.Object>,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<System.Object>,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
 	// Managed return type : System.Threading.CancellationTokenRegistration
-	// Managed param types : System.Action<System.Object>, System.Object, System.Boolean
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3
+	// Managed param types : System.Action`1<System.Object>, System.Object, System.Boolean
+    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action<System.Object>,object,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<System.Object>,object,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 

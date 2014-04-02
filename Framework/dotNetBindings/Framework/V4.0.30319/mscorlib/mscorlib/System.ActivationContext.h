@@ -36,12 +36,12 @@
 	// Managed method name : CreatePartialActivationContext
 	// Managed return type : System.ActivationContext
 	// Managed param types : System.ApplicationIdentity
-    - (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1;
+    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1;
 
 	// Managed method name : CreatePartialActivationContext
 	// Managed return type : System.ActivationContext
 	// Managed param types : System.ApplicationIdentity, System.String[]
-    - (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(DBSystem_Array *)p2;
+    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(DBSystem_Array *)p2;
 
 	// Managed method name : Dispose
 	// Managed return type : System.Void

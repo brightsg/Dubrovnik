@@ -2,6 +2,7 @@
 //
 // Managed struct : Double
 //
+
 @interface System_Double : DBManagedObject
 
 #pragma mark -
@@ -74,72 +75,72 @@
 	// Managed method name : IsInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isInfinity_withD:(double)p1;
+    + (BOOL)isInfinity_withD:(double)p1;
 
 	// Managed method name : IsNaN
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isNaN_withD:(double)p1;
+    + (BOOL)isNaN_withD:(double)p1;
 
 	// Managed method name : IsNegativeInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isNegativeInfinity_withD:(double)p1;
+    + (BOOL)isNegativeInfinity_withD:(double)p1;
 
 	// Managed method name : IsPositiveInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double
-    - (BOOL)isPositiveInfinity_withD:(double)p1;
+    + (BOOL)isPositiveInfinity_withD:(double)p1;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_Equality_withLeft:(double)p1 right:(double)p2;
+    + (BOOL)op_Equality_withLeft:(double)p1 right:(double)p2;
 
 	// Managed method name : op_GreaterThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_GreaterThan_withLeft:(double)p1 right:(double)p2;
+    + (BOOL)op_GreaterThan_withLeft:(double)p1 right:(double)p2;
 
 	// Managed method name : op_GreaterThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_GreaterThanOrEqual_withLeft:(double)p1 right:(double)p2;
+    + (BOOL)op_GreaterThanOrEqual_withLeft:(double)p1 right:(double)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_Inequality_withLeft:(double)p1 right:(double)p2;
+    + (BOOL)op_Inequality_withLeft:(double)p1 right:(double)p2;
 
 	// Managed method name : op_LessThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_LessThan_withLeft:(double)p1 right:(double)p2;
+    + (BOOL)op_LessThan_withLeft:(double)p1 right:(double)p2;
 
 	// Managed method name : op_LessThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Double, System.Double
-    - (BOOL)op_LessThanOrEqual_withLeft:(double)p1 right:(double)p2;
+    + (BOOL)op_LessThanOrEqual_withLeft:(double)p1 right:(double)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String
-    - (double)parse_withS:(NSString *)p1;
+    + (double)parse_withS:(NSString *)p1;
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    - (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
+    + (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.IFormatProvider
-    - (double)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (double)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    - (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
+    + (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -164,11 +165,11 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Double&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(double*)p2;
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(double*)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Double&
-    - (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(double*)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(double*)p4;
 @end
 //--Dubrovnik.CodeGenerator

@@ -296,9 +296,9 @@
 	// Managed method name : GetCurrentMethod
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : 
-    - (System_Reflection_MethodBase *)getCurrentMethod
+    + (System_Reflection_MethodBase *)getCurrentMethod
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCurrentMethod()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrentMethod()" withNumArgs:0];
 		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
     }
 
@@ -332,18 +332,18 @@
 	// Managed method name : GetMethodFromHandle
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.RuntimeMethodHandle
-    - (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1
+    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodFromHandle(System.RuntimeMethodHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodFromHandle(System.RuntimeMethodHandle)" withNumArgs:1, [p1 monoValue]];
 		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodFromHandle
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.RuntimeMethodHandle, System.RuntimeTypeHandle
-    - (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2
+    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodFromHandle(System.RuntimeMethodHandle,System.RuntimeTypeHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodFromHandle(System.RuntimeMethodHandle,System.RuntimeTypeHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
     }
 
@@ -386,18 +386,18 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-    - (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
+    + (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

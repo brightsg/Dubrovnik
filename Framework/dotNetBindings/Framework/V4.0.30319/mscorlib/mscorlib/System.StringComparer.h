@@ -54,7 +54,7 @@
 	// Managed method name : Create
 	// Managed return type : System.StringComparer
 	// Managed param types : System.Globalization.CultureInfo, System.Boolean
-    - (System_StringComparer *)create_withCulture:(System_Globalization_CultureInfo *)p1 ignoreCase:(BOOL)p2;
+    + (System_StringComparer *)create_withCulture:(System_Globalization_CultureInfo *)p1 ignoreCase:(BOOL)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

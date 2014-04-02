@@ -57,9 +57,9 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.Globalization.SortKey, System.Globalization.SortKey
-    - (int32_t)compare_withSortkey1:(System_Globalization_SortKey *)p1 sortkey2:(System_Globalization_SortKey *)p2
+    + (int32_t)compare_withSortkey1:(System_Globalization_SortKey *)p1 sortkey2:(System_Globalization_SortKey *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Compare(System.Globalization.SortKey,System.Globalization.SortKey)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Globalization.SortKey,System.Globalization.SortKey)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
     }
 

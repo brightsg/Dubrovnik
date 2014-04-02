@@ -131,36 +131,36 @@
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.Int32
-    - (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1
+    + (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCompareInfo(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCompareInfo(int)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Globalization_CompareInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.Int32, System.Reflection.Assembly
-    - (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1 assembly:(System_Reflection_Assembly *)p2
+    + (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1 assembly:(System_Reflection_Assembly *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCompareInfo(int,System.Reflection.Assembly)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCompareInfo(int,System.Reflection.Assembly)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		return [System_Globalization_CompareInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.String, System.Reflection.Assembly
-    - (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2
+    + (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCompareInfo(string,System.Reflection.Assembly)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCompareInfo(string,System.Reflection.Assembly)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Globalization_CompareInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.String
-    - (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1
+    + (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCompareInfo(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCompareInfo(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_CompareInfo objectWithMonoObject:monoObject];
     }
 
@@ -320,18 +320,18 @@
 	// Managed method name : IsSortable
 	// Managed return type : System.Boolean
 	// Managed param types : System.Char
-    - (BOOL)isSortable_withCh:(uint16_t)p1
+    + (BOOL)isSortable_withCh:(uint16_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSortable(char)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsSortable(char)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsSortable
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isSortable_withText:(NSString *)p1
+    + (BOOL)isSortable_withText:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSortable(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsSortable(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

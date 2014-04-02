@@ -80,18 +80,18 @@
 	// Managed method name : CreatePartialActivationContext
 	// Managed return type : System.ActivationContext
 	// Managed param types : System.ApplicationIdentity
-    - (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1
+    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreatePartialActivationContext(System.ApplicationIdentity)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity)" withNumArgs:1, [p1 monoValue]];
 		return [System_ActivationContext objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreatePartialActivationContext
 	// Managed return type : System.ActivationContext
 	// Managed param types : System.ApplicationIdentity, System.String[]
-    - (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(DBSystem_Array *)p2
+    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(DBSystem_Array *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreatePartialActivationContext(System.ApplicationIdentity,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_ActivationContext objectWithMonoObject:monoObject];
     }
 

@@ -15,8 +15,8 @@
 #pragma mark Properties
 
 	// Managed property name : CustomAttributes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * customAttributes;
 
 	// Managed property name : DeclaringType
 	// Managed property type : System.Type
@@ -61,9 +61,9 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData;
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -78,11 +78,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MemberInfo, System.Reflection.MemberInfo
-    - (BOOL)op_Equality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MemberInfo, System.Reflection.MemberInfo
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
 @end
 //--Dubrovnik.CodeGenerator

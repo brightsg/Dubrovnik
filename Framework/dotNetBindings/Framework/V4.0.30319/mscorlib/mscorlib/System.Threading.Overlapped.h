@@ -53,7 +53,7 @@
 	// Managed method name : Free
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.NativeOverlapped*
-    - (void)free_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1;
+    + (void)free_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1;
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
@@ -68,7 +68,7 @@
 	// Managed method name : Unpack
 	// Managed return type : System.Threading.Overlapped
 	// Managed param types : System.Threading.NativeOverlapped*
-    - (System_Threading_Overlapped *)unpack_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1;
+    + (System_Threading_Overlapped *)unpack_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1;
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*

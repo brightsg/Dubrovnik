@@ -39,13 +39,13 @@
 	}
 
 	// Managed property name : LowestBreakIteration
-	// Managed property type : System.Nullable<System.Int64>
+	// Managed property type : System.Nullable`1<System.Int64>
     @synthesize lowestBreakIteration = _lowestBreakIteration;
-    - (System_Nullable *)lowestBreakIteration
+    - (System_NullableA1 *)lowestBreakIteration
     {
 		MonoObject *monoObject = [self getMonoProperty:"LowestBreakIteration"];
 		if ([self object:_lowestBreakIteration isEqualToMonoObject:monoObject]) return _lowestBreakIteration;					
-		_lowestBreakIteration = [System_Nullable objectWithMonoObject:monoObject];
+		_lowestBreakIteration = [System_NullableA1 objectWithMonoObject:monoObject];
 
 		return _lowestBreakIteration;
 	}

@@ -215,9 +215,9 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope
-    - (System_Collections_IEnumerator *)getEnumerator_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1
+    + (System_Collections_IEnumerator *)getEnumerator_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator(System.IO.IsolatedStorage.IsolatedStorageScope)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnumerator(System.IO.IsolatedStorage.IsolatedStorageScope)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -260,108 +260,108 @@
 	// Managed method name : GetMachineStoreForApplication
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForApplication
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForApplication
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMachineStoreForApplication()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMachineStoreForApplication()" withNumArgs:0];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMachineStoreForAssembly
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForAssembly
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForAssembly
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMachineStoreForAssembly()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMachineStoreForAssembly()" withNumArgs:0];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMachineStoreForDomain
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForDomain
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForDomain
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMachineStoreForDomain()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMachineStoreForDomain()" withNumArgs:0];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Type, System.Type
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type,System.Type)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type,System.Type)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Security.Policy.Evidence, System.Type, System.Security.Policy.Evidence, System.Type
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Security.Policy.Evidence,System.Type,System.Security.Policy.Evidence,System.Type)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Security.Policy.Evidence,System.Type,System.Security.Policy.Evidence,System.Type)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Type
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationEvidenceType:(System_Type *)p2
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationEvidenceType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForApplication
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForApplication
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForApplication
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForApplication()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUserStoreForApplication()" withNumArgs:0];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForAssembly
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForAssembly
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForAssembly
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForAssembly()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUserStoreForAssembly()" withNumArgs:0];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForDomain
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForDomain
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForDomain
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForDomain()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUserStoreForDomain()" withNumArgs:0];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUserStoreForSite
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForSite
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForSite
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUserStoreForSite()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUserStoreForSite()" withNumArgs:0];
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
 
@@ -428,9 +428,9 @@
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope
-    - (void)remove_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1
+    + (void)remove_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1
     {
-		[self invokeMonoMethod:"Remove(System.IO.IsolatedStorage.IsolatedStorageScope)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Remove(System.IO.IsolatedStorage.IsolatedStorageScope)" withNumArgs:1, DB_VALUE(p1)];
     }
 
 #pragma mark -

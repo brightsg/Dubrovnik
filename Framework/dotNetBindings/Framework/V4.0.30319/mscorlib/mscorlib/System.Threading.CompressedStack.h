@@ -17,7 +17,7 @@
 	// Managed method name : Capture
 	// Managed return type : System.Threading.CompressedStack
 	// Managed param types : 
-    - (System_Threading_CompressedStack *)capture;
+    + (System_Threading_CompressedStack *)capture;
 
 	// Managed method name : CreateCopy
 	// Managed return type : System.Threading.CompressedStack
@@ -27,7 +27,7 @@
 	// Managed method name : GetCompressedStack
 	// Managed return type : System.Threading.CompressedStack
 	// Managed param types : 
-    - (System_Threading_CompressedStack *)getCompressedStack;
+    + (System_Threading_CompressedStack *)getCompressedStack;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void
@@ -37,6 +37,6 @@
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.CompressedStack, System.Threading.ContextCallback, System.Object
-    - (void)run_withCompressedStack:(System_Threading_CompressedStack *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
+    + (void)run_withCompressedStack:(System_Threading_CompressedStack *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -24,16 +24,16 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.TripleDES
 	// Managed param types : 
-    - (System_Security_Cryptography_TripleDES *)create;
+    + (System_Security_Cryptography_TripleDES *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.TripleDES
 	// Managed param types : System.String
-    - (System_Security_Cryptography_TripleDES *)create_withStr:(NSString *)p1;
+    + (System_Security_Cryptography_TripleDES *)create_withStr:(NSString *)p1;
 
 	// Managed method name : IsWeakKey
 	// Managed return type : System.Boolean
 	// Managed param types : System.Byte[]
-    - (BOOL)isWeakKey_withRgbKey:(NSData *)p1;
+    + (BOOL)isWeakKey_withRgbKey:(NSData *)p1;
 @end
 //--Dubrovnik.CodeGenerator

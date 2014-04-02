@@ -115,33 +115,33 @@
 	// Managed method name : RevertAll
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertAll
+    + (void)revertAll
     {
-		[self invokeMonoMethod:"RevertAll()" withNumArgs:0];
+		[self invokeMonoClassMethod:"RevertAll()" withNumArgs:0];
     }
 
 	// Managed method name : RevertAssert
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertAssert
+    + (void)revertAssert
     {
-		[self invokeMonoMethod:"RevertAssert()" withNumArgs:0];
+		[self invokeMonoClassMethod:"RevertAssert()" withNumArgs:0];
     }
 
 	// Managed method name : RevertDeny
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertDeny
+    + (void)revertDeny
     {
-		[self invokeMonoMethod:"RevertDeny()" withNumArgs:0];
+		[self invokeMonoClassMethod:"RevertDeny()" withNumArgs:0];
     }
 
 	// Managed method name : RevertPermitOnly
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertPermitOnly
+    + (void)revertPermitOnly
     {
-		[self invokeMonoMethod:"RevertPermitOnly()" withNumArgs:0];
+		[self invokeMonoClassMethod:"RevertPermitOnly()" withNumArgs:0];
     }
 
 	// Managed method name : ToString

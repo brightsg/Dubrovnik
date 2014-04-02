@@ -41,7 +41,7 @@
 	// Managed method name : Parse
 	// Managed return type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapIdrefs
 	// Managed param types : System.String
-    - (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapIdrefs *)parse_withValue:(NSString *)p1;
+    + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapIdrefs *)parse_withValue:(NSString *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

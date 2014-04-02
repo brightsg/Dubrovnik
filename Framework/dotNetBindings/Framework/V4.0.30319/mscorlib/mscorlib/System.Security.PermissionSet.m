@@ -123,9 +123,9 @@
 	// Managed method name : ConvertPermissionSet
 	// Managed return type : System.Byte[]
 	// Managed param types : System.String, System.Byte[], System.String
-    - (NSData *)convertPermissionSet_withInFormat:(NSString *)p1 inData:(NSData *)p2 outFormat:(NSString *)p3
+    + (NSData *)convertPermissionSet_withInFormat:(NSString *)p1 inData:(NSData *)p2 outFormat:(NSString *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertPermissionSet(string,byte[],string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertPermissionSet(string,byte[],string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -262,9 +262,9 @@
 	// Managed method name : RevertAssert
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)revertAssert
+    + (void)revertAssert
     {
-		[self invokeMonoMethod:"RevertAssert()" withNumArgs:0];
+		[self invokeMonoClassMethod:"RevertAssert()" withNumArgs:0];
     }
 
 	// Managed method name : SetPermission

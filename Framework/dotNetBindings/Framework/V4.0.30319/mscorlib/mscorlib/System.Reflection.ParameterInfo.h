@@ -19,8 +19,8 @@
     @property (nonatomic, readonly) System_Reflection_ParameterAttributes attributes;
 
 	// Managed property name : CustomAttributes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * customAttributes;
 
 	// Managed property name : DefaultValue
 	// Managed property type : System.Object
@@ -88,9 +88,9 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData;
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
 
 	// Managed method name : GetOptionalCustomModifiers
 	// Managed return type : System.Type[]

@@ -32,11 +32,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.LockCookie, System.Threading.LockCookie
-    - (BOOL)op_Equality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2;
+    + (BOOL)op_Equality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.LockCookie, System.Threading.LockCookie
-    - (BOOL)op_Inequality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2;
+    + (BOOL)op_Inequality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -85,7 +85,7 @@
 	// Managed method name : GetAssemblyName
 	// Managed return type : System.Reflection.AssemblyName
 	// Managed param types : System.String
-    - (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1;
+    + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void
@@ -110,7 +110,7 @@
 	// Managed method name : ReferenceMatchesDefinition
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.AssemblyName, System.Reflection.AssemblyName
-    - (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2;
+    + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2;
 
 	// Managed method name : SetPublicKey
 	// Managed return type : System.Void

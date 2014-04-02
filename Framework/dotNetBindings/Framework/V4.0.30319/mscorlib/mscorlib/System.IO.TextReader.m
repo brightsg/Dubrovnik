@@ -86,12 +86,12 @@
     }
 
 	// Managed method name : ReadAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_Task *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadBlock
@@ -104,12 +104,12 @@
     }
 
 	// Managed method name : ReadBlockAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_Task *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadBlockAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadLine
@@ -122,12 +122,12 @@
     }
 
 	// Managed method name : ReadLineAsync
-	// Managed return type : System.Threading.Tasks.Task<System.String>
+	// Managed return type : System.Threading.Tasks.Task`1<System.String>
 	// Managed param types : 
-    - (System_Threading_Tasks_Task *)readLineAsync
+    - (System_Threading_Tasks_TaskA1 *)readLineAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadLineAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadToEnd
@@ -140,20 +140,20 @@
     }
 
 	// Managed method name : ReadToEndAsync
-	// Managed return type : System.Threading.Tasks.Task<System.String>
+	// Managed return type : System.Threading.Tasks.Task`1<System.String>
 	// Managed param types : 
-    - (System_Threading_Tasks_Task *)readToEndAsync
+    - (System_Threading_Tasks_TaskA1 *)readToEndAsync
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadToEndAsync()" withNumArgs:0];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Synchronized
 	// Managed return type : System.IO.TextReader
 	// Managed param types : System.IO.TextReader
-    - (System_IO_TextReader *)synchronized_withReader:(System_IO_TextReader *)p1
+    + (System_IO_TextReader *)synchronized_withReader:(System_IO_TextReader *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Synchronized(System.IO.TextReader)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.IO.TextReader)" withNumArgs:1, [p1 monoValue]];
 		return [System_IO_TextReader objectWithMonoObject:monoObject];
     }
 

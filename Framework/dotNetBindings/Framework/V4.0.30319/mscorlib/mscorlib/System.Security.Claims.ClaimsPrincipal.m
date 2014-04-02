@@ -37,10 +37,10 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsPrincipal
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>
-    + (System_Security_Claims_ClaimsPrincipal *)new_withIdentities:(System_Collections_Generic_IEnumerable *)p1
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.ClaimsIdentity>
+    + (System_Security_Claims_ClaimsPrincipal *)new_withIdentities:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.ClaimsIdentity>" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : .ctor
@@ -55,29 +55,29 @@
 #pragma mark Properties
 
 	// Managed property name : Claims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize claims = _claims;
-    - (System_Collections_Generic_IEnumerable *)claims
+    - (System_Collections_Generic_IEnumerableA1 *)claims
     {
 		MonoObject *monoObject = [self getMonoProperty:"Claims"];
 		if ([self object:_claims isEqualToMonoObject:monoObject]) return _claims;					
-		_claims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_claims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _claims;
 	}
 
 	// Managed property name : ClaimsPrincipalSelector
-	// Managed property type : System.Func<System.Security.Claims.ClaimsPrincipal>
-    static System_Func * m_claimsPrincipalSelector;
-    + (System_Func *)claimsPrincipalSelector
+	// Managed property type : System.Func`1<System.Security.Claims.ClaimsPrincipal>
+    static System_FuncA1 * m_claimsPrincipalSelector;
+    + (System_FuncA1 *)claimsPrincipalSelector
     {
 		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClaimsPrincipalSelector"];
 		if ([self object:m_claimsPrincipalSelector isEqualToMonoObject:monoObject]) return m_claimsPrincipalSelector;					
-		m_claimsPrincipalSelector = [System_Func objectWithMonoObject:monoObject];
+		m_claimsPrincipalSelector = [System_FuncA1 objectWithMonoObject:monoObject];
 
 		return m_claimsPrincipalSelector;
 	}
-    + (void)setClaimsPrincipalSelector:(System_Func *)value
+    + (void)setClaimsPrincipalSelector:(System_FuncA1 *)value
 	{
 		m_claimsPrincipalSelector = value;
 		MonoObject *monoObject = [value monoObject];
@@ -97,13 +97,13 @@
 	}
 
 	// Managed property name : Identities
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.ClaimsIdentity>
     @synthesize identities = _identities;
-    - (System_Collections_Generic_IEnumerable *)identities
+    - (System_Collections_Generic_IEnumerableA1 *)identities
     {
 		MonoObject *monoObject = [self getMonoProperty:"Identities"];
 		if ([self object:_identities isEqualToMonoObject:monoObject]) return _identities;					
-		_identities = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_identities = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _identities;
 	}
@@ -121,17 +121,17 @@
 	}
 
 	// Managed property name : PrimaryIdentitySelector
-	// Managed property type : System.Func<System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>, System.Security.Claims.ClaimsIdentity>
-    static System_Func * m_primaryIdentitySelector;
-    + (System_Func *)primaryIdentitySelector
+	// Managed property type : System.Func`2<System.Collections.Generic.IEnumerable`1<System.Security.Claims.ClaimsIdentity>, System.Security.Claims.ClaimsIdentity>
+    static System_FuncA2 * m_primaryIdentitySelector;
+    + (System_FuncA2 *)primaryIdentitySelector
     {
 		MonoObject *monoObject = [[self class] getMonoClassProperty:"PrimaryIdentitySelector"];
 		if ([self object:m_primaryIdentitySelector isEqualToMonoObject:monoObject]) return m_primaryIdentitySelector;					
-		m_primaryIdentitySelector = [System_Func objectWithMonoObject:monoObject];
+		m_primaryIdentitySelector = [System_FuncA2 objectWithMonoObject:monoObject];
 
 		return m_primaryIdentitySelector;
 	}
-    + (void)setPrimaryIdentitySelector:(System_Func *)value
+    + (void)setPrimaryIdentitySelector:(System_FuncA2 *)value
 	{
 		m_primaryIdentitySelector = value;
 		MonoObject *monoObject = [value monoObject];
@@ -143,10 +143,10 @@
 
 	// Managed method name : AddIdentities
 	// Managed return type : System.Void
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>
-    - (void)addIdentities_withIdentities:(System_Collections_Generic_IEnumerable *)p1
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.ClaimsIdentity>
+    - (void)addIdentities_withIdentities:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		[self invokeMonoMethod:"AddIdentities(System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AddIdentities(System.Collections.Generic.IEnumerable`1<System.Security.Claims.ClaimsIdentity>)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : AddIdentity
@@ -158,29 +158,29 @@
     }
 
 	// Managed method name : FindAll
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-	// Managed param types : System.Predicate<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerable *)findAll_withMatch:(System_Predicate *)p1
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+	// Managed param types : System.Predicate`1<System.Security.Claims.Claim>
+    - (System_Collections_Generic_IEnumerableA1 *)findAll_withMatch:(System_PredicateA1 *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindAll
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)findAll_withType:(NSString *)p1
+    - (System_Collections_Generic_IEnumerableA1 *)findAll_withType:(NSString *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(string)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindFirst
 	// Managed return type : System.Security.Claims.Claim
-	// Managed param types : System.Predicate<System.Security.Claims.Claim>
-    - (System_Security_Claims_Claim *)findFirst_withMatch:(System_Predicate *)p1
+	// Managed param types : System.Predicate`1<System.Security.Claims.Claim>
+    - (System_Security_Claims_Claim *)findFirst_withMatch:(System_PredicateA1 *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
 
@@ -195,10 +195,10 @@
 
 	// Managed method name : HasClaim
 	// Managed return type : System.Boolean
-	// Managed param types : System.Predicate<System.Security.Claims.Claim>
-    - (BOOL)hasClaim_withMatch:(System_Predicate *)p1
+	// Managed param types : System.Predicate`1<System.Security.Claims.Claim>
+    - (BOOL)hasClaim_withMatch:(System_PredicateA1 *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(System.Predicate<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

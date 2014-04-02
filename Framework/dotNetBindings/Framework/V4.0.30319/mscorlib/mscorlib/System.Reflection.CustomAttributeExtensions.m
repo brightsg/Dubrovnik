@@ -30,216 +30,216 @@
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
 	// Managed param types : System.Reflection.Assembly, System.Type
-    - (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
 	// Managed param types : System.Reflection.Module, System.Type
-    - (System_Attribute *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Attribute *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
 	// Managed param types : System.Reflection.MemberInfo, System.Type
-    - (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
 	// Managed param types : System.Reflection.ParameterInfo, System.Type
-    - (System_Attribute *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Attribute *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.Assembly
-    - (DBManagedObject *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1
+    + (DBManagedObject *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.Module
-    - (DBManagedObject *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1
+    + (DBManagedObject *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.MemberInfo
-    - (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1
+    + (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.ParameterInfo
-    - (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1
+    + (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.ParameterInfo)" withNumArgs:1, [p1 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
 	// Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
-    - (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : System.Attribute
 	// Managed param types : System.Reflection.ParameterInfo, System.Type, System.Boolean
-    - (System_Attribute *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    + (System_Attribute *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return [System_Attribute objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.MemberInfo, System.Boolean
-    - (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2
+    + (DBManagedObject *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.MemberInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.MemberInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttribute
 	// Managed return type : <T>
 	// Managed param types : System.Reflection.ParameterInfo, System.Boolean
-    - (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 inheritBool:(BOOL)p2
+    + (DBManagedObject *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 inheritBool:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.ParameterInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Attribute>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Attribute>
 	// Managed param types : System.Reflection.Assembly, System.Type
-    - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Collections_Generic_IEnumerableA1 *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Attribute>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Attribute>
 	// Managed param types : System.Reflection.Module, System.Type
-    - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Collections_Generic_IEnumerableA1 *)getCustomAttributes_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Attribute>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Attribute>
 	// Managed param types : System.Reflection.MemberInfo, System.Type
-    - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Collections_Generic_IEnumerableA1 *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Attribute>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Attribute>
 	// Managed param types : System.Reflection.ParameterInfo, System.Type
-    - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
+    + (System_Collections_Generic_IEnumerableA1 *)getCustomAttributes_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Attribute>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Attribute>
 	// Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
-    - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    + (System_Collections_Generic_IEnumerableA1 *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Attribute>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Attribute>
 	// Managed param types : System.Reflection.ParameterInfo, System.Type, System.Boolean
-    - (System_Collections_Generic_IEnumerable *)getCustomAttributes_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    + (System_Collections_Generic_IEnumerableA1 *)getCustomAttributes_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly, System.Type
-    - (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
+    + (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Module, System.Type
-    - (BOOL)isDefined_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
+    + (BOOL)isDefined_withElementSRModule:(System_Reflection_Module *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.Module,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MemberInfo, System.Type
-    - (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
+    + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.ParameterInfo, System.Type
-    - (BOOL)isDefined_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
+    + (BOOL)isDefined_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.ParameterInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
-    - (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.ParameterInfo, System.Type, System.Boolean
-    - (BOOL)isDefined_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    + (BOOL)isDefined_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.ParameterInfo,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

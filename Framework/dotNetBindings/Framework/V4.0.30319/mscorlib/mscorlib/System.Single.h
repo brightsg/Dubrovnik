@@ -74,72 +74,72 @@
 	// Managed method name : IsInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single
-    - (BOOL)isInfinity_withF:(float)p1;
+    + (BOOL)isInfinity_withF:(float)p1;
 
 	// Managed method name : IsNaN
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single
-    - (BOOL)isNaN_withF:(float)p1;
+    + (BOOL)isNaN_withF:(float)p1;
 
 	// Managed method name : IsNegativeInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single
-    - (BOOL)isNegativeInfinity_withF:(float)p1;
+    + (BOOL)isNegativeInfinity_withF:(float)p1;
 
 	// Managed method name : IsPositiveInfinity
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single
-    - (BOOL)isPositiveInfinity_withF:(float)p1;
+    + (BOOL)isPositiveInfinity_withF:(float)p1;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single, System.Single
-    - (BOOL)op_Equality_withLeft:(float)p1 right:(float)p2;
+    + (BOOL)op_Equality_withLeft:(float)p1 right:(float)p2;
 
 	// Managed method name : op_GreaterThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single, System.Single
-    - (BOOL)op_GreaterThan_withLeft:(float)p1 right:(float)p2;
+    + (BOOL)op_GreaterThan_withLeft:(float)p1 right:(float)p2;
 
 	// Managed method name : op_GreaterThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single, System.Single
-    - (BOOL)op_GreaterThanOrEqual_withLeft:(float)p1 right:(float)p2;
+    + (BOOL)op_GreaterThanOrEqual_withLeft:(float)p1 right:(float)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single, System.Single
-    - (BOOL)op_Inequality_withLeft:(float)p1 right:(float)p2;
+    + (BOOL)op_Inequality_withLeft:(float)p1 right:(float)p2;
 
 	// Managed method name : op_LessThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single, System.Single
-    - (BOOL)op_LessThan_withLeft:(float)p1 right:(float)p2;
+    + (BOOL)op_LessThan_withLeft:(float)p1 right:(float)p2;
 
 	// Managed method name : op_LessThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Single, System.Single
-    - (BOOL)op_LessThanOrEqual_withLeft:(float)p1 right:(float)p2;
+    + (BOOL)op_LessThanOrEqual_withLeft:(float)p1 right:(float)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Single
 	// Managed param types : System.String
-    - (float)parse_withS:(NSString *)p1;
+    + (float)parse_withS:(NSString *)p1;
 
 	// Managed method name : Parse
 	// Managed return type : System.Single
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    - (float)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
+    + (float)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Single
 	// Managed param types : System.String, System.IFormatProvider
-    - (float)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (float)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Single
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    - (float)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
+    + (float)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -164,11 +164,11 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Single&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(float*)p2;
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(float*)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Single&
-    - (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(float*)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(float*)p4;
 @end
 //--Dubrovnik.CodeGenerator

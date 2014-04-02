@@ -17,11 +17,11 @@
 	// Managed method name : SetProfileRoot
 	// Managed return type : System.Void
 	// Managed param types : System.String
-    - (void)setProfileRoot_withDirectoryPath:(NSString *)p1;
+    + (void)setProfileRoot_withDirectoryPath:(NSString *)p1;
 
 	// Managed method name : StartProfile
 	// Managed return type : System.Void
 	// Managed param types : System.String
-    - (void)startProfile_withProfile:(NSString *)p1;
+    + (void)startProfile_withProfile:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

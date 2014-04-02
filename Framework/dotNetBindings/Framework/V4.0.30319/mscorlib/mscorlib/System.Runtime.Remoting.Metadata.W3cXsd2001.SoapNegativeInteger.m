@@ -83,9 +83,9 @@
 	// Managed method name : Parse
 	// Managed return type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNegativeInteger
 	// Managed param types : System.String
-    - (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapNegativeInteger *)parse_withValue:(NSString *)p1
+    + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapNegativeInteger *)parse_withValue:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapNegativeInteger objectWithMonoObject:monoObject];
     }
 

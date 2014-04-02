@@ -563,18 +563,18 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.NumberFormatInfo
 	// Managed param types : System.IFormatProvider
-    - (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1
+    + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.NumberFormatInfo
 	// Managed param types : System.Globalization.NumberFormatInfo
-    - (System_Globalization_NumberFormatInfo *)readOnly_withNfi:(System_Globalization_NumberFormatInfo *)p1
+    + (System_Globalization_NumberFormatInfo *)readOnly_withNfi:(System_Globalization_NumberFormatInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadOnly(System.Globalization.NumberFormatInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.NumberFormatInfo)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
     }
 

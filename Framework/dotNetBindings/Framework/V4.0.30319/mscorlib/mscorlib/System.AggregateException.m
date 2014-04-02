@@ -45,10 +45,10 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Exception>
-    + (System_AggregateException *)new_withInnerExceptionsSCGIException:(System_Collections_Generic_IEnumerable *)p1
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
+    + (System_AggregateException *)new_withInnerExceptionsSCGIException:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable<System.Exception>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Exception>" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : .ctor
@@ -61,10 +61,10 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
-	// Managed param types : System.String, System.Collections.Generic.IEnumerable<System.Exception>
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSCGIException:(System_Collections_Generic_IEnumerable *)p2
+	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.Exception>
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSCGIException:(System_Collections_Generic_IEnumerableA1 *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Collections.Generic.IEnumerable<System.Exception>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"string,System.Collections.Generic.IEnumerable`1<System.Exception>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : .ctor
@@ -79,13 +79,13 @@
 #pragma mark Properties
 
 	// Managed property name : InnerExceptions
-	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Exception>
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Exception>
     @synthesize innerExceptions = _innerExceptions;
-    - (System_Collections_ObjectModel_ReadOnlyCollection *)innerExceptions
+    - (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)innerExceptions
     {
 		MonoObject *monoObject = [self getMonoProperty:"InnerExceptions"];
 		if ([self object:_innerExceptions isEqualToMonoObject:monoObject]) return _innerExceptions;					
-		_innerExceptions = [System_Collections_ObjectModel_ReadOnlyCollection objectWithMonoObject:monoObject];
+		_innerExceptions = [System_Collections_ObjectModel_ReadOnlyCollectionA1 objectWithMonoObject:monoObject];
 
 		return _innerExceptions;
 	}
@@ -121,10 +121,10 @@
 
 	// Managed method name : Handle
 	// Managed return type : System.Void
-	// Managed param types : System.Func<System.Exception, System.Boolean>
-    - (void)handle_withPredicate:(System_Func *)p1
+	// Managed param types : System.Func`2<System.Exception, System.Boolean>
+    - (void)handle_withPredicate:(System_FuncA2 *)p1
     {
-		[self invokeMonoMethod:"Handle(System.Func<System.Exception, System.Boolean>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Handle(System.Func`2<System.Exception, System.Boolean>)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : ToString

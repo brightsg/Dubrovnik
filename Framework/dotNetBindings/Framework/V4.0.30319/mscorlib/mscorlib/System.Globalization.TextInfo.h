@@ -71,7 +71,7 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.TextInfo
 	// Managed param types : System.Globalization.TextInfo
-    - (System_Globalization_TextInfo *)readOnly_withTextInfo:(System_Globalization_TextInfo *)p1;
+    + (System_Globalization_TextInfo *)readOnly_withTextInfo:(System_Globalization_TextInfo *)p1;
 
 	// Managed method name : ToLower
 	// Managed return type : System.Char

@@ -37,17 +37,17 @@
 
 	// Managed method name : SpinUntil
 	// Managed return type : System.Void
-	// Managed param types : System.Func<System.Boolean>
-    - (void)spinUntil_withCondition:(System_Func *)p1;
+	// Managed param types : System.Func`1<System.Boolean>
+    + (void)spinUntil_withCondition:(System_FuncA1 *)p1;
 
 	// Managed method name : SpinUntil
 	// Managed return type : System.Boolean
-	// Managed param types : System.Func<System.Boolean>, System.TimeSpan
-    - (BOOL)spinUntil_withCondition:(System_Func *)p1 timeout:(System_TimeSpan *)p2;
+	// Managed param types : System.Func`1<System.Boolean>, System.TimeSpan
+    + (BOOL)spinUntil_withCondition:(System_FuncA1 *)p1 timeout:(System_TimeSpan *)p2;
 
 	// Managed method name : SpinUntil
 	// Managed return type : System.Boolean
-	// Managed param types : System.Func<System.Boolean>, System.Int32
-    - (BOOL)spinUntil_withCondition:(System_Func *)p1 millisecondsTimeout:(int32_t)p2;
+	// Managed param types : System.Func`1<System.Boolean>, System.Int32
+    + (BOOL)spinUntil_withCondition:(System_FuncA1 *)p1 millisecondsTimeout:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

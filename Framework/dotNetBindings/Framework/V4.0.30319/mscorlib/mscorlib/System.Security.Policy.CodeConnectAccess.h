@@ -55,12 +55,12 @@
 	// Managed method name : CreateAnySchemeAccess
 	// Managed return type : System.Security.Policy.CodeConnectAccess
 	// Managed param types : System.Int32
-    - (System_Security_Policy_CodeConnectAccess *)createAnySchemeAccess_withAllowPort:(int32_t)p1;
+    + (System_Security_Policy_CodeConnectAccess *)createAnySchemeAccess_withAllowPort:(int32_t)p1;
 
 	// Managed method name : CreateOriginSchemeAccess
 	// Managed return type : System.Security.Policy.CodeConnectAccess
 	// Managed param types : System.Int32
-    - (System_Security_Policy_CodeConnectAccess *)createOriginSchemeAccess_withAllowPort:(int32_t)p1;
+    + (System_Security_Policy_CodeConnectAccess *)createOriginSchemeAccess_withAllowPort:(int32_t)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

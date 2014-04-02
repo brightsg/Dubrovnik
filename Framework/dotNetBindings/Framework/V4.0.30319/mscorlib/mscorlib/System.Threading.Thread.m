@@ -287,35 +287,35 @@
 	// Managed method name : AllocateDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : 
-    - (System_LocalDataStoreSlot *)allocateDataSlot
+    + (System_LocalDataStoreSlot *)allocateDataSlot
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"AllocateDataSlot()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateDataSlot()" withNumArgs:0];
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AllocateNamedDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : System.String
-    - (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1
+    + (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BeginCriticalRegion
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)beginCriticalRegion
+    + (void)beginCriticalRegion
     {
-		[self invokeMonoMethod:"BeginCriticalRegion()" withNumArgs:0];
+		[self invokeMonoClassMethod:"BeginCriticalRegion()" withNumArgs:0];
     }
 
 	// Managed method name : BeginThreadAffinity
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)beginThreadAffinity
+    + (void)beginThreadAffinity
     {
-		[self invokeMonoMethod:"BeginThreadAffinity()" withNumArgs:0];
+		[self invokeMonoClassMethod:"BeginThreadAffinity()" withNumArgs:0];
     }
 
 	// Managed method name : DisableComObjectEagerCleanup
@@ -329,25 +329,25 @@
 	// Managed method name : EndCriticalRegion
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)endCriticalRegion
+    + (void)endCriticalRegion
     {
-		[self invokeMonoMethod:"EndCriticalRegion()" withNumArgs:0];
+		[self invokeMonoClassMethod:"EndCriticalRegion()" withNumArgs:0];
     }
 
 	// Managed method name : EndThreadAffinity
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)endThreadAffinity
+    + (void)endThreadAffinity
     {
-		[self invokeMonoMethod:"EndThreadAffinity()" withNumArgs:0];
+		[self invokeMonoClassMethod:"EndThreadAffinity()" withNumArgs:0];
     }
 
 	// Managed method name : FreeNamedDataSlot
 	// Managed return type : System.Void
 	// Managed param types : System.String
-    - (void)freeNamedDataSlot_withName:(NSString *)p1
+    + (void)freeNamedDataSlot_withName:(NSString *)p1
     {
-		[self invokeMonoMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : GetApartmentState
@@ -371,27 +371,27 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.LocalDataStoreSlot
-    - (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1
+    + (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : 
-    - (System_AppDomain *)getDomain
+    + (System_AppDomain *)getDomain
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDomain()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDomain()" withNumArgs:0];
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDomainID
 	// Managed return type : System.Int32
 	// Managed param types : 
-    - (int32_t)getDomainID
+    + (int32_t)getDomainID
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDomainID()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDomainID()" withNumArgs:0];
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -407,9 +407,9 @@
 	// Managed method name : GetNamedDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : System.String
-    - (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1
+    + (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
@@ -450,17 +450,17 @@
 	// Managed method name : MemoryBarrier
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)memoryBarrier
+    + (void)memoryBarrier
     {
-		[self invokeMonoMethod:"MemoryBarrier()" withNumArgs:0];
+		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];
     }
 
 	// Managed method name : ResetAbort
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)resetAbort
+    + (void)resetAbort
     {
-		[self invokeMonoMethod:"ResetAbort()" withNumArgs:0];
+		[self invokeMonoClassMethod:"ResetAbort()" withNumArgs:0];
     }
 
 	// Managed method name : Resume
@@ -490,33 +490,33 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.LocalDataStoreSlot, System.Object
-    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
+    + (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : Sleep
 	// Managed return type : System.Void
 	// Managed param types : System.Int32
-    - (void)sleep_withMillisecondsTimeout:(int32_t)p1
+    + (void)sleep_withMillisecondsTimeout:(int32_t)p1
     {
-		[self invokeMonoMethod:"Sleep(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Sleep(int)" withNumArgs:1, DB_VALUE(p1)];
     }
 
 	// Managed method name : Sleep
 	// Managed return type : System.Void
 	// Managed param types : System.TimeSpan
-    - (void)sleep_withTimeout:(System_TimeSpan *)p1
+    + (void)sleep_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : SpinWait
 	// Managed return type : System.Void
 	// Managed param types : System.Int32
-    - (void)spinWait_withIterations:(int32_t)p1
+    + (void)spinWait_withIterations:(int32_t)p1
     {
-		[self invokeMonoMethod:"SpinWait(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"SpinWait(int)" withNumArgs:1, DB_VALUE(p1)];
     }
 
 	// Managed method name : Start
@@ -555,230 +555,230 @@
 	// Managed method name : VolatileRead
 	// Managed return type : System.Byte
 	// Managed param types : ref System.Byte&
-    - (uint8_t)volatileRead_withAddressByteRef:(uint8_t*)p1
+    + (uint8_t)volatileRead_withAddressByteRef:(uint8_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(byte&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(byte&)" withNumArgs:1, p1];
 		return DB_UNBOX_UINT8(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Int16
 	// Managed param types : ref System.Int16&
-    - (int16_t)volatileRead_withAddressInt16Ref:(int16_t*)p1
+    + (int16_t)volatileRead_withAddressInt16Ref:(int16_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(int16&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(int16&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT16(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Int32
 	// Managed param types : ref System.Int32&
-    - (int32_t)volatileRead_withAddressIntRef:(int32_t*)p1
+    + (int32_t)volatileRead_withAddressIntRef:(int32_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(int&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(int&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Int64
 	// Managed param types : ref System.Int64&
-    - (int64_t)volatileRead_withAddressLongRef:(int64_t*)p1
+    + (int64_t)volatileRead_withAddressLongRef:(int64_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(long&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(long&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT64(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.SByte
 	// Managed param types : ref System.SByte&
-    - (int8_t)volatileRead_withAddressSbyteRef:(int8_t*)p1
+    + (int8_t)volatileRead_withAddressSbyteRef:(int8_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(sbyte&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(sbyte&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT8(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UInt16
 	// Managed param types : ref System.UInt16&
-    - (uint16_t)volatileRead_withAddressUint16Ref:(uint16_t*)p1
+    + (uint16_t)volatileRead_withAddressUint16Ref:(uint16_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(uint16&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(uint16&)" withNumArgs:1, p1];
 		return DB_UNBOX_UINT16(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UInt32
 	// Managed param types : ref System.UInt32&
-    - (uint32_t)volatileRead_withAddressUintRef:(uint32_t*)p1
+    + (uint32_t)volatileRead_withAddressUintRef:(uint32_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(uint&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(uint&)" withNumArgs:1, p1];
 		return DB_UNBOX_UINT32(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.IntPtr
 	// Managed param types : ref System.IntPtr&
-    - (void *)volatileRead_withAddressIntptrRef:(void **)p1
+    + (void *)volatileRead_withAddressIntptrRef:(void **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(intptr&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(intptr&)" withNumArgs:1, p1];
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UIntPtr
 	// Managed param types : ref System.UIntPtr&
-    - (void *)volatileRead_withAddressUintptrRef:(void **)p1
+    + (void *)volatileRead_withAddressUintptrRef:(void **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(uintptr&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(uintptr&)" withNumArgs:1, p1];
 		return DB_UNBOX_UPTR(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UInt64
 	// Managed param types : ref System.UInt64&
-    - (uint64_t)volatileRead_withAddressUlongRef:(uint64_t*)p1
+    + (uint64_t)volatileRead_withAddressUlongRef:(uint64_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(ulong&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(ulong&)" withNumArgs:1, p1];
 		return DB_UNBOX_UINT64(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Single
 	// Managed param types : ref System.Single&
-    - (float)volatileRead_withAddressSingleRef:(float*)p1
+    + (float)volatileRead_withAddressSingleRef:(float*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(single&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(single&)" withNumArgs:1, p1];
 		return DB_UNBOX_FLOAT(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Double
 	// Managed param types : ref System.Double&
-    - (double)volatileRead_withAddressDoubleRef:(double*)p1
+    + (double)volatileRead_withAddressDoubleRef:(double*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(double&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(double&)" withNumArgs:1, p1];
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&
-    - (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1
+    + (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"VolatileRead(object&)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(object&)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Byte&, System.Byte
-    - (void)volatileWrite_withAddressByteRef:(uint8_t*)p1 valueByte:(uint8_t)p2
+    + (void)volatileWrite_withAddressByteRef:(uint8_t*)p1 valueByte:(uint8_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(byte&,byte)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(byte&,byte)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Int16&, System.Int16
-    - (void)volatileWrite_withAddressInt16Ref:(int16_t*)p1 valueInt16:(int16_t)p2
+    + (void)volatileWrite_withAddressInt16Ref:(int16_t*)p1 valueInt16:(int16_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(int16&,int16)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(int16&,int16)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Int32&, System.Int32
-    - (void)volatileWrite_withAddressIntRef:(int32_t*)p1 valueInt:(int32_t)p2
+    + (void)volatileWrite_withAddressIntRef:(int32_t*)p1 valueInt:(int32_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Int64&, System.Int64
-    - (void)volatileWrite_withAddressLongRef:(int64_t*)p1 valueLong:(int64_t)p2
+    + (void)volatileWrite_withAddressLongRef:(int64_t*)p1 valueLong:(int64_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.SByte&, System.SByte
-    - (void)volatileWrite_withAddressSbyteRef:(int8_t*)p1 valueSbyte:(int8_t)p2
+    + (void)volatileWrite_withAddressSbyteRef:(int8_t*)p1 valueSbyte:(int8_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(sbyte&,sbyte)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(sbyte&,sbyte)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UInt16&, System.UInt16
-    - (void)volatileWrite_withAddressUint16Ref:(uint16_t*)p1 valueUint16:(uint16_t)p2
+    + (void)volatileWrite_withAddressUint16Ref:(uint16_t*)p1 valueUint16:(uint16_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(uint16&,uint16)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(uint16&,uint16)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UInt32&, System.UInt32
-    - (void)volatileWrite_withAddressUintRef:(uint32_t*)p1 valueUint:(uint32_t)p2
+    + (void)volatileWrite_withAddressUintRef:(uint32_t*)p1 valueUint:(uint32_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(uint&,uint)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(uint&,uint)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.IntPtr&, System.IntPtr
-    - (void)volatileWrite_withAddressIntptrRef:(void **)p1 valueIntptr:(void *)p2
+    + (void)volatileWrite_withAddressIntptrRef:(void **)p1 valueIntptr:(void *)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(intptr&,intptr)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(intptr&,intptr)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UIntPtr&, System.UIntPtr
-    - (void)volatileWrite_withAddressUintptrRef:(void **)p1 valueUintptr:(void *)p2
+    + (void)volatileWrite_withAddressUintptrRef:(void **)p1 valueUintptr:(void *)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(uintptr&,uintptr)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(uintptr&,uintptr)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UInt64&, System.UInt64
-    - (void)volatileWrite_withAddressUlongRef:(uint64_t*)p1 valueUlong:(uint64_t)p2
+    + (void)volatileWrite_withAddressUlongRef:(uint64_t*)p1 valueUlong:(uint64_t)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(ulong&,ulong)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(ulong&,ulong)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Single&, System.Single
-    - (void)volatileWrite_withAddressSingleRef:(float*)p1 valueSingle:(float)p2
+    + (void)volatileWrite_withAddressSingleRef:(float*)p1 valueSingle:(float)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(single&,single)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(single&,single)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Double&, System.Double
-    - (void)volatileWrite_withAddressDoubleRef:(double*)p1 valueDouble:(double)p2
+    + (void)volatileWrite_withAddressDoubleRef:(double*)p1 valueDouble:(double)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(double&,double)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(double&,double)" withNumArgs:2, p1, DB_VALUE(p2)];
     }
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Object&, System.Object
-    - (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
+    + (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
-		[self invokeMonoMethod:"VolatileWrite(object&,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"VolatileWrite(object&,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : Yield
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)yield
+    + (BOOL)yield
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Yield()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Yield()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

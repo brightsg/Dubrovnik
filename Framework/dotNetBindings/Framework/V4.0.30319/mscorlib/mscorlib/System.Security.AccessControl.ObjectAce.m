@@ -116,9 +116,9 @@
 	// Managed method name : MaxOpaqueLength
 	// Managed return type : System.Int32
 	// Managed param types : System.Boolean
-    - (int32_t)maxOpaqueLength_withIsCallback:(BOOL)p1
+    + (int32_t)maxOpaqueLength_withIsCallback:(BOOL)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"MaxOpaqueLength(bool)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"MaxOpaqueLength(bool)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_INT32(monoObject);
     }
 

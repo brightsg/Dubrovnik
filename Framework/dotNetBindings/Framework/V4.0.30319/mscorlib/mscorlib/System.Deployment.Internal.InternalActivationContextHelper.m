@@ -30,63 +30,63 @@
 	// Managed method name : GetActivationContextData
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (System_Object *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1
+    + (System_Object *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetActivationContextData(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetActivationContextData(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetApplicationComponentManifest
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (System_Object *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1
+    + (System_Object *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetApplicationComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetApplicationManifestBytes
 	// Managed return type : System.Byte[]
 	// Managed param types : System.ActivationContext
-    - (NSData *)getApplicationManifestBytes_withAppInfo:(System_ActivationContext *)p1
+    + (NSData *)getApplicationManifestBytes_withAppInfo:(System_ActivationContext *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetApplicationManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetDeploymentComponentManifest
 	// Managed return type : System.Object
 	// Managed param types : System.ActivationContext
-    - (System_Object *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1
+    + (System_Object *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeploymentComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeploymentManifestBytes
 	// Managed return type : System.Byte[]
 	// Managed param types : System.ActivationContext
-    - (NSData *)getDeploymentManifestBytes_withAppInfo:(System_ActivationContext *)p1
+    + (NSData *)getDeploymentManifestBytes_withAppInfo:(System_ActivationContext *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeploymentManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : IsFirstRun
 	// Managed return type : System.Boolean
 	// Managed param types : System.ActivationContext
-    - (BOOL)isFirstRun_withAppInfo:(System_ActivationContext *)p1
+    + (BOOL)isFirstRun_withAppInfo:(System_ActivationContext *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsFirstRun(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsFirstRun(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : PrepareForExecution
 	// Managed return type : System.Void
 	// Managed param types : System.ActivationContext
-    - (void)prepareForExecution_withAppInfo:(System_ActivationContext *)p1
+    + (void)prepareForExecution_withAppInfo:(System_ActivationContext *)p1
     {
-		[self invokeMonoMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
     }
 
 #pragma mark -

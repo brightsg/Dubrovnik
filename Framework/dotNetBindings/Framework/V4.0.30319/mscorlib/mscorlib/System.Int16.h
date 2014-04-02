@@ -58,22 +58,22 @@
 	// Managed method name : Parse
 	// Managed return type : System.Int16
 	// Managed param types : System.String
-    - (int16_t)parse_withS:(NSString *)p1;
+    + (int16_t)parse_withS:(NSString *)p1;
 
 	// Managed method name : Parse
 	// Managed return type : System.Int16
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    - (int16_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
+    + (int16_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Int16
 	// Managed param types : System.String, System.IFormatProvider
-    - (int16_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (int16_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Int16
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    - (int16_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
+    + (int16_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -87,22 +87,22 @@
 
 	// Managed method name : ToString
 	// Managed return type : System.String
-	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+	// Managed param types : System.String
+    - (NSString *)toString_withFormat:(NSString *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
-	// Managed param types : System.String
-    - (NSString *)toString_withFormat:(NSString *)p1;
+	// Managed param types : System.String, System.IFormatProvider
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Int16&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int16_t*)p2;
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int16_t*)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Int16&
-    - (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(int16_t*)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(int16_t*)p4;
 @end
 //--Dubrovnik.CodeGenerator

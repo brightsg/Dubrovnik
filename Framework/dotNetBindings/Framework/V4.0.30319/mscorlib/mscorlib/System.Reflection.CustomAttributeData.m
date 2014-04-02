@@ -52,25 +52,25 @@
 	}
 
 	// Managed property name : ConstructorArguments
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.CustomAttributeTypedArgument>
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeTypedArgument>
     @synthesize constructorArguments = _constructorArguments;
-    - (System_Collections_Generic_IList *)constructorArguments
+    - (System_Collections_Generic_IListA1 *)constructorArguments
     {
 		MonoObject *monoObject = [self getMonoProperty:"ConstructorArguments"];
 		if ([self object:_constructorArguments isEqualToMonoObject:monoObject]) return _constructorArguments;					
-		_constructorArguments = [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		_constructorArguments = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
 
 		return _constructorArguments;
 	}
 
 	// Managed property name : NamedArguments
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.CustomAttributeNamedArgument>
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeNamedArgument>
     @synthesize namedArguments = _namedArguments;
-    - (System_Collections_Generic_IList *)namedArguments
+    - (System_Collections_Generic_IListA1 *)namedArguments
     {
 		MonoObject *monoObject = [self getMonoProperty:"NamedArguments"];
 		if ([self object:_namedArguments isEqualToMonoObject:monoObject]) return _namedArguments;					
-		_namedArguments = [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		_namedArguments = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
 
 		return _namedArguments;
 	}
@@ -88,39 +88,39 @@
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.MemberInfo
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRMemberInfo:(System_Reflection_MemberInfo *)p1
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRMemberInfo:(System_Reflection_MemberInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];
+		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.Module
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRModule:(System_Reflection_Module *)p1
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRModule:(System_Reflection_Module *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];
+		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.Assembly
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRAssembly:(System_Reflection_Assembly *)p1
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRAssembly:(System_Reflection_Assembly *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.ParameterInfo
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRParameterInfo:(System_Reflection_ParameterInfo *)p1
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRParameterInfo:(System_Reflection_ParameterInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Reflection.ParameterInfo)" withNumArgs:1, [p1 monoValue]];
-		return [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.ParameterInfo)" withNumArgs:1, [p1 monoValue]];
+		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode

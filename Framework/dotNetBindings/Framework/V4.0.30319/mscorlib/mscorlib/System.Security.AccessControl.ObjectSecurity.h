@@ -78,7 +78,7 @@
 	// Managed method name : IsSddlConversionSupported
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isSddlConversionSupported;
+    + (BOOL)isSddlConversionSupported;
 
 	// Managed method name : ModifyAccessRule
 	// Managed return type : System.Boolean

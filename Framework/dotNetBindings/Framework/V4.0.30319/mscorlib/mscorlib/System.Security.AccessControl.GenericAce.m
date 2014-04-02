@@ -125,9 +125,9 @@
 	// Managed method name : CreateFromBinaryForm
 	// Managed return type : System.Security.AccessControl.GenericAce
 	// Managed param types : System.Byte[], System.Int32
-    - (System_Security_AccessControl_GenericAce *)createFromBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
+    + (System_Security_AccessControl_GenericAce *)createFromBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Security_AccessControl_GenericAce objectWithMonoObject:monoObject];
     }
 
@@ -160,18 +160,18 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.GenericAce, System.Security.AccessControl.GenericAce
-    - (BOOL)op_Equality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2
+    + (BOOL)op_Equality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Security.AccessControl.GenericAce,System.Security.AccessControl.GenericAce)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Security.AccessControl.GenericAce,System.Security.AccessControl.GenericAce)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.GenericAce, System.Security.AccessControl.GenericAce
-    - (BOOL)op_Inequality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2
+    + (BOOL)op_Inequality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Security.AccessControl.GenericAce,System.Security.AccessControl.GenericAce)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Security.AccessControl.GenericAce,System.Security.AccessControl.GenericAce)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

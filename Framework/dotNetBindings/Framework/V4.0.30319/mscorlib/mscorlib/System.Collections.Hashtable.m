@@ -339,9 +339,9 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.Hashtable
-    - (System_Collections_Hashtable *)synchronized_withTable:(System_Collections_Hashtable *)p1
+    + (System_Collections_Hashtable *)synchronized_withTable:(System_Collections_Hashtable *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Synchronized(System.Collections.Hashtable)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Hashtable)" withNumArgs:1, [p1 monoValue]];
 		return [System_Collections_Hashtable objectWithMonoObject:monoObject];
     }
 

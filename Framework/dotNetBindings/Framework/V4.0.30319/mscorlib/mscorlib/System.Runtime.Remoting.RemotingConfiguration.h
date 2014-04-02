@@ -38,101 +38,101 @@
 	// Managed method name : Configure
 	// Managed return type : System.Void
 	// Managed param types : System.String
-    - (void)configure_withFilename:(NSString *)p1;
+    + (void)configure_withFilename:(NSString *)p1;
 
 	// Managed method name : Configure
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Boolean
-    - (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2;
+    + (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2;
 
 	// Managed method name : CustomErrorsEnabled
 	// Managed return type : System.Boolean
 	// Managed param types : System.Boolean
-    - (BOOL)customErrorsEnabled_withIsLocalRequest:(BOOL)p1;
+    + (BOOL)customErrorsEnabled_withIsLocalRequest:(BOOL)p1;
 
 	// Managed method name : GetRegisteredActivatedClientTypes
 	// Managed return type : System.Runtime.Remoting.ActivatedClientTypeEntry[]
 	// Managed param types : 
-    - (DBSystem_Array *)getRegisteredActivatedClientTypes;
+    + (DBSystem_Array *)getRegisteredActivatedClientTypes;
 
 	// Managed method name : GetRegisteredActivatedServiceTypes
 	// Managed return type : System.Runtime.Remoting.ActivatedServiceTypeEntry[]
 	// Managed param types : 
-    - (DBSystem_Array *)getRegisteredActivatedServiceTypes;
+    + (DBSystem_Array *)getRegisteredActivatedServiceTypes;
 
 	// Managed method name : GetRegisteredWellKnownClientTypes
 	// Managed return type : System.Runtime.Remoting.WellKnownClientTypeEntry[]
 	// Managed param types : 
-    - (DBSystem_Array *)getRegisteredWellKnownClientTypes;
+    + (DBSystem_Array *)getRegisteredWellKnownClientTypes;
 
 	// Managed method name : GetRegisteredWellKnownServiceTypes
 	// Managed return type : System.Runtime.Remoting.WellKnownServiceTypeEntry[]
 	// Managed param types : 
-    - (DBSystem_Array *)getRegisteredWellKnownServiceTypes;
+    + (DBSystem_Array *)getRegisteredWellKnownServiceTypes;
 
 	// Managed method name : IsActivationAllowed
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type
-    - (BOOL)isActivationAllowed_withSvrType:(System_Type *)p1;
+    + (BOOL)isActivationAllowed_withSvrType:(System_Type *)p1;
 
 	// Managed method name : IsRemotelyActivatedClientType
 	// Managed return type : System.Runtime.Remoting.ActivatedClientTypeEntry
 	// Managed param types : System.Type
-    - (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withSvrType:(System_Type *)p1;
+    + (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withSvrType:(System_Type *)p1;
 
 	// Managed method name : IsRemotelyActivatedClientType
 	// Managed return type : System.Runtime.Remoting.ActivatedClientTypeEntry
 	// Managed param types : System.String, System.String
-    - (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2;
+    + (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2;
 
 	// Managed method name : IsWellKnownClientType
 	// Managed return type : System.Runtime.Remoting.WellKnownClientTypeEntry
 	// Managed param types : System.Type
-    - (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withSvrType:(System_Type *)p1;
+    + (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withSvrType:(System_Type *)p1;
 
 	// Managed method name : IsWellKnownClientType
 	// Managed return type : System.Runtime.Remoting.WellKnownClientTypeEntry
 	// Managed param types : System.String, System.String
-    - (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2;
+    + (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2;
 
 	// Managed method name : RegisterActivatedClientType
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.String
-    - (void)registerActivatedClientType_withType:(System_Type *)p1 appUrl:(NSString *)p2;
+    + (void)registerActivatedClientType_withType:(System_Type *)p1 appUrl:(NSString *)p2;
 
 	// Managed method name : RegisterActivatedClientType
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.ActivatedClientTypeEntry
-    - (void)registerActivatedClientType_withEntry:(System_Runtime_Remoting_ActivatedClientTypeEntry *)p1;
+    + (void)registerActivatedClientType_withEntry:(System_Runtime_Remoting_ActivatedClientTypeEntry *)p1;
 
 	// Managed method name : RegisterActivatedServiceType
 	// Managed return type : System.Void
 	// Managed param types : System.Type
-    - (void)registerActivatedServiceType_withType:(System_Type *)p1;
+    + (void)registerActivatedServiceType_withType:(System_Type *)p1;
 
 	// Managed method name : RegisterActivatedServiceType
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.ActivatedServiceTypeEntry
-    - (void)registerActivatedServiceType_withEntry:(System_Runtime_Remoting_ActivatedServiceTypeEntry *)p1;
+    + (void)registerActivatedServiceType_withEntry:(System_Runtime_Remoting_ActivatedServiceTypeEntry *)p1;
 
 	// Managed method name : RegisterWellKnownClientType
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.String
-    - (void)registerWellKnownClientType_withType:(System_Type *)p1 objectUrl:(NSString *)p2;
+    + (void)registerWellKnownClientType_withType:(System_Type *)p1 objectUrl:(NSString *)p2;
 
 	// Managed method name : RegisterWellKnownClientType
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.WellKnownClientTypeEntry
-    - (void)registerWellKnownClientType_withEntry:(System_Runtime_Remoting_WellKnownClientTypeEntry *)p1;
+    + (void)registerWellKnownClientType_withEntry:(System_Runtime_Remoting_WellKnownClientTypeEntry *)p1;
 
 	// Managed method name : RegisterWellKnownServiceType
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.String, System.Runtime.Remoting.WellKnownObjectMode
-    - (void)registerWellKnownServiceType_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3;
+    + (void)registerWellKnownServiceType_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3;
 
 	// Managed method name : RegisterWellKnownServiceType
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.WellKnownServiceTypeEntry
-    - (void)registerWellKnownServiceType_withEntry:(System_Runtime_Remoting_WellKnownServiceTypeEntry *)p1;
+    + (void)registerWellKnownServiceType_withEntry:(System_Runtime_Remoting_WellKnownServiceTypeEntry *)p1;
 @end
 //--Dubrovnik.CodeGenerator

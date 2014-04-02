@@ -45,45 +45,45 @@
 	// Managed method name : FromGlobalAccessCache
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly
-    - (BOOL)fromGlobalAccessCache_withA:(System_Reflection_Assembly *)p1
+    + (BOOL)fromGlobalAccessCache_withA:(System_Reflection_Assembly *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FromGlobalAccessCache(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FromGlobalAccessCache(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : GetRuntimeDirectory
 	// Managed return type : System.String
 	// Managed param types : 
-    - (NSString *)getRuntimeDirectory
+    + (NSString *)getRuntimeDirectory
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeDirectory()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeDirectory()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetRuntimeInterfaceAsIntPtr
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Guid, System.Guid
-    - (void *)getRuntimeInterfaceAsIntPtr_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
+    + (void *)getRuntimeInterfaceAsIntPtr_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeInterfaceAsIntPtr(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeInterfaceAsIntPtr(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : GetRuntimeInterfaceAsObject
 	// Managed return type : System.Object
 	// Managed param types : System.Guid, System.Guid
-    - (System_Object *)getRuntimeInterfaceAsObject_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
+    + (System_Object *)getRuntimeInterfaceAsObject_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeInterfaceAsObject(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeInterfaceAsObject(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSystemVersion
 	// Managed return type : System.String
 	// Managed param types : 
-    - (NSString *)getSystemVersion
+    + (NSString *)getSystemVersion
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSystemVersion()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSystemVersion()" withNumArgs:0];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

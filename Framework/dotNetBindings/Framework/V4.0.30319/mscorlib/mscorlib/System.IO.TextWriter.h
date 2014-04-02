@@ -59,7 +59,7 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.IO.TextWriter
 	// Managed param types : System.IO.TextWriter
-    - (System_IO_TextWriter *)synchronized_withWriter:(System_IO_TextWriter *)p1;
+    + (System_IO_TextWriter *)synchronized_withWriter:(System_IO_TextWriter *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void

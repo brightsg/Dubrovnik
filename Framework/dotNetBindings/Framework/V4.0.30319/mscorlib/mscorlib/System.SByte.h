@@ -58,22 +58,22 @@
 	// Managed method name : Parse
 	// Managed return type : System.SByte
 	// Managed param types : System.String
-    - (int8_t)parse_withS:(NSString *)p1;
+    + (int8_t)parse_withS:(NSString *)p1;
 
 	// Managed method name : Parse
 	// Managed return type : System.SByte
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    - (int8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
+    + (int8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.SByte
 	// Managed param types : System.String, System.IFormatProvider
-    - (int8_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (int8_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.SByte
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    - (int8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
+    + (int8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -98,11 +98,11 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.SByte&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int8_t*)p2;
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int8_t*)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.SByte&
-    - (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(int8_t*)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(int8_t*)p4;
 @end
 //--Dubrovnik.CodeGenerator

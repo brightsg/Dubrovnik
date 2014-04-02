@@ -17,11 +17,11 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.SHA512
 	// Managed param types : 
-    - (System_Security_Cryptography_SHA512 *)create;
+    + (System_Security_Cryptography_SHA512 *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.SHA512
 	// Managed param types : System.String
-    - (System_Security_Cryptography_SHA512 *)create_withHashName:(NSString *)p1;
+    + (System_Security_Cryptography_SHA512 *)create_withHashName:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

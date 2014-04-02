@@ -17,6 +17,6 @@
 	// Managed method name : GetTypeInfo
 	// Managed return type : System.Reflection.TypeInfo
 	// Managed param types : System.Type
-    - (System_Reflection_TypeInfo *)getTypeInfo_withType:(System_Type *)p1;
+    + (System_Reflection_TypeInfo *)getTypeInfo_withType:(System_Type *)p1;
 @end
 //--Dubrovnik.CodeGenerator

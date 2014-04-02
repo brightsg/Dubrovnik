@@ -77,18 +77,18 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Diagnostics.SymbolStore.SymbolToken
-    - (BOOL)op_Equality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2
+    + (BOOL)op_Equality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Diagnostics.SymbolStore.SymbolToken,System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Diagnostics.SymbolStore.SymbolToken,System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Diagnostics.SymbolStore.SymbolToken
-    - (BOOL)op_Inequality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2
+    + (BOOL)op_Inequality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Diagnostics.SymbolStore.SymbolToken,System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Diagnostics.SymbolStore.SymbolToken,System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

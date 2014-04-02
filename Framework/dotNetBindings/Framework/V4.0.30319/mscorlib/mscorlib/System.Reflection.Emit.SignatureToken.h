@@ -46,11 +46,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Emit.SignatureToken, System.Reflection.Emit.SignatureToken
-    - (BOOL)op_Equality_withA:(System_Reflection_Emit_SignatureToken *)p1 b:(System_Reflection_Emit_SignatureToken *)p2;
+    + (BOOL)op_Equality_withA:(System_Reflection_Emit_SignatureToken *)p1 b:(System_Reflection_Emit_SignatureToken *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Emit.SignatureToken, System.Reflection.Emit.SignatureToken
-    - (BOOL)op_Inequality_withA:(System_Reflection_Emit_SignatureToken *)p1 b:(System_Reflection_Emit_SignatureToken *)p2;
+    + (BOOL)op_Inequality_withA:(System_Reflection_Emit_SignatureToken *)p1 b:(System_Reflection_Emit_SignatureToken *)p2;
 @end
 //--Dubrovnik.CodeGenerator

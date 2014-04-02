@@ -167,54 +167,54 @@
 	// Managed method name : Escape
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)escape_withStr:(NSString *)p1
+    + (NSString *)escape_withStr:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Escape(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Escape(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : FromString
 	// Managed return type : System.Security.SecurityElement
 	// Managed param types : System.String
-    - (System_Security_SecurityElement *)fromString_withXml:(NSString *)p1
+    + (System_Security_SecurityElement *)fromString_withXml:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FromString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FromString(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsValidAttributeName
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidAttributeName_withName:(NSString *)p1
+    + (BOOL)isValidAttributeName_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsValidAttributeName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeName(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsValidAttributeValue
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidAttributeValue_withValue:(NSString *)p1
+    + (BOOL)isValidAttributeValue_withValue:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsValidAttributeValue(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeValue(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsValidTag
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidTag_withTag:(NSString *)p1
+    + (BOOL)isValidTag_withTag:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsValidTag(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidTag(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : IsValidText
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidText_withText:(NSString *)p1
+    + (BOOL)isValidText_withText:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsValidText(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidText(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

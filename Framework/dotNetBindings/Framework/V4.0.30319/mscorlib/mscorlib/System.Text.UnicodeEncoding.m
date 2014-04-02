@@ -29,18 +29,18 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Text.UnicodeEncoding
-	// Managed param types : System.Boolean, System.Boolean
-    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2
-    {
-		return [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Text.UnicodeEncoding
 	// Managed param types : System.Boolean, System.Boolean, System.Boolean
     + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2 throwOnInvalidBytes:(BOOL)p3
     {
 		return [[self alloc] initWithSignature:"bool,bool,bool" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Text.UnicodeEncoding
+	// Managed param types : System.Boolean, System.Boolean
+    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2
+    {
+		return [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
     }
 
 #pragma mark -

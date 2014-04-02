@@ -24,11 +24,11 @@
 	// Managed method name : RegisterTrackingHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Services.ITrackingHandler
-    - (void)registerTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1;
+    + (void)registerTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1;
 
 	// Managed method name : UnregisterTrackingHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Services.ITrackingHandler
-    - (void)unregisterTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1;
+    + (void)unregisterTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1;
 @end
 //--Dubrovnik.CodeGenerator

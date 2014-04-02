@@ -110,12 +110,12 @@
 	// Managed method name : FromHandle
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.SafeHandles.SafeRegistryHandle
-    - (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1;
+    + (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1;
 
 	// Managed method name : FromHandle
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.SafeHandles.SafeRegistryHandle, Microsoft.Win32.RegistryView
-    - (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1 view:(Microsoft_Win32_RegistryView)p2;
+    + (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1 view:(Microsoft_Win32_RegistryView)p2;
 
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.RegistrySecurity
@@ -160,17 +160,17 @@
 	// Managed method name : OpenBaseKey
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.RegistryHive, Microsoft.Win32.RegistryView
-    - (Microsoft_Win32_RegistryKey *)openBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 view:(Microsoft_Win32_RegistryView)p2;
+    + (Microsoft_Win32_RegistryKey *)openBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 view:(Microsoft_Win32_RegistryView)p2;
 
 	// Managed method name : OpenRemoteBaseKey
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.RegistryHive, System.String
-    - (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2;
+    + (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2;
 
 	// Managed method name : OpenRemoteBaseKey
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.RegistryHive, System.String, Microsoft.Win32.RegistryView
-    - (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2 view:(Microsoft_Win32_RegistryView)p3;
+    + (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2 view:(Microsoft_Win32_RegistryView)p3;
 
 	// Managed method name : OpenSubKey
 	// Managed return type : Microsoft.Win32.RegistryKey

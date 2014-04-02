@@ -23,12 +23,12 @@
     @property (nonatomic, strong, readonly) System_Reflection_ConstructorInfo * constructor;
 
 	// Managed property name : ConstructorArguments
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.CustomAttributeTypedArgument>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * constructorArguments;
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeTypedArgument>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IListA1 * constructorArguments;
 
 	// Managed property name : NamedArguments
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.CustomAttributeNamedArgument>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IList * namedArguments;
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeNamedArgument>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IListA1 * namedArguments;
 
 #pragma mark -
 #pragma mark Methods
@@ -39,24 +39,24 @@
     - (BOOL)equals_withObj:(System_Object *)p1;
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.MemberInfo
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRMemberInfo:(System_Reflection_MemberInfo *)p1;
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRMemberInfo:(System_Reflection_MemberInfo *)p1;
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.Module
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRModule:(System_Reflection_Module *)p1;
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRModule:(System_Reflection_Module *)p1;
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.Assembly
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRAssembly:(System_Reflection_Assembly *)p1;
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRAssembly:(System_Reflection_Assembly *)p1;
 
 	// Managed method name : GetCustomAttributes
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.ParameterInfo
-    - (System_Collections_Generic_IList *)getCustomAttributes_withTargetSRParameterInfo:(System_Reflection_ParameterInfo *)p1;
+    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRParameterInfo:(System_Reflection_ParameterInfo *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

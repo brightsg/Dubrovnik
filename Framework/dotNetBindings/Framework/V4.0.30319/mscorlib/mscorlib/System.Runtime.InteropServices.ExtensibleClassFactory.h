@@ -17,6 +17,6 @@
 	// Managed method name : RegisterObjectCreationCallback
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ObjectCreationDelegate
-    - (void)registerObjectCreationCallback_withCallback:(System_Runtime_InteropServices_ObjectCreationDelegate *)p1;
+    + (void)registerObjectCreationCallback_withCallback:(System_Runtime_InteropServices_ObjectCreationDelegate *)p1;
 @end
 //--Dubrovnik.CodeGenerator

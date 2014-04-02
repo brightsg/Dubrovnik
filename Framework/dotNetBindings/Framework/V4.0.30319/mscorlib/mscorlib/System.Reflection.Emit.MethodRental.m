@@ -55,9 +55,9 @@
 	// Managed method name : SwapMethodBody
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.Int32, System.IntPtr, System.Int32, System.Int32
-    - (void)swapMethodBody_withCls:(System_Type *)p1 methodtoken:(int32_t)p2 rgIL:(void *)p3 methodSize:(int32_t)p4 flags:(int32_t)p5
+    + (void)swapMethodBody_withCls:(System_Type *)p1 methodtoken:(int32_t)p2 rgIL:(void *)p3 methodSize:(int32_t)p4 flags:(int32_t)p5
     {
-		[self invokeMonoMethod:"SwapMethodBody(System.Type,int,intptr,int,int)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+		[self invokeMonoClassMethod:"SwapMethodBody(System.Type,int,intptr,int,int)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
     }
 
 #pragma mark -

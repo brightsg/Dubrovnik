@@ -67,22 +67,22 @@
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.Int32
-    - (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1;
+    + (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1;
 
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.Int32, System.Reflection.Assembly
-    - (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1 assembly:(System_Reflection_Assembly *)p2;
+    + (System_Globalization_CompareInfo *)getCompareInfo_withCulture:(int32_t)p1 assembly:(System_Reflection_Assembly *)p2;
 
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.String, System.Reflection.Assembly
-    - (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2;
+    + (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2;
 
 	// Managed method name : GetCompareInfo
 	// Managed return type : System.Globalization.CompareInfo
 	// Managed param types : System.String
-    - (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1;
+    + (System_Globalization_CompareInfo *)getCompareInfo_withName:(NSString *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -172,12 +172,12 @@
 	// Managed method name : IsSortable
 	// Managed return type : System.Boolean
 	// Managed param types : System.Char
-    - (BOOL)isSortable_withCh:(uint16_t)p1;
+    + (BOOL)isSortable_withCh:(uint16_t)p1;
 
 	// Managed method name : IsSortable
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isSortable_withText:(NSString *)p1;
+    + (BOOL)isSortable_withText:(NSString *)p1;
 
 	// Managed method name : IsSuffix
 	// Managed return type : System.Boolean

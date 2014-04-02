@@ -51,18 +51,18 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.KeyedHashAlgorithm
 	// Managed param types : 
-    - (System_Security_Cryptography_KeyedHashAlgorithm *)create
+    + (System_Security_Cryptography_KeyedHashAlgorithm *)create
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		return [System_Security_Cryptography_KeyedHashAlgorithm objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.KeyedHashAlgorithm
 	// Managed param types : System.String
-    - (System_Security_Cryptography_KeyedHashAlgorithm *)create_withAlgName:(NSString *)p1
+    + (System_Security_Cryptography_KeyedHashAlgorithm *)create_withAlgName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Cryptography_KeyedHashAlgorithm objectWithMonoObject:monoObject];
     }
 

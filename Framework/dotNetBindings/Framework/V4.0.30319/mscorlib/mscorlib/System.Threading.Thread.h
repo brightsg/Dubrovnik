@@ -110,22 +110,22 @@
 	// Managed method name : AllocateDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : 
-    - (System_LocalDataStoreSlot *)allocateDataSlot;
+    + (System_LocalDataStoreSlot *)allocateDataSlot;
 
 	// Managed method name : AllocateNamedDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : System.String
-    - (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1;
+    + (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1;
 
 	// Managed method name : BeginCriticalRegion
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)beginCriticalRegion;
+    + (void)beginCriticalRegion;
 
 	// Managed method name : BeginThreadAffinity
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)beginThreadAffinity;
+    + (void)beginThreadAffinity;
 
 	// Managed method name : DisableComObjectEagerCleanup
 	// Managed return type : System.Void
@@ -135,17 +135,17 @@
 	// Managed method name : EndCriticalRegion
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)endCriticalRegion;
+    + (void)endCriticalRegion;
 
 	// Managed method name : EndThreadAffinity
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)endThreadAffinity;
+    + (void)endThreadAffinity;
 
 	// Managed method name : FreeNamedDataSlot
 	// Managed return type : System.Void
 	// Managed param types : System.String
-    - (void)freeNamedDataSlot_withName:(NSString *)p1;
+    + (void)freeNamedDataSlot_withName:(NSString *)p1;
 
 	// Managed method name : GetApartmentState
 	// Managed return type : System.Threading.ApartmentState
@@ -160,17 +160,17 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.LocalDataStoreSlot
-    - (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
+    + (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
 
 	// Managed method name : GetDomain
 	// Managed return type : System.AppDomain
 	// Managed param types : 
-    - (System_AppDomain *)getDomain;
+    + (System_AppDomain *)getDomain;
 
 	// Managed method name : GetDomainID
 	// Managed return type : System.Int32
 	// Managed param types : 
-    - (int32_t)getDomainID;
+    + (int32_t)getDomainID;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -180,7 +180,7 @@
 	// Managed method name : GetNamedDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : System.String
-    - (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1;
+    + (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1;
 
 	// Managed method name : Interrupt
 	// Managed return type : System.Void
@@ -205,12 +205,12 @@
 	// Managed method name : MemoryBarrier
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)memoryBarrier;
+    + (void)memoryBarrier;
 
 	// Managed method name : ResetAbort
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)resetAbort;
+    + (void)resetAbort;
 
 	// Managed method name : Resume
 	// Managed return type : System.Void
@@ -230,22 +230,22 @@
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.LocalDataStoreSlot, System.Object
-    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2;
+    + (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2;
 
 	// Managed method name : Sleep
 	// Managed return type : System.Void
 	// Managed param types : System.Int32
-    - (void)sleep_withMillisecondsTimeout:(int32_t)p1;
+    + (void)sleep_withMillisecondsTimeout:(int32_t)p1;
 
 	// Managed method name : Sleep
 	// Managed return type : System.Void
 	// Managed param types : System.TimeSpan
-    - (void)sleep_withTimeout:(System_TimeSpan *)p1;
+    + (void)sleep_withTimeout:(System_TimeSpan *)p1;
 
 	// Managed method name : SpinWait
 	// Managed return type : System.Void
 	// Managed param types : System.Int32
-    - (void)spinWait_withIterations:(int32_t)p1;
+    + (void)spinWait_withIterations:(int32_t)p1;
 
 	// Managed method name : Start
 	// Managed return type : System.Void
@@ -270,136 +270,136 @@
 	// Managed method name : VolatileRead
 	// Managed return type : System.Byte
 	// Managed param types : ref System.Byte&
-    - (uint8_t)volatileRead_withAddressByteRef:(uint8_t*)p1;
+    + (uint8_t)volatileRead_withAddressByteRef:(uint8_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Int16
 	// Managed param types : ref System.Int16&
-    - (int16_t)volatileRead_withAddressInt16Ref:(int16_t*)p1;
+    + (int16_t)volatileRead_withAddressInt16Ref:(int16_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Int32
 	// Managed param types : ref System.Int32&
-    - (int32_t)volatileRead_withAddressIntRef:(int32_t*)p1;
+    + (int32_t)volatileRead_withAddressIntRef:(int32_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Int64
 	// Managed param types : ref System.Int64&
-    - (int64_t)volatileRead_withAddressLongRef:(int64_t*)p1;
+    + (int64_t)volatileRead_withAddressLongRef:(int64_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.SByte
 	// Managed param types : ref System.SByte&
-    - (int8_t)volatileRead_withAddressSbyteRef:(int8_t*)p1;
+    + (int8_t)volatileRead_withAddressSbyteRef:(int8_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UInt16
 	// Managed param types : ref System.UInt16&
-    - (uint16_t)volatileRead_withAddressUint16Ref:(uint16_t*)p1;
+    + (uint16_t)volatileRead_withAddressUint16Ref:(uint16_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UInt32
 	// Managed param types : ref System.UInt32&
-    - (uint32_t)volatileRead_withAddressUintRef:(uint32_t*)p1;
+    + (uint32_t)volatileRead_withAddressUintRef:(uint32_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.IntPtr
 	// Managed param types : ref System.IntPtr&
-    - (void *)volatileRead_withAddressIntptrRef:(void **)p1;
+    + (void *)volatileRead_withAddressIntptrRef:(void **)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UIntPtr
 	// Managed param types : ref System.UIntPtr&
-    - (void *)volatileRead_withAddressUintptrRef:(void **)p1;
+    + (void *)volatileRead_withAddressUintptrRef:(void **)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.UInt64
 	// Managed param types : ref System.UInt64&
-    - (uint64_t)volatileRead_withAddressUlongRef:(uint64_t*)p1;
+    + (uint64_t)volatileRead_withAddressUlongRef:(uint64_t*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Single
 	// Managed param types : ref System.Single&
-    - (float)volatileRead_withAddressSingleRef:(float*)p1;
+    + (float)volatileRead_withAddressSingleRef:(float*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Double
 	// Managed param types : ref System.Double&
-    - (double)volatileRead_withAddressDoubleRef:(double*)p1;
+    + (double)volatileRead_withAddressDoubleRef:(double*)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Object
 	// Managed param types : ref System.Object&
-    - (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1;
+    + (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Byte&, System.Byte
-    - (void)volatileWrite_withAddressByteRef:(uint8_t*)p1 valueByte:(uint8_t)p2;
+    + (void)volatileWrite_withAddressByteRef:(uint8_t*)p1 valueByte:(uint8_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Int16&, System.Int16
-    - (void)volatileWrite_withAddressInt16Ref:(int16_t*)p1 valueInt16:(int16_t)p2;
+    + (void)volatileWrite_withAddressInt16Ref:(int16_t*)p1 valueInt16:(int16_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Int32&, System.Int32
-    - (void)volatileWrite_withAddressIntRef:(int32_t*)p1 valueInt:(int32_t)p2;
+    + (void)volatileWrite_withAddressIntRef:(int32_t*)p1 valueInt:(int32_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Int64&, System.Int64
-    - (void)volatileWrite_withAddressLongRef:(int64_t*)p1 valueLong:(int64_t)p2;
+    + (void)volatileWrite_withAddressLongRef:(int64_t*)p1 valueLong:(int64_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.SByte&, System.SByte
-    - (void)volatileWrite_withAddressSbyteRef:(int8_t*)p1 valueSbyte:(int8_t)p2;
+    + (void)volatileWrite_withAddressSbyteRef:(int8_t*)p1 valueSbyte:(int8_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UInt16&, System.UInt16
-    - (void)volatileWrite_withAddressUint16Ref:(uint16_t*)p1 valueUint16:(uint16_t)p2;
+    + (void)volatileWrite_withAddressUint16Ref:(uint16_t*)p1 valueUint16:(uint16_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UInt32&, System.UInt32
-    - (void)volatileWrite_withAddressUintRef:(uint32_t*)p1 valueUint:(uint32_t)p2;
+    + (void)volatileWrite_withAddressUintRef:(uint32_t*)p1 valueUint:(uint32_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.IntPtr&, System.IntPtr
-    - (void)volatileWrite_withAddressIntptrRef:(void **)p1 valueIntptr:(void *)p2;
+    + (void)volatileWrite_withAddressIntptrRef:(void **)p1 valueIntptr:(void *)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UIntPtr&, System.UIntPtr
-    - (void)volatileWrite_withAddressUintptrRef:(void **)p1 valueUintptr:(void *)p2;
+    + (void)volatileWrite_withAddressUintptrRef:(void **)p1 valueUintptr:(void *)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.UInt64&, System.UInt64
-    - (void)volatileWrite_withAddressUlongRef:(uint64_t*)p1 valueUlong:(uint64_t)p2;
+    + (void)volatileWrite_withAddressUlongRef:(uint64_t*)p1 valueUlong:(uint64_t)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Single&, System.Single
-    - (void)volatileWrite_withAddressSingleRef:(float*)p1 valueSingle:(float)p2;
+    + (void)volatileWrite_withAddressSingleRef:(float*)p1 valueSingle:(float)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Double&, System.Double
-    - (void)volatileWrite_withAddressDoubleRef:(double*)p1 valueDouble:(double)p2;
+    + (void)volatileWrite_withAddressDoubleRef:(double*)p1 valueDouble:(double)p2;
 
 	// Managed method name : VolatileWrite
 	// Managed return type : System.Void
 	// Managed param types : ref System.Object&, System.Object
-    - (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2;
+    + (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2;
 
 	// Managed method name : Yield
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)yield;
+    + (BOOL)yield;
 @end
 //--Dubrovnik.CodeGenerator

@@ -16,11 +16,6 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.StackTrace
-	// Managed param types : System.Exception, System.Boolean
-    + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 fNeedFileInfo:(BOOL)p2;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Diagnostics.StackTrace
 	// Managed param types : System.Boolean
     + (System_Diagnostics_StackTrace *)new_withFNeedFileInfo:(BOOL)p1;
 
@@ -38,6 +33,11 @@
 	// Managed return type : System.Diagnostics.StackTrace
 	// Managed param types : System.Exception
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Diagnostics.StackTrace
+	// Managed param types : System.Exception, System.Boolean
+    + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 fNeedFileInfo:(BOOL)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.StackTrace

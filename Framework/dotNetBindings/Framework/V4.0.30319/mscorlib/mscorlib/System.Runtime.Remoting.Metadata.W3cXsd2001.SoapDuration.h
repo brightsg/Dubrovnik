@@ -24,11 +24,11 @@
 	// Managed method name : Parse
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String
-    - (System_TimeSpan *)parse_withValue:(NSString *)p1;
+    + (System_TimeSpan *)parse_withValue:(NSString *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.TimeSpan
-    - (NSString *)toString_withTimeSpan:(System_TimeSpan *)p1;
+    + (NSString *)toString_withTimeSpan:(System_TimeSpan *)p1;
 @end
 //--Dubrovnik.CodeGenerator

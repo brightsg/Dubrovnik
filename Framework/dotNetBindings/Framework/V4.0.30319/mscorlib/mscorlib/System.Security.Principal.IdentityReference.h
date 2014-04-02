@@ -39,12 +39,12 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.Principal.IdentityReference
-    - (BOOL)op_Equality_withLeft:(System_Security_Principal_IdentityReference *)p1 right:(System_Security_Principal_IdentityReference *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Security_Principal_IdentityReference *)p1 right:(System_Security_Principal_IdentityReference *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.Principal.IdentityReference
-    - (BOOL)op_Inequality_withLeft:(System_Security_Principal_IdentityReference *)p1 right:(System_Security_Principal_IdentityReference *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Security_Principal_IdentityReference *)p1 right:(System_Security_Principal_IdentityReference *)p2;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

@@ -132,14 +132,14 @@
     - (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Byte[], System.Int32, System.Int32
-    - (System_Threading_Tasks_Task *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 
 	// Managed method name : ReadByte
 	// Managed return type : System.Int32
@@ -159,7 +159,7 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.IO.Stream
 	// Managed param types : System.IO.Stream
-    - (System_IO_Stream *)synchronized_withStream:(System_IO_Stream *)p1;
+    + (System_IO_Stream *)synchronized_withStream:(System_IO_Stream *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void

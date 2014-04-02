@@ -207,18 +207,18 @@
 	// Managed method name : FromHandle
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.SafeHandles.SafeRegistryHandle
-    - (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1
+    + (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FromHandle(Microsoft.Win32.SafeHandles.SafeRegistryHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FromHandle(Microsoft.Win32.SafeHandles.SafeRegistryHandle)" withNumArgs:1, [p1 monoValue]];
 		return [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromHandle
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.SafeHandles.SafeRegistryHandle, Microsoft.Win32.RegistryView
-    - (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1 view:(Microsoft_Win32_RegistryView)p2
+    + (Microsoft_Win32_RegistryKey *)fromHandle_withHandle:(Microsoft_Win32_SafeHandles_SafeRegistryHandle *)p1 view:(Microsoft_Win32_RegistryView)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FromHandle(Microsoft.Win32.SafeHandles.SafeRegistryHandle,Microsoft.Win32.RegistryView)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FromHandle(Microsoft.Win32.SafeHandles.SafeRegistryHandle,Microsoft.Win32.RegistryView)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
     }
 
@@ -297,27 +297,27 @@
 	// Managed method name : OpenBaseKey
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.RegistryHive, Microsoft.Win32.RegistryView
-    - (Microsoft_Win32_RegistryKey *)openBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 view:(Microsoft_Win32_RegistryView)p2
+    + (Microsoft_Win32_RegistryKey *)openBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 view:(Microsoft_Win32_RegistryView)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenBaseKey(Microsoft.Win32.RegistryHive,Microsoft.Win32.RegistryView)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenBaseKey(Microsoft.Win32.RegistryHive,Microsoft.Win32.RegistryView)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenRemoteBaseKey
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.RegistryHive, System.String
-    - (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2
+    + (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenRemoteBaseKey(Microsoft.Win32.RegistryHive,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenRemoteBaseKey(Microsoft.Win32.RegistryHive,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		return [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenRemoteBaseKey
 	// Managed return type : Microsoft.Win32.RegistryKey
 	// Managed param types : Microsoft.Win32.RegistryHive, System.String, Microsoft.Win32.RegistryView
-    - (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2 view:(Microsoft_Win32_RegistryView)p3
+    + (Microsoft_Win32_RegistryKey *)openRemoteBaseKey_withHKey:(Microsoft_Win32_RegistryHive)p1 machineName:(NSString *)p2 view:(Microsoft_Win32_RegistryView)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenRemoteBaseKey(Microsoft.Win32.RegistryHive,string,Microsoft.Win32.RegistryView)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenRemoteBaseKey(Microsoft.Win32.RegistryHive,string,Microsoft.Win32.RegistryView)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3)];
 		return [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
     }
 

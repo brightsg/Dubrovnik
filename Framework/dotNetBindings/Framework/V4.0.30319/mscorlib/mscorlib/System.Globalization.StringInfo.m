@@ -91,45 +91,45 @@
 	// Managed method name : GetNextTextElement
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Int32
-    - (NSString *)getNextTextElement_withStr:(NSString *)p1 index:(int32_t)p2
+    + (NSString *)getNextTextElement_withStr:(NSString *)p1 index:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetNextTextElement(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNextTextElement(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetNextTextElement
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)getNextTextElement_withStr:(NSString *)p1
+    + (NSString *)getNextTextElement_withStr:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetNextTextElement(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNextTextElement(string)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetTextElementEnumerator
 	// Managed return type : System.Globalization.TextElementEnumerator
 	// Managed param types : System.String
-    - (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1
+    + (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTextElementEnumerator(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTextElementEnumerator(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTextElementEnumerator
 	// Managed return type : System.Globalization.TextElementEnumerator
 	// Managed param types : System.String, System.Int32
-    - (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1 index:(int32_t)p2
+    + (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1 index:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTextElementEnumerator(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTextElementEnumerator(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseCombiningCharacters
 	// Managed return type : System.Int32[]
 	// Managed param types : System.String
-    - (DBSystem_Array *)parseCombiningCharacters_withStr:(NSString *)p1
+    + (DBSystem_Array *)parseCombiningCharacters_withStr:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ParseCombiningCharacters(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseCombiningCharacters(string)" withNumArgs:1, [p1 monoValue]];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 

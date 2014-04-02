@@ -38,6 +38,23 @@
 		return m_isServerGC;
 	}
 
+	// Managed property name : LargeObjectHeapCompactionMode
+	// Managed property type : System.Runtime.GCLargeObjectHeapCompactionMode
+    static System_Runtime_GCLargeObjectHeapCompactionMode m_largeObjectHeapCompactionMode;
+    + (System_Runtime_GCLargeObjectHeapCompactionMode)largeObjectHeapCompactionMode
+    {
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"LargeObjectHeapCompactionMode"];
+		m_largeObjectHeapCompactionMode = DB_UNBOX_INT32(monoObject);
+
+		return m_largeObjectHeapCompactionMode;
+	}
+    + (void)setLargeObjectHeapCompactionMode:(System_Runtime_GCLargeObjectHeapCompactionMode)value
+	{
+		m_largeObjectHeapCompactionMode = value;
+		MonoObject *monoObject = DB_VALUE(value);
+		[[self class] setMonoClassProperty:"LargeObjectHeapCompactionMode" valueObject:monoObject];          
+	}
+
 	// Managed property name : LatencyMode
 	// Managed property type : System.Runtime.GCLatencyMode
     static System_Runtime_GCLatencyMode m_latencyMode;

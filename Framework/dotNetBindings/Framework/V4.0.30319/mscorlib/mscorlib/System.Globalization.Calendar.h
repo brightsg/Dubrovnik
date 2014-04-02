@@ -221,7 +221,7 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.Calendar
 	// Managed param types : System.Globalization.Calendar
-    - (System_Globalization_Calendar *)readOnly_withCalendar:(System_Globalization_Calendar *)p1;
+    + (System_Globalization_Calendar *)readOnly_withCalendar:(System_Globalization_Calendar *)p1;
 
 	// Managed method name : ToDateTime
 	// Managed return type : System.DateTime

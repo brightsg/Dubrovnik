@@ -46,27 +46,27 @@
 	// Managed method name : GetNextTextElement
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Int32
-    - (NSString *)getNextTextElement_withStr:(NSString *)p1 index:(int32_t)p2;
+    + (NSString *)getNextTextElement_withStr:(NSString *)p1 index:(int32_t)p2;
 
 	// Managed method name : GetNextTextElement
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)getNextTextElement_withStr:(NSString *)p1;
+    + (NSString *)getNextTextElement_withStr:(NSString *)p1;
 
 	// Managed method name : GetTextElementEnumerator
 	// Managed return type : System.Globalization.TextElementEnumerator
 	// Managed param types : System.String
-    - (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1;
+    + (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1;
 
 	// Managed method name : GetTextElementEnumerator
 	// Managed return type : System.Globalization.TextElementEnumerator
 	// Managed param types : System.String, System.Int32
-    - (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1 index:(int32_t)p2;
+    + (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1 index:(int32_t)p2;
 
 	// Managed method name : ParseCombiningCharacters
 	// Managed return type : System.Int32[]
 	// Managed param types : System.String
-    - (DBSystem_Array *)parseCombiningCharacters_withStr:(NSString *)p1;
+    + (DBSystem_Array *)parseCombiningCharacters_withStr:(NSString *)p1;
 
 	// Managed method name : SubstringByTextElements
 	// Managed return type : System.String

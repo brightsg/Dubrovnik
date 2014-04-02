@@ -65,9 +65,9 @@
 	// Managed method name : GetStubData
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy
-    - (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1
+    + (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStubData(System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStubData(System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -109,9 +109,9 @@
 	// Managed method name : SetStubData
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy, System.Object
-    - (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2
+    + (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2
     {
-		[self invokeMonoMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : SupportsInterface

@@ -51,13 +51,13 @@
 	}
 
 	// Managed property name : ResolvedAssemblyFiles
-	// Managed property type : System.Collections.ObjectModel.Collection<System.String>
+	// Managed property type : System.Collections.ObjectModel.Collection`1<System.String>
     @synthesize resolvedAssemblyFiles = _resolvedAssemblyFiles;
-    - (System_Collections_ObjectModel_Collection *)resolvedAssemblyFiles
+    - (System_Collections_ObjectModel_CollectionA1 *)resolvedAssemblyFiles
     {
 		MonoObject *monoObject = [self getMonoProperty:"ResolvedAssemblyFiles"];
 		if ([self object:_resolvedAssemblyFiles isEqualToMonoObject:monoObject]) return _resolvedAssemblyFiles;					
-		_resolvedAssemblyFiles = [System_Collections_ObjectModel_Collection objectWithMonoObject:monoObject];
+		_resolvedAssemblyFiles = [System_Collections_ObjectModel_CollectionA1 objectWithMonoObject:monoObject];
 
 		return _resolvedAssemblyFiles;
 	}

@@ -63,13 +63,13 @@
 	}
 
 	// Managed property name : ResolvedAssemblies
-	// Managed property type : System.Collections.ObjectModel.Collection<System.Reflection.Assembly>
+	// Managed property type : System.Collections.ObjectModel.Collection`1<System.Reflection.Assembly>
     @synthesize resolvedAssemblies = _resolvedAssemblies;
-    - (System_Collections_ObjectModel_Collection *)resolvedAssemblies
+    - (System_Collections_ObjectModel_CollectionA1 *)resolvedAssemblies
     {
 		MonoObject *monoObject = [self getMonoProperty:"ResolvedAssemblies"];
 		if ([self object:_resolvedAssemblies isEqualToMonoObject:monoObject]) return _resolvedAssemblies;					
-		_resolvedAssemblies = [System_Collections_ObjectModel_Collection objectWithMonoObject:monoObject];
+		_resolvedAssemblies = [System_Collections_ObjectModel_CollectionA1 objectWithMonoObject:monoObject];
 
 		return _resolvedAssemblies;
 	}

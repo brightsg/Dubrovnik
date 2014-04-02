@@ -90,7 +90,7 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.Queue
 	// Managed param types : System.Collections.Queue
-    - (System_Collections_Queue *)synchronized_withQueue:(System_Collections_Queue *)p1;
+    + (System_Collections_Queue *)synchronized_withQueue:(System_Collections_Queue *)p1;
 
 	// Managed method name : ToArray
 	// Managed return type : System.Object[]

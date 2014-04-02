@@ -17,6 +17,6 @@
 	// Managed method name : GetInternalAppId
 	// Managed return type : System.Object
 	// Managed param types : System.ApplicationIdentity
-    - (System_Object *)getInternalAppId_withId:(System_ApplicationIdentity *)p1;
+    + (System_Object *)getInternalAppId_withId:(System_ApplicationIdentity *)p1;
 @end
 //--Dubrovnik.CodeGenerator

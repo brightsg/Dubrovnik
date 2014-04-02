@@ -109,7 +109,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope
-    - (System_Collections_IEnumerator *)getEnumerator_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1;
+    + (System_Collections_IEnumerator *)getEnumerator_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1;
 
 	// Managed method name : GetFileNames
 	// Managed return type : System.String[]
@@ -134,62 +134,62 @@
 	// Managed method name : GetMachineStoreForApplication
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForApplication;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForApplication;
 
 	// Managed method name : GetMachineStoreForAssembly
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForAssembly;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForAssembly;
 
 	// Managed method name : GetMachineStoreForDomain
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForDomain;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getMachineStoreForDomain;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Type, System.Type
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Security.Policy.Evidence, System.Type, System.Security.Policy.Evidence, System.Type
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Type
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationEvidenceType:(System_Type *)p2;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationEvidenceType:(System_Type *)p2;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2;
 
 	// Managed method name : GetUserStoreForApplication
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForApplication;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForApplication;
 
 	// Managed method name : GetUserStoreForAssembly
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForAssembly;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForAssembly;
 
 	// Managed method name : GetUserStoreForDomain
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForDomain;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForDomain;
 
 	// Managed method name : GetUserStoreForSite
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : 
-    - (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForSite;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getUserStoreForSite;
 
 	// Managed method name : IncreaseQuotaTo
 	// Managed return type : System.Boolean
@@ -229,6 +229,6 @@
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope
-    - (void)remove_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1;
+    + (void)remove_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1;
 @end
 //--Dubrovnik.CodeGenerator

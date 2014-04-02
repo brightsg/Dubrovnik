@@ -51,8 +51,8 @@
     @property (nonatomic, strong, readonly) NSString * originalIssuer;
 
 	// Managed property name : Properties
-	// Managed property type : System.Collections.Generic.IDictionary<System.String, System.String>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IDictionary * properties;
+	// Managed property type : System.Collections.Generic.IDictionary`2<System.String, System.String>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IDictionaryA2 * properties;
 
 	// Managed property name : Subject
 	// Managed property type : System.Security.Claims.ClaimsIdentity

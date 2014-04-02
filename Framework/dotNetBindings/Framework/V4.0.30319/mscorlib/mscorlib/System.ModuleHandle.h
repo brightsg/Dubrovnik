@@ -61,12 +61,12 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.ModuleHandle, System.ModuleHandle
-    - (BOOL)op_Equality_withLeft:(System_ModuleHandle *)p1 right:(System_ModuleHandle *)p2;
+    + (BOOL)op_Equality_withLeft:(System_ModuleHandle *)p1 right:(System_ModuleHandle *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.ModuleHandle, System.ModuleHandle
-    - (BOOL)op_Inequality_withLeft:(System_ModuleHandle *)p1 right:(System_ModuleHandle *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_ModuleHandle *)p1 right:(System_ModuleHandle *)p2;
 
 	// Managed method name : ResolveFieldHandle
 	// Managed return type : System.RuntimeFieldHandle

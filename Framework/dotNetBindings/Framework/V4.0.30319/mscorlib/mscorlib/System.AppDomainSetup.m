@@ -486,10 +486,10 @@
 
 	// Managed method name : SetCompatibilitySwitches
 	// Managed return type : System.Void
-	// Managed param types : System.Collections.Generic.IEnumerable<System.String>
-    - (void)setCompatibilitySwitches_withSwitches:(System_Collections_Generic_IEnumerable *)p1
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
+    - (void)setCompatibilitySwitches_withSwitches:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		[self invokeMonoMethod:"SetCompatibilitySwitches(System.Collections.Generic.IEnumerable<System.String>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetCompatibilitySwitches(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : SetConfigurationBytes

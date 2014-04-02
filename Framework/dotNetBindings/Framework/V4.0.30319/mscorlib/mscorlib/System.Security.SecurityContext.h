@@ -17,7 +17,7 @@
 	// Managed method name : Capture
 	// Managed return type : System.Security.SecurityContext
 	// Managed param types : 
-    - (System_Security_SecurityContext *)capture;
+    + (System_Security_SecurityContext *)capture;
 
 	// Managed method name : CreateCopy
 	// Managed return type : System.Security.SecurityContext
@@ -32,31 +32,31 @@
 	// Managed method name : IsFlowSuppressed
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isFlowSuppressed;
+    + (BOOL)isFlowSuppressed;
 
 	// Managed method name : IsWindowsIdentityFlowSuppressed
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isWindowsIdentityFlowSuppressed;
+    + (BOOL)isWindowsIdentityFlowSuppressed;
 
 	// Managed method name : RestoreFlow
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)restoreFlow;
+    + (void)restoreFlow;
 
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Security.SecurityContext, System.Threading.ContextCallback, System.Object
-    - (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
+    + (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3;
 
 	// Managed method name : SuppressFlow
 	// Managed return type : System.Threading.AsyncFlowControl
 	// Managed param types : 
-    - (System_Threading_AsyncFlowControl *)suppressFlow;
+    + (System_Threading_AsyncFlowControl *)suppressFlow;
 
 	// Managed method name : SuppressFlowWindowsIdentity
 	// Managed return type : System.Threading.AsyncFlowControl
 	// Managed param types : 
-    - (System_Threading_AsyncFlowControl *)suppressFlowWindowsIdentity;
+    + (System_Threading_AsyncFlowControl *)suppressFlowWindowsIdentity;
 @end
 //--Dubrovnik.CodeGenerator

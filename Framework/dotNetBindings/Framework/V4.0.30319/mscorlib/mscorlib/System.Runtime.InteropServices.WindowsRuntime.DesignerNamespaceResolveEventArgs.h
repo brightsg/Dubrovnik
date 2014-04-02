@@ -27,7 +27,7 @@
     @property (nonatomic, strong, readonly) NSString * namespaceName;
 
 	// Managed property name : ResolvedAssemblyFiles
-	// Managed property type : System.Collections.ObjectModel.Collection<System.String>
-    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_Collection * resolvedAssemblyFiles;
+	// Managed property type : System.Collections.ObjectModel.Collection`1<System.String>
+    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_CollectionA1 * resolvedAssemblyFiles;
 @end
 //--Dubrovnik.CodeGenerator

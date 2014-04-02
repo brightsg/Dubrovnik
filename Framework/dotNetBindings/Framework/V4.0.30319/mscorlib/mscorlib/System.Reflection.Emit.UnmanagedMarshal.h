@@ -36,26 +36,26 @@
 	// Managed method name : DefineByValArray
 	// Managed return type : System.Reflection.Emit.UnmanagedMarshal
 	// Managed param types : System.Int32
-    - (System_Reflection_Emit_UnmanagedMarshal *)defineByValArray_withElemCount:(int32_t)p1;
+    + (System_Reflection_Emit_UnmanagedMarshal *)defineByValArray_withElemCount:(int32_t)p1;
 
 	// Managed method name : DefineByValTStr
 	// Managed return type : System.Reflection.Emit.UnmanagedMarshal
 	// Managed param types : System.Int32
-    - (System_Reflection_Emit_UnmanagedMarshal *)defineByValTStr_withElemCount:(int32_t)p1;
+    + (System_Reflection_Emit_UnmanagedMarshal *)defineByValTStr_withElemCount:(int32_t)p1;
 
 	// Managed method name : DefineLPArray
 	// Managed return type : System.Reflection.Emit.UnmanagedMarshal
 	// Managed param types : System.Runtime.InteropServices.UnmanagedType
-    - (System_Reflection_Emit_UnmanagedMarshal *)defineLPArray_withElemType:(System_Runtime_InteropServices_UnmanagedType)p1;
+    + (System_Reflection_Emit_UnmanagedMarshal *)defineLPArray_withElemType:(System_Runtime_InteropServices_UnmanagedType)p1;
 
 	// Managed method name : DefineSafeArray
 	// Managed return type : System.Reflection.Emit.UnmanagedMarshal
 	// Managed param types : System.Runtime.InteropServices.UnmanagedType
-    - (System_Reflection_Emit_UnmanagedMarshal *)defineSafeArray_withElemType:(System_Runtime_InteropServices_UnmanagedType)p1;
+    + (System_Reflection_Emit_UnmanagedMarshal *)defineSafeArray_withElemType:(System_Runtime_InteropServices_UnmanagedType)p1;
 
 	// Managed method name : DefineUnmanagedMarshal
 	// Managed return type : System.Reflection.Emit.UnmanagedMarshal
 	// Managed param types : System.Runtime.InteropServices.UnmanagedType
-    - (System_Reflection_Emit_UnmanagedMarshal *)defineUnmanagedMarshal_withUnmanagedType:(System_Runtime_InteropServices_UnmanagedType)p1;
+    + (System_Reflection_Emit_UnmanagedMarshal *)defineUnmanagedMarshal_withUnmanagedType:(System_Runtime_InteropServices_UnmanagedType)p1;
 @end
 //--Dubrovnik.CodeGenerator

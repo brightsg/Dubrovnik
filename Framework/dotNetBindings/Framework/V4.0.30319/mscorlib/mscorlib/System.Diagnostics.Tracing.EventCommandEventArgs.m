@@ -28,17 +28,17 @@
 #pragma mark Properties
 
 	// Managed property name : Arguments
-	// Managed property type : System.Collections.Generic.IDictionary<System.String, System.String>
+	// Managed property type : System.Collections.Generic.IDictionary`2<System.String, System.String>
     @synthesize arguments = _arguments;
-    - (System_Collections_Generic_IDictionary *)arguments
+    - (System_Collections_Generic_IDictionaryA2 *)arguments
     {
 		MonoObject *monoObject = [self getMonoProperty:"Arguments"];
 		if ([self object:_arguments isEqualToMonoObject:monoObject]) return _arguments;					
-		_arguments = [System_Collections_Generic_IDictionary objectWithMonoObject:monoObject];
+		_arguments = [System_Collections_Generic_IDictionaryA2 objectWithMonoObject:monoObject];
 
 		return _arguments;
 	}
-    - (void)setArguments:(System_Collections_Generic_IDictionary *)value
+    - (void)setArguments:(System_Collections_Generic_IDictionaryA2 *)value
 	{
 		_arguments = value;
 		MonoObject *monoObject = [value monoObject];

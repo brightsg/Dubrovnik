@@ -39,13 +39,13 @@
 #pragma mark Properties
 
 	// Managed property name : DeviceClaims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize deviceClaims = _deviceClaims;
-    - (System_Collections_Generic_IEnumerable *)deviceClaims
+    - (System_Collections_Generic_IEnumerableA1 *)deviceClaims
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeviceClaims"];
 		if ([self object:_deviceClaims isEqualToMonoObject:monoObject]) return _deviceClaims;					
-		_deviceClaims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_deviceClaims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _deviceClaims;
 	}
@@ -63,13 +63,13 @@
 	}
 
 	// Managed property name : UserClaims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize userClaims = _userClaims;
-    - (System_Collections_Generic_IEnumerable *)userClaims
+    - (System_Collections_Generic_IEnumerableA1 *)userClaims
     {
 		MonoObject *monoObject = [self getMonoProperty:"UserClaims"];
 		if ([self object:_userClaims isEqualToMonoObject:monoObject]) return _userClaims;					
-		_userClaims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_userClaims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _userClaims;
 	}

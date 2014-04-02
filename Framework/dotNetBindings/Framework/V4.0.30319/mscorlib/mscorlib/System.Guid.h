@@ -77,27 +77,27 @@
 	// Managed method name : NewGuid
 	// Managed return type : System.Guid
 	// Managed param types : 
-    - (System_Guid *)newGuid;
+    + (System_Guid *)newGuid;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Guid, System.Guid
-    - (BOOL)op_Equality_withA:(System_Guid *)p1 b:(System_Guid *)p2;
+    + (BOOL)op_Equality_withA:(System_Guid *)p1 b:(System_Guid *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Guid, System.Guid
-    - (BOOL)op_Inequality_withA:(System_Guid *)p1 b:(System_Guid *)p2;
+    + (BOOL)op_Inequality_withA:(System_Guid *)p1 b:(System_Guid *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Guid
 	// Managed param types : System.String
-    - (System_Guid *)parse_withInput:(NSString *)p1;
+    + (System_Guid *)parse_withInput:(NSString *)p1;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.Guid
 	// Managed param types : System.String, System.String
-    - (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2;
+    + (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2;
 
 	// Managed method name : ToByteArray
 	// Managed return type : System.Byte[]
@@ -122,11 +122,11 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Guid&
-    - (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Guid **)p2;
+    + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Guid **)p2;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, ref System.Guid&
-    - (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 resultRef:(System_Guid **)p3;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 resultRef:(System_Guid **)p3;
 @end
 //--Dubrovnik.CodeGenerator

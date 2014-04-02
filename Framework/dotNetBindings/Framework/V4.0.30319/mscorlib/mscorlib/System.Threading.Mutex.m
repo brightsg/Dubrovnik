@@ -74,18 +74,18 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.Mutex
 	// Managed param types : System.String
-    - (System_Threading_Mutex *)openExisting_withName:(NSString *)p1
+    + (System_Threading_Mutex *)openExisting_withName:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Threading_Mutex objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.Mutex
 	// Managed param types : System.String, System.Security.AccessControl.MutexRights
-    - (System_Threading_Mutex *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2
+    + (System_Threading_Mutex *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenExisting(string,System.Security.AccessControl.MutexRights)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string,System.Security.AccessControl.MutexRights)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_Threading_Mutex objectWithMonoObject:monoObject];
     }
 
@@ -108,18 +108,18 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Threading.Mutex&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_Mutex **)p2
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_Mutex **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryOpenExisting(string,System.Threading.Mutex&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Threading.Mutex&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.MutexRights, ref System.Threading.Mutex&
-    - (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2 resultRef:(System_Threading_Mutex **)p3
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2 resultRef:(System_Threading_Mutex **)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryOpenExisting(string,System.Security.AccessControl.MutexRights,System.Threading.Mutex&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Security.AccessControl.MutexRights,System.Threading.Mutex&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

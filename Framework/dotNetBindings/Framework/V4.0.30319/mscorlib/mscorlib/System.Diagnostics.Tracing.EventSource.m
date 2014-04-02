@@ -27,6 +27,30 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed property name : ConstructionException
+	// Managed property type : System.Exception
+    @synthesize constructionException = _constructionException;
+    - (System_Exception *)constructionException
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ConstructionException"];
+		if ([self object:_constructionException isEqualToMonoObject:monoObject]) return _constructionException;					
+		_constructionException = [System_Exception objectWithMonoObject:monoObject];
+
+		return _constructionException;
+	}
+
+	// Managed property name : CurrentThreadActivityId
+	// Managed property type : System.Guid
+    static System_Guid * m_currentThreadActivityId;
+    + (System_Guid *)currentThreadActivityId
+    {
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentThreadActivityId"];
+		if ([self object:m_currentThreadActivityId isEqualToMonoObject:monoObject]) return m_currentThreadActivityId;					
+		m_currentThreadActivityId = [System_Guid objectWithMonoObject:monoObject];
+
+		return m_currentThreadActivityId;
+	}
+
 	// Managed property name : Guid
 	// Managed property type : System.Guid
     @synthesize guid = _guid;
@@ -65,37 +89,37 @@
 	// Managed method name : GenerateManifest
 	// Managed return type : System.String
 	// Managed param types : System.Type, System.String
-    - (NSString *)generateManifest_withEventSourceType:(System_Type *)p1 assemblyPathToIncludeInManifest:(NSString *)p2
+    + (NSString *)generateManifest_withEventSourceType:(System_Type *)p1 assemblyPathToIncludeInManifest:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenerateManifest(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GenerateManifest(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetGuid
 	// Managed return type : System.Guid
 	// Managed param types : System.Type
-    - (System_Guid *)getGuid_withEventSourceType:(System_Type *)p1
+    + (System_Guid *)getGuid_withEventSourceType:(System_Type *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetGuid(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGuid(System.Type)" withNumArgs:1, [p1 monoValue]];
 		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetName
 	// Managed return type : System.String
 	// Managed param types : System.Type
-    - (NSString *)getName_withEventSourceType:(System_Type *)p1
+    + (NSString *)getName_withEventSourceType:(System_Type *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetName(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetName(System.Type)" withNumArgs:1, [p1 monoValue]];
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : GetSources
-	// Managed return type : System.Collections.Generic.IEnumerable<System.Diagnostics.Tracing.EventSource>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Diagnostics.Tracing.EventSource>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerable *)getSources
+    + (System_Collections_Generic_IEnumerableA1 *)getSources
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSources()" withNumArgs:0];
-		return [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSources()" withNumArgs:0];
+		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsEnabled
@@ -118,10 +142,26 @@
 
 	// Managed method name : SendCommand
 	// Managed return type : System.Void
-	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventCommand, System.Collections.Generic.IDictionary<System.String, System.String>
-    - (void)sendCommand_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 command:(System_Diagnostics_Tracing_EventCommand)p2 commandArguments:(System_Collections_Generic_IDictionary *)p3
+	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventCommand, System.Collections.Generic.IDictionary`2<System.String, System.String>
+    + (void)sendCommand_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 command:(System_Diagnostics_Tracing_EventCommand)p2 commandArguments:(System_Collections_Generic_IDictionaryA2 *)p3
     {
-		[self invokeMonoMethod:"SendCommand(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventCommand,System.Collections.Generic.IDictionary<System.String, System.String>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		[self invokeMonoClassMethod:"SendCommand(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventCommand,System.Collections.Generic.IDictionary`2<System.String, System.String>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+    }
+
+	// Managed method name : SetCurrentThreadActivityId
+	// Managed return type : System.Void
+	// Managed param types : System.Guid
+    + (void)setCurrentThreadActivityId_withActivityId:(System_Guid *)p1
+    {
+		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid)" withNumArgs:1, [p1 monoValue]];
+    }
+
+	// Managed method name : SetCurrentThreadActivityId
+	// Managed return type : System.Void
+	// Managed param types : System.Guid, ref System.Guid&
+    + (void)setCurrentThreadActivityId_withActivityId:(System_Guid *)p1 oldActivityThatWillContinueRef:(System_Guid **)p2
+    {
+		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid,System.Guid&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 	// Managed method name : ToString
@@ -137,6 +177,7 @@
 #pragma mark Teardown
 	- (void)dealloc
 	{
+		m_currentThreadActivityId = nil;
 	}
 @end
 //--Dubrovnik.CodeGenerator

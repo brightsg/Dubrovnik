@@ -37,10 +37,10 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.ApplicationTrust
-	// Managed param types : System.Security.PermissionSet, System.Collections.Generic.IEnumerable<System.Security.Policy.StrongName>
-    + (System_Security_Policy_ApplicationTrust *)new_withDefaultGrantSet:(System_Security_PermissionSet *)p1 fullTrustAssemblies:(System_Collections_Generic_IEnumerable *)p2
+	// Managed param types : System.Security.PermissionSet, System.Collections.Generic.IEnumerable`1<System.Security.Policy.StrongName>
+    + (System_Security_Policy_ApplicationTrust *)new_withDefaultGrantSet:(System_Security_PermissionSet *)p1 fullTrustAssemblies:(System_Collections_Generic_IEnumerableA1 *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Collections.Generic.IEnumerable<System.Security.Policy.StrongName>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Collections.Generic.IEnumerable`1<System.Security.Policy.StrongName>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
     }
 
 #pragma mark -
@@ -101,13 +101,13 @@
 	}
 
 	// Managed property name : FullTrustAssemblies
-	// Managed property type : System.Collections.Generic.IList<System.Security.Policy.StrongName>
+	// Managed property type : System.Collections.Generic.IList`1<System.Security.Policy.StrongName>
     @synthesize fullTrustAssemblies = _fullTrustAssemblies;
-    - (System_Collections_Generic_IList *)fullTrustAssemblies
+    - (System_Collections_Generic_IListA1 *)fullTrustAssemblies
     {
 		MonoObject *monoObject = [self getMonoProperty:"FullTrustAssemblies"];
 		if ([self object:_fullTrustAssemblies isEqualToMonoObject:monoObject]) return _fullTrustAssemblies;					
-		_fullTrustAssemblies = [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		_fullTrustAssemblies = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
 
 		return _fullTrustAssemblies;
 	}

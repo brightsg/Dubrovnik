@@ -28,75 +28,75 @@
 #pragma mark Methods
 
 	// Managed method name : Create
-	// Managed return type : OrderablePartitioner<TSource>
-	// Managed param types : IList<TSource>, System.Boolean
-    - (OrderablePartitioner *)create_withList:(IList *)p1 loadBalance:(BOOL)p2
+	// Managed return type : OrderablePartitioner`1<TSource>
+	// Managed param types : IEnumerable`1<TSource>
+    + (OrderablePartitionerA1 *)create_withSource:(IEnumerableA1 *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(IList<TSource>,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [OrderablePartitioner objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(IEnumerable`1<TSource>)" withNumArgs:1, [p1 monoValue]];
+		return [OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : OrderablePartitioner<TSource>
+	// Managed return type : OrderablePartitioner`1<TSource>
+	// Managed param types : IEnumerable`1<TSource>, System.Collections.Concurrent.EnumerablePartitionerOptions
+    + (OrderablePartitionerA1 *)create_withSource:(IEnumerableA1 *)p1 partitionerOptions:(System_Collections_Concurrent_EnumerablePartitionerOptions)p2
+    {
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(IEnumerable`1<TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [OrderablePartitionerA1 objectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : Create
+	// Managed return type : OrderablePartitioner`1<TSource>
+	// Managed param types : IList`1<TSource>, System.Boolean
+    + (OrderablePartitionerA1 *)create_withList:(IListA1 *)p1 loadBalance:(BOOL)p2
+    {
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(IList`1<TSource>,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [OrderablePartitionerA1 objectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : Create
+	// Managed return type : OrderablePartitioner`1<TSource>
 	// Managed param types : TSource[], System.Boolean
-    - (OrderablePartitioner *)create_withArray:(DBSystem_Array *)p1 loadBalance:(BOOL)p2
+    + (OrderablePartitionerA1 *)create_withArray:(DBSystem_Array *)p1 loadBalance:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(System.Array[],bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [OrderablePartitioner objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Array[],bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : OrderablePartitioner<TSource>
-	// Managed param types : IEnumerable<TSource>
-    - (OrderablePartitioner *)create_withSource:(IEnumerable *)p1
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(IEnumerable<TSource>)" withNumArgs:1, [p1 monoValue]];
-		return [OrderablePartitioner objectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : Create
-	// Managed return type : OrderablePartitioner<TSource>
-	// Managed param types : IEnumerable<TSource>, System.Collections.Concurrent.EnumerablePartitionerOptions
-    - (OrderablePartitioner *)create_withSource:(IEnumerable *)p1 partitionerOptions:(System_Collections_Concurrent_EnumerablePartitionerOptions)p2
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(IEnumerable<TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-		return [OrderablePartitioner objectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner<System.Tuple<System.Int64, System.Int64>>
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
 	// Managed param types : System.Int64, System.Int64
-    - (System_Collections_Concurrent_OrderablePartitioner *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2
+    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		return [System_Collections_Concurrent_OrderablePartitioner objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner<System.Tuple<System.Int64, System.Int64>>
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
 	// Managed param types : System.Int64, System.Int64, System.Int64
-    - (System_Collections_Concurrent_OrderablePartitioner *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3
+    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(long,long,long)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Collections_Concurrent_OrderablePartitioner objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long,long)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner<System.Tuple<System.Int32, System.Int32>>
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
 	// Managed param types : System.Int32, System.Int32
-    - (System_Collections_Concurrent_OrderablePartitioner *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2
+    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		return [System_Collections_Concurrent_OrderablePartitioner objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner<System.Tuple<System.Int32, System.Int32>>
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
 	// Managed param types : System.Int32, System.Int32, System.Int32
-    - (System_Collections_Concurrent_OrderablePartitioner *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3
+    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(int,int,int)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
-		return [System_Collections_Concurrent_OrderablePartitioner objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int,int)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 #pragma mark -

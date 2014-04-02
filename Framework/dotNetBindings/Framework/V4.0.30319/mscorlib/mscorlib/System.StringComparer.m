@@ -123,9 +123,9 @@
 	// Managed method name : Create
 	// Managed return type : System.StringComparer
 	// Managed param types : System.Globalization.CultureInfo, System.Boolean
-    - (System_StringComparer *)create_withCulture:(System_Globalization_CultureInfo *)p1 ignoreCase:(BOOL)p2
+    + (System_StringComparer *)create_withCulture:(System_Globalization_CultureInfo *)p1 ignoreCase:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(System.Globalization.CultureInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Globalization.CultureInfo,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return [System_StringComparer objectWithMonoObject:monoObject];
     }
 

@@ -42,7 +42,7 @@
 	// Managed method name : CreateFromUrl
 	// Managed return type : System.Security.Policy.Site
 	// Managed param types : System.String
-    - (System_Security_Policy_Site *)createFromUrl_withUrl:(NSString *)p1;
+    + (System_Security_Policy_Site *)createFromUrl_withUrl:(NSString *)p1;
 
 	// Managed method name : CreateIdentityPermission
 	// Managed return type : System.Security.IPermission

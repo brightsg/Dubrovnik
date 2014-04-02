@@ -32,12 +32,12 @@
 	// Managed method name : AllocateDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : 
-    - (System_LocalDataStoreSlot *)allocateDataSlot;
+    + (System_LocalDataStoreSlot *)allocateDataSlot;
 
 	// Managed method name : AllocateNamedDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : System.String
-    - (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1;
+    + (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1;
 
 	// Managed method name : DoCallBack
 	// Managed return type : System.Void
@@ -47,7 +47,7 @@
 	// Managed method name : FreeNamedDataSlot
 	// Managed return type : System.Void
 	// Managed param types : System.String
-    - (void)freeNamedDataSlot_withName:(NSString *)p1;
+    + (void)freeNamedDataSlot_withName:(NSString *)p1;
 
 	// Managed method name : Freeze
 	// Managed return type : System.Void
@@ -57,12 +57,12 @@
 	// Managed method name : GetData
 	// Managed return type : System.Object
 	// Managed param types : System.LocalDataStoreSlot
-    - (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
+    + (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1;
 
 	// Managed method name : GetNamedDataSlot
 	// Managed return type : System.LocalDataStoreSlot
 	// Managed param types : System.String
-    - (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1;
+    + (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1;
 
 	// Managed method name : GetProperty
 	// Managed return type : System.Runtime.Remoting.Contexts.IContextProperty
@@ -72,12 +72,12 @@
 	// Managed method name : RegisterDynamicProperty
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Contexts.IDynamicProperty, System.ContextBoundObject, System.Runtime.Remoting.Contexts.Context
-    - (BOOL)registerDynamicProperty_withProp:(System_Runtime_Remoting_Contexts_IDynamicProperty *)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3;
+    + (BOOL)registerDynamicProperty_withProp:(System_Runtime_Remoting_Contexts_IDynamicProperty *)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3;
 
 	// Managed method name : SetData
 	// Managed return type : System.Void
 	// Managed param types : System.LocalDataStoreSlot, System.Object
-    - (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2;
+    + (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2;
 
 	// Managed method name : SetProperty
 	// Managed return type : System.Void
@@ -92,6 +92,6 @@
 	// Managed method name : UnregisterDynamicProperty
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.ContextBoundObject, System.Runtime.Remoting.Contexts.Context
-    - (BOOL)unregisterDynamicProperty_withName:(NSString *)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3;
+    + (BOOL)unregisterDynamicProperty_withName:(NSString *)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -24,21 +24,21 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.DES
 	// Managed param types : 
-    - (System_Security_Cryptography_DES *)create;
+    + (System_Security_Cryptography_DES *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.DES
 	// Managed param types : System.String
-    - (System_Security_Cryptography_DES *)create_withAlgName:(NSString *)p1;
+    + (System_Security_Cryptography_DES *)create_withAlgName:(NSString *)p1;
 
 	// Managed method name : IsSemiWeakKey
 	// Managed return type : System.Boolean
 	// Managed param types : System.Byte[]
-    - (BOOL)isSemiWeakKey_withRgbKey:(NSData *)p1;
+    + (BOOL)isSemiWeakKey_withRgbKey:(NSData *)p1;
 
 	// Managed method name : IsWeakKey
 	// Managed return type : System.Boolean
 	// Managed param types : System.Byte[]
-    - (BOOL)isWeakKey_withRgbKey:(NSData *)p1;
+    + (BOOL)isWeakKey_withRgbKey:(NSData *)p1;
 @end
 //--Dubrovnik.CodeGenerator

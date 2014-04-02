@@ -27,6 +27,18 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed property name : ActivityId
+	// Managed property type : System.Guid
+    @synthesize activityId = _activityId;
+    - (System_Guid *)activityId
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ActivityId"];
+		if ([self object:_activityId isEqualToMonoObject:monoObject]) return _activityId;					
+		_activityId = [System_Guid objectWithMonoObject:monoObject];
+
+		return _activityId;
+	}
+
 	// Managed property name : EventId
 	// Managed property type : System.Int32
     @synthesize eventId = _eventId;
@@ -89,6 +101,12 @@
 
 		return _message;
 	}
+    - (void)setMessage:(NSString *)value
+	{
+		_message = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"Message" valueObject:monoObject];          
+	}
 
 	// Managed property name : Opcode
 	// Managed property type : System.Diagnostics.Tracing.EventOpcode
@@ -102,21 +120,39 @@
 	}
 
 	// Managed property name : Payload
-	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Object>
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Object>
     @synthesize payload = _payload;
-    - (System_Collections_ObjectModel_ReadOnlyCollection *)payload
+    - (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)payload
     {
 		MonoObject *monoObject = [self getMonoProperty:"Payload"];
 		if ([self object:_payload isEqualToMonoObject:monoObject]) return _payload;					
-		_payload = [System_Collections_ObjectModel_ReadOnlyCollection objectWithMonoObject:monoObject];
+		_payload = [System_Collections_ObjectModel_ReadOnlyCollectionA1 objectWithMonoObject:monoObject];
 
 		return _payload;
 	}
-    - (void)setPayload:(System_Collections_ObjectModel_ReadOnlyCollection *)value
+    - (void)setPayload:(System_Collections_ObjectModel_ReadOnlyCollectionA1 *)value
 	{
 		_payload = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Payload" valueObject:monoObject];          
+	}
+
+	// Managed property name : RelatedActivityId
+	// Managed property type : System.Guid
+    @synthesize relatedActivityId = _relatedActivityId;
+    - (System_Guid *)relatedActivityId
+    {
+		MonoObject *monoObject = [self getMonoProperty:"RelatedActivityId"];
+		if ([self object:_relatedActivityId isEqualToMonoObject:monoObject]) return _relatedActivityId;					
+		_relatedActivityId = [System_Guid objectWithMonoObject:monoObject];
+
+		return _relatedActivityId;
+	}
+    - (void)setRelatedActivityId:(System_Guid *)value
+	{
+		_relatedActivityId = value;
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"RelatedActivityId" valueObject:monoObject];          
 	}
 
 	// Managed property name : Task

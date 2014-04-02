@@ -527,19 +527,19 @@
 
 	// Managed method name : GetAllDateTimePatterns
 	// Managed return type : System.String[]
-	// Managed param types : System.Char
-    - (DBSystem_Array *)getAllDateTimePatterns_withFormat:(uint16_t)p1
+	// Managed param types : 
+    - (DBSystem_Array *)getAllDateTimePatterns
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAllDateTimePatterns(char)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetAllDateTimePatterns()" withNumArgs:0];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetAllDateTimePatterns
 	// Managed return type : System.String[]
-	// Managed param types : 
-    - (DBSystem_Array *)getAllDateTimePatterns
+	// Managed param types : System.Char
+    - (DBSystem_Array *)getAllDateTimePatterns_withFormat:(uint16_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAllDateTimePatterns()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetAllDateTimePatterns(char)" withNumArgs:1, DB_VALUE(p1)];
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -582,9 +582,9 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.DateTimeFormatInfo
 	// Managed param types : System.IFormatProvider
-    - (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1
+    + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
     }
 
@@ -609,9 +609,9 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.DateTimeFormatInfo
 	// Managed param types : System.Globalization.DateTimeFormatInfo
-    - (System_Globalization_DateTimeFormatInfo *)readOnly_withDtfi:(System_Globalization_DateTimeFormatInfo *)p1
+    + (System_Globalization_DateTimeFormatInfo *)readOnly_withDtfi:(System_Globalization_DateTimeFormatInfo *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadOnly(System.Globalization.DateTimeFormatInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.DateTimeFormatInfo)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
     }
 

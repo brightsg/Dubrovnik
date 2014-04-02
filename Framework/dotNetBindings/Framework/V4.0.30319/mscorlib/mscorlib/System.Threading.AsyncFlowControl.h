@@ -37,12 +37,12 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.AsyncFlowControl, System.Threading.AsyncFlowControl
-    - (BOOL)op_Equality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2;
+    + (BOOL)op_Equality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.AsyncFlowControl, System.Threading.AsyncFlowControl
-    - (BOOL)op_Inequality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2;
+    + (BOOL)op_Inequality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2;
 
 	// Managed method name : Undo
 	// Managed return type : System.Void

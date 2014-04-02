@@ -119,9 +119,9 @@
 	// Managed method name : IsSddlConversionSupported
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isSddlConversionSupported
+    + (BOOL)isSddlConversionSupported
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSddlConversionSupported()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsSddlConversionSupported()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

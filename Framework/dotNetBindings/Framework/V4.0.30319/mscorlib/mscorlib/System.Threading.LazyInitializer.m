@@ -29,37 +29,37 @@
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&, Func<T>
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 valueFactory:(Func *)p2
+	// Managed param types : ref T&, Func`1<T>
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 valueFactory:(FuncA1 *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"EnsureInitialized(T&,Func<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&,Func`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
 	// Managed param types : ref T&
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"EnsureInitialized(T&)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&)" withNumArgs:1, [p1 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
 	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"EnsureInitialized(T&,bool&,object&)" withNumArgs:3, [p1 monoValue], p2, [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&,bool&,object&)" withNumArgs:3, [p1 monoValue], p2, [p3 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&, Func<T>
-    - (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(Func *)p4
+	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&, Func`1<T>
+    + (DBManagedObject *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(FuncA1 *)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"EnsureInitialized(T&,bool&,object&,Func<T>)" withNumArgs:4, [p1 monoValue], p2, [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&,bool&,object&,Func`1<T>)" withNumArgs:4, [p1 monoValue], p2, [p3 monoValue], [p4 monoValue]];
 		return [DBManagedObject objectWithMonoObject:monoObject];
     }
 

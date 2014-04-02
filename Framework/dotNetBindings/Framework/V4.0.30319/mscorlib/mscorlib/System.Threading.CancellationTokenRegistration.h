@@ -37,11 +37,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration
-    - (BOOL)op_Equality_withLeft:(System_Threading_CancellationTokenRegistration *)p1 right:(System_Threading_CancellationTokenRegistration *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Threading_CancellationTokenRegistration *)p1 right:(System_Threading_CancellationTokenRegistration *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration
-    - (BOOL)op_Inequality_withLeft:(System_Threading_CancellationTokenRegistration *)p1 right:(System_Threading_CancellationTokenRegistration *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationTokenRegistration *)p1 right:(System_Threading_CancellationTokenRegistration *)p2;
 @end
 //--Dubrovnik.CodeGenerator

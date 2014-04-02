@@ -133,45 +133,45 @@
 	// Managed method name : NewGuid
 	// Managed return type : System.Guid
 	// Managed param types : 
-    - (System_Guid *)newGuid
+    + (System_Guid *)newGuid
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"NewGuid()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"NewGuid()" withNumArgs:0];
 		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Guid, System.Guid
-    - (BOOL)op_Equality_withA:(System_Guid *)p1 b:(System_Guid *)p2
+    + (BOOL)op_Equality_withA:(System_Guid *)p1 b:(System_Guid *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Guid, System.Guid
-    - (BOOL)op_Inequality_withA:(System_Guid *)p1 b:(System_Guid *)p2
+    + (BOOL)op_Inequality_withA:(System_Guid *)p1 b:(System_Guid *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Guid
 	// Managed param types : System.String
-    - (System_Guid *)parse_withInput:(NSString *)p1
+    + (System_Guid *)parse_withInput:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Guid objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
 	// Managed return type : System.Guid
 	// Managed param types : System.String, System.String
-    - (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2
+    + (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ParseExact(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Guid objectWithMonoObject:monoObject];
     }
 
@@ -214,18 +214,18 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Guid&
-    - (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Guid **)p2
+    + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Guid **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Guid&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Guid&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, ref System.Guid&
-    - (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 resultRef:(System_Guid **)p3
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 resultRef:(System_Guid **)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParseExact(string,string,System.Guid&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.Guid&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

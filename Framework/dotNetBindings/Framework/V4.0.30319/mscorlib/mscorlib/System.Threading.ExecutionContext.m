@@ -30,9 +30,9 @@
 	// Managed method name : Capture
 	// Managed return type : System.Threading.ExecutionContext
 	// Managed param types : 
-    - (System_Threading_ExecutionContext *)capture
+    + (System_Threading_ExecutionContext *)capture
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Capture()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture()" withNumArgs:0];
 		return [System_Threading_ExecutionContext objectWithMonoObject:monoObject];
     }
 
@@ -64,34 +64,34 @@
 	// Managed method name : IsFlowSuppressed
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isFlowSuppressed
+    + (BOOL)isFlowSuppressed
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsFlowSuppressed()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsFlowSuppressed()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : RestoreFlow
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)restoreFlow
+    + (void)restoreFlow
     {
-		[self invokeMonoMethod:"RestoreFlow()" withNumArgs:0];
+		[self invokeMonoClassMethod:"RestoreFlow()" withNumArgs:0];
     }
 
 	// Managed method name : Run
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object
-    - (void)run_withExecutionContext:(System_Threading_ExecutionContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
+    + (void)run_withExecutionContext:(System_Threading_ExecutionContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
     {
-		[self invokeMonoMethod:"Run(System.Threading.ExecutionContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoClassMethod:"Run(System.Threading.ExecutionContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
     }
 
 	// Managed method name : SuppressFlow
 	// Managed return type : System.Threading.AsyncFlowControl
 	// Managed param types : 
-    - (System_Threading_AsyncFlowControl *)suppressFlow
+    + (System_Threading_AsyncFlowControl *)suppressFlow
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"SuppressFlow()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SuppressFlow()" withNumArgs:0];
 		return [System_Threading_AsyncFlowControl objectWithMonoObject:monoObject];
     }
 

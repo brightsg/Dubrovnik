@@ -109,36 +109,36 @@
 	// Managed method name : Parse
 	// Managed return type : System.Byte
 	// Managed param types : System.String
-    - (uint8_t)parse_withS:(NSString *)p1
+    + (uint8_t)parse_withS:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_UINT8(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Byte
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    - (uint8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2
+    + (uint8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.Globalization.NumberStyles)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_UINT8(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Byte
 	// Managed param types : System.String, System.IFormatProvider
-    - (uint8_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    + (uint8_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_UINT8(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Byte
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    - (uint8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3
+    + (uint8_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,System.Globalization.NumberStyles,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
 		return DB_UNBOX_UINT8(monoObject);
     }
 
@@ -181,18 +181,18 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Byte&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint8_t*)p2
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint8_t*)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,byte&)" withNumArgs:2, [p1 monoValue], p2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,byte&)" withNumArgs:2, [p1 monoValue], p2];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Byte&
-    - (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(uint8_t*)p4
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(uint8_t*)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,byte&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], p4];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,byte&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], p4];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

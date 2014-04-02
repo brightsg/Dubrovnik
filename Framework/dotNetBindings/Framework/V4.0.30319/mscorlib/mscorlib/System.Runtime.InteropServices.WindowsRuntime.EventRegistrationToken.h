@@ -27,11 +27,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
-    - (BOOL)op_Equality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
-    - (BOOL)op_Inequality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2;
 @end
 //--Dubrovnik.CodeGenerator

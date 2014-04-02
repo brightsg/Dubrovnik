@@ -30,9 +30,9 @@
 	// Managed method name : GetInternalAppId
 	// Managed return type : System.Object
 	// Managed param types : System.ApplicationIdentity
-    - (System_Object *)getInternalAppId_withId:(System_ApplicationIdentity *)p1
+    + (System_Object *)getInternalAppId_withId:(System_ApplicationIdentity *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetInternalAppId(System.ApplicationIdentity)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInternalAppId(System.ApplicationIdentity)" withNumArgs:1, [p1 monoValue]];
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

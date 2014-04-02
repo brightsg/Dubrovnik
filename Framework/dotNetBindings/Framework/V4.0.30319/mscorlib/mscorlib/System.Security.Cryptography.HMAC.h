@@ -28,12 +28,12 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.HMAC
 	// Managed param types : 
-    - (System_Security_Cryptography_HMAC *)create;
+    + (System_Security_Cryptography_HMAC *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.HMAC
 	// Managed param types : System.String
-    - (System_Security_Cryptography_HMAC *)create_withAlgorithmName:(NSString *)p1;
+    + (System_Security_Cryptography_HMAC *)create_withAlgorithmName:(NSString *)p1;
 
 	// Managed method name : Initialize
 	// Managed return type : System.Void

@@ -61,12 +61,12 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.SymmetricAlgorithm
 	// Managed param types : 
-    - (System_Security_Cryptography_SymmetricAlgorithm *)create;
+    + (System_Security_Cryptography_SymmetricAlgorithm *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.SymmetricAlgorithm
 	// Managed param types : System.String
-    - (System_Security_Cryptography_SymmetricAlgorithm *)create_withAlgName:(NSString *)p1;
+    + (System_Security_Cryptography_SymmetricAlgorithm *)create_withAlgName:(NSString *)p1;
 
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform

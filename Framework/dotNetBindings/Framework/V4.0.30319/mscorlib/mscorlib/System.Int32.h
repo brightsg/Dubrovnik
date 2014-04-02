@@ -58,22 +58,22 @@
 	// Managed method name : Parse
 	// Managed return type : System.Int32
 	// Managed param types : System.String
-    - (int32_t)parse_withS:(NSString *)p1;
+    + (int32_t)parse_withS:(NSString *)p1;
 
 	// Managed method name : Parse
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    - (int32_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
+    + (int32_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.IFormatProvider
-    - (int32_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (int32_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    - (int32_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
+    + (int32_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -98,11 +98,11 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Int32&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int32_t*)p2;
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int32_t*)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Int32&
-    - (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(int32_t*)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(int32_t*)p4;
 @end
 //--Dubrovnik.CodeGenerator

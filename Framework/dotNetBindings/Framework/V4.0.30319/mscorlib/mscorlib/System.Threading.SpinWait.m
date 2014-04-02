@@ -70,27 +70,27 @@
 
 	// Managed method name : SpinUntil
 	// Managed return type : System.Void
-	// Managed param types : System.Func<System.Boolean>
-    - (void)spinUntil_withCondition:(System_Func *)p1
+	// Managed param types : System.Func`1<System.Boolean>
+    + (void)spinUntil_withCondition:(System_FuncA1 *)p1
     {
-		[self invokeMonoMethod:"SpinUntil(System.Func<System.Boolean>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : SpinUntil
 	// Managed return type : System.Boolean
-	// Managed param types : System.Func<System.Boolean>, System.TimeSpan
-    - (BOOL)spinUntil_withCondition:(System_Func *)p1 timeout:(System_TimeSpan *)p2
+	// Managed param types : System.Func`1<System.Boolean>, System.TimeSpan
+    + (BOOL)spinUntil_withCondition:(System_FuncA1 *)p1 timeout:(System_TimeSpan *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"SpinUntil(System.Func<System.Boolean>,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : SpinUntil
 	// Managed return type : System.Boolean
-	// Managed param types : System.Func<System.Boolean>, System.Int32
-    - (BOOL)spinUntil_withCondition:(System_Func *)p1 millisecondsTimeout:(int32_t)p2
+	// Managed param types : System.Func`1<System.Boolean>, System.Int32
+    + (BOOL)spinUntil_withCondition:(System_FuncA1 *)p1 millisecondsTimeout:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"SpinUntil(System.Func<System.Boolean>,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

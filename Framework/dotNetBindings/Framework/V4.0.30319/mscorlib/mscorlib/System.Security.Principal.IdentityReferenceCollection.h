@@ -58,9 +58,9 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator<System.Security.Principal.IdentityReference>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Security.Principal.IdentityReference>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerator *)getEnumerator;
+    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean

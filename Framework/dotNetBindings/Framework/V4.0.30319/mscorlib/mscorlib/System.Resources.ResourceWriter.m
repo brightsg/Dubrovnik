@@ -47,17 +47,17 @@
 #pragma mark Properties
 
 	// Managed property name : TypeNameConverter
-	// Managed property type : System.Func<System.Type, System.String>
+	// Managed property type : System.Func`2<System.Type, System.String>
     @synthesize typeNameConverter = _typeNameConverter;
-    - (System_Func *)typeNameConverter
+    - (System_FuncA2 *)typeNameConverter
     {
 		MonoObject *monoObject = [self getMonoProperty:"TypeNameConverter"];
 		if ([self object:_typeNameConverter isEqualToMonoObject:monoObject]) return _typeNameConverter;					
-		_typeNameConverter = [System_Func objectWithMonoObject:monoObject];
+		_typeNameConverter = [System_FuncA2 objectWithMonoObject:monoObject];
 
 		return _typeNameConverter;
 	}
-    - (void)setTypeNameConverter:(System_Func *)value
+    - (void)setTypeNameConverter:(System_FuncA2 *)value
 	{
 		_typeNameConverter = value;
 		MonoObject *monoObject = [value monoObject];

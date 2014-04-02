@@ -58,7 +58,7 @@
 	// Managed method name : Parse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)parse_withValue:(NSString *)p1;
+    + (BOOL)parse_withValue:(NSString *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -73,6 +73,6 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Boolean&
-    - (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2;
+    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2;
 @end
 //--Dubrovnik.CodeGenerator

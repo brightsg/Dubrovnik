@@ -61,7 +61,7 @@
 	// Managed method name : CreateFileBasedResourceManager
 	// Managed return type : System.Resources.ResourceManager
 	// Managed param types : System.String, System.String, System.Type
-    - (System_Resources_ResourceManager *)createFileBasedResourceManager_withBaseName:(NSString *)p1 resourceDir:(NSString *)p2 usingResourceSet:(System_Type *)p3;
+    + (System_Resources_ResourceManager *)createFileBasedResourceManager_withBaseName:(NSString *)p1 resourceDir:(NSString *)p2 usingResourceSet:(System_Type *)p3;
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object

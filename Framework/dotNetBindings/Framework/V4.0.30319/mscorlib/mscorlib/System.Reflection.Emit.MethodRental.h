@@ -28,6 +28,6 @@
 	// Managed method name : SwapMethodBody
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.Int32, System.IntPtr, System.Int32, System.Int32
-    - (void)swapMethodBody_withCls:(System_Type *)p1 methodtoken:(int32_t)p2 rgIL:(void *)p3 methodSize:(int32_t)p4 flags:(int32_t)p5;
+    + (void)swapMethodBody_withCls:(System_Type *)p1 methodtoken:(int32_t)p2 rgIL:(void *)p3 methodSize:(int32_t)p4 flags:(int32_t)p5;
 @end
 //--Dubrovnik.CodeGenerator

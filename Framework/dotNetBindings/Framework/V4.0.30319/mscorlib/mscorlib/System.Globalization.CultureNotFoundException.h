@@ -53,8 +53,8 @@
 #pragma mark Properties
 
 	// Managed property name : InvalidCultureId
-	// Managed property type : System.Nullable<System.Int32>
-    @property (nonatomic, strong, readonly) System_Nullable * invalidCultureId;
+	// Managed property type : System.Nullable`1<System.Int32>
+    @property (nonatomic, strong, readonly) System_NullableA1 * invalidCultureId;
 
 	// Managed property name : InvalidCultureName
 	// Managed property type : System.String

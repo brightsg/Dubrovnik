@@ -98,117 +98,117 @@
 	// Managed method name : SignalAndWait
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitHandle
-    - (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2
+    + (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : SignalAndWait
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitHandle, System.TimeSpan, System.Boolean
-    - (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 timeout:(System_TimeSpan *)p3 exitContext:(BOOL)p4
+    + (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 timeout:(System_TimeSpan *)p3 exitContext:(BOOL)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle,System.TimeSpan,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle,System.TimeSpan,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : SignalAndWait
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle, System.Threading.WaitHandle, System.Int32, System.Boolean
-    - (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 millisecondsTimeout:(int32_t)p3 exitContext:(BOOL)p4
+    + (BOOL)signalAndWait_withToSignal:(System_Threading_WaitHandle *)p1 toWaitOn:(System_Threading_WaitHandle *)p2 millisecondsTimeout:(int32_t)p3 exitContext:(BOOL)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle,int,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle,int,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.Int32, System.Boolean
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAll(System.Array[],int,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],int,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan, System.Boolean
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAll(System.Array[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[]
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAll(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[])" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.Int32
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAll(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : WaitAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan
-    - (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
+    + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAll(System.Array[],System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.Int32, System.Boolean
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAny(System.Array[],int,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],int,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan, System.Boolean
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAny(System.Array[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.TimeSpan
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAny(System.Array[],System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[]
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAny(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[])" withNumArgs:1, [p1 monoValue]];
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : WaitAny
 	// Managed return type : System.Int32
 	// Managed param types : System.Threading.WaitHandle[], System.Int32
-    - (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
+    + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAny(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		return DB_UNBOX_INT32(monoObject);
     }
 

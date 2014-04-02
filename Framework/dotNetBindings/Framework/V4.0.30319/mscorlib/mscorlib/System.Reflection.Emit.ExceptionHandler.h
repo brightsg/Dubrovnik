@@ -71,11 +71,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Emit.ExceptionHandler, System.Reflection.Emit.ExceptionHandler
-    - (BOOL)op_Equality_withLeft:(System_Reflection_Emit_ExceptionHandler *)p1 right:(System_Reflection_Emit_ExceptionHandler *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Reflection_Emit_ExceptionHandler *)p1 right:(System_Reflection_Emit_ExceptionHandler *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Emit.ExceptionHandler, System.Reflection.Emit.ExceptionHandler
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_Emit_ExceptionHandler *)p1 right:(System_Reflection_Emit_ExceptionHandler *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_Emit_ExceptionHandler *)p1 right:(System_Reflection_Emit_ExceptionHandler *)p2;
 @end
 //--Dubrovnik.CodeGenerator

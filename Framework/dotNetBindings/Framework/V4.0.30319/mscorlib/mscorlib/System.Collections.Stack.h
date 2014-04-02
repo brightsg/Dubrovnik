@@ -85,7 +85,7 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.Stack
 	// Managed param types : System.Collections.Stack
-    - (System_Collections_Stack *)synchronized_withStack:(System_Collections_Stack *)p1;
+    + (System_Collections_Stack *)synchronized_withStack:(System_Collections_Stack *)p1;
 
 	// Managed method name : ToArray
 	// Managed return type : System.Object[]

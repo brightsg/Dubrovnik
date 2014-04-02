@@ -924,6 +924,6 @@
 	// Managed method name : TakesSingleByteArgument
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Emit.OpCode
-    - (BOOL)takesSingleByteArgument_withInst:(System_Reflection_Emit_OpCode *)p1;
+    + (BOOL)takesSingleByteArgument_withInst:(System_Reflection_Emit_OpCode *)p1;
 @end
 //--Dubrovnik.CodeGenerator

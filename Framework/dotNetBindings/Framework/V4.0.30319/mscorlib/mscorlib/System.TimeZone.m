@@ -96,9 +96,9 @@
 	// Managed method name : IsDaylightSavingTime
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.Globalization.DaylightTime
-    - (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1 daylightTimes:(System_Globalization_DaylightTime *)p2
+    + (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1 daylightTimes:(System_Globalization_DaylightTime *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDaylightSavingTime(System.DateTime,System.Globalization.DaylightTime)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDaylightSavingTime(System.DateTime,System.Globalization.DaylightTime)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

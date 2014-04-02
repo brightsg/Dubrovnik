@@ -172,8 +172,8 @@
 
 	// Managed method name : GetConstructorToken
 	// Managed return type : System.Reflection.Emit.MethodToken
-	// Managed param types : System.Reflection.ConstructorInfo, System.Collections.Generic.IEnumerable<System.Type>
-    - (System_Reflection_Emit_MethodToken *)getConstructorToken_withConstructor:(System_Reflection_ConstructorInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerable *)p2;
+	// Managed param types : System.Reflection.ConstructorInfo, System.Collections.Generic.IEnumerable`1<System.Type>
+    - (System_Reflection_Emit_MethodToken *)getConstructorToken_withConstructor:(System_Reflection_ConstructorInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerableA1 *)p2;
 
 	// Managed method name : GetConstructorToken
 	// Managed return type : System.Reflection.Emit.MethodToken
@@ -191,9 +191,9 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData;
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
@@ -227,8 +227,8 @@
 
 	// Managed method name : GetMethodToken
 	// Managed return type : System.Reflection.Emit.MethodToken
-	// Managed param types : System.Reflection.MethodInfo, System.Collections.Generic.IEnumerable<System.Type>
-    - (System_Reflection_Emit_MethodToken *)getMethodToken_withMethod:(System_Reflection_MethodInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerable *)p2;
+	// Managed param types : System.Reflection.MethodInfo, System.Collections.Generic.IEnumerable`1<System.Type>
+    - (System_Reflection_Emit_MethodToken *)getMethodToken_withMethod:(System_Reflection_MethodInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerableA1 *)p2;
 
 	// Managed method name : GetPEKind
 	// Managed return type : System.Void

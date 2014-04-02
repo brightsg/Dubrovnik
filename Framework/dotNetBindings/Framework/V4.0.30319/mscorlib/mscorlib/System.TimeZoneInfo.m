@@ -128,116 +128,116 @@
 	// Managed method name : ClearCachedData
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)clearCachedData
+    + (void)clearCachedData
     {
-		[self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];
+		[self invokeMonoClassMethod:"ClearCachedData()" withNumArgs:0];
     }
 
 	// Managed method name : ConvertTime
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.DateTimeOffset, System.TimeZoneInfo
-    - (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
+    + (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTime(System.DateTimeOffset,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTimeOffset,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ConvertTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo
-    - (NSDate *)convertTime_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
+    + (NSDate *)convertTime_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Managed method name : ConvertTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo, System.TimeZoneInfo
-    - (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3
+    + (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo,System.TimeZoneInfo)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo,System.TimeZoneInfo)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Managed method name : ConvertTimeBySystemTimeZoneId
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.DateTimeOffset, System.String
-    - (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2
+    + (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTimeBySystemTimeZoneId(System.DateTimeOffset,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTimeOffset,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ConvertTimeBySystemTimeZoneId
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.String
-    - (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 destinationTimeZoneId:(NSString *)p2
+    + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 destinationTimeZoneId:(NSString *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Managed method name : ConvertTimeBySystemTimeZoneId
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.String, System.String
-    - (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 sourceTimeZoneId:(NSString *)p2 destinationTimeZoneId:(NSString *)p3
+    + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 sourceTimeZoneId:(NSString *)p2 destinationTimeZoneId:(NSString *)p3
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Managed method name : ConvertTimeFromUtc
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo
-    - (NSDate *)convertTimeFromUtc_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
+    + (NSDate *)convertTimeFromUtc_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTimeFromUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeFromUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Managed method name : ConvertTimeToUtc
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime
-    - (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1
+    + (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTimeToUtc(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeToUtc(System.DateTime)" withNumArgs:1, [p1 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Managed method name : ConvertTimeToUtc
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo
-    - (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2
+    + (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ConvertTimeToUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeToUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
 	// Managed method name : CreateCustomTimeZone
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String, System.TimeSpan, System.String, System.String
-    - (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
 		return [System_TimeZoneInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateCustomTimeZone
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String, System.TimeSpan, System.String, System.String, System.String, System.TimeZoneInfo+AdjustmentRule[]
-    - (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.Array[])" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.Array[])" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
 		return [System_TimeZoneInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateCustomTimeZone
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String, System.TimeSpan, System.String, System.String, System.String, System.TimeZoneInfo+AdjustmentRule[], System.Boolean
-    - (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6 disableDaylightSavingTime:(BOOL)p7
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6 disableDaylightSavingTime:(BOOL)p7
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.Array[],bool)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.Array[],bool)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];
 		return [System_TimeZoneInfo objectWithMonoObject:monoObject];
     }
 
@@ -262,18 +262,18 @@
 	// Managed method name : FindSystemTimeZoneById
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String
-    - (System_TimeZoneInfo *)findSystemTimeZoneById_withId:(NSString *)p1
+    + (System_TimeZoneInfo *)findSystemTimeZoneById_withId:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FindSystemTimeZoneById(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FindSystemTimeZoneById(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_TimeZoneInfo objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromSerializedString
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String
-    - (System_TimeZoneInfo *)fromSerializedString_withSource:(NSString *)p1
+    + (System_TimeZoneInfo *)fromSerializedString_withSource:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FromSerializedString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FromSerializedString(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_TimeZoneInfo objectWithMonoObject:monoObject];
     }
 
@@ -314,12 +314,12 @@
     }
 
 	// Managed method name : GetSystemTimeZones
-	// Managed return type : System.Collections.ObjectModel.ReadOnlyCollection<System.TimeZoneInfo>
+	// Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo>
 	// Managed param types : 
-    - (System_Collections_ObjectModel_ReadOnlyCollection *)getSystemTimeZones
+    + (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)getSystemTimeZones
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSystemTimeZones()" withNumArgs:0];
-		return [System_Collections_ObjectModel_ReadOnlyCollection objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSystemTimeZones()" withNumArgs:0];
+		return [System_Collections_ObjectModel_ReadOnlyCollectionA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUtcOffset

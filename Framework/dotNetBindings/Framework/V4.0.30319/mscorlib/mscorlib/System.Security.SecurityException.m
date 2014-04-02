@@ -37,6 +37,14 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.SecurityException
+	// Managed param types : System.String, System.Object, System.Object, System.Reflection.MethodInfo, System.Object, System.Security.IPermission
+    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 deny:(System_Object *)p2 permitOnly:(System_Object *)p3 method:(System_Reflection_MethodInfo *)p4 demanded:(System_Object *)p5 permThatFailed:(System_Security_IPermission *)p6
+    {
+		return [[self alloc] initWithSignature:"string,object,object,System.Reflection.MethodInfo,object,System.Security.IPermission" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.SecurityException
 	// Managed param types : System.String
     + (System_Security_SecurityException *)new_withMessage:(NSString *)p1
     {
@@ -65,14 +73,6 @@
     + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2
     {
 		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.SecurityException
-	// Managed param types : System.String, System.Object, System.Object, System.Reflection.MethodInfo, System.Object, System.Security.IPermission
-    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 deny:(System_Object *)p2 permitOnly:(System_Object *)p3 method:(System_Reflection_MethodInfo *)p4 demanded:(System_Object *)p5 permThatFailed:(System_Security_IPermission *)p6
-    {
-		return [[self alloc] initWithSignature:"string,object,object,System.Reflection.MethodInfo,object,System.Security.IPermission" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
     }
 
 #pragma mark -

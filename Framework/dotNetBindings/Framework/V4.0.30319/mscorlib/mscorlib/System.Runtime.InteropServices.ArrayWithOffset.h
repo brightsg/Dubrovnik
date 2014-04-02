@@ -50,11 +50,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.InteropServices.ArrayWithOffset, System.Runtime.InteropServices.ArrayWithOffset
-    - (BOOL)op_Equality_withA:(System_Runtime_InteropServices_ArrayWithOffset *)p1 b:(System_Runtime_InteropServices_ArrayWithOffset *)p2;
+    + (BOOL)op_Equality_withA:(System_Runtime_InteropServices_ArrayWithOffset *)p1 b:(System_Runtime_InteropServices_ArrayWithOffset *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.InteropServices.ArrayWithOffset, System.Runtime.InteropServices.ArrayWithOffset
-    - (BOOL)op_Inequality_withA:(System_Runtime_InteropServices_ArrayWithOffset *)p1 b:(System_Runtime_InteropServices_ArrayWithOffset *)p2;
+    + (BOOL)op_Inequality_withA:(System_Runtime_InteropServices_ArrayWithOffset *)p1 b:(System_Runtime_InteropServices_ArrayWithOffset *)p2;
 @end
 //--Dubrovnik.CodeGenerator

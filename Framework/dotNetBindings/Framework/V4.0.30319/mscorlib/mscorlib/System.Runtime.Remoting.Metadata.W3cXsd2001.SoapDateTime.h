@@ -24,11 +24,11 @@
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String
-    - (NSDate *)parse_withValue:(NSString *)p1;
+    + (NSDate *)parse_withValue:(NSString *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.DateTime
-    - (NSString *)toString_withValue:(NSDate *)p1;
+    + (NSString *)toString_withValue:(NSDate *)p1;
 @end
 //--Dubrovnik.CodeGenerator

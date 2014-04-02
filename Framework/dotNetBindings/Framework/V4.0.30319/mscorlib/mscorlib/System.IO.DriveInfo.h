@@ -64,7 +64,7 @@
 	// Managed method name : GetDrives
 	// Managed return type : System.IO.DriveInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getDrives;
+    + (DBSystem_Array *)getDrives;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

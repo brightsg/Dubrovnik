@@ -28,7 +28,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.Globalization.SortKey, System.Globalization.SortKey
-    - (int32_t)compare_withSortkey1:(System_Globalization_SortKey *)p1 sortkey2:(System_Globalization_SortKey *)p2;
+    + (int32_t)compare_withSortkey1:(System_Globalization_SortKey *)p1 sortkey2:(System_Globalization_SortKey *)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

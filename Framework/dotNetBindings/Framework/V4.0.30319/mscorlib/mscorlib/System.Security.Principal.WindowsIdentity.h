@@ -64,12 +64,12 @@
     @property (nonatomic, strong, readonly) NSString * authenticationType;
 
 	// Managed property name : Claims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * claims;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * claims;
 
 	// Managed property name : DeviceClaims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * deviceClaims;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * deviceClaims;
 
 	// Managed property name : Groups
 	// Managed property type : System.Security.Principal.IdentityReferenceCollection
@@ -112,8 +112,8 @@
     @property (nonatomic, strong, readonly) System_Security_Principal_SecurityIdentifier * user;
 
 	// Managed property name : UserClaims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * userClaims;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * userClaims;
 
 #pragma mark -
 #pragma mark Methods
@@ -131,22 +131,22 @@
 	// Managed method name : GetAnonymous
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : 
-    - (System_Security_Principal_WindowsIdentity *)getAnonymous;
+    + (System_Security_Principal_WindowsIdentity *)getAnonymous;
 
 	// Managed method name : GetCurrent
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : 
-    - (System_Security_Principal_WindowsIdentity *)getCurrent;
+    + (System_Security_Principal_WindowsIdentity *)getCurrent;
 
 	// Managed method name : GetCurrent
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : System.Boolean
-    - (System_Security_Principal_WindowsIdentity *)getCurrent_withIfImpersonating:(BOOL)p1;
+    + (System_Security_Principal_WindowsIdentity *)getCurrent_withIfImpersonating:(BOOL)p1;
 
 	// Managed method name : GetCurrent
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : System.Security.Principal.TokenAccessLevels
-    - (System_Security_Principal_WindowsIdentity *)getCurrent_withDesiredAccess:(System_Security_Principal_TokenAccessLevels)p1;
+    + (System_Security_Principal_WindowsIdentity *)getCurrent_withDesiredAccess:(System_Security_Principal_TokenAccessLevels)p1;
 
 	// Managed method name : Impersonate
 	// Managed return type : System.Security.Principal.WindowsImpersonationContext
@@ -156,6 +156,6 @@
 	// Managed method name : Impersonate
 	// Managed return type : System.Security.Principal.WindowsImpersonationContext
 	// Managed param types : System.IntPtr
-    - (System_Security_Principal_WindowsImpersonationContext *)impersonate_withUserToken:(void *)p1;
+    + (System_Security_Principal_WindowsImpersonationContext *)impersonate_withUserToken:(void *)p1;
 @end
 //--Dubrovnik.CodeGenerator

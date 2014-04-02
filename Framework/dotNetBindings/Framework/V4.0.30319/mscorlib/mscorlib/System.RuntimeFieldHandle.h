@@ -44,11 +44,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.RuntimeFieldHandle, System.RuntimeFieldHandle
-    - (BOOL)op_Equality_withLeft:(System_RuntimeFieldHandle *)p1 right:(System_RuntimeFieldHandle *)p2;
+    + (BOOL)op_Equality_withLeft:(System_RuntimeFieldHandle *)p1 right:(System_RuntimeFieldHandle *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.RuntimeFieldHandle, System.RuntimeFieldHandle
-    - (BOOL)op_Inequality_withLeft:(System_RuntimeFieldHandle *)p1 right:(System_RuntimeFieldHandle *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_RuntimeFieldHandle *)p1 right:(System_RuntimeFieldHandle *)p2;
 @end
 //--Dubrovnik.CodeGenerator

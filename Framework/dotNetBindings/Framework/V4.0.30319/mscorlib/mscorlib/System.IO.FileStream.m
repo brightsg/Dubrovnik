@@ -347,12 +347,12 @@
     }
 
 	// Managed method name : ReadAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadByte

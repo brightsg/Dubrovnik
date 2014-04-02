@@ -155,9 +155,9 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.Stack
 	// Managed param types : System.Collections.Stack
-    - (System_Collections_Stack *)synchronized_withStack:(System_Collections_Stack *)p1
+    + (System_Collections_Stack *)synchronized_withStack:(System_Collections_Stack *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Synchronized(System.Collections.Stack)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Stack)" withNumArgs:1, [p1 monoValue]];
 		return [System_Collections_Stack objectWithMonoObject:monoObject];
     }
 

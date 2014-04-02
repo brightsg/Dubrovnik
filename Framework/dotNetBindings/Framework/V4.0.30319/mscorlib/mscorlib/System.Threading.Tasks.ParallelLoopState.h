@@ -23,8 +23,8 @@
     @property (nonatomic, readonly) BOOL isStopped;
 
 	// Managed property name : LowestBreakIteration
-	// Managed property type : System.Nullable<System.Int64>
-    @property (nonatomic, strong, readonly) System_Nullable * lowestBreakIteration;
+	// Managed property type : System.Nullable`1<System.Int64>
+    @property (nonatomic, strong, readonly) System_NullableA1 * lowestBreakIteration;
 
 	// Managed property name : ShouldExitCurrentIteration
 	// Managed property type : System.Boolean

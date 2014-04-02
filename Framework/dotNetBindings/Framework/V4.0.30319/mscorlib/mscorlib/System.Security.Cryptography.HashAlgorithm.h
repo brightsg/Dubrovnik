@@ -64,12 +64,12 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.HashAlgorithm
 	// Managed param types : 
-    - (System_Security_Cryptography_HashAlgorithm *)create;
+    + (System_Security_Cryptography_HashAlgorithm *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.HashAlgorithm
 	// Managed param types : System.String
-    - (System_Security_Cryptography_HashAlgorithm *)create_withHashName:(NSString *)p1;
+    + (System_Security_Cryptography_HashAlgorithm *)create_withHashName:(NSString *)p1;
 
 	// Managed method name : Dispose
 	// Managed return type : System.Void

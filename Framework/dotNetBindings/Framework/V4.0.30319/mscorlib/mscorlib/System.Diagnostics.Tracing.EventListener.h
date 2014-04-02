@@ -36,7 +36,7 @@
 
 	// Managed method name : EnableEvents
 	// Managed return type : System.Void
-	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventLevel, System.Diagnostics.Tracing.EventKeywords, System.Collections.Generic.IDictionary<System.String, System.String>
-    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(System_Diagnostics_Tracing_EventLevel)p2 matchAnyKeyword:(System_Diagnostics_Tracing_EventKeywords)p3 arguments:(System_Collections_Generic_IDictionary *)p4;
+	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventLevel, System.Diagnostics.Tracing.EventKeywords, System.Collections.Generic.IDictionary`2<System.String, System.String>
+    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(System_Diagnostics_Tracing_EventLevel)p2 matchAnyKeyword:(System_Diagnostics_Tracing_EventKeywords)p3 arguments:(System_Collections_Generic_IDictionaryA2 *)p4;
 @end
 //--Dubrovnik.CodeGenerator

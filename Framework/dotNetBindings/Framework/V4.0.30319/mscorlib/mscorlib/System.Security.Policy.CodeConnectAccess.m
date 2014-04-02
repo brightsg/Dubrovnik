@@ -116,18 +116,18 @@
 	// Managed method name : CreateAnySchemeAccess
 	// Managed return type : System.Security.Policy.CodeConnectAccess
 	// Managed param types : System.Int32
-    - (System_Security_Policy_CodeConnectAccess *)createAnySchemeAccess_withAllowPort:(int32_t)p1
+    + (System_Security_Policy_CodeConnectAccess *)createAnySchemeAccess_withAllowPort:(int32_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateAnySchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAnySchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Security_Policy_CodeConnectAccess objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateOriginSchemeAccess
 	// Managed return type : System.Security.Policy.CodeConnectAccess
 	// Managed param types : System.Int32
-    - (System_Security_Policy_CodeConnectAccess *)createOriginSchemeAccess_withAllowPort:(int32_t)p1
+    + (System_Security_Policy_CodeConnectAccess *)createOriginSchemeAccess_withAllowPort:(int32_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateOriginSchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateOriginSchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Security_Policy_CodeConnectAccess objectWithMonoObject:monoObject];
     }
 

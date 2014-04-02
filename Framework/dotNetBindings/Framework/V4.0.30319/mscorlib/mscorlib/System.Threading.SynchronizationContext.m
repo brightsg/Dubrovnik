@@ -95,9 +95,9 @@
 	// Managed method name : SetSynchronizationContext
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.SynchronizationContext
-    - (void)setSynchronizationContext_withSyncContext:(System_Threading_SynchronizationContext *)p1
+    + (void)setSynchronizationContext_withSyncContext:(System_Threading_SynchronizationContext *)p1
     {
-		[self invokeMonoMethod:"SetSynchronizationContext(System.Threading.SynchronizationContext)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SetSynchronizationContext(System.Threading.SynchronizationContext)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : Wait

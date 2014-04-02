@@ -175,18 +175,18 @@
 	// Managed method name : CreateFromCertFile
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String
-    - (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromCertFile_withFilename:(NSString *)p1
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromCertFile_withFilename:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromCertFile(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromCertFile(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFromSignedFile
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String
-    - (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromSignedFile_withFilename:(NSString *)p1
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromSignedFile_withFilename:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFromSignedFile(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromSignedFile(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
     }
 

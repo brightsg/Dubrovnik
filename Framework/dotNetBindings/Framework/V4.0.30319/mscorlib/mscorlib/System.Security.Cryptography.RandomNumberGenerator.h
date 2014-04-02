@@ -17,12 +17,12 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.RandomNumberGenerator
 	// Managed param types : 
-    - (System_Security_Cryptography_RandomNumberGenerator *)create;
+    + (System_Security_Cryptography_RandomNumberGenerator *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.RandomNumberGenerator
 	// Managed param types : System.String
-    - (System_Security_Cryptography_RandomNumberGenerator *)create_withRngName:(NSString *)p1;
+    + (System_Security_Cryptography_RandomNumberGenerator *)create_withRngName:(NSString *)p1;
 
 	// Managed method name : Dispose
 	// Managed return type : System.Void

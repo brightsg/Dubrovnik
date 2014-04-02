@@ -118,7 +118,7 @@
 		ABA3A5F718EC71AF006756AA /* System.MulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA3A5F118EC7106006756AA /* System.MulticastDelegate.m */; };
 		ABA3A5F818EC71C2006756AA /* System.MulticastDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3A5F018EC7106006756AA /* System.MulticastDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA3A5F918EC71C5006756AA /* System.IAsyncResult.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3A5F318EC7149006756AA /* System.IAsyncResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABA3A5FB18EC7284006756AA /* System.AsyncCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3A5FA18EC7284006756AA /* System.AsyncCallback.h */; };
+		ABA3A5FB18EC7284006756AA /* System.AsyncCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3A5FA18EC7284006756AA /* System.AsyncCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
@@ -751,6 +751,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABA3A5FB18EC7284006756AA /* System.AsyncCallback.h in Headers */,
 				ABA3A5F818EC71C2006756AA /* System.MulticastDelegate.h in Headers */,
 				ABA3A5F918EC71C5006756AA /* System.IAsyncResult.h in Headers */,
 				AB21120118C52DE80083F5E1 /* Interface_IList.h in Headers */,
@@ -765,7 +766,6 @@
 				AB120D8F18B67B5100461FA2 /* System.Collections.Generic.DictionaryA2.h in Headers */,
 				AB120D9B18B67C5F00461FA2 /* System.Data.Entity.Core.Objects.ObjectQueryA1.h in Headers */,
 				AB120D8B18B67B0800461FA2 /* System.IO.FileInfo.h in Headers */,
-				ABA3A5FB18EC7284006756AA /* System.AsyncCallback.h in Headers */,
 				AB120D7F18B679C400461FA2 /* System.Linq.h in Headers */,
 				AB120D9718B67BBD00461FA2 /* System.Collections.ArrayList.h in Headers */,
 				AB120D8718B67ACD00461FA2 /* System.Drawing.Size.h in Headers */,

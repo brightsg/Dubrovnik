@@ -95,13 +95,13 @@
 	}
 
 	// Managed property name : Properties
-	// Managed property type : System.Collections.Generic.IDictionary<System.String, System.String>
+	// Managed property type : System.Collections.Generic.IDictionary`2<System.String, System.String>
     @synthesize properties = _properties;
-    - (System_Collections_Generic_IDictionary *)properties
+    - (System_Collections_Generic_IDictionaryA2 *)properties
     {
 		MonoObject *monoObject = [self getMonoProperty:"Properties"];
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
-		_properties = [System_Collections_Generic_IDictionary objectWithMonoObject:monoObject];
+		_properties = [System_Collections_Generic_IDictionaryA2 objectWithMonoObject:monoObject];
 
 		return _properties;
 	}

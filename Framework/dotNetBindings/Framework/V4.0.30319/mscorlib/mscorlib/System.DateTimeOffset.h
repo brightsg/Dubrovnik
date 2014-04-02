@@ -185,7 +185,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (int32_t)compare_withFirst:(System_DateTimeOffset *)p1 second:(System_DateTimeOffset *)p2;
+    + (int32_t)compare_withFirst:(System_DateTimeOffset *)p1 second:(System_DateTimeOffset *)p2;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -205,7 +205,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (BOOL)equals_withFirst:(System_DateTimeOffset *)p1 second:(System_DateTimeOffset *)p2;
+    + (BOOL)equals_withFirst:(System_DateTimeOffset *)p1 second:(System_DateTimeOffset *)p2;
 
 	// Managed method name : EqualsExact
 	// Managed return type : System.Boolean
@@ -215,7 +215,7 @@
 	// Managed method name : FromFileTime
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.Int64
-    - (System_DateTimeOffset *)fromFileTime_withFileTime:(int64_t)p1;
+    + (System_DateTimeOffset *)fromFileTime_withFileTime:(int64_t)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -225,82 +225,82 @@
 	// Managed method name : op_Addition
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.DateTimeOffset, System.TimeSpan
-    - (System_DateTimeOffset *)op_Addition_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2;
+    + (System_DateTimeOffset *)op_Addition_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (BOOL)op_Equality_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
+    + (BOOL)op_Equality_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
 
 	// Managed method name : op_GreaterThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (BOOL)op_GreaterThan_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
+    + (BOOL)op_GreaterThan_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
 
 	// Managed method name : op_GreaterThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (BOOL)op_GreaterThanOrEqual_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
+    + (BOOL)op_GreaterThanOrEqual_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
 
 	// Managed method name : op_Implicit
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.DateTime
-    - (System_DateTimeOffset *)op_Implicit_withDateTime:(NSDate *)p1;
+    + (System_DateTimeOffset *)op_Implicit_withDateTime:(NSDate *)p1;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (BOOL)op_Inequality_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
 
 	// Managed method name : op_LessThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (BOOL)op_LessThan_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
+    + (BOOL)op_LessThan_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
 
 	// Managed method name : op_LessThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (BOOL)op_LessThanOrEqual_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
+    + (BOOL)op_LessThanOrEqual_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
 
 	// Managed method name : op_Subtraction
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.DateTimeOffset, System.TimeSpan
-    - (System_DateTimeOffset *)op_Subtraction_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2;
+    + (System_DateTimeOffset *)op_Subtraction_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2;
 
 	// Managed method name : op_Subtraction
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
-    - (System_TimeSpan *)op_Subtraction_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
+    + (System_TimeSpan *)op_Subtraction_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String
-    - (System_DateTimeOffset *)parse_withInput:(NSString *)p1;
+    + (System_DateTimeOffset *)parse_withInput:(NSString *)p1;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.IFormatProvider
-    - (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2;
+    + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    - (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3;
+    + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.String, System.IFormatProvider
-    - (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3;
+    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    - (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4;
+    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles
-    - (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4;
+    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4;
 
 	// Managed method name : Subtract
 	// Managed return type : System.TimeSpan
@@ -355,21 +355,21 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.DateTimeOffset&
-    - (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_DateTimeOffset **)p2;
+    + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_DateTimeOffset **)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
-    - (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(System_DateTimeOffset **)p4;
+    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(System_DateTimeOffset **)p4;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
-    - (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
-    - (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5;
 @end
 //--Dubrovnik.CodeGenerator

@@ -85,9 +85,9 @@
 	// Managed method name : Add
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    - (void *)add_withPointer:(void *)p1 offset:(int32_t)p2
+    + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -112,72 +112,72 @@
 	// Managed method name : op_Addition
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    - (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2
+    + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Addition(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.IntPtr, System.IntPtr
-    - (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2
+    + (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(intptr,intptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(intptr,intptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Int32
-    - (void *)op_Explicit_withValueInt:(int32_t)p1
+    + (void *)op_Explicit_withValueInt:(int32_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Explicit(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(int)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Int64
-    - (void *)op_Explicit_withValueLong:(int64_t)p1
+    + (void *)op_Explicit_withValueLong:(int64_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Explicit(long)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(long)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Void*
-    - (void *)op_Explicit_withValueVoid:(void*)p1
+    + (void *)op_Explicit_withValueVoid:(void*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Explicit(void*)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(void*)" withNumArgs:1, p1];
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.IntPtr, System.IntPtr
-    - (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2
+    + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(intptr,intptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(intptr,intptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Subtraction
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    - (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2
+    + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Subtraction(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : Subtract
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    - (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2
+    + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Subtract(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(intptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		return DB_UNBOX_PTR(monoObject);
     }
 

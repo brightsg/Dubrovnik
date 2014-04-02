@@ -28,13 +28,13 @@
 #pragma mark Properties
 
 	// Managed property name : ExceptionHandlingClauses
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.ExceptionHandlingClause>
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.ExceptionHandlingClause>
     @synthesize exceptionHandlingClauses = _exceptionHandlingClauses;
-    - (System_Collections_Generic_IList *)exceptionHandlingClauses
+    - (System_Collections_Generic_IListA1 *)exceptionHandlingClauses
     {
 		MonoObject *monoObject = [self getMonoProperty:"ExceptionHandlingClauses"];
 		if ([self object:_exceptionHandlingClauses isEqualToMonoObject:monoObject]) return _exceptionHandlingClauses;					
-		_exceptionHandlingClauses = [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		_exceptionHandlingClauses = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
 
 		return _exceptionHandlingClauses;
 	}
@@ -62,13 +62,13 @@
 	}
 
 	// Managed property name : LocalVariables
-	// Managed property type : System.Collections.Generic.IList<System.Reflection.LocalVariableInfo>
+	// Managed property type : System.Collections.Generic.IList`1<System.Reflection.LocalVariableInfo>
     @synthesize localVariables = _localVariables;
-    - (System_Collections_Generic_IList *)localVariables
+    - (System_Collections_Generic_IListA1 *)localVariables
     {
 		MonoObject *monoObject = [self getMonoProperty:"LocalVariables"];
 		if ([self object:_localVariables isEqualToMonoObject:monoObject]) return _localVariables;					
-		_localVariables = [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		_localVariables = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
 
 		return _localVariables;
 	}

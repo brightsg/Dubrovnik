@@ -26,8 +26,8 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
-	// Managed param types : System.Collections.Generic.IEnumerable<System.Exception>
-    + (System_AggregateException *)new_withInnerExceptionsSCGIException:(System_Collections_Generic_IEnumerable *)p1;
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
+    + (System_AggregateException *)new_withInnerExceptionsSCGIException:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
@@ -36,8 +36,8 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
-	// Managed param types : System.String, System.Collections.Generic.IEnumerable<System.Exception>
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSCGIException:(System_Collections_Generic_IEnumerable *)p2;
+	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.Exception>
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSCGIException:(System_Collections_Generic_IEnumerableA1 *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
@@ -48,8 +48,8 @@
 #pragma mark Properties
 
 	// Managed property name : InnerExceptions
-	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection<System.Exception>
-    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_ReadOnlyCollection * innerExceptions;
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Exception>
+    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_ReadOnlyCollectionA1 * innerExceptions;
 
 #pragma mark -
 #pragma mark Methods
@@ -71,8 +71,8 @@
 
 	// Managed method name : Handle
 	// Managed return type : System.Void
-	// Managed param types : System.Func<System.Exception, System.Boolean>
-    - (void)handle_withPredicate:(System_Func *)p1;
+	// Managed param types : System.Func`2<System.Exception, System.Boolean>
+    - (void)handle_withPredicate:(System_FuncA2 *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

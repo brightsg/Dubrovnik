@@ -79,9 +79,9 @@
 	// Managed method name : FromCurrentSynchronizationContext
 	// Managed return type : System.Threading.Tasks.TaskScheduler
 	// Managed param types : 
-    - (System_Threading_Tasks_TaskScheduler *)fromCurrentSynchronizationContext
+    + (System_Threading_Tasks_TaskScheduler *)fromCurrentSynchronizationContext
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"FromCurrentSynchronizationContext()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FromCurrentSynchronizationContext()" withNumArgs:0];
 		return [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
     }
 

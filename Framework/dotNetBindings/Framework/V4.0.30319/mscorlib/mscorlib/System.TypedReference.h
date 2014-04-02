@@ -27,26 +27,26 @@
 	// Managed method name : GetTargetType
 	// Managed return type : System.Type
 	// Managed param types : System.TypedReference
-    - (System_Type *)getTargetType_withValue:(System_TypedReference *)p1;
+    + (System_Type *)getTargetType_withValue:(System_TypedReference *)p1;
 
 	// Managed method name : MakeTypedReference
 	// Managed return type : System.TypedReference
 	// Managed param types : System.Object, System.Reflection.FieldInfo[]
-    - (System_TypedReference *)makeTypedReference_withTarget:(System_Object *)p1 flds:(DBSystem_Array *)p2;
+    + (System_TypedReference *)makeTypedReference_withTarget:(System_Object *)p1 flds:(DBSystem_Array *)p2;
 
 	// Managed method name : SetTypedReference
 	// Managed return type : System.Void
 	// Managed param types : System.TypedReference, System.Object
-    - (void)setTypedReference_withTarget:(System_TypedReference *)p1 value:(System_Object *)p2;
+    + (void)setTypedReference_withTarget:(System_TypedReference *)p1 value:(System_Object *)p2;
 
 	// Managed method name : TargetTypeToken
 	// Managed return type : System.RuntimeTypeHandle
 	// Managed param types : System.TypedReference
-    - (System_RuntimeTypeHandle *)targetTypeToken_withValue:(System_TypedReference *)p1;
+    + (System_RuntimeTypeHandle *)targetTypeToken_withValue:(System_TypedReference *)p1;
 
 	// Managed method name : ToObject
 	// Managed return type : System.Object
 	// Managed param types : System.TypedReference
-    - (System_Object *)toObject_withValue:(System_TypedReference *)p1;
+    + (System_Object *)toObject_withValue:(System_TypedReference *)p1;
 @end
 //--Dubrovnik.CodeGenerator

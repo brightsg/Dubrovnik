@@ -17,12 +17,12 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.RSA
 	// Managed param types : 
-    - (System_Security_Cryptography_RSA *)create;
+    + (System_Security_Cryptography_RSA *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.RSA
 	// Managed param types : System.String
-    - (System_Security_Cryptography_RSA *)create_withAlgName:(NSString *)p1;
+    + (System_Security_Cryptography_RSA *)create_withAlgName:(NSString *)p1;
 
 	// Managed method name : DecryptValue
 	// Managed return type : System.Byte[]

@@ -169,39 +169,39 @@
     }
 
 	// Managed method name : WaitAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Boolean>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Boolean>
 	// Managed param types : System.Int32
-    - (System_Threading_Tasks_Task *)waitAsync_withMillisecondsTimeout:(int32_t)p1
+    - (System_Threading_Tasks_TaskA1 *)waitAsync_withMillisecondsTimeout:(int32_t)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int)" withNumArgs:1, DB_VALUE(p1)];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Boolean>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Boolean>
 	// Managed param types : System.TimeSpan
-    - (System_Threading_Tasks_Task *)waitAsync_withTimeout:(System_TimeSpan *)p1
+    - (System_Threading_Tasks_TaskA1 *)waitAsync_withTimeout:(System_TimeSpan *)p1
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Boolean>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Boolean>
 	// Managed param types : System.TimeSpan, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)waitAsync_withTimeout:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+    - (System_Threading_Tasks_TaskA1 *)waitAsync_withTimeout:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Boolean>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Boolean>
 	// Managed param types : System.Int32, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)waitAsync_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+    - (System_Threading_Tasks_TaskA1 *)waitAsync_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 #pragma mark -

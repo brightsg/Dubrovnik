@@ -123,9 +123,9 @@
 	// Managed method name : Synchronized
 	// Managed return type : System.IO.TextWriter
 	// Managed param types : System.IO.TextWriter
-    - (System_IO_TextWriter *)synchronized_withWriter:(System_IO_TextWriter *)p1
+    + (System_IO_TextWriter *)synchronized_withWriter:(System_IO_TextWriter *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Synchronized(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];
 		return [System_IO_TextWriter objectWithMonoObject:monoObject];
     }
 

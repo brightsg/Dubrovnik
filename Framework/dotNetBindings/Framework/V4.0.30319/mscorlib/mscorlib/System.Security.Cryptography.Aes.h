@@ -17,11 +17,11 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.Aes
 	// Managed param types : 
-    - (System_Security_Cryptography_Aes *)create;
+    + (System_Security_Cryptography_Aes *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.Aes
 	// Managed param types : System.String
-    - (System_Security_Cryptography_Aes *)create_withAlgorithmName:(NSString *)p1;
+    + (System_Security_Cryptography_Aes *)create_withAlgorithmName:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

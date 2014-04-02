@@ -48,18 +48,18 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
-    - (BOOL)op_Equality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2
+    + (BOOL)op_Equality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken,System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken,System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
-    - (BOOL)op_Inequality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2
+    + (BOOL)op_Inequality_withLeft:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1 right:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken,System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken,System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

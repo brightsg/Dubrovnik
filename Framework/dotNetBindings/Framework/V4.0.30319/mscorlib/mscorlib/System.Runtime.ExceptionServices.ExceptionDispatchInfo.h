@@ -24,7 +24,7 @@
 	// Managed method name : Capture
 	// Managed return type : System.Runtime.ExceptionServices.ExceptionDispatchInfo
 	// Managed param types : System.Exception
-    - (System_Runtime_ExceptionServices_ExceptionDispatchInfo *)capture_withSource:(System_Exception *)p1;
+    + (System_Runtime_ExceptionServices_ExceptionDispatchInfo *)capture_withSource:(System_Exception *)p1;
 
 	// Managed method name : Throw
 	// Managed return type : System.Void

@@ -198,7 +198,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.DateTime, System.DateTime
-    - (int32_t)compare_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+    + (int32_t)compare_withT1:(NSDate *)p1 t2:(NSDate *)p2;
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
@@ -213,7 +213,7 @@
 	// Managed method name : DaysInMonth
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Int32
-    - (int32_t)daysInMonth_withYear:(int32_t)p1 month:(int32_t)p2;
+    + (int32_t)daysInMonth_withYear:(int32_t)p1 month:(int32_t)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -228,27 +228,27 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.DateTime
-    - (BOOL)equals_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+    + (BOOL)equals_withT1:(NSDate *)p1 t2:(NSDate *)p2;
 
 	// Managed method name : FromBinary
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int64
-    - (NSDate *)fromBinary_withDateData:(int64_t)p1;
+    + (NSDate *)fromBinary_withDateData:(int64_t)p1;
 
 	// Managed method name : FromFileTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int64
-    - (NSDate *)fromFileTime_withFileTime:(int64_t)p1;
+    + (NSDate *)fromFileTime_withFileTime:(int64_t)p1;
 
 	// Managed method name : FromFileTimeUtc
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int64
-    - (NSDate *)fromFileTimeUtc_withFileTime:(int64_t)p1;
+    + (NSDate *)fromFileTimeUtc_withFileTime:(int64_t)p1;
 
 	// Managed method name : FromOADate
 	// Managed return type : System.DateTime
 	// Managed param types : System.Double
-    - (NSDate *)fromOADate_withD:(double)p1;
+    + (NSDate *)fromOADate_withD:(double)p1;
 
 	// Managed method name : GetDateTimeFormats
 	// Managed return type : System.String[]
@@ -288,87 +288,87 @@
 	// Managed method name : IsLeapYear
 	// Managed return type : System.Boolean
 	// Managed param types : System.Int32
-    - (BOOL)isLeapYear_withYear:(int32_t)p1;
+    + (BOOL)isLeapYear_withYear:(int32_t)p1;
 
 	// Managed method name : op_Addition
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeSpan
-    - (NSDate *)op_Addition_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
+    + (NSDate *)op_Addition_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.DateTime
-    - (BOOL)op_Equality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+    + (BOOL)op_Equality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
 
 	// Managed method name : op_GreaterThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.DateTime
-    - (BOOL)op_GreaterThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+    + (BOOL)op_GreaterThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
 
 	// Managed method name : op_GreaterThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.DateTime
-    - (BOOL)op_GreaterThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+    + (BOOL)op_GreaterThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.DateTime
-    - (BOOL)op_Inequality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+    + (BOOL)op_Inequality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
 
 	// Managed method name : op_LessThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.DateTime
-    - (BOOL)op_LessThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+    + (BOOL)op_LessThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
 
 	// Managed method name : op_LessThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.DateTime, System.DateTime
-    - (BOOL)op_LessThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+    + (BOOL)op_LessThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
 
 	// Managed method name : op_Subtraction
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeSpan
-    - (NSDate *)op_Subtraction_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
+    + (NSDate *)op_Subtraction_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
 
 	// Managed method name : op_Subtraction
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.DateTime, System.DateTime
-    - (System_TimeSpan *)op_Subtraction_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+    + (System_TimeSpan *)op_Subtraction_withD1:(NSDate *)p1 d2:(NSDate *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String
-    - (NSDate *)parse_withS:(NSString *)p1;
+    + (NSDate *)parse_withS:(NSString *)p1;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    - (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3;
+    + (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String, System.IFormatProvider
-    - (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3;
+    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    - (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4;
+    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles
-    - (NSDate *)parseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4;
+    + (NSDate *)parseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4;
 
 	// Managed method name : SpecifyKind
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.DateTimeKind
-    - (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(System_DateTimeKind)p2;
+    + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(System_DateTimeKind)p2;
 
 	// Managed method name : Subtract
 	// Managed return type : System.TimeSpan
@@ -453,21 +453,21 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.DateTime&
-    - (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDate **)p2;
+    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDate **)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    - (BOOL)tryParse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(NSDate **)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(NSDate **)p4;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    - (BOOL)tryParseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5;
+    + (BOOL)tryParseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    - (BOOL)tryParseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5;
+    + (BOOL)tryParseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5;
 @end
 //--Dubrovnik.CodeGenerator

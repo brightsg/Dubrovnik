@@ -43,14 +43,14 @@
     - (int32_t)read_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_Task *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadBlockAsync
-	// Managed return type : System.Threading.Tasks.Task<System.Int32>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_Task *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadLine
 	// Managed return type : System.String
@@ -58,9 +58,9 @@
     - (NSString *)readLine;
 
 	// Managed method name : ReadLineAsync
-	// Managed return type : System.Threading.Tasks.Task<System.String>
+	// Managed return type : System.Threading.Tasks.Task`1<System.String>
 	// Managed param types : 
-    - (System_Threading_Tasks_Task *)readLineAsync;
+    - (System_Threading_Tasks_TaskA1 *)readLineAsync;
 
 	// Managed method name : ReadToEnd
 	// Managed return type : System.String
@@ -68,8 +68,8 @@
     - (NSString *)readToEnd;
 
 	// Managed method name : ReadToEndAsync
-	// Managed return type : System.Threading.Tasks.Task<System.String>
+	// Managed return type : System.Threading.Tasks.Task`1<System.String>
 	// Managed param types : 
-    - (System_Threading_Tasks_Task *)readToEndAsync;
+    - (System_Threading_Tasks_TaskA1 *)readToEndAsync;
 @end
 //--Dubrovnik.CodeGenerator

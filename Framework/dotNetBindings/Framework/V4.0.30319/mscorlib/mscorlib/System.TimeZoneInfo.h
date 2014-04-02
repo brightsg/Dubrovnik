@@ -52,67 +52,67 @@
 	// Managed method name : ClearCachedData
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)clearCachedData;
+    + (void)clearCachedData;
 
 	// Managed method name : ConvertTime
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.DateTimeOffset, System.TimeZoneInfo
-    - (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
+    + (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
 
 	// Managed method name : ConvertTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo
-    - (NSDate *)convertTime_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
+    + (NSDate *)convertTime_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
 
 	// Managed method name : ConvertTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo, System.TimeZoneInfo
-    - (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3;
+    + (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3;
 
 	// Managed method name : ConvertTimeBySystemTimeZoneId
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.DateTimeOffset, System.String
-    - (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2;
+    + (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2;
 
 	// Managed method name : ConvertTimeBySystemTimeZoneId
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.String
-    - (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 destinationTimeZoneId:(NSString *)p2;
+    + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 destinationTimeZoneId:(NSString *)p2;
 
 	// Managed method name : ConvertTimeBySystemTimeZoneId
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.String, System.String
-    - (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 sourceTimeZoneId:(NSString *)p2 destinationTimeZoneId:(NSString *)p3;
+    + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 sourceTimeZoneId:(NSString *)p2 destinationTimeZoneId:(NSString *)p3;
 
 	// Managed method name : ConvertTimeFromUtc
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo
-    - (NSDate *)convertTimeFromUtc_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
+    + (NSDate *)convertTimeFromUtc_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
 
 	// Managed method name : ConvertTimeToUtc
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime
-    - (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1;
+    + (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1;
 
 	// Managed method name : ConvertTimeToUtc
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.TimeZoneInfo
-    - (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2;
+    + (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2;
 
 	// Managed method name : CreateCustomTimeZone
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String, System.TimeSpan, System.String, System.String
-    - (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4;
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4;
 
 	// Managed method name : CreateCustomTimeZone
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String, System.TimeSpan, System.String, System.String, System.String, System.TimeZoneInfo+AdjustmentRule[]
-    - (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6;
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6;
 
 	// Managed method name : CreateCustomTimeZone
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String, System.TimeSpan, System.String, System.String, System.String, System.TimeZoneInfo+AdjustmentRule[], System.Boolean
-    - (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6 disableDaylightSavingTime:(BOOL)p7;
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6 disableDaylightSavingTime:(BOOL)p7;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -127,12 +127,12 @@
 	// Managed method name : FindSystemTimeZoneById
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String
-    - (System_TimeZoneInfo *)findSystemTimeZoneById_withId:(NSString *)p1;
+    + (System_TimeZoneInfo *)findSystemTimeZoneById_withId:(NSString *)p1;
 
 	// Managed method name : FromSerializedString
 	// Managed return type : System.TimeZoneInfo
 	// Managed param types : System.String
-    - (System_TimeZoneInfo *)fromSerializedString_withSource:(NSString *)p1;
+    + (System_TimeZoneInfo *)fromSerializedString_withSource:(NSString *)p1;
 
 	// Managed method name : GetAdjustmentRules
 	// Managed return type : System.TimeZoneInfo+AdjustmentRule[]
@@ -155,9 +155,9 @@
     - (int32_t)getHashCode;
 
 	// Managed method name : GetSystemTimeZones
-	// Managed return type : System.Collections.ObjectModel.ReadOnlyCollection<System.TimeZoneInfo>
+	// Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo>
 	// Managed param types : 
-    - (System_Collections_ObjectModel_ReadOnlyCollection *)getSystemTimeZones;
+    + (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)getSystemTimeZones;
 
 	// Managed method name : GetUtcOffset
 	// Managed return type : System.TimeSpan

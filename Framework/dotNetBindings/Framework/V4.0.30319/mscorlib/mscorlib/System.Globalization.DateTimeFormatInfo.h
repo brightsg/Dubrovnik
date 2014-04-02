@@ -151,13 +151,13 @@
 
 	// Managed method name : GetAllDateTimePatterns
 	// Managed return type : System.String[]
-	// Managed param types : System.Char
-    - (DBSystem_Array *)getAllDateTimePatterns_withFormat:(uint16_t)p1;
+	// Managed param types : 
+    - (DBSystem_Array *)getAllDateTimePatterns;
 
 	// Managed method name : GetAllDateTimePatterns
 	// Managed return type : System.String[]
-	// Managed param types : 
-    - (DBSystem_Array *)getAllDateTimePatterns;
+	// Managed param types : System.Char
+    - (DBSystem_Array *)getAllDateTimePatterns_withFormat:(uint16_t)p1;
 
 	// Managed method name : GetDayName
 	// Managed return type : System.String
@@ -182,7 +182,7 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.DateTimeFormatInfo
 	// Managed param types : System.IFormatProvider
-    - (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1;
+    + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1;
 
 	// Managed method name : GetMonthName
 	// Managed return type : System.String
@@ -197,7 +197,7 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.DateTimeFormatInfo
 	// Managed param types : System.Globalization.DateTimeFormatInfo
-    - (System_Globalization_DateTimeFormatInfo *)readOnly_withDtfi:(System_Globalization_DateTimeFormatInfo *)p1;
+    + (System_Globalization_DateTimeFormatInfo *)readOnly_withDtfi:(System_Globalization_DateTimeFormatInfo *)p1;
 
 	// Managed method name : SetAllDateTimePatterns
 	// Managed return type : System.Void

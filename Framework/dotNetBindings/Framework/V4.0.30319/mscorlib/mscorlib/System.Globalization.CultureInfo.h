@@ -163,7 +163,7 @@
 	// Managed method name : CreateSpecificCulture
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String
-    - (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1;
+    + (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -178,27 +178,27 @@
 	// Managed method name : GetCultureInfo
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.Int32
-    - (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1;
+    + (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1;
 
 	// Managed method name : GetCultureInfo
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String
-    - (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1;
+    + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1;
 
 	// Managed method name : GetCultureInfo
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String, System.String
-    - (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2;
+    + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2;
 
 	// Managed method name : GetCultureInfoByIetfLanguageTag
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.String
-    - (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1;
+    + (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1;
 
 	// Managed method name : GetCultures
 	// Managed return type : System.Globalization.CultureInfo[]
 	// Managed param types : System.Globalization.CultureTypes
-    - (DBSystem_Array *)getCultures_withTypes:(System_Globalization_CultureTypes)p1;
+    + (DBSystem_Array *)getCultures_withTypes:(System_Globalization_CultureTypes)p1;
 
 	// Managed method name : GetFormat
 	// Managed return type : System.Object
@@ -213,7 +213,7 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.CultureInfo
 	// Managed param types : System.Globalization.CultureInfo
-    - (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1;
+    + (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

@@ -61,9 +61,9 @@
 	// Managed method name : Create
 	// Managed return type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder
 	// Managed param types : 
-    - (System_Runtime_CompilerServices_AsyncTaskMethodBuilder *)create
+    + (System_Runtime_CompilerServices_AsyncTaskMethodBuilder *)create
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		return [System_Runtime_CompilerServices_AsyncTaskMethodBuilder objectWithMonoObject:monoObject];
     }
 

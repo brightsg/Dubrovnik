@@ -28,6 +28,6 @@
 	// Managed method name : DetermineApplicationTrust
 	// Managed return type : System.Boolean
 	// Managed param types : System.ActivationContext, System.Security.Policy.TrustManagerContext
-    - (BOOL)determineApplicationTrust_withActivationContext:(System_ActivationContext *)p1 context:(System_Security_Policy_TrustManagerContext *)p2;
+    + (BOOL)determineApplicationTrust_withActivationContext:(System_ActivationContext *)p1 context:(System_Security_Policy_TrustManagerContext *)p2;
 @end
 //--Dubrovnik.CodeGenerator

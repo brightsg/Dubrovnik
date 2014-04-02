@@ -74,32 +74,32 @@
 	// Managed method name : Escape
 	// Managed return type : System.String
 	// Managed param types : System.String
-    - (NSString *)escape_withStr:(NSString *)p1;
+    + (NSString *)escape_withStr:(NSString *)p1;
 
 	// Managed method name : FromString
 	// Managed return type : System.Security.SecurityElement
 	// Managed param types : System.String
-    - (System_Security_SecurityElement *)fromString_withXml:(NSString *)p1;
+    + (System_Security_SecurityElement *)fromString_withXml:(NSString *)p1;
 
 	// Managed method name : IsValidAttributeName
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidAttributeName_withName:(NSString *)p1;
+    + (BOOL)isValidAttributeName_withName:(NSString *)p1;
 
 	// Managed method name : IsValidAttributeValue
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidAttributeValue_withValue:(NSString *)p1;
+    + (BOOL)isValidAttributeValue_withValue:(NSString *)p1;
 
 	// Managed method name : IsValidTag
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidTag_withTag:(NSString *)p1;
+    + (BOOL)isValidTag_withTag:(NSString *)p1;
 
 	// Managed method name : IsValidText
 	// Managed return type : System.Boolean
 	// Managed param types : System.String
-    - (BOOL)isValidText_withText:(NSString *)p1;
+    + (BOOL)isValidText_withText:(NSString *)p1;
 
 	// Managed method name : SearchForChildByTag
 	// Managed return type : System.Security.SecurityElement

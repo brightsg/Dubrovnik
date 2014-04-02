@@ -107,18 +107,18 @@
 	// Managed method name : CreateLinkedTokenSource
 	// Managed return type : System.Threading.CancellationTokenSource
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-    - (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withToken1:(System_Threading_CancellationToken *)p1 token2:(System_Threading_CancellationToken *)p2
+    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withToken1:(System_Threading_CancellationToken *)p1 token2:(System_Threading_CancellationToken *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateLinkedTokenSource
 	// Managed return type : System.Threading.CancellationTokenSource
 	// Managed param types : System.Threading.CancellationToken[]
-    - (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
+    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateLinkedTokenSource(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Array[])" withNumArgs:1, [p1 monoValue]];
 		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }
 

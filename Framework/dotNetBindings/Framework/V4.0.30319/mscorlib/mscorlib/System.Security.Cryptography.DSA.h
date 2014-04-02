@@ -17,12 +17,12 @@
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.DSA
 	// Managed param types : 
-    - (System_Security_Cryptography_DSA *)create;
+    + (System_Security_Cryptography_DSA *)create;
 
 	// Managed method name : Create
 	// Managed return type : System.Security.Cryptography.DSA
 	// Managed param types : System.String
-    - (System_Security_Cryptography_DSA *)create_withAlgName:(NSString *)p1;
+    + (System_Security_Cryptography_DSA *)create_withAlgName:(NSString *)p1;
 
 	// Managed method name : CreateSignature
 	// Managed return type : System.Byte[]

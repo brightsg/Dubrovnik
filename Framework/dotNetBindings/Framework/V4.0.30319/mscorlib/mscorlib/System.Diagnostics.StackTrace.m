@@ -29,14 +29,6 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.StackTrace
-	// Managed param types : System.Exception, System.Boolean
-    + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 fNeedFileInfo:(BOOL)p2
-    {
-		return [[self alloc] initWithSignature:"System.Exception,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Diagnostics.StackTrace
 	// Managed param types : System.Boolean
     + (System_Diagnostics_StackTrace *)new_withFNeedFileInfo:(BOOL)p1
     {
@@ -65,6 +57,14 @@
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1
     {
 		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Diagnostics.StackTrace
+	// Managed param types : System.Exception, System.Boolean
+    + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 fNeedFileInfo:(BOOL)p2
+    {
+		return [[self alloc] initWithSignature:"System.Exception,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
     }
 
 	// Managed method name : .ctor

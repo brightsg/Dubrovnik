@@ -37,6 +37,6 @@
 	// Managed method name : MaxOpaqueLength
 	// Managed return type : System.Int32
 	// Managed param types : System.Boolean
-    - (int32_t)maxOpaqueLength_withIsCallback:(BOOL)p1;
+    + (int32_t)maxOpaqueLength_withIsCallback:(BOOL)p1;
 @end
 //--Dubrovnik.CodeGenerator

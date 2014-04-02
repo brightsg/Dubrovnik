@@ -27,7 +27,7 @@
 	// Managed method name : Create
 	// Managed return type : System.Runtime.CompilerServices.AsyncVoidMethodBuilder
 	// Managed param types : 
-    - (System_Runtime_CompilerServices_AsyncVoidMethodBuilder *)create;
+    + (System_Runtime_CompilerServices_AsyncVoidMethodBuilder *)create;
 
 	// Managed method name : SetException
 	// Managed return type : System.Void

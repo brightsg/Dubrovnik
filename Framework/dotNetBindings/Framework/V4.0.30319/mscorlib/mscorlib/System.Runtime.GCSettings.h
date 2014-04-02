@@ -18,6 +18,11 @@
 	// Managed property type : System.Boolean
     + (BOOL)isServerGC;
 
+	// Managed property name : LargeObjectHeapCompactionMode
+	// Managed property type : System.Runtime.GCLargeObjectHeapCompactionMode
+    + (System_Runtime_GCLargeObjectHeapCompactionMode)largeObjectHeapCompactionMode;
+    + (void)setLargeObjectHeapCompactionMode:(System_Runtime_GCLargeObjectHeapCompactionMode)value;
+
 	// Managed property name : LatencyMode
 	// Managed property type : System.Runtime.GCLatencyMode
     + (System_Runtime_GCLatencyMode)latencyMode;

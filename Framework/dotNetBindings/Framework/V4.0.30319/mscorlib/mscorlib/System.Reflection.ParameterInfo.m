@@ -39,13 +39,13 @@
 	}
 
 	// Managed property name : CustomAttributes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData>
     @synthesize customAttributes = _customAttributes;
-    - (System_Collections_Generic_IEnumerable *)customAttributes
+    - (System_Collections_Generic_IEnumerableA1 *)customAttributes
     {
 		MonoObject *monoObject = [self getMonoProperty:"CustomAttributes"];
 		if ([self object:_customAttributes isEqualToMonoObject:monoObject]) return _customAttributes;					
-		_customAttributes = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_customAttributes = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _customAttributes;
 	}
@@ -220,12 +220,12 @@
     }
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
-		return [System_Collections_Generic_IList objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOptionalCustomModifiers

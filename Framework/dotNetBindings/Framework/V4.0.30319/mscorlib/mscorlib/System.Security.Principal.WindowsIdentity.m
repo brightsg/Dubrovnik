@@ -114,25 +114,25 @@
 	}
 
 	// Managed property name : Claims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize claims = _claims;
-    - (System_Collections_Generic_IEnumerable *)claims
+    - (System_Collections_Generic_IEnumerableA1 *)claims
     {
 		MonoObject *monoObject = [self getMonoProperty:"Claims"];
 		if ([self object:_claims isEqualToMonoObject:monoObject]) return _claims;					
-		_claims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_claims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _claims;
 	}
 
 	// Managed property name : DeviceClaims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize deviceClaims = _deviceClaims;
-    - (System_Collections_Generic_IEnumerable *)deviceClaims
+    - (System_Collections_Generic_IEnumerableA1 *)deviceClaims
     {
 		MonoObject *monoObject = [self getMonoProperty:"DeviceClaims"];
 		if ([self object:_deviceClaims isEqualToMonoObject:monoObject]) return _deviceClaims;					
-		_deviceClaims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_deviceClaims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _deviceClaims;
 	}
@@ -252,13 +252,13 @@
 	}
 
 	// Managed property name : UserClaims
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     @synthesize userClaims = _userClaims;
-    - (System_Collections_Generic_IEnumerable *)userClaims
+    - (System_Collections_Generic_IEnumerableA1 *)userClaims
     {
 		MonoObject *monoObject = [self getMonoProperty:"UserClaims"];
 		if ([self object:_userClaims isEqualToMonoObject:monoObject]) return _userClaims;					
-		_userClaims = [System_Collections_Generic_IEnumerable objectWithMonoObject:monoObject];
+		_userClaims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
 
 		return _userClaims;
 	}
@@ -286,36 +286,36 @@
 	// Managed method name : GetAnonymous
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : 
-    - (System_Security_Principal_WindowsIdentity *)getAnonymous
+    + (System_Security_Principal_WindowsIdentity *)getAnonymous
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAnonymous()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAnonymous()" withNumArgs:0];
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCurrent
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : 
-    - (System_Security_Principal_WindowsIdentity *)getCurrent
+    + (System_Security_Principal_WindowsIdentity *)getCurrent
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCurrent()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrent()" withNumArgs:0];
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCurrent
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : System.Boolean
-    - (System_Security_Principal_WindowsIdentity *)getCurrent_withIfImpersonating:(BOOL)p1
+    + (System_Security_Principal_WindowsIdentity *)getCurrent_withIfImpersonating:(BOOL)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCurrent(bool)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrent(bool)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCurrent
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : System.Security.Principal.TokenAccessLevels
-    - (System_Security_Principal_WindowsIdentity *)getCurrent_withDesiredAccess:(System_Security_Principal_TokenAccessLevels)p1
+    + (System_Security_Principal_WindowsIdentity *)getCurrent_withDesiredAccess:(System_Security_Principal_TokenAccessLevels)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCurrent(System.Security.Principal.TokenAccessLevels)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrent(System.Security.Principal.TokenAccessLevels)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
@@ -331,9 +331,9 @@
 	// Managed method name : Impersonate
 	// Managed return type : System.Security.Principal.WindowsImpersonationContext
 	// Managed param types : System.IntPtr
-    - (System_Security_Principal_WindowsImpersonationContext *)impersonate_withUserToken:(void *)p1
+    + (System_Security_Principal_WindowsImpersonationContext *)impersonate_withUserToken:(void *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Impersonate(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Impersonate(intptr)" withNumArgs:1, DB_VALUE(p1)];
 		return [System_Security_Principal_WindowsImpersonationContext objectWithMonoObject:monoObject];
     }
 

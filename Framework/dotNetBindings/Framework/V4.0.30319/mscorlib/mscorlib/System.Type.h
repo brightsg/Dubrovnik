@@ -586,92 +586,92 @@
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3;
+    + (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2;
+    + (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String
-    - (System_Type *)getType_withTypeName:(NSString *)p1;
+    + (System_Type *)getType_withTypeName:(NSString *)p1;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
-	// Managed param types : System.String, System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
-    - (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_Func *)p2 typeResolver:(System_Func *)p3;
+	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
-	// Managed param types : System.String, System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_Func *)p2 typeResolver:(System_Func *)p3 throwOnError:(BOOL)p4;
+	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
-	// Managed param types : System.String, System.Func<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean, System.Boolean
-    - (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_Func *)p2 typeResolver:(System_Func *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5;
+	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean, System.Boolean
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5;
 
 	// Managed method name : GetTypeArray
 	// Managed return type : System.Type[]
 	// Managed param types : System.Object[]
-    - (DBSystem_Array *)getTypeArray_withArgs:(DBSystem_Array *)p1;
+    + (DBSystem_Array *)getTypeArray_withArgs:(DBSystem_Array *)p1;
 
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : System.Type
-    - (System_TypeCode)getTypeCode_withType:(System_Type *)p1;
+    + (System_TypeCode)getTypeCode_withType:(System_Type *)p1;
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1;
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1;
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid, System.Boolean
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 throwOnError:(BOOL)p2;
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 throwOnError:(BOOL)p2;
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid, System.String
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2;
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2;
 
 	// Managed method name : GetTypeFromCLSID
 	// Managed return type : System.Type
 	// Managed param types : System.Guid, System.String, System.Boolean
-    - (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
+    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
 
 	// Managed method name : GetTypeFromHandle
 	// Managed return type : System.Type
 	// Managed param types : System.RuntimeTypeHandle
-    - (System_Type *)getTypeFromHandle_withHandle:(System_RuntimeTypeHandle *)p1;
+    + (System_Type *)getTypeFromHandle_withHandle:(System_RuntimeTypeHandle *)p1;
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1;
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1;
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 throwOnError:(BOOL)p2;
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 throwOnError:(BOOL)p2;
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.String
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2;
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2;
 
 	// Managed method name : GetTypeFromProgID
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.String, System.Boolean
-    - (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
+    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
 
 	// Managed method name : GetTypeHandle
 	// Managed return type : System.RuntimeTypeHandle
 	// Managed param types : System.Object
-    - (System_RuntimeTypeHandle *)getTypeHandle_withO:(System_Object *)p1;
+    + (System_RuntimeTypeHandle *)getTypeHandle_withO:(System_Object *)p1;
 
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
@@ -741,17 +741,17 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type, System.Type
-    - (BOOL)op_Equality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type, System.Type
-    - (BOOL)op_Inequality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
 
 	// Managed method name : ReflectionOnlyGetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean, System.Boolean
-    - (System_Type *)reflectionOnlyGetType_withTypeName:(NSString *)p1 throwIfNotFound:(BOOL)p2 ignoreCase:(BOOL)p3;
+    + (System_Type *)reflectionOnlyGetType_withTypeName:(NSString *)p1 throwIfNotFound:(BOOL)p2 ignoreCase:(BOOL)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

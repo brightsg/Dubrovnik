@@ -428,9 +428,9 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.Calendar
 	// Managed param types : System.Globalization.Calendar
-    - (System_Globalization_Calendar *)readOnly_withCalendar:(System_Globalization_Calendar *)p1
+    + (System_Globalization_Calendar *)readOnly_withCalendar:(System_Globalization_Calendar *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadOnly(System.Globalization.Calendar)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.Calendar)" withNumArgs:1, [p1 monoValue]];
 		return [System_Globalization_Calendar objectWithMonoObject:monoObject];
     }
 

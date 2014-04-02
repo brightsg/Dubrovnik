@@ -45,11 +45,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Diagnostics.SymbolStore.SymbolToken
-    - (BOOL)op_Equality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2;
+    + (BOOL)op_Equality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Diagnostics.SymbolStore.SymbolToken
-    - (BOOL)op_Inequality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2;
+    + (BOOL)op_Inequality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2;
 @end
 //--Dubrovnik.CodeGenerator

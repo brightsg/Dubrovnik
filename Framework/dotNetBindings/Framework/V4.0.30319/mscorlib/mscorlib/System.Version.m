@@ -188,63 +188,63 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Version, System.Version
-    - (BOOL)op_Equality_withV1:(System_Version *)p1 v2:(System_Version *)p2
+    + (BOOL)op_Equality_withV1:(System_Version *)p1 v2:(System_Version *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Equality(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_GreaterThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Version, System.Version
-    - (BOOL)op_GreaterThan_withV1:(System_Version *)p1 v2:(System_Version *)p2
+    + (BOOL)op_GreaterThan_withV1:(System_Version *)p1 v2:(System_Version *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_GreaterThan(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_GreaterThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Version, System.Version
-    - (BOOL)op_GreaterThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2
+    + (BOOL)op_GreaterThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_GreaterThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Version, System.Version
-    - (BOOL)op_Inequality_withV1:(System_Version *)p1 v2:(System_Version *)p2
+    + (BOOL)op_Inequality_withV1:(System_Version *)p1 v2:(System_Version *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_Inequality(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_LessThan
 	// Managed return type : System.Boolean
 	// Managed param types : System.Version, System.Version
-    - (BOOL)op_LessThan_withV1:(System_Version *)p1 v2:(System_Version *)p2
+    + (BOOL)op_LessThan_withV1:(System_Version *)p1 v2:(System_Version *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_LessThan(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : op_LessThanOrEqual
 	// Managed return type : System.Boolean
 	// Managed param types : System.Version, System.Version
-    - (BOOL)op_LessThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2
+    + (BOOL)op_LessThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"op_LessThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.Version
 	// Managed param types : System.String
-    - (System_Version *)parse_withInput:(NSString *)p1
+    + (System_Version *)parse_withInput:(NSString *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
 		return [System_Version objectWithMonoObject:monoObject];
     }
 
@@ -269,9 +269,9 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, ref System.Version&
-    - (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Version **)p2
+    + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Version **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryParse(string,System.Version&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Version&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

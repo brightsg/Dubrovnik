@@ -115,12 +115,12 @@
     }
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator<System.Security.Principal.IdentityReference>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Security.Principal.IdentityReference>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerator *)getEnumerator
+    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		return [System_Collections_Generic_IEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Remove

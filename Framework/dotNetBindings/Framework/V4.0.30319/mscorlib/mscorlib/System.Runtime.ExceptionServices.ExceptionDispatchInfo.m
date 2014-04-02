@@ -45,9 +45,9 @@
 	// Managed method name : Capture
 	// Managed return type : System.Runtime.ExceptionServices.ExceptionDispatchInfo
 	// Managed param types : System.Exception
-    - (System_Runtime_ExceptionServices_ExceptionDispatchInfo *)capture_withSource:(System_Exception *)p1
+    + (System_Runtime_ExceptionServices_ExceptionDispatchInfo *)capture_withSource:(System_Exception *)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Capture(System.Exception)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture(System.Exception)" withNumArgs:1, [p1 monoValue]];
 		return [System_Runtime_ExceptionServices_ExceptionDispatchInfo objectWithMonoObject:monoObject];
     }
 

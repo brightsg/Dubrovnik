@@ -19,12 +19,12 @@
     @property (nonatomic, strong, readonly) NSString * codeBase;
 
 	// Managed property name : CustomAttributes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * customAttributes;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * customAttributes;
 
 	// Managed property name : DefinedTypes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.TypeInfo>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * definedTypes;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.TypeInfo>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * definedTypes;
 
 	// Managed property name : EntryPoint
 	// Managed property type : System.Reflection.MethodInfo
@@ -39,8 +39,8 @@
     @property (nonatomic, strong, readonly) System_Security_Policy_Evidence * evidence;
 
 	// Managed property name : ExportedTypes
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Type>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * exportedTypes;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Type>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * exportedTypes;
 
 	// Managed property name : FullName
 	// Managed property type : System.String
@@ -75,8 +75,8 @@
     @property (nonatomic, strong, readonly) System_Reflection_Module * manifestModule;
 
 	// Managed property name : Modules
-	// Managed property type : System.Collections.Generic.IEnumerable<System.Reflection.Module>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerable * modules;
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.Module>
+    @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * modules;
 
 	// Managed property name : PermissionSet
 	// Managed property type : System.Security.PermissionSet
@@ -111,7 +111,7 @@
 	// Managed method name : CreateQualifiedName
 	// Managed return type : System.String
 	// Managed param types : System.String, System.String
-    - (NSString *)createQualifiedName_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+    + (NSString *)createQualifiedName_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -121,12 +121,12 @@
 	// Managed method name : GetAssembly
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Type
-    - (System_Reflection_Assembly *)getAssembly_withType:(System_Type *)p1;
+    + (System_Reflection_Assembly *)getAssembly_withType:(System_Type *)p1;
 
 	// Managed method name : GetCallingAssembly
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : 
-    - (System_Reflection_Assembly *)getCallingAssembly;
+    + (System_Reflection_Assembly *)getCallingAssembly;
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Object[]
@@ -139,19 +139,19 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 	// Managed method name : GetCustomAttributesData
-	// Managed return type : System.Collections.Generic.IList<System.Reflection.CustomAttributeData>
+	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IList *)getCustomAttributesData;
+    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
 
 	// Managed method name : GetEntryAssembly
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : 
-    - (System_Reflection_Assembly *)getEntryAssembly;
+    + (System_Reflection_Assembly *)getEntryAssembly;
 
 	// Managed method name : GetExecutingAssembly
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : 
-    - (System_Reflection_Assembly *)getExecutingAssembly;
+    + (System_Reflection_Assembly *)getExecutingAssembly;
 
 	// Managed method name : GetExportedTypes
 	// Managed return type : System.Type[]
@@ -281,72 +281,72 @@
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String
-    - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
+    + (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Security.Policy.Evidence
-    - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2;
+    + (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Reflection.AssemblyName
-    - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
+    + (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Reflection.AssemblyName, System.Security.Policy.Evidence
-    - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2;
+    + (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Byte[]
-    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
+    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
+    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Byte[], System.Byte[], System.Security.SecurityContextSource
-    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityContextSource:(System_Security_SecurityContextSource)p3;
+    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityContextSource:(System_Security_SecurityContextSource)p3;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Byte[], System.Byte[], System.Security.Policy.Evidence
-    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityEvidence:(System_Security_Policy_Evidence *)p3;
+    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityEvidence:(System_Security_Policy_Evidence *)p3;
 
 	// Managed method name : LoadFile
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String
-    - (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1;
+    + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1;
 
 	// Managed method name : LoadFile
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Security.Policy.Evidence
-    - (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2;
+    + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2;
 
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String
-    - (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1;
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1;
 
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Security.Policy.Evidence
-    - (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2;
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2;
 
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
-    - (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2 hashValue:(NSData *)p3 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p4;
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2 hashValue:(NSData *)p3 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p4;
 
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
-    - (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 hashValue:(NSData *)p2 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p3;
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 hashValue:(NSData *)p2 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p3;
 
 	// Managed method name : LoadModule
 	// Managed return type : System.Reflection.Module
@@ -361,37 +361,37 @@
 	// Managed method name : LoadWithPartialName
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String
-    - (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1;
+    + (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1;
 
 	// Managed method name : LoadWithPartialName
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Security.Policy.Evidence
-    - (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2;
+    + (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly, System.Reflection.Assembly
-    - (BOOL)op_Equality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly, System.Reflection.Assembly
-    - (BOOL)op_Inequality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
 
 	// Managed method name : ReflectionOnlyLoad
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String
-    - (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1;
+    + (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1;
 
 	// Managed method name : ReflectionOnlyLoad
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Byte[]
-    - (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1;
+    + (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1;
 
 	// Managed method name : ReflectionOnlyLoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String
-    - (System_Reflection_Assembly *)reflectionOnlyLoadFrom_withAssemblyFile:(NSString *)p1;
+    + (System_Reflection_Assembly *)reflectionOnlyLoadFrom_withAssemblyFile:(NSString *)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -401,6 +401,6 @@
 	// Managed method name : UnsafeLoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String
-    - (System_Reflection_Assembly *)unsafeLoadFrom_withAssemblyFile:(NSString *)p1;
+    + (System_Reflection_Assembly *)unsafeLoadFrom_withAssemblyFile:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

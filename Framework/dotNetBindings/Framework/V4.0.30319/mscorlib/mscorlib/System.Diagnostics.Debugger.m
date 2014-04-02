@@ -59,43 +59,43 @@
 	// Managed method name : Break
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)break
+    + (void)break
     {
-		[self invokeMonoMethod:"Break()" withNumArgs:0];
+		[self invokeMonoClassMethod:"Break()" withNumArgs:0];
     }
 
 	// Managed method name : IsLogging
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)isLogging
+    + (BOOL)isLogging
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"IsLogging()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsLogging()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : Launch
 	// Managed return type : System.Boolean
 	// Managed param types : 
-    - (BOOL)launch
+    + (BOOL)launch
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Launch()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Launch()" withNumArgs:0];
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : Log
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.String, System.String
-    - (void)log_withLevel:(int32_t)p1 category:(NSString *)p2 message:(NSString *)p3
+    + (void)log_withLevel:(int32_t)p1 category:(NSString *)p2 message:(NSString *)p3
     {
-		[self invokeMonoMethod:"Log(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoClassMethod:"Log(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
     }
 
 	// Managed method name : NotifyOfCrossThreadDependency
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)notifyOfCrossThreadDependency
+    + (void)notifyOfCrossThreadDependency
     {
-		[self invokeMonoMethod:"NotifyOfCrossThreadDependency()" withNumArgs:0];
+		[self invokeMonoClassMethod:"NotifyOfCrossThreadDependency()" withNumArgs:0];
     }
 
 #pragma mark -

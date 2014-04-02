@@ -53,7 +53,7 @@
 	// Managed method name : CreateFromBinaryForm
 	// Managed return type : System.Security.AccessControl.GenericAce
 	// Managed param types : System.Byte[], System.Int32
-    - (System_Security_AccessControl_GenericAce *)createFromBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2;
+    + (System_Security_AccessControl_GenericAce *)createFromBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -73,11 +73,11 @@
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.GenericAce, System.Security.AccessControl.GenericAce
-    - (BOOL)op_Equality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2;
+    + (BOOL)op_Equality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.GenericAce, System.Security.AccessControl.GenericAce
-    - (BOOL)op_Inequality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2;
+    + (BOOL)op_Inequality_withLeft:(System_Security_AccessControl_GenericAce *)p1 right:(System_Security_AccessControl_GenericAce *)p2;
 @end
 //--Dubrovnik.CodeGenerator

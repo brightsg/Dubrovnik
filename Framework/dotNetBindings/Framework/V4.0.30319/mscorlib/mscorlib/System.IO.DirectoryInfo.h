@@ -72,49 +72,49 @@
     - (void)delete_withRecursive:(BOOL)p1;
 
 	// Managed method name : EnumerateDirectories
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.DirectoryInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerable *)enumerateDirectories;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories;
 
 	// Managed method name : EnumerateDirectories
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.DirectoryInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)enumerateDirectories_withSearchPattern:(NSString *)p1;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withSearchPattern:(NSString *)p1;
 
 	// Managed method name : EnumerateDirectories
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.DirectoryInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerable *)enumerateDirectories_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2;
 
 	// Managed method name : EnumerateFiles
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerable *)enumerateFiles;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles;
 
 	// Managed method name : EnumerateFiles
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)enumerateFiles_withSearchPattern:(NSString *)p1;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withSearchPattern:(NSString *)p1;
 
 	// Managed method name : EnumerateFiles
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerable *)enumerateFiles_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2;
 
 	// Managed method name : EnumerateFileSystemInfos
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileSystemInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerable *)enumerateFileSystemInfos;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos;
 
 	// Managed method name : EnumerateFileSystemInfos
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileSystemInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerable *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1;
 
 	// Managed method name : EnumerateFileSystemInfos
-	// Managed return type : System.Collections.Generic.IEnumerable<System.IO.FileSystemInfo>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerable *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2;
+    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2;
 
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.DirectorySecurity

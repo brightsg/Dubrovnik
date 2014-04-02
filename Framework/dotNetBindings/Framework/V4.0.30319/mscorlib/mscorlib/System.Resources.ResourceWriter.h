@@ -28,8 +28,8 @@
 #pragma mark Properties
 
 	// Managed property name : TypeNameConverter
-	// Managed property type : System.Func<System.Type, System.String>
-    @property (nonatomic, strong) System_Func * typeNameConverter;
+	// Managed property type : System.Func`2<System.Type, System.String>
+    @property (nonatomic, strong) System_FuncA2 * typeNameConverter;
 
 #pragma mark -
 #pragma mark Methods
