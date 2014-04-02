@@ -450,7 +450,7 @@ this.Write("\r\n");
 public void WriteInterfaceFilePreliminaries()
 {
 	string objCAssemblyHeaderName = AssemblyFacet.Name;
-	string defineName = ("Include_" + ObjCNameFromMonoName(objCAssemblyHeaderName) + "_Extra").ToUpper();
+	string defineName = ("Include_" + ObjCNameFromManagedName(objCAssemblyHeaderName) + "_Extra").ToUpper();
 	
 
         
@@ -516,7 +516,7 @@ this.Write("\r\n//\r\n// Referenced assemblies\r\n//\r\n");
 	foreach (CodeFacet reference in AssemblyFacet.References)
 	{
 		string includeFile = reference.Name;
-		defineName = (ObjCNameFromMonoName(includeFile) + "_Included").ToUpper();
+		defineName = (ObjCNameFromManagedName(includeFile) + "_Included").ToUpper();
 
         
         #line default
@@ -606,8 +606,8 @@ this.Write("\r\n//\r\n// Forward class declarations and class aliases\r\n//\r\n"
 //
 public void WriteClassPredeclaration(CodeFacet facet)
 {
-	string namespacePrefix = ObjCAcronymFromMonoName(facet.TypeNamespace);
-	string classDefine = ObjCTypeFromMonoType(namespacePrefix + facet.Name) + "_";
+	string namespacePrefix = ObjCAcronymFromManagedName(facet.TypeNamespace);
+	string classDefine = ObjCTypeFromManagedType(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
 
 
@@ -1066,8 +1066,8 @@ this.Write("\t}\r\n");
 //
 public void WriteEnumeration(EnumerationFacet enumeration)
 {
-	string objCEnumType = ObjCTypeNameFromMonoTypeName(enumeration.UnderlyingType);
-	string objCType = ObjCTypeNameFromMonoTypeName(enumeration.Type);
+	string objCEnumType = ObjCTypeNameFromManagedTypeName(enumeration.UnderlyingType);
+	string objCType = ObjCTypeNameFromManagedTypeName(enumeration.Type);
 
 	// output the enums as a typedef.
 	// note that we could also generate a class based definition.
@@ -1122,7 +1122,7 @@ this.Write(") {\r\n");
 
 			foreach (FieldFacet field in enumeration.Fields) 
 			{
-				string objCFieldName = ObjCNameFromMonoName(field.Name);
+				string objCFieldName = ObjCNameFromManagedName(field.Name);
 
         
         #line default
@@ -1234,7 +1234,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	if (isObjectProperty) 
 	{
 		// test if mono object pointer and property storage reference the same managed object
-		doPropertyEqualityTest = string.Format("if ([self object:{0} isEqualToMonoObject:{1}]) return {0};", propertyStorage, MonoVariableName);
+		doPropertyEqualityTest = string.Format("if ([self object:{0} isEqualToMonoObject:{1}]) return {0};", propertyStorage, ManagedVariableName);
     }
 
 	// field access
@@ -1257,9 +1257,9 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 		propertyAttributes =  String.Format("({0}) ", attributes);
     }
 
-	// create Obj-C representation of mono object
-	string monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
-	string objCValueToMono = ObjCValueToMono(ObjCVariableName, objCTypeDecl, facet);
+	// create Obj-C representation of managed object
+	string managedValueToObjC = ManagedValueToObjc(ManagedVariableName, facet);
+	string objCValueToMono = ObjCValueToManaged(ObjCVariableName, objCTypeDecl, facet);
 	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
 
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
@@ -1300,12 +1300,12 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 		if (isObjectProperty) 
 		{
 			fieldAccessTypeDecl = monoObjectPtr;
-			fieldAccessExpression = monoValueToObjC;
+			fieldAccessExpression = managedValueToObjC;
 		} 
 		else 
 		{
 			fieldAccessTypeDecl = objCTypeDecl;
-			fieldAccessExpression = MonoVariableName;
+			fieldAccessExpression = ManagedVariableName;
         }
 
     } 
@@ -1315,8 +1315,8 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 		throw new Exception("Cannot write facet as accessor");
     }
 
-	string getExpression = String.Format(getFormat, accessorName, MonoVariableName);
-	string setExpression = String.Format(setFormat, accessorName, MonoVariableName);
+	string getExpression = String.Format(getFormat, accessorName, ManagedVariableName);
+	string setExpression = String.Format(setFormat, accessorName, ManagedVariableName);
 
 	// Info comment
 
@@ -1653,7 +1653,7 @@ this.Write(this.ToStringHelper.ToStringWithCulture(monoObjectPtr));
         #line hidden
         
         #line 541 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
+this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
@@ -1740,7 +1740,7 @@ this.Write(" = ");
         #line hidden
         
         #line 550 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(monoValueToObjC));
+this.Write(this.ToStringHelper.ToStringWithCulture(managedValueToObjC));
 
         
         #line default
@@ -1799,7 +1799,7 @@ this.Write(" ");
         #line hidden
         
         #line 559 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
+this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
@@ -2050,7 +2050,7 @@ this.Write(this.ToStringHelper.ToStringWithCulture(monoObjectPtr));
         #line hidden
         
         #line 589 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
+this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
@@ -2133,7 +2133,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	bool isConstructorMethod = (facet.Name == null);	// constructor has no method name
 	string objCMethodType = facet.IsStatic || isConstructorMethod ? "+" : "-";
 	string objCTypeDecl = ObjCTypeDeclFromMonoFacet(facet);	
-	string monoValueToObjC = null;
+	string managedValueToObjC = null;
 
 	// instance method requires a name and type
 	if (!isConstructorMethod) 
@@ -2142,7 +2142,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		objCMethodName = monoMethodName.FirstCharacterToLower();
 
 		// create Obj-C representation of mono object
-		monoValueToObjC = MonoValueToObjc(MonoVariableName, facet);
+		managedValueToObjC = ManagedValueToObjc(ManagedVariableName, facet);
 
 		if (!facet.IsStatic) 
 		{
@@ -2195,7 +2195,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// Get the ObjC type associated with the parameter.
 		//
 		ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(parameter);
-		MonoTypeAssociation monoTypeAssociate = null;
+		ManagedTypeAssociation managedTypeAssociate = null;
 		if (objCTypeAssociate != null) 
 		{
 			//
@@ -2207,13 +2207,13 @@ public void WriteFacetAsMethod(MethodFacet facet)
 				ObjCTypeAssociation objCRepresentedTypeAssociate = ObjCTypeAssociate(parameter.ElementType);
 				if (objCRepresentedTypeAssociate != null) 
 				{
-					monoTypeAssociate = objCRepresentedTypeAssociate.MonoTypeAssociate;
+					managedTypeAssociate = objCRepresentedTypeAssociate.ManagedTypeAssociate;
                 }
 			}
 			
-			if (monoTypeAssociate == null) 
+			if (managedTypeAssociate == null) 
 			{
-				monoTypeAssociate = objCTypeAssociate.MonoTypeAssociate;
+				managedTypeAssociate = objCTypeAssociate.ManagedTypeAssociate;
 			}
 
 			objCParamTypeDecl =  objCTypeAssociate.ObjCTypeDecl;
@@ -2241,9 +2241,9 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		if (idx > 0) monoSigBuilder.Append(",");
 		string monoMethodParameterType = null;
 
-		if (monoTypeAssociate != null) 
+		if (managedTypeAssociate != null) 
 		{
-			 monoMethodParameterType = monoTypeAssociate.MonoTypeInvoke;
+			 monoMethodParameterType = managedTypeAssociate.ManagedTypeInvoke;
 			if (parameter.IsArray)  
 			{
 				monoMethodParameterType += "[]";
@@ -2264,8 +2264,8 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// Build ObjC parameter name.
 		// In order to represent overloaded methods effectively the 
 		// ObjC paramter name is constructed as follows:
-		// Mono parameter name + Mono parameter type + Ref
-		string objCParamName = ObjCNameFromMonoName(parameter.Name);
+		// Managed parameter name + Managed parameter type + Ref
+		string objCParamName = ObjCNameFromManagedName(parameter.Name);
 
 		// If the method is overloaded by parameter then makes th ObjC method
 		// name unique by including type info in the name.
@@ -2283,7 +2283,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 			// We adopt a minimal as opposed to a full type repesentation here in order
 			// to minimize the parameter length.
 			// Time will tell how it flies.
-			objCParamOverloadSuffix = ObjCMinimalNameFromMonoName(monoMethodParameterType);
+			objCParamOverloadSuffix = ObjCMinimalNameFromManagedName(monoMethodParameterType);
         }
 		if (parameter.IsByRef) 
 		{
@@ -2551,7 +2551,7 @@ this.Write(";\r\n");
 		} 
 		else 
 		{
-			if (String.IsNullOrEmpty(monoValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
+			if (String.IsNullOrEmpty(managedValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
 
         
         #line default
@@ -2565,7 +2565,7 @@ this.Write("\t\tMonoObject *");
         #line hidden
         
         #line 887 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(MonoVariableName));
+this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
@@ -2593,7 +2593,7 @@ this.Write(";\r\n\t\treturn ");
         #line hidden
         
         #line 888 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(monoValueToObjC));
+this.Write(this.ToStringHelper.ToStringWithCulture(managedValueToObjC));
 
         
         #line default

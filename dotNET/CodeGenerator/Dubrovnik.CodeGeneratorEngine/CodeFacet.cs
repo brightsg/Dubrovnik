@@ -18,11 +18,11 @@ namespace Dubrovnik
 
         public CodeFacet(CodeFacet facet)
         {
-            Name = ObjCNameFromMonoName(facet.Name);    // retain generic sig
-            Type = ObjCTypeFromMonoType(facet.Type);    // discard generic sig
-            BaseName = ObjCNameFromMonoName(facet.BaseName);
-            BaseType = ObjCTypeFromMonoType(facet.BaseType);
-            UnderlyingType = ObjCTypeFromMonoType(facet.UnderlyingType);
+            Name = ObjCNameFromManagedName(facet.Name);    // retain generic sig
+            Type = ObjCTypeFromManagedType(facet.Type);    // discard generic sig
+            BaseName = ObjCNameFromManagedName(facet.BaseName);
+            BaseType = ObjCTypeFromManagedType(facet.BaseType);
+            UnderlyingType = ObjCTypeFromManagedType(facet.UnderlyingType);
 
             /*
              * // suspect !
@@ -31,7 +31,7 @@ namespace Dubrovnik
                 List<string> list = new  List<string>();
                 foreach (string childType in facet.GenericArgumentTypes)
                 {
-                    list.Add(ObjCTypeFromMonoType(childType));
+                    list.Add(ObjCTypeFromManagedType(childType));
                 }
                 GenericArgumentTypes = list.ToArray<string>();
             }
@@ -175,47 +175,47 @@ namespace Dubrovnik
         }
 
         //
-        // OutputObjCNameFromMonoName
+        // OutputObjCNameFromManagedName
         //
         public string OutputFileName()
         {
-            return TypeNamespace + "." + ObjCTypeFromMonoType(Name);
+            return TypeNamespace + "." + ObjCTypeFromManagedType(Name);
         }
 
         //
-        // ObjCTypeFromMonoType
+        // ObjCTypeFromManagedType
         //
-        public static string ObjCTypeFromMonoType(string monoType)
+        public static string ObjCTypeFromManagedType(string managedType)
         {
-            if (monoType != null)
+            if (managedType != null)
             {
                 // ObjCtype type name will not include generic parameter information
-                int idx  = monoType.IndexOf('<');
+                int idx  = managedType.IndexOf('<');
                 if (idx != -1)
                 {
-                    monoType = monoType.Substring(0, idx);
+                    managedType = managedType.Substring(0, idx);
                 }
             }
 
-            string objCType = ObjCNameFromMonoName(monoType);
+            string objCType = ObjCNameFromManagedName(managedType);
 
             return objCType;
         }
 
         //
-        // ObjCNameFromMonoName
+        // ObjCNameFromManagedName
         //
-        // Converts a Mono name string to its corresponding ObjC represntation.
+        // Converts a managed name string to its corresponding ObjC represntation.
         // This method does no analysis.
         // It merely attempts to produce a valid ObjC variable name string from the 
-        // input Mono name.
+        // input managed name.
         //
-        public static string ObjCNameFromMonoName(string monoName)
+        public static string ObjCNameFromManagedName(string managedName)
         {
             string name = "";
-            if (!String.IsNullOrEmpty(monoName)) 
+            if (!String.IsNullOrEmpty(managedName)) 
             {
-                name = monoName;
+                name = managedName;
 
                 // The following is done piecemeal  largely for informative purposes.
                 // For C# qualifier details see http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx
@@ -242,16 +242,16 @@ namespace Dubrovnik
         }
 
         //
-        // ObjCNameFromMonoName()
+        // ObjCNameFromManagedName()
         //
-        public static string ObjCNameFromMonoName(string prefix, string name)
+        public static string ObjCNameFromManagedName(string prefix, string name)
         {
             if (name != null)
             {
-                name = ObjCNameFromMonoName(name);
+                name = ObjCNameFromManagedName(name);
                 if (prefix != null)
                 {
-                    prefix = ObjCNameFromMonoName(prefix);
+                    prefix = ObjCNameFromManagedName(prefix);
                     name = prefix + name;
                 }
             }

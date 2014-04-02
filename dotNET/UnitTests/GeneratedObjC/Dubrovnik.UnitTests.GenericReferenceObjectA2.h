@@ -16,11 +16,11 @@
 
 	// Managed property name : GenericPropertyWithTypeParameterT
 	// Managed property type : <T>
-    @property (nonatomic, strong) DBManagedObject * genericPropertyWithTypeParameterT;
+    @property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterT;
 
 	// Managed property name : GenericPropertyWithTypeParameterU
 	// Managed property type : <U>
-    @property (nonatomic, strong) DBManagedObject * genericPropertyWithTypeParameterU;
+    @property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterU;
 
 #pragma mark -
 #pragma mark Methods
@@ -28,11 +28,11 @@
 	// Managed method name : GenericMethodReturningParameterTypeT
 	// Managed return type : <T>
 	// Managed param types : <T>, <U>
-    - (DBManagedObject *)genericMethodReturningParameterTypeT_withParameterT:(DBManagedObject *)p1 parameterU:(DBManagedObject *)p2;
+    - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
 
 	// Managed method name : GenericMethodReturningParameterTypeU
 	// Managed return type : <U>
 	// Managed param types : <T>, <U>
-    - (DBManagedObject *)genericMethodReturningParameterTypeU_withParameterT:(DBManagedObject *)p1 parameterU:(DBManagedObject *)p2;
+    - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

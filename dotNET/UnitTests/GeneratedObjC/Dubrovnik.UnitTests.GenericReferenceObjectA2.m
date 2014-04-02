@@ -30,15 +30,15 @@
 	// Managed property name : GenericPropertyWithTypeParameterT
 	// Managed property type : <T>
     @synthesize genericPropertyWithTypeParameterT = _genericPropertyWithTypeParameterT;
-    - (DBManagedObject *)genericPropertyWithTypeParameterT
+    - (System_Object *)genericPropertyWithTypeParameterT
     {
 		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterT"];
 		if ([self object:_genericPropertyWithTypeParameterT isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterT;					
-		_genericPropertyWithTypeParameterT = [DBManagedObject objectWithMonoObject:monoObject];
+		_genericPropertyWithTypeParameterT = [System_Object objectWithMonoObject:monoObject];
 
 		return _genericPropertyWithTypeParameterT;
 	}
-    - (void)setGenericPropertyWithTypeParameterT:(DBManagedObject *)value
+    - (void)setGenericPropertyWithTypeParameterT:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterT = value;
 		MonoObject *monoObject = [value monoValue];
@@ -48,15 +48,15 @@
 	// Managed property name : GenericPropertyWithTypeParameterU
 	// Managed property type : <U>
     @synthesize genericPropertyWithTypeParameterU = _genericPropertyWithTypeParameterU;
-    - (DBManagedObject *)genericPropertyWithTypeParameterU
+    - (System_Object *)genericPropertyWithTypeParameterU
     {
 		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterU"];
 		if ([self object:_genericPropertyWithTypeParameterU isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterU;					
-		_genericPropertyWithTypeParameterU = [DBManagedObject objectWithMonoObject:monoObject];
+		_genericPropertyWithTypeParameterU = [System_Object objectWithMonoObject:monoObject];
 
 		return _genericPropertyWithTypeParameterU;
 	}
-    - (void)setGenericPropertyWithTypeParameterU:(DBManagedObject *)value
+    - (void)setGenericPropertyWithTypeParameterU:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterU = value;
 		MonoObject *monoObject = [value monoValue];
@@ -69,19 +69,19 @@
 	// Managed method name : GenericMethodReturningParameterTypeT
 	// Managed return type : <T>
 	// Managed param types : <T>, <U>
-    - (DBManagedObject *)genericMethodReturningParameterTypeT_withParameterT:(DBManagedObject *)p1 parameterU:(DBManagedObject *)p2
+    - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBManagedObject objectWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenericMethodReturningParameterTypeU
 	// Managed return type : <U>
 	// Managed param types : <T>, <U>
-    - (DBManagedObject *)genericMethodReturningParameterTypeU_withParameterT:(DBManagedObject *)p1 parameterU:(DBManagedObject *)p2
+    - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [DBManagedObject objectWithMonoObject:monoObject];
+		return [System_Object objectWithMonoObject:monoObject];
     }
 
 #pragma mark -

@@ -24,7 +24,7 @@ namespace Dubrovnik
         public IList<String> StaticObjectPropertyStorageNames { get; set; }
         public Net2ObjC() : base ()
         {
-            // build associations between Mono and ObjC types
+            // build associations between Managed and ObjC types
             BuildTypeAssociations();
 
             // assign property defaults
@@ -244,9 +244,9 @@ namespace Dubrovnik
 
 
         private Dictionary<string, ObjCTypeAssociation> ObjCTypeAssociations { get; set; }
-        private Dictionary<string, MonoTypeAssociation> MonoTypeAssociations { get; set; }
+        private Dictionary<string, ManagedTypeAssociation> ManagedTypeAssociations { get; set; }
 
-        public const string MonoVariableName = "monoObject";
+        public const string ManagedVariableName = "monoObject";
         public const string ObjCVariableName = "value";
 
         private void _TransformText()
@@ -274,42 +274,42 @@ namespace Dubrovnik
         }
 
         //
-        // MonoTypeAssociation
+        // ManagedTypeAssociation
         //
-        private class MonoTypeAssociation
+        private class ManagedTypeAssociation
         {
-            private string _MonoTypeInvoke;
+            private string _ManagedTypeInvoke;
 
             // Full type name 
             // eg: System.Int32
-            public string MonoType { get; set; }
+            public string ManagedType { get; set; }
 
             // Type alias 
             // eg: int
-            public string MonoTypeAlias { get; set; }
+            public string ManagedTypeAlias { get; set; }
 
             // Invoke type alias 
             // Used when invoking runtime methods
             // eg: System.Single, alias = float, invoke = single
-            public string MonoTypeInvoke
+            public string ManagedTypeInvoke
             {
                 get
                 {
-                    if (_MonoTypeInvoke == null)
+                    if (_ManagedTypeInvoke == null)
                     {
-                        if (MonoTypeAlias != null)
+                        if (ManagedTypeAlias != null)
                         {
-                            return MonoTypeAlias;
+                            return ManagedTypeAlias;
                         }
 
-                        return MonoType;
+                        return ManagedType;
                     }
-                    return _MonoTypeInvoke;
+                    return _ManagedTypeInvoke;
                 }
 
                 set
                 {
-                    _MonoTypeInvoke = value;
+                    _ManagedTypeInvoke = value;
                 }
             }
         }
@@ -328,7 +328,7 @@ namespace Dubrovnik
                                                 "double", "float", 
                                                 "BOOL", 
                                              };
-            public MonoTypeAssociation MonoTypeAssociate { get; set; }
+            public ManagedTypeAssociation ManagedTypeAssociate { get; set; }
             public string ObjCType { get; set; }
             public string GetterFormat { get; set; }
             public string GetterMethod { get; set; }
@@ -344,14 +344,14 @@ namespace Dubrovnik
                 }
             }
 
-            public static string UniqueTypeName(string objCDecl, string monoType)
+            public static string UniqueTypeName(string objCDecl, string managedType)
             {
-                return objCDecl + "+" + monoType;
+                return objCDecl + "+" + managedType;
             }
 
-            public string UniqueTypeNameForMonoType(string monoType)
+            public string UniqueTypeNameForManagedType(string managedType)
             {
-                return ObjCTypeAssociation.UniqueTypeName(this.ObjCTypeDecl, monoType);
+                return ObjCTypeAssociation.UniqueTypeName(this.ObjCTypeDecl, managedType);
             }
 
             public string ObjCTypeDecl
@@ -378,8 +378,8 @@ namespace Dubrovnik
                         if (IsNSObject)
                         {
                             // Default setter formatter for types represented by an NSObject instance.
-                            // Note that some Mono value types such as DateTime are rpresented by NSObject instances.
-                            // Mono numeric types are represented by primitive numeric types in Obj-C.
+                            // Note that some Managed value types such as DateTime are represented by NSObject instances.
+                            // Managed numeric types are represented by primitive numeric types in Obj-C.
                             value = "[{0} monoValue]";
                         }
                         else
@@ -413,47 +413,47 @@ namespace Dubrovnik
         //}
 
         //
-        // ObjCTypeNameFromMonoTypeName
+        // ObjCTypeNameFromManagedTypeName
         //
-        string ObjCTypeNameFromMonoTypeName(string monoType)
+        string ObjCTypeNameFromManagedTypeName(string managedType)
         {
-            string value = monoType;
+            string value = managedType;
 
-            if (monoType == null) return "????";
+            if (managedType == null) return "????";
 
-            if (ObjCTypeAssociations.ContainsKey(monoType) && ObjCTypeAssociations[monoType].ObjCType != null)
+            if (ObjCTypeAssociations.ContainsKey(managedType) && ObjCTypeAssociations[managedType].ObjCType != null)
             {
-                value = ObjCTypeAssociations[monoType].ObjCType;
+                value = ObjCTypeAssociations[managedType].ObjCType;
             }
 
-            return ObjCNameFromMonoName(value);
+            return ObjCNameFromManagedName(value);
         }
 
         //
         // ObjCTypeDeclFromMonoFacet()
         //
-        string ObjCTypeDeclFromMonoFacet(CodeFacet monoFacet)
+        string ObjCTypeDeclFromMonoFacet(CodeFacet managedFacet)
         {
             string decl = "";
-            string monoType = MonoTypeForAssociation(monoFacet);
+            string managedType = ManagedTypeForAssociation(managedFacet);
 
-            if (monoType == null) return "????";
+            if (managedType == null) return "????";
 
-            if (!ObjCTypeAssociations.ContainsKey(monoType))
+            if (!ObjCTypeAssociations.ContainsKey(managedType))
             {
                 // If no explicit type found then return a canonical type name.
-                decl = ObjCTypeFromMonoType(monoType);
+                decl = ObjCTypeFromManagedType(managedType);
 
                 // if ObjC rep is NSObject or pointer thern append deref operator.
-                if (ObjCRepresentationIsObject(monoFacet) || monoFacet.IsPointer) {
+                if (ObjCRepresentationIsObject(managedFacet) || managedFacet.IsPointer) {
                     decl += " *";
                 }
             }
             else
             {
-                decl = ObjCTypeAssociations[monoType].ObjCTypeDecl;
+                decl = ObjCTypeAssociations[managedType].ObjCTypeDecl;
 
-                if (monoFacet.IsPointer)
+                if (managedFacet.IsPointer)
                 {
                     decl += " *";
                 }
@@ -465,14 +465,14 @@ namespace Dubrovnik
         //
         // ObjCGenericArgumentTypeNamesStringFromMonoFacet
         //
-        public string ObjCGenericArgumentTypeNamesStringFromMonoFacet(CodeFacet monoFacet)
+        public string ObjCGenericArgumentTypeNamesStringFromMonoFacet(CodeFacet managedFacet)
         {
             int idx = 0;
             string typeNames = "";
-            foreach (string genericParameterType in monoFacet.GenericArgumentTypes)
+            foreach (string genericParameterType in managedFacet.GenericArgumentTypes)
             {
                 if (idx > 0) typeNames += ",";
-                string objCTypeName = ObjCTypeNameFromMonoTypeName(genericParameterType);
+                string objCTypeName = ObjCTypeNameFromManagedTypeName(genericParameterType);
                 typeNames += objCTypeName;
                 idx++;
             }
@@ -550,7 +550,7 @@ namespace Dubrovnik
             string value = "";
             if (OutputFileType == OutputType.Interface)
             {
-                value = " : " + ObjCTypeNameFromMonoTypeName(@class.BaseType);
+                value = " : " + ObjCTypeNameFromManagedTypeName(@class.BaseType);
             }
             return value;
         }
@@ -566,24 +566,24 @@ namespace Dubrovnik
         }
 
         //
-        // MonoValueToObjc()
+        // ManagedValueToObjc()
         //
-        // Return an ObjC expression that converts a Mono object to its corresponding ObjC representation
+        // Return an ObjC expression that converts a Managed object to its corresponding ObjC representation
         //
-        public string MonoValueToObjc(string monoVarName, CodeFacet monoFacet, IList<string> args = null)
+        public string ManagedValueToObjc(string managedVarName, CodeFacet managedFacet, IList<string> args = null)
         {
-            string monoType = MonoTypeForAssociation(monoFacet);
+            string managedType = ManagedTypeForAssociation(managedFacet);
             string exp = null;
             string objCType = null;
 
             // if type is an enum then use its underlying type
-            if (monoFacet.IsEnum)
+            if (managedFacet.IsEnum)
             {
-                monoType = monoFacet.UnderlyingType;
+                managedType = managedFacet.UnderlyingType;
             }
 
             // use type association if available
-            ObjCTypeAssociation typeAssoc = ObjCTypeAssociate(monoType);
+            ObjCTypeAssociation typeAssoc = ObjCTypeAssociate(managedType);
             if (typeAssoc != null)
             {
                  // Use the getter format specifier if available.
@@ -594,9 +594,9 @@ namespace Dubrovnik
                 if (GetterFormat != null)
                 {
                     List<string> getterArgs = new List<string>();
-                    getterArgs.Add(monoVarName); 
+                    getterArgs.Add(managedVarName); 
                     
-                    if (monoFacet.IsPointer)
+                    if (managedFacet.IsPointer)
                     {
                         GetterFormat = "DB_UNBOX_PTR({0})";
                     }
@@ -604,14 +604,14 @@ namespace Dubrovnik
                     {
 
                         // add any child type arguments representing generic types
-                        if (monoFacet.ObjCFacet.GenericArgumentTypes != null && monoFacet.ObjCFacet.GenericArgumentTypes.Count() > 0)
+                        if (managedFacet.ObjCFacet.GenericArgumentTypes != null && managedFacet.ObjCFacet.GenericArgumentTypes.Count() > 0)
                         {
-                            getterArgs.AddRange(monoFacet.ObjCFacet.GenericArgumentTypes);
+                            getterArgs.AddRange(managedFacet.ObjCFacet.GenericArgumentTypes);
                         }
 
                         // TODO: provide class representation for arrays.
                         // Just as we provide a class rep for a generic the same will be required for an array.
-                        if (monoFacet.IsArray)
+                        if (managedFacet.IsArray)
                         {
                             getterArgs.Add("System_Object");
                         }
@@ -639,7 +639,7 @@ namespace Dubrovnik
                     MethodInfo method = type.GetMethod(methodName);
                     if (method != null)
                     {
-                        exp = (string)method.Invoke(this, new object[] { monoVarName, monoType });
+                        exp = (string)method.Invoke(this, new object[] { managedVarName, managedType });
                     }
                 }
 
@@ -654,46 +654,46 @@ namespace Dubrovnik
             {
                 // default to canonical type representation
                 if (objCType == null) {
-                    objCType = ObjCTypeFromMonoType(monoType);
+                    objCType = ObjCTypeFromManagedType(managedType);
                 }
 
                 // create DBManagedObject subclass
-                exp = string.Format("[{0} objectWithMonoObject:{1}]", objCType, monoVarName);
+                exp = string.Format("[{0} objectWithMonoObject:{1}]", objCType, managedVarName);
             }
 
             return exp;
         }
 
         //
-        // ObjCValueToMono
+        // ObjCValueToManaged
         //
-        // Return an ObjC expression that converts a ObjC object to its corresponding Mono representation
+        // Return an ObjC expression that converts an ObjC object to its corresponding managed representation
         //
-        public string ObjCValueToMono(string objCVarName, string objCTypeDecl, CodeFacet monoFacet)
+        public string ObjCValueToManaged(string objCVarName, string objCTypeDecl, CodeFacet managedFacet)
         {
             string exp = null;
 
             // extract type info in a format suitable for association
-            string monoType = MonoTypeForAssociation(monoFacet);
+            string managedType = ManagedTypeForAssociation(managedFacet);
 
             // if type is an enum then use its underlying type
-            if (monoFacet.IsEnum)
+            if (managedFacet.IsEnum)
             {
-                monoType = monoFacet.UnderlyingType;
+                managedType = managedFacet.UnderlyingType;
             }
 
-            // retrieve an ObjCTypeAssociation for the given monoType
-            string key = ObjCTypeAssociation.UniqueTypeName(objCTypeDecl, monoType);
-            if (MonoTypeAssociations.ContainsKey(key))
+            // retrieve an ObjCTypeAssociation for the given managedType
+            string key = ObjCTypeAssociation.UniqueTypeName(objCTypeDecl, managedType);
+            if (ManagedTypeAssociations.ContainsKey(key))
             {
-                MonoTypeAssociation monoTypeAssoc = MonoTypeAssociations[key];
-                ObjCTypeAssociation objCTypeAssoc = ObjCTypeAssociations[monoType];
+                ManagedTypeAssociation managedTypeAssoc = ManagedTypeAssociations[key];
+                ObjCTypeAssociation objCTypeAssoc = ObjCTypeAssociations[managedType];
 
                 // use the value object format specifier if available
                 string setterFormat = objCTypeAssoc.SetterFormat;
                 if (setterFormat != null)
                 {
-                    if (monoFacet.IsPointer)
+                    if (managedFacet.IsPointer)
                     {
                         setterFormat = "DB_VALUE({0}";
                     }
@@ -717,7 +717,7 @@ namespace Dubrovnik
             // generate default object representation expression.
             if (exp == null)
             {
-                if (ObjCRepresentationIsPrimitive(monoFacet))
+                if (ObjCRepresentationIsPrimitive(managedFacet))
                 {
                     exp = string.Format("DB_VALUE({0})", objCVarName);
                 }
@@ -787,68 +787,68 @@ namespace Dubrovnik
         }
 
         //
-        // MonoTypeForAssociation
+        // ManagedTypeForAssociation
         //
-        // Processes the mono type so that it can act as a type
+        // Processes the managed type so that it can act as a type
         // suitable for Obj-C type association
         //
-        string MonoTypeForAssociation(CodeFacet monoFacet)
+        string ManagedTypeForAssociation(CodeFacet managedFacet)
         {
-            string monoType = null;
+            string managedType = null;
 
             // if the type represents a generic type parameter then the actual
             // type argument will remain unknown until runtime.
-            if (monoFacet.IsGenericParameter)
+            if (managedFacet.IsGenericParameter)
             {
-                monoType = "Dubrovnik.Generic.Parameter";
+                managedType = "Dubrovnik.Generic.Parameter";
             }
-            else if (monoFacet.IsArray) 
+            else if (managedFacet.IsArray) 
             {
                 // We want System.Byte[] to associate with NSData
-                if (monoFacet.Type != "System.Byte[]")
+                if (managedFacet.Type != "System.Byte[]")
                 {
-                    monoType = "System.Array";
+                    managedType = "System.Array";
                 }
             }
-            else if (monoFacet.IsGenericType)
+            else if (managedFacet.IsGenericType)
             {
-                monoType = monoFacet.GenericType;
+                managedType = managedFacet.GenericType;
             }
 
-            if (monoType == null)
+            if (managedType == null)
             {
-                if (monoFacet.IsByRef || monoFacet.IsPointer)
+                if (managedFacet.IsByRef || managedFacet.IsPointer)
                 {
-                    monoType = monoFacet.ElementType;
+                    managedType = managedFacet.ElementType;
                 }
                 else
                 {
-                    monoType = monoFacet.Type;
+                    managedType = managedFacet.Type;
                 }
             }
-            return monoType;
+            return managedType;
         }
 
         //
         // ObjCTypeAssociate()
         //
-        ObjCTypeAssociation ObjCTypeAssociate(CodeFacet monoFacet)
+        ObjCTypeAssociation ObjCTypeAssociate(CodeFacet managedFacet)
         {
-            string monoType = MonoTypeForAssociation(monoFacet);
-            return ObjCTypeAssociate(monoType);
+            string managedType = ManagedTypeForAssociation(managedFacet);
+            return ObjCTypeAssociate(managedType);
         }
 
         //
         // ObjCTypeAssociate()
         //
-        ObjCTypeAssociation ObjCTypeAssociate(string monoType)
+        ObjCTypeAssociation ObjCTypeAssociate(string managedType)
         {
             ObjCTypeAssociation typeAssoc = null;
 
             // look for literal association
-            if (monoType != null && ObjCTypeAssociations.ContainsKey(monoType))
+            if (managedType != null && ObjCTypeAssociations.ContainsKey(managedType))
             {
-                typeAssoc = ObjCTypeAssociations[monoType];
+                typeAssoc = ObjCTypeAssociations[managedType];
             }
 
             return typeAssoc;
@@ -857,24 +857,24 @@ namespace Dubrovnik
         //
         // AssociateTypes()
         //
-        void AssociateTypes(MonoTypeAssociation monoTA, ObjCTypeAssociation objcTA)
+        void AssociateTypes(ManagedTypeAssociation managedTA, ObjCTypeAssociation objcTA)
         {
-            objcTA.MonoTypeAssociate = monoTA;
+            objcTA.ManagedTypeAssociate = managedTA;
 
-            // 1:1 association from mono type to objc type
-            // the mono type name key is undecorated
-            ObjCTypeAssociations.Add(monoTA.MonoType, objcTA);
+            // 1:1 association from managed type to objc type
+            // the managed type name key is undecorated
+            ObjCTypeAssociations.Add(managedTA.ManagedType, objcTA);
 
-            // 1:N association from objc declaration to mono type.
-            // hence we qualify the objc declaration with the mono type name.
-            string objCKey = objcTA.UniqueTypeNameForMonoType(monoTA.MonoType);
-            MonoTypeAssociations.Add(objCKey, monoTA);
+            // 1:N association from objc declaration to managed type.
+            // hence we qualify the objc declaration with the managed type name.
+            string objCKey = objcTA.UniqueTypeNameForManagedType(managedTA.ManagedType);
+            ManagedTypeAssociations.Add(objCKey, managedTA);
         }
 
         //
         // BuildTypeAssociations()
         //
-        // Provide associations between ObjC and mono types.
+        // Provide associations between ObjC and managed types.
         //
         // The managed built in types require that their aliases be used when
         // constructing method signatures.
@@ -886,206 +886,206 @@ namespace Dubrovnik
         void BuildTypeAssociations()
         {
             ObjCTypeAssociations = new Dictionary<string, ObjCTypeAssociation>();
-            MonoTypeAssociations = new Dictionary<string, MonoTypeAssociation>();
+            ManagedTypeAssociations = new Dictionary<string, ManagedTypeAssociation>();
 
             ObjCTypeAssociation objcTA = null;
-            MonoTypeAssociation monoTA = null;
+            ManagedTypeAssociation manTA = null;
 
             //===============================================================================================
             // reference types
             //===============================================================================================
 
             // Dubrovnik.Generic.Parameter
-            monoTA = new MonoTypeAssociation { MonoType = "Dubrovnik.Generic.Parameter" };
+            manTA = new ManagedTypeAssociation { ManagedType = "Dubrovnik.Generic.Parameter" };
             objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object objectWithMonoObject:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Object
-            monoTA = new MonoTypeAssociation { MonoType = "System.Object", MonoTypeAlias = "object" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Object", ManagedTypeAlias = "object" };
             objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object objectWithMonoObject:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.String
-            monoTA = new MonoTypeAssociation { MonoType = "System.String", MonoTypeAlias = "string" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.String", ManagedTypeAlias = "string" };
             objcTA = new ObjCTypeAssociation { ObjCType = "NSString", GetterFormat = "[NSString stringWithMonoString:DB_STRING({0})]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Array
-            monoTA = new MonoTypeAssociation { MonoType = "System.Array"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Array"};
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0})]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Collections.ArrayList
-            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.ArrayList" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Collections.ArrayList" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Collections.Generic.List
-            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.List`1" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Collections.Generic.List`1" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_ListA1" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Collections.Generic.Dictionary
-            monoTA = new MonoTypeAssociation { MonoType = "System.Collections.Generic.Dictionary`2" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Collections.Generic.Dictionary`2" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_DictionaryA2" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Byte[]
-            monoTA = new MonoTypeAssociation { MonoType = "System.Byte[]" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Byte[]" };
             objcTA = new ObjCTypeAssociation { ObjCType = "NSData", GetterFormat = "[NSData dataWithMonoArray:DB_ARRAY({0})]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // ObjectSet
-            monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectSet`1"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Data.Entity.Core.Objects.ObjectSet`1"};
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // ObjectContext
-            monoTA = new MonoTypeAssociation { MonoType = "System.Data.Entity.Core.Objects.ObjectContext" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Data.Entity.Core.Objects.ObjectContext" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectContext" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             //===============================================================================================
             // value types
             //===============================================================================================
 
             // System.ValueType - struct
-            monoTA = new MonoTypeAssociation { MonoType = "System.ValueType" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.ValueType" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBManagedObject", GetterFormat = "[DBManagedObject objectWithMonoObject:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Void
-            monoTA = new MonoTypeAssociation { MonoType = "System.Void", MonoTypeAlias = "void"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Void", ManagedTypeAlias = "void"};
             objcTA = new ObjCTypeAssociation { ObjCType = "void", GetterFormat = "" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Int64
-            monoTA = new MonoTypeAssociation { MonoType = "System.Int64", MonoTypeAlias = "long"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Int64", ManagedTypeAlias = "long"};
             objcTA = new ObjCTypeAssociation { ObjCType = "int64_t", GetterFormat = "DB_UNBOX_INT64({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Int32
-            monoTA = new MonoTypeAssociation { MonoType = "System.Int32", MonoTypeAlias = "int"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Int32", ManagedTypeAlias = "int"};
             objcTA = new ObjCTypeAssociation { ObjCType = "int32_t", GetterFormat = "DB_UNBOX_INT32({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Int16
-            monoTA = new MonoTypeAssociation { MonoType = "System.Int16", MonoTypeAlias = "short", MonoTypeInvoke = "int16"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Int16", ManagedTypeAlias = "short", ManagedTypeInvoke = "int16"};
             objcTA = new ObjCTypeAssociation { ObjCType = "int16_t", GetterFormat = "DB_UNBOX_INT16({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.SByte
-            monoTA = new MonoTypeAssociation { MonoType = "System.SByte", MonoTypeAlias = "sbyte"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.SByte", ManagedTypeAlias = "sbyte"};
             objcTA = new ObjCTypeAssociation { ObjCType = "int8_t", GetterFormat = "DB_UNBOX_INT8({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.IntPtr
-            monoTA = new MonoTypeAssociation { MonoType = "System.IntPtr", MonoTypeInvoke = "intptr" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.IntPtr", ManagedTypeInvoke = "intptr" };
             objcTA = new ObjCTypeAssociation { ObjCType = "void *", GetterFormat = "DB_UNBOX_PTR({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.UInt64
-            monoTA = new MonoTypeAssociation { MonoType = "System.UInt64", MonoTypeAlias = "ulong"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.UInt64", ManagedTypeAlias = "ulong"};
             objcTA = new ObjCTypeAssociation { ObjCType = "uint64_t", GetterFormat = "DB_UNBOX_UINT64({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
             
             // System.UInt32
-            monoTA = new MonoTypeAssociation { MonoType = "System.UInt32", MonoTypeAlias = "uint"};
+            manTA = new ManagedTypeAssociation { ManagedType = "System.UInt32", ManagedTypeAlias = "uint"};
             objcTA = new ObjCTypeAssociation { ObjCType = "uint32_t", GetterFormat = "DB_UNBOX_UINT32({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.UInt16
-            monoTA = new MonoTypeAssociation { MonoType = "System.UInt16", MonoTypeAlias = "ushort", MonoTypeInvoke = "uint16" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.UInt16", ManagedTypeAlias = "ushort", ManagedTypeInvoke = "uint16" };
             objcTA = new ObjCTypeAssociation { ObjCType = "uint16_t", GetterFormat = "DB_UNBOX_UINT16({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Byte
-            monoTA = new MonoTypeAssociation { MonoType = "System.Byte", MonoTypeAlias = "byte" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Byte", ManagedTypeAlias = "byte" };
             objcTA = new ObjCTypeAssociation { ObjCType = "uint8_t", GetterFormat = "DB_UNBOX_UINT8({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.UIntPtr
-            monoTA = new MonoTypeAssociation { MonoType = "System.UIntPtr", MonoTypeInvoke = "uintptr" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.UIntPtr", ManagedTypeInvoke = "uintptr" };
             objcTA = new ObjCTypeAssociation { ObjCType = "void *", GetterFormat = "DB_UNBOX_UPTR({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Char
-            monoTA = new MonoTypeAssociation { MonoType = "System.Char", MonoTypeAlias = "char" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Char", ManagedTypeAlias = "char" };
             objcTA = new ObjCTypeAssociation { ObjCType = "uint16_t", GetterFormat = "DB_UNBOX_UINT16({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Double
-            monoTA = new MonoTypeAssociation { MonoType = "System.Double", MonoTypeAlias = "double" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Double", ManagedTypeAlias = "double" };
             objcTA = new ObjCTypeAssociation { ObjCType = "double", GetterFormat = "DB_UNBOX_DOUBLE({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Single
-            monoTA = new MonoTypeAssociation { MonoType = "System.Single", MonoTypeAlias = "float", MonoTypeInvoke = "single" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Single", ManagedTypeAlias = "float", ManagedTypeInvoke = "single" };
             objcTA = new ObjCTypeAssociation { ObjCType = "float", GetterFormat = "DB_UNBOX_FLOAT({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Boolean
-            monoTA = new MonoTypeAssociation { MonoType = "System.Boolean", MonoTypeAlias = "bool" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Boolean", ManagedTypeAlias = "bool" };
             objcTA = new ObjCTypeAssociation { ObjCType = "BOOL", GetterFormat = "DB_UNBOX_BOOLEAN({0})" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.DateTime
-            monoTA = new MonoTypeAssociation { MonoType = "System.DateTime" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.DateTime" };
             objcTA = new ObjCTypeAssociation { ObjCType = "NSDate", GetterFormat = "[NSDate dateWithMonoDateTime:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Decimal
-            monoTA = new MonoTypeAssociation { MonoType = "System.Decimal", MonoTypeAlias = "decimal" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Decimal", ManagedTypeAlias = "decimal" };
             objcTA = new ObjCTypeAssociation { ObjCType = "NSDecimalNumber", GetterFormat = "[NSDecimalNumber decimalNumberWithMonoDecimal:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
 
             // System.Enum
-            monoTA = new MonoTypeAssociation { MonoType = "System.Enum" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Enum" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBEnum", GetterFormat = "[DBEnum objectWithMonoObject:{0}]" };
-            AssociateTypes(monoTA, objcTA);
+            AssociateTypes(manTA, objcTA);
         }
 
         //
-        // MonoNameSpaceAndNameFromMonoType
+        // ManagedNameSpaceAndNameFromManagedType
         //
-        void MonoNameSpaceAndNameFromMonoType(string monoType, out string nspace, out string name) {
-            int idx = monoType.LastIndexOf('.');
+        void ManagedNameSpaceAndNameFromManagedType(string managedType, out string nspace, out string name) {
+            int idx = managedType.LastIndexOf('.');
             if (idx != -1)
             {
-                nspace = monoType.Substring(0, idx);
-                name = ++idx < monoType.Length ? monoType.Substring(idx) : "";
+                nspace = managedType.Substring(0, idx);
+                name = ++idx < managedType.Length ? managedType.Substring(idx) : "";
             }
             else
             {
                 nspace = "";
-                name = monoType;
+                name = managedType;
             }
         }
         //
-        // ObjCMinimalNameFromMonoName()
+        // ObjCMinimalNameFromManagedName()
         //
-        public string ObjCMinimalNameFromMonoName(string monoName)
+        public string ObjCMinimalNameFromManagedName(string managedName)
         {
             string nspace = null;
             string name = null;
-            MonoNameSpaceAndNameFromMonoType(monoName, out nspace, out name);
-            monoName = ObjCAcronymFromMonoName(nspace) + name;
-            string minimalName = ObjCNameFromMonoName(monoName);
+            ManagedNameSpaceAndNameFromManagedType(managedName, out nspace, out name);
+            managedName = ObjCAcronymFromManagedName(nspace) + name;
+            string minimalName = ObjCNameFromManagedName(managedName);
             return minimalName;
         }
 
         //
-        // ObjCAcronymFromMonoName()
+        // ObjCAcronymFromManagedName()
         //
-        public string ObjCAcronymFromMonoName(string monoName)
+        public string ObjCAcronymFromManagedName(string managedName)
         {
-            string[] parts = monoName.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = managedName.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder s = new StringBuilder();
             foreach (string part in parts)
             {
                 s.Append(part.ToUpper().First());   // first letter only
             }
-            string acronym = ObjCNameFromMonoName(s.ToString());
+            string acronym = ObjCNameFromManagedName(s.ToString());
 
             return acronym;
         }
@@ -1115,27 +1115,27 @@ namespace Dubrovnik
         }
 
         //
-        // ObjCTypeFromMonoType
+        // ObjCTypeFromManagedType
         //
-        public static string ObjCTypeFromMonoType(string monoName)
+        public static string ObjCTypeFromManagedType(string managedName)
         {
-            return CodeFacet.ObjCTypeFromMonoType(monoName);
+            return CodeFacet.ObjCTypeFromManagedType(managedName);
         }
 
         //
-        // ObjCNameFromMonoName
+        // ObjCNameFromManagedName
         //
-        public static string ObjCNameFromMonoName(string monoName)
+        public static string ObjCNameFromManagedName(string managedName)
         {
-            return CodeFacet.ObjCNameFromMonoName(monoName);
+            return CodeFacet.ObjCNameFromManagedName(managedName);
         }
 
         //
-        // ObjCNameFromMonoName
+        // ObjCNameFromManagedName
         //
-        public static string ObjCNameFromMonoName(string prefix, string monoName)
+        public static string ObjCNameFromManagedName(string prefix, string managedName)
         {
-            return CodeFacet.ObjCNameFromMonoName(prefix, monoName);
+            return CodeFacet.ObjCNameFromManagedName(prefix, managedName);
         }
 
         //
