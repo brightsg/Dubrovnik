@@ -1,4 +1,4 @@
-﻿//#define EXPOSE_CLASS_FOR_TESTING
+﻿#define EXPOSE_CLASS_FOR_TESTING
 
 using System;
 using System.Collections.Generic;
@@ -17,12 +17,12 @@ namespace Dubrovnik.UnitTests
         public T GenericPropertyWithTypeParameterT { get; set; }
         public U GenericPropertyWithTypeParameterU { get; set; }
 
-        public T GenericMethodReturningParameterTypeT<T, U>(T parameterT, U parameterU)
+        public T GenericMethodReturningParameterTypeT(T parameterT, U parameterU)
         {
             return parameterT;
         }
 
-        public U GenericMethodReturningParameterTypeU<U>(T parameterT, U parameterU)
+        public U GenericMethodReturningParameterTypeU(T parameterT, U parameterU)
         {
             return parameterU;
         }

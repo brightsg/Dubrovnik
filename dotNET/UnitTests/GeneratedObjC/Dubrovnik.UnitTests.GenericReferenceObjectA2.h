@@ -1,8 +1,8 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.GenericReferenceObjectA2_T_U.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik.UnitTests.GenericReferenceObjectA2.h
 //
 // Managed class : GenericReferenceObject`2<T, U>
 //
-@interface Dubrovnik_UnitTests_GenericReferenceObjectA2 : DBManagedObject
+@interface Dubrovnik_UnitTests_GenericReferenceObjectA2 : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -14,13 +14,13 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed type : <T>
-    - (DBManagedObject *)genericPropertyWithTypeParameterT;
-    - (void)setGenericPropertyWithTypeParameterT:(DBManagedObject *)value;
+	// Managed property name : GenericPropertyWithTypeParameterT
+	// Managed property type : <T>
+    @property (nonatomic, strong) DBManagedObject * genericPropertyWithTypeParameterT;
 
-	// Managed type : <U>
-    - (DBManagedObject *)genericPropertyWithTypeParameterU;
-    - (void)setGenericPropertyWithTypeParameterU:(DBManagedObject *)value;
+	// Managed property name : GenericPropertyWithTypeParameterU
+	// Managed property type : <U>
+    @property (nonatomic, strong) DBManagedObject * genericPropertyWithTypeParameterU;
 
 #pragma mark -
 #pragma mark Methods

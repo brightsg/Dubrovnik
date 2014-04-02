@@ -175,11 +175,11 @@ namespace Dubrovnik
         }
 
         //
-        // OutputFileName
+        // OutputObjCNameFromMonoName
         //
         public string OutputFileName()
         {
-            return TypeNamespace + "." + ObjCNameFromMonoName(Name);
+            return TypeNamespace + "." + ObjCTypeFromMonoType(Name);
         }
 
         //
@@ -189,7 +189,7 @@ namespace Dubrovnik
         {
             if (monoType != null)
             {
-                // ObjCtype type name will not include generic information
+                // ObjCtype type name will not include generic parameter information
                 int idx  = monoType.IndexOf('<');
                 if (idx != -1)
                 {

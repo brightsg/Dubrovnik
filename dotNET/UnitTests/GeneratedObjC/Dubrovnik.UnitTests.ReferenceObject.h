@@ -208,15 +208,30 @@
 #pragma mark -
 #pragma mark Methods
 
+	// Managed method name : AttachEvent
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
+    + (void)attachEvent_withRefObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+
 	// Managed method name : ClassDescription
 	// Managed return type : System.String
 	// Managed param types : 
     + (NSString *)classDescription;
 
+	// Managed method name : ConfigureStaticEventHandler
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.String, System.String, System.String, System.Boolean
+    + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerClassName:(NSString *)p3 handlerMethodName:(NSString *)p4 attach:(BOOL)p5;
+
 	// Managed method name : DateMethod
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime
     - (NSDate *)dateMethod_withD1:(NSDate *)p1;
+
+	// Managed method name : DetachEvent
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
+    + (void)detachEvent_withRefObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
@@ -228,10 +243,35 @@
 	// Managed param types : ref System.Int32&
     - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
 
+	// Managed method name : DubrovnikEventHandlerICall
+	// Managed return type : System.Void
+	// Managed param types : 
+    + (void)dubrovnikEventHandlerICall;
+
+	// Managed method name : Equals
+	// Managed return type : System.Boolean
+	// Managed param types : System.Object
+    - (BOOL)equals_withObj:(System_Object *)p1;
+
+	// Managed method name : GetHashCode
+	// Managed return type : System.Int32
+	// Managed param types : 
+    - (int32_t)getHashCode;
+
 	// Managed method name : MixedMethod1
 	// Managed return type : System.String
 	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
     - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
+
+	// Managed method name : OnTestEvent
+	// Managed return type : System.Void
+	// Managed param types : 
+    + (void)onTestEvent;
+
+	// Managed method name : RaiseTestEvent
+	// Managed return type : System.Void
+	// Managed param types : 
+    - (void)raiseTestEvent;
 
 	// Managed method name : ReferenceStructMethod
 	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
@@ -269,6 +309,16 @@
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
 
 	// Managed method name : Sum
+	// Managed return type : System.Int64
+	// Managed param types : System.Int64[]
+    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
+	// Managed return type : System.Int32
+	// Managed param types : System.Int32[]
+    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
+
+	// Managed method name : Sum
 	// Managed return type : System.Int16
 	// Managed param types : System.Int16[]
     - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1;
@@ -292,16 +342,6 @@
 	// Managed return type : System.String
 	// Managed param types : System.String[]
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
-
-	// Managed method name : Sum
-	// Managed return type : System.Int64
-	// Managed param types : System.Int64[]
-    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
-
-	// Managed method name : Sum
-	// Managed return type : System.Int32
-	// Managed param types : System.Int32[]
-    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
 
 	// Managed method name : SumAndSwitch
 	// Managed return type : System.Int32

@@ -57,6 +57,9 @@
 #import "DBSystem.Enum.h"
 #import "DBSystem.Linq.h"
 #import "System.NullableA1.h"
+#import "System.MulticastDelegate.h"
+#import "System.IAsyncResult.h"
+#import "System.AsyncCallback.h"
 
 // System.IO
 #import "DBSystem.IO.FileInfo.h"
