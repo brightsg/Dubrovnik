@@ -193,6 +193,11 @@ public void WriteClassPredeclaration(CodeFacet facet)
 	string classDefine = ObjCTypeFromManagedType(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
 
+	if (facet.GetType() == typeof(InterfaceFacet)) {
+#>
+@protocol <#=classObjCType#>;
+<#+	
+    }
 #>
 @class <#=classObjCType#>;
 #ifdef <#=classDefine#>

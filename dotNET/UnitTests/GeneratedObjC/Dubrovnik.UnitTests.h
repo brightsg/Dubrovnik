@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     4/3/2014 12:43:53 PM
+// Date:     4/3/2014 1:04:46 PM
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.5205.30729, Culture=neutral, PublicKeyToken=null
@@ -79,6 +79,7 @@
 #define DUTestObject_ Dubrovnik_UnitTests_TestObject
 #endif
 
+@protocol Dubrovnik_UnitTests_IMinimalReferenceObject;
 @class Dubrovnik_UnitTests_IMinimalReferenceObject;
 #ifdef DUIMinimalReferenceObject_
 #warning DUIMinimalReferenceObject_ class name collision.
