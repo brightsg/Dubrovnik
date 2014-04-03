@@ -2,7 +2,9 @@
 //
 // Managed interface : IMinimalReferenceObject
 //
-@interface Dubrovnik_UnitTests_IMinimalReferenceObject : System_Object
+@protocol Dubrovnik_UnitTests_IMinimalReferenceObject <NSObject>
+
+@required
 
 #pragma mark -
 #pragma mark Setup
@@ -18,5 +20,9 @@
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Int32
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
+@end
+
+@interface Dubrovnik_UnitTests_IMinimalReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject>
+
 @end
 //--Dubrovnik.CodeGenerator

@@ -240,6 +240,41 @@ public void WriteModuleFeatureRequirements()
 }
 
 //
+// WriteInterfaceStart
+//
+public void WriteInterfaceStart(CodeFacet facet, string module)
+{
+	// Allocate property name list
+	this.StaticObjectPropertyStorageNames = new List<string>();
+
+	WriteModuleBanner(facet, module);
+#>
+@protocol <#=facet.ObjCFacet.Type#> <NSObject>
+
+@required
+<#+	
+	WriteClassSetup(facet);	
+}
+
+//
+// WriteInterfaceEnd
+//
+public void WriteInterfaceEnd(CodeFacet facet)
+{
+	
+	string superClass = OutputDelarationSuffix(facet);
+#>
+@end
+
+@interface <#=facet.ObjCFacet.Type#><#=superClass#> <<#=facet.ObjCFacet.Type#>>
+
+@end
+<#+
+	WriteModuleFooter();
+}
+
+
+//
 // WriteClassStart
 //
 public void WriteClassStart(CodeFacet facet, string module)

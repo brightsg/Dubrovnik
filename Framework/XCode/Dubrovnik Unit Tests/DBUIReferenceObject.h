@@ -8,7 +8,9 @@
 
 #import <Dubrovnik/DBManagedObject.h>
 
-@interface DBUIReferenceObject : DBManagedObject
+@protocol DBUIReferenceObject <NSObject>
+
+@required
 
 #pragma mark -
 #pragma mark Setup
@@ -24,4 +26,9 @@
 // Managed return type : System.String
 // Managed param types : System.String, System.Int32
 - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
+
+@end
+
+@interface DBUIReferenceObject : System_Object <DBUIReferenceObject>
+
 @end

@@ -153,10 +153,20 @@ namespace Dubrovnik
         //
         public void WriteInterface(InterfaceFacet @interface)
         {
-            WriteClassStart(@interface, "interface");
-            WriteProperties(@interface.Properties);
-            WriteMethods(@interface.Methods);
-            WriteClassEnd(@interface);
+            if (OutputFileType == OutputType.Interface)
+            {
+                WriteInterfaceStart(@interface, "interface");
+                WriteProperties(@interface.Properties);
+                WriteMethods(@interface.Methods);
+                WriteInterfaceEnd(@interface);
+            }
+            else
+            {
+                WriteClassStart(@interface, "interface");
+                WriteProperties(@interface.Properties);
+                WriteMethods(@interface.Methods);
+                WriteClassEnd(@interface);
+            }
         }
 
         //
