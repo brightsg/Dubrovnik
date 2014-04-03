@@ -104,7 +104,7 @@ namespace Dubrovnik
             // Write all classes
             // Get all classes in assembly ordered by derivation.
             // This is necessary to ensure that base type interface declarations occur 
-            // before derived type interface delarations
+            // before derived type interface Declarations
             IList<ClassFacet> classes = AssemblyFacet.ClassesOrderedByDerivation();
             foreach (ClassFacet @class in classes)
             {
@@ -536,11 +536,11 @@ namespace Dubrovnik
         }
 
         //
-        // OutputDelarationPrefix()
+        // OutputDeclarationPrefix()
         //
         // Return a class declaration prefix based on the outputType.
         //
-        string OutputDelarationPrefix()
+        string OutputDeclarationPrefix()
         {
             string value = "implementation";
             if (OutputFileType == OutputType.Interface)
@@ -551,19 +551,50 @@ namespace Dubrovnik
         }
 
         //
-        // OutputDelarationSuffix()
+        // OutputDeclarationSuffix()
         //
         // Return a class declaration suffix based on the outputType
         //
-        string OutputDelarationSuffix(CodeFacet @class)
+        string OutputDeclarationSuffix(CodeFacet facet)
         {
             string value = "";
             if (OutputFileType == OutputType.Interface)
             {
-                value = " : " + ObjCTypeNameFromManagedTypeName(@class.BaseType);
+                value = " : " + ObjCTypeNameFromManagedTypeName(facet.BaseType);
             }
             return value;
         }
+
+        //
+        // OutputImplementedProtocolSuffix()
+        //
+        // Return a class declaration suffix based on the outputType
+        //
+        string OutputImplementedProtocolSuffix(CodeFacet facet)
+        {
+            string value = "";
+            if (OutputFileType == OutputType.Interface)
+            {
+                if (facet is ClassFacet)
+                {
+                    ClassFacet classFacet = (ClassFacet)facet;
+                    if (classFacet.ImplementedInterfaces.Count > 0)
+                    {
+                        value = " <";
+                        int i = 0;
+                        foreach (ImplementedInterfaceFacet implementedInterfaceFacet in classFacet.ImplementedInterfaces)
+                        {
+                            if (i++ > 0) value += ", ";
+                            value += ObjCTypeFromManagedType(implementedInterfaceFacet.Type);
+                        }
+
+                        value += ">";
+                    }
+                }
+            }
+            return value;
+        }
+
 
         //
         // OutputFileSuffix()

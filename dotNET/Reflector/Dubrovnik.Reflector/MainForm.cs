@@ -121,8 +121,6 @@ namespace Dubrovnik.Reflector {
             if (type.IsGenericTypeDefinition) xtw.WriteAttributeString("IsGenericTypeDefinition", Boolean.TrueString);
             if (type.IsConstructedGenericType) xtw.WriteAttributeString("IsConstructedGenericType", Boolean.TrueString);
             if (type.IsGenericParameter) xtw.WriteAttributeString("IsGenericParameter", Boolean.TrueString);
-
-
         }
 
         //
@@ -235,6 +233,21 @@ namespace Dubrovnik.Reflector {
                             //
                             xtw.WriteAttributeString("Name", type.GetFriendlyName());
                             WriteTypeAttributes(xtw, type);
+
+                            //
+                            // write implemented interfaces
+                            //
+                            Type[] implementedInterfaces = type.GetInterfaces();
+                            if (implementedInterfaces.Length > 0)
+                            {
+                                foreach (Type interfaceType in implementedInterfaces)
+                                {
+                                    xtw.WriteStartElement("ImplementedInterface");
+                                    xtw.WriteAttributeString("Type", interfaceType.GetFriendlyFullName());
+                                    xtw.WriteEndElement();
+                                }
+
+                            }
 
                             //
                             // write fields
