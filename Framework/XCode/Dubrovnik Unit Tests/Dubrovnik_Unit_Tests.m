@@ -117,7 +117,10 @@ static MonoAssembly *monoAssembly;
     monoAssembly = [monoEnv openAssembly:assemblyName path:assemblyFile];
     STAssertTrue(monoAssembly, @"Cannot open assembly : %@", assemblyFile);
     
-    // invoke the assembly static main
+    // invoke the assembly static main.
+    // this prepares the application domain and validates that the assembly is loaded and functional.
+    // the assembly will remain loaded and accessible once the assmbly invocation completes.
+    // this operation should only be performed once on any given managed environment.
     int argc = 1;
     char *argv[] = {(char *)assemblyFile.UTF8String};
     int retval = [monoEnv invokeAssembly:monoAssembly prepareThreading:NO argCount:argc arguments:argv];
