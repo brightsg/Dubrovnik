@@ -9,7 +9,7 @@ Dubrovnik is a fork of [Dumbarton](https://github.com/mono/Dumbarton). Dubrovnik
 3 Step Quick Look
 =======
 
-The Dunbrovnik code generator operates on a compiled .NET assembly and emits Objective-C source code. so:
+The Dubrovnik code generator operates on a compiled .NET assembly and emits Objective-C source code. so:
 
 1. Dubrovnik includes a 
 [C# managed reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs) 
@@ -90,7 +90,7 @@ Project Map
 
     * FrameworkHelper : the Dubrovnik framework helper
 
-    * Reflector : generates the reflection XML that is parsed by the code generateor 
+    * Reflector : generates the reflection XML that is parsed by the code generator 
 
     * UnitTests : unit test target assembly
 
@@ -366,7 +366,7 @@ Any thread that calls into managed code must pre-attach itself to the Mono envir
         
         // dispatch onto the main thread
         dispatch_async(dispatch_get_main_queue(), ^ {
-            [self openFilenName:fileName];
+            [self openFileName:fileName];
         });
     });
 
