@@ -52,7 +52,6 @@
 		9DF2367B0874E3CC008A199C /* NSData+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF236790874E3CC008A199C /* NSData+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DF2367C0874E3CC008A199C /* NSData+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2367A0874E3CC008A199C /* NSData+Dubrovnik.m */; };
 		AB00206417C654AC00178AFC /* Debug in Copy Managed Binaries */ = {isa = PBXBuildFile; fileRef = AB00206217C6549E00178AFC /* Debug */; };
-		AB073EF417D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB073EF317D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */; };
 		AB120D7318B678BC00461FA2 /* System.Array.h in Headers */ = {isa = PBXBuildFile; fileRef = AB120D7118B678BC00461FA2 /* System.Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB120D7418B678BC00461FA2 /* System.Array.m in Sources */ = {isa = PBXBuildFile; fileRef = AB120D7218B678BC00461FA2 /* System.Array.m */; };
 		AB120D7718B6792000461FA2 /* System.Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = AB120D7518B6792000461FA2 /* System.Convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -106,7 +105,21 @@
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C617D7B380007214E1 /* DBTypeManager.m */; };
-		AB91B68B18ED81950021B462 /* Dubrovnik.UnitTests.xml in Resources */ = {isa = PBXBuildFile; fileRef = AB91B68A18ED81950021B462 /* Dubrovnik.UnitTests.xml */; };
+		AB8DDC3018EEC6F700FEEA8B /* System.EventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8DDC2E18EEC6F700FEEA8B /* System.EventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8DDC3118EEC6F700FEEA8B /* System.EventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC2F18EEC6F700FEEA8B /* System.EventArgs.m */; };
+		AB8DDC6E18EED03A00FEEA8B /* Dubrovnik.ClientApplication.EventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC5A18EED03A00FEEA8B /* Dubrovnik.ClientApplication.EventHelper.m */; };
+		AB8DDC6F18EED03A00FEEA8B /* Dubrovnik.ClientApplication.IEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC5C18EED03A00FEEA8B /* Dubrovnik.ClientApplication.IEventHelper.m */; };
+		AB8DDC7018EED03A00FEEA8B /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC5E18EED03A00FEEA8B /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */; };
+		AB8DDC7118EED03A00FEEA8B /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC6018EED03A00FEEA8B /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m */; };
+		AB8DDC7218EED03A00FEEA8B /* Dubrovnik.UnitTests.IMinimalReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC6318EED03A00FEEA8B /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */; };
+		AB8DDC7318EED03A00FEEA8B /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC6618EED03A00FEEA8B /* Dubrovnik.UnitTests.m */; };
+		AB8DDC7418EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC6818EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceObject.m */; };
+		AB8DDC7518EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC6A18EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceStruct.m */; };
+		AB8DDC7618EED03A00FEEA8B /* Dubrovnik.UnitTests.TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8DDC6C18EED03A00FEEA8B /* Dubrovnik.UnitTests.TestObject.m */; };
+		AB91B69718EE03A00021B462 /* DBManagedEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = AB91B69518EE03A00021B462 /* DBManagedEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB91B69818EE03A00021B462 /* DBManagedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = AB91B69618EE03A00021B462 /* DBManagedEvent.m */; };
+		AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = AB91B69918EE04570021B462 /* NSObject+DBManagedEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB91B69C18EE04570021B462 /* NSObject+DBManagedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = AB91B69A18EE04570021B462 /* NSObject+DBManagedEvent.m */; };
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
 		AB99495118B3693F00FAC62D /* DBSystem.Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = AB99494F18B3693F00FAC62D /* DBSystem.Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB99495218B3693F00FAC62D /* DBSystem.Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = AB99495018B3693F00FAC62D /* DBSystem.Linq.m */; };
@@ -114,23 +127,17 @@
 		AB99495C18B625C800FAC62D /* System.Object.m in Sources */ = {isa = PBXBuildFile; fileRef = AB99495A18B625C800FAC62D /* System.Object.m */; };
 		AB9A20FC18C4A6DE001DC28D /* System.NullableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB9A20FA18C4A6DE001DC28D /* System.NullableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB9A20FD18C4A6DE001DC28D /* System.NullableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9A20FB18C4A6DE001DC28D /* System.NullableA1.m */; };
-		ABA3A5EF18EC6F7B006756AA /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA3A5EE18EC6F7B006756AA /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m */; };
 		ABA3A5F618EC71AB006756AA /* System.IAsyncResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA3A5F418EC7149006756AA /* System.IAsyncResult.m */; };
 		ABA3A5F718EC71AF006756AA /* System.MulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA3A5F118EC7106006756AA /* System.MulticastDelegate.m */; };
 		ABA3A5F818EC71C2006756AA /* System.MulticastDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3A5F018EC7106006756AA /* System.MulticastDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA3A5F918EC71C5006756AA /* System.IAsyncResult.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3A5F318EC7149006756AA /* System.IAsyncResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA3A5FB18EC7284006756AA /* System.AsyncCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3A5FA18EC7284006756AA /* System.AsyncCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
-		ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */; };
 		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
 		ABBF10B317B3D2E1006F6E93 /* DBUIntEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A917B3D2E1006F6E93 /* DBUIntEnum.m */; };
 		ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AB17B3D2E1006F6E93 /* DBULongEnum.m */; };
 		ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */; };
 		ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */; };
-		ABC32E7917CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7817CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */; };
-		ABC32E7F17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */; };
-		ABC32E8017CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */; };
-		ABC32E8117CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */; };
 		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
 		ABD02CAF183180C400885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
 		ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
@@ -217,10 +224,6 @@
 		9DF236790874E3CC008A199C /* NSData+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Dubrovnik.h"; sourceTree = "<group>"; };
 		9DF2367A0874E3CC008A199C /* NSData+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB00206217C6549E00178AFC /* Debug */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Debug; path = ../../dotNET/FrameworkHelper/Dubrovnik.FrameworkHelper/bin/Debug; sourceTree = "<group>"; };
-		AB073EF017D24F2300C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.IMinimalReferenceObject.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.IMinimalReferenceObject.h; sourceTree = "<group>"; };
-		AB073EF117D24F2400C669D3 /* Dubrovnik.UnitTests.IntEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.IntEnum.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.IntEnum.h; sourceTree = "<group>"; };
-		AB073EF217D24F2400C669D3 /* Dubrovnik.UnitTests.LongEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.LongEnum.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.LongEnum.h; sourceTree = "<group>"; };
-		AB073EF317D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.IMinimalReferenceObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.IMinimalReferenceObject.m; sourceTree = "<group>"; };
 		AB120D7118B678BC00461FA2 /* System.Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Array.h; sourceTree = "<group>"; };
 		AB120D7218B678BC00461FA2 /* System.Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Array.m; sourceTree = "<group>"; };
 		AB120D7518B6792000461FA2 /* System.Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Convert.h; sourceTree = "<group>"; };
@@ -272,7 +275,34 @@
 		AB81D5C217D7B1B6007214E1 /* DBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBType.m; path = "Mono Environment/DBType.m"; sourceTree = "<group>"; };
 		AB81D5C517D7B380007214E1 /* DBTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBTypeManager.h; path = "Mono Environment/DBTypeManager.h"; sourceTree = "<group>"; };
 		AB81D5C617D7B380007214E1 /* DBTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBTypeManager.m; path = "Mono Environment/DBTypeManager.m"; sourceTree = "<group>"; };
-		AB91B68A18ED81950021B462 /* Dubrovnik.UnitTests.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Dubrovnik.UnitTests.xml; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.xml; sourceTree = "<group>"; };
+		AB8DDC2E18EEC6F700FEEA8B /* System.EventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.EventArgs.h; sourceTree = "<group>"; };
+		AB8DDC2F18EEC6F700FEEA8B /* System.EventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.EventArgs.m; sourceTree = "<group>"; };
+		AB8DDC5918EED03A00FEEA8B /* Dubrovnik.ClientApplication.EventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.ClientApplication.EventHelper.h; sourceTree = "<group>"; };
+		AB8DDC5A18EED03A00FEEA8B /* Dubrovnik.ClientApplication.EventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.ClientApplication.EventHelper.m; sourceTree = "<group>"; };
+		AB8DDC5B18EED03A00FEEA8B /* Dubrovnik.ClientApplication.IEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.ClientApplication.IEventHelper.h; sourceTree = "<group>"; };
+		AB8DDC5C18EED03A00FEEA8B /* Dubrovnik.ClientApplication.IEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.ClientApplication.IEventHelper.m; sourceTree = "<group>"; };
+		AB8DDC5D18EED03A00FEEA8B /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h; sourceTree = "<group>"; };
+		AB8DDC5E18EED03A00FEEA8B /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m; sourceTree = "<group>"; };
+		AB8DDC5F18EED03A00FEEA8B /* Dubrovnik.UnitTests.GenericReferenceObjectA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.GenericReferenceObjectA2.h; sourceTree = "<group>"; };
+		AB8DDC6018EED03A00FEEA8B /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.UnitTests.GenericReferenceObjectA2.m; sourceTree = "<group>"; };
+		AB8DDC6118EED03A00FEEA8B /* Dubrovnik.UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.h; sourceTree = "<group>"; };
+		AB8DDC6218EED03A00FEEA8B /* Dubrovnik.UnitTests.IMinimalReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.IMinimalReferenceObject.h; sourceTree = "<group>"; };
+		AB8DDC6318EED03A00FEEA8B /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.UnitTests.IMinimalReferenceObject.m; sourceTree = "<group>"; };
+		AB8DDC6418EED03A00FEEA8B /* Dubrovnik.UnitTests.IntEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.IntEnum.h; sourceTree = "<group>"; };
+		AB8DDC6518EED03A00FEEA8B /* Dubrovnik.UnitTests.LongEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.LongEnum.h; sourceTree = "<group>"; };
+		AB8DDC6618EED03A00FEEA8B /* Dubrovnik.UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.UnitTests.m; sourceTree = "<group>"; };
+		AB8DDC6718EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.ReferenceObject.h; sourceTree = "<group>"; };
+		AB8DDC6818EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.UnitTests.ReferenceObject.m; sourceTree = "<group>"; };
+		AB8DDC6918EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.ReferenceStruct.h; sourceTree = "<group>"; };
+		AB8DDC6A18EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.UnitTests.ReferenceStruct.m; sourceTree = "<group>"; };
+		AB8DDC6B18EED03A00FEEA8B /* Dubrovnik.UnitTests.TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.UnitTests.TestObject.h; sourceTree = "<group>"; };
+		AB8DDC6C18EED03A00FEEA8B /* Dubrovnik.UnitTests.TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik.UnitTests.TestObject.m; sourceTree = "<group>"; };
+		AB8DDC6D18EED03A00FEEA8B /* Dubrovnik.UnitTests.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Dubrovnik.UnitTests.xml; sourceTree = "<group>"; };
+		AB8DDC7818EED0B100FEEA8B /* EventHelper.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = EventHelper.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/EventHelper.cs; sourceTree = "<group>"; };
+		AB91B69518EE03A00021B462 /* DBManagedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedEvent.h; sourceTree = "<group>"; };
+		AB91B69618EE03A00021B462 /* DBManagedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedEvent.m; sourceTree = "<group>"; };
+		AB91B69918EE04570021B462 /* NSObject+DBManagedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DBManagedEvent.h"; sourceTree = "<group>"; };
+		AB91B69A18EE04570021B462 /* NSObject+DBManagedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DBManagedEvent.m"; sourceTree = "<group>"; };
 		AB97FC0417C277D600CBE585 /* Extensions.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = Extensions.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/Extensions.cs; sourceTree = "<group>"; };
 		AB97FC0517C277D600CBE585 /* ReferenceObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = ReferenceObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs; sourceTree = "<group>"; };
 		AB97FC0617C277D600CBE585 /* TestObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/TestObject.cs; sourceTree = "<group>"; };
@@ -287,8 +317,6 @@
 		AB99495A18B625C800FAC62D /* System.Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Object.m; sourceTree = "<group>"; };
 		AB9A20FA18C4A6DE001DC28D /* System.NullableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.NullableA1.h; sourceTree = "<group>"; };
 		AB9A20FB18C4A6DE001DC28D /* System.NullableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.NullableA1.m; sourceTree = "<group>"; };
-		ABA3A5ED18EC6F7B006756AA /* Dubrovnik.UnitTests.GenericReferenceObjectA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.GenericReferenceObjectA2.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObjectA2.h; sourceTree = "<group>"; };
-		ABA3A5EE18EC6F7B006756AA /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.GenericReferenceObjectA2.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.GenericReferenceObjectA2.m; sourceTree = "<group>"; };
 		ABA3A5F018EC7106006756AA /* System.MulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.MulticastDelegate.h; sourceTree = "<group>"; };
 		ABA3A5F118EC7106006756AA /* System.MulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.MulticastDelegate.m; sourceTree = "<group>"; };
 		ABA3A5F318EC7149006756AA /* System.IAsyncResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IAsyncResult.h; sourceTree = "<group>"; };
@@ -307,17 +335,7 @@
 		ABBF10AE17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_Unit_Tests.h; sourceTree = "<group>"; };
 		ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_Unit_Tests.m; sourceTree = "<group>"; };
 		ABBF10B117B3D2E1006F6E93 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ABC32E7317CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h; sourceTree = "<group>"; };
-		ABC32E7517CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.ReferenceObject.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceObject.h; sourceTree = "<group>"; };
-		ABC32E7617CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.ReferenceStruct.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceStruct.h; sourceTree = "<group>"; };
-		ABC32E7717CBBBC4004A3684 /* Dubrovnik.UnitTests.TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.TestObject.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.TestObject.h; sourceTree = "<group>"; };
-		ABC32E7817CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m; sourceTree = "<group>"; };
-		ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.ReferenceObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceObject.m; sourceTree = "<group>"; };
-		ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.ReferenceStruct.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.ReferenceStruct.m; sourceTree = "<group>"; };
-		ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.TestObject.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.TestObject.m; sourceTree = "<group>"; };
 		ABD02CAE183180C400885CDC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
-		ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.UnitTests.h; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.h; sourceTree = "<group>"; };
-		ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik.UnitTests.m; path = ../../../dotNET/UnitTests/GeneratedObjC/Dubrovnik.UnitTests.m; sourceTree = "<group>"; };
 		ABDB2FE418240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h; path = EntityFramework/DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h; sourceTree = "<group>"; };
 		ABDB2FE518240C5700BEB917 /* DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m; path = EntityFramework/DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.m; sourceTree = "<group>"; };
 		ABF43FB6179FF4FC00BAB99E /* DBManagedMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedMethod.h; sourceTree = "<group>"; };
@@ -458,19 +476,21 @@
 		9D69DC2B08B1844D008BB787 /* Representations */ = {
 			isa = PBXGroup;
 			children = (
-				AB49E43E178B2D9000D01244 /* EntityFramework */,
 				9D8BE81E0885A53D00D019A5 /* Collections */,
-				9D8A17D3096A3FCE000477C0 /* IO */,
-				DA4FDE7B09B389FF00D16517 /* Image */,
-				9DA8F08A09EF2BA4000EE2DE /* System */,
 				93365A870872370700EC726F /* DBManagedClass.h */,
 				93365A880872370700EC726F /* DBManagedClass.m */,
-				93365A890872370700EC726F /* DBManagedObject.h */,
-				93365A8A0872370700EC726F /* DBManagedObject.m */,
-				AB322C9C18B29DFD003E808A /* DBManagedObject+Enumerable.h */,
-				AB322C9D18B29DFD003E808A /* DBManagedObject+Enumerable.m */,
+				AB91B69518EE03A00021B462 /* DBManagedEvent.h */,
+				AB91B69618EE03A00021B462 /* DBManagedEvent.m */,
 				ABF43FB6179FF4FC00BAB99E /* DBManagedMethod.h */,
 				ABF43FB7179FF4FC00BAB99E /* DBManagedMethod.m */,
+				AB322C9C18B29DFD003E808A /* DBManagedObject+Enumerable.h */,
+				AB322C9D18B29DFD003E808A /* DBManagedObject+Enumerable.m */,
+				93365A890872370700EC726F /* DBManagedObject.h */,
+				93365A8A0872370700EC726F /* DBManagedObject.m */,
+				AB49E43E178B2D9000D01244 /* EntityFramework */,
+				DA4FDE7B09B389FF00D16517 /* Image */,
+				9D8A17D3096A3FCE000477C0 /* IO */,
+				9DA8F08A09EF2BA4000EE2DE /* System */,
 			);
 			path = Representations;
 			sourceTree = "<group>";
@@ -542,6 +562,8 @@
 		9DF236C70875D58E008A199C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				AB91B69918EE04570021B462 /* NSObject+DBManagedEvent.h */,
+				AB91B69A18EE04570021B462 /* NSObject+DBManagedEvent.m */,
 				9D8BE9660886152500D019A5 /* NSCategories.h */,
 				9DA75F650A239104008EC2F7 /* NSArray+Dubrovnik.h */,
 				9DA75F660A239104008EC2F7 /* NSArray+Dubrovnik.m */,
@@ -572,8 +594,8 @@
 		AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */ = {
 			isa = PBXGroup;
 			children = (
+				AB8DDC5818EED03A00FEEA8B /* GeneratedObjC */,
 				AB91B68818ED788E0021B462 /* ObjC */,
-				AB91B68718ED782A0021B462 /* Auto Generated ObjC */,
 				AB91B68618ED77C00021B462 /* C# source */,
 				AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */,
 			);
@@ -639,38 +661,44 @@
 			name = "Framework Helper";
 			sourceTree = "<group>";
 		};
+		AB8DDC5818EED03A00FEEA8B /* GeneratedObjC */ = {
+			isa = PBXGroup;
+			children = (
+				AB8DDC5918EED03A00FEEA8B /* Dubrovnik.ClientApplication.EventHelper.h */,
+				AB8DDC5A18EED03A00FEEA8B /* Dubrovnik.ClientApplication.EventHelper.m */,
+				AB8DDC5B18EED03A00FEEA8B /* Dubrovnik.ClientApplication.IEventHelper.h */,
+				AB8DDC5C18EED03A00FEEA8B /* Dubrovnik.ClientApplication.IEventHelper.m */,
+				AB8DDC5D18EED03A00FEEA8B /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */,
+				AB8DDC5E18EED03A00FEEA8B /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */,
+				AB8DDC5F18EED03A00FEEA8B /* Dubrovnik.UnitTests.GenericReferenceObjectA2.h */,
+				AB8DDC6018EED03A00FEEA8B /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m */,
+				AB8DDC6118EED03A00FEEA8B /* Dubrovnik.UnitTests.h */,
+				AB8DDC6218EED03A00FEEA8B /* Dubrovnik.UnitTests.IMinimalReferenceObject.h */,
+				AB8DDC6318EED03A00FEEA8B /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */,
+				AB8DDC6418EED03A00FEEA8B /* Dubrovnik.UnitTests.IntEnum.h */,
+				AB8DDC6518EED03A00FEEA8B /* Dubrovnik.UnitTests.LongEnum.h */,
+				AB8DDC6618EED03A00FEEA8B /* Dubrovnik.UnitTests.m */,
+				AB8DDC6718EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceObject.h */,
+				AB8DDC6818EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceObject.m */,
+				AB8DDC6918EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceStruct.h */,
+				AB8DDC6A18EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceStruct.m */,
+				AB8DDC6B18EED03A00FEEA8B /* Dubrovnik.UnitTests.TestObject.h */,
+				AB8DDC6C18EED03A00FEEA8B /* Dubrovnik.UnitTests.TestObject.m */,
+				AB8DDC6D18EED03A00FEEA8B /* Dubrovnik.UnitTests.xml */,
+			);
+			name = GeneratedObjC;
+			path = ../../../dotNET/UnitTests/GeneratedObjC;
+			sourceTree = "<group>";
+		};
 		AB91B68618ED77C00021B462 /* C# source */ = {
 			isa = PBXGroup;
 			children = (
+				AB8DDC7818EED0B100FEEA8B /* EventHelper.cs */,
 				AB97FC0417C277D600CBE585 /* Extensions.cs */,
 				AB97FC0517C277D600CBE585 /* ReferenceObject.cs */,
 				AB97FC0617C277D600CBE585 /* TestObject.cs */,
 			);
 			name = "C# source";
-			sourceTree = "<group>";
-		};
-		AB91B68718ED782A0021B462 /* Auto Generated ObjC */ = {
-			isa = PBXGroup;
-			children = (
-				AB91B68A18ED81950021B462 /* Dubrovnik.UnitTests.xml */,
-				ABA3A5ED18EC6F7B006756AA /* Dubrovnik.UnitTests.GenericReferenceObjectA2.h */,
-				ABA3A5EE18EC6F7B006756AA /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m */,
-				ABC32E7317CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h */,
-				ABC32E7817CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m */,
-				ABD8A95317BFD2D300ABDEDC /* Dubrovnik.UnitTests.h */,
-				AB073EF017D24F2300C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.h */,
-				AB073EF317D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m */,
-				AB073EF117D24F2400C669D3 /* Dubrovnik.UnitTests.IntEnum.h */,
-				AB073EF217D24F2400C669D3 /* Dubrovnik.UnitTests.LongEnum.h */,
-				ABD8A95417BFD2D300ABDEDC /* Dubrovnik.UnitTests.m */,
-				ABC32E7517CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceObject.h */,
-				ABC32E7B17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m */,
-				ABC32E7617CBBBC4004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.h */,
-				ABC32E7C17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m */,
-				ABC32E7717CBBBC4004A3684 /* Dubrovnik.UnitTests.TestObject.h */,
-				ABC32E7D17CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m */,
-			);
-			name = "Auto Generated ObjC";
 			sourceTree = "<group>";
 		};
 		AB91B68818ED788E0021B462 /* ObjC */ = {
@@ -754,6 +782,8 @@
 				ABA3A5F318EC7149006756AA /* System.IAsyncResult.h */,
 				ABA3A5F418EC7149006756AA /* System.IAsyncResult.m */,
 				ABA3A5FA18EC7284006756AA /* System.AsyncCallback.h */,
+				AB8DDC2E18EEC6F700FEEA8B /* System.EventArgs.h */,
+				AB8DDC2F18EEC6F700FEEA8B /* System.EventArgs.m */,
 			);
 			name = "Mono Classes";
 			path = "../Mono Classes";
@@ -786,6 +816,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8DDC3018EEC6F700FEEA8B /* System.EventArgs.h in Headers */,
+				AB91B69718EE03A00021B462 /* DBManagedEvent.h in Headers */,
+				AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */,
 				ABA3A5FB18EC7284006756AA /* System.AsyncCallback.h in Headers */,
 				ABA3A5F818EC71C2006756AA /* System.MulticastDelegate.h in Headers */,
 				ABA3A5F918EC71C5006756AA /* System.IAsyncResult.h in Headers */,
@@ -932,7 +965,6 @@
 			files = (
 				ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */,
 				AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */,
-				AB91B68B18ED81950021B462 /* Dubrovnik.UnitTests.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,6 +1005,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB120DA618BB47F300461FA2 /* DBManagedNumber.m in Sources */,
+				AB91B69818EE03A00021B462 /* DBManagedEvent.m in Sources */,
 				93365A8E0872370700EC726F /* DBManagedClass.m in Sources */,
 				93365A900872370700EC726F /* DBManagedObject.m in Sources */,
 				9DB4200C0873614E0045F939 /* NSString+Dubrovnik.m in Sources */,
@@ -1019,7 +1052,9 @@
 				AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */,
 				AB5D609017DDE2A000C53D7D /* DBSystem.Collections.Generic.ListA1.m in Sources */,
 				AB120D8C18B67B0800461FA2 /* System.IO.FileInfo.m in Sources */,
+				AB91B69C18EE04570021B462 /* NSObject+DBManagedEvent.m in Sources */,
 				AB5D609417DDE2CB00C53D7D /* DBSystem.Collections.Generic.DictionaryA2.m in Sources */,
+				AB8DDC3118EEC6F700FEEA8B /* System.EventArgs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,16 +1065,18 @@
 				ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */,
 				ABBF10B317B3D2E1006F6E93 /* DBUIntEnum.m in Sources */,
 				ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */,
+				AB8DDC6F18EED03A00FEEA8B /* Dubrovnik.ClientApplication.IEventHelper.m in Sources */,
+				AB8DDC7218EED03A00FEEA8B /* Dubrovnik.UnitTests.IMinimalReferenceObject.m in Sources */,
 				ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */,
-				ABB8CE4217C0BD8A0015FFB0 /* Dubrovnik.UnitTests.m in Sources */,
+				AB8DDC6E18EED03A00FEEA8B /* Dubrovnik.ClientApplication.EventHelper.m in Sources */,
 				AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */,
-				ABC32E7917CBBBC4004A3684 /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m in Sources */,
-				ABC32E7F17CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceObject.m in Sources */,
-				ABC32E8017CBBBDB004A3684 /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */,
-				ABC32E8117CBBBDB004A3684 /* Dubrovnik.UnitTests.TestObject.m in Sources */,
-				AB073EF417D27AE600C669D3 /* Dubrovnik.UnitTests.IMinimalReferenceObject.m in Sources */,
+				AB8DDC7018EED03A00FEEA8B /* Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.m in Sources */,
+				AB8DDC7518EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceStruct.m in Sources */,
+				AB8DDC7318EED03A00FEEA8B /* Dubrovnik.UnitTests.m in Sources */,
+				AB8DDC7118EED03A00FEEA8B /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m in Sources */,
 				ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */,
-				ABA3A5EF18EC6F7B006756AA /* Dubrovnik.UnitTests.GenericReferenceObjectA2.m in Sources */,
+				AB8DDC7418EED03A00FEEA8B /* Dubrovnik.UnitTests.ReferenceObject.m in Sources */,
+				AB8DDC7618EED03A00FEEA8B /* Dubrovnik.UnitTests.TestObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,9 +12,6 @@ using System.Reflection;
 // all default string values must include the following unit test : Dubrovnik
 namespace Dubrovnik.UnitTests
 {
-
-	public delegate void DubrovnikEventHandler();
-
     //==============================
     // interfaces
     //==============================
@@ -35,58 +32,10 @@ namespace Dubrovnik.UnitTests
     public class ReferenceObject : IMinimalReferenceObject
 	{
 		//==============================
-		// internal calls to C API
-		//==============================
-		[MethodImpl (MethodImplOptions.InternalCall)] 
-		public static extern void DubrovnikEventHandlerICall(); 
-
-		// call these methods from the C API to hook up calling 
-		// the unmanaged event handlers
-		public static void AttachEvent(ReferenceObject refObject) 
-		{ 
-			ConfigureStaticEventHandler(refObject, "TestEvent", "Dubrovnik.UnitTests.ReferenceObject", "DubrovnikEventHandlerICall", true);
-		} 
-
-		public static void DetachEvent(ReferenceObject refObject) 
-		{ 
-			ConfigureStaticEventHandler(refObject, "TestEvent", "Dubrovnik.UnitTests.ReferenceObject", "DubrovnikEventHandlerICall", false);
-		} 
-
-		public static void OnTestEvent() 
-		{ 
-			Console.WriteLine ("Called: OnTestEvent() ");
-		} 
-
-		/*
-		 * Note: this function is also included in the FrameworkHelper to assist with registering event delegates from Obj-C
-		 */
-		public static void ConfigureStaticEventHandler(object obj, string objEventName, string handlerClassName, string handlerMethodName, bool attach) 
-		{ 
-			// use reflection to assign delegate method to event
-
-			// get info for the event
-			EventInfo evInfo = obj.GetType().GetEvent(objEventName);
-
-			// get type for the handler class
-			Type handlerClassType = Type.GetType(handlerClassName);
-
-			// get method info for the handler method
-			MethodInfo miHandler = handlerClassType.GetMethod(handlerMethodName, BindingFlags.Public | BindingFlags.FlattenHierarchy | BindingFlags.Static);
-
-			// create delegate
-			Type tDelegate = evInfo.EventHandlerType;
-			Delegate d = Delegate.CreateDelegate(tDelegate, null, miHandler);
-
-			// invoke the add | remove method on the event
-			MethodInfo evMethod = attach ? evInfo.GetAddMethod() : evInfo.GetRemoveMethod();
-			Object[] args = { d };
-			evMethod.Invoke(obj, args);
-		} 
-
-		//==============================
 		// events
 		//==============================
-		public event DubrovnikEventHandler TestEvent;
+		public event EventHandler UnitTestEvent1;
+		public event EventHandler UnitTestEvent2;
 
 		//==============================
 		// statics
@@ -117,8 +66,8 @@ namespace Dubrovnik.UnitTests
 		//==============================
 		public ReferenceObject ()
 		{
-			Console.WriteLine (" ");
-			Console.WriteLine ("======= CONSTRUCTOR START ===========");
+			//Console.WriteLine (" ");
+			//Console.WriteLine ("======= CONSTRUCTOR START ===========");
 
 			Date = DateTime.Now;
 			DecimalNumber = 10.5005m;
@@ -199,8 +148,8 @@ namespace Dubrovnik.UnitTests
 			ClassProperty = "Dubrovnik.UnitTests static property";
 			ClassStringField = "Dubrovnik.UnitTests static field";
 
-			Console.WriteLine ("======= CONSTRUCTOR END ===========");
-			Console.WriteLine (" ");
+			//Console.WriteLine ("======= CONSTRUCTOR END ===========");
+			//Console.WriteLine (" ");
 		}
 
 		public ReferenceObject (string value) : this ()
@@ -533,12 +482,19 @@ namespace Dubrovnik.UnitTests
         }
 
 		//=========================
-		// event handling
+		// Event generation
 		//=========================
-		public void RaiseTestEvent()
+		public void RaiseUnitTestEvent1()
 		{
-			if (TestEvent != null) {
-				TestEvent ();
+			if (UnitTestEvent1 != null) {
+				UnitTestEvent1 (this, null);
+			}
+		}
+
+		public void RaiseUnitTestEvent2()
+		{
+			if (UnitTestEvent2 != null) {
+				UnitTestEvent2 (this, null);
 			}
 		}
 

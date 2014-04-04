@@ -797,14 +797,6 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : AttachEvent
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    + (void)attachEvent_withRefObject:(Dubrovnik_UnitTests_ReferenceObject *)p1
-    {
-		[self invokeMonoClassMethod:"AttachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
-    }
-
 	// Managed method name : ClassDescription
 	// Managed return type : System.String
 	// Managed param types : 
@@ -814,14 +806,6 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Managed method name : ConfigureStaticEventHandler
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.String, System.String, System.String, System.Boolean
-    + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerClassName:(NSString *)p3 handlerMethodName:(NSString *)p4 attach:(BOOL)p5
-    {
-		[self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,string,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
-    }
-
 	// Managed method name : DateMethod
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime
@@ -829,14 +813,6 @@
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
 		return [NSDate dateWithMonoDateTime:monoObject];
-    }
-
-	// Managed method name : DetachEvent
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    + (void)detachEvent_withRefObject:(Dubrovnik_UnitTests_ReferenceObject *)p1
-    {
-		[self invokeMonoClassMethod:"DetachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
     }
 
 	// Managed method name : DoubleIt
@@ -855,14 +831,6 @@
     {
 		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT32(monoObject);
-    }
-
-	// Managed method name : DubrovnikEventHandlerICall
-	// Managed return type : System.Void
-	// Managed param types : 
-    + (void)dubrovnikEventHandlerICall
-    {
-		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall()" withNumArgs:0];
     }
 
 	// Managed method name : Equals
@@ -892,20 +860,20 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Managed method name : OnTestEvent
+	// Managed method name : RaiseUnitTestEvent1
 	// Managed return type : System.Void
 	// Managed param types : 
-    + (void)onTestEvent
+    - (void)raiseUnitTestEvent1
     {
-		[self invokeMonoClassMethod:"OnTestEvent()" withNumArgs:0];
+		[self invokeMonoMethod:"RaiseUnitTestEvent1()" withNumArgs:0];
     }
 
-	// Managed method name : RaiseTestEvent
+	// Managed method name : RaiseUnitTestEvent2
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)raiseTestEvent
+    - (void)raiseUnitTestEvent2
     {
-		[self invokeMonoMethod:"RaiseTestEvent()" withNumArgs:0];
+		[self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];
     }
 
 	// Managed method name : ReferenceStructMethod

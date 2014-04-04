@@ -78,9 +78,8 @@
 
 
 // event handling
-+ (void)attachEvent:(DBUReferenceObject *)value;
-+ (void)detachEvent:(DBUReferenceObject *)value;
-- (void)raiseTestEvent;
+- (void)raiseUnitTestEvent1;
+- (void)raiseUnitTestEvent2;
 
 // fields
 - (int32_t)intField;

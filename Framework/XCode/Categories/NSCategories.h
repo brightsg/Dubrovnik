@@ -27,3 +27,4 @@
 #import "NSImage+Dubrovnik.h"
 #import "NSDecimalNumber+Dubrovnik.h"
 #import "NSNumber+Dubrovnik.h"
+#import "NSObject+DBManagedEvent.h"

@@ -45,6 +45,7 @@
 #import "DBManagedClass.h"
 #import "DBManagedObject.h"
 #import "DBManagedMethod.h"
+#import "DBManagedEvent.h"
 
 // Mono classes
 #import "System.Object.h"
@@ -60,6 +61,7 @@
 #import "System.MulticastDelegate.h"
 #import "System.IAsyncResult.h"
 #import "System.AsyncCallback.h"
+#import "System.EventArgs.h"
 
 // System.IO
 #import "DBSystem.IO.FileInfo.h"

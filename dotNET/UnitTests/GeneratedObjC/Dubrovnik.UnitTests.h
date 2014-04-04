@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     4/3/2014 2:22:12 PM
+// Date:     4/4/2014 12:27:12 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5205.30729, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5207.22348, Culture=neutral, PublicKeyToken=null
 // Path:     \\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -51,11 +51,19 @@
 //
 // Forward class declarations and class aliases
 //
-@class Dubrovnik_UnitTests_DubrovnikEventHandler;
-#ifdef DUDubrovnikEventHandler_
-#warning DUDubrovnikEventHandler_ class name collision.
+@class Dubrovnik_ClientApplication_EventHelper;
+#ifdef DCEventHelper_
+#warning DCEventHelper_ class name collision.
 #else
-#define DUDubrovnikEventHandler_ Dubrovnik_UnitTests_DubrovnikEventHandler
+#define DCEventHelper_ Dubrovnik_ClientApplication_EventHelper
+#endif
+
+@protocol Dubrovnik_ClientApplication_IEventHelper;
+@class Dubrovnik_ClientApplication_IEventHelper;
+#ifdef DCIEventHelper_
+#warning DCIEventHelper_ class name collision.
+#else
+#define DCIEventHelper_ Dubrovnik_ClientApplication_IEventHelper
 #endif
 
 @class Dubrovnik_UnitTests_GenericReferenceObjectA2;
@@ -105,9 +113,10 @@
 #import "Dubrovnik.UnitTests.IntEnum.h"
 #import "Dubrovnik.UnitTests.LongEnum.h"
 #import "Dubrovnik.UnitTests.ReferenceStruct.h"
-#import "Dubrovnik.UnitTests.DubrovnikEventHandler.h"
+#import "Dubrovnik.ClientApplication.EventHelper.h"
 #import "Dubrovnik.UnitTests.GenericReferenceObjectA2.h"
 #import "Dubrovnik.UnitTests.ReferenceObject.h"
 #import "Dubrovnik.UnitTests.TestObject.h"
 #import "Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions.h"
+#import "Dubrovnik.ClientApplication.IEventHelper.h"
 #import "Dubrovnik.UnitTests.IMinimalReferenceObject.h"

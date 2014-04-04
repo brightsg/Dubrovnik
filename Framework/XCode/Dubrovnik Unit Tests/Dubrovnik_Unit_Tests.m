@@ -64,6 +64,8 @@ static MonoAssembly *monoAssembly;
 
 @interface Dubrovnik_Unit_Tests()
 
+@property BOOL event1Fired;
+@property BOOL event2Fired;
 
 - (void)doTestReferenceClass:(Class)testClass;
 - (id)doTestConstructorsWithclass:(Class)testClass;
@@ -1221,13 +1223,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 }
 
-static BOOL eventFired = NO;
-void DubrovnikEventHandlerICall ()
-{
-    eventFired = YES;
-    return;
-}
-
 - (void)doTestReferenceClass:(Class)testClass
 {
     //===================================
@@ -1235,36 +1230,14 @@ void DubrovnikEventHandlerICall ()
     //===================================
     id refObject = [self doTestConstructorsWithclass:testClass];
  
-    // define internal calls.
-    // The named class::method must be defined within the managed code as an internal call:
-    //
-    // 		[MethodImpl (MethodImplOptions.InternalCall)]
-    //      public static extern void DubrovnikEventHandlerICall();
-    //
-    // This alerts the C# compiler to the fact that the function is implemented in C with the current process.
-    //
-    mono_add_internal_call("Dubrovnik.UnitTests.ReferenceObject::DubrovnikEventHandlerICall", &DubrovnikEventHandlerICall);
+    //===================================
+    // events
+    //===================================
+    [self doTestEvents:refObject class:testClass];
     
-    // We have defined an external handler function above.
-    // We now have to attach it to the event source.
-    // It may be possible to do this via the C API : http://mono.1490590.n4.nabble.com/Mono-Embedding-manage-events-td1499888.html
-    // However, it is easier to simply define some C# helper methods to attach and detach the events as required.
-    if ([testClass respondsToSelector:@selector(attachEvent:)]) {
-        
-        // attach event
-        eventFired = NO;
-        [testClass attachEvent:refObject];
-        [refObject raiseTestEvent];
-        STAssertTrue(eventFired, DBUBooleanTestFailed);
-        
-        // detach event
-        eventFired = NO;
-        [testClass detachEvent:refObject];
-        [refObject raiseTestEvent];
-        STAssertTrue(!eventFired, DBUBooleanTestFailed);
-    }
-    
-    
+    //===================================
+    // equality
+    //===================================
     [self doTestForEquality:refObject class:testClass];
     
     //===================================
@@ -1297,6 +1270,91 @@ void DubrovnikEventHandlerICall ()
     [self doTestArrayListRepresentation:refObject class:testClass];
 }
 
+// managed event callbacks that route events back to registered event target
+static void DubrovnikEventHandlerICall1(MonoObject* monoSender, MonoObject* monoEventArgs)
+{
+    [DBManagedEvent dispatchEventFromMonoSender:monoSender
+                                      eventArgs:monoEventArgs
+                                    targetClass:[Dubrovnik_Unit_Tests class]
+                             targetSelectorName:@"event1ReceivedFromSender:item:"];
+}
+
+- (void)event1ReceivedFromSender:(DBManagedObject *)sender item:(id)item
+{
+#pragma unused(sender, item)
+    self.event1Fired = YES;
+    return;
+}
+
+static void DubrovnikEventHandlerICall2(MonoObject* monoSender, MonoObject* monoEventArgs)
+{
+    [DBManagedEvent dispatchEventFromMonoSender:monoSender
+                                      eventArgs:monoEventArgs
+                                    targetClass:[Dubrovnik_Unit_Tests class]
+                             targetSelectorName:@"event2ReceivedFromSender:item:"];
+}
+
+- (void)event2ReceivedFromSender:(id)sender item:(id)item
+{
+#pragma unused(sender, item)
+    self.event2Fired = YES;
+    return;
+}
+
+- (void)doTestEvents:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    //=============================================
+    // managed event API
+    //
+    // this API allows managed events to be fully
+    // configured from unmanaged code.
+    //=============================================
+    
+    // register unmanaged handlers for the managed events.
+    // this associates a static managed event handler function with a static unmanaged handler function
+    [DBManagedEvent registerManagedEventHandler:@"DubrovnikEventHandlerICall1" unmanagedHandler:&DubrovnikEventHandlerICall1];
+    [DBManagedEvent registerManagedEventHandler:@"DubrovnikEventHandlerICall2" unmanagedHandler:&DubrovnikEventHandlerICall2];
+    
+    // add managed event handlers
+    // this associates a managed event with a particular static managed event handler as registered above.
+    // when the event fires it calls the managed function which is implemented by the unmanaged handler function.
+    // the DBManagedEvent event dispatcher then dispatches a selector back to self et voila.
+    [self addManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
+    [self addManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
+    
+    // raise events
+    self.event1Fired = NO;
+    self.event2Fired = NO;
+    [refObject raiseUnitTestEvent1];
+    STAssertTrue(self.event1Fired, DBUBooleanTestFailed);
+    STAssertTrue(!self.event2Fired, DBUBooleanTestFailed);
+    
+    self.event1Fired = NO;
+    self.event2Fired = NO;
+    [refObject raiseUnitTestEvent2];
+    STAssertTrue(!self.event1Fired, DBUBooleanTestFailed);
+    STAssertTrue(self.event2Fired, DBUBooleanTestFailed);
+    
+    // remove handlers
+    [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
+    self.event1Fired = NO;
+    self.event2Fired = NO;
+    [refObject raiseUnitTestEvent1];
+    [refObject raiseUnitTestEvent2];
+    STAssertTrue(!self.event1Fired, DBUBooleanTestFailed);
+    STAssertTrue(self.event2Fired, DBUBooleanTestFailed);
+
+    [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
+    self.event1Fired = NO;
+    self.event2Fired = NO;
+    [refObject raiseUnitTestEvent1];
+    [refObject raiseUnitTestEvent2];
+    STAssertTrue(!self.event1Fired, DBUBooleanTestFailed);
+    STAssertTrue(!self.event2Fired, DBUBooleanTestFailed);
+    
+}
 #pragma mark -
 #pragma mark DBManagedEnvironmentDelegate methods
 

@@ -592,9 +592,20 @@
 #pragma mark -
 #pragma mark Event handling
 
-- (void)raiseTestEvent
+// Managed method name : RaiseUnitTestEvent1
+// Managed return type : System.Void
+// Managed param types :
+- (void)raiseUnitTestEvent1
 {
-    [self invokeMonoMethod:"RaiseTestEvent()" withNumArgs:0, NULL];
+    [self invokeMonoMethod:"RaiseUnitTestEvent1()" withNumArgs:0];
+}
+
+// Managed method name : RaiseUnitTestEvent2
+// Managed return type : System.Void
+// Managed param types :
+- (void)raiseUnitTestEvent2
+{
+    [self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];
 }
 
 #pragma mark -
@@ -618,6 +629,17 @@
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
+}
+
+#pragma mark -
+#pragma mark Event handler configuration
+
+// Managed method name : ConfigureStaticEventHandler
+// Managed return type : System.Void
+// Managed param types : System.Object, System.String, System.String, System.String, System.Boolean
++ (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerClassName:(NSString *)p3 handlerMethodName:(NSString *)p4 attach:(BOOL)p5
+{
+    [self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,string,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
 }
 
 @end

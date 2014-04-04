@@ -208,30 +208,15 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : AttachEvent
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    + (void)attachEvent_withRefObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
-
 	// Managed method name : ClassDescription
 	// Managed return type : System.String
 	// Managed param types : 
     + (NSString *)classDescription;
 
-	// Managed method name : ConfigureStaticEventHandler
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.String, System.String, System.String, System.Boolean
-    + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerClassName:(NSString *)p3 handlerMethodName:(NSString *)p4 attach:(BOOL)p5;
-
 	// Managed method name : DateMethod
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime
     - (NSDate *)dateMethod_withD1:(NSDate *)p1;
-
-	// Managed method name : DetachEvent
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
-    + (void)detachEvent_withRefObject:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
@@ -242,11 +227,6 @@
 	// Managed return type : System.Int32
 	// Managed param types : ref System.Int32&
     - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
-
-	// Managed method name : DubrovnikEventHandlerICall
-	// Managed return type : System.Void
-	// Managed param types : 
-    + (void)dubrovnikEventHandlerICall;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -263,15 +243,15 @@
 	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
     - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
 
-	// Managed method name : OnTestEvent
+	// Managed method name : RaiseUnitTestEvent1
 	// Managed return type : System.Void
 	// Managed param types : 
-    + (void)onTestEvent;
+    - (void)raiseUnitTestEvent1;
 
-	// Managed method name : RaiseTestEvent
+	// Managed method name : RaiseUnitTestEvent2
 	// Managed return type : System.Void
 	// Managed param types : 
-    - (void)raiseTestEvent;
+    - (void)raiseUnitTestEvent2;
 
 	// Managed method name : ReferenceStructMethod
 	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
