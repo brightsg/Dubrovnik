@@ -8,6 +8,35 @@
 
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+
+//
+// dispatch managed event
+//
+#define DBDispatchEvent(KLASS, SELECTOR_STRING) \
+do { \
+    [DBManagedEvent dispatchEventFromMonoSender:monoSender \
+                                        eventArgs:monoEventArgs \
+                                        targetClass:[KLASS class] \
+                                        targetSelectorName: SELECTOR_STRING]; \
+} while (NO)
+
+//
+// define a managed event handler
+//
+#define DBDefineEventHandler(FUNCTION_NAME, CLASS_NAME, SELECTOR_STRING) \
+static void FUNCTION_NAME(MonoObject* monoSender, MonoObject* monoEventArgs) \
+{ \
+    DBDispatchEvent(CLASS_NAME, SELECTOR_STRING); \
+} \
+
+//
+// register a managed event handler
+//
+#define DBRegisterEventHandler(MANAGED_STRING, UNMANAGED_NAME) \
+do { \
+    [DBManagedEvent registerManagedEventHandler:MANAGED_STRING unmanagedHandler: & (UNMANAGED_NAME)]; \
+} while (NO)
+
 @class DBManagedObject;
 
 @protocol BPManagedEventHelper

@@ -449,6 +449,8 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(Mo
 	if(valuePointer != NULL) meth = (MonoMethod *)*valuePointer;
 	
 	if(meth == NULL) {
+        // cache miss
+        
 //		MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
 //		meth = mono_property_get_get_method(monoProperty);
 		char methodName[strlen(propertyName) + 8]; // + ":get_\0"
@@ -460,6 +462,7 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(Mo
         // TODO: Require full method signature ?
 		meth = GetMonoClassMethod(monoClass, methodName, NO);
 
+        // update the cache
 		SetPropertyGetMethod(monoClass, propertyName, meth);
 	}
 	

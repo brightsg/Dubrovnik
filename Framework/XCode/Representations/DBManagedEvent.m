@@ -112,6 +112,9 @@ static NSString *_eventArgumentItemSelectorName = nil;
     if (senderKeyName) {
         senderKey = [managedObject valueForKey:senderKeyName];
     }
+    
+    // TDDO; this design is limited to associating 1 target object of a given class with a given key object
+    // With this some further work it should be possible to generalise further.
     [[target managedEventSenderMap] setObject:target forKey:senderKey];
 }
 

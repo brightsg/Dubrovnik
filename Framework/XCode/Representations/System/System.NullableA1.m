@@ -270,7 +270,7 @@
                 }
                 
             } else {
-                [NSException raise:@"InvalidObjectForSystemNullableType" format:@"Cannot form nullable type for: %@", object];
+                [NSException raise:@"InvalidObjectForSystemNullableType" format:@"Cannot form nullable type for: %@ className: %@", object, [object class]];
             }
         } else {
             [NSException raise:@"MissingTypeAssociationForSystemNullableType" format:@"No type associaton for type: %@", typeArgumentName];
