@@ -797,6 +797,9 @@ public void WriteFacetAsMethod(MethodFacet facet)
 
 		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
 		if (parameter.IsGenericParameter) {
+
+			// in order for the C api to substitute the correct type at run time
+			// the generic parameter position needs to be indicated.
 			monoMethodParameterType = string.Format(monoMethodParameterType, parameter.GenericParameterPosition);
         }
 		monoSigBuilder.Append(monoMethodParameterType);
