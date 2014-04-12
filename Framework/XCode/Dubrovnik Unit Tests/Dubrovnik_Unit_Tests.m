@@ -23,7 +23,7 @@
  are not run against the generated unit test model.
  
  */
-#define DB_RUN_AUTO_GENERATED_CODE_TEST 0
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
 
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 

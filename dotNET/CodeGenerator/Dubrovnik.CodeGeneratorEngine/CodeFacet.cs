@@ -71,6 +71,7 @@ namespace Dubrovnik
             IsGenericTypeDefinition = XElementAttributeBool(xelement, "IsGenericTypeDefinition");
             IsGenericParameter = XElementAttributeBool(xelement, "IsGenericParameter");
             ContainsGenericParameters = XElementAttributeBool(xelement, "ContainsGenericParameters");
+            GenericParameterPosition = Convert.ToInt32(XElementAttributeValue(xelement, "GenericParameterPosition"));
 
             if (IsGenericType)
             {
@@ -100,6 +101,7 @@ namespace Dubrovnik
         public bool IsEnum { get; private set; }
         public bool IsValueType { get; private set; }
         public bool IsPrimitive { get; private set; }
+
         // For the low down on generic type reflection see :
         // http://msdn.microsoft.com/en-us/library/ms172334.aspx
         // http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
@@ -109,6 +111,9 @@ namespace Dubrovnik
         public bool IsGenericTypeDefinition { get; private set; }
         public bool IsGenericParameter { get; private set; }
         public bool ContainsGenericParameters { get; private set; }
+        public Int32 GenericParameterPosition { get; private set; }
+        public string[] GenericArgumentTypes { get; private set; }
+
         public bool IsPointer { get; private set; }
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }
@@ -117,7 +122,7 @@ namespace Dubrovnik
         public string UnderlyingType { get; private set; }
         public bool IsStatic { get; private set; }
         public CodeFacet ObjCFacet { get; private set; }
-        public string[] GenericArgumentTypes { get; private set; }
+
         public string TypeNamespace { get; private set; }
         public string ConstantValue { get; private set; }
         public string ElementType { get; private set; }
@@ -497,7 +502,9 @@ namespace Dubrovnik
         public ImplementedInterfaceFacet(XElement xelement)
             : base(xelement)
         {
+            GenericTypeParameters = new FacetList<ParameterFacet>(xelement, "GenericTypeParameter");
         }
+        public IList<ParameterFacet> GenericTypeParameters { get; set; }        
     }
 
     /*

@@ -448,14 +448,14 @@ namespace Dubrovnik
             string decl = "";
             string managedType = ManagedTypeForAssociation(managedFacet);
 
-            if (managedType == null) return "????";
+            if (managedType == null) return "NSObject *";
 
             if (!ObjCTypeAssociations.ContainsKey(managedType))
             {
                 // If no explicit type found then return a canonical type name.
                 decl = ObjCTypeFromManagedType(managedType);
 
-                // if ObjC rep is NSObject or pointer thern append deref operator.
+                // if ObjC rep is NSObject or pointer then append deref operator.
                 if (ObjCRepresentationIsObject(managedFacet) || managedFacet.IsPointer) {
                     decl += " *";
                 }

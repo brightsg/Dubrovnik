@@ -796,6 +796,9 @@ public void WriteFacetAsMethod(MethodFacet facet)
         }
 
 		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
+		if (parameter.IsGenericParameter) {
+			monoMethodParameterType = string.Format(monoMethodParameterType, parameter.GenericParameterPosition);
+        }
 		monoSigBuilder.Append(monoMethodParameterType);
 		if (parameter.IsPointer) 
 		{

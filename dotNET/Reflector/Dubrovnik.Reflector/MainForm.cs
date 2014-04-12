@@ -120,7 +120,12 @@ namespace Dubrovnik.Reflector {
             if (type.IsGenericType) xtw.WriteAttributeString("IsGenericType", Boolean.TrueString);
             if (type.IsGenericTypeDefinition) xtw.WriteAttributeString("IsGenericTypeDefinition", Boolean.TrueString);
             if (type.IsConstructedGenericType) xtw.WriteAttributeString("IsConstructedGenericType", Boolean.TrueString);
-            if (type.IsGenericParameter) xtw.WriteAttributeString("IsGenericParameter", Boolean.TrueString);
+            if (type.IsGenericParameter)
+            {
+                xtw.WriteAttributeString("IsGenericParameter", Boolean.TrueString);
+                xtw.WriteAttributeString("GenericParameterPosition", type.GenericParameterPosition.ToString());
+            }
+
         }
 
         //
@@ -128,21 +133,37 @@ namespace Dubrovnik.Reflector {
         //
         private void WriteGenericTypeElements(XmlTextWriter xtw, Type type)
         {
-            // Output generic type arguments.
-            // This actually contains parameters and/or arguments depending on the generic type status.
-            // IsGenericParameter can be used to distinguish between compile time parameters 
-            // and runtime arguments. 
-            Type[] genericTypes = type.GenericTypeArguments;
-            if (genericTypes.Length > 0)
+            if (!type.IsGenericTypeDefinition)
             {
-
-                foreach (Type genericTypeArgument in genericTypes)
+                // Write generic type arguments. 
+                // These are concrete types used in closed generic types eg: int in List<int>
+                // If the current type is a generic type definition then this will return an empty array
+                Type[] genericTypeArguments = type.GenericTypeArguments;
+                if (genericTypeArguments.Length > 0)
                 {
-                    xtw.WriteStartElement("GenericTypeArgument");
-                    WriteTypeAttributes(xtw, genericTypeArgument);
-                    xtw.WriteEndElement();
+                    foreach (Type genericTypeArgument in genericTypeArguments)
+                    {
+                        xtw.WriteStartElement("GenericTypeArgument");
+                        WriteTypeAttributes(xtw, genericTypeArgument);
+                        xtw.WriteEndElement();
+                    }
                 }
-
+            }
+            else
+            {
+                // Write generic type parameters. 
+                // These are type arguments used in open generic types eg: T in List<T> 
+                TypeInfo typeInfo = type.GetTypeInfo();
+                Type[] genericTypeParameters = typeInfo.GenericTypeParameters;
+                if (genericTypeParameters.Length > 0)
+                {
+                    foreach (Type genericTypeParameter in genericTypeParameters)
+                    {
+                        xtw.WriteStartElement("GenericTypeParameter");
+                        WriteTypeAttributes(xtw, genericTypeParameter);
+                        xtw.WriteEndElement();
+                    }
+                }
             }
         }
 
@@ -233,6 +254,9 @@ namespace Dubrovnik.Reflector {
                             //
                             xtw.WriteAttributeString("Name", type.GetFriendlyName());
                             WriteTypeAttributes(xtw, type);
+
+
+                            WriteGenericTypeElements(xtw, type);
 
                             //
                             // write implemented interfaces
