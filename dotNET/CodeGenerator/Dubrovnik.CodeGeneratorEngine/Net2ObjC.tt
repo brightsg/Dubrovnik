@@ -321,7 +321,7 @@ public void WriteClassSetup(CodeFacet facet)
 	{
 #>
 	{
-		return "<#=facet.TypeNamespace#>.<#=facet.Name#>";
+		return "<#=facet.TypeNamespace#>.<#=facet.RawName#>";
 	}
 <#+
     }

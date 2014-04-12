@@ -1035,7 +1035,7 @@ this.Write(".");
         #line hidden
         
         #line 324 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\xcode\BrightPay.OSX\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(facet.Name));
+this.Write(this.ToStringHelper.ToStringWithCulture(facet.RawName));
 
         
         #line default

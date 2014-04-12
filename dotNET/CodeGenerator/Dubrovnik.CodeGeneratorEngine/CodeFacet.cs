@@ -18,7 +18,7 @@ namespace Dubrovnik
 
         public CodeFacet(CodeFacet facet)
         {
-            Name = ObjCNameFromManagedName(facet.Name);    // retain generic sig
+            Name = ObjCTypeFromManagedType(facet.Name);    // retain generic sig
             Type = ObjCTypeFromManagedType(facet.Type);    // discard generic sig
             BaseName = ObjCNameFromManagedName(facet.BaseName);
             BaseType = ObjCTypeFromManagedType(facet.BaseType);
@@ -62,6 +62,9 @@ namespace Dubrovnik
             UnderlyingType = XElementAttributeValue(xelement, "UnderlyingType");
             ConstantValue = XElementAttributeValue(xelement, "ConstantValue");
 
+            // the raw name removes generic parameter info
+            RawName = StripGenericParametersFromManagedType(Name);
+
             // generic type info
             IsConstructedGenericType = XElementAttributeBool(xelement, "IsConstructedGenericType");
             IsGenericType = XElementAttributeBool(xelement, "IsGenericType");
@@ -88,6 +91,7 @@ namespace Dubrovnik
 
         public CodeFacet Output { get; private set; }
         public string Name { get; internal set; }
+        public string RawName { get; internal set; }
         public string FullName { get; private set; }
         public bool IsReadable { get; private set; }
         public bool IsWritable { get; private set; }
@@ -182,20 +186,27 @@ namespace Dubrovnik
             return TypeNamespace + "." + ObjCTypeFromManagedType(Name);
         }
 
-        //
-        // ObjCTypeFromManagedType
-        //
-        public static string ObjCTypeFromManagedType(string managedType)
+        public static string StripGenericParametersFromManagedType(string managedType)
         {
             if (managedType != null)
             {
                 // ObjCtype type name will not include generic parameter information
-                int idx  = managedType.IndexOf('<');
+                int idx = managedType.IndexOf('<');
                 if (idx != -1)
                 {
                     managedType = managedType.Substring(0, idx);
                 }
             }
+
+            return managedType;
+        }
+
+        //
+        // ObjCTypeFromManagedType
+        //
+        public static string ObjCTypeFromManagedType(string managedType)
+        {
+            managedType = StripGenericParametersFromManagedType(managedType);
 
             string objCType = ObjCNameFromManagedName(managedType);
 

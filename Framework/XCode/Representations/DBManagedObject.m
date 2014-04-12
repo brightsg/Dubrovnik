@@ -35,7 +35,9 @@
 @property (strong, readwrite) DBManagedEnvironment *monoEnvironment;
 @property (assign, readwrite) MonoObject *monoObject;
 @property (assign) uint32_t mono_gchandle;
-
+@property BOOL isGenericType;
+@property NSUInteger genericParameterCount;
+@property (strong) NSArray *genericParameterMonoArgumentTypeNames;
 @end
 
 @implementation DBManagedObject
@@ -87,6 +89,11 @@
 	return(rep);
 }
 
++ (id)subclassObjectWithMonoObject:(MonoObject *)obj {
+
+    return [[DBTypeManager sharedManager] objectWithMonoObject:obj];
+}
+ 
 + (instancetype)objectWithNumArgs:(int)numArgs, ... {
 	Class class = [self class];
 	MonoClass *monoClass = [class monoClass];
@@ -120,6 +127,7 @@
 		
 		if (monoObject != NULL) {
             self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
+            [self setup];
         } else {
 			self = nil;
 		}
@@ -153,6 +161,30 @@
 	MonoString *monoString = (MonoString *)[self invokeMonoMethod:"System.Object:ToString()" withNumArgs:0];
 	
 	return([NSString stringWithMonoString:monoString]);
+}
+
+- (void)setup
+{
+    // TODO: test the managed type to determine if type is a generic
+    BOOL isGenericType = YES;
+    
+    // TODO: make this lazy
+    if (isGenericType) {
+        self.genericParameterCount = [self getMonoGenericTypeCount];
+        
+        if (self.genericParameterCount > 0) {
+            self.isGenericType = YES;
+            NSMutableArray *typeNames = [NSMutableArray arrayWithCapacity:self.genericParameterCount];
+            
+            for (NSUInteger i = 0; i < self.genericParameterCount; i++) {
+                MonoType *genericType = [self getMonoGenericTypeAtIndex:i];
+                NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoType:genericType];
+                [typeNames addObject:monoArgumentTypeName];
+            }
+            
+            self.genericParameterMonoArgumentTypeNames = typeNames;
+        }
+    }
 }
 
 #pragma mark -
@@ -294,7 +326,7 @@
 + (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
 	va_list va_args;
 	va_start(va_args, numArgs);
-	
+ 	
 	MonoObject *ret = DBMonoClassInvoke([[self class] monoClass], methodName, numArgs, va_args);
 	
 	va_end(va_args);
@@ -303,10 +335,20 @@
 }
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
+    
+    if (self.isGenericType) {
+        methodName = [self inflateMethodName:methodName];
+    }
+    
 	return(DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args));
 }
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
+   
+    if (self.isGenericType) {
+        methodName = [self inflateMethodName:methodName];
+    }
+    
 	va_list va_args;
 	va_start(va_args, numArgs);
 	
@@ -315,6 +357,27 @@
 	va_end(va_args);
 	
 	return ret;
+}
+
+- (const char *)inflateMethodName:(const char *)methodName
+{
+    /* 
+     
+     search the method signature for generic type keys and replace with actual types
+     
+     */
+    if (self.isGenericType && strstr(methodName, "<_T_")) {
+        NSMutableString *method = [[NSMutableString alloc] initWithUTF8String:methodName];;
+        NSUInteger i = 0;
+        
+        for (NSString *typeName in self.genericParameterMonoArgumentTypeNames) {
+            NSString *key = [NSString stringWithFormat:@"<_T_%lu>", (unsigned long)i++];
+            [method replaceOccurrencesOfString:key withString:typeName options:0 range:NSMakeRange(0, [method length])];
+        }
+        methodName = [method UTF8String];
+    }
+    
+    return methodName;
 }
 
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {

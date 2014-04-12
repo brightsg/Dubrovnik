@@ -776,24 +776,6 @@
 		[self setMonoProperty:"StringStringDictionary" valueObject:monoObject];          
 	}
 
-	// Managed property name : StringStringGenericReferenceObject
-	// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<System.String, System.String>
-    @synthesize stringStringGenericReferenceObject = _stringStringGenericReferenceObject;
-    - (Dubrovnik_UnitTests_GenericReferenceObjectA2 *)stringStringGenericReferenceObject
-    {
-		MonoObject *monoObject = [self getMonoProperty:"StringStringGenericReferenceObject"];
-		if ([self object:_stringStringGenericReferenceObject isEqualToMonoObject:monoObject]) return _stringStringGenericReferenceObject;					
-		_stringStringGenericReferenceObject = [Dubrovnik_UnitTests_GenericReferenceObjectA2 objectWithMonoObject:monoObject];
-
-		return _stringStringGenericReferenceObject;
-	}
-    - (void)setStringStringGenericReferenceObject:(Dubrovnik_UnitTests_GenericReferenceObjectA2 *)value
-	{
-		_stringStringGenericReferenceObject = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"StringStringGenericReferenceObject" valueObject:monoObject];          
-	}
-
 	// Managed property name : UIntList
 	// Managed property type : System.Collections.Generic.List`1<System.UInt32>
     @synthesize uIntList = _uIntList;
@@ -835,19 +817,19 @@
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
-	// Managed param types : ref System.Int32&
-    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1
+	// Managed param types : System.Int32
+    - (int32_t)doubleIt_withXInt:(int32_t)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
+		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
-	// Managed param types : System.Int32
-    - (int32_t)doubleIt_withXInt:(int32_t)p1
+	// Managed param types : ref System.Int32&
+    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
 		return DB_UNBOX_INT32(monoObject);
     }
 

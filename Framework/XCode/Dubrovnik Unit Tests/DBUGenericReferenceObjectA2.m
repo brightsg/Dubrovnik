@@ -7,7 +7,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "Dubrovnik.UnitTests.GenericReferenceObject`2<T, U>";
+		return "Dubrovnik.UnitTests.GenericReferenceObject`2";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -25,7 +25,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterT"];
 		if ([self object:_genericPropertyWithTypeParameterT isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterT;					
-		_genericPropertyWithTypeParameterT = [System_Object objectWithMonoObject:monoObject];
+		_genericPropertyWithTypeParameterT = [System_Object subclassObjectWithMonoObject:monoObject];
 
 		return _genericPropertyWithTypeParameterT;
 	}
@@ -43,7 +43,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterU"];
 		if ([self object:_genericPropertyWithTypeParameterU isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterU;					
-		_genericPropertyWithTypeParameterU = [System_Object objectWithMonoObject:monoObject];
+		_genericPropertyWithTypeParameterU = [System_Object subclassObjectWithMonoObject:monoObject];
 
 		return _genericPropertyWithTypeParameterU;
 	}
@@ -62,8 +62,8 @@
 	// Managed param types : <T>, <U>
     - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Object objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenericMethodReturningParameterTypeU
@@ -71,8 +71,8 @@
 	// Managed param types : <T>, <U>
     - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(Dubrovnik.Generic.Parameter,Dubrovnik.Generic.Parameter)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		return [System_Object objectWithMonoObject:monoObject];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

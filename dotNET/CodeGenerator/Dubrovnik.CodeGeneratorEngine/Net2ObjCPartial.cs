@@ -14,6 +14,7 @@ namespace Dubrovnik
     partial class Net2ObjC
     {
         public static string GenToolName = "Dubrovnik.CodeGenerator";
+        public static string GenericTypePlaceholder = "<_T_{0}>";
 
         public string InterfaceOutput { get; private set; }
         public string ImplementationOutput { get; private set; }
@@ -841,7 +842,7 @@ namespace Dubrovnik
             // type argument will remain unknown until runtime.
             if (managedFacet.IsGenericParameter)
             {
-                managedType = "Dubrovnik.Generic.Parameter";
+                managedType = GenericTypePlaceholder;
             }
             else if (managedFacet.IsArray) 
             {
@@ -936,9 +937,9 @@ namespace Dubrovnik
             // reference types
             //===============================================================================================
 
-            // Dubrovnik.Generic.Parameter
-            manTA = new ManagedTypeAssociation { ManagedType = "Dubrovnik.Generic.Parameter" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object objectWithMonoObject:{0}]" };
+            // generic parameter
+            manTA = new ManagedTypeAssociation { ManagedType = GenericTypePlaceholder };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object subclassObjectWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
 
             // System.Object

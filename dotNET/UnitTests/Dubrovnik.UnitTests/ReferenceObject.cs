@@ -140,6 +140,10 @@ namespace Dubrovnik.UnitTests
 				{ 1F,  "Dubrovnik.UnitTests 2" },
 			};
 
+			StringStringGenericReferenceObject = new GenericReferenceObject<string, string>();
+			StringStringGenericReferenceObject.GenericPropertyWithTypeParameterT = "I am of type T == string";
+			StringStringGenericReferenceObject.GenericPropertyWithTypeParameterU = "I am of type U == string";
+
 			// initialise nullables
 			IntNullable = 1;
 			FloatNullable = null;
@@ -219,6 +223,7 @@ namespace Dubrovnik.UnitTests
 		public List<float> FloatList { get; set; }
 		public List<double> DoubleList { get; set; }
 		public List<ReferenceObject> ReferenceObjectList { get; set; }
+		public GenericReferenceObject<string, string> StringStringGenericReferenceObject { get; set; }
 
         public Dictionary<string, string> StringStringDictionary { get; set; }
 		public Dictionary<string, object> StringObjectDictionary { get; set; }

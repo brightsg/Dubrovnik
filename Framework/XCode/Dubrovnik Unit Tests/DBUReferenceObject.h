@@ -8,6 +8,7 @@
 #import <Dubrovnik/Dubrovnik.h>
 #import "DBUIntEnum.h"
 #import "DBULongEnum.h"
+#import "DBUGenericReferenceObjectA2.h"
 
 @class DBUIReferenceObject;
 
@@ -199,5 +200,7 @@
 - (void)setIntNullable:(System_NullableA1 *)value;
 - (System_NullableA1 *)floatNullable;
 - (void)setFloatNullable:(System_NullableA1 *)value;
+
+@property (nonatomic, strong) DBUGenericReferenceObjectA2 * stringStringGenericReferenceObject;
 
 @end

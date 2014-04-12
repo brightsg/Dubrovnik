@@ -201,10 +201,6 @@
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
     @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * stringStringDictionary;
 
-	// Managed property name : StringStringGenericReferenceObject
-	// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<System.String, System.String>
-    @property (nonatomic, strong) Dubrovnik_UnitTests_GenericReferenceObjectA2 * stringStringGenericReferenceObject;
-
 	// Managed property name : UIntList
 	// Managed property type : System.Collections.Generic.List`1<System.UInt32>
     @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * uIntList;
@@ -224,13 +220,13 @@
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
-	// Managed param types : ref System.Int32&
-    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
+	// Managed param types : System.Int32
+    - (int32_t)doubleIt_withXInt:(int32_t)p1;
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
-	// Managed param types : System.Int32
-    - (int32_t)doubleIt_withXInt:(int32_t)p1;
+	// Managed param types : ref System.Int32&
+    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

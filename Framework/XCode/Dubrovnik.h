@@ -53,6 +53,7 @@
 // representation subclasses
 
 // System
+#import "System.String.h"
 #import "DBSystem.Array.h"
 #import "DBSystem.Convert.h"
 #import "DBSystem.Enum.h"

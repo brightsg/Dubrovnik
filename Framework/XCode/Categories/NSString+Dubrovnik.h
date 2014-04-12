@@ -22,6 +22,8 @@
 #import <Cocoa/Cocoa.h>
 #import "DBMonoIncludes.h"
 
+@class System_String, System_Object;
+
 @interface NSString (Dubrovnik)
 
 + (id)stringWithMonoString:(MonoString *)monoString;
@@ -34,5 +36,8 @@
 - (MonoObject *)monoObject;
 
 - (NSString *)simpleObjCToMonoClassNameString;
+
+- (System_String *)managedString;
+- (System_Object *)managedObject;
 
 @end

@@ -9,6 +9,7 @@
 #import "Dubrovnik_Unit_Tests.h"
 #import "DBUReferenceObject.h"
 #import "DBUIReferenceObject.h"
+#import "DBUGenericReferenceObjectA2.h"
 
 // toggle 0-1
 // it may be useful to disable certain tests when adding support for new features
@@ -22,7 +23,7 @@
  are not run against the generated unit test model.
  
  */
-#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 0
 
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 
@@ -1059,6 +1060,32 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     floatNullable = [refObject floatNullable];
     STAssertTrue(floatNullable != nil, DBUNotNilTestFailed);
     STAssertTrue([[floatNullable numberValue] floatValue] == 5, DBUEqualityTestFailed);
+    
+    //=========================================================
+    // Generic reference object
+    // Dubrovnik.UnitTests.GenericReferenceObject<T, U>"
+    // This generic type is defined by the unit test assembly
+    //=========================================================
+    // T string
+    // U string
+    DBUGenericReferenceObjectA2 *refObjectA2 = [refObject stringStringGenericReferenceObject];
+    
+    // properties
+    id gp1 = refObjectA2.genericPropertyWithTypeParameterT;
+    STAssertTrue([gp1 isEqual:@"I am of type T == string"], DBUEqualityTestFailed);
+    
+    id gp2 = refObjectA2.genericPropertyWithTypeParameterU;
+    STAssertTrue([gp2 isEqual:@"I am of type U == string"], DBUEqualityTestFailed);
+    
+    // methods
+    System_String *ms1 = [@"I am of type T == string" managedString];
+    System_String *ms2 = [@"I am of type U == string" managedString];
+    id gm1 = [refObjectA2 genericMethodReturningParameterTypeT_withParameterT:ms1 parameterU:ms2];
+    STAssertTrue([gm1 isEqual:@"I am of type T == string"], DBUEqualityTestFailed);
+
+    id gm2 = [refObjectA2 genericMethodReturningParameterTypeU_withParameterT:ms1 parameterU:ms2];
+    STAssertTrue([gm2 isEqual:@"I am of type U == string"], DBUEqualityTestFailed);
+    
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass

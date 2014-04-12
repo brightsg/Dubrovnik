@@ -39,6 +39,7 @@ extern char DBCacheSuffixChar;
 + (MonoClass *)monoClass;
 + (DBManagedClass *)dbClass;
 + (instancetype)objectWithMonoObject:(MonoObject *)obj;
++ (id)subclassObjectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
 // Initialisation methods

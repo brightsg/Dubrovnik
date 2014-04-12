@@ -400,6 +400,25 @@
     return dict;
 }
 
+// Managed property name : StringStringGenericReferenceObject
+// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<System.String, System.String>
+@synthesize stringStringGenericReferenceObject = _stringStringGenericReferenceObject;
+- (DBUGenericReferenceObjectA2 *)stringStringGenericReferenceObject
+{
+    MonoObject *monoObject = [self getMonoProperty:"StringStringGenericReferenceObject"];
+    if ([self object:_stringStringGenericReferenceObject isEqualToMonoObject:monoObject]) return _stringStringGenericReferenceObject;
+    _stringStringGenericReferenceObject = [DBUGenericReferenceObjectA2 objectWithMonoObject:monoObject];
+    
+    return _stringStringGenericReferenceObject;
+}
+- (void)setStringStringGenericReferenceObject:(DBUGenericReferenceObjectA2 *)value
+{
+    _stringStringGenericReferenceObject = value;
+    MonoObject *monoObject = [value monoObject];
+    [self setMonoProperty:"StringStringGenericReferenceObject" valueObject:monoObject];
+}
+
+
 #pragma mark -
 #pragma mark Mono string parameter methods
 
