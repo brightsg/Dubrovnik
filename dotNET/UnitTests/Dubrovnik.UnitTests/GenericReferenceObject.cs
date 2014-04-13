@@ -26,6 +26,19 @@ namespace Dubrovnik.UnitTests
         {
             return parameterU;
         }
+
+		//==============================
+		// nested classes
+		//==============================
+		public class NestedClass
+		{
+			public string StringProperty { get; set; }
+
+			public NestedClass() 
+			{
+				StringProperty = "I am a nested class property";
+			}
+		}
     }
 #endif
 }

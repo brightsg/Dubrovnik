@@ -30,7 +30,7 @@
 #define DB_REFTYPE_BY_REFERENCE_SUPPORT 0
 
 #if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
-#import "Dubrovnik.UnitTests.h"
+#import "Dubrovnik_UnitTests.h"
 #endif
 
 

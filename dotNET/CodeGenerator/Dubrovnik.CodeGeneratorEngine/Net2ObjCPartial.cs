@@ -241,8 +241,9 @@ namespace Dubrovnik
             set 
             {
                 _AssemblyFacet = value;
-                InterfaceFile = AssemblyFacet.Name + ".h";
-                ImplementationFile = AssemblyFacet.Name + ".m";
+                string fileName = CodeFacet.ObjCIdentifierFromManagedIdentifier(AssemblyFacet.Name);
+                InterfaceFile = fileName + ".h";
+                ImplementationFile = fileName + ".m";
             }
         }
         private AssemblyFacet _AssemblyFacet;
@@ -437,13 +438,13 @@ namespace Dubrovnik
                 value = ObjCTypeAssociations[managedType].ObjCType;
             }
 
-            return ObjCNameFromManagedName(value);
+            return ObjCIdentifierFromManagedIdentifier(value);
         }
 
         //
-        // ObjCTypeDeclFromMonoFacet()
+        // ObjCTypeDeclFromManagedFacet()
         //
-        string ObjCTypeDeclFromMonoFacet(CodeFacet managedFacet)
+        string ObjCTypeDeclFromManagedFacet(CodeFacet managedFacet)
         {
             string decl = "";
             string managedType = ManagedTypeForAssociation(managedFacet);
@@ -453,7 +454,7 @@ namespace Dubrovnik
             if (!ObjCTypeAssociations.ContainsKey(managedType))
             {
                 // If no explicit type found then return a canonical type name.
-                decl = ObjCTypeFromManagedType(managedType);
+                decl = ObjCIdentifierFromManagedIdentifier(managedType);
 
                 // if ObjC rep is NSObject or pointer then append deref operator.
                 if (ObjCRepresentationIsObject(managedFacet) || managedFacet.IsPointer) {
@@ -474,9 +475,9 @@ namespace Dubrovnik
         }
 
         //
-        // ObjCGenericArgumentTypeNamesStringFromMonoFacet
+        // ObjCGenericArgumentTypeNamesStringFromManagedFacet
         //
-        public string ObjCGenericArgumentTypeNamesStringFromMonoFacet(CodeFacet managedFacet)
+        public string ObjCGenericArgumentTypeNamesStringFromManagedFacet(CodeFacet managedFacet)
         {
             int idx = 0;
             string typeNames = "";
@@ -586,7 +587,7 @@ namespace Dubrovnik
                         foreach (ImplementedInterfaceFacet implementedInterfaceFacet in classFacet.ImplementedInterfaces)
                         {
                             if (i++ > 0) value += ", ";
-                            value += ObjCTypeFromManagedType(implementedInterfaceFacet.Type);
+                            value += ObjCIdentifierFromManagedIdentifier(implementedInterfaceFacet.Type);
                         }
 
                         value += ">";
@@ -696,7 +697,7 @@ namespace Dubrovnik
             {
                 // default to canonical type representation
                 if (objCType == null) {
-                    objCType = ObjCTypeFromManagedType(managedType);
+                    objCType = ObjCIdentifierFromManagedIdentifier(managedType);
                 }
 
                 // create DBManagedObject subclass
@@ -854,7 +855,7 @@ namespace Dubrovnik
             }
             else if (managedFacet.IsGenericType)
             {
-                managedType = managedFacet.GenericType;
+                managedType = CodeFacet.StripGenericTypeInfoFromManagedIdentifier(managedFacet.Type);
             }
 
             if (managedType == null)
@@ -1104,30 +1105,30 @@ namespace Dubrovnik
             }
         }
         //
-        // ObjCMinimalNameFromManagedName()
+        // ObjCMinimalIdentifierFromManagedIdentifier()
         //
-        public string ObjCMinimalNameFromManagedName(string managedName)
+        public string ObjCMinimalIdentifierFromManagedIdentifier(string managedIdentifier)
         {
             string nspace = null;
             string name = null;
-            ManagedNameSpaceAndNameFromManagedType(managedName, out nspace, out name);
-            managedName = ObjCAcronymFromManagedName(nspace) + name;
-            string minimalName = ObjCNameFromManagedName(managedName);
+            ManagedNameSpaceAndNameFromManagedType(managedIdentifier, out nspace, out name);
+            managedIdentifier = ObjCAcronymFromManagedIdentifier(nspace) + name;
+            string minimalName = ObjCIdentifierFromManagedIdentifier(managedIdentifier);
             return minimalName;
         }
 
         //
-        // ObjCAcronymFromManagedName()
+        // ObjCAcronymFromManagedIdentifier()
         //
-        public string ObjCAcronymFromManagedName(string managedName)
+        public string ObjCAcronymFromManagedIdentifier(string managedIdentifier)
         {
-            string[] parts = managedName.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = managedIdentifier.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder s = new StringBuilder();
             foreach (string part in parts)
             {
                 s.Append(part.ToUpper().First());   // first letter only
             }
-            string acronym = ObjCNameFromManagedName(s.ToString());
+            string acronym = ObjCIdentifierFromManagedIdentifier(s.ToString());
 
             return acronym;
         }
@@ -1157,27 +1158,19 @@ namespace Dubrovnik
         }
 
         //
-        // ObjCTypeFromManagedType
+        // ObjCIdentifierFromManagedIdentifier
         //
-        public static string ObjCTypeFromManagedType(string managedName)
+        public static string ObjCIdentifierFromManagedIdentifier(string managedName)
         {
-            return CodeFacet.ObjCTypeFromManagedType(managedName);
+            return CodeFacet.ObjCIdentifierFromManagedIdentifier(managedName);
         }
 
         //
-        // ObjCNameFromManagedName
+        // ObjCIdentifierFromManagedIdentifier
         //
-        public static string ObjCNameFromManagedName(string managedName)
+        public static string ObjCIdentifierFromManagedIdentifier(string prefix, string managedName)
         {
-            return CodeFacet.ObjCNameFromManagedName(managedName);
-        }
-
-        //
-        // ObjCNameFromManagedName
-        //
-        public static string ObjCNameFromManagedName(string prefix, string managedName)
-        {
-            return CodeFacet.ObjCNameFromManagedName(prefix, managedName);
+            return CodeFacet.ObjCIdentifierFromManagedIdentifier(prefix, managedName);
         }
 
         //

@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace Dubrovnik
 {
+
     /*
      * CodeFacet
      */
@@ -18,24 +19,11 @@ namespace Dubrovnik
 
         public CodeFacet(CodeFacet facet)
         {
-            Name = ObjCTypeFromManagedType(facet.Name);    // retain generic sig
-            Type = ObjCTypeFromManagedType(facet.Type);    // discard generic sig
-            BaseName = ObjCNameFromManagedName(facet.BaseName);
-            BaseType = ObjCTypeFromManagedType(facet.BaseType);
-            UnderlyingType = ObjCTypeFromManagedType(facet.UnderlyingType);
-
-            /*
-             * // suspect !
-            if (facet.GenericArgumentTypes != null && facet.GenericArgumentTypes.Count() > 0)
-            {
-                List<string> list = new  List<string>();
-                foreach (string childType in facet.GenericArgumentTypes)
-                {
-                    list.Add(ObjCTypeFromManagedType(childType));
-                }
-                GenericArgumentTypes = list.ToArray<string>();
-            }
-             * */
+            Name = ObjCIdentifierFromManagedIdentifier(facet.Name);
+            Type = ObjCIdentifierFromManagedIdentifier(facet.Type);
+            BaseName = ObjCIdentifierFromManagedIdentifier(facet.BaseName);
+            BaseType = ObjCIdentifierFromManagedIdentifier(facet.BaseType);
+            UnderlyingType = ObjCIdentifierFromManagedIdentifier(facet.UnderlyingType);
         }
 
         public CodeFacet(XElement xelement)
@@ -62,9 +50,6 @@ namespace Dubrovnik
             UnderlyingType = XElementAttributeValue(xelement, "UnderlyingType");
             ConstantValue = XElementAttributeValue(xelement, "ConstantValue");
 
-            // the raw name removes generic parameter info
-            RawName = StripGenericParametersFromManagedType(Name);
-
             // generic type info
             IsConstructedGenericType = XElementAttributeBool(xelement, "IsConstructedGenericType");
             IsGenericType = XElementAttributeBool(xelement, "IsGenericType");
@@ -73,26 +58,12 @@ namespace Dubrovnik
             ContainsGenericParameters = XElementAttributeBool(xelement, "ContainsGenericParameters");
             GenericParameterPosition = Convert.ToInt32(XElementAttributeValue(xelement, "GenericParameterPosition"));
 
-            if (IsGenericType)
-            {
-                int idx = Type.IndexOf("<");
-                if (idx > -1)
-                {
-                    GenericType = Type.Substring(0, idx);
-                }
-                else
-                {
-                    //throw new Exception("Generic type not found.");
-                }
-            }
-
             // define ObjC code facet
             ObjCFacet = new CodeFacet(this);
         }
 
         public CodeFacet Output { get; private set; }
         public string Name { get; internal set; }
-        public string RawName { get; internal set; }
         public string FullName { get; private set; }
         public bool IsReadable { get; private set; }
         public bool IsWritable { get; private set; }
@@ -106,7 +77,6 @@ namespace Dubrovnik
         // http://msdn.microsoft.com/en-us/library/ms172334.aspx
         // http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
         public bool IsConstructedGenericType { get; private set; }
-        public string GenericType { get; private set; }
         public bool IsGenericType { get; private set; }
         public bool IsGenericTypeDefinition { get; private set; }
         public bool IsGenericParameter { get; private set; }
@@ -184,90 +154,96 @@ namespace Dubrovnik
         }
 
         //
-        // OutputObjCNameFromManagedName
+        // OutputFileName
         //
         public string OutputFileName()
         {
-            return TypeNamespace + "." + ObjCTypeFromManagedType(Name);
+            return ObjCIdentifierFromManagedIdentifier(Type);
         }
 
-        public static string StripGenericParametersFromManagedType(string managedType)
+        //
+        // StripGenericTypeInfoFromManagedName
+        //
+        // Strip generic type info from managed name
+        // 
+        public static string StripGenericTypeInfoFromManagedIdentifier(string managedIdentifier)
         {
-            if (managedType != null)
+           StringBuilder identifier = new StringBuilder("");
+           if (!String.IsNullOrEmpty(managedIdentifier))
             {
-                // ObjCtype type name will not include generic parameter information
-                int idx = managedType.IndexOf('<');
-                if (idx != -1)
+                identifier = new StringBuilder(managedIdentifier);
+
+                // strip out generic type parameter delimiters
+                // TODO: handle cases such as IEnumerator`1<KeyValuePair`2<TKey, TValue>> -> IEnumeratorA1_KeyValuePairA2
+                do
                 {
-                    managedType = managedType.Substring(0, idx);
-                }
+                    int idx1 = identifier.ToString().IndexOf("<");
+                    if (idx1 == -1) break;
+
+                    int idx2 = identifier.ToString().IndexOf(">");
+                    if (idx2 > -1)
+                    {
+                        string substring = identifier.ToString().Substring(idx1, idx2 - idx1 + 1);
+                        identifier.Replace(substring, "");
+                    }
+                } while (true);
             }
 
-            return managedType;
+           return identifier.ToString();
         }
 
         //
-        // ObjCTypeFromManagedType
+        // ObjCIdentifierFromManagedIdentifier
         //
-        public static string ObjCTypeFromManagedType(string managedType)
+        // Converts a managed identifier string to its corresponding ObjC representation.
+        // 
+        // Note that generic type parameter and argument information is removed.
+        // Generic arity however is retained.
+        //
+        public static string ObjCIdentifierFromManagedIdentifier(string managedIdentifier)
         {
-            managedType = StripGenericParametersFromManagedType(managedType);
+            // normalise the managed identifier for ObjC
 
-            string objCType = ObjCNameFromManagedName(managedType);
+            // strip generic type info
+            managedIdentifier = StripGenericTypeInfoFromManagedIdentifier(managedIdentifier);
+            StringBuilder identifier = new StringBuilder(managedIdentifier);
 
-            return objCType;
-        }
-
-        //
-        // ObjCNameFromManagedName
-        //
-        // Converts a managed name string to its corresponding ObjC represntation.
-        // This method does no analysis.
-        // It merely attempts to produce a valid ObjC variable name string from the 
-        // input managed name.
-        //
-        public static string ObjCNameFromManagedName(string managedName)
-        {
-            string name = "";
-            if (!String.IsNullOrEmpty(managedName)) 
+            if (identifier.ToString() != "")
             {
-                name = managedName;
-
                 // The following is done piecemeal  largely for informative purposes.
                 // For C# qualifier details see http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx
-                name = name.Replace(" ", ""); // paranoia at work ?
-                name = name.Replace(".", "_"); // namespacing
-                name = name.Replace("+", "__"); // nested classes
-                name = name.Replace("\\", ""); // escape character
-                name = name.Replace("<", "_"); // start of generic type parameter identifier
-                name = name.Replace(",", "_"); // generic type parameter separator
-                name = name.Replace(">", ""); // end of generic type parameter identifier
-                name = name.Replace("`", "A"); // arity indicates generic parameter count
-                name = name.Replace("&", ""); // indicates that a parameter type is being passed by reference - detect with IsByRef
-                name = name.Replace("[]", ""); // an array of types - detect with IsArray
-                name = name.Replace("*", ""); // type is a pointer such as System.Void*, System.Char* - detect with IsPointer
+                identifier.Replace(".", "_"); // namespacing
+                identifier.Replace("+", "__"); // nested classes
+                identifier.Replace("\\", ""); // escape character
+                identifier.Replace("`", "A"); // arity indicates generic parameter count
+                identifier.Replace("&", "");
+                    // indicates that a parameter type is being passed by reference - detect with IsByRef
+                identifier.Replace("[]", ""); // an array of types - detect with IsArray
+                identifier.Replace("*", "");
+                    // type is a pointer such as System.Void*, System.Char* - detect with IsPointer
 
-                // If the name is not now valid then we have a problem.
+                // If the identifier is not now valid then we have a problem.
                 Regex validObjcCNameRegex = new Regex("^[A-Za-z_][A-Za-z_0-9]*$");
-                if (!validObjcCNameRegex.IsMatch(name))
+                if (!validObjcCNameRegex.IsMatch(identifier.ToString()))
                 {
-                    throw new Exception("{0} is not a valid ObjC type or variable name");
+                    throw new Exception("{0} is not a valid ObjC identifier");
                 }
             }
-            return name;
+
+            return identifier.ToString();
         }
 
         //
-        // ObjCNameFromManagedName()
+        // ObjCIdentifierFromManagedIdentifier
         //
-        public static string ObjCNameFromManagedName(string prefix, string name)
+        public static string ObjCIdentifierFromManagedIdentifier(string prefix, string name)
         {
             if (name != null)
             {
-                name = ObjCNameFromManagedName(name);
+                name = ObjCIdentifierFromManagedIdentifier(name);
                 if (prefix != null)
                 {
-                    prefix = ObjCNameFromManagedName(prefix);
+                    prefix = ObjCIdentifierFromManagedIdentifier(prefix);
                     name = prefix + name;
                 }
             }
