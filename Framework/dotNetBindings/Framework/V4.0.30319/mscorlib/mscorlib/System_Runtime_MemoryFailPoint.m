@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     + (System_Runtime_MemoryFailPoint *)new_withSizeInMegabytes:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -43,7 +43,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 #pragma mark -

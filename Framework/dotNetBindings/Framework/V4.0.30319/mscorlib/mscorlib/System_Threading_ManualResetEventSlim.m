@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean
     + (System_Threading_ManualResetEventSlim *)new_withInitialState:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Boolean, System.Int32
     + (System_Threading_ManualResetEventSlim *)new_withInitialState:(BOOL)p1 spinCount:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"bool,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"bool,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -100,7 +100,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : Reset
@@ -108,7 +108,7 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
     }
 
 	// Managed method name : Set
@@ -116,7 +116,7 @@
 	// Managed param types : 
     - (void)set
     {
-		[self invokeMonoMethod:"Set()" withNumArgs:0];
+		[self invokeMonoMethod:"Set()" withNumArgs:0];;
     }
 
 	// Managed method name : Wait
@@ -124,7 +124,7 @@
 	// Managed param types : 
     - (void)wait
     {
-		[self invokeMonoMethod:"Wait()" withNumArgs:0];
+		[self invokeMonoMethod:"Wait()" withNumArgs:0];;
     }
 
 	// Managed method name : Wait
@@ -132,7 +132,7 @@
 	// Managed param types : System.Threading.CancellationToken
     - (void)wait_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
-		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Wait
@@ -140,7 +140,9 @@
 	// Managed param types : System.TimeSpan
     - (BOOL)wait_withTimeout:(System_TimeSpan *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Wait(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -149,7 +151,9 @@
 	// Managed param types : System.TimeSpan, System.Threading.CancellationToken
     - (BOOL)wait_withTimeout:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Wait(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -158,7 +162,9 @@
 	// Managed param types : System.Int32
     - (BOOL)wait_withMillisecondsTimeout:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Wait(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -167,7 +173,9 @@
 	// Managed param types : System.Int32, System.Threading.CancellationToken
     - (BOOL)wait_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Wait(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

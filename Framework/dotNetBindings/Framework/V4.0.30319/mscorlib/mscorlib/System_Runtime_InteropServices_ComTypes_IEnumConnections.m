@@ -32,7 +32,8 @@
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.IEnumConnections&
     - (void)clone_withPpenumRef:(System_Runtime_InteropServices_ComTypes_IEnumConnections **)p1
     {
-		[self invokeMonoMethod:"Clone(System.Runtime.InteropServices.ComTypes.IEnumConnections&)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Clone(System.Runtime.InteropServices.ComTypes.IEnumConnections&)" withNumArgs:1, &refPtr1];
+;
     }
 
 	// Managed method name : Next
@@ -40,7 +41,9 @@
 	// Managed param types : System.Int32, System.Runtime.InteropServices.ComTypes.CONNECTDATA[], System.IntPtr
     - (int32_t)next_withCelt:(int32_t)p1 rgelt:(DBSystem_Array *)p2 pceltFetched:(void *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Next(int,System.Array[],intptr)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -49,7 +52,7 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
     }
 
 	// Managed method name : Skip
@@ -57,7 +60,9 @@
 	// Managed param types : System.Int32
     - (int32_t)skip_withCelt:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Skip(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

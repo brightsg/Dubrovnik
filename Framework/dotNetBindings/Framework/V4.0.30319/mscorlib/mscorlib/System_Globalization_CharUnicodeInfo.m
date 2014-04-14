@@ -32,7 +32,9 @@
 	// Managed param types : System.Char
     + (int32_t)getDecimalDigitValue_withCh:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDecimalDigitValue(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.String, System.Int32
     + (int32_t)getDecimalDigitValue_withS:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDecimalDigitValue(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.Char
     + (int32_t)getDigitValue_withCh:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDigitValue(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -59,7 +65,9 @@
 	// Managed param types : System.String, System.Int32
     + (int32_t)getDigitValue_withS:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDigitValue(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -68,7 +76,9 @@
 	// Managed param types : System.Char
     + (double)getNumericValue_withCh:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNumericValue(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
@@ -77,7 +87,9 @@
 	// Managed param types : System.String, System.Int32
     + (double)getNumericValue_withS:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNumericValue(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
@@ -86,7 +98,9 @@
 	// Managed param types : System.Char
     + (System_Globalization_UnicodeCategory)getUnicodeCategory_withCh:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -95,7 +109,9 @@
 	// Managed param types : System.String, System.Int32
     + (System_Globalization_UnicodeCategory)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

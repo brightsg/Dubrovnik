@@ -32,7 +32,7 @@
 	// Managed param types : System.UInt32
     + (System_Reflection_AssemblyFlagsAttribute *)new_withFlags:(uint32_t)p1
     {
-		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int32
     + (System_Reflection_AssemblyFlagsAttribute *)new_withAssemblyFlagsInt:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Reflection.AssemblyNameFlags
     + (System_Reflection_AssemblyFlagsAttribute *)new_withAssemblyFlagsSRAssemblyNameFlags:(System_Reflection_AssemblyNameFlags)p1
     {
-		return [[self alloc] initWithSignature:"System.Reflection.AssemblyNameFlags" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Reflection.AssemblyNameFlags" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

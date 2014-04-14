@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean
     + (System_Runtime_InteropServices_ComVisibleAttribute *)new_withVisibility:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

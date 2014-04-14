@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (System_Object *)normalize
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Normalize()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

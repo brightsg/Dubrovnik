@@ -32,7 +32,7 @@
 	// Managed param types : System.Text.DecoderReplacementFallback
     + (System_Text_DecoderReplacementFallbackBuffer *)new_withFallback:(System_Text_DecoderReplacementFallback *)p1
     {
-		return [[self alloc] initWithSignature:"System.Text.DecoderReplacementFallback" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Text.DecoderReplacementFallback" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -57,7 +57,9 @@
 	// Managed param types : System.Byte[], System.Int32
     - (BOOL)fallback_withBytesUnknown:(NSData *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Fallback(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -66,7 +68,9 @@
 	// Managed param types : 
     - (uint16_t)getNextChar
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextChar()" withNumArgs:0];
+		
 		return DB_UNBOX_UINT16(monoObject);
     }
 
@@ -75,7 +79,9 @@
 	// Managed param types : 
     - (BOOL)movePrevious
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MovePrevious()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -84,7 +90,7 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
     }
 
 #pragma mark -

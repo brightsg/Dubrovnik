@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (System_Reflection_TypeInfo *)getTypeInfo
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeInfo()" withNumArgs:0];
+		
 		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
 

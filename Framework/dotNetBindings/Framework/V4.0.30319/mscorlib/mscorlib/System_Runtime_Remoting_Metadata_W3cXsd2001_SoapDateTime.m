@@ -47,7 +47,9 @@
 	// Managed param types : System.String
     + (NSDate *)parse_withValue:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
@@ -56,7 +58,9 @@
 	// Managed param types : System.DateTime
     + (NSString *)toString_withValue:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

@@ -32,7 +32,9 @@
 	// Managed param types : <T>
     - (BOOL)equals_withOther:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

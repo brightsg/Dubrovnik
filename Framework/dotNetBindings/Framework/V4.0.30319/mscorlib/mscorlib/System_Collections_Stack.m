@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     + (System_Collections_Stack *)new_withInitialCapacity:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Collections.ICollection
     + (System_Collections_Stack *)new_withCol:(System_Collections_ICollection *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -88,7 +88,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Clone
@@ -96,7 +96,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -105,7 +107,9 @@
 	// Managed param types : System.Object
     - (BOOL)contains_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -114,7 +118,7 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetEnumerator
@@ -122,7 +126,9 @@
 	// Managed param types : 
     - (System_Collections_IEnumerator *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -131,7 +137,9 @@
 	// Managed param types : 
     - (System_Object *)peek
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Peek()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -140,7 +148,9 @@
 	// Managed param types : 
     - (System_Object *)pop
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Pop()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -149,7 +159,7 @@
 	// Managed param types : System.Object
     - (void)push_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Push(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Push(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Synchronized
@@ -157,7 +167,9 @@
 	// Managed param types : System.Collections.Stack
     + (System_Collections_Stack *)synchronized_withStack:(System_Collections_Stack *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Stack)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_Stack objectWithMonoObject:monoObject];
     }
 
@@ -166,7 +178,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)toArray
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 

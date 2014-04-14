@@ -99,7 +99,7 @@
 	// Managed param types : System.Object, System.Object
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Clear
@@ -107,7 +107,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Contains
@@ -115,7 +115,9 @@
 	// Managed param types : System.Object
     - (BOOL)contains_withKey:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -124,7 +126,9 @@
 	// Managed param types : 
     - (System_Collections_IDictionaryEnumerator *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -133,7 +137,7 @@
 	// Managed param types : System.Object
     - (void)remove_withKey:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

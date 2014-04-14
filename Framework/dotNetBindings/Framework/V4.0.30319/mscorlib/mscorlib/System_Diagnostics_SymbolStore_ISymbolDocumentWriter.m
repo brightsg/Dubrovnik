@@ -32,7 +32,7 @@
 	// Managed param types : System.Guid, System.Byte[]
     - (void)setCheckSum_withAlgorithmId:(System_Guid *)p1 checkSum:(NSData *)p2
     {
-		[self invokeMonoMethod:"SetCheckSum(System.Guid,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"SetCheckSum(System.Guid,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : SetSource
@@ -40,7 +40,7 @@
 	// Managed param types : System.Byte[]
     - (void)setSource_withSource:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetSource(byte[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetSource(byte[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

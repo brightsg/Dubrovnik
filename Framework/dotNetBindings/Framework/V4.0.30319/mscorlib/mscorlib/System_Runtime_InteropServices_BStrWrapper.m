@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Runtime_InteropServices_BStrWrapper *)new_withValueString:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Object
     + (System_Runtime_InteropServices_BStrWrapper *)new_withValueObject:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

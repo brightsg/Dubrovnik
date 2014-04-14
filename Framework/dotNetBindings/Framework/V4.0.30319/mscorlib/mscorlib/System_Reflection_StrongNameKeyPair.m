@@ -32,7 +32,7 @@
 	// Managed param types : System.IO.FileStream
     + (System_Reflection_StrongNameKeyPair *)new_withKeyPairFile:(System_IO_FileStream *)p1
     {
-		return [[self alloc] initWithSignature:"System.IO.FileStream" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.IO.FileStream" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Byte[]
     + (System_Reflection_StrongNameKeyPair *)new_withKeyPairArray:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String
     + (System_Reflection_StrongNameKeyPair *)new_withKeyPairContainer:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

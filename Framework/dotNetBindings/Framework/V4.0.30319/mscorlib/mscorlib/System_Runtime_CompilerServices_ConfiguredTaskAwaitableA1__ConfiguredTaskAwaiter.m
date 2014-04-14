@@ -46,7 +46,9 @@
 	// Managed param types : 
     - (System_Object *)getResult
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetResult()" withNumArgs:0];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -55,7 +57,7 @@
 	// Managed param types : System.Action
     - (void)onCompleted_withContinuation:(System_Action *)p1
     {
-		[self invokeMonoMethod:"OnCompleted(System.Action)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"OnCompleted(System.Action)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : UnsafeOnCompleted
@@ -63,7 +65,7 @@
 	// Managed param types : System.Action
     - (void)unsafeOnCompleted_withContinuation:(System_Action *)p1
     {
-		[self invokeMonoMethod:"UnsafeOnCompleted(System.Action)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"UnsafeOnCompleted(System.Action)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

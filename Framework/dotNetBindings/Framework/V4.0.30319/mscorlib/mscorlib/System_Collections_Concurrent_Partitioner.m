@@ -32,7 +32,9 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Collections_Generic_IEnumerableA1 *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<TSource>)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Collections.Concurrent.EnumerablePartitionerOptions
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Collections_Generic_IEnumerableA1 *)p1 partitionerOptions:(System_Collections_Concurrent_EnumerablePartitionerOptions)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
@@ -50,16 +54,20 @@
 	// Managed param types : System.Collections.Generic.IList`1<TSource>, System.Boolean
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(System_Collections_Generic_IListA1 *)p1 loadBalance:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<TSource>,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
 	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<TSource>
-	// Managed param types : TSource[], System.Boolean
-    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(DBSystem_Array *)p1 loadBalance:(BOOL)p2
+	// Managed param types : <TSource[]>, System.Boolean
+    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(System_Object *)p1 loadBalance:(BOOL)p2
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Array[],bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>[],bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
@@ -68,7 +76,9 @@
 	// Managed param types : System.Int64, System.Int64
     + (System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 objectWithMonoObject:monoObject];
     }
 
@@ -77,7 +87,9 @@
 	// Managed param types : System.Int64, System.Int64, System.Int64
     + (System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long,long)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 objectWithMonoObject:monoObject];
     }
 
@@ -86,7 +98,9 @@
 	// Managed param types : System.Int32, System.Int32
     + (System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 objectWithMonoObject:monoObject];
     }
 
@@ -95,7 +109,9 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32
     + (System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int,int)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [System_Collections_Concurrent_OrderablePartitionerA1_System_TupleA2 objectWithMonoObject:monoObject];
     }
 

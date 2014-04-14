@@ -57,7 +57,7 @@
 	// Managed param types : <T>
     - (void)add_withItem:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Clear
@@ -65,7 +65,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Contains
@@ -73,16 +73,18 @@
 	// Managed param types : <T>
     - (BOOL)contains_withItem:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : T[], System.Int32
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
+	// Managed param types : <T[]>, System.Int32
+    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Remove
@@ -90,7 +92,9 @@
 	// Managed param types : <T>
     - (BOOL)remove_withItem:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

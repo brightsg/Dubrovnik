@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.AccessControl.AceFlags, System.Security.AccessControl.AceQualifier, System.Int32, System.Security.Principal.SecurityIdentifier, System.Boolean, System.Byte[]
     + (System_Security_AccessControl_CommonAce *)new_withFlags:(System_Security_AccessControl_AceFlags)p1 qualifier:(System_Security_AccessControl_AceQualifier)p2 accessMask:(int32_t)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4 isCallback:(BOOL)p5 opaque:(NSData *)p6
     {
-		return [[self alloc] initWithSignature:"System.Security.AccessControl.AceFlags,System.Security.AccessControl.AceQualifier,int,System.Security.Principal.SecurityIdentifier,bool,byte[]" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], DB_VALUE(p5), [p6 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.AccessControl.AceFlags,System.Security.AccessControl.AceQualifier,int,System.Security.Principal.SecurityIdentifier,bool,byte[]" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], DB_VALUE(p5), [p6 monoValue]];;
     }
 
 #pragma mark -
@@ -57,7 +57,7 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : MaxOpaqueLength
@@ -65,7 +65,9 @@
 	// Managed param types : System.Boolean
     + (int32_t)maxOpaqueLength_withIsCallback:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"MaxOpaqueLength(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

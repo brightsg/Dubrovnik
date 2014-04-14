@@ -32,7 +32,7 @@
 	// Managed param types : <T1>
     + (System_TupleA1 *)new_withItem1:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -58,7 +58,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -67,7 +69,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -76,7 +80,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

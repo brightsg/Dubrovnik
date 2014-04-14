@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapQName *)new_withValue:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.String
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapQName *)new_withKey:(NSString *)p1 name:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.String, System.String
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapQName *)new_withKey:(NSString *)p1 name:(NSString *)p2 namespaceValue:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		return [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 #pragma mark -
@@ -128,7 +128,9 @@
 	// Managed param types : 
     - (NSString *)getXsdType
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetXsdType()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -137,7 +139,9 @@
 	// Managed param types : System.String
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapQName *)parse_withValue:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapQName objectWithMonoObject:monoObject];
     }
 
@@ -146,7 +150,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

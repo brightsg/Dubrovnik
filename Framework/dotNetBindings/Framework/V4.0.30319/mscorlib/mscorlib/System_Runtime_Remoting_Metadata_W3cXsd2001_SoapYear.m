@@ -32,7 +32,7 @@
 	// Managed param types : System.DateTime
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYear *)new_withValue:(NSDate *)p1
     {
-		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.DateTime, System.Int32
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYear *)new_withValue:(NSDate *)p1 sign:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.DateTime,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.DateTime,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -101,7 +101,9 @@
 	// Managed param types : 
     - (NSString *)getXsdType
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetXsdType()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -110,7 +112,9 @@
 	// Managed param types : System.String
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYear *)parse_withValue:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYear objectWithMonoObject:monoObject];
     }
 
@@ -119,7 +123,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

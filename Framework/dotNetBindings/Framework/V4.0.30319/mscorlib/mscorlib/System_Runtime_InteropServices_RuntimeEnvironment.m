@@ -47,7 +47,9 @@
 	// Managed param types : System.Reflection.Assembly
     + (BOOL)fromGlobalAccessCache_withA:(System_Reflection_Assembly *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromGlobalAccessCache(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -56,7 +58,9 @@
 	// Managed param types : 
     + (NSString *)getRuntimeDirectory
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeDirectory()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -65,7 +69,9 @@
 	// Managed param types : System.Guid, System.Guid
     + (void *)getRuntimeInterfaceAsIntPtr_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeInterfaceAsIntPtr(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -74,7 +80,9 @@
 	// Managed param types : System.Guid, System.Guid
     + (System_Object *)getRuntimeInterfaceAsObject_withClsid:(System_Guid *)p1 riid:(System_Guid *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeInterfaceAsObject(System.Guid,System.Guid)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -83,7 +91,9 @@
 	// Managed param types : 
     + (NSString *)getSystemVersion
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSystemVersion()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

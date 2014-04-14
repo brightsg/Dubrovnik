@@ -56,8 +56,8 @@
 
 	// Managed method name : CompareExchange
 	// Managed return type : <T>
-	// Managed param types : ref T&, <T>, <T>
-    + (System_Object *)compareExchange_withLocation1TRef:(T **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3;
+	// Managed param types : ref <T&>, <T>, <T>
+    + (System_Object *)compareExchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3;
 
 	// Managed method name : Decrement
 	// Managed return type : System.Int32
@@ -101,8 +101,8 @@
 
 	// Managed method name : Exchange
 	// Managed return type : <T>
-	// Managed param types : ref T&, <T>
-    + (System_Object *)exchange_withLocation1TRef:(T **)p1 value:(System_Object *)p2;
+	// Managed param types : ref <T&>, <T>
+    + (System_Object *)exchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2;
 
 	// Managed method name : Increment
 	// Managed return type : System.Int32

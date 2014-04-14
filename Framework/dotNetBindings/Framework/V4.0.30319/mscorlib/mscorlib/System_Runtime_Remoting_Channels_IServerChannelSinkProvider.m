@@ -53,7 +53,9 @@
 	// Managed param types : System.Runtime.Remoting.Channels.IChannelReceiver
     - (System_Runtime_Remoting_Channels_IServerChannelSink *)createSink_withChannel:(System_Runtime_Remoting_Channels_IChannelReceiver *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateSink(System.Runtime.Remoting.Channels.IChannelReceiver)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_Remoting_Channels_IServerChannelSink objectWithMonoObject:monoObject];
     }
 
@@ -62,7 +64,7 @@
 	// Managed param types : System.Runtime.Remoting.Channels.IChannelDataStore
     - (void)getChannelData_withChannelData:(System_Runtime_Remoting_Channels_IChannelDataStore *)p1
     {
-		[self invokeMonoMethod:"GetChannelData(System.Runtime.Remoting.Channels.IChannelDataStore)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"GetChannelData(System.Runtime.Remoting.Channels.IChannelDataStore)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

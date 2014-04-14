@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Runtime_InteropServices_ProgIdAttribute *)new_withProgId:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

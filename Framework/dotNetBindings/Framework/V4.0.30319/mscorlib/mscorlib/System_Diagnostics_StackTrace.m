@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean
     + (System_Diagnostics_StackTrace *)new_withFNeedFileInfo:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int32
     + (System_Diagnostics_StackTrace *)new_withSkipFrames:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Int32, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withSkipFrames:(int32_t)p1 fNeedFileInfo:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Exception
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1
     {
-		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Exception, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 fNeedFileInfo:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"System.Exception,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Exception,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.Exception, System.Int32
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 skipFrames:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Exception,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Exception,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +80,7 @@
 	// Managed param types : System.Exception, System.Int32, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 skipFrames:(int32_t)p2 fNeedFileInfo:(BOOL)p3
     {
-		return [[self alloc] initWithSignature:"System.Exception,int,bool" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		return [[self alloc] initWithSignature:"System.Exception,int,bool" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +88,7 @@
 	// Managed param types : System.Diagnostics.StackFrame
     + (System_Diagnostics_StackTrace *)new_withFrame:(System_Diagnostics_StackFrame *)p1
     {
-		return [[self alloc] initWithSignature:"System.Diagnostics.StackFrame" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Diagnostics.StackFrame" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -96,7 +96,7 @@
 	// Managed param types : System.Threading.Thread, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withTargetThread:(System_Threading_Thread *)p1 needFileInfo:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.Thread,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Threading.Thread,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -135,7 +135,9 @@
 	// Managed param types : System.Int32
     - (System_Diagnostics_StackFrame *)getFrame_withIndex:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFrame(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Diagnostics_StackFrame objectWithMonoObject:monoObject];
     }
 
@@ -144,7 +146,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getFrames
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFrames()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -153,7 +157,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

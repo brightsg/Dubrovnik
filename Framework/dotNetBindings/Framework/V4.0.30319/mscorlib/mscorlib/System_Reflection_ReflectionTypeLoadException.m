@@ -32,7 +32,7 @@
 	// Managed param types : System.Type[], System.Exception[]
     + (System_Reflection_ReflectionTypeLoadException *)new_withClasses:(DBSystem_Array *)p1 exceptions:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Array[],System.Array[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Array[],System.Array[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Type[], System.Exception[], System.String
     + (System_Reflection_ReflectionTypeLoadException *)new_withClasses:(DBSystem_Array *)p1 exceptions:(DBSystem_Array *)p2 message:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"System.Array[],System.Array[],string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		return [[self alloc] initWithSignature:"System.Array[],System.Array[],string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 #pragma mark -
@@ -78,7 +78,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -

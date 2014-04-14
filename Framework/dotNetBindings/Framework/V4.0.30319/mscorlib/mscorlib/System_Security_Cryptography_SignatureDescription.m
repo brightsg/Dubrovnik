@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.SecurityElement
     + (System_Security_Cryptography_SignatureDescription *)new_withEl:(System_Security_SecurityElement *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -118,7 +118,9 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     - (System_Security_Cryptography_AsymmetricSignatureDeformatter *)createDeformatter_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDeformatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_AsymmetricSignatureDeformatter objectWithMonoObject:monoObject];
     }
 
@@ -127,7 +129,9 @@
 	// Managed param types : 
     - (System_Security_Cryptography_HashAlgorithm *)createDigest
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDigest()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_HashAlgorithm objectWithMonoObject:monoObject];
     }
 
@@ -136,7 +140,9 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     - (System_Security_Cryptography_AsymmetricSignatureFormatter *)createFormatter_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFormatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_AsymmetricSignatureFormatter objectWithMonoObject:monoObject];
     }
 

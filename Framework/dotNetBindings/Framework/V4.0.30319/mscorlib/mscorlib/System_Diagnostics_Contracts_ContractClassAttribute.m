@@ -32,7 +32,7 @@
 	// Managed param types : System.Type
     + (System_Diagnostics_Contracts_ContractClassAttribute *)new_withTypeContainingContracts:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

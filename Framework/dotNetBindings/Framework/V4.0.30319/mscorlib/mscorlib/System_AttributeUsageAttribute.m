@@ -32,7 +32,7 @@
 	// Managed param types : System.AttributeTargets
     + (System_AttributeUsageAttribute *)new_withValidOn:(System_AttributeTargets)p1
     {
-		return [[self alloc] initWithSignature:"System.AttributeTargets" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.AttributeTargets" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

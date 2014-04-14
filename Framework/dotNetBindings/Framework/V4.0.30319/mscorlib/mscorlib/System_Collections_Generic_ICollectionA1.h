@@ -44,8 +44,8 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : T[], System.Int32
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+	// Managed param types : <T[]>, System.Int32
+    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean

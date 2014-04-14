@@ -32,7 +32,7 @@
 	// Managed param types : System.Byte, System.Byte, System.UInt32, System.UInt32, System.UInt32
     + (System_Runtime_CompilerServices_DecimalConstantAttribute *)new_withScaleByte:(uint8_t)p1 signByte:(uint8_t)p2 hiUint:(uint32_t)p3 midUint:(uint32_t)p4 lowUint:(uint32_t)p5
     {
-		return [[self alloc] initWithSignature:"byte,byte,uint,uint,uint" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+		return [[self alloc] initWithSignature:"byte,byte,uint,uint,uint" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Byte, System.Byte, System.Int32, System.Int32, System.Int32
     + (System_Runtime_CompilerServices_DecimalConstantAttribute *)new_withScaleByte:(uint8_t)p1 signByte:(uint8_t)p2 hiInt:(int32_t)p3 midInt:(int32_t)p4 lowInt:(int32_t)p5
     {
-		return [[self alloc] initWithSignature:"byte,byte,int,int,int" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+		return [[self alloc] initWithSignature:"byte,byte,int,int,int" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
     }
 
 #pragma mark -

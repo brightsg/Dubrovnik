@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.Object[], System.Int32, System.Runtime.Remoting.Messaging.LogicalCallContext, System.Runtime.Remoting.Messaging.IMethodCallMessage
     + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(System_Object *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p5
     {
-		return [[self alloc] initWithSignature:"object,object[],int,System.Runtime.Remoting.Messaging.LogicalCallContext,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		return [[self alloc] initWithSignature:"object,object[],int,System.Runtime.Remoting.Messaging.LogicalCallContext,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Exception, System.Runtime.Remoting.Messaging.IMethodCallMessage
     + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withE:(System_Exception *)p1 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2
     {
-		return [[self alloc] initWithSignature:"System.Exception,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Exception,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -225,7 +225,9 @@
 	// Managed param types : System.Int32
     - (System_Object *)getArg_withArgNum:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetArg(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -234,7 +236,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getArgName_withIndex:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetArgName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -243,7 +247,9 @@
 	// Managed param types : System.Int32
     - (System_Object *)getOutArg_withArgNum:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOutArg(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -252,7 +258,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getOutArgName_withIndex:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOutArgName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

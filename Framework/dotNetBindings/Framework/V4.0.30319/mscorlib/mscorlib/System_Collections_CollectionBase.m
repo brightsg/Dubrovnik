@@ -63,7 +63,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : GetEnumerator
@@ -71,7 +71,9 @@
 	// Managed param types : 
     - (System_Collections_IEnumerator *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -80,7 +82,7 @@
 	// Managed param types : System.Int32
     - (void)removeAt_withIndex:(int32_t)p1
     {
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

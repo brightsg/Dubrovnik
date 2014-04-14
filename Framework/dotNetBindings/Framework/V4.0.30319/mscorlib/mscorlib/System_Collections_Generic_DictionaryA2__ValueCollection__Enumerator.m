@@ -47,7 +47,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : MoveNext
@@ -55,7 +55,9 @@
 	// Managed param types : 
     - (BOOL)moveNext
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MoveNext()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

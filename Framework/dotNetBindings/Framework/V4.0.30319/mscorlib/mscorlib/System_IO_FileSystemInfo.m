@@ -207,7 +207,7 @@
 	// Managed param types : 
     - (void)delete
     {
-		[self invokeMonoMethod:"Delete()" withNumArgs:0];
+		[self invokeMonoMethod:"Delete()" withNumArgs:0];;
     }
 
 	// Managed method name : GetObjectData
@@ -215,7 +215,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Refresh
@@ -223,7 +223,7 @@
 	// Managed param types : 
     - (void)refresh
     {
-		[self invokeMonoMethod:"Refresh()" withNumArgs:0];
+		[self invokeMonoMethod:"Refresh()" withNumArgs:0];;
     }
 
 #pragma mark -

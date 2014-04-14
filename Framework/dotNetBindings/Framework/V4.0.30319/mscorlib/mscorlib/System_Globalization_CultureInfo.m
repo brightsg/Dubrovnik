@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Boolean
     + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Int32
     + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Int32, System.Boolean
     + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1 useUserOverride:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -412,7 +412,7 @@
 	// Managed param types : 
     - (void)clearCachedData
     {
-		[self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];
+		[self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];;
     }
 
 	// Managed method name : Clone
@@ -420,7 +420,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -429,7 +431,9 @@
 	// Managed param types : System.String
     + (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSpecificCulture(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -438,7 +442,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -447,7 +453,9 @@
 	// Managed param types : 
     - (System_Globalization_CultureInfo *)getConsoleFallbackUICulture
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConsoleFallbackUICulture()" withNumArgs:0];
+		
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -456,7 +464,9 @@
 	// Managed param types : System.Int32
     + (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -465,7 +475,9 @@
 	// Managed param types : System.String
     + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -474,7 +486,9 @@
 	// Managed param types : System.String, System.String
     + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -483,7 +497,9 @@
 	// Managed param types : System.String
     + (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfoByIetfLanguageTag(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -492,7 +508,9 @@
 	// Managed param types : System.Globalization.CultureTypes
     + (DBSystem_Array *)getCultures_withTypes:(System_Globalization_CultureTypes)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultures(System.Globalization.CultureTypes)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -501,7 +519,9 @@
 	// Managed param types : System.Type
     - (System_Object *)getFormat_withFormatType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -510,7 +530,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -519,7 +541,9 @@
 	// Managed param types : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
     }
 
@@ -528,7 +552,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

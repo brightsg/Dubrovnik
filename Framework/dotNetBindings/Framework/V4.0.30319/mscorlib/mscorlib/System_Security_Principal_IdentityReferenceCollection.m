@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     + (System_Security_Principal_IdentityReferenceCollection *)new_withCapacity:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -86,7 +86,7 @@
 	// Managed param types : System.Security.Principal.IdentityReference
     - (void)add_withIdentity:(System_Security_Principal_IdentityReference *)p1
     {
-		[self invokeMonoMethod:"Add(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Add(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Clear
@@ -94,7 +94,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Contains
@@ -102,7 +102,9 @@
 	// Managed param types : System.Security.Principal.IdentityReference
     - (BOOL)contains_withIdentity:(System_Security_Principal_IdentityReference *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -111,7 +113,7 @@
 	// Managed param types : System.Security.Principal.IdentityReference[], System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetEnumerator
@@ -119,7 +121,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
     }
 
@@ -128,7 +132,9 @@
 	// Managed param types : System.Security.Principal.IdentityReference
     - (BOOL)remove_withIdentity:(System_Security_Principal_IdentityReference *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -137,7 +143,9 @@
 	// Managed param types : System.Type
     - (System_Security_Principal_IdentityReferenceCollection *)translate_withTargetType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Principal_IdentityReferenceCollection objectWithMonoObject:monoObject];
     }
 
@@ -146,7 +154,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (System_Security_Principal_IdentityReferenceCollection *)translate_withTargetType:(System_Type *)p1 forceSuccess:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Security_Principal_IdentityReferenceCollection objectWithMonoObject:monoObject];
     }
 

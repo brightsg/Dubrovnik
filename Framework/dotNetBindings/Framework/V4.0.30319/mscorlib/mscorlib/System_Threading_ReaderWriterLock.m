@@ -68,7 +68,7 @@
 	// Managed param types : System.Int32
     - (void)acquireReaderLock_withMillisecondsTimeout:(int32_t)p1
     {
-		[self invokeMonoMethod:"AcquireReaderLock(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"AcquireReaderLock(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : AcquireReaderLock
@@ -76,7 +76,7 @@
 	// Managed param types : System.TimeSpan
     - (void)acquireReaderLock_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"AcquireReaderLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AcquireReaderLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : AcquireWriterLock
@@ -84,7 +84,7 @@
 	// Managed param types : System.Int32
     - (void)acquireWriterLock_withMillisecondsTimeout:(int32_t)p1
     {
-		[self invokeMonoMethod:"AcquireWriterLock(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"AcquireWriterLock(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : AcquireWriterLock
@@ -92,7 +92,7 @@
 	// Managed param types : System.TimeSpan
     - (void)acquireWriterLock_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"AcquireWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AcquireWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : AnyWritersSince
@@ -100,7 +100,9 @@
 	// Managed param types : System.Int32
     - (BOOL)anyWritersSince_withSeqNum:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AnyWritersSince(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -109,7 +111,8 @@
 	// Managed param types : ref System.Threading.LockCookie&
     - (void)downgradeFromWriterLock_withLockCookieRef:(System_Threading_LockCookie **)p1
     {
-		[self invokeMonoMethod:"DowngradeFromWriterLock(System.Threading.LockCookie&)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"DowngradeFromWriterLock(System.Threading.LockCookie&)" withNumArgs:1, &refPtr1];
+;
     }
 
 	// Managed method name : ReleaseLock
@@ -117,7 +120,9 @@
 	// Managed param types : 
     - (System_Threading_LockCookie *)releaseLock
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReleaseLock()" withNumArgs:0];
+		
 		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
     }
 
@@ -126,7 +131,7 @@
 	// Managed param types : 
     - (void)releaseReaderLock
     {
-		[self invokeMonoMethod:"ReleaseReaderLock()" withNumArgs:0];
+		[self invokeMonoMethod:"ReleaseReaderLock()" withNumArgs:0];;
     }
 
 	// Managed method name : ReleaseWriterLock
@@ -134,7 +139,7 @@
 	// Managed param types : 
     - (void)releaseWriterLock
     {
-		[self invokeMonoMethod:"ReleaseWriterLock()" withNumArgs:0];
+		[self invokeMonoMethod:"ReleaseWriterLock()" withNumArgs:0];;
     }
 
 	// Managed method name : RestoreLock
@@ -142,7 +147,8 @@
 	// Managed param types : ref System.Threading.LockCookie&
     - (void)restoreLock_withLockCookieRef:(System_Threading_LockCookie **)p1
     {
-		[self invokeMonoMethod:"RestoreLock(System.Threading.LockCookie&)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"RestoreLock(System.Threading.LockCookie&)" withNumArgs:1, &refPtr1];
+;
     }
 
 	// Managed method name : UpgradeToWriterLock
@@ -150,7 +156,9 @@
 	// Managed param types : System.Int32
     - (System_Threading_LockCookie *)upgradeToWriterLock_withMillisecondsTimeout:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
     }
 
@@ -159,7 +167,9 @@
 	// Managed param types : System.TimeSpan
     - (System_Threading_LockCookie *)upgradeToWriterLock_withTimeout:(System_TimeSpan *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
     }
 

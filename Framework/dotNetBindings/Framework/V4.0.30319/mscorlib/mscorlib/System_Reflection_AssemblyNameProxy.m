@@ -32,7 +32,9 @@
 	// Managed param types : System.String
     - (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
 

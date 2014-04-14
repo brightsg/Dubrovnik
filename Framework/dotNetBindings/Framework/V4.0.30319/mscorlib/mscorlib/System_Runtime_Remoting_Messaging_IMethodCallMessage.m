@@ -58,7 +58,9 @@
 	// Managed param types : System.Int32
     - (System_Object *)getInArg_withArgNum:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInArg(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -67,7 +69,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getInArgName_withIndex:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInArgName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

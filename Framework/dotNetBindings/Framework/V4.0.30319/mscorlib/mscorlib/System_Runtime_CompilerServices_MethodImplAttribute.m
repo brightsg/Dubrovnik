@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.CompilerServices.MethodImplOptions
     + (System_Runtime_CompilerServices_MethodImplAttribute *)new_withMethodImplOptions:(System_Runtime_CompilerServices_MethodImplOptions)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.MethodImplOptions" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.MethodImplOptions" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int16
     + (System_Runtime_CompilerServices_MethodImplAttribute *)new_withValue:(int16_t)p1
     {
-		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

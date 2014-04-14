@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ToXml
@@ -40,7 +40,9 @@
 	// Managed param types : 
     - (System_Security_SecurityElement *)toXml
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 

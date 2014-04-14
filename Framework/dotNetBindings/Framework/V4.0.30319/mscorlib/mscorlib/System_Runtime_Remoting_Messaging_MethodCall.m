@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.Header[]
     + (System_Runtime_Remoting_Messaging_MethodCall *)new_withH1:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"System.Array[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Array[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
     + (System_Runtime_Remoting_Messaging_MethodCall *)new_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessage" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessage" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -201,7 +201,9 @@
 	// Managed param types : System.Int32
     - (System_Object *)getArg_withArgNum:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetArg(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -210,7 +212,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getArgName_withIndex:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetArgName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -219,7 +223,9 @@
 	// Managed param types : System.Int32
     - (System_Object *)getInArg_withArgNum:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInArg(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -228,7 +234,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getInArgName_withIndex:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInArgName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -237,7 +245,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : HeaderHandler
@@ -245,7 +253,9 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.Header[]
     - (System_Object *)headerHandler_withH:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"HeaderHandler(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -254,7 +264,7 @@
 	// Managed param types : 
     - (void)init
     {
-		[self invokeMonoMethod:"Init()" withNumArgs:0];
+		[self invokeMonoMethod:"Init()" withNumArgs:0];;
     }
 
 	// Managed method name : ResolveMethod
@@ -262,7 +272,7 @@
 	// Managed param types : 
     - (void)resolveMethod
     {
-		[self invokeMonoMethod:"ResolveMethod()" withNumArgs:0];
+		[self invokeMonoMethod:"ResolveMethod()" withNumArgs:0];;
     }
 
 	// Managed method name : RootSetObjectData
@@ -270,7 +280,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)rootSetObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 ctx:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"RootSetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"RootSetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -

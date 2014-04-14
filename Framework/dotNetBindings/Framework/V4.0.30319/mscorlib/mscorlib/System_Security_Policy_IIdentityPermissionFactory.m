@@ -32,7 +32,9 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (System_Security_IPermission *)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateIdentityPermission(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 

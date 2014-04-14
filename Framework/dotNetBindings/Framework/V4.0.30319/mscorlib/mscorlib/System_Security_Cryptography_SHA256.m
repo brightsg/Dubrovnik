@@ -32,7 +32,9 @@
 	// Managed param types : 
     + (System_Security_Cryptography_SHA256 *)create
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_SHA256 objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_SHA256 *)create_withHashName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_SHA256 objectWithMonoObject:monoObject];
     }
 

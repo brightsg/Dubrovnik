@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_IO_DriveInfo *)new_withDriveName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -155,7 +155,9 @@
 	// Managed param types : 
     + (DBSystem_Array *)getDrives
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDrives()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -164,7 +166,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

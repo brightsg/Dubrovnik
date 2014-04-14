@@ -32,7 +32,9 @@
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage, System.MarshalByRefObject
     + (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)createConstructionReturnMessage_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1 retObj:(System_MarshalByRefObject *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateConstructionReturnMessage(System.Runtime.Remoting.Activation.IConstructionCallMessage,System.MarshalByRefObject)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,7 @@
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy, System.Runtime.Remoting.Proxies.RealProxy
     + (void)switchWrappers_withOldcp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 newcp:(System_Runtime_Remoting_Proxies_RealProxy *)p2
     {
-		[self invokeMonoClassMethod:"SwitchWrappers(System.Runtime.Remoting.Proxies.RealProxy,System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SwitchWrappers(System.Runtime.Remoting.Proxies.RealProxy,System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : WrapIUnknownWithComObject
@@ -49,7 +51,9 @@
 	// Managed param types : System.IntPtr
     + (System_Object *)wrapIUnknownWithComObject_withPunk:(void *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WrapIUnknownWithComObject(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

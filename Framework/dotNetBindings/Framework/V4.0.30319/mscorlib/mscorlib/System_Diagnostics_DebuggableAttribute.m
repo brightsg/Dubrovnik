@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean, System.Boolean
     + (System_Diagnostics_DebuggableAttribute *)new_withIsJITTrackingEnabled:(BOOL)p1 isJITOptimizerDisabled:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Diagnostics.DebuggableAttribute+DebuggingModes
     + (System_Diagnostics_DebuggableAttribute *)new_withModes:(System_Diagnostics_DebuggableAttribute__DebuggingModes)p1
     {
-		return [[self alloc] initWithSignature:"System.Diagnostics.DebuggableAttribute+DebuggingModes" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Diagnostics.DebuggableAttribute+DebuggingModes" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

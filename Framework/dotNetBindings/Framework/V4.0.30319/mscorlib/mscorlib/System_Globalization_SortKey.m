@@ -59,7 +59,9 @@
 	// Managed param types : System.Globalization.SortKey, System.Globalization.SortKey
     + (int32_t)compare_withSortkey1:(System_Globalization_SortKey *)p1 sortkey2:(System_Globalization_SortKey *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Globalization.SortKey,System.Globalization.SortKey)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -68,7 +70,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -77,7 +81,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -86,7 +92,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

@@ -32,7 +32,9 @@
 	// Managed param types : System.Object
     - (System_Reflection_TypeInfo *)getTypeForObject_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeForObject(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.Reflection.Assembly
     - (System_Reflection_Assembly *)mapAssembly_withAssembly:(System_Reflection_Assembly *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MapAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.Reflection.TypeInfo
     - (System_Reflection_TypeInfo *)mapType_withType:(System_Reflection_TypeInfo *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MapType(System.Reflection.TypeInfo)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
 

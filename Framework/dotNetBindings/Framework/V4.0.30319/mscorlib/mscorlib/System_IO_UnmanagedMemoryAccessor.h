@@ -49,13 +49,13 @@
 
 	// Managed method name : Read
 	// Managed return type : System.Void
-	// Managed param types : System.Int64, ref T&
-    - (void)read_withPosition:(int64_t)p1 structureRef:(T **)p2;
+	// Managed param types : System.Int64, ref <T&>
+    - (void)read_withPosition:(int64_t)p1 structureRef:(System_Object **)p2;
 
 	// Managed method name : ReadArray
 	// Managed return type : System.Int32
-	// Managed param types : System.Int64, T[], System.Int32, System.Int32
-    - (int32_t)readArray_withPosition:(int64_t)p1 array:(DBSystem_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4;
+	// Managed param types : System.Int64, <T[]>, System.Int32, System.Int32
+    - (int32_t)readArray_withPosition:(int64_t)p1 array:(System_Object *)p2 offset:(int32_t)p3 count:(int32_t)p4;
 
 	// Managed method name : ReadBoolean
 	// Managed return type : System.Boolean
@@ -189,12 +189,12 @@
 
 	// Managed method name : Write
 	// Managed return type : System.Void
-	// Managed param types : System.Int64, ref T&
-    - (void)write_withPosition:(int64_t)p1 structureRef:(T **)p2;
+	// Managed param types : System.Int64, ref <T&>
+    - (void)write_withPosition:(int64_t)p1 structureRef:(System_Object **)p2;
 
 	// Managed method name : WriteArray
 	// Managed return type : System.Void
-	// Managed param types : System.Int64, T[], System.Int32, System.Int32
-    - (void)writeArray_withPosition:(int64_t)p1 array:(DBSystem_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4;
+	// Managed param types : System.Int64, <T[]>, System.Int32, System.Int32
+    - (void)writeArray_withPosition:(int64_t)p1 array:(System_Object *)p2 offset:(int32_t)p3 count:(int32_t)p4;
 @end
 //--Dubrovnik.CodeGenerator

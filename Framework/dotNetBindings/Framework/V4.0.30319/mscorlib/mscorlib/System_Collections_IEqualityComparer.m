@@ -32,7 +32,9 @@
 	// Managed param types : System.Object, System.Object
     - (BOOL)equals_withX:(System_Object *)p1 y:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.Object
     - (int32_t)getHashCode_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

@@ -16,20 +16,20 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.ArraySegment`1<T>
-	// Managed param types : T[]
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1;
+	// Managed param types : <T[]>
+    + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.ArraySegment`1<T>
-	// Managed param types : T[], System.Int32, System.Int32
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+	// Managed param types : <T[]>, System.Int32, System.Int32
+    + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1 offset:(int32_t)p2 count:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Array
-	// Managed property type : T[]
-    @property (nonatomic, strong, readonly) DBSystem_Array * array;
+	// Managed property type : <T[]>
+    @property (nonatomic, strong, readonly) System_Object * array;
 
 	// Managed property name : Count
 	// Managed property type : System.Int32

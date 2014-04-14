@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
+		[self invokeMonoMethod:"Close()" withNumArgs:0];;
     }
 
 	// Managed method name : GetEnumerator
@@ -40,7 +40,9 @@
 	// Managed param types : 
     - (System_Collections_IDictionaryEnumerator *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
     }
 

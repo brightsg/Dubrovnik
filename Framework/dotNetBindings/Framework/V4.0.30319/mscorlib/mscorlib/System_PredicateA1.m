@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_PredicateA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : <T>, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withObj:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
@@ -52,7 +54,9 @@
 	// Managed param types : System.IAsyncResult
     - (BOOL)endInvoke_withResult:(System_IAsyncResult *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -61,7 +65,9 @@
 	// Managed param types : <T>
     - (BOOL)invoke_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

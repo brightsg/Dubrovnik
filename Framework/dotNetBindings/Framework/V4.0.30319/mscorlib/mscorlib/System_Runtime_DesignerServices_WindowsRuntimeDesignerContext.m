@@ -32,7 +32,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>, System.String
     + (System_Runtime_DesignerServices_WindowsRuntimeDesignerContext *)new_withPaths:(System_Collections_Generic_IEnumerableA1 *)p1 name:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.String>,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.String>,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -58,7 +58,9 @@
 	// Managed param types : System.String
     - (System_Reflection_Assembly *)getAssembly_withAssemblyName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssembly(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -67,7 +69,9 @@
 	// Managed param types : System.String
     - (System_Type *)getType_withTypeName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
@@ -76,7 +80,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
     + (void)initializeSharedContext_withPaths:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		[self invokeMonoClassMethod:"InitializeSharedContext(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"InitializeSharedContext(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetIterationContext
@@ -84,7 +88,7 @@
 	// Managed param types : System.Runtime.DesignerServices.WindowsRuntimeDesignerContext
     + (void)setIterationContext_withContext:(System_Runtime_DesignerServices_WindowsRuntimeDesignerContext *)p1
     {
-		[self invokeMonoClassMethod:"SetIterationContext(System.Runtime.DesignerServices.WindowsRuntimeDesignerContext)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SetIterationContext(System.Runtime.DesignerServices.WindowsRuntimeDesignerContext)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

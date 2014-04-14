@@ -206,7 +206,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withInherit:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -215,7 +217,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -224,7 +228,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IListA1 *)getCustomAttributesData
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
@@ -233,7 +239,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getOptionalCustomModifiers
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOptionalCustomModifiers()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -242,7 +250,9 @@
 	// Managed param types : System.Runtime.Serialization.StreamingContext
     - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRealObject(System.Runtime.Serialization.StreamingContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -251,7 +261,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getRequiredCustomModifiers
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRequiredCustomModifiers()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -260,7 +272,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -269,7 +283,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

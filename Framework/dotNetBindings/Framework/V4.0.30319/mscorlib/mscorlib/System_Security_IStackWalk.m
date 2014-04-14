@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)assert
     {
-		[self invokeMonoMethod:"Assert()" withNumArgs:0];
+		[self invokeMonoMethod:"Assert()" withNumArgs:0];;
     }
 
 	// Managed method name : Demand
@@ -40,7 +40,7 @@
 	// Managed param types : 
     - (void)demand
     {
-		[self invokeMonoMethod:"Demand()" withNumArgs:0];
+		[self invokeMonoMethod:"Demand()" withNumArgs:0];;
     }
 
 	// Managed method name : Deny
@@ -48,7 +48,7 @@
 	// Managed param types : 
     - (void)deny
     {
-		[self invokeMonoMethod:"Deny()" withNumArgs:0];
+		[self invokeMonoMethod:"Deny()" withNumArgs:0];;
     }
 
 	// Managed method name : PermitOnly
@@ -56,7 +56,7 @@
 	// Managed param types : 
     - (void)permitOnly
     {
-		[self invokeMonoMethod:"PermitOnly()" withNumArgs:0];
+		[self invokeMonoMethod:"PermitOnly()" withNumArgs:0];;
     }
 
 #pragma mark -

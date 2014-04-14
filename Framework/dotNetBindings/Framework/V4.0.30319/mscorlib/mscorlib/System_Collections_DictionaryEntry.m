@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.Object
     + (System_Collections_DictionaryEntry *)new_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		return [[self alloc] initWithSignature:"object,object" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"object,object" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -

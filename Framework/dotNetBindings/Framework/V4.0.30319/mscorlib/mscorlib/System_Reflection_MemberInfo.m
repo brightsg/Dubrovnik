@@ -117,7 +117,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -126,7 +128,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withInherit:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -135,7 +139,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -144,7 +150,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IListA1 *)getCustomAttributesData
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
@@ -153,7 +161,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -162,7 +172,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -171,7 +183,9 @@
 	// Managed param types : System.Reflection.MemberInfo, System.Reflection.MemberInfo
     + (BOOL)op_Equality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.MemberInfo,System.Reflection.MemberInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -180,7 +194,9 @@
 	// Managed param types : System.Reflection.MemberInfo, System.Reflection.MemberInfo
     + (BOOL)op_Inequality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.MemberInfo,System.Reflection.MemberInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

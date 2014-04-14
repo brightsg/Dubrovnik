@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_FuncA8 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>, <T6>, <T7>, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5 arg6:(System_Object *)p6 arg7:(System_Object *)p7 callback:(System_AsyncCallback *)p8 object:(System_Object *)p9
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>,System.AsyncCallback,object)" withNumArgs:9, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue], [p8 monoValue], [p9 monoValue]];
+		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
@@ -52,7 +54,9 @@
 	// Managed param types : System.IAsyncResult
     - (System_Object *)endInvoke_withResult:(System_IAsyncResult *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -61,7 +65,9 @@
 	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>, <T6>, <T7>
     - (System_Object *)invoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5 arg6:(System_Object *)p6 arg7:(System_Object *)p7
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 

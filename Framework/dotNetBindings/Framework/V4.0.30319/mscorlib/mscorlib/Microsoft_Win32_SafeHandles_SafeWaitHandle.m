@@ -32,7 +32,7 @@
 	// Managed param types : System.IntPtr, System.Boolean
     + (Microsoft_Win32_SafeHandles_SafeWaitHandle *)new_withExistingHandle:(void *)p1 ownsHandle:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"intptr,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"intptr,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 #pragma mark -

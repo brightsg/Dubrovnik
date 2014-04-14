@@ -32,7 +32,7 @@
 	// Managed param types : System.Type
     + (System_Diagnostics_DebuggerTypeProxyAttribute *)new_withType:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String
     + (System_Diagnostics_DebuggerTypeProxyAttribute *)new_withTypeName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

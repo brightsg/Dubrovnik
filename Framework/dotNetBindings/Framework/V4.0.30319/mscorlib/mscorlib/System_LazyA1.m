@@ -32,7 +32,7 @@
 	// Managed param types : System.Func`1<T>
     + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Func`1<T>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Func`1<T>" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Threading.LazyThreadSafetyMode
     + (System_LazyA1 *)new_withMode:(System_Threading_LazyThreadSafetyMode)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.LazyThreadSafetyMode" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Threading.LazyThreadSafetyMode" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Func`1<T>, System.Boolean
     + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 isThreadSafe:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"System.Func`1<T>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Func`1<T>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Func`1<T>, System.Threading.LazyThreadSafetyMode
     + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 mode:(System_Threading_LazyThreadSafetyMode)p2
     {
-		return [[self alloc] initWithSignature:"System.Func`1<T>,System.Threading.LazyThreadSafetyMode" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Func`1<T>,System.Threading.LazyThreadSafetyMode" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Boolean
     + (System_LazyA1 *)new_withIsThreadSafe:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -101,7 +101,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

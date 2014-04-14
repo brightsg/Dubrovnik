@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (System_Security_Policy_EvidenceBase *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
     }
 

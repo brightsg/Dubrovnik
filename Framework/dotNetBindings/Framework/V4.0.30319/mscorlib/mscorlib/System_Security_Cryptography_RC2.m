@@ -69,7 +69,9 @@
 	// Managed param types : 
     + (System_Security_Cryptography_RC2 *)create
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_RC2 objectWithMonoObject:monoObject];
     }
 
@@ -78,7 +80,9 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_RC2 *)create_withAlgName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_RC2 objectWithMonoObject:monoObject];
     }
 

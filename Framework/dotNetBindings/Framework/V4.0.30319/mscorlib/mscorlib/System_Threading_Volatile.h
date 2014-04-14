@@ -81,8 +81,8 @@
 
 	// Managed method name : Read
 	// Managed return type : <T>
-	// Managed param types : ref T&
-    + (System_Object *)read_withLocationTRef:(T **)p1;
+	// Managed param types : ref <T&>
+    + (System_Object *)read_withLocationRef:(System_Object **)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -151,7 +151,7 @@
 
 	// Managed method name : Write
 	// Managed return type : System.Void
-	// Managed param types : ref T&, <T>
-    + (void)write_withLocationTRef:(T **)p1 value:(System_Object *)p2;
+	// Managed param types : ref <T&>, <T>
+    + (void)write_withLocationRef:(System_Object **)p1 value:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

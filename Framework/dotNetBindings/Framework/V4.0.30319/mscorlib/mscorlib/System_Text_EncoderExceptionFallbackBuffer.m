@@ -46,7 +46,9 @@
 	// Managed param types : System.Char, System.Int32
     - (BOOL)fallback_withCharUnknown:(uint16_t)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Fallback(char,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -55,7 +57,9 @@
 	// Managed param types : System.Char, System.Char, System.Int32
     - (BOOL)fallback_withCharUnknownHigh:(uint16_t)p1 charUnknownLow:(uint16_t)p2 index:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Fallback(char,char,int)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -64,7 +68,9 @@
 	// Managed param types : 
     - (uint16_t)getNextChar
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextChar()" withNumArgs:0];
+		
 		return DB_UNBOX_UINT16(monoObject);
     }
 
@@ -73,7 +79,9 @@
 	// Managed param types : 
     - (BOOL)movePrevious
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MovePrevious()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

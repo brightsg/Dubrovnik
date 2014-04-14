@@ -61,7 +61,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -70,7 +72,9 @@
 	// Managed param types : System.ModuleHandle
     - (BOOL)equals_withHandle:(System_ModuleHandle *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ModuleHandle)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -79,7 +83,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -88,7 +94,9 @@
 	// Managed param types : System.Int32
     - (System_RuntimeFieldHandle *)getRuntimeFieldHandleFromMetadataToken_withFieldToken:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeFieldHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
     }
 
@@ -97,7 +105,9 @@
 	// Managed param types : System.Int32
     - (System_RuntimeMethodHandle *)getRuntimeMethodHandleFromMetadataToken_withMethodToken:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeMethodHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
     }
 
@@ -106,7 +116,9 @@
 	// Managed param types : System.Int32
     - (System_RuntimeTypeHandle *)getRuntimeTypeHandleFromMetadataToken_withTypeToken:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeTypeHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
@@ -115,7 +127,9 @@
 	// Managed param types : System.ModuleHandle, System.ModuleHandle
     + (BOOL)op_Equality_withLeft:(System_ModuleHandle *)p1 right:(System_ModuleHandle *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.ModuleHandle,System.ModuleHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -124,7 +138,9 @@
 	// Managed param types : System.ModuleHandle, System.ModuleHandle
     + (BOOL)op_Inequality_withLeft:(System_ModuleHandle *)p1 right:(System_ModuleHandle *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.ModuleHandle,System.ModuleHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -133,7 +149,9 @@
 	// Managed param types : System.Int32
     - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
     }
 
@@ -142,7 +160,9 @@
 	// Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
     - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		
 		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
     }
 
@@ -151,7 +171,9 @@
 	// Managed param types : System.Int32
     - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
     }
 
@@ -160,7 +182,9 @@
 	// Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
     - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		
 		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
     }
 
@@ -169,7 +193,9 @@
 	// Managed param types : System.Int32
     - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
@@ -178,7 +204,9 @@
 	// Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
     - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		
 		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 

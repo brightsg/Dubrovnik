@@ -23,13 +23,13 @@
 
 	// Managed method name : AwaitOnCompleted
 	// Managed return type : System.Void
-	// Managed param types : ref TAwaiter&, ref TStateMachine&
-    - (void)awaitOnCompleted_withAwaiterRef:(TAwaiter **)p1 stateMachineRef:(TStateMachine **)p2;
+	// Managed param types : ref <TAwaiter&>, ref <TStateMachine&>
+    - (void)awaitOnCompleted_withAwaiterRef:(System_Object **)p1 stateMachineRef:(System_Object **)p2;
 
 	// Managed method name : AwaitUnsafeOnCompleted
 	// Managed return type : System.Void
-	// Managed param types : ref TAwaiter&, ref TStateMachine&
-    - (void)awaitUnsafeOnCompleted_withAwaiterRef:(TAwaiter **)p1 stateMachineRef:(TStateMachine **)p2;
+	// Managed param types : ref <TAwaiter&>, ref <TStateMachine&>
+    - (void)awaitUnsafeOnCompleted_withAwaiterRef:(System_Object **)p1 stateMachineRef:(System_Object **)p2;
 
 	// Managed method name : Create
 	// Managed return type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder
@@ -53,7 +53,7 @@
 
 	// Managed method name : Start
 	// Managed return type : System.Void
-	// Managed param types : ref TStateMachine&
-    - (void)start_withStateMachineRef:(TStateMachine **)p1;
+	// Managed param types : ref <TStateMachine&>
+    - (void)start_withStateMachineRef:(System_Object **)p1;
 @end
 //--Dubrovnik.CodeGenerator

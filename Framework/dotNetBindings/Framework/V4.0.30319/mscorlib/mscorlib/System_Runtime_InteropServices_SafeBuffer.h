@@ -48,8 +48,8 @@
 
 	// Managed method name : ReadArray
 	// Managed return type : System.Void
-	// Managed param types : System.UInt64, T[], System.Int32, System.Int32
-    - (void)readArray_withByteOffset:(uint64_t)p1 array:(DBSystem_Array *)p2 index:(int32_t)p3 count:(int32_t)p4;
+	// Managed param types : System.UInt64, <T[]>, System.Int32, System.Int32
+    - (void)readArray_withByteOffset:(uint64_t)p1 array:(System_Object *)p2 index:(int32_t)p3 count:(int32_t)p4;
 
 	// Managed method name : ReleasePointer
 	// Managed return type : System.Void
@@ -63,7 +63,7 @@
 
 	// Managed method name : WriteArray
 	// Managed return type : System.Void
-	// Managed param types : System.UInt64, T[], System.Int32, System.Int32
-    - (void)writeArray_withByteOffset:(uint64_t)p1 array:(DBSystem_Array *)p2 index:(int32_t)p3 count:(int32_t)p4;
+	// Managed param types : System.UInt64, <T[]>, System.Int32, System.Int32
+    - (void)writeArray_withByteOffset:(uint64_t)p1 array:(System_Object *)p2 index:(int32_t)p3 count:(int32_t)p4;
 @end
 //--Dubrovnik.CodeGenerator

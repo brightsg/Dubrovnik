@@ -57,7 +57,7 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
+		[self invokeMonoMethod:"Close()" withNumArgs:0];;
     }
 
 	// Managed method name : DangerousAddRef
@@ -65,7 +65,7 @@
 	// Managed param types : ref System.Boolean&
     - (void)dangerousAddRef_withSuccessRef:(BOOL*)p1
     {
-		[self invokeMonoMethod:"DangerousAddRef(bool&)" withNumArgs:1, p1];
+		[self invokeMonoMethod:"DangerousAddRef(bool&)" withNumArgs:1, p1];;
     }
 
 	// Managed method name : DangerousGetHandle
@@ -73,7 +73,9 @@
 	// Managed param types : 
     - (void *)dangerousGetHandle
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DangerousGetHandle()" withNumArgs:0];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -82,7 +84,7 @@
 	// Managed param types : 
     - (void)dangerousRelease
     {
-		[self invokeMonoMethod:"DangerousRelease()" withNumArgs:0];
+		[self invokeMonoMethod:"DangerousRelease()" withNumArgs:0];;
     }
 
 	// Managed method name : Dispose
@@ -90,7 +92,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : SetHandleAsInvalid
@@ -98,7 +100,7 @@
 	// Managed param types : 
     - (void)setHandleAsInvalid
     {
-		[self invokeMonoMethod:"SetHandleAsInvalid()" withNumArgs:0];
+		[self invokeMonoMethod:"SetHandleAsInvalid()" withNumArgs:0];;
     }
 
 #pragma mark -

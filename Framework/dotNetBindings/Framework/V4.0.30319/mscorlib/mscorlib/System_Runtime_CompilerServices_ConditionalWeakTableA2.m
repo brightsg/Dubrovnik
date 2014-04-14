@@ -32,7 +32,7 @@
 	// Managed param types : <TKey>, <TValue>
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetOrCreateValue
@@ -40,7 +40,9 @@
 	// Managed param types : <TKey>
     - (System_Object *)getOrCreateValue_withKey:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrCreateValue(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -49,7 +51,9 @@
 	// Managed param types : <TKey>, System.Runtime.CompilerServices.CreateValueCallback
     - (System_Object *)getValue_withKey:(System_Object *)p1 createValueCallback:(System_Runtime_CompilerServices_CreateValueCallback *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(<_T_0>,System.Runtime.CompilerServices.CreateValueCallback)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -58,16 +62,23 @@
 	// Managed param types : <TKey>
     - (BOOL)remove_withKey:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(TValue **)p2
+	// Managed param types : <TKey>, ref <TValue&>
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,TValue&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr2 = [*p2 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+
+		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

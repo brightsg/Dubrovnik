@@ -81,7 +81,9 @@
 	// Managed param types : 
     + (System_Threading_Tasks_TaskScheduler *)fromCurrentSynchronizationContext
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromCurrentSynchronizationContext()" withNumArgs:0];
+		
 		return [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
     }
 

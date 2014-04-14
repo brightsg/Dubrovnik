@@ -92,7 +92,9 @@
 	// Managed param types : 
     - (NSData *)getILAsByteArray
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetILAsByteArray()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 

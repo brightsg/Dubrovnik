@@ -32,7 +32,9 @@
 	// Managed param types : System.String
     - (System_Reflection_FieldInfo *)addField_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddField(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.String, System.Delegate
     - (System_Reflection_MethodInfo *)addMethod_withName:(NSString *)p1 method:(System_Delegate *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMethod(string,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.String
     - (System_Reflection_PropertyInfo *)addProperty_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddProperty(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
     }
 
@@ -59,7 +65,7 @@
 	// Managed param types : System.Reflection.MemberInfo
     - (void)removeMember_withM:(System_Reflection_MemberInfo *)p1
     {
-		[self invokeMonoMethod:"RemoveMember(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"RemoveMember(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

@@ -494,7 +494,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -503,7 +505,9 @@
 	// Managed param types : System.DayOfWeek
     - (NSString *)getAbbreviatedDayName_withDayofweek:(System_DayOfWeek)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAbbreviatedDayName(System.DayOfWeek)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -512,7 +516,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getAbbreviatedEraName_withEra:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAbbreviatedEraName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -521,7 +527,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getAbbreviatedMonthName_withMonth:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAbbreviatedMonthName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -530,7 +538,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getAllDateTimePatterns
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAllDateTimePatterns()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -539,7 +549,9 @@
 	// Managed param types : System.Char
     - (DBSystem_Array *)getAllDateTimePatterns_withFormat:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAllDateTimePatterns(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -548,7 +560,9 @@
 	// Managed param types : System.DayOfWeek
     - (NSString *)getDayName_withDayofweek:(System_DayOfWeek)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDayName(System.DayOfWeek)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -557,7 +571,9 @@
 	// Managed param types : System.String
     - (int32_t)getEra_withEraName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEra(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -566,7 +582,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getEraName_withEra:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEraName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -575,7 +593,9 @@
 	// Managed param types : System.Type
     - (System_Object *)getFormat_withFormatType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -584,7 +604,9 @@
 	// Managed param types : System.IFormatProvider
     + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
     }
 
@@ -593,7 +615,9 @@
 	// Managed param types : System.Int32
     - (NSString *)getMonthName_withMonth:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMonthName(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -602,7 +626,9 @@
 	// Managed param types : System.DayOfWeek
     - (NSString *)getShortestDayName_withDayOfWeek:(System_DayOfWeek)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetShortestDayName(System.DayOfWeek)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -611,7 +637,9 @@
 	// Managed param types : System.Globalization.DateTimeFormatInfo
     + (System_Globalization_DateTimeFormatInfo *)readOnly_withDtfi:(System_Globalization_DateTimeFormatInfo *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.DateTimeFormatInfo)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
     }
 
@@ -620,7 +648,7 @@
 	// Managed param types : System.String[], System.Char
     - (void)setAllDateTimePatterns_withPatterns:(DBSystem_Array *)p1 format:(uint16_t)p2
     {
-		[self invokeMonoMethod:"SetAllDateTimePatterns(string[],char)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"SetAllDateTimePatterns(string[],char)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -

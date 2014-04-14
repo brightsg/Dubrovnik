@@ -47,7 +47,9 @@
 	// Managed param types : <T>, <T>
     - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Compare(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -56,7 +58,9 @@
 	// Managed param types : System.Comparison`1<T>
     + (System_Collections_Generic_ComparerA1 *)create_withComparison:(System_ComparisonA1 *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Comparison`1<T>)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_Generic_ComparerA1 objectWithMonoObject:monoObject];
     }
 

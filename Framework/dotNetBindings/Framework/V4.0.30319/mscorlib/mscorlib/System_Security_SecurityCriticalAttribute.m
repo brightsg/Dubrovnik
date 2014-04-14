@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.SecurityCriticalScope
     + (System_Security_SecurityCriticalAttribute *)new_withScope:(System_Security_SecurityCriticalScope)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityCriticalScope" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Security.SecurityCriticalScope" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

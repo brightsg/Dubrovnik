@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32, System.Boolean
     + (System_Collections_BitArray *)new_withLength:(int32_t)p1 defaultValue:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int32
     + (System_Collections_BitArray *)new_withLength:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Byte[]
     + (System_Collections_BitArray *)new_withBytes:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Boolean[]
     + (System_Collections_BitArray *)new_withValuesBool:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"bool[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"bool[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Int32[]
     + (System_Collections_BitArray *)new_withValuesInt:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.Collections.BitArray
     + (System_Collections_BitArray *)new_withBits:(System_Collections_BitArray *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.BitArray" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.BitArray" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -165,7 +165,9 @@
 	// Managed param types : System.Collections.BitArray
     - (System_Collections_BitArray *)and_withValue:(System_Collections_BitArray *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"And(System.Collections.BitArray)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
 
@@ -174,7 +176,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -183,7 +187,7 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Get
@@ -191,7 +195,9 @@
 	// Managed param types : System.Int32
     - (BOOL)get_withIndex:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Get(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -200,7 +206,9 @@
 	// Managed param types : 
     - (System_Collections_IEnumerator *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -209,7 +217,9 @@
 	// Managed param types : 
     - (System_Collections_BitArray *)not
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Not()" withNumArgs:0];
+		
 		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
 
@@ -218,7 +228,9 @@
 	// Managed param types : System.Collections.BitArray
     - (System_Collections_BitArray *)or_withValue:(System_Collections_BitArray *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Or(System.Collections.BitArray)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
 
@@ -227,7 +239,7 @@
 	// Managed param types : System.Int32, System.Boolean
     - (void)set_withIndex:(int32_t)p1 value:(BOOL)p2
     {
-		[self invokeMonoMethod:"Set(int,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoMethod:"Set(int,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : SetAll
@@ -235,7 +247,7 @@
 	// Managed param types : System.Boolean
     - (void)setAll_withValue:(BOOL)p1
     {
-		[self invokeMonoMethod:"SetAll(bool)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"SetAll(bool)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Xor
@@ -243,7 +255,9 @@
 	// Managed param types : System.Collections.BitArray
     - (System_Collections_BitArray *)xor_withValue:(System_Collections_BitArray *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Xor(System.Collections.BitArray)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_BitArray objectWithMonoObject:monoObject];
     }
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_Runtime_InteropServices_HandleRef *)new_withWrapper:(System_Object *)p1 handle:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -69,7 +69,9 @@
 	// Managed param types : System.Runtime.InteropServices.HandleRef
     + (void *)op_Explicit_withValue:(System_Runtime_InteropServices_HandleRef *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Runtime.InteropServices.HandleRef)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -78,7 +80,9 @@
 	// Managed param types : System.Runtime.InteropServices.HandleRef
     + (void *)toIntPtr_withValue:(System_Runtime_InteropServices_HandleRef *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToIntPtr(System.Runtime.InteropServices.HandleRef)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 

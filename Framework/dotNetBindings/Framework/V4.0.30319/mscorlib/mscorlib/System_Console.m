@@ -434,7 +434,7 @@
 	// Managed param types : 
     + (void)beep
     {
-		[self invokeMonoClassMethod:"Beep()" withNumArgs:0];
+		[self invokeMonoClassMethod:"Beep()" withNumArgs:0];;
     }
 
 	// Managed method name : Beep
@@ -442,7 +442,7 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)beep_withFrequency:(int32_t)p1 duration:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"Beep(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"Beep(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : Clear
@@ -450,7 +450,7 @@
 	// Managed param types : 
     + (void)clear
     {
-		[self invokeMonoClassMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoClassMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : MoveBufferArea
@@ -458,7 +458,7 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
     + (void)moveBufferArea_withSourceLeft:(int32_t)p1 sourceTop:(int32_t)p2 sourceWidth:(int32_t)p3 sourceHeight:(int32_t)p4 targetLeft:(int32_t)p5 targetTop:(int32_t)p6
     {
-		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];;
     }
 
 	// Managed method name : MoveBufferArea
@@ -466,7 +466,7 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Char, System.ConsoleColor, System.ConsoleColor
     + (void)moveBufferArea_withSourceLeft:(int32_t)p1 sourceTop:(int32_t)p2 sourceWidth:(int32_t)p3 sourceHeight:(int32_t)p4 targetLeft:(int32_t)p5 targetTop:(int32_t)p6 sourceChar:(uint16_t)p7 sourceForeColor:(System_ConsoleColor)p8 sourceBackColor:(System_ConsoleColor)p9
     {
-		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int,char,System.ConsoleColor,System.ConsoleColor)" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9)];
+		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int,char,System.ConsoleColor,System.ConsoleColor)" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9)];;
     }
 
 	// Managed method name : OpenStandardError
@@ -474,7 +474,9 @@
 	// Managed param types : 
     + (System_IO_Stream *)openStandardError
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardError()" withNumArgs:0];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -483,7 +485,9 @@
 	// Managed param types : System.Int32
     + (System_IO_Stream *)openStandardError_withBufferSize:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardError(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -492,7 +496,9 @@
 	// Managed param types : 
     + (System_IO_Stream *)openStandardInput
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardInput()" withNumArgs:0];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -501,7 +507,9 @@
 	// Managed param types : System.Int32
     + (System_IO_Stream *)openStandardInput_withBufferSize:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardInput(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -510,7 +518,9 @@
 	// Managed param types : 
     + (System_IO_Stream *)openStandardOutput
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardOutput()" withNumArgs:0];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -519,7 +529,9 @@
 	// Managed param types : System.Int32
     + (System_IO_Stream *)openStandardOutput_withBufferSize:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardOutput(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -528,7 +540,9 @@
 	// Managed param types : 
     + (int32_t)read
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Read()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -537,7 +551,9 @@
 	// Managed param types : 
     + (System_ConsoleKeyInfo *)readKey
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadKey()" withNumArgs:0];
+		
 		return [System_ConsoleKeyInfo objectWithMonoObject:monoObject];
     }
 
@@ -546,7 +562,9 @@
 	// Managed param types : System.Boolean
     + (System_ConsoleKeyInfo *)readKey_withIntercept:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadKey(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_ConsoleKeyInfo objectWithMonoObject:monoObject];
     }
 
@@ -555,7 +573,9 @@
 	// Managed param types : 
     + (NSString *)readLine
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadLine()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -564,7 +584,7 @@
 	// Managed param types : 
     + (void)resetColor
     {
-		[self invokeMonoClassMethod:"ResetColor()" withNumArgs:0];
+		[self invokeMonoClassMethod:"ResetColor()" withNumArgs:0];;
     }
 
 	// Managed method name : SetBufferSize
@@ -572,7 +592,7 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setBufferSize_withWidth:(int32_t)p1 height:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetBufferSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"SetBufferSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : SetCursorPosition
@@ -580,7 +600,7 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setCursorPosition_withLeft:(int32_t)p1 top:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetCursorPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"SetCursorPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : SetError
@@ -588,7 +608,7 @@
 	// Managed param types : System.IO.TextWriter
     + (void)setError_withNewError:(System_IO_TextWriter *)p1
     {
-		[self invokeMonoClassMethod:"SetError(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SetError(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetIn
@@ -596,7 +616,7 @@
 	// Managed param types : System.IO.TextReader
     + (void)setIn_withNewIn:(System_IO_TextReader *)p1
     {
-		[self invokeMonoClassMethod:"SetIn(System.IO.TextReader)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SetIn(System.IO.TextReader)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetOut
@@ -604,7 +624,7 @@
 	// Managed param types : System.IO.TextWriter
     + (void)setOut_withNewOut:(System_IO_TextWriter *)p1
     {
-		[self invokeMonoClassMethod:"SetOut(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SetOut(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetWindowPosition
@@ -612,7 +632,7 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setWindowPosition_withLeft:(int32_t)p1 top:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetWindowPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"SetWindowPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : SetWindowSize
@@ -620,7 +640,7 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setWindowSize_withWidth:(int32_t)p1 height:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetWindowSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"SetWindowSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : Write
@@ -628,7 +648,7 @@
 	// Managed param types : System.String, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"Write(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"Write(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -636,7 +656,7 @@
 	// Managed param types : System.String, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoClassMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -644,7 +664,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
-		[self invokeMonoClassMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		[self invokeMonoClassMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -652,7 +672,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
-		[self invokeMonoClassMethod:"Write(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		[self invokeMonoClassMethod:"Write(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -660,7 +680,7 @@
 	// Managed param types : System.String, System.Object[]
     + (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -668,7 +688,7 @@
 	// Managed param types : System.Boolean
     + (void)write_withValueBool:(BOOL)p1
     {
-		[self invokeMonoClassMethod:"Write(bool)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(bool)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -676,7 +696,7 @@
 	// Managed param types : System.Char
     + (void)write_withValueChar:(uint16_t)p1
     {
-		[self invokeMonoClassMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -684,7 +704,7 @@
 	// Managed param types : System.Char[]
     + (void)write_withBuffer:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -692,7 +712,7 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     + (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : Write
@@ -700,7 +720,7 @@
 	// Managed param types : System.Double
     + (void)write_withValueDouble:(double)p1
     {
-		[self invokeMonoClassMethod:"Write(double)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(double)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -708,7 +728,7 @@
 	// Managed param types : System.Decimal
     + (void)write_withValueDecimal:(NSDecimalNumber *)p1
     {
-		[self invokeMonoClassMethod:"Write(decimal)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Write(decimal)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -716,7 +736,7 @@
 	// Managed param types : System.Single
     + (void)write_withValueSingle:(float)p1
     {
-		[self invokeMonoClassMethod:"Write(single)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(single)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -724,7 +744,7 @@
 	// Managed param types : System.Int32
     + (void)write_withValueInt:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"Write(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -732,7 +752,7 @@
 	// Managed param types : System.UInt32
     + (void)write_withValueUint:(uint32_t)p1
     {
-		[self invokeMonoClassMethod:"Write(uint)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(uint)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -740,7 +760,7 @@
 	// Managed param types : System.Int64
     + (void)write_withValueLong:(int64_t)p1
     {
-		[self invokeMonoClassMethod:"Write(long)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(long)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -748,7 +768,7 @@
 	// Managed param types : System.UInt64
     + (void)write_withValueUlong:(uint64_t)p1
     {
-		[self invokeMonoClassMethod:"Write(ulong)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Write(ulong)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -756,7 +776,7 @@
 	// Managed param types : System.Object
     + (void)write_withValueObject:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -764,7 +784,7 @@
 	// Managed param types : System.String
     + (void)write_withValueString:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -772,7 +792,7 @@
 	// Managed param types : 
     + (void)writeLine
     {
-		[self invokeMonoClassMethod:"WriteLine()" withNumArgs:0];
+		[self invokeMonoClassMethod:"WriteLine()" withNumArgs:0];;
     }
 
 	// Managed method name : WriteLine
@@ -780,7 +800,7 @@
 	// Managed param types : System.Boolean
     + (void)writeLine_withValueBool:(BOOL)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(bool)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(bool)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -788,7 +808,7 @@
 	// Managed param types : System.Char
     + (void)writeLine_withValueChar:(uint16_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(char)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(char)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -796,7 +816,7 @@
 	// Managed param types : System.Char[]
     + (void)writeLine_withBuffer:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -804,7 +824,7 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     + (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : WriteLine
@@ -812,7 +832,7 @@
 	// Managed param types : System.Decimal
     + (void)writeLine_withValueDecimal:(NSDecimalNumber *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(decimal)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(decimal)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -820,7 +840,7 @@
 	// Managed param types : System.Double
     + (void)writeLine_withValueDouble:(double)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(double)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(double)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -828,7 +848,7 @@
 	// Managed param types : System.Single
     + (void)writeLine_withValueSingle:(float)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(single)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(single)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -836,7 +856,7 @@
 	// Managed param types : System.Int32
     + (void)writeLine_withValueInt:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -844,7 +864,7 @@
 	// Managed param types : System.UInt32
     + (void)writeLine_withValueUint:(uint32_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(uint)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(uint)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -852,7 +872,7 @@
 	// Managed param types : System.Int64
     + (void)writeLine_withValueLong:(int64_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(long)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(long)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -860,7 +880,7 @@
 	// Managed param types : System.UInt64
     + (void)writeLine_withValueUlong:(uint64_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(ulong)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"WriteLine(ulong)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : WriteLine
@@ -868,7 +888,7 @@
 	// Managed param types : System.Object
     + (void)writeLine_withValueObject:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -876,7 +896,7 @@
 	// Managed param types : System.String
     + (void)writeLine_withValueString:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -884,7 +904,7 @@
 	// Managed param types : System.String, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -892,7 +912,7 @@
 	// Managed param types : System.String, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -900,7 +920,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -908,7 +928,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
     }
 
 	// Managed method name : WriteLine
@@ -916,7 +936,7 @@
 	// Managed param types : System.String, System.Object[]
     + (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -

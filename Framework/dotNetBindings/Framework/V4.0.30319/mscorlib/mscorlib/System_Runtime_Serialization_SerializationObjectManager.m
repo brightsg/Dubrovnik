@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Serialization.StreamingContext
     + (System_Runtime_Serialization_SerializationObjectManager *)new_withContext:(System_Runtime_Serialization_StreamingContext *)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContext" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContext" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -43,7 +43,7 @@
 	// Managed param types : 
     - (void)raiseOnSerializedEvent
     {
-		[self invokeMonoMethod:"RaiseOnSerializedEvent()" withNumArgs:0];
+		[self invokeMonoMethod:"RaiseOnSerializedEvent()" withNumArgs:0];;
     }
 
 	// Managed method name : RegisterObject
@@ -51,7 +51,7 @@
 	// Managed param types : System.Object
     - (void)registerObject_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"RegisterObject(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"RegisterObject(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

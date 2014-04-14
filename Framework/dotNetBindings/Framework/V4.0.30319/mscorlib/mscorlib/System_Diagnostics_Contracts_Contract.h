@@ -101,7 +101,7 @@
 
 	// Managed method name : ValueAtReturn
 	// Managed return type : <T>
-	// Managed param types : ref T&
-    + (System_Object *)valueAtReturn_withValueRef:(T **)p1;
+	// Managed param types : ref <T&>
+    + (System_Object *)valueAtReturn_withValueRef:(System_Object **)p1;
 @end
 //--Dubrovnik.CodeGenerator

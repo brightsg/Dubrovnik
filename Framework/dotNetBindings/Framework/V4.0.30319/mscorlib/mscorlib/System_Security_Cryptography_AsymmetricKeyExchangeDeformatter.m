@@ -53,7 +53,9 @@
 	// Managed param types : System.Byte[]
     - (NSData *)decryptKeyExchange_withRgb:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DecryptKeyExchange(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -62,7 +64,7 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     - (void)setKey_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

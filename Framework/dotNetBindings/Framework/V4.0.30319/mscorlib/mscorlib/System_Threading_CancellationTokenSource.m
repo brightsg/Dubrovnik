@@ -32,7 +32,7 @@
 	// Managed param types : System.TimeSpan
     + (System_Threading_CancellationTokenSource *)new_withDelay:(System_TimeSpan *)p1
     {
-		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int32
     + (System_Threading_CancellationTokenSource *)new_withMillisecondsDelay:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -77,7 +77,7 @@
 	// Managed param types : 
     - (void)cancel
     {
-		[self invokeMonoMethod:"Cancel()" withNumArgs:0];
+		[self invokeMonoMethod:"Cancel()" withNumArgs:0];;
     }
 
 	// Managed method name : Cancel
@@ -85,7 +85,7 @@
 	// Managed param types : System.Boolean
     - (void)cancel_withThrowOnFirstException:(BOOL)p1
     {
-		[self invokeMonoMethod:"Cancel(bool)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"Cancel(bool)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : CancelAfter
@@ -93,7 +93,7 @@
 	// Managed param types : System.TimeSpan
     - (void)cancelAfter_withDelay:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"CancelAfter(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"CancelAfter(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : CancelAfter
@@ -101,7 +101,7 @@
 	// Managed param types : System.Int32
     - (void)cancelAfter_withMillisecondsDelay:(int32_t)p1
     {
-		[self invokeMonoMethod:"CancelAfter(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"CancelAfter(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : CreateLinkedTokenSource
@@ -109,7 +109,9 @@
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
     + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withToken1:(System_Threading_CancellationToken *)p1 token2:(System_Threading_CancellationToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }
 
@@ -118,7 +120,9 @@
 	// Managed param types : System.Threading.CancellationToken[]
     + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }
 
@@ -127,7 +131,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 #pragma mark -

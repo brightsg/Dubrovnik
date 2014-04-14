@@ -32,7 +32,9 @@
 	// Managed param types : System.IntPtr, System.String, System.String
     - (System_Diagnostics_SymbolStore_ISymbolReader *)getReader_withImporter:(void *)p1 filename:(NSString *)p2 searchPath:(NSString *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetReader(intptr,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Diagnostics_SymbolStore_ISymbolReader objectWithMonoObject:monoObject];
     }
 

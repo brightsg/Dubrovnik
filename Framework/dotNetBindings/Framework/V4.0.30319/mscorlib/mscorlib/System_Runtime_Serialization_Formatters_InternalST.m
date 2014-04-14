@@ -32,7 +32,7 @@
 	// Managed param types : System.Object[]
     + (void)infoSoap_withMessages:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : LoadAssemblyFromString
@@ -40,7 +40,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)loadAssemblyFromString_withAssemblyString:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadAssemblyFromString(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -49,7 +51,7 @@
 	// Managed param types : System.Reflection.FieldInfo, System.Object, System.Object
     + (void)serializationSetValue_withFi:(System_Reflection_FieldInfo *)p1 target:(System_Object *)p2 value:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"SerializationSetValue(System.Reflection.FieldInfo,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoClassMethod:"SerializationSetValue(System.Reflection.FieldInfo,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 	// Managed method name : Soap
@@ -57,7 +59,7 @@
 	// Managed param types : System.Object[]
     + (void)soap_withMessages:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"Soap(object[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Soap(object[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SoapAssert
@@ -65,7 +67,7 @@
 	// Managed param types : System.Boolean, System.String
     + (void)soapAssert_withCondition:(BOOL)p1 message:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"SoapAssert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		[self invokeMonoClassMethod:"SoapAssert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
     }
 
 	// Managed method name : SoapCheckEnabled
@@ -73,7 +75,9 @@
 	// Managed param types : 
     + (BOOL)soapCheckEnabled
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"SoapCheckEnabled()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

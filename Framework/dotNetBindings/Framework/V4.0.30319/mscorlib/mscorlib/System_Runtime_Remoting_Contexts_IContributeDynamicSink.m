@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (System_Runtime_Remoting_Contexts_IDynamicMessageSink *)getDynamicSink
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicSink()" withNumArgs:0];
+		
 		return [System_Runtime_Remoting_Contexts_IDynamicMessageSink objectWithMonoObject:monoObject];
     }
 

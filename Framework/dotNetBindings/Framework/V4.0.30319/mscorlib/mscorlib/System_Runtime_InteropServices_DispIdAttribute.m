@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     + (System_Runtime_InteropServices_DispIdAttribute *)new_withDispId:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

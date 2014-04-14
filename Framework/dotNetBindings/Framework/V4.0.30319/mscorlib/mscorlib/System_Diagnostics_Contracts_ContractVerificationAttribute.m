@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean
     + (System_Diagnostics_Contracts_ContractVerificationAttribute *)new_withValue:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

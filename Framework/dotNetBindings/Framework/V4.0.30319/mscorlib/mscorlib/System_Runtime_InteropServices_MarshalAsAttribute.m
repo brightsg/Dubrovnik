@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.UnmanagedType
     + (System_Runtime_InteropServices_MarshalAsAttribute *)new_withUnmanagedTypeSRIUnmanagedType:(System_Runtime_InteropServices_UnmanagedType)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.UnmanagedType" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.UnmanagedType" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int16
     + (System_Runtime_InteropServices_MarshalAsAttribute *)new_withUnmanagedTypeInt16:(int16_t)p1
     {
-		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

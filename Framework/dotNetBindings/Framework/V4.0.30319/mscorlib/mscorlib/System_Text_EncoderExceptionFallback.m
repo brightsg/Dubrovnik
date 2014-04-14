@@ -46,7 +46,9 @@
 	// Managed param types : 
     - (System_Text_EncoderFallbackBuffer *)createFallbackBuffer
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFallbackBuffer()" withNumArgs:0];
+		
 		return [System_Text_EncoderFallbackBuffer objectWithMonoObject:monoObject];
     }
 
@@ -55,7 +57,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -64,7 +68,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

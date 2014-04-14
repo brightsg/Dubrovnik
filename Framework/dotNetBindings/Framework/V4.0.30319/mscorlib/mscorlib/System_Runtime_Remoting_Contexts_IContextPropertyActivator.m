@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
     - (void)collectFromClientContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1
     {
-		[self invokeMonoMethod:"CollectFromClientContext(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"CollectFromClientContext(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : CollectFromServerContext
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionReturnMessage
     - (void)collectFromServerContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionReturnMessage *)p1
     {
-		[self invokeMonoMethod:"CollectFromServerContext(System.Runtime.Remoting.Activation.IConstructionReturnMessage)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"CollectFromServerContext(System.Runtime.Remoting.Activation.IConstructionReturnMessage)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : DeliverClientContextToServerContext
@@ -48,7 +48,9 @@
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
     - (BOOL)deliverClientContextToServerContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DeliverClientContextToServerContext(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -57,7 +59,9 @@
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionReturnMessage
     - (BOOL)deliverServerContextToClientContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionReturnMessage *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DeliverServerContextToClientContext(System.Runtime.Remoting.Activation.IConstructionReturnMessage)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -66,7 +70,9 @@
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
     - (BOOL)isOKToActivate_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsOKToActivate(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

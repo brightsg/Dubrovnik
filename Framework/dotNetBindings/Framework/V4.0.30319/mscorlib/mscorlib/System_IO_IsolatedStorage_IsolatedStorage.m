@@ -143,7 +143,9 @@
 	// Managed param types : System.Int64
     - (BOOL)increaseQuotaTo_withNewQuotaSize:(int64_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IncreaseQuotaTo(long)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -152,7 +154,7 @@
 	// Managed param types : 
     - (void)remove
     {
-		[self invokeMonoMethod:"Remove()" withNumArgs:0];
+		[self invokeMonoMethod:"Remove()" withNumArgs:0];;
     }
 
 #pragma mark -

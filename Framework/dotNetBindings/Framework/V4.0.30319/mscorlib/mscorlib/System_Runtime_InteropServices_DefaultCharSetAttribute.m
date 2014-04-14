@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.CharSet
     + (System_Runtime_InteropServices_DefaultCharSetAttribute *)new_withCharSet:(System_Runtime_InteropServices_CharSet)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.CharSet" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.CharSet" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

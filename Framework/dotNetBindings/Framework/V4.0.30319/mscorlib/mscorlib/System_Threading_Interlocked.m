@@ -32,7 +32,9 @@
 	// Managed param types : ref System.Int32&, System.Int32
     + (int32_t)add_withLocation1IntRef:(int32_t*)p1 valueInt:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : ref System.Int64&, System.Int64
     + (int64_t)add_withLocation1LongRef:(int64_t*)p1 valueLong:(int64_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : ref System.Int32&, System.Int32, System.Int32
     + (int32_t)compareExchange_withLocation1IntRef:(int32_t*)p1 valueInt:(int32_t)p2 comparandInt:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(int&,int,int)" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -59,7 +65,9 @@
 	// Managed param types : ref System.Int64&, System.Int64, System.Int64
     + (int64_t)compareExchange_withLocation1LongRef:(int64_t*)p1 valueLong:(int64_t)p2 comparandLong:(int64_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(long&,long,long)" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -68,7 +76,9 @@
 	// Managed param types : ref System.Single&, System.Single, System.Single
     + (float)compareExchange_withLocation1SingleRef:(float*)p1 valueSingle:(float)p2 comparandSingle:(float)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(single&,single,single)" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return DB_UNBOX_FLOAT(monoObject);
     }
 
@@ -77,7 +87,9 @@
 	// Managed param types : ref System.Double&, System.Double, System.Double
     + (double)compareExchange_withLocation1DoubleRef:(double*)p1 valueDouble:(double)p2 comparandDouble:(double)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(double&,double,double)" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
@@ -86,7 +98,12 @@
 	// Managed param types : ref System.Object&, System.Object, System.Object
     + (System_Object *)compareExchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2 comparandObject:(System_Object *)p3
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(object&,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(object&,object,object)" withNumArgs:3, &refPtr1, [p2 monoValue], [p3 monoValue]];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -95,16 +112,23 @@
 	// Managed param types : ref System.IntPtr&, System.IntPtr, System.IntPtr
     + (void *)compareExchange_withLocation1IntptrRef:(void **)p1 valueIntptr:(void *)p2 comparandIntptr:(void *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(intptr&,intptr,intptr)" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : CompareExchange
 	// Managed return type : <T>
-	// Managed param types : ref T&, <T>, <T>
-    + (System_Object *)compareExchange_withLocation1TRef:(T **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3
+	// Managed param types : ref <T&>, <T>, <T>
+    + (System_Object *)compareExchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(T&,<_T_0>,<_T_0>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(<_T_0>&,<_T_0>,<_T_0>)" withNumArgs:3, &refPtr1, [p2 monoValue], [p3 monoValue]];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -113,7 +137,9 @@
 	// Managed param types : ref System.Int32&
     + (int32_t)decrement_withLocationIntRef:(int32_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Decrement(int&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -122,7 +148,9 @@
 	// Managed param types : ref System.Int64&
     + (int64_t)decrement_withLocationLongRef:(int64_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Decrement(long&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -131,7 +159,9 @@
 	// Managed param types : ref System.Int32&, System.Int32
     + (int32_t)exchange_withLocation1IntRef:(int32_t*)p1 valueInt:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -140,7 +170,9 @@
 	// Managed param types : ref System.Int64&, System.Int64
     + (int64_t)exchange_withLocation1LongRef:(int64_t*)p1 valueLong:(int64_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -149,7 +181,9 @@
 	// Managed param types : ref System.Single&, System.Single
     + (float)exchange_withLocation1SingleRef:(float*)p1 valueSingle:(float)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(single&,single)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
 		return DB_UNBOX_FLOAT(monoObject);
     }
 
@@ -158,7 +192,9 @@
 	// Managed param types : ref System.Double&, System.Double
     + (double)exchange_withLocation1DoubleRef:(double*)p1 valueDouble:(double)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(double&,double)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
@@ -167,7 +203,12 @@
 	// Managed param types : ref System.Object&, System.Object
     + (System_Object *)exchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(object&,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(object&,object)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -176,16 +217,23 @@
 	// Managed param types : ref System.IntPtr&, System.IntPtr
     + (void *)exchange_withLocation1IntptrRef:(void **)p1 valueIntptr:(void *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(intptr&,intptr)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
 	// Managed method name : Exchange
 	// Managed return type : <T>
-	// Managed param types : ref T&, <T>
-    + (System_Object *)exchange_withLocation1TRef:(T **)p1 value:(System_Object *)p2
+	// Managed param types : ref <T&>, <T>
+    + (System_Object *)exchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(T&,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(<_T_0>&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -194,7 +242,9 @@
 	// Managed param types : ref System.Int32&
     + (int32_t)increment_withLocationIntRef:(int32_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Increment(int&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -203,7 +253,9 @@
 	// Managed param types : ref System.Int64&
     + (int64_t)increment_withLocationLongRef:(int64_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Increment(long&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -212,7 +264,7 @@
 	// Managed param types : 
     + (void)memoryBarrier
     {
-		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];
+		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];;
     }
 
 	// Managed method name : Read
@@ -220,7 +272,9 @@
 	// Managed param types : ref System.Int64&
     + (int64_t)read_withLocationRef:(int64_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Read(long&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 

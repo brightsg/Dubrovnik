@@ -102,7 +102,9 @@
 	// Managed param types : System.DateTime, System.Int32, System.Int32
     + (System_TimeZoneInfo__TransitionTime *)createFixedDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 day:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFixedDateRule(System.DateTime,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
     }
 
@@ -111,7 +113,9 @@
 	// Managed param types : System.DateTime, System.Int32, System.Int32, System.DayOfWeek
     + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(System_DayOfWeek)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFloatingDateRule(System.DateTime,int,int,System.DayOfWeek)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+		
 		return [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
     }
 
@@ -120,7 +124,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -129,7 +135,9 @@
 	// Managed param types : System.TimeZoneInfo+TransitionTime
     - (BOOL)equals_withOther:(System_TimeZoneInfo__TransitionTime *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo+TransitionTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -138,7 +146,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -147,7 +157,9 @@
 	// Managed param types : System.TimeZoneInfo+TransitionTime, System.TimeZoneInfo+TransitionTime
     + (BOOL)op_Equality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.TimeZoneInfo+TransitionTime,System.TimeZoneInfo+TransitionTime)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -156,7 +168,9 @@
 	// Managed param types : System.TimeZoneInfo+TransitionTime, System.TimeZoneInfo+TransitionTime
     + (BOOL)op_Inequality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.TimeZoneInfo+TransitionTime,System.TimeZoneInfo+TransitionTime)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

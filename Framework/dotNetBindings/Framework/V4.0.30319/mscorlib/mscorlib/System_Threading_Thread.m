@@ -32,7 +32,7 @@
 	// Managed param types : System.Threading.ThreadStart
     + (System_Threading_Thread *)new_withStartSTThreadStart:(System_Threading_ThreadStart *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.ThreadStart" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Threading.ThreadStart" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Threading.ThreadStart, System.Int32
     + (System_Threading_Thread *)new_withStartSTThreadStart:(System_Threading_ThreadStart *)p1 maxStackSizeInt:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.ThreadStart,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Threading.ThreadStart,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Threading.ParameterizedThreadStart
     + (System_Threading_Thread *)new_withStartSTParameterizedThreadStart:(System_Threading_ParameterizedThreadStart *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Threading.ParameterizedThreadStart, System.Int32
     + (System_Threading_Thread *)new_withStartSTParameterizedThreadStart:(System_Threading_ParameterizedThreadStart *)p1 maxStackSizeInt:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -273,7 +273,7 @@
 	// Managed param types : System.Object
     - (void)abort_withStateInfo:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Abort(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Abort(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Abort
@@ -281,7 +281,7 @@
 	// Managed param types : 
     - (void)abort
     {
-		[self invokeMonoMethod:"Abort()" withNumArgs:0];
+		[self invokeMonoMethod:"Abort()" withNumArgs:0];;
     }
 
 	// Managed method name : AllocateDataSlot
@@ -289,7 +289,9 @@
 	// Managed param types : 
     + (System_LocalDataStoreSlot *)allocateDataSlot
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateDataSlot()" withNumArgs:0];
+		
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
@@ -298,7 +300,9 @@
 	// Managed param types : System.String
     + (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
@@ -307,7 +311,7 @@
 	// Managed param types : 
     + (void)beginCriticalRegion
     {
-		[self invokeMonoClassMethod:"BeginCriticalRegion()" withNumArgs:0];
+		[self invokeMonoClassMethod:"BeginCriticalRegion()" withNumArgs:0];;
     }
 
 	// Managed method name : BeginThreadAffinity
@@ -315,7 +319,7 @@
 	// Managed param types : 
     + (void)beginThreadAffinity
     {
-		[self invokeMonoClassMethod:"BeginThreadAffinity()" withNumArgs:0];
+		[self invokeMonoClassMethod:"BeginThreadAffinity()" withNumArgs:0];;
     }
 
 	// Managed method name : DisableComObjectEagerCleanup
@@ -323,7 +327,7 @@
 	// Managed param types : 
     - (void)disableComObjectEagerCleanup
     {
-		[self invokeMonoMethod:"DisableComObjectEagerCleanup()" withNumArgs:0];
+		[self invokeMonoMethod:"DisableComObjectEagerCleanup()" withNumArgs:0];;
     }
 
 	// Managed method name : EndCriticalRegion
@@ -331,7 +335,7 @@
 	// Managed param types : 
     + (void)endCriticalRegion
     {
-		[self invokeMonoClassMethod:"EndCriticalRegion()" withNumArgs:0];
+		[self invokeMonoClassMethod:"EndCriticalRegion()" withNumArgs:0];;
     }
 
 	// Managed method name : EndThreadAffinity
@@ -339,7 +343,7 @@
 	// Managed param types : 
     + (void)endThreadAffinity
     {
-		[self invokeMonoClassMethod:"EndThreadAffinity()" withNumArgs:0];
+		[self invokeMonoClassMethod:"EndThreadAffinity()" withNumArgs:0];;
     }
 
 	// Managed method name : FreeNamedDataSlot
@@ -347,7 +351,7 @@
 	// Managed param types : System.String
     + (void)freeNamedDataSlot_withName:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : GetApartmentState
@@ -355,7 +359,9 @@
 	// Managed param types : 
     - (System_Threading_ApartmentState)getApartmentState
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetApartmentState()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -364,7 +370,9 @@
 	// Managed param types : 
     - (System_Threading_CompressedStack *)getCompressedStack
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCompressedStack()" withNumArgs:0];
+		
 		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
     }
 
@@ -373,7 +381,9 @@
 	// Managed param types : System.LocalDataStoreSlot
     + (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -382,7 +392,9 @@
 	// Managed param types : 
     + (System_AppDomain *)getDomain
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDomain()" withNumArgs:0];
+		
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
@@ -391,7 +403,9 @@
 	// Managed param types : 
     + (int32_t)getDomainID
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDomainID()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -400,7 +414,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -409,7 +425,9 @@
 	// Managed param types : System.String
     + (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
 
@@ -418,7 +436,7 @@
 	// Managed param types : 
     - (void)interrupt
     {
-		[self invokeMonoMethod:"Interrupt()" withNumArgs:0];
+		[self invokeMonoMethod:"Interrupt()" withNumArgs:0];;
     }
 
 	// Managed method name : Join
@@ -426,7 +444,7 @@
 	// Managed param types : 
     - (void)join
     {
-		[self invokeMonoMethod:"Join()" withNumArgs:0];
+		[self invokeMonoMethod:"Join()" withNumArgs:0];;
     }
 
 	// Managed method name : Join
@@ -434,7 +452,9 @@
 	// Managed param types : System.Int32
     - (BOOL)join_withMillisecondsTimeout:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Join(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -443,7 +463,9 @@
 	// Managed param types : System.TimeSpan
     - (BOOL)join_withTimeout:(System_TimeSpan *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Join(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -452,7 +474,7 @@
 	// Managed param types : 
     + (void)memoryBarrier
     {
-		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];
+		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];;
     }
 
 	// Managed method name : ResetAbort
@@ -460,7 +482,7 @@
 	// Managed param types : 
     + (void)resetAbort
     {
-		[self invokeMonoClassMethod:"ResetAbort()" withNumArgs:0];
+		[self invokeMonoClassMethod:"ResetAbort()" withNumArgs:0];;
     }
 
 	// Managed method name : Resume
@@ -468,7 +490,7 @@
 	// Managed param types : 
     - (void)resume
     {
-		[self invokeMonoMethod:"Resume()" withNumArgs:0];
+		[self invokeMonoMethod:"Resume()" withNumArgs:0];;
     }
 
 	// Managed method name : SetApartmentState
@@ -476,7 +498,7 @@
 	// Managed param types : System.Threading.ApartmentState
     - (void)setApartmentState_withState:(System_Threading_ApartmentState)p1
     {
-		[self invokeMonoMethod:"SetApartmentState(System.Threading.ApartmentState)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"SetApartmentState(System.Threading.ApartmentState)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : SetCompressedStack
@@ -484,7 +506,7 @@
 	// Managed param types : System.Threading.CompressedStack
     - (void)setCompressedStack_withStack:(System_Threading_CompressedStack *)p1
     {
-		[self invokeMonoMethod:"SetCompressedStack(System.Threading.CompressedStack)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetCompressedStack(System.Threading.CompressedStack)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetData
@@ -492,7 +514,7 @@
 	// Managed param types : System.LocalDataStoreSlot, System.Object
     + (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Sleep
@@ -500,7 +522,7 @@
 	// Managed param types : System.Int32
     + (void)sleep_withMillisecondsTimeout:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"Sleep(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Sleep(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Sleep
@@ -508,7 +530,7 @@
 	// Managed param types : System.TimeSpan
     + (void)sleep_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoClassMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SpinWait
@@ -516,7 +538,7 @@
 	// Managed param types : System.Int32
     + (void)spinWait_withIterations:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"SpinWait(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"SpinWait(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Start
@@ -524,7 +546,7 @@
 	// Managed param types : 
     - (void)start
     {
-		[self invokeMonoMethod:"Start()" withNumArgs:0];
+		[self invokeMonoMethod:"Start()" withNumArgs:0];;
     }
 
 	// Managed method name : Start
@@ -532,7 +554,7 @@
 	// Managed param types : System.Object
     - (void)start_withParameter:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Start(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Start(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Suspend
@@ -540,7 +562,7 @@
 	// Managed param types : 
     - (void)suspend
     {
-		[self invokeMonoMethod:"Suspend()" withNumArgs:0];
+		[self invokeMonoMethod:"Suspend()" withNumArgs:0];;
     }
 
 	// Managed method name : TrySetApartmentState
@@ -548,7 +570,9 @@
 	// Managed param types : System.Threading.ApartmentState
     - (BOOL)trySetApartmentState_withState:(System_Threading_ApartmentState)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"TrySetApartmentState(System.Threading.ApartmentState)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -557,7 +581,9 @@
 	// Managed param types : ref System.Byte&
     + (uint8_t)volatileRead_withAddressByteRef:(uint8_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(byte&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_UINT8(monoObject);
     }
 
@@ -566,7 +592,9 @@
 	// Managed param types : ref System.Int16&
     + (int16_t)volatileRead_withAddressInt16Ref:(int16_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(int16&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT16(monoObject);
     }
 
@@ -575,7 +603,9 @@
 	// Managed param types : ref System.Int32&
     + (int32_t)volatileRead_withAddressIntRef:(int32_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(int&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -584,7 +614,9 @@
 	// Managed param types : ref System.Int64&
     + (int64_t)volatileRead_withAddressLongRef:(int64_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(long&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -593,7 +625,9 @@
 	// Managed param types : ref System.SByte&
     + (int8_t)volatileRead_withAddressSbyteRef:(int8_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(sbyte&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT8(monoObject);
     }
 
@@ -602,7 +636,9 @@
 	// Managed param types : ref System.UInt16&
     + (uint16_t)volatileRead_withAddressUint16Ref:(uint16_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(uint16&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_UINT16(monoObject);
     }
 
@@ -611,7 +647,9 @@
 	// Managed param types : ref System.UInt32&
     + (uint32_t)volatileRead_withAddressUintRef:(uint32_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(uint&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_UINT32(monoObject);
     }
 
@@ -620,7 +658,9 @@
 	// Managed param types : ref System.IntPtr&
     + (void *)volatileRead_withAddressIntptrRef:(void **)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(intptr&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -629,7 +669,9 @@
 	// Managed param types : ref System.UIntPtr&
     + (void *)volatileRead_withAddressUintptrRef:(void **)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(uintptr&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -638,7 +680,9 @@
 	// Managed param types : ref System.UInt64&
     + (uint64_t)volatileRead_withAddressUlongRef:(uint64_t*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(ulong&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_UINT64(monoObject);
     }
 
@@ -647,7 +691,9 @@
 	// Managed param types : ref System.Single&
     + (float)volatileRead_withAddressSingleRef:(float*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(single&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_FLOAT(monoObject);
     }
 
@@ -656,7 +702,9 @@
 	// Managed param types : ref System.Double&
     + (double)volatileRead_withAddressDoubleRef:(double*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(double&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
@@ -665,7 +713,12 @@
 	// Managed param types : ref System.Object&
     + (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(object&)" withNumArgs:1, [p1 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(object&)" withNumArgs:1, &refPtr1];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -674,7 +727,7 @@
 	// Managed param types : ref System.Byte&, System.Byte
     + (void)volatileWrite_withAddressByteRef:(uint8_t*)p1 valueByte:(uint8_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(byte&,byte)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(byte&,byte)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -682,7 +735,7 @@
 	// Managed param types : ref System.Int16&, System.Int16
     + (void)volatileWrite_withAddressInt16Ref:(int16_t*)p1 valueInt16:(int16_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(int16&,int16)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(int16&,int16)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -690,7 +743,7 @@
 	// Managed param types : ref System.Int32&, System.Int32
     + (void)volatileWrite_withAddressIntRef:(int32_t*)p1 valueInt:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -698,7 +751,7 @@
 	// Managed param types : ref System.Int64&, System.Int64
     + (void)volatileWrite_withAddressLongRef:(int64_t*)p1 valueLong:(int64_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -706,7 +759,7 @@
 	// Managed param types : ref System.SByte&, System.SByte
     + (void)volatileWrite_withAddressSbyteRef:(int8_t*)p1 valueSbyte:(int8_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(sbyte&,sbyte)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(sbyte&,sbyte)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -714,7 +767,7 @@
 	// Managed param types : ref System.UInt16&, System.UInt16
     + (void)volatileWrite_withAddressUint16Ref:(uint16_t*)p1 valueUint16:(uint16_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(uint16&,uint16)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(uint16&,uint16)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -722,7 +775,7 @@
 	// Managed param types : ref System.UInt32&, System.UInt32
     + (void)volatileWrite_withAddressUintRef:(uint32_t*)p1 valueUint:(uint32_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(uint&,uint)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(uint&,uint)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -730,7 +783,7 @@
 	// Managed param types : ref System.IntPtr&, System.IntPtr
     + (void)volatileWrite_withAddressIntptrRef:(void **)p1 valueIntptr:(void *)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(intptr&,intptr)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(intptr&,intptr)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -738,7 +791,7 @@
 	// Managed param types : ref System.UIntPtr&, System.UIntPtr
     + (void)volatileWrite_withAddressUintptrRef:(void **)p1 valueUintptr:(void *)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(uintptr&,uintptr)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(uintptr&,uintptr)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -746,7 +799,7 @@
 	// Managed param types : ref System.UInt64&, System.UInt64
     + (void)volatileWrite_withAddressUlongRef:(uint64_t*)p1 valueUlong:(uint64_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(ulong&,ulong)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(ulong&,ulong)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -754,7 +807,7 @@
 	// Managed param types : ref System.Single&, System.Single
     + (void)volatileWrite_withAddressSingleRef:(float*)p1 valueSingle:(float)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(single&,single)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(single&,single)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -762,7 +815,7 @@
 	// Managed param types : ref System.Double&, System.Double
     + (void)volatileWrite_withAddressDoubleRef:(double*)p1 valueDouble:(double)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(double&,double)" withNumArgs:2, p1, DB_VALUE(p2)];
+		[self invokeMonoClassMethod:"VolatileWrite(double&,double)" withNumArgs:2, p1, DB_VALUE(p2)];;
     }
 
 	// Managed method name : VolatileWrite
@@ -770,7 +823,8 @@
 	// Managed param types : ref System.Object&, System.Object
     + (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(object&,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"VolatileWrite(object&,object)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+;
     }
 
 	// Managed method name : Yield
@@ -778,7 +832,9 @@
 	// Managed param types : 
     + (BOOL)yield
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Yield()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

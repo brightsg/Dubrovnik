@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : GetBytes
@@ -40,7 +40,9 @@
 	// Managed param types : System.Int32
     - (NSData *)getBytes_withCb:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -49,7 +51,7 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
     }
 
 #pragma mark -

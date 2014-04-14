@@ -32,7 +32,9 @@
 	// Managed param types : System.Diagnostics.Contracts.ContractFailureKind, System.String, System.String, System.Exception
     + (NSString *)raiseContractFailedEvent_withFailureKind:(System_Diagnostics_Contracts_ContractFailureKind)p1 userMessage:(NSString *)p2 conditionText:(NSString *)p3 innerException:(System_Exception *)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"RaiseContractFailedEvent(System.Diagnostics.Contracts.ContractFailureKind,string,string,System.Exception)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -41,7 +43,7 @@
 	// Managed param types : System.Diagnostics.Contracts.ContractFailureKind, System.String, System.String, System.String, System.Exception
     + (void)triggerFailure_withKind:(System_Diagnostics_Contracts_ContractFailureKind)p1 displayMessage:(NSString *)p2 userMessage:(NSString *)p3 conditionText:(NSString *)p4 innerException:(System_Exception *)p5
     {
-		[self invokeMonoClassMethod:"TriggerFailure(System.Diagnostics.Contracts.ContractFailureKind,string,string,string,System.Exception)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		[self invokeMonoClassMethod:"TriggerFailure(System.Diagnostics.Contracts.ContractFailureKind,string,string,string,System.Exception)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
     }
 
 #pragma mark -

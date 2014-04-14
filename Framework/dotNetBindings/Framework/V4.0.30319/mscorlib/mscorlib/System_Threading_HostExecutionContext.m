@@ -32,7 +32,7 @@
 	// Managed param types : System.Object
     + (System_Threading_HostExecutionContext *)new_withState:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : 
     - (System_Threading_HostExecutionContext *)createCopy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
+		
 		return [System_Threading_HostExecutionContext objectWithMonoObject:monoObject];
     }
 
@@ -52,7 +54,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : Dispose
@@ -60,7 +62,7 @@
 	// Managed param types : System.Boolean
     - (void)dispose_withDisposing:(BOOL)p1
     {
-		[self invokeMonoMethod:"Dispose(bool)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"Dispose(bool)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

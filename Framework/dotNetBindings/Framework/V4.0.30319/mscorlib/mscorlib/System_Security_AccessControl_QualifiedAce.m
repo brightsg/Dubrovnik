@@ -68,7 +68,9 @@
 	// Managed param types : 
     - (NSData *)getOpaque
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOpaque()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -77,7 +79,7 @@
 	// Managed param types : System.Byte[]
     - (void)setOpaque_withOpaque:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

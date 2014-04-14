@@ -747,8 +747,8 @@
 
 	// Managed method name : UnsafeAddrOfPinnedArrayElement
 	// Managed return type : System.IntPtr
-	// Managed param types : T[], System.Int32
-    + (void *)unsafeAddrOfPinnedArrayElement_withArrSArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2;
+	// Managed param types : <T[]>, System.Int32
+    + (void *)unsafeAddrOfPinnedArrayElement_withArr:(System_Object *)p1 indexInt:(int32_t)p2;
 
 	// Managed method name : WriteByte
 	// Managed return type : System.Void

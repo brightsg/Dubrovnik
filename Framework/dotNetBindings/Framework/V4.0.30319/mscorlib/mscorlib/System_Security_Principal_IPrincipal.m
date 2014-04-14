@@ -47,7 +47,9 @@
 	// Managed param types : System.String
     - (BOOL)isInRole_withRole:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

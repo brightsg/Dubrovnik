@@ -32,7 +32,7 @@
 	// Managed param types : System.Int64, System.TimeSpan
     + (System_DateTimeOffset *)new_withTicks:(int64_t)p1 offset:(System_TimeSpan *)p2
     {
-		return [[self alloc] initWithSignature:"long,System.TimeSpan" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		return [[self alloc] initWithSignature:"long,System.TimeSpan" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.DateTime
     + (System_DateTimeOffset *)new_withDateTime:(NSDate *)p1
     {
-		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.DateTime, System.TimeSpan
     + (System_DateTimeOffset *)new_withDateTime:(NSDate *)p1 offset:(System_TimeSpan *)p2
     {
-		return [[self alloc] initWithSignature:"System.DateTime,System.TimeSpan" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.DateTime,System.TimeSpan" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.TimeSpan
     + (System_DateTimeOffset *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 offset:(System_TimeSpan *)p7
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,System.TimeSpan" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoValue]];
+		return [[self alloc] initWithSignature:"int,int,int,int,int,int,System.TimeSpan" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.TimeSpan
     + (System_DateTimeOffset *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 offset:(System_TimeSpan *)p8
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.TimeSpan" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoValue]];
+		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.TimeSpan" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Globalization.Calendar, System.TimeSpan
     + (System_DateTimeOffset *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 calendar:(System_Globalization_Calendar *)p8 offset:(System_TimeSpan *)p9
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.Globalization.Calendar,System.TimeSpan" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoValue], [p9 monoValue]];
+		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.Globalization.Calendar,System.TimeSpan" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoValue], [p9 monoValue]];;
     }
 
 #pragma mark -
@@ -330,7 +330,9 @@
 	// Managed param types : System.TimeSpan
     - (System_DateTimeOffset *)add_withTimeSpan:(System_TimeSpan *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -339,7 +341,9 @@
 	// Managed param types : System.Double
     - (System_DateTimeOffset *)addDays_withDays:(double)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddDays(double)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -348,7 +352,9 @@
 	// Managed param types : System.Double
     - (System_DateTimeOffset *)addHours_withHours:(double)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddHours(double)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -357,7 +363,9 @@
 	// Managed param types : System.Double
     - (System_DateTimeOffset *)addMilliseconds_withMilliseconds:(double)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMilliseconds(double)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -366,7 +374,9 @@
 	// Managed param types : System.Double
     - (System_DateTimeOffset *)addMinutes_withMinutes:(double)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMinutes(double)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -375,7 +385,9 @@
 	// Managed param types : System.Int32
     - (System_DateTimeOffset *)addMonths_withMonths:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddMonths(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -384,7 +396,9 @@
 	// Managed param types : System.Double
     - (System_DateTimeOffset *)addSeconds_withSeconds:(double)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddSeconds(double)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -393,7 +407,9 @@
 	// Managed param types : System.Int64
     - (System_DateTimeOffset *)addTicks_withTicks:(int64_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddTicks(long)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -402,7 +418,9 @@
 	// Managed param types : System.Int32
     - (System_DateTimeOffset *)addYears_withYears:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddYears(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -411,7 +429,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (int32_t)compare_withFirst:(System_DateTimeOffset *)p1 second:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -420,7 +440,9 @@
 	// Managed param types : System.DateTimeOffset
     - (int32_t)compareTo_withOther:(System_DateTimeOffset *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(System.DateTimeOffset)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -429,7 +451,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -438,7 +462,9 @@
 	// Managed param types : System.DateTimeOffset
     - (BOOL)equals_withOther:(System_DateTimeOffset *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.DateTimeOffset)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -447,7 +473,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (BOOL)equals_withFirst:(System_DateTimeOffset *)p1 second:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -456,7 +484,9 @@
 	// Managed param types : System.DateTimeOffset
     - (BOOL)equalsExact_withOther:(System_DateTimeOffset *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"EqualsExact(System.DateTimeOffset)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -465,7 +495,9 @@
 	// Managed param types : System.Int64
     + (System_DateTimeOffset *)fromFileTime_withFileTime:(int64_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromFileTime(long)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -474,7 +506,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -483,7 +517,9 @@
 	// Managed param types : System.DateTimeOffset, System.TimeSpan
     + (System_DateTimeOffset *)op_Addition_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(System.DateTimeOffset,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -492,7 +528,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (BOOL)op_Equality_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -501,7 +539,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (BOOL)op_GreaterThan_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -510,7 +550,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (BOOL)op_GreaterThanOrEqual_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -519,7 +561,9 @@
 	// Managed param types : System.DateTime
     + (System_DateTimeOffset *)op_Implicit_withDateTime:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -528,7 +572,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (BOOL)op_Inequality_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -537,7 +583,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (BOOL)op_LessThan_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -546,7 +594,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (BOOL)op_LessThanOrEqual_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -555,7 +605,9 @@
 	// Managed param types : System.DateTimeOffset, System.TimeSpan
     + (System_DateTimeOffset *)op_Subtraction_withDateTimeOffset:(System_DateTimeOffset *)p1 timeSpan:(System_TimeSpan *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.DateTimeOffset,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -564,7 +616,9 @@
 	// Managed param types : System.DateTimeOffset, System.DateTimeOffset
     + (System_TimeSpan *)op_Subtraction_withLeft:(System_DateTimeOffset *)p1 right:(System_DateTimeOffset *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.DateTimeOffset,System.DateTimeOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
@@ -573,7 +627,9 @@
 	// Managed param types : System.String
     + (System_DateTimeOffset *)parse_withInput:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -582,7 +638,9 @@
 	// Managed param types : System.String, System.IFormatProvider
     + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -591,7 +649,9 @@
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
     + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -600,7 +660,9 @@
 	// Managed param types : System.String, System.String, System.IFormatProvider
     + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -609,7 +671,9 @@
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
     + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string,System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -618,7 +682,9 @@
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles
     + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string[],System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -627,7 +693,9 @@
 	// Managed param types : System.DateTimeOffset
     - (System_TimeSpan *)subtract_withValueSDateTimeOffset:(System_DateTimeOffset *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.DateTimeOffset)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
@@ -636,7 +704,9 @@
 	// Managed param types : System.TimeSpan
     - (System_DateTimeOffset *)subtract_withValueSTimeSpan:(System_TimeSpan *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -645,7 +715,9 @@
 	// Managed param types : 
     - (int64_t)toFileTime
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToFileTime()" withNumArgs:0];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -654,7 +726,9 @@
 	// Managed param types : 
     - (System_DateTimeOffset *)toLocalTime
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToLocalTime()" withNumArgs:0];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -663,7 +737,9 @@
 	// Managed param types : System.TimeSpan
     - (System_DateTimeOffset *)toOffset_withOffset:(System_TimeSpan *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToOffset(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -672,7 +748,9 @@
 	// Managed param types : System.String, System.IFormatProvider
     - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -681,7 +759,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -690,7 +770,9 @@
 	// Managed param types : System.String
     - (NSString *)toString_withFormat:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -699,7 +781,9 @@
 	// Managed param types : System.IFormatProvider
     - (NSString *)toString_withFormatProvider:(System_IFormatProvider *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -708,7 +792,9 @@
 	// Managed param types : 
     - (System_DateTimeOffset *)toUniversalTime
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUniversalTime()" withNumArgs:0];
+		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
 
@@ -717,7 +803,12 @@
 	// Managed param types : System.String, ref System.DateTimeOffset&
     + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_DateTimeOffset **)p2
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.DateTimeOffset&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr2 = [*p2 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.DateTimeOffset&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+
+		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -726,7 +817,12 @@
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
     + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(System_DateTimeOffset **)p4
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTimeOffset&)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];
+		void *refPtr4 = [*p4 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTimeOffset&)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), &refPtr4];
+
+		*p4 = [System_Object subclassObjectWithMonoObject:refPtr4];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -735,7 +831,12 @@
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
     + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string[],System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTimeOffset&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		void *refPtr5 = [*p5 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string[],System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTimeOffset&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), &refPtr5];
+
+		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -744,7 +845,12 @@
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
     + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTimeOffset&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		void *refPtr5 = [*p5 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTimeOffset&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), &refPtr5];
+
+		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

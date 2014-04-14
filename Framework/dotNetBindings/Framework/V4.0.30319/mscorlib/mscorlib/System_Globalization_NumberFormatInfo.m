@@ -547,7 +547,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -556,7 +558,9 @@
 	// Managed param types : System.Type
     - (System_Object *)getFormat_withFormatType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -565,7 +569,9 @@
 	// Managed param types : System.IFormatProvider
     + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
     }
 
@@ -574,7 +580,9 @@
 	// Managed param types : System.Globalization.NumberFormatInfo
     + (System_Globalization_NumberFormatInfo *)readOnly_withNfi:(System_Globalization_NumberFormatInfo *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.NumberFormatInfo)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
     }
 

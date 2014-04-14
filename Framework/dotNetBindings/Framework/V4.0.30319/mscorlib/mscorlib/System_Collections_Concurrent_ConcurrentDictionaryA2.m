@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32, System.Int32
     + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Collections.Generic.IEqualityComparer`1<TKey>
     + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withComparer:(System_Collections_Generic_IEqualityComparerA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>
     + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Collections_Generic_IEnumerableA1_System_Collections_Generic_KeyValuePairA2 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>, System.Collections.Generic.IEqualityComparer`1<TKey>
     + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Collections_Generic_IEnumerableA1_System_Collections_Generic_KeyValuePairA2 *)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Int32, System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>, System.Collections.Generic.IEqualityComparer`1<TKey>
     + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 collection:(System_Collections_Generic_IEnumerableA1_System_Collections_Generic_KeyValuePairA2 *)p2 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p3
     {
-		return [[self alloc] initWithSignature:"int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		return [[self alloc] initWithSignature:"int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.Int32, System.Int32, System.Collections.Generic.IEqualityComparer`1<TKey>
     + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p3
     {
-		return [[self alloc] initWithSignature:"int,int,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		return [[self alloc] initWithSignature:"int,int,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
     }
 
 #pragma mark -
@@ -150,7 +150,9 @@
 	// Managed param types : <TKey>, System.Func`2<TKey, TValue>, System.Func`3<TKey, TValue, TValue>
     - (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValueFactory:(System_FuncA2 *)p2 updateValueFactory:(System_FuncA3 *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,System.Func`2<TKey, TValue>,System.Func`3<TKey, TValue, TValue>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -159,7 +161,9 @@
 	// Managed param types : <TKey>, <TValue>, System.Func`3<TKey, TValue, TValue>
     - (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValue:(System_Object *)p2 updateValueFactory:(System_FuncA3 *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,<_T_1>,System.Func`3<TKey, TValue, TValue>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -168,7 +172,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : ContainsKey
@@ -176,7 +180,9 @@
 	// Managed param types : <TKey>
     - (BOOL)containsKey_withKey:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -185,7 +191,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1_System_Collections_Generic_KeyValuePairA2 *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IEnumeratorA1_System_Collections_Generic_KeyValuePairA2 objectWithMonoObject:monoObject];
     }
 
@@ -194,7 +202,9 @@
 	// Managed param types : <TKey>, System.Func`2<TKey, TValue>
     - (System_Object *)getOrAdd_withKey:(System_Object *)p1 valueFactory:(System_FuncA2 *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,System.Func`2<TKey, TValue>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -203,7 +213,9 @@
 	// Managed param types : <TKey>, <TValue>
     - (System_Object *)getOrAdd_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -212,7 +224,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)toArray
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -221,25 +235,37 @@
 	// Managed param types : <TKey>, <TValue>
     - (BOOL)tryAdd_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(TValue **)p2
+	// Managed param types : <TKey>, ref <TValue&>
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,TValue&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr2 = [*p2 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+
+		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryRemove
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(TValue **)p2
+	// Managed param types : <TKey>, ref <TValue&>
+    - (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryRemove(<_T_0>,TValue&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr2 = [*p2 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"TryRemove(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+
+		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -248,7 +274,9 @@
 	// Managed param types : <TKey>, <TValue>, <TValue>
     - (BOOL)tryUpdate_withKey:(System_Object *)p1 newValue:(System_Object *)p2 comparisonValue:(System_Object *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"TryUpdate(<_T_0>,<_T_1>,<_T_1>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

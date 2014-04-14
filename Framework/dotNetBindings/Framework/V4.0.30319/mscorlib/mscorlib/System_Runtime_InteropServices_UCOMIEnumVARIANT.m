@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     - (void)clone_withPpenum:(int32_t)p1
     {
-		[self invokeMonoMethod:"Clone(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"Clone(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Next
@@ -40,7 +40,9 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32
     - (int32_t)next_withCelt:(int32_t)p1 rgvar:(int32_t)p2 pceltFetched:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Next(int,int,int)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -49,7 +51,9 @@
 	// Managed param types : 
     - (int32_t)reset
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Reset()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -58,7 +62,9 @@
 	// Managed param types : System.Int32
     - (int32_t)skip_withCelt:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Skip(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

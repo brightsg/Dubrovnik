@@ -32,7 +32,9 @@
 	// Managed param types : System.Type
     - (System_Runtime_Remoting_ObjRef *)createObjRef_withRequestedType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateObjRef(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : 
     - (System_Object *)getLifetimeService
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLifetimeService()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : 
     - (System_Object *)initializeLifetimeService
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

@@ -127,7 +127,7 @@
 	// Managed param types : System.Object, System.Delegate
     - (void)addEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2
     {
-		[self invokeMonoMethod:"AddEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"AddEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Equals
@@ -135,7 +135,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -144,7 +146,9 @@
 	// Managed param types : System.Boolean
     - (System_Reflection_MethodInfo *)getAddMethod_withNonPublic:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAddMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -153,7 +157,9 @@
 	// Managed param types : 
     - (System_Reflection_MethodInfo *)getAddMethod
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAddMethod()" withNumArgs:0];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -162,7 +168,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -171,7 +179,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getOtherMethods_withNonPublic:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOtherMethods(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -180,7 +190,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getOtherMethods
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOtherMethods()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -189,7 +201,9 @@
 	// Managed param types : System.Boolean
     - (System_Reflection_MethodInfo *)getRaiseMethod_withNonPublic:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRaiseMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -198,7 +212,9 @@
 	// Managed param types : 
     - (System_Reflection_MethodInfo *)getRaiseMethod
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRaiseMethod()" withNumArgs:0];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -207,7 +223,9 @@
 	// Managed param types : System.Boolean
     - (System_Reflection_MethodInfo *)getRemoveMethod_withNonPublic:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRemoveMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -216,7 +234,9 @@
 	// Managed param types : 
     - (System_Reflection_MethodInfo *)getRemoveMethod
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRemoveMethod()" withNumArgs:0];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -225,7 +245,9 @@
 	// Managed param types : System.Reflection.EventInfo, System.Reflection.EventInfo
     + (BOOL)op_Equality_withLeft:(System_Reflection_EventInfo *)p1 right:(System_Reflection_EventInfo *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.EventInfo,System.Reflection.EventInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -234,7 +256,9 @@
 	// Managed param types : System.Reflection.EventInfo, System.Reflection.EventInfo
     + (BOOL)op_Inequality_withLeft:(System_Reflection_EventInfo *)p1 right:(System_Reflection_EventInfo *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.EventInfo,System.Reflection.EventInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -243,7 +267,7 @@
 	// Managed param types : System.Object, System.Delegate
     - (void)removeEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2
     {
-		[self invokeMonoMethod:"RemoveEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"RemoveEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -

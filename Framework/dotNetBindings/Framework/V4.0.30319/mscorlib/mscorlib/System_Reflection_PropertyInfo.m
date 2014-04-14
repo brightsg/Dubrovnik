@@ -126,7 +126,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -135,7 +137,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getAccessors_withNonPublic:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -144,7 +148,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getAccessors
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -153,7 +159,9 @@
 	// Managed param types : 
     - (System_Object *)getConstantValue
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstantValue()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -162,7 +170,9 @@
 	// Managed param types : System.Boolean
     - (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -171,7 +181,9 @@
 	// Managed param types : 
     - (System_Reflection_MethodInfo *)getGetMethod
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod()" withNumArgs:0];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -180,7 +192,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -189,7 +203,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getIndexParameters
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetIndexParameters()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -198,7 +214,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getOptionalCustomModifiers
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOptionalCustomModifiers()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -207,7 +225,9 @@
 	// Managed param types : 
     - (System_Object *)getRawConstantValue
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRawConstantValue()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -216,7 +236,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getRequiredCustomModifiers
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRequiredCustomModifiers()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -225,7 +247,9 @@
 	// Managed param types : System.Boolean
     - (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -234,7 +258,9 @@
 	// Managed param types : 
     - (System_Reflection_MethodInfo *)getSetMethod
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod()" withNumArgs:0];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -243,7 +269,9 @@
 	// Managed param types : System.Object
     - (System_Object *)getValue_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -252,7 +280,9 @@
 	// Managed param types : System.Object, System.Object[]
     - (System_Object *)getValue_withObj:(System_Object *)p1 index:(DBSystem_Array *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -261,7 +291,9 @@
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
     - (System_Object *)getValue_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 index:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -270,7 +302,9 @@
 	// Managed param types : System.Reflection.PropertyInfo, System.Reflection.PropertyInfo
     + (BOOL)op_Equality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -279,7 +313,9 @@
 	// Managed param types : System.Reflection.PropertyInfo, System.Reflection.PropertyInfo
     + (BOOL)op_Inequality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -288,7 +324,7 @@
 	// Managed param types : System.Object, System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
     - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 index:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6
     {
-		[self invokeMonoMethod:"SetValue(object,object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		[self invokeMonoMethod:"SetValue(object,object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue]];;
     }
 
 	// Managed method name : SetValue
@@ -296,7 +332,7 @@
 	// Managed param types : System.Object, System.Object
     - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : SetValue
@@ -304,7 +340,7 @@
 	// Managed param types : System.Object, System.Object, System.Object[]
     - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(DBSystem_Array *)p3
     {
-		[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 #pragma mark -

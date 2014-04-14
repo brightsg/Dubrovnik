@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Reflection_AssemblyKeyFileAttribute *)new_withKeyFile:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

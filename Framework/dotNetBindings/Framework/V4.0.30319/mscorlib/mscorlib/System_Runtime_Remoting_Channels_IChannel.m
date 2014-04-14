@@ -57,9 +57,13 @@
 	// Managed return type : System.String
 	// Managed param types : System.String, ref System.String&
     - (NSString *)parse_withUrl:(NSString *)p1 objectURIRef:(NSString **)p2
-#warning object ref and out parameter implementation is pending
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,string&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr2 = [*p2 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"Parse(string,string&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+
+		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

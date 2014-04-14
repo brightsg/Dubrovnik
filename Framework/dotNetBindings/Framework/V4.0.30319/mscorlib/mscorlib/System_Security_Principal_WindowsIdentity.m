@@ -32,7 +32,7 @@
 	// Managed param types : System.IntPtr
     + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1
     {
-		return [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.IntPtr, System.String
     + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1 type:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"intptr,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		return [[self alloc] initWithSignature:"intptr,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.IntPtr, System.String, System.Security.Principal.WindowsAccountType
     + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1 type:(NSString *)p2 acctType:(System_Security_Principal_WindowsAccountType)p3
     {
-		return [[self alloc] initWithSignature:"intptr,string,System.Security.Principal.WindowsAccountType" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3)];
+		return [[self alloc] initWithSignature:"intptr,string,System.Security.Principal.WindowsAccountType" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.IntPtr, System.String, System.Security.Principal.WindowsAccountType, System.Boolean
     + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1 type:(NSString *)p2 acctType:(System_Security_Principal_WindowsAccountType)p3 isAuthenticated:(BOOL)p4
     {
-		return [[self alloc] initWithSignature:"intptr,string,System.Security.Principal.WindowsAccountType,bool" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
+		return [[self alloc] initWithSignature:"intptr,string,System.Security.Principal.WindowsAccountType,bool" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.String
     + (System_Security_Principal_WindowsIdentity *)new_withSUserPrincipalName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.String, System.String
     + (System_Security_Principal_WindowsIdentity *)new_withSUserPrincipalName:(NSString *)p1 type:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +80,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     + (System_Security_Principal_WindowsIdentity *)new_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -271,7 +271,9 @@
 	// Managed param types : 
     - (System_Security_Claims_ClaimsIdentity *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Security_Claims_ClaimsIdentity objectWithMonoObject:monoObject];
     }
 
@@ -280,7 +282,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : GetAnonymous
@@ -288,7 +290,9 @@
 	// Managed param types : 
     + (System_Security_Principal_WindowsIdentity *)getAnonymous
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAnonymous()" withNumArgs:0];
+		
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
@@ -297,7 +301,9 @@
 	// Managed param types : 
     + (System_Security_Principal_WindowsIdentity *)getCurrent
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrent()" withNumArgs:0];
+		
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
@@ -306,7 +312,9 @@
 	// Managed param types : System.Boolean
     + (System_Security_Principal_WindowsIdentity *)getCurrent_withIfImpersonating:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrent(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
@@ -315,7 +323,9 @@
 	// Managed param types : System.Security.Principal.TokenAccessLevels
     + (System_Security_Principal_WindowsIdentity *)getCurrent_withDesiredAccess:(System_Security_Principal_TokenAccessLevels)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrent(System.Security.Principal.TokenAccessLevels)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Security_Principal_WindowsIdentity objectWithMonoObject:monoObject];
     }
 
@@ -324,7 +334,9 @@
 	// Managed param types : 
     - (System_Security_Principal_WindowsImpersonationContext *)impersonate
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Impersonate()" withNumArgs:0];
+		
 		return [System_Security_Principal_WindowsImpersonationContext objectWithMonoObject:monoObject];
     }
 
@@ -333,7 +345,9 @@
 	// Managed param types : System.IntPtr
     + (System_Security_Principal_WindowsImpersonationContext *)impersonate_withUserToken:(void *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Impersonate(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Security_Principal_WindowsImpersonationContext objectWithMonoObject:monoObject];
     }
 

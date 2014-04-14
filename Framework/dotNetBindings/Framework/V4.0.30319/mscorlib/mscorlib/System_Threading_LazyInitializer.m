@@ -29,37 +29,61 @@
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&, System.Func`1<T>
-    + (System_Object *)ensureInitialized_withTargetRef:(T **)p1 valueFactory:(System_FuncA1 *)p2
+	// Managed param types : ref <T&>, System.Func`1<T>
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1 valueFactory:(System_FuncA1 *)p2
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&,System.Func`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&,System.Func`1<T>)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&
-    + (System_Object *)ensureInitialized_withTargetRef:(T **)p1
+	// Managed param types : ref <T&>
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&)" withNumArgs:1, [p1 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&)" withNumArgs:1, &refPtr1];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&
-    + (System_Object *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3
+	// Managed param types : ref <T&>, ref System.Boolean&, ref System.Object&
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&,bool&,object&)" withNumArgs:3, [p1 monoValue], p2, [p3 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+void *refPtr3 = [*p3 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&,bool&,object&)" withNumArgs:3, &refPtr1, p2, &refPtr3];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <T>
-	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&, System.Func`1<T>
-    + (System_Object *)ensureInitialized_withTargetRef:(T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(System_FuncA1 *)p4
+	// Managed param types : ref <T&>, ref System.Boolean&, ref System.Object&, System.Func`1<T>
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(System_FuncA1 *)p4
     {
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(T&,bool&,object&,System.Func`1<T>)" withNumArgs:4, [p1 monoValue], p2, [p3 monoValue], [p4 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+void *refPtr3 = [*p3 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&,bool&,object&,System.Func`1<T>)" withNumArgs:4, &refPtr1, p2, &refPtr3, [p4 monoValue]];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 

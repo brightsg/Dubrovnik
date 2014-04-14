@@ -32,7 +32,9 @@
 	// Managed param types : System.Object, System.Collections.IComparer
     - (int32_t)compareTo_withOther:(System_Object *)p1 comparer:(System_Collections_IComparer *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object,System.Collections.IComparer)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

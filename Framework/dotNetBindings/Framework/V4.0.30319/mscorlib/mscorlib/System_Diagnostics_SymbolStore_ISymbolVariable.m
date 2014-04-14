@@ -125,7 +125,9 @@
 	// Managed param types : 
     - (NSData *)getSignature
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSignature()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 

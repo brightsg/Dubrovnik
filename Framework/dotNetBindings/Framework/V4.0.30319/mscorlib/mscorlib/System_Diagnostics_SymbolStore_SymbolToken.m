@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     + (System_Diagnostics_SymbolStore_SymbolToken *)new_withVal:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -52,7 +54,9 @@
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken
     - (BOOL)equals_withObjSDSSymbolToken:(System_Diagnostics_SymbolStore_SymbolToken *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -61,7 +65,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -70,7 +76,9 @@
 	// Managed param types : 
     - (int32_t)getToken
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetToken()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -79,7 +87,9 @@
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Diagnostics.SymbolStore.SymbolToken
     + (BOOL)op_Equality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Diagnostics.SymbolStore.SymbolToken,System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -88,7 +98,9 @@
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Diagnostics.SymbolStore.SymbolToken
     + (BOOL)op_Inequality_withA:(System_Diagnostics_SymbolStore_SymbolToken *)p1 b:(System_Diagnostics_SymbolStore_SymbolToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Diagnostics.SymbolStore.SymbolToken,System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

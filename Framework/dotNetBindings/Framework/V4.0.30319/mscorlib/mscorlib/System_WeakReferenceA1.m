@@ -32,7 +32,7 @@
 	// Managed param types : <T>, System.Boolean
     + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"<_T_0>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"<_T_0>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : <T>
     + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -51,7 +51,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : SetTarget
@@ -59,15 +59,20 @@
 	// Managed param types : <T>
     - (void)setTarget_withTarget:(System_Object *)p1
     {
-		[self invokeMonoMethod:"SetTarget(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetTarget(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : TryGetTarget
 	// Managed return type : System.Boolean
-	// Managed param types : ref T&
-    - (BOOL)tryGetTarget_withTargetRef:(T **)p1
+	// Managed param types : ref <T&>
+    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetTarget(T&)" withNumArgs:1, [p1 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"TryGetTarget(<_T_0>&)" withNumArgs:1, &refPtr1];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.DateTime
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDay *)new_withValue:(NSDate *)p1
     {
-		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -76,7 +76,9 @@
 	// Managed param types : 
     - (NSString *)getXsdType
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetXsdType()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -85,7 +87,9 @@
 	// Managed param types : System.String
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDay *)parse_withValue:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDay objectWithMonoObject:monoObject];
     }
 
@@ -94,7 +98,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

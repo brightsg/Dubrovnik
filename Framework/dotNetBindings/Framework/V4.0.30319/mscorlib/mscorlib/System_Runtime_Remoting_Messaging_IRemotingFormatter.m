@@ -32,7 +32,9 @@
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler
     - (System_Object *)deserialize_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.IO.Stream,System.Runtime.Remoting.Messaging.HeaderHandler)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,7 @@
 	// Managed param types : System.IO.Stream, System.Object, System.Runtime.Remoting.Messaging.Header[]
     - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2 headers:(DBSystem_Array *)p3
     {
-		[self invokeMonoMethod:"Serialize(System.IO.Stream,object,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoMethod:"Serialize(System.IO.Stream,object,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 #pragma mark -

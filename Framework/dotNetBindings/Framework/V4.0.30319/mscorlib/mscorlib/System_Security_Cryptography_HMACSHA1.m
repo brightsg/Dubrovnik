@@ -32,7 +32,7 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_HMACSHA1 *)new_withKey:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Byte[], System.Boolean
     + (System_Security_Cryptography_HMACSHA1 *)new_withKey:(NSData *)p1 useManagedSha1:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"byte[],bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"byte[],bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -

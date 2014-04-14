@@ -81,7 +81,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getChildren
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChildren()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -90,7 +92,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getLocals
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLocals()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -99,7 +103,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getNamespaces
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNamespaces()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 

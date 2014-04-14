@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.DllImportSearchPath
     + (System_Runtime_InteropServices_DefaultDllImportSearchPathsAttribute *)new_withPaths:(System_Runtime_InteropServices_DllImportSearchPath)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.DllImportSearchPath" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.DllImportSearchPath" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

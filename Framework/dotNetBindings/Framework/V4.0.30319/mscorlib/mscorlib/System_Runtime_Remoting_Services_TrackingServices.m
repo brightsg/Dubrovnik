@@ -47,7 +47,7 @@
 	// Managed param types : System.Runtime.Remoting.Services.ITrackingHandler
     + (void)registerTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1
     {
-		[self invokeMonoClassMethod:"RegisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"RegisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : UnregisterTrackingHandler
@@ -55,7 +55,7 @@
 	// Managed param types : System.Runtime.Remoting.Services.ITrackingHandler
     + (void)unregisterTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1
     {
-		[self invokeMonoClassMethod:"UnregisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"UnregisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

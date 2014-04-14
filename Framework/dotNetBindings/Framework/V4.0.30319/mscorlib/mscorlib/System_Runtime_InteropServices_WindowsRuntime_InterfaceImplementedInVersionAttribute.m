@@ -32,7 +32,7 @@
 	// Managed param types : System.Type, System.Byte, System.Byte, System.Byte, System.Byte
     + (System_Runtime_InteropServices_WindowsRuntime_InterfaceImplementedInVersionAttribute *)new_withInterfaceType:(System_Type *)p1 majorVersion:(uint8_t)p2 minorVersion:(uint8_t)p3 buildVersion:(uint8_t)p4 revisionVersion:(uint8_t)p5
     {
-		return [[self alloc] initWithSignature:"System.Type,byte,byte,byte,byte" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+		return [[self alloc] initWithSignature:"System.Type,byte,byte,byte,byte" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
     }
 
 #pragma mark -

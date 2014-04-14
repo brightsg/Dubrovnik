@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Versioning.ResourceScope
     + (System_Runtime_Versioning_ResourceExposureAttribute *)new_withExposureLevel:(System_Runtime_Versioning_ResourceScope)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ResourceScope" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ResourceScope" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

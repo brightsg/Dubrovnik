@@ -32,7 +32,7 @@
 	// Managed param types : System.Byte[]
     + (System_Configuration_Assemblies_AssemblyHash *)new_withValue:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Configuration.Assemblies.AssemblyHashAlgorithm, System.Byte[]
     + (System_Configuration_Assemblies_AssemblyHash *)new_withAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p1 value:(NSData *)p2
     {
-		return [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm,byte[]" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm,byte[]" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -86,7 +86,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -95,7 +97,9 @@
 	// Managed param types : 
     - (NSData *)getValue
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -104,7 +108,7 @@
 	// Managed param types : System.Byte[]
     - (void)setValue_withValue:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetValue(byte[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetValue(byte[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

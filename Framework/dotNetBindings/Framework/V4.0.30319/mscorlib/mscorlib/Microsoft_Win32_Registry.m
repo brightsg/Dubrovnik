@@ -119,7 +119,9 @@
 	// Managed param types : System.String, System.String, System.Object
     + (System_Object *)getValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 defaultValue:(System_Object *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetValue(string,string,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -128,7 +130,7 @@
 	// Managed param types : System.String, System.String, System.Object, Microsoft.Win32.RegistryValueKind
     + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3 valueKind:(Microsoft_Win32_RegistryValueKind)p4
     {
-		[self invokeMonoClassMethod:"SetValue(string,string,object,Microsoft.Win32.RegistryValueKind)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		[self invokeMonoClassMethod:"SetValue(string,string,object,Microsoft.Win32.RegistryValueKind)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];;
     }
 
 	// Managed method name : SetValue
@@ -136,7 +138,7 @@
 	// Managed param types : System.String, System.String, System.Object
     + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"SetValue(string,string,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoClassMethod:"SetValue(string,string,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 #pragma mark -

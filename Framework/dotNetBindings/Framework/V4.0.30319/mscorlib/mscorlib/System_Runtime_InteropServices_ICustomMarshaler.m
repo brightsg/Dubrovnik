@@ -32,7 +32,7 @@
 	// Managed param types : System.Object
     - (void)cleanUpManagedData_withManagedObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"CleanUpManagedData(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"CleanUpManagedData(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : CleanUpNativeData
@@ -40,7 +40,7 @@
 	// Managed param types : System.IntPtr
     - (void)cleanUpNativeData_withPNativeData:(void *)p1
     {
-		[self invokeMonoMethod:"CleanUpNativeData(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"CleanUpNativeData(intptr)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : GetNativeDataSize
@@ -48,7 +48,9 @@
 	// Managed param types : 
     - (int32_t)getNativeDataSize
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNativeDataSize()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -57,7 +59,9 @@
 	// Managed param types : System.Object
     - (void *)marshalManagedToNative_withManagedObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MarshalManagedToNative(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -66,7 +70,9 @@
 	// Managed param types : System.IntPtr
     - (System_Object *)marshalNativeToManaged_withPNativeData:(void *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MarshalNativeToManaged(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.ActivationContext
     + (System_AppDomainSetup *)new_withActivationContext:(System_ActivationContext *)p1
     {
-		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.Hosting.ActivationArguments
     + (System_AppDomainSetup *)new_withActivationArguments:(System_Runtime_Hosting_ActivationArguments *)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Hosting.ActivationArguments" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Runtime.Hosting.ActivationArguments" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -480,7 +480,9 @@
 	// Managed param types : 
     - (NSData *)getConfigurationBytes
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConfigurationBytes()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -489,7 +491,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
     - (void)setCompatibilitySwitches_withSwitches:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		[self invokeMonoMethod:"SetCompatibilitySwitches(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetCompatibilitySwitches(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetConfigurationBytes
@@ -497,7 +499,7 @@
 	// Managed param types : System.Byte[]
     - (void)setConfigurationBytes_withValue:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetConfigurationBytes(byte[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetConfigurationBytes(byte[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetNativeFunction
@@ -505,7 +507,7 @@
 	// Managed param types : System.String, System.Int32, System.IntPtr
     - (void)setNativeFunction_withFunctionName:(NSString *)p1 functionVersion:(int32_t)p2 functionPointer:(void *)p3
     {
-		[self invokeMonoMethod:"SetNativeFunction(string,int,intptr)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		[self invokeMonoMethod:"SetNativeFunction(string,int,intptr)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 #pragma mark -

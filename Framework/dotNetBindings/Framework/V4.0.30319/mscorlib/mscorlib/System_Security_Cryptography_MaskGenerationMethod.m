@@ -32,7 +32,9 @@
 	// Managed param types : System.Byte[], System.Int32
     - (NSData *)generateMask_withRgbSeed:(NSData *)p1 cbReturn:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenerateMask(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 

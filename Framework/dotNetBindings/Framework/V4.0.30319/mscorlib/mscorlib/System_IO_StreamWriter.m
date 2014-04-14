@@ -32,7 +32,7 @@
 	// Managed param types : System.IO.Stream
     + (System_IO_StreamWriter *)new_withStream:(System_IO_Stream *)p1
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.IO.Stream, System.Text.Encoding
     + (System_IO_StreamWriter *)new_withStream:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.IO.Stream, System.Text.Encoding, System.Int32
     + (System_IO_StreamWriter *)new_withStream:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2 bufferSize:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding,int" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		return [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding,int" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.IO.Stream, System.Text.Encoding, System.Int32, System.Boolean
     + (System_IO_StreamWriter *)new_withStream:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2 bufferSize:(int32_t)p3 leaveOpen:(BOOL)p4
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding,int,bool" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
+		return [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding,int,bool" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.String
     + (System_IO_StreamWriter *)new_withPath:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.String, System.Boolean
     + (System_IO_StreamWriter *)new_withPath:(NSString *)p1 append:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +80,7 @@
 	// Managed param types : System.String, System.Boolean, System.Text.Encoding
     + (System_IO_StreamWriter *)new_withPath:(NSString *)p1 append:(BOOL)p2 encoding:(System_Text_Encoding *)p3
     {
-		return [[self alloc] initWithSignature:"string,bool,System.Text.Encoding" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		return [[self alloc] initWithSignature:"string,bool,System.Text.Encoding" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +88,7 @@
 	// Managed param types : System.String, System.Boolean, System.Text.Encoding, System.Int32
     + (System_IO_StreamWriter *)new_withPath:(NSString *)p1 append:(BOOL)p2 encoding:(System_Text_Encoding *)p3 bufferSize:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"string,bool,System.Text.Encoding,int" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
+		return [[self alloc] initWithSignature:"string,bool,System.Text.Encoding,int" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];;
     }
 
 #pragma mark -
@@ -158,7 +158,7 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
+		[self invokeMonoMethod:"Close()" withNumArgs:0];;
     }
 
 	// Managed method name : Flush
@@ -166,7 +166,7 @@
 	// Managed param types : 
     - (void)flush
     {
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
     }
 
 	// Managed method name : FlushAsync
@@ -174,7 +174,9 @@
 	// Managed param types : 
     - (System_Threading_Tasks_Task *)flushAsync
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync()" withNumArgs:0];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
@@ -183,7 +185,7 @@
 	// Managed param types : System.Char
     - (void)write_withValueChar:(uint16_t)p1
     {
-		[self invokeMonoMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : Write
@@ -191,7 +193,7 @@
 	// Managed param types : System.Char[]
     - (void)write_withBuffer:(DBSystem_Array *)p1
     {
-		[self invokeMonoMethod:"Write(char[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Write(char[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Write
@@ -199,7 +201,7 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     - (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : Write
@@ -207,7 +209,7 @@
 	// Managed param types : System.String
     - (void)write_withValueString:(NSString *)p1
     {
-		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : WriteAsync
@@ -215,7 +217,9 @@
 	// Managed param types : System.Char
     - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
@@ -224,7 +228,9 @@
 	// Managed param types : System.String
     - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
@@ -233,7 +239,9 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
@@ -242,7 +250,9 @@
 	// Managed param types : 
     - (System_Threading_Tasks_Task *)writeLineAsync
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync()" withNumArgs:0];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
@@ -251,7 +261,9 @@
 	// Managed param types : System.Char
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
@@ -260,7 +272,9 @@
 	// Managed param types : System.String
     - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 
@@ -269,7 +283,9 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
 

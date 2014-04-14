@@ -85,7 +85,9 @@
 	// Managed param types : System.DateTime
     - (int32_t)getEra_withTime:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEra(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

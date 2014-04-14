@@ -46,7 +46,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -55,7 +57,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : MoveNext
@@ -63,7 +65,9 @@
 	// Managed param types : 
     - (BOOL)moveNext
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MoveNext()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -72,7 +76,7 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
     }
 
 #pragma mark -

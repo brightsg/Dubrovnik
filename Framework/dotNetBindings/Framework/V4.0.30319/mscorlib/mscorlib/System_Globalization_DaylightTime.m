@@ -32,7 +32,7 @@
 	// Managed param types : System.DateTime, System.DateTime, System.TimeSpan
     + (System_Globalization_DaylightTime *)new_withStart:(NSDate *)p1 end:(NSDate *)p2 delta:(System_TimeSpan *)p3
     {
-		return [[self alloc] initWithSignature:"System.DateTime,System.DateTime,System.TimeSpan" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		return [[self alloc] initWithSignature:"System.DateTime,System.DateTime,System.TimeSpan" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 #pragma mark -

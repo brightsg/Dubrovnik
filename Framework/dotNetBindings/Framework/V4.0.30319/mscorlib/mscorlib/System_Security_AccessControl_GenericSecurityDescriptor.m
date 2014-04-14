@@ -104,7 +104,7 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetSddlForm
@@ -112,7 +112,9 @@
 	// Managed param types : System.Security.AccessControl.AccessControlSections
     - (NSString *)getSddlForm_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSddlForm(System.Security.AccessControl.AccessControlSections)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -121,7 +123,9 @@
 	// Managed param types : 
     + (BOOL)isSddlConversionSupported
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsSddlConversionSupported()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

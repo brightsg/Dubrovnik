@@ -32,7 +32,9 @@
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
     + (System_Collections_Generic_IEnumerableA1 *)resolveNamespace_withNamespaceName:(NSString *)p1 packageGraphFilePaths:(System_Collections_Generic_IEnumerableA1 *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveNamespace(string,System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.String, System.String, System.Collections.Generic.IEnumerable`1<System.String>
     + (System_Collections_Generic_IEnumerableA1 *)resolveNamespace_withNamespaceName:(NSString *)p1 windowsSdkFilePath:(NSString *)p2 packageGraphFilePaths:(System_Collections_Generic_IEnumerableA1 *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveNamespace(string,string,System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 

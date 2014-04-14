@@ -32,7 +32,9 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (BOOL)check_withEvidence:(System_Security_Policy_Evidence *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Check(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : 
     - (System_Security_Policy_IMembershipCondition *)copy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
+		
 		return [System_Security_Policy_IMembershipCondition objectWithMonoObject:monoObject];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withO:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -59,7 +65,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : FromXml
@@ -67,7 +73,7 @@
 	// Managed param types : System.Security.SecurityElement, System.Security.Policy.PolicyLevel
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1 level:(System_Security_Policy_PolicyLevel *)p2
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetHashCode
@@ -75,7 +81,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -84,7 +92,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -93,7 +103,9 @@
 	// Managed param types : 
     - (System_Security_SecurityElement *)toXml
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
@@ -102,7 +114,9 @@
 	// Managed param types : System.Security.Policy.PolicyLevel
     - (System_Security_SecurityElement *)toXml_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 

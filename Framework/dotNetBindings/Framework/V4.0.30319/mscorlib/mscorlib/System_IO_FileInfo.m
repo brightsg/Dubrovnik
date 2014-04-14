@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_IO_FileInfo *)new_withFileName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -121,7 +121,9 @@
 	// Managed param types : 
     - (System_IO_StreamWriter *)appendText
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AppendText()" withNumArgs:0];
+		
 		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
     }
 
@@ -130,7 +132,9 @@
 	// Managed param types : System.String
     - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
 
@@ -139,7 +143,9 @@
 	// Managed param types : System.String, System.Boolean
     - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
 
@@ -148,7 +154,9 @@
 	// Managed param types : 
     - (System_IO_FileStream *)create
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
+		
 		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
@@ -157,7 +165,9 @@
 	// Managed param types : 
     - (System_IO_StreamWriter *)createText
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateText()" withNumArgs:0];
+		
 		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
     }
 
@@ -166,7 +176,7 @@
 	// Managed param types : 
     - (void)decrypt
     {
-		[self invokeMonoMethod:"Decrypt()" withNumArgs:0];
+		[self invokeMonoMethod:"Decrypt()" withNumArgs:0];;
     }
 
 	// Managed method name : Delete
@@ -174,7 +184,7 @@
 	// Managed param types : 
     - (void)delete
     {
-		[self invokeMonoMethod:"Delete()" withNumArgs:0];
+		[self invokeMonoMethod:"Delete()" withNumArgs:0];;
     }
 
 	// Managed method name : Encrypt
@@ -182,7 +192,7 @@
 	// Managed param types : 
     - (void)encrypt
     {
-		[self invokeMonoMethod:"Encrypt()" withNumArgs:0];
+		[self invokeMonoMethod:"Encrypt()" withNumArgs:0];;
     }
 
 	// Managed method name : GetAccessControl
@@ -190,7 +200,9 @@
 	// Managed param types : 
     - (System_Security_AccessControl_FileSecurity *)getAccessControl
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl()" withNumArgs:0];
+		
 		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
     }
 
@@ -199,7 +211,9 @@
 	// Managed param types : System.Security.AccessControl.AccessControlSections
     - (System_Security_AccessControl_FileSecurity *)getAccessControl_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl(System.Security.AccessControl.AccessControlSections)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
     }
 
@@ -208,7 +222,7 @@
 	// Managed param types : System.String
     - (void)moveTo_withDestFileName:(NSString *)p1
     {
-		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Open
@@ -216,7 +230,9 @@
 	// Managed param types : System.IO.FileMode
     - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
@@ -225,7 +241,9 @@
 	// Managed param types : System.IO.FileMode, System.IO.FileAccess
     - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1 access:(System_IO_FileAccess)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode,System.IO.FileAccess)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
@@ -234,7 +252,9 @@
 	// Managed param types : System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
     - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1 access:(System_IO_FileAccess)p2 share:(System_IO_FileShare)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
@@ -243,7 +263,9 @@
 	// Managed param types : 
     - (System_IO_FileStream *)openRead
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenRead()" withNumArgs:0];
+		
 		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
@@ -252,7 +274,9 @@
 	// Managed param types : 
     - (System_IO_StreamReader *)openText
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenText()" withNumArgs:0];
+		
 		return [System_IO_StreamReader objectWithMonoObject:monoObject];
     }
 
@@ -261,7 +285,9 @@
 	// Managed param types : 
     - (System_IO_FileStream *)openWrite
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenWrite()" withNumArgs:0];
+		
 		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
@@ -270,7 +296,9 @@
 	// Managed param types : System.String, System.String
     - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
 
@@ -279,7 +307,9 @@
 	// Managed param types : System.String, System.String, System.Boolean
     - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
 
@@ -288,7 +318,7 @@
 	// Managed param types : System.Security.AccessControl.FileSecurity
     - (void)setAccessControl_withFileSecurity:(System_Security_AccessControl_FileSecurity *)p1
     {
-		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.FileSecurity)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.FileSecurity)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ToString
@@ -296,7 +326,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

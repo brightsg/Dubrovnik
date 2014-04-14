@@ -53,7 +53,7 @@
 	// Managed param types : System.String
     + (void)freeNamedDataSlot_withName:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : GetData
@@ -61,7 +61,9 @@
 	// Managed param types : System.String
     + (System_Object *)getData_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -70,7 +72,9 @@
 	// Managed param types : 
     + (DBSystem_Array *)getHeaders
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHeaders()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -79,7 +83,9 @@
 	// Managed param types : System.String
     + (System_Object *)logicalGetData_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LogicalGetData(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -88,7 +94,7 @@
 	// Managed param types : System.String, System.Object
     + (void)logicalSetData_withName:(NSString *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"LogicalSetData(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"LogicalSetData(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : SetData
@@ -96,7 +102,7 @@
 	// Managed param types : System.String, System.Object
     + (void)setData_withName:(NSString *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetData(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetData(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : SetHeaders
@@ -104,7 +110,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.Header[]
     + (void)setHeaders_withHeaders:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"SetHeaders(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SetHeaders(System.Array[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

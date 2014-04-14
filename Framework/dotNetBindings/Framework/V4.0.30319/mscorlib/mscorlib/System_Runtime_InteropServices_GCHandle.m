@@ -64,7 +64,9 @@
 	// Managed param types : 
     - (void *)addrOfPinnedObject
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddrOfPinnedObject()" withNumArgs:0];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -73,7 +75,9 @@
 	// Managed param types : System.Object
     + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
     }
 
@@ -82,7 +86,9 @@
 	// Managed param types : System.Object, System.Runtime.InteropServices.GCHandleType
     + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1 type:(System_Runtime_InteropServices_GCHandleType)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object,System.Runtime.InteropServices.GCHandleType)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
     }
 
@@ -91,7 +97,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withO:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -100,7 +108,7 @@
 	// Managed param types : 
     - (void)free
     {
-		[self invokeMonoMethod:"Free()" withNumArgs:0];
+		[self invokeMonoMethod:"Free()" withNumArgs:0];;
     }
 
 	// Managed method name : FromIntPtr
@@ -108,7 +116,9 @@
 	// Managed param types : System.IntPtr
     + (System_Runtime_InteropServices_GCHandle *)fromIntPtr_withValue:(void *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromIntPtr(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
     }
 
@@ -117,7 +127,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -126,7 +138,9 @@
 	// Managed param types : System.Runtime.InteropServices.GCHandle, System.Runtime.InteropServices.GCHandle
     + (BOOL)op_Equality_withA:(System_Runtime_InteropServices_GCHandle *)p1 b:(System_Runtime_InteropServices_GCHandle *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -135,7 +149,9 @@
 	// Managed param types : System.IntPtr
     + (System_Runtime_InteropServices_GCHandle *)op_Explicit_withValueIntptr:(void *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
     }
 
@@ -144,7 +160,9 @@
 	// Managed param types : System.Runtime.InteropServices.GCHandle
     + (void *)op_Explicit_withValueSRIGCHandle:(System_Runtime_InteropServices_GCHandle *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Runtime.InteropServices.GCHandle)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -153,7 +171,9 @@
 	// Managed param types : System.Runtime.InteropServices.GCHandle, System.Runtime.InteropServices.GCHandle
     + (BOOL)op_Inequality_withA:(System_Runtime_InteropServices_GCHandle *)p1 b:(System_Runtime_InteropServices_GCHandle *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -162,7 +182,9 @@
 	// Managed param types : System.Runtime.InteropServices.GCHandle
     + (void *)toIntPtr_withValue:(System_Runtime_InteropServices_GCHandle *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToIntPtr(System.Runtime.InteropServices.GCHandle)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 

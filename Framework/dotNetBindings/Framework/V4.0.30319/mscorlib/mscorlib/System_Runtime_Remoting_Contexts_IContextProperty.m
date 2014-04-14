@@ -47,7 +47,7 @@
 	// Managed param types : System.Runtime.Remoting.Contexts.Context
     - (void)freeze_withNewContext:(System_Runtime_Remoting_Contexts_Context *)p1
     {
-		[self invokeMonoMethod:"Freeze(System.Runtime.Remoting.Contexts.Context)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Freeze(System.Runtime.Remoting.Contexts.Context)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : IsNewContextOK
@@ -55,7 +55,9 @@
 	// Managed param types : System.Runtime.Remoting.Contexts.Context
     - (BOOL)isNewContextOK_withNewCtx:(System_Runtime_Remoting_Contexts_Context *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsNewContextOK(System.Runtime.Remoting.Contexts.Context)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

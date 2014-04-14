@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)ensureState
     {
-		[self invokeMonoMethod:"EnsureState()" withNumArgs:0];
+		[self invokeMonoMethod:"EnsureState()" withNumArgs:0];;
     }
 
 	// Managed method name : IsStateAvailable
@@ -40,7 +40,9 @@
 	// Managed param types : 
     - (BOOL)isStateAvailable
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsStateAvailable()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

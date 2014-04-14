@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)moveNext
     {
-		[self invokeMonoMethod:"MoveNext()" withNumArgs:0];
+		[self invokeMonoMethod:"MoveNext()" withNumArgs:0];;
     }
 
 	// Managed method name : SetStateMachine
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.CompilerServices.IAsyncStateMachine
     - (void)setStateMachine_withStateMachine:(System_Runtime_CompilerServices_IAsyncStateMachine *)p1
     {
-		[self invokeMonoMethod:"SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

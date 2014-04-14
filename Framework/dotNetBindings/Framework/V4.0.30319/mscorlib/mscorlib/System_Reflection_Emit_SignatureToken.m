@@ -61,7 +61,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -70,7 +72,9 @@
 	// Managed param types : System.Reflection.Emit.SignatureToken
     - (BOOL)equals_withObjSRESignatureToken:(System_Reflection_Emit_SignatureToken *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.SignatureToken)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -79,7 +83,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -88,7 +94,9 @@
 	// Managed param types : System.Reflection.Emit.SignatureToken, System.Reflection.Emit.SignatureToken
     + (BOOL)op_Equality_withA:(System_Reflection_Emit_SignatureToken *)p1 b:(System_Reflection_Emit_SignatureToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.Emit.SignatureToken,System.Reflection.Emit.SignatureToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -97,7 +105,9 @@
 	// Managed param types : System.Reflection.Emit.SignatureToken, System.Reflection.Emit.SignatureToken
     + (BOOL)op_Inequality_withA:(System_Reflection_Emit_SignatureToken *)p1 b:(System_Reflection_Emit_SignatureToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.Emit.SignatureToken,System.Reflection.Emit.SignatureToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

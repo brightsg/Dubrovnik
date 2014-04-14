@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
     }
 

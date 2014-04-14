@@ -32,7 +32,7 @@
 	// Managed param types : System.Type, System.Int32
     + (System_Runtime_CompilerServices_FixedBufferAttribute *)new_withElementType:(System_Type *)p1 length:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Type,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Type,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -

@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.Type, System.Type[], System.Boolean
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 restrictedSkipVisibility:(BOOL)p4
     {
-		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],bool" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],bool" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Type, System.Type[], System.Reflection.Module, System.Boolean
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 m:(System_Reflection_Module *)p4 skipVisibility:(BOOL)p5
     {
-		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Reflection.Module,bool" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
+		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Reflection.Module,bool" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.Type, System.Type[], System.Type, System.Boolean
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 owner:(System_Type *)p4 skipVisibility:(BOOL)p5
     {
-		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Type,bool" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
+		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Type,bool" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Type, System.Boolean
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5 owner:(System_Type *)p6 skipVisibility:(BOOL)p7
     {
-		return [[self alloc] initWithSignature:"string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Type,bool" withNumArgs:7, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];
+		return [[self alloc] initWithSignature:"string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Type,bool" withNumArgs:7, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.String, System.Type, System.Type[]
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Type,System.Array[]" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		return [[self alloc] initWithSignature:"string,System.Type,System.Array[]" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.String, System.Type, System.Type[], System.Reflection.Module
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 m:(System_Reflection_Module *)p4
     {
-		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Reflection.Module" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Reflection.Module" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +80,7 @@
 	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Reflection.Module, System.Boolean
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5 m:(System_Reflection_Module *)p6 skipVisibility:(BOOL)p7
     {
-		return [[self alloc] initWithSignature:"string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Reflection.Module,bool" withNumArgs:7, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];
+		return [[self alloc] initWithSignature:"string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Reflection.Module,bool" withNumArgs:7, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +88,7 @@
 	// Managed param types : System.String, System.Type, System.Type[], System.Type
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 owner:(System_Type *)p4
     {
-		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Type" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		return [[self alloc] initWithSignature:"string,System.Type,System.Array[],System.Type" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
     }
 
 #pragma mark -
@@ -270,7 +270,9 @@
 	// Managed param types : System.Type
     - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
@@ -279,7 +281,9 @@
 	// Managed param types : System.Type, System.Object
     - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Delegate objectWithMonoObject:monoObject];
     }
 
@@ -288,7 +292,9 @@
 	// Managed param types : System.Int32, System.Reflection.ParameterAttributes, System.String
     - (System_Reflection_Emit_ParameterBuilder *)defineParameter_withPosition:(int32_t)p1 attributes:(System_Reflection_ParameterAttributes)p2 parameterName:(NSString *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DefineParameter(int,System.Reflection.ParameterAttributes,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		
 		return [System_Reflection_Emit_ParameterBuilder objectWithMonoObject:monoObject];
     }
 
@@ -297,7 +303,9 @@
 	// Managed param types : 
     - (System_Reflection_MethodInfo *)getBaseDefinition
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBaseDefinition()" withNumArgs:0];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -306,7 +314,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -315,7 +325,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withInherit:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -324,7 +336,9 @@
 	// Managed param types : 
     - (System_Reflection_Emit_DynamicILInfo *)getDynamicILInfo
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicILInfo()" withNumArgs:0];
+		
 		return [System_Reflection_Emit_DynamicILInfo objectWithMonoObject:monoObject];
     }
 
@@ -333,7 +347,9 @@
 	// Managed param types : 
     - (System_Reflection_Emit_ILGenerator *)getILGenerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetILGenerator()" withNumArgs:0];
+		
 		return [System_Reflection_Emit_ILGenerator objectWithMonoObject:monoObject];
     }
 
@@ -342,7 +358,9 @@
 	// Managed param types : System.Int32
     - (System_Reflection_Emit_ILGenerator *)getILGenerator_withStreamSize:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetILGenerator(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Reflection_Emit_ILGenerator objectWithMonoObject:monoObject];
     }
 
@@ -351,7 +369,9 @@
 	// Managed param types : 
     - (System_Reflection_MethodImplAttributes)getMethodImplementationFlags
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodImplementationFlags()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -360,7 +380,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getParameters
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetParameters()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -369,7 +391,9 @@
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
     - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -378,7 +402,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -387,7 +413,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

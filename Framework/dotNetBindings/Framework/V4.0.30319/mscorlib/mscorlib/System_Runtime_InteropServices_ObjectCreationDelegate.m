@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_Runtime_InteropServices_ObjectCreationDelegate *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : System.IntPtr, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withAggregator:(void *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(intptr,System.AsyncCallback,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
@@ -52,7 +54,9 @@
 	// Managed param types : System.IAsyncResult
     - (void *)endInvoke_withResult:(System_IAsyncResult *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -61,7 +65,9 @@
 	// Managed param types : System.IntPtr
     - (void *)invoke_withAggregator:(void *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(intptr)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 

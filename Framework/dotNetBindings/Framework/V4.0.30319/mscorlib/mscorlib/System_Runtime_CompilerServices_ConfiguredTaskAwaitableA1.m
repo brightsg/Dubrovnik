@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (System_Runtime_CompilerServices_ConfiguredTaskAwaiter *)getAwaiter
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAwaiter()" withNumArgs:0];
+		
 		return [System_Runtime_CompilerServices_ConfiguredTaskAwaiter objectWithMonoObject:monoObject];
     }
 

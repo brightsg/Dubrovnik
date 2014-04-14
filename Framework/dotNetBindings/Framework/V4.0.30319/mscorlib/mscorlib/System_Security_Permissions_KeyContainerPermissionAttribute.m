@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Permissions.SecurityAction
     + (System_Security_Permissions_KeyContainerPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -151,7 +151,9 @@
 	// Managed param types : 
     - (System_Security_IPermission *)createPermission
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
+		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 

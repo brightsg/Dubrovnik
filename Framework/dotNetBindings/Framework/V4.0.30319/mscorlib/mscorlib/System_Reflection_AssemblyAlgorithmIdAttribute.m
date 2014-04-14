@@ -32,7 +32,7 @@
 	// Managed param types : System.Configuration.Assemblies.AssemblyHashAlgorithm
     + (System_Reflection_AssemblyAlgorithmIdAttribute *)new_withAlgorithmIdSCAAssemblyHashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p1
     {
-		return [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.UInt32
     + (System_Reflection_AssemblyAlgorithmIdAttribute *)new_withAlgorithmIdUint:(uint32_t)p1
     {
-		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

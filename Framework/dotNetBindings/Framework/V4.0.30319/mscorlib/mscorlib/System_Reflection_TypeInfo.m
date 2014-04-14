@@ -143,7 +143,9 @@
 	// Managed param types : 
     - (System_Type *)asType
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AsType()" withNumArgs:0];
+		
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
@@ -152,7 +154,9 @@
 	// Managed param types : System.String
     - (System_Reflection_EventInfo *)getDeclaredEvent_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredEvent(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_EventInfo objectWithMonoObject:monoObject];
     }
 
@@ -161,7 +165,9 @@
 	// Managed param types : System.String
     - (System_Reflection_FieldInfo *)getDeclaredField_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredField(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
 
@@ -170,7 +176,9 @@
 	// Managed param types : System.String
     - (System_Reflection_MethodInfo *)getDeclaredMethod_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethod(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
 
@@ -179,7 +187,9 @@
 	// Managed param types : System.String
     - (System_Collections_Generic_IEnumerableA1 *)getDeclaredMethods_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethods(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
@@ -188,7 +198,9 @@
 	// Managed param types : System.String
     - (System_Reflection_TypeInfo *)getDeclaredNestedType_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredNestedType(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
 
@@ -197,7 +209,9 @@
 	// Managed param types : System.String
     - (System_Reflection_PropertyInfo *)getDeclaredProperty_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredProperty(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
     }
 
@@ -206,7 +220,9 @@
 	// Managed param types : System.Reflection.TypeInfo
     - (BOOL)isAssignableFrom_withTypeInfo:(System_Reflection_TypeInfo *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsAssignableFrom(System.Reflection.TypeInfo)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

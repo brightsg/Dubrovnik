@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.String
     + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1 type:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -101,7 +101,9 @@
 	// Managed param types : 
     - (System_Security_Claims_ClaimsIdentity *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Security_Claims_ClaimsIdentity objectWithMonoObject:monoObject];
     }
 

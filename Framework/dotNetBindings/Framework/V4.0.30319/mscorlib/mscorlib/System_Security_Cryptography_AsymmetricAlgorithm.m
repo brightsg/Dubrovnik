@@ -88,7 +88,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Create
@@ -96,7 +96,9 @@
 	// Managed param types : 
     + (System_Security_Cryptography_AsymmetricAlgorithm *)create
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_AsymmetricAlgorithm objectWithMonoObject:monoObject];
     }
 
@@ -105,7 +107,9 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_AsymmetricAlgorithm *)create_withAlgName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_AsymmetricAlgorithm objectWithMonoObject:monoObject];
     }
 
@@ -114,7 +118,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : FromXmlString
@@ -122,7 +126,7 @@
 	// Managed param types : System.String
     - (void)fromXmlString_withXmlString:(NSString *)p1
     {
-		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ToXmlString
@@ -130,7 +134,9 @@
 	// Managed param types : System.Boolean
     - (NSString *)toXmlString_withIncludePrivateParameters:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXmlString(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Policy.IMembershipCondition, System.Security.Policy.PolicyStatement
     + (System_Security_Policy_UnionCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1 policy:(System_Security_Policy_PolicyStatement *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Policy.PolicyStatement" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Policy.PolicyStatement" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -58,7 +58,9 @@
 	// Managed param types : 
     - (System_Security_Policy_CodeGroup *)copy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
+		
 		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
     }
 
@@ -67,7 +69,9 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (System_Security_Policy_PolicyStatement *)resolve_withEvidence:(System_Security_Policy_Evidence *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
     }
 
@@ -76,7 +80,9 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (System_Security_Policy_CodeGroup *)resolveMatchingCodeGroups_withEvidence:(System_Security_Policy_Evidence *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
     }
 

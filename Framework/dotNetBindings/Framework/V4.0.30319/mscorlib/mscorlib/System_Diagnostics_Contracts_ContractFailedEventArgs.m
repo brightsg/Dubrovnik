@@ -32,7 +32,7 @@
 	// Managed param types : System.Diagnostics.Contracts.ContractFailureKind, System.String, System.String, System.Exception
     + (System_Diagnostics_Contracts_ContractFailedEventArgs *)new_withFailureKind:(System_Diagnostics_Contracts_ContractFailureKind)p1 message:(NSString *)p2 condition:(NSString *)p3 originalException:(System_Exception *)p4
     {
-		return [[self alloc] initWithSignature:"System.Diagnostics.Contracts.ContractFailureKind,string,string,System.Exception" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		return [[self alloc] initWithSignature:"System.Diagnostics.Contracts.ContractFailureKind,string,string,System.Exception" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
     }
 
 #pragma mark -
@@ -115,7 +115,7 @@
 	// Managed param types : 
     - (void)setHandled
     {
-		[self invokeMonoMethod:"SetHandled()" withNumArgs:0];
+		[self invokeMonoMethod:"SetHandled()" withNumArgs:0];;
     }
 
 	// Managed method name : SetUnwind
@@ -123,7 +123,7 @@
 	// Managed param types : 
     - (void)setUnwind
     {
-		[self invokeMonoMethod:"SetUnwind()" withNumArgs:0];
+		[self invokeMonoMethod:"SetUnwind()" withNumArgs:0];;
     }
 
 #pragma mark -

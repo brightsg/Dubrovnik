@@ -32,7 +32,7 @@
 	// Managed param types : System.Collections.Generic.IDictionary`2<TKey, TValue>
     + (System_Collections_ObjectModel_ReadOnlyDictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<TKey, TValue>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<TKey, TValue>" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -93,7 +93,9 @@
 	// Managed param types : <TKey>
     - (BOOL)containsKey_withKey:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -102,16 +104,23 @@
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1_System_Collections_Generic_KeyValuePairA2 *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IEnumeratorA1_System_Collections_Generic_KeyValuePairA2 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(TValue **)p2
+	// Managed param types : <TKey>, ref <TValue&>
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,TValue&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		void *refPtr2 = [*p2 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+
+		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

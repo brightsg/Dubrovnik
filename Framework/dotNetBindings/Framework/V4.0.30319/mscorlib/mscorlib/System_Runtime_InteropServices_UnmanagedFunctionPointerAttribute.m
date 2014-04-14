@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.CallingConvention
     + (System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute *)new_withCallingConvention:(System_Runtime_InteropServices_CallingConvention)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.CallingConvention" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.CallingConvention" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

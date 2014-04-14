@@ -89,18 +89,18 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, T[], System.Int32, System.Int32
-    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
+	// Managed param types : System.Int32, <T[]>, System.Int32, System.Int32
+    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Object *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : T[], System.Int32
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+	// Managed param types : <T[]>, System.Int32
+    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : T[]
-    - (void)copyTo_withArray:(DBSystem_Array *)p1;
+	// Managed param types : <T[]>
+    - (void)copyTo_withArray:(System_Object *)p1;
 
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
@@ -258,9 +258,9 @@
     - (void)sort_withComparison:(System_ComparisonA1 *)p1;
 
 	// Managed method name : ToArray
-	// Managed return type : T[]
+	// Managed return type : <T[]>
 	// Managed param types : 
-    - (DBSystem_Array *)toArray;
+    - (System_Object *)toArray;
 
 	// Managed method name : TrimExcess
 	// Managed return type : System.Void

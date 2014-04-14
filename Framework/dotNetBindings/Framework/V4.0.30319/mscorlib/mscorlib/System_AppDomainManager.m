@@ -100,7 +100,9 @@
 	// Managed param types : System.Security.SecurityState
     - (BOOL)checkSecuritySettings_withState:(System_Security_SecurityState *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CheckSecuritySettings(System.Security.SecurityState)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -109,7 +111,9 @@
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.AppDomainSetup
     - (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1 securityInfo:(System_Security_Policy_Evidence *)p2 appDomainInfo:(System_AppDomainSetup *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence,System.AppDomainSetup)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_AppDomain objectWithMonoObject:monoObject];
     }
 
@@ -118,7 +122,7 @@
 	// Managed param types : System.AppDomainSetup
     - (void)initializeNewDomain_withAppDomainInfo:(System_AppDomainSetup *)p1
     {
-		[self invokeMonoMethod:"InitializeNewDomain(System.AppDomainSetup)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"InitializeNewDomain(System.AppDomainSetup)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

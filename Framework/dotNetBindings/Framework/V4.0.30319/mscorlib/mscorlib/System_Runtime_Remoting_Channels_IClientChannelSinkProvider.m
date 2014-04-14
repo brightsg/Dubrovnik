@@ -53,7 +53,9 @@
 	// Managed param types : System.Runtime.Remoting.Channels.IChannelSender, System.String, System.Object
     - (System_Runtime_Remoting_Channels_IClientChannelSink *)createSink_withChannel:(System_Runtime_Remoting_Channels_IChannelSender *)p1 url:(NSString *)p2 remoteChannelData:(System_Object *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateSink(System.Runtime.Remoting.Channels.IChannelSender,string,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Runtime_Remoting_Channels_IClientChannelSink objectWithMonoObject:monoObject];
     }
 

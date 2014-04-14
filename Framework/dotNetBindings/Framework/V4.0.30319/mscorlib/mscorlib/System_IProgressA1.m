@@ -32,7 +32,7 @@
 	// Managed param types : <T>
     - (void)report_withValue:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Report(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Report(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

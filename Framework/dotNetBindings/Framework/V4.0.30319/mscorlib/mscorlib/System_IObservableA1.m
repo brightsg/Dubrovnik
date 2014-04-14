@@ -32,7 +32,9 @@
 	// Managed param types : System.IObserver`1<T>
     - (System_IDisposable *)subscribe_withObserver:(System_IObserverA1 *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Subscribe(System.IObserver`1<T>)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_IDisposable objectWithMonoObject:monoObject];
     }
 

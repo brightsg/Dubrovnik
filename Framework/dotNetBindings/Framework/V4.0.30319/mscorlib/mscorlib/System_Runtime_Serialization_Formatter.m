@@ -89,7 +89,9 @@
 	// Managed param types : System.IO.Stream
     - (System_Object *)deserialize_withSerializationStream:(System_IO_Stream *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.IO.Stream)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -98,7 +100,7 @@
 	// Managed param types : System.IO.Stream, System.Object
     - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -

@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (System_Object *)activateInstance
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ActivateInstance()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

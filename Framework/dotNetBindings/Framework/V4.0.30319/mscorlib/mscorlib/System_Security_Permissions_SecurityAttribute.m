@@ -69,7 +69,9 @@
 	// Managed param types : 
     - (System_Security_IPermission *)createPermission
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
+		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
 

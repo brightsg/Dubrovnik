@@ -32,7 +32,9 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (BOOL)check_withEvidence:(System_Security_Policy_Evidence *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Check(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : 
     - (System_Security_Policy_IMembershipCondition *)copy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
+		
 		return [System_Security_Policy_IMembershipCondition objectWithMonoObject:monoObject];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -59,7 +65,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

@@ -142,7 +142,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -151,7 +153,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -160,7 +164,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -169,7 +175,9 @@
 	// Managed param types : System.Globalization.TextInfo
     + (System_Globalization_TextInfo *)readOnly_withTextInfo:(System_Globalization_TextInfo *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.TextInfo)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_TextInfo objectWithMonoObject:monoObject];
     }
 
@@ -178,7 +186,9 @@
 	// Managed param types : System.Char
     - (uint16_t)toLower_withC:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToLower(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_UINT16(monoObject);
     }
 
@@ -187,7 +197,9 @@
 	// Managed param types : System.String
     - (NSString *)toLower_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToLower(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -196,7 +208,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -205,7 +219,9 @@
 	// Managed param types : System.String
     - (NSString *)toTitleCase_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToTitleCase(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -214,7 +230,9 @@
 	// Managed param types : System.Char
     - (uint16_t)toUpper_withC:(uint16_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUpper(char)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_UINT16(monoObject);
     }
 
@@ -223,7 +241,9 @@
 	// Managed param types : System.String
     - (NSString *)toUpper_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUpper(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

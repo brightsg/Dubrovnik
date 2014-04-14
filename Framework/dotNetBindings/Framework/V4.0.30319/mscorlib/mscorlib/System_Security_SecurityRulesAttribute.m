@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.SecurityRuleSet
     + (System_Security_SecurityRulesAttribute *)new_withRuleSet:(System_Security_SecurityRuleSet)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityRuleSet" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Security.SecurityRuleSet" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

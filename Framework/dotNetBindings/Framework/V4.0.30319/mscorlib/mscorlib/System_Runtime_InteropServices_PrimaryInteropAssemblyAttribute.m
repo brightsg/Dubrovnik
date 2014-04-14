@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32, System.Int32
     + (System_Runtime_InteropServices_PrimaryInteropAssemblyAttribute *)new_withMajor:(int32_t)p1 minor:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 #pragma mark -

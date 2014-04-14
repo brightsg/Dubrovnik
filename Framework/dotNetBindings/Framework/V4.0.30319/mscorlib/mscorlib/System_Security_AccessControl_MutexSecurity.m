@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
     + (System_Security_AccessControl_MutexSecurity *)new_withName:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Security.AccessControl.AccessControlSections" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"string,System.Security.AccessControl.AccessControlSections" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -82,7 +82,9 @@
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AccessControlType
     - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 type:(System_Security_AccessControl_AccessControlType)p6
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		
 		return [System_Security_AccessControl_AccessRule objectWithMonoObject:monoObject];
     }
 
@@ -91,7 +93,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAccessRule
     - (void)addAccessRule_withRule:(System_Security_AccessControl_MutexAccessRule *)p1
     {
-		[self invokeMonoMethod:"AddAccessRule(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AddAccessRule(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : AddAuditRule
@@ -99,7 +101,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAuditRule
     - (void)addAuditRule_withRule:(System_Security_AccessControl_MutexAuditRule *)p1
     {
-		[self invokeMonoMethod:"AddAuditRule(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AddAuditRule(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : AuditRuleFactory
@@ -107,7 +109,9 @@
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
     - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 flags:(System_Security_AccessControl_AuditFlags)p6
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		
 		return [System_Security_AccessControl_AuditRule objectWithMonoObject:monoObject];
     }
 
@@ -116,7 +120,9 @@
 	// Managed param types : System.Security.AccessControl.MutexAccessRule
     - (BOOL)removeAccessRule_withRule:(System_Security_AccessControl_MutexAccessRule *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAccessRule(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -125,7 +131,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAccessRule
     - (void)removeAccessRuleAll_withRule:(System_Security_AccessControl_MutexAccessRule *)p1
     {
-		[self invokeMonoMethod:"RemoveAccessRuleAll(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"RemoveAccessRuleAll(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveAccessRuleSpecific
@@ -133,7 +139,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAccessRule
     - (void)removeAccessRuleSpecific_withRule:(System_Security_AccessControl_MutexAccessRule *)p1
     {
-		[self invokeMonoMethod:"RemoveAccessRuleSpecific(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"RemoveAccessRuleSpecific(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveAuditRule
@@ -141,7 +147,9 @@
 	// Managed param types : System.Security.AccessControl.MutexAuditRule
     - (BOOL)removeAuditRule_withRule:(System_Security_AccessControl_MutexAuditRule *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAuditRule(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -150,7 +158,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAuditRule
     - (void)removeAuditRuleAll_withRule:(System_Security_AccessControl_MutexAuditRule *)p1
     {
-		[self invokeMonoMethod:"RemoveAuditRuleAll(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"RemoveAuditRuleAll(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveAuditRuleSpecific
@@ -158,7 +166,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAuditRule
     - (void)removeAuditRuleSpecific_withRule:(System_Security_AccessControl_MutexAuditRule *)p1
     {
-		[self invokeMonoMethod:"RemoveAuditRuleSpecific(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"RemoveAuditRuleSpecific(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ResetAccessRule
@@ -166,7 +174,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAccessRule
     - (void)resetAccessRule_withRule:(System_Security_AccessControl_MutexAccessRule *)p1
     {
-		[self invokeMonoMethod:"ResetAccessRule(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"ResetAccessRule(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetAccessRule
@@ -174,7 +182,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAccessRule
     - (void)setAccessRule_withRule:(System_Security_AccessControl_MutexAccessRule *)p1
     {
-		[self invokeMonoMethod:"SetAccessRule(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetAccessRule(System.Security.AccessControl.MutexAccessRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetAuditRule
@@ -182,7 +190,7 @@
 	// Managed param types : System.Security.AccessControl.MutexAuditRule
     - (void)setAuditRule_withRule:(System_Security_AccessControl_MutexAuditRule *)p1
     {
-		[self invokeMonoMethod:"SetAuditRule(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetAuditRule(System.Security.AccessControl.MutexAuditRule)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

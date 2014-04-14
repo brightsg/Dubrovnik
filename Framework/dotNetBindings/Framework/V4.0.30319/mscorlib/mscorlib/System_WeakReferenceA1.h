@@ -39,7 +39,7 @@
 
 	// Managed method name : TryGetTarget
 	// Managed return type : System.Boolean
-	// Managed param types : ref T&
-    - (BOOL)tryGetTarget_withTargetRef:(T **)p1;
+	// Managed param types : ref <T&>
+    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1;
 @end
 //--Dubrovnik.CodeGenerator

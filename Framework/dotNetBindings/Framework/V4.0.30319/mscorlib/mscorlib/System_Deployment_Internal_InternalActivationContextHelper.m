@@ -32,7 +32,9 @@
 	// Managed param types : System.ActivationContext
     + (System_Object *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetActivationContextData(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.ActivationContext
     + (System_Object *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.ActivationContext
     + (NSData *)getApplicationManifestBytes_withAppInfo:(System_ActivationContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -59,7 +65,9 @@
 	// Managed param types : System.ActivationContext
     + (System_Object *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -68,7 +76,9 @@
 	// Managed param types : System.ActivationContext
     + (NSData *)getDeploymentManifestBytes_withAppInfo:(System_ActivationContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -77,7 +87,9 @@
 	// Managed param types : System.ActivationContext
     + (BOOL)isFirstRun_withAppInfo:(System_ActivationContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsFirstRun(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -86,7 +98,7 @@
 	// Managed param types : System.ActivationContext
     + (void)prepareForExecution_withAppInfo:(System_ActivationContext *)p1
     {
-		[self invokeMonoClassMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

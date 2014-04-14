@@ -47,7 +47,9 @@
 	// Managed param types : System.Boolean
     - (NSData *)exportCspBlob_withIncludePrivateParameters:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExportCspBlob(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -56,7 +58,7 @@
 	// Managed param types : System.Byte[]
     - (void)importCspBlob_withRawData:(NSData *)p1
     {
-		[self invokeMonoMethod:"ImportCspBlob(byte[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"ImportCspBlob(byte[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

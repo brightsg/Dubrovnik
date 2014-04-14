@@ -32,7 +32,7 @@
 	// Managed param types : System.Diagnostics.DebuggerBrowsableState
     + (System_Diagnostics_DebuggerBrowsableAttribute *)new_withState:(System_Diagnostics_DebuggerBrowsableState)p1
     {
-		return [[self alloc] initWithSignature:"System.Diagnostics.DebuggerBrowsableState" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Diagnostics.DebuggerBrowsableState" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

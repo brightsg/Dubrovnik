@@ -47,7 +47,9 @@
 	// Managed param types : System.String
     - (DBSystem_Array *)getUrlsForUri_withObjectURI:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUrlsForUri(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -56,7 +58,7 @@
 	// Managed param types : System.Object
     - (void)startListening_withData:(System_Object *)p1
     {
-		[self invokeMonoMethod:"StartListening(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"StartListening(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : StopListening
@@ -64,7 +66,7 @@
 	// Managed param types : System.Object
     - (void)stopListening_withData:(System_Object *)p1
     {
-		[self invokeMonoMethod:"StopListening(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"StopListening(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

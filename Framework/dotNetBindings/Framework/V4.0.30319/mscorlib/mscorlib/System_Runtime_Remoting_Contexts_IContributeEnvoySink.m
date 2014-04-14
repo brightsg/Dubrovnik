@@ -32,7 +32,9 @@
 	// Managed param types : System.MarshalByRefObject, System.Runtime.Remoting.Messaging.IMessageSink
     - (System_Runtime_Remoting_Messaging_IMessageSink *)getEnvoySink_withObj:(System_MarshalByRefObject *)p1 nextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnvoySink(System.MarshalByRefObject,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
     }
 

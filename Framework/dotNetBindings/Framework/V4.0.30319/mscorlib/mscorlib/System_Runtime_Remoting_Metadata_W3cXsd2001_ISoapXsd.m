@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (NSString *)getXsdType
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetXsdType()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

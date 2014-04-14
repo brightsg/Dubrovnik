@@ -32,7 +32,7 @@
 	// Managed param types : System.MarshalByRefObject, System.Type
     + (System_Runtime_Remoting_ObjRef *)new_withO:(System_MarshalByRefObject *)p1 requestedType:(System_Type *)p2
     {
-		return [[self alloc] initWithSignature:"System.MarshalByRefObject,System.Type" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.MarshalByRefObject,System.Type" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -118,7 +118,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetRealObject
@@ -126,7 +126,9 @@
 	// Managed param types : System.Runtime.Serialization.StreamingContext
     - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRealObject(System.Runtime.Serialization.StreamingContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -135,7 +137,9 @@
 	// Managed param types : 
     - (BOOL)isFromThisAppDomain
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsFromThisAppDomain()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -144,7 +148,9 @@
 	// Managed param types : 
     - (BOOL)isFromThisProcess
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsFromThisProcess()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

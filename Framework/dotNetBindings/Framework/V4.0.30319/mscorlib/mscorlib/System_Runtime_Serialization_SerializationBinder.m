@@ -31,10 +31,9 @@
 	// Managed return type : System.Void
 	// Managed param types : System.Type, ref System.String&, ref System.String&
     - (void)bindToName_withSerializedType:(System_Type *)p1 assemblyNameRef:(NSString **)p2 typeNameRef:(NSString **)p3
-#warning object ref and out parameter implementation is pending
-#warning object ref and out parameter implementation is pending
     {
-		[self invokeMonoMethod:"BindToName(System.Type,string&,string&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoMethod:"BindToName(System.Type,string&,string&)" withNumArgs:3, [p1 monoValue], &refPtr2, &refPtr3];
+;
     }
 
 	// Managed method name : BindToType
@@ -42,7 +41,9 @@
 	// Managed param types : System.String, System.String
     - (System_Type *)bindToType_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"BindToType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Type objectWithMonoObject:monoObject];
     }
 

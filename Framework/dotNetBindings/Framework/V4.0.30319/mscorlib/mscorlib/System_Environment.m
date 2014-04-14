@@ -277,7 +277,7 @@
 	// Managed param types : System.Int32
     + (void)exit_withExitCode:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"Exit(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoClassMethod:"Exit(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : ExpandEnvironmentVariables
@@ -285,7 +285,9 @@
 	// Managed param types : System.String
     + (NSString *)expandEnvironmentVariables_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ExpandEnvironmentVariables(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -294,7 +296,7 @@
 	// Managed param types : System.String
     + (void)failFast_withMessage:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FailFast(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"FailFast(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : FailFast
@@ -302,7 +304,7 @@
 	// Managed param types : System.String, System.Exception
     + (void)failFast_withMessage:(NSString *)p1 exception:(System_Exception *)p2
     {
-		[self invokeMonoClassMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetCommandLineArgs
@@ -310,7 +312,9 @@
 	// Managed param types : 
     + (DBSystem_Array *)getCommandLineArgs
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCommandLineArgs()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -319,7 +323,9 @@
 	// Managed param types : System.String
     + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -328,7 +334,9 @@
 	// Managed param types : System.String, System.EnvironmentVariableTarget
     + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(System_EnvironmentVariableTarget)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string,System.EnvironmentVariableTarget)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -337,7 +345,9 @@
 	// Managed param types : 
     + (System_Collections_IDictionary *)getEnvironmentVariables
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariables()" withNumArgs:0];
+		
 		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
     }
 
@@ -346,7 +356,9 @@
 	// Managed param types : System.EnvironmentVariableTarget
     + (System_Collections_IDictionary *)getEnvironmentVariables_withTarget:(System_EnvironmentVariableTarget)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariables(System.EnvironmentVariableTarget)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
     }
 
@@ -355,7 +367,9 @@
 	// Managed param types : System.Environment+SpecialFolder
     + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment+SpecialFolder)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -364,7 +378,9 @@
 	// Managed param types : System.Environment+SpecialFolder, System.Environment+SpecialFolderOption
     + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1 option:(System_Environment__SpecialFolderOption)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment+SpecialFolder,System.Environment+SpecialFolderOption)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -373,7 +389,9 @@
 	// Managed param types : 
     + (DBSystem_Array *)getLogicalDrives
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetLogicalDrives()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -382,7 +400,7 @@
 	// Managed param types : System.String, System.String
     + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : SetEnvironmentVariable
@@ -390,7 +408,7 @@
 	// Managed param types : System.String, System.String, System.EnvironmentVariableTarget
     + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(System_EnvironmentVariableTarget)p3
     {
-		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
     }
 
 #pragma mark -

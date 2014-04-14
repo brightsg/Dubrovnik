@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.ObjectCreationDelegate
     + (void)registerObjectCreationCallback_withCallback:(System_Runtime_InteropServices_ObjectCreationDelegate *)p1
     {
-		[self invokeMonoClassMethod:"RegisterObjectCreationCallback(System.Runtime.InteropServices.ObjectCreationDelegate)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"RegisterObjectCreationCallback(System.Runtime.InteropServices.ObjectCreationDelegate)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

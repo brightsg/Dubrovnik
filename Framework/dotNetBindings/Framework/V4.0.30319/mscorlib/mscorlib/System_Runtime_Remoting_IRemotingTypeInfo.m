@@ -53,7 +53,9 @@
 	// Managed param types : System.Type, System.Object
     - (BOOL)canCastTo_withFromType:(System_Type *)p1 o:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CanCastTo(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

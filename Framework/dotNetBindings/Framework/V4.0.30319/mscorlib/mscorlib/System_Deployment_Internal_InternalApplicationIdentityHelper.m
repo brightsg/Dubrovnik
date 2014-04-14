@@ -32,7 +32,9 @@
 	// Managed param types : System.ApplicationIdentity
     + (System_Object *)getInternalAppId_withId:(System_ApplicationIdentity *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInternalAppId(System.ApplicationIdentity)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

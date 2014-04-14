@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.TypeLibFuncFlags
     + (System_Runtime_InteropServices_TypeLibFuncAttribute *)new_withFlagsSRITypeLibFuncFlags:(System_Runtime_InteropServices_TypeLibFuncFlags)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.TypeLibFuncFlags" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.TypeLibFuncFlags" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int16
     + (System_Runtime_InteropServices_TypeLibFuncAttribute *)new_withFlagsInt16:(int16_t)p1
     {
-		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

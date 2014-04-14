@@ -32,7 +32,9 @@
 	// Managed param types : System.Runtime.Remoting.Lifetime.ILease
     - (System_TimeSpan *)renewal_withLease:(System_Runtime_Remoting_Lifetime_ILease *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 

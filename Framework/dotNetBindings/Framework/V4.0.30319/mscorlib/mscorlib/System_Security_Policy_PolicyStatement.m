@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.PermissionSet
     + (System_Security_Policy_PolicyStatement *)new_withPermSet:(System_Security_PermissionSet *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Security.PermissionSet, System.Security.Policy.PolicyStatementAttribute
     + (System_Security_Policy_PolicyStatement *)new_withPermSet:(System_Security_PermissionSet *)p1 attributes:(System_Security_Policy_PolicyStatementAttribute)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.Policy.PolicyStatementAttribute" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.Policy.PolicyStatementAttribute" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -101,7 +101,9 @@
 	// Managed param types : 
     - (System_Security_Policy_PolicyStatement *)copy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
+		
 		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
     }
 
@@ -110,7 +112,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -119,7 +123,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : FromXml
@@ -127,7 +131,7 @@
 	// Managed param types : System.Security.SecurityElement, System.Security.Policy.PolicyLevel
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1 level:(System_Security_Policy_PolicyLevel *)p2
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetHashCode
@@ -135,7 +139,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -144,7 +150,9 @@
 	// Managed param types : 
     - (System_Security_SecurityElement *)toXml
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
@@ -153,7 +161,9 @@
 	// Managed param types : System.Security.Policy.PolicyLevel
     - (System_Security_SecurityElement *)toXml_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 

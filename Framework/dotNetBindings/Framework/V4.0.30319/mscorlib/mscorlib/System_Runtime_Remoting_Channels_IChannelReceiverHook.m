@@ -70,7 +70,7 @@
 	// Managed param types : System.String
     - (void)addHookChannelUri_withChannelUri:(NSString *)p1
     {
-		[self invokeMonoMethod:"AddHookChannelUri(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AddHookChannelUri(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

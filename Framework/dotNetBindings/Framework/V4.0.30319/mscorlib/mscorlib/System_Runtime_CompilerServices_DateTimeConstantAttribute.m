@@ -32,7 +32,7 @@
 	// Managed param types : System.Int64
     + (System_Runtime_CompilerServices_DateTimeConstantAttribute *)new_withTicks:(int64_t)p1
     {
-		return [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

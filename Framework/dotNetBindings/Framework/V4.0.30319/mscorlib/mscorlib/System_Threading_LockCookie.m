@@ -32,7 +32,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.Threading.LockCookie
     - (BOOL)equals_withObjSTLockCookie:(System_Threading_LockCookie *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.LockCookie)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -59,7 +65,9 @@
 	// Managed param types : System.Threading.LockCookie, System.Threading.LockCookie
     + (BOOL)op_Equality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.LockCookie,System.Threading.LockCookie)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -68,7 +76,9 @@
 	// Managed param types : System.Threading.LockCookie, System.Threading.LockCookie
     + (BOOL)op_Inequality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.LockCookie,System.Threading.LockCookie)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

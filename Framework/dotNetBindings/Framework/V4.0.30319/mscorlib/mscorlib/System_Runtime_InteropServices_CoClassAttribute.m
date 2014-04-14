@@ -32,7 +32,7 @@
 	// Managed param types : System.Type
     + (System_Runtime_InteropServices_CoClassAttribute *)new_withCoClass:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

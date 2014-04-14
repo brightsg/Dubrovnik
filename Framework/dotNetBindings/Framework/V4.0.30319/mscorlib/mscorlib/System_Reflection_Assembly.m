@@ -257,7 +257,9 @@
 	// Managed param types : System.String
     - (System_Object *)createInstance_withTypeName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -266,7 +268,9 @@
 	// Managed param types : System.String, System.Boolean
     - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -275,7 +279,9 @@
 	// Managed param types : System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
     - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])" withNumArgs:7, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -284,7 +290,9 @@
 	// Managed param types : System.String, System.String
     + (NSString *)createQualifiedName_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateQualifiedName(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -293,7 +301,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withO:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -302,7 +312,9 @@
 	// Managed param types : System.Type
     + (System_Reflection_Assembly *)getAssembly_withType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssembly(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -311,7 +323,9 @@
 	// Managed param types : 
     + (System_Reflection_Assembly *)getCallingAssembly
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCallingAssembly()" withNumArgs:0];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -320,7 +334,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withInherit:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -329,7 +345,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -338,7 +356,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IListA1 *)getCustomAttributesData
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
     }
 
@@ -347,7 +367,9 @@
 	// Managed param types : 
     + (System_Reflection_Assembly *)getEntryAssembly
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEntryAssembly()" withNumArgs:0];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -356,7 +378,9 @@
 	// Managed param types : 
     + (System_Reflection_Assembly *)getExecutingAssembly
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetExecutingAssembly()" withNumArgs:0];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -365,7 +389,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getExportedTypes
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetExportedTypes()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -374,7 +400,9 @@
 	// Managed param types : System.String
     - (System_IO_FileStream *)getFile_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFile(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_IO_FileStream objectWithMonoObject:monoObject];
     }
 
@@ -383,7 +411,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getFiles
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -392,7 +422,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getFiles_withGetResourceModules:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -401,7 +433,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -410,7 +444,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getLoadedModules
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLoadedModules()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -419,7 +455,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getLoadedModules_withGetResourceModules:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLoadedModules(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -428,7 +466,9 @@
 	// Managed param types : System.String
     - (System_Reflection_ManifestResourceInfo *)getManifestResourceInfo_withResourceName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceInfo(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_ManifestResourceInfo objectWithMonoObject:monoObject];
     }
 
@@ -437,7 +477,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getManifestResourceNames
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceNames()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -446,7 +488,9 @@
 	// Managed param types : System.Type, System.String
     - (System_IO_Stream *)getManifestResourceStream_withType:(System_Type *)p1 name:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -455,7 +499,9 @@
 	// Managed param types : System.String
     - (System_IO_Stream *)getManifestResourceStream_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_IO_Stream objectWithMonoObject:monoObject];
     }
 
@@ -464,7 +510,9 @@
 	// Managed param types : System.String
     - (System_Reflection_Module *)getModule_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetModule(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Module objectWithMonoObject:monoObject];
     }
 
@@ -473,7 +521,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getModules
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetModules()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -482,7 +532,9 @@
 	// Managed param types : System.Boolean
     - (DBSystem_Array *)getModules_withGetResourceModules:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetModules(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -491,7 +543,9 @@
 	// Managed param types : 
     - (System_Reflection_AssemblyName *)getName
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetName()" withNumArgs:0];
+		
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
 
@@ -500,7 +554,9 @@
 	// Managed param types : System.Boolean
     - (System_Reflection_AssemblyName *)getName_withCopiedName:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetName(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
 
@@ -509,7 +565,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetReferencedAssemblies
@@ -517,7 +573,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getReferencedAssemblies
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetReferencedAssemblies()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -526,7 +584,9 @@
 	// Managed param types : System.Globalization.CultureInfo
     - (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -535,7 +595,9 @@
 	// Managed param types : System.Globalization.CultureInfo, System.Version
     - (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1 version:(System_Version *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo,System.Version)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -544,7 +606,9 @@
 	// Managed param types : System.String
     - (System_Type *)getType_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
@@ -553,7 +617,9 @@
 	// Managed param types : System.String, System.Boolean
     - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
@@ -562,7 +628,9 @@
 	// Managed param types : System.String, System.Boolean, System.Boolean
     - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
@@ -571,7 +639,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getTypes
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypes()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -580,7 +650,9 @@
 	// Managed param types : System.Type, System.Boolean
     - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -589,7 +661,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -598,7 +672,9 @@
 	// Managed param types : System.String, System.Security.Policy.Evidence
     + (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -607,7 +683,9 @@
 	// Managed param types : System.Reflection.AssemblyName
     + (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -616,7 +694,9 @@
 	// Managed param types : System.Reflection.AssemblyName, System.Security.Policy.Evidence
     + (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1 assemblySecurity:(System_Security_Policy_Evidence *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(System.Reflection.AssemblyName,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -625,7 +705,9 @@
 	// Managed param types : System.Byte[]
     + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -634,7 +716,9 @@
 	// Managed param types : System.Byte[], System.Byte[]
     + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -643,7 +727,9 @@
 	// Managed param types : System.Byte[], System.Byte[], System.Security.SecurityContextSource
     + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityContextSource:(System_Security_SecurityContextSource)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[],System.Security.SecurityContextSource)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -652,7 +738,9 @@
 	// Managed param types : System.Byte[], System.Byte[], System.Security.Policy.Evidence
     + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityEvidence:(System_Security_Policy_Evidence *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[],System.Security.Policy.Evidence)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -661,7 +749,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFile(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -670,7 +760,9 @@
 	// Managed param types : System.String, System.Security.Policy.Evidence
     + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFile(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -679,7 +771,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -688,7 +782,9 @@
 	// Managed param types : System.String, System.Security.Policy.Evidence
     + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -697,7 +793,9 @@
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
     + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2 hashValue:(NSData *)p3 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string,System.Security.Policy.Evidence,byte[],System.Configuration.Assemblies.AssemblyHashAlgorithm)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -706,7 +804,9 @@
 	// Managed param types : System.String, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
     + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 hashValue:(NSData *)p2 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string,byte[],System.Configuration.Assemblies.AssemblyHashAlgorithm)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -715,7 +815,9 @@
 	// Managed param types : System.String, System.Byte[]
     - (System_Reflection_Module *)loadModule_withModuleName:(NSString *)p1 rawModule:(NSData *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"LoadModule(string,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Module objectWithMonoObject:monoObject];
     }
 
@@ -724,7 +826,9 @@
 	// Managed param types : System.String, System.Byte[], System.Byte[]
     - (System_Reflection_Module *)loadModule_withModuleName:(NSString *)p1 rawModule:(NSData *)p2 rawSymbolStore:(NSData *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"LoadModule(string,byte[],byte[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Reflection_Module objectWithMonoObject:monoObject];
     }
 
@@ -733,7 +837,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadWithPartialName(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -742,7 +848,9 @@
 	// Managed param types : System.String, System.Security.Policy.Evidence
     + (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadWithPartialName(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -751,7 +859,9 @@
 	// Managed param types : System.Reflection.Assembly, System.Reflection.Assembly
     + (BOOL)op_Equality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.Assembly,System.Reflection.Assembly)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -760,7 +870,9 @@
 	// Managed param types : System.Reflection.Assembly, System.Reflection.Assembly
     + (BOOL)op_Inequality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.Assembly,System.Reflection.Assembly)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -769,7 +881,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -778,7 +892,9 @@
 	// Managed param types : System.Byte[]
     + (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -787,7 +903,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)reflectionOnlyLoadFrom_withAssemblyFile:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoadFrom(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 
@@ -796,7 +914,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -805,7 +925,9 @@
 	// Managed param types : System.String
     + (System_Reflection_Assembly *)unsafeLoadFrom_withAssemblyFile:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeLoadFrom(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
     }
 

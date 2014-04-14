@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Serialization.ISurrogateSelector, System.Runtime.Serialization.StreamingContext
     + (System_Runtime_Serialization_Formatters_Binary_BinaryFormatter *)new_withSelector:(System_Runtime_Serialization_ISurrogateSelector *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.ISurrogateSelector,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Runtime.Serialization.ISurrogateSelector,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -151,7 +151,9 @@
 	// Managed param types : System.IO.Stream
     - (System_Object *)deserialize_withSerializationStream:(System_IO_Stream *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.IO.Stream)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -160,7 +162,9 @@
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler
     - (System_Object *)deserialize_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.IO.Stream,System.Runtime.Remoting.Messaging.HeaderHandler)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -169,7 +173,9 @@
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler, System.Runtime.Remoting.Messaging.IMethodCallMessage
     - (System_Object *)deserializeMethodResponse_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2 methodCallMessage:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DeserializeMethodResponse(System.IO.Stream,System.Runtime.Remoting.Messaging.HeaderHandler,System.Runtime.Remoting.Messaging.IMethodCallMessage)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -178,7 +184,7 @@
 	// Managed param types : System.IO.Stream, System.Object
     - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Serialize
@@ -186,7 +192,7 @@
 	// Managed param types : System.IO.Stream, System.Object, System.Runtime.Remoting.Messaging.Header[]
     - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2 headers:(DBSystem_Array *)p3
     {
-		[self invokeMonoMethod:"Serialize(System.IO.Stream,object,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		[self invokeMonoMethod:"Serialize(System.IO.Stream,object,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 	// Managed method name : UnsafeDeserialize
@@ -194,7 +200,9 @@
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler
     - (System_Object *)unsafeDeserialize_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeDeserialize(System.IO.Stream,System.Runtime.Remoting.Messaging.HeaderHandler)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -203,7 +211,9 @@
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler, System.Runtime.Remoting.Messaging.IMethodCallMessage
     - (System_Object *)unsafeDeserializeMethodResponse_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2 methodCallMessage:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafeDeserializeMethodResponse(System.IO.Stream,System.Runtime.Remoting.Messaging.HeaderHandler,System.Runtime.Remoting.Messaging.IMethodCallMessage)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

@@ -64,7 +64,9 @@
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
     - (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)activate_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Activate(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage objectWithMonoObject:monoObject];
     }
 

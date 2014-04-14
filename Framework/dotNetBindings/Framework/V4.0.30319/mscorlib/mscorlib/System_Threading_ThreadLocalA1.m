@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean
     + (System_Threading_ThreadLocalA1 *)new_withTrackAllValues:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Func`1<T>
     + (System_Threading_ThreadLocalA1 *)new_withValueFactory:(System_FuncA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Func`1<T>" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Func`1<T>" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Func`1<T>, System.Boolean
     + (System_Threading_ThreadLocalA1 *)new_withValueFactory:(System_FuncA1 *)p1 trackAllValues:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"System.Func`1<T>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Func`1<T>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -103,7 +103,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : ToString
@@ -111,7 +111,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

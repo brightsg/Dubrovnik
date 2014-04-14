@@ -83,7 +83,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : GenerateManifest
@@ -91,7 +91,9 @@
 	// Managed param types : System.Type, System.String
     + (NSString *)generateManifest_withEventSourceType:(System_Type *)p1 assemblyPathToIncludeInManifest:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GenerateManifest(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -100,7 +102,9 @@
 	// Managed param types : System.Type
     + (System_Guid *)getGuid_withEventSourceType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGuid(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Guid objectWithMonoObject:monoObject];
     }
 
@@ -109,7 +113,9 @@
 	// Managed param types : System.Type
     + (NSString *)getName_withEventSourceType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetName(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -118,7 +124,9 @@
 	// Managed param types : 
     + (System_Collections_Generic_IEnumerableA1 *)getSources
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSources()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
@@ -127,7 +135,9 @@
 	// Managed param types : 
     - (BOOL)isEnabled
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsEnabled()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -136,7 +146,9 @@
 	// Managed param types : System.Diagnostics.Tracing.EventLevel, System.Diagnostics.Tracing.EventKeywords
     - (BOOL)isEnabled_withLevel:(System_Diagnostics_Tracing_EventLevel)p1 keywords:(System_Diagnostics_Tracing_EventKeywords)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsEnabled(System.Diagnostics.Tracing.EventLevel,System.Diagnostics.Tracing.EventKeywords)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -145,7 +157,7 @@
 	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventCommand, System.Collections.Generic.IDictionary`2<System.String, System.String>
     + (void)sendCommand_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 command:(System_Diagnostics_Tracing_EventCommand)p2 commandArguments:(System_Collections_Generic_IDictionaryA2 *)p3
     {
-		[self invokeMonoClassMethod:"SendCommand(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventCommand,System.Collections.Generic.IDictionary`2<System.String, System.String>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		[self invokeMonoClassMethod:"SendCommand(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventCommand,System.Collections.Generic.IDictionary`2<System.String, System.String>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
     }
 
 	// Managed method name : SetCurrentThreadActivityId
@@ -153,7 +165,7 @@
 	// Managed param types : System.Guid
     + (void)setCurrentThreadActivityId_withActivityId:(System_Guid *)p1
     {
-		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetCurrentThreadActivityId
@@ -161,7 +173,8 @@
 	// Managed param types : System.Guid, ref System.Guid&
     + (void)setCurrentThreadActivityId_withActivityId:(System_Guid *)p1 oldActivityThatWillContinueRef:(System_Guid **)p2
     {
-		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid,System.Guid&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid,System.Guid&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+;
     }
 
 	// Managed method name : ToString
@@ -169,7 +182,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

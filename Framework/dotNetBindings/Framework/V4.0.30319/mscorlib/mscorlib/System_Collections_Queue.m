@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32, System.Single
     + (System_Collections_Queue *)new_withCapacity:(int32_t)p1 growFactor:(float)p2
     {
-		return [[self alloc] initWithSignature:"int,single" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"int,single" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int32
     + (System_Collections_Queue *)new_withCapacity:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Collections.ICollection
     + (System_Collections_Queue *)new_withCol:(System_Collections_ICollection *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -96,7 +96,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Clone
@@ -104,7 +104,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -113,7 +115,9 @@
 	// Managed param types : System.Object
     - (BOOL)contains_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -122,7 +126,7 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Dequeue
@@ -130,7 +134,9 @@
 	// Managed param types : 
     - (System_Object *)dequeue
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Dequeue()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -139,7 +145,7 @@
 	// Managed param types : System.Object
     - (void)enqueue_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Enqueue(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Enqueue(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : GetEnumerator
@@ -147,7 +153,9 @@
 	// Managed param types : 
     - (System_Collections_IEnumerator *)getEnumerator
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+		
 		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -156,7 +164,9 @@
 	// Managed param types : 
     - (System_Object *)peek
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Peek()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -165,7 +175,9 @@
 	// Managed param types : System.Collections.Queue
     + (System_Collections_Queue *)synchronized_withQueue:(System_Collections_Queue *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Queue)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Collections_Queue objectWithMonoObject:monoObject];
     }
 
@@ -174,7 +186,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)toArray
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -183,7 +197,7 @@
 	// Managed param types : 
     - (void)trimToSize
     {
-		[self invokeMonoMethod:"TrimToSize()" withNumArgs:0];
+		[self invokeMonoMethod:"TrimToSize()" withNumArgs:0];;
     }
 
 #pragma mark -

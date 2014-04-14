@@ -47,7 +47,9 @@
 	// Managed param types : System.Exception
     + (System_Runtime_ExceptionServices_ExceptionDispatchInfo *)capture_withSource:(System_Exception *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture(System.Exception)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_ExceptionServices_ExceptionDispatchInfo objectWithMonoObject:monoObject];
     }
 
@@ -56,7 +58,7 @@
 	// Managed param types : 
     - (void)throw
     {
-		[self invokeMonoMethod:"Throw()" withNumArgs:0];
+		[self invokeMonoMethod:"Throw()" withNumArgs:0];;
     }
 
 #pragma mark -

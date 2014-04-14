@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     - (void)cancel_withMsToCancel:(int32_t)p1
     {
-		[self invokeMonoMethod:"Cancel(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"Cancel(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

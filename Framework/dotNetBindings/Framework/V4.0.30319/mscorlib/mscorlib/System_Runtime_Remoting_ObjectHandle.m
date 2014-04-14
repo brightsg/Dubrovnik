@@ -32,7 +32,7 @@
 	// Managed param types : System.Object
     + (System_Runtime_Remoting_ObjectHandle *)new_withO:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : 
     - (System_Object *)initializeLifetimeService
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -52,7 +54,9 @@
 	// Managed param types : 
     - (System_Object *)unwrap
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Unwrap()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

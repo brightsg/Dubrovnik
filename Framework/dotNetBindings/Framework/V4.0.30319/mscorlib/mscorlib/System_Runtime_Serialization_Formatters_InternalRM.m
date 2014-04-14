@@ -32,7 +32,7 @@
 	// Managed param types : System.Object[]
     + (void)infoSoap_withMessages:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoClassMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SoapCheckEnabled
@@ -40,7 +40,9 @@
 	// Managed param types : 
     + (BOOL)soapCheckEnabled
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"SoapCheckEnabled()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

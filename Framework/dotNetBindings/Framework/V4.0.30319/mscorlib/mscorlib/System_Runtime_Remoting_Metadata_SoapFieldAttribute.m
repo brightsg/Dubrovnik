@@ -70,7 +70,9 @@
 	// Managed param types : 
     - (BOOL)isInteropXmlElement
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsInteropXmlElement()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

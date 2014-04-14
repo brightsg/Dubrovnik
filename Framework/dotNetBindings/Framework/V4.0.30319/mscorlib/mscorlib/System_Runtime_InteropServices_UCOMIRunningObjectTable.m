@@ -32,7 +32,8 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIEnumMoniker&
     - (void)enumRunning_withPpenumMonikerRef:(System_Runtime_InteropServices_UCOMIEnumMoniker **)p1
     {
-		[self invokeMonoMethod:"EnumRunning(System.Runtime.InteropServices.UCOMIEnumMoniker&)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"EnumRunning(System.Runtime.InteropServices.UCOMIEnumMoniker&)" withNumArgs:1, &refPtr1];
+;
     }
 
 	// Managed method name : GetObject
@@ -40,7 +41,8 @@
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker, ref System.Object&
     - (void)getObject_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 ppunkObjectRef:(System_Object **)p2
     {
-		[self invokeMonoMethod:"GetObject(System.Runtime.InteropServices.UCOMIMoniker,object&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObject(System.Runtime.InteropServices.UCOMIMoniker,object&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+;
     }
 
 	// Managed method name : GetTimeOfLastChange
@@ -48,7 +50,8 @@
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker, ref System.Runtime.InteropServices.FILETIME&
     - (void)getTimeOfLastChange_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 pfiletimeRef:(System_Runtime_InteropServices_FILETIME **)p2
     {
-		[self invokeMonoMethod:"GetTimeOfLastChange(System.Runtime.InteropServices.UCOMIMoniker,System.Runtime.InteropServices.FILETIME&)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetTimeOfLastChange(System.Runtime.InteropServices.UCOMIMoniker,System.Runtime.InteropServices.FILETIME&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+;
     }
 
 	// Managed method name : IsRunning
@@ -56,7 +59,7 @@
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker
     - (void)isRunning_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1
     {
-		[self invokeMonoMethod:"IsRunning(System.Runtime.InteropServices.UCOMIMoniker)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"IsRunning(System.Runtime.InteropServices.UCOMIMoniker)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : NoteChangeTime
@@ -64,7 +67,8 @@
 	// Managed param types : System.Int32, ref System.Runtime.InteropServices.FILETIME&
     - (void)noteChangeTime_withDwRegister:(int32_t)p1 pfiletimeRef:(System_Runtime_InteropServices_FILETIME **)p2
     {
-		[self invokeMonoMethod:"NoteChangeTime(int,System.Runtime.InteropServices.FILETIME&)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		[self invokeMonoMethod:"NoteChangeTime(int,System.Runtime.InteropServices.FILETIME&)" withNumArgs:2, DB_VALUE(p1), &refPtr2];
+;
     }
 
 	// Managed method name : Register
@@ -72,7 +76,7 @@
 	// Managed param types : System.Int32, System.Object, System.Runtime.InteropServices.UCOMIMoniker, ref System.Int32&
     - (void)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p3 pdwRegisterRef:(int32_t*)p4
     {
-		[self invokeMonoMethod:"Register(int,object,System.Runtime.InteropServices.UCOMIMoniker,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], p4];
+		[self invokeMonoMethod:"Register(int,object,System.Runtime.InteropServices.UCOMIMoniker,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], p4];;
     }
 
 	// Managed method name : Revoke
@@ -80,7 +84,7 @@
 	// Managed param types : System.Int32
     - (void)revoke_withDwRegister:(int32_t)p1
     {
-		[self invokeMonoMethod:"Revoke(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"Revoke(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

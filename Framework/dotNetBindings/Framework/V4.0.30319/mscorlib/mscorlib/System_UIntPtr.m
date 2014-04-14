@@ -32,7 +32,7 @@
 	// Managed param types : System.UInt32
     + (void *)new_withValueUint:(uint32_t)p1
     {
-		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.UInt64
     + (void *)new_withValueUlong:(uint64_t)p1
     {
-		return [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Void*
     + (void *)new_withValueVoid:(void*)p1
     {
-		return [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];
+		return [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];;
     }
 
 #pragma mark -
@@ -87,7 +87,9 @@
 	// Managed param types : System.UIntPtr, System.Int32
     + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -96,7 +98,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -105,7 +109,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -114,7 +120,9 @@
 	// Managed param types : System.UIntPtr, System.Int32
     + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -123,7 +131,9 @@
 	// Managed param types : System.UIntPtr, System.UIntPtr
     + (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -132,7 +142,9 @@
 	// Managed param types : System.UInt64
     + (void *)op_Explicit_withValueUlong:(uint64_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(ulong)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -141,7 +153,9 @@
 	// Managed param types : System.UInt32
     + (void *)op_Explicit_withValueUint:(uint32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(uint)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -150,7 +164,9 @@
 	// Managed param types : System.Void*
     + (void *)op_Explicit_withValueVoid:(void*)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(void*)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -159,7 +175,9 @@
 	// Managed param types : System.UIntPtr, System.UIntPtr
     + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -168,7 +186,9 @@
 	// Managed param types : System.UIntPtr, System.Int32
     + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -177,7 +197,9 @@
 	// Managed param types : System.UIntPtr, System.Int32
     + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return DB_UNBOX_UPTR(monoObject);
     }
 
@@ -186,7 +208,9 @@
 	// Managed param types : 
     - (void *)toPointer
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToPointer()" withNumArgs:0];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 
@@ -195,7 +219,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -204,7 +230,9 @@
 	// Managed param types : 
     - (uint32_t)toUInt32
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUInt32()" withNumArgs:0];
+		
 		return DB_UNBOX_UINT32(monoObject);
     }
 
@@ -213,7 +241,9 @@
 	// Managed param types : 
     - (uint64_t)toUInt64
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUInt64()" withNumArgs:0];
+		
 		return DB_UNBOX_UINT64(monoObject);
     }
 

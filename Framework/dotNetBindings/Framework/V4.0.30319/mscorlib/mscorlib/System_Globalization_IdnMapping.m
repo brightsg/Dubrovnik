@@ -69,7 +69,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -78,7 +80,9 @@
 	// Managed param types : System.String
     - (NSString *)getAscii_withUnicode:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -87,7 +91,9 @@
 	// Managed param types : System.String, System.Int32
     - (NSString *)getAscii_withUnicode:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -96,7 +102,9 @@
 	// Managed param types : System.String, System.Int32, System.Int32
     - (NSString *)getAscii_withUnicode:(NSString *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -105,7 +113,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -114,7 +124,9 @@
 	// Managed param types : System.String
     - (NSString *)getUnicode_withAscii:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -123,7 +135,9 @@
 	// Managed param types : System.String, System.Int32
     - (NSString *)getUnicode_withAscii:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -132,7 +146,9 @@
 	// Managed param types : System.String, System.Int32, System.Int32
     - (NSString *)getUnicode_withAscii:(NSString *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

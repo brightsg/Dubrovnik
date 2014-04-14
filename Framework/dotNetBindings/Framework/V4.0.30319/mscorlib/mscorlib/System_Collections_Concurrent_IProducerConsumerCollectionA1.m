@@ -29,19 +29,21 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : T[], System.Int32
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
+	// Managed param types : <T[]>, System.Int32
+    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : ToArray
-	// Managed return type : T[]
+	// Managed return type : <T[]>
 	// Managed param types : 
-    - (DBSystem_Array *)toArray
+    - (System_Object *)toArray
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		
+		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : TryAdd
@@ -49,16 +51,23 @@
 	// Managed param types : <T>
     - (BOOL)tryAdd_withItem:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryTake
 	// Managed return type : System.Boolean
-	// Managed param types : ref T&
-    - (BOOL)tryTake_withItemRef:(T **)p1
+	// Managed param types : ref <T&>
+    - (BOOL)tryTake_withItemRef:(System_Object **)p1
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(T&)" withNumArgs:1, [p1 monoValue]];
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(<_T_0>&)" withNumArgs:1, &refPtr1];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

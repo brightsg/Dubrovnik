@@ -47,7 +47,7 @@
 	// Managed param types : System.Runtime.Serialization.ISafeSerializationData
     - (void)addSerializedState_withSerializedState:(System_Runtime_Serialization_ISafeSerializationData *)p1
     {
-		[self invokeMonoMethod:"AddSerializedState(System.Runtime.Serialization.ISafeSerializationData)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AddSerializedState(System.Runtime.Serialization.ISafeSerializationData)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

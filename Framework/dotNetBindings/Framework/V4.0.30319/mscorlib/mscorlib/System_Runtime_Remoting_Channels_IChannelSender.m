@@ -31,9 +31,13 @@
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.String, System.Object, ref System.String&
     - (System_Runtime_Remoting_Messaging_IMessageSink *)createMessageSink_withUrl:(NSString *)p1 remoteChannelData:(System_Object *)p2 objectURIRef:(NSString **)p3
-#warning object ref and out parameter implementation is pending
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateMessageSink(string,object,string&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		void *refPtr3 = [*p3 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateMessageSink(string,object,string&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], &refPtr3];
+
+		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+
 		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
     }
 

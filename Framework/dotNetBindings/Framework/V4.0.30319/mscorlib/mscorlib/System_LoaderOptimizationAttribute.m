@@ -32,7 +32,7 @@
 	// Managed param types : System.Byte
     + (System_LoaderOptimizationAttribute *)new_withValueByte:(uint8_t)p1
     {
-		return [[self alloc] initWithSignature:"byte" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"byte" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.LoaderOptimization
     + (System_LoaderOptimizationAttribute *)new_withValueSLoaderOptimization:(System_LoaderOptimization)p1
     {
-		return [[self alloc] initWithSignature:"System.LoaderOptimization" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.LoaderOptimization" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

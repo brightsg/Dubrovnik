@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean
     + (System_Threading_SpinLock *)new_withEnableThreadOwnerTracking:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -79,7 +79,7 @@
 	// Managed param types : ref System.Boolean&
     - (void)enter_withLockTakenRef:(BOOL*)p1
     {
-		[self invokeMonoMethod:"Enter(bool&)" withNumArgs:1, p1];
+		[self invokeMonoMethod:"Enter(bool&)" withNumArgs:1, p1];;
     }
 
 	// Managed method name : Exit
@@ -87,7 +87,7 @@
 	// Managed param types : 
     - (void)exit
     {
-		[self invokeMonoMethod:"Exit()" withNumArgs:0];
+		[self invokeMonoMethod:"Exit()" withNumArgs:0];;
     }
 
 	// Managed method name : Exit
@@ -95,7 +95,7 @@
 	// Managed param types : System.Boolean
     - (void)exit_withUseMemoryBarrier:(BOOL)p1
     {
-		[self invokeMonoMethod:"Exit(bool)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"Exit(bool)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : TryEnter
@@ -103,7 +103,7 @@
 	// Managed param types : ref System.Boolean&
     - (void)tryEnter_withLockTakenRef:(BOOL*)p1
     {
-		[self invokeMonoMethod:"TryEnter(bool&)" withNumArgs:1, p1];
+		[self invokeMonoMethod:"TryEnter(bool&)" withNumArgs:1, p1];;
     }
 
 	// Managed method name : TryEnter
@@ -111,7 +111,7 @@
 	// Managed param types : System.TimeSpan, ref System.Boolean&
     - (void)tryEnter_withTimeout:(System_TimeSpan *)p1 lockTakenRef:(BOOL*)p2
     {
-		[self invokeMonoMethod:"TryEnter(System.TimeSpan,bool&)" withNumArgs:2, [p1 monoValue], p2];
+		[self invokeMonoMethod:"TryEnter(System.TimeSpan,bool&)" withNumArgs:2, [p1 monoValue], p2];;
     }
 
 	// Managed method name : TryEnter
@@ -119,7 +119,7 @@
 	// Managed param types : System.Int32, ref System.Boolean&
     - (void)tryEnter_withMillisecondsTimeout:(int32_t)p1 lockTakenRef:(BOOL*)p2
     {
-		[self invokeMonoMethod:"TryEnter(int,bool&)" withNumArgs:2, DB_VALUE(p1), p2];
+		[self invokeMonoMethod:"TryEnter(int,bool&)" withNumArgs:2, DB_VALUE(p1), p2];;
     }
 
 #pragma mark -

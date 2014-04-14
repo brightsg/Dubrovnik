@@ -32,7 +32,7 @@
 	// Managed param types : System.RuntimeArgumentHandle
     + (System_ArgIterator *)new_withArglist:(System_RuntimeArgumentHandle *)p1
     {
-		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.RuntimeArgumentHandle, System.Void*
     + (System_ArgIterator *)new_withArglist:(System_RuntimeArgumentHandle *)p1 ptr:(void*)p2
     {
-		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle,void*" withNumArgs:2, [p1 monoValue], p2];
+		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle,void*" withNumArgs:2, [p1 monoValue], p2];;
     }
 
 #pragma mark -
@@ -51,7 +51,7 @@
 	// Managed param types : 
     - (void)end
     {
-		[self invokeMonoMethod:"End()" withNumArgs:0];
+		[self invokeMonoMethod:"End()" withNumArgs:0];;
     }
 
 	// Managed method name : Equals
@@ -59,7 +59,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withO:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -68,7 +70,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -77,7 +81,9 @@
 	// Managed param types : 
     - (System_TypedReference *)getNextArg
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg()" withNumArgs:0];
+		
 		return [System_TypedReference objectWithMonoObject:monoObject];
     }
 
@@ -86,7 +92,9 @@
 	// Managed param types : System.RuntimeTypeHandle
     - (System_TypedReference *)getNextArg_withRth:(System_RuntimeTypeHandle *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_TypedReference objectWithMonoObject:monoObject];
     }
 
@@ -95,7 +103,9 @@
 	// Managed param types : 
     - (System_RuntimeTypeHandle *)getNextArgType
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArgType()" withNumArgs:0];
+		
 		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
     }
 
@@ -104,7 +114,9 @@
 	// Managed param types : 
     - (int32_t)getRemainingCount
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRemainingCount()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

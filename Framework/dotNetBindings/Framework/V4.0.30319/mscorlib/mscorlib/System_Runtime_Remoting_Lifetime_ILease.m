@@ -112,7 +112,7 @@
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
     - (void)register_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1 renewalTime:(System_TimeSpan *)p2
     {
-		[self invokeMonoMethod:"Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Register
@@ -120,7 +120,7 @@
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
     - (void)register_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1
     {
-		[self invokeMonoMethod:"Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Renew
@@ -128,7 +128,9 @@
 	// Managed param types : System.TimeSpan
     - (System_TimeSpan *)renew_withRenewalTime:(System_TimeSpan *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Renew(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
@@ -137,7 +139,7 @@
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
     - (void)unregister_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1
     {
-		[self invokeMonoMethod:"Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

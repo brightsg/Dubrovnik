@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_EventHandlerA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : System.Object, <TEventArgs>, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withSender:(System_Object *)p1 e:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,<_T_0>,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
@@ -52,7 +54,7 @@
 	// Managed param types : System.IAsyncResult
     - (void)endInvoke_withResult:(System_IAsyncResult *)p1
     {
-		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Invoke
@@ -60,7 +62,7 @@
 	// Managed param types : System.Object, <TEventArgs>
     - (void)invoke_withSender:(System_Object *)p1 e:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Invoke(object,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"Invoke(object,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -

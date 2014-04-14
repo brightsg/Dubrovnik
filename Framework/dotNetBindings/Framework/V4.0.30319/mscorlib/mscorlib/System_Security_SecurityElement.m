@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Security_SecurityElement *)new_withTag:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.String
     + (System_Security_SecurityElement *)new_withTag:(NSString *)p1 text:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -126,7 +126,7 @@
 	// Managed param types : System.String, System.String
     - (void)addAttribute_withName:(NSString *)p1 value:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddAttribute(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"AddAttribute(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : AddChild
@@ -134,7 +134,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)addChild_withChild:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"AddChild(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"AddChild(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Attribute
@@ -142,7 +142,9 @@
 	// Managed param types : System.String
     - (NSString *)attribute_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Attribute(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -151,7 +153,9 @@
 	// Managed param types : 
     - (System_Security_SecurityElement *)copy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
@@ -160,7 +164,9 @@
 	// Managed param types : System.Security.SecurityElement
     - (BOOL)equal_withOther:(System_Security_SecurityElement *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equal(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -169,7 +175,9 @@
 	// Managed param types : System.String
     + (NSString *)escape_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Escape(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -178,7 +186,9 @@
 	// Managed param types : System.String
     + (System_Security_SecurityElement *)fromString_withXml:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromString(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
@@ -187,7 +197,9 @@
 	// Managed param types : System.String
     + (BOOL)isValidAttributeName_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeName(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -196,7 +208,9 @@
 	// Managed param types : System.String
     + (BOOL)isValidAttributeValue_withValue:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeValue(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -205,7 +219,9 @@
 	// Managed param types : System.String
     + (BOOL)isValidTag_withTag:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidTag(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -214,7 +230,9 @@
 	// Managed param types : System.String
     + (BOOL)isValidText_withText:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidText(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -223,7 +241,9 @@
 	// Managed param types : System.String
     - (System_Security_SecurityElement *)searchForChildByTag_withTag:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SearchForChildByTag(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 
@@ -232,7 +252,9 @@
 	// Managed param types : System.String
     - (NSString *)searchForTextOfTag_withTag:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SearchForTextOfTag(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -241,7 +263,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

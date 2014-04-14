@@ -32,7 +32,7 @@
 	// Managed param types : System.Exception
     + (System_Runtime_ExceptionServices_FirstChanceExceptionEventArgs *)new_withException:(System_Exception *)p1
     {
-		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

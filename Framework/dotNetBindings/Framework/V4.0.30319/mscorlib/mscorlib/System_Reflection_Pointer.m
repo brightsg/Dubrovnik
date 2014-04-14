@@ -32,7 +32,9 @@
 	// Managed param types : System.Void*, System.Type
     + (System_Object *)box_withPtr:(void*)p1 type:(System_Type *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Box(void*,System.Type)" withNumArgs:2, p1, [p2 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.Object
     + (void *)unbox_withPtr:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Unbox(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_PTR(monoObject);
     }
 

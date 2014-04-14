@@ -119,7 +119,7 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Purge
@@ -127,7 +127,7 @@
 	// Managed param types : System.Security.Principal.SecurityIdentifier
     - (void)purge_withSid:(System_Security_Principal_SecurityIdentifier *)p1
     {
-		[self invokeMonoMethod:"Purge(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Purge(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveInheritedAces
@@ -135,7 +135,7 @@
 	// Managed param types : 
     - (void)removeInheritedAces
     {
-		[self invokeMonoMethod:"RemoveInheritedAces()" withNumArgs:0];
+		[self invokeMonoMethod:"RemoveInheritedAces()" withNumArgs:0];;
     }
 
 #pragma mark -

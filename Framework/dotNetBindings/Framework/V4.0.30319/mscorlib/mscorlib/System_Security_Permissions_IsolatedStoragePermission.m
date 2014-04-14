@@ -69,7 +69,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEsd:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : IsUnrestricted
@@ -77,7 +77,9 @@
 	// Managed param types : 
     - (BOOL)isUnrestricted
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsUnrestricted()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -86,7 +88,9 @@
 	// Managed param types : 
     - (System_Security_SecurityElement *)toXml
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 

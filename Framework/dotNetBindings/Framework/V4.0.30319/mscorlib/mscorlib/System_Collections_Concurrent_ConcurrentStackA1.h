@@ -40,8 +40,8 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : T[], System.Int32
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2;
+	// Managed param types : <T[]>, System.Int32
+    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<T>
@@ -55,37 +55,37 @@
 
 	// Managed method name : PushRange
 	// Managed return type : System.Void
-	// Managed param types : T[]
-    - (void)pushRange_withItems:(DBSystem_Array *)p1;
+	// Managed param types : <T[]>
+    - (void)pushRange_withItems:(System_Object *)p1;
 
 	// Managed method name : PushRange
 	// Managed return type : System.Void
-	// Managed param types : T[], System.Int32, System.Int32
-    - (void)pushRange_withItems:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+	// Managed param types : <T[]>, System.Int32, System.Int32
+    - (void)pushRange_withItems:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ToArray
-	// Managed return type : T[]
+	// Managed return type : <T[]>
 	// Managed param types : 
-    - (DBSystem_Array *)toArray;
+    - (System_Object *)toArray;
 
 	// Managed method name : TryPeek
 	// Managed return type : System.Boolean
-	// Managed param types : ref T&
-    - (BOOL)tryPeek_withResultRef:(T **)p1;
+	// Managed param types : ref <T&>
+    - (BOOL)tryPeek_withResultRef:(System_Object **)p1;
 
 	// Managed method name : TryPop
 	// Managed return type : System.Boolean
-	// Managed param types : ref T&
-    - (BOOL)tryPop_withResultRef:(T **)p1;
+	// Managed param types : ref <T&>
+    - (BOOL)tryPop_withResultRef:(System_Object **)p1;
 
 	// Managed method name : TryPopRange
 	// Managed return type : System.Int32
-	// Managed param types : T[]
-    - (int32_t)tryPopRange_withItems:(DBSystem_Array *)p1;
+	// Managed param types : <T[]>
+    - (int32_t)tryPopRange_withItems:(System_Object *)p1;
 
 	// Managed method name : TryPopRange
 	// Managed return type : System.Int32
-	// Managed param types : T[], System.Int32, System.Int32
-    - (int32_t)tryPopRange_withItems:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+	// Managed param types : <T[]>, System.Int32, System.Int32
+    - (int32_t)tryPopRange_withItems:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (BOOL)isUnrestricted
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsUnrestricted()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32
     + (System_Runtime_CompilerServices_CompilationRelaxationsAttribute *)new_withRelaxationsInt:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.CompilerServices.CompilationRelaxations
     + (System_Runtime_CompilerServices_CompilationRelaxationsAttribute *)new_withRelaxationsSRCCompilationRelaxations:(System_Runtime_CompilerServices_CompilationRelaxations)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.CompilationRelaxations" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.CompilationRelaxations" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Principal.IIdentity, System.String[]
     + (System_Security_Principal_GenericPrincipal *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 roles:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,string[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,string[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -58,7 +58,9 @@
 	// Managed param types : System.String
     - (BOOL)isInRole_withRole:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -180,7 +180,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Create
@@ -188,7 +188,9 @@
 	// Managed param types : 
     + (System_Security_Cryptography_SymmetricAlgorithm *)create
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_SymmetricAlgorithm objectWithMonoObject:monoObject];
     }
 
@@ -197,7 +199,9 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_SymmetricAlgorithm *)create_withAlgName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_SymmetricAlgorithm objectWithMonoObject:monoObject];
     }
 
@@ -206,7 +210,9 @@
 	// Managed param types : 
     - (System_Security_Cryptography_ICryptoTransform *)createDecryptor
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
     }
 
@@ -215,7 +221,9 @@
 	// Managed param types : System.Byte[], System.Byte[]
     - (System_Security_Cryptography_ICryptoTransform *)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
     }
 
@@ -224,7 +232,9 @@
 	// Managed param types : 
     - (System_Security_Cryptography_ICryptoTransform *)createEncryptor
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
     }
 
@@ -233,7 +243,9 @@
 	// Managed param types : System.Byte[], System.Byte[]
     - (System_Security_Cryptography_ICryptoTransform *)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
     }
 
@@ -242,7 +254,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : GenerateIV
@@ -250,7 +262,7 @@
 	// Managed param types : 
     - (void)generateIV
     {
-		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];
+		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];;
     }
 
 	// Managed method name : GenerateKey
@@ -258,7 +270,7 @@
 	// Managed param types : 
     - (void)generateKey
     {
-		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];
+		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];;
     }
 
 	// Managed method name : ValidKeySize
@@ -266,7 +278,9 @@
 	// Managed param types : System.Int32
     - (BOOL)validKeySize_withBitLength:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ValidKeySize(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.String
     - (void)addResource_withNameString:(NSString *)p1 valueString:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"AddResource(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : AddResource
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Object
     - (void)addResource_withNameString:(NSString *)p1 valueObject:(System_Object *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : AddResource
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.Byte[]
     - (void)addResource_withNameString:(NSString *)p1 valueByte:(NSData *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"AddResource(string,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : Close
@@ -56,7 +56,7 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
+		[self invokeMonoMethod:"Close()" withNumArgs:0];;
     }
 
 	// Managed method name : Generate
@@ -64,7 +64,7 @@
 	// Managed param types : 
     - (void)generate
     {
-		[self invokeMonoMethod:"Generate()" withNumArgs:0];
+		[self invokeMonoMethod:"Generate()" withNumArgs:0];;
     }
 
 #pragma mark -

@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.CompilerServices.LoadHint
     + (System_Runtime_CompilerServices_DefaultDependencyAttribute *)new_withLoadHintArgument:(System_Runtime_CompilerServices_LoadHint)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.LoadHint" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.LoadHint" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

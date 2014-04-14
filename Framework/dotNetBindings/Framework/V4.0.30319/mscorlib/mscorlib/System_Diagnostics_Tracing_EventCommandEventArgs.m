@@ -70,7 +70,9 @@
 	// Managed param types : System.Int32
     - (BOOL)disableEvent_withEventId:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DisableEvent(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -79,7 +81,9 @@
 	// Managed param types : System.Int32
     - (BOOL)enableEvent_withEventId:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnableEvent(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

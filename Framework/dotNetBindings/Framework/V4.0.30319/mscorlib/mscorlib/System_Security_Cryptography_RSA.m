@@ -32,7 +32,9 @@
 	// Managed param types : 
     + (System_Security_Cryptography_RSA *)create
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_RSA objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_RSA *)create_withAlgName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_RSA objectWithMonoObject:monoObject];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.Byte[]
     - (NSData *)decryptValue_withRgb:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DecryptValue(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -59,7 +65,9 @@
 	// Managed param types : System.Byte[]
     - (NSData *)encryptValue_withRgb:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"EncryptValue(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -68,7 +76,9 @@
 	// Managed param types : System.Boolean
     - (System_Security_Cryptography_RSAParameters *)exportParameters_withIncludePrivateParameters:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExportParameters(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Security_Cryptography_RSAParameters objectWithMonoObject:monoObject];
     }
 
@@ -77,7 +87,7 @@
 	// Managed param types : System.String
     - (void)fromXmlString_withXmlString:(NSString *)p1
     {
-		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ImportParameters
@@ -85,7 +95,7 @@
 	// Managed param types : System.Security.Cryptography.RSAParameters
     - (void)importParameters_withParameters:(System_Security_Cryptography_RSAParameters *)p1
     {
-		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.RSAParameters)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.RSAParameters)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ToXmlString
@@ -93,7 +103,9 @@
 	// Managed param types : System.Boolean
     - (NSString *)toXmlString_withIncludePrivateParameters:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXmlString(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

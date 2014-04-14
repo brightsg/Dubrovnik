@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean
     + (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -
@@ -92,7 +92,9 @@
 	// Managed param types : System.Threading.CancellationToken
     - (BOOL)equals_withOtherSTCancellationToken:(System_Threading_CancellationToken *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -101,7 +103,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withOtherObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -110,7 +114,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -119,7 +125,9 @@
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
     + (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -128,7 +136,9 @@
 	// Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
     + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -137,7 +147,9 @@
 	// Managed param types : System.Action
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
@@ -146,7 +158,9 @@
 	// Managed param types : System.Action, System.Boolean
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 useSynchronizationContext:(BOOL)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
@@ -155,7 +169,9 @@
 	// Managed param types : System.Action`1<System.Object>, System.Object
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<System.Object>,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
@@ -164,7 +180,9 @@
 	// Managed param types : System.Action`1<System.Object>, System.Object, System.Boolean
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<System.Object>,object,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		
 		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
     }
 
@@ -173,7 +191,7 @@
 	// Managed param types : 
     - (void)throwIfCancellationRequested
     {
-		[self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];
+		[self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];;
     }
 
 #pragma mark -

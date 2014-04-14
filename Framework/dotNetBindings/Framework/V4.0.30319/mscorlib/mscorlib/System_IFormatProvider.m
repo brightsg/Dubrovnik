@@ -32,7 +32,9 @@
 	// Managed param types : System.Type
     - (System_Object *)getFormat_withFormatType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

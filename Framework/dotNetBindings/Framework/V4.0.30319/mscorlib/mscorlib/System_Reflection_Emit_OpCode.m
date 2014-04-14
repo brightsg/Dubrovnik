@@ -124,7 +124,9 @@
 	// Managed param types : System.Reflection.Emit.OpCode
     - (BOOL)equals_withObjSREOpCode:(System_Reflection_Emit_OpCode *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.OpCode)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -133,7 +135,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -142,7 +146,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -151,7 +157,9 @@
 	// Managed param types : System.Reflection.Emit.OpCode, System.Reflection.Emit.OpCode
     + (BOOL)op_Equality_withA:(System_Reflection_Emit_OpCode *)p1 b:(System_Reflection_Emit_OpCode *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.Emit.OpCode,System.Reflection.Emit.OpCode)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -160,7 +168,9 @@
 	// Managed param types : System.Reflection.Emit.OpCode, System.Reflection.Emit.OpCode
     + (BOOL)op_Inequality_withA:(System_Reflection_Emit_OpCode *)p1 b:(System_Reflection_Emit_OpCode *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.Emit.OpCode,System.Reflection.Emit.OpCode)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -169,7 +179,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

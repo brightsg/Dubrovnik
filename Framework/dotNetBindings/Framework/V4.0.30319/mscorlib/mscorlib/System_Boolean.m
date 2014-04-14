@@ -59,7 +59,9 @@
 	// Managed param types : System.Object
     - (int32_t)compareTo_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -68,7 +70,9 @@
 	// Managed param types : System.Boolean
     - (int32_t)compareTo_withValue:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -77,7 +81,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -86,7 +92,9 @@
 	// Managed param types : System.Boolean
     - (BOOL)equals_withObjBool:(BOOL)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(bool)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -95,7 +103,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -104,7 +114,9 @@
 	// Managed param types : 
     - (System_TypeCode)getTypeCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -113,7 +125,9 @@
 	// Managed param types : System.String
     + (BOOL)parse_withValue:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -122,7 +136,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -131,7 +147,9 @@
 	// Managed param types : System.IFormatProvider
     - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -140,7 +158,9 @@
 	// Managed param types : System.String, ref System.Boolean&
     + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoValue], p2];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (DBSystem_Array *)getNames
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNames()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 

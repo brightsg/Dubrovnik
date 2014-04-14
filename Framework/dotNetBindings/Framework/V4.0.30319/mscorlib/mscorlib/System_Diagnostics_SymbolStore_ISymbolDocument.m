@@ -117,7 +117,9 @@
 	// Managed param types : System.Int32
     - (int32_t)findClosestLine_withLine:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"FindClosestLine(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -126,7 +128,9 @@
 	// Managed param types : 
     - (NSData *)getCheckSum
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCheckSum()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -135,7 +139,9 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32
     - (NSData *)getSourceRange_withStartLine:(int32_t)p1 startColumn:(int32_t)p2 endLine:(int32_t)p3 endColumn:(int32_t)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSourceRange(int,int,int,int)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 

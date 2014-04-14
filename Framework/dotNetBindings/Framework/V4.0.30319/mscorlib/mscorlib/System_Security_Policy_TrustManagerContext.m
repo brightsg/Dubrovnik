@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Policy.TrustManagerUIContext
     + (System_Security_Policy_TrustManagerContext *)new_withUiContext:(System_Security_Policy_TrustManagerUIContext)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Policy.TrustManagerUIContext" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Security.Policy.TrustManagerUIContext" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

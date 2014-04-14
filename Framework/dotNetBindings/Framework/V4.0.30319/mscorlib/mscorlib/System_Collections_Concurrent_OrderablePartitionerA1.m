@@ -86,7 +86,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IEnumerableA1 *)getDynamicPartitions
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicPartitions()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
 
@@ -95,7 +97,9 @@
 	// Managed param types : 
     - (System_Collections_Generic_IEnumerableA1_System_Collections_Generic_KeyValuePairA2 *)getOrderableDynamicPartitions
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrderableDynamicPartitions()" withNumArgs:0];
+		
 		return [System_Collections_Generic_IEnumerableA1_System_Collections_Generic_KeyValuePairA2 objectWithMonoObject:monoObject];
     }
 
@@ -104,7 +108,9 @@
 	// Managed param types : System.Int32
     - (System_Collections_Generic_IListA1_System_Collections_Generic_IEnumeratorA1_System_Collections_Generic_KeyValuePairA2 *)getOrderablePartitions_withPartitionCount:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrderablePartitions(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Collections_Generic_IListA1_System_Collections_Generic_IEnumeratorA1_System_Collections_Generic_KeyValuePairA2 objectWithMonoObject:monoObject];
     }
 
@@ -113,7 +119,9 @@
 	// Managed param types : System.Int32
     - (System_Collections_Generic_IListA1_System_Collections_Generic_IEnumeratorA1 *)getPartitions_withPartitionCount:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Collections_Generic_IListA1_System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
     }
 

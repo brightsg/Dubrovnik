@@ -91,7 +91,9 @@
 	// Managed param types : System.String, System.String
     + (NSString *)changeExtension_withPath:(NSString *)p1 extension:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeExtension(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -100,7 +102,9 @@
 	// Managed param types : System.String, System.String
     + (NSString *)combine_withPath1:(NSString *)p1 path2:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -109,7 +113,9 @@
 	// Managed param types : System.String, System.String, System.String
     + (NSString *)combine_withPath1:(NSString *)p1 path2:(NSString *)p2 path3:(NSString *)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(string,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -118,7 +124,9 @@
 	// Managed param types : System.String, System.String, System.String, System.String
     + (NSString *)combine_withPath1:(NSString *)p1 path2:(NSString *)p2 path3:(NSString *)p3 path4:(NSString *)p4
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(string,string,string,string)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -127,7 +135,9 @@
 	// Managed param types : System.String[]
     + (NSString *)combine_withPaths:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(string[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -136,7 +146,9 @@
 	// Managed param types : System.String
     + (NSString *)getDirectoryName_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDirectoryName(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -145,7 +157,9 @@
 	// Managed param types : System.String
     + (NSString *)getExtension_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetExtension(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -154,7 +168,9 @@
 	// Managed param types : System.String
     + (NSString *)getFileName_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFileName(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -163,7 +179,9 @@
 	// Managed param types : System.String
     + (NSString *)getFileNameWithoutExtension_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFileNameWithoutExtension(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -172,7 +190,9 @@
 	// Managed param types : System.String
     + (NSString *)getFullPath_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFullPath(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -181,7 +201,9 @@
 	// Managed param types : 
     + (DBSystem_Array *)getInvalidFileNameChars
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInvalidFileNameChars()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -190,7 +212,9 @@
 	// Managed param types : 
     + (DBSystem_Array *)getInvalidPathChars
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInvalidPathChars()" withNumArgs:0];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -199,7 +223,9 @@
 	// Managed param types : System.String
     + (NSString *)getPathRoot_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetPathRoot(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -208,7 +234,9 @@
 	// Managed param types : 
     + (NSString *)getRandomFileName
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRandomFileName()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -217,7 +245,9 @@
 	// Managed param types : 
     + (NSString *)getTempFileName
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTempFileName()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -226,7 +256,9 @@
 	// Managed param types : 
     + (NSString *)getTempPath
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTempPath()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -235,7 +267,9 @@
 	// Managed param types : System.String
     + (BOOL)hasExtension_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"HasExtension(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -244,7 +278,9 @@
 	// Managed param types : System.String
     + (BOOL)isPathRooted_withPath:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsPathRooted(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

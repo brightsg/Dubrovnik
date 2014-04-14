@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Versioning.ComponentGuaranteesOptions
     + (System_Runtime_Versioning_ComponentGuaranteesAttribute *)new_withGuarantees:(System_Runtime_Versioning_ComponentGuaranteesOptions)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ComponentGuaranteesOptions" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ComponentGuaranteesOptions" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

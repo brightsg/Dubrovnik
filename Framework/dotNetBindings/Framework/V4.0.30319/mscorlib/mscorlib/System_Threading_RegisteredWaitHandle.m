@@ -32,7 +32,9 @@
 	// Managed param types : System.Threading.WaitHandle
     - (BOOL)unregister_withWaitObject:(System_Threading_WaitHandle *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Unregister(System.Threading.WaitHandle)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

@@ -146,12 +146,12 @@
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
-	// Managed param types : System.String, ref TEnum&
-    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(TEnum **)p2;
+	// Managed param types : System.String, ref <TEnum&>
+    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
-	// Managed param types : System.String, System.Boolean, ref TEnum&
-    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(TEnum **)p3;
+	// Managed param types : System.String, System.Boolean, ref <TEnum&>
+    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3;
 @end
 //--Dubrovnik.CodeGenerator

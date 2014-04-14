@@ -32,7 +32,9 @@
 	// Managed param types : System.ActivationContext
     - (System_Runtime_Remoting_ObjectHandle *)createInstance_withActivationContext:(System_ActivationContext *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.ActivationContext, System.String[]
     - (System_Runtime_Remoting_ObjectHandle *)createInstance_withActivationContext:(System_ActivationContext *)p1 activationCustomData:(DBSystem_Array *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.ActivationContext,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
     }
 

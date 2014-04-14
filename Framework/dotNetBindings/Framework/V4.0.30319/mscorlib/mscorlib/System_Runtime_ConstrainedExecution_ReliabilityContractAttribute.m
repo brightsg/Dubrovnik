@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.ConstrainedExecution.Consistency, System.Runtime.ConstrainedExecution.Cer
     + (System_Runtime_ConstrainedExecution_ReliabilityContractAttribute *)new_withConsistencyGuarantee:(System_Runtime_ConstrainedExecution_Consistency)p1 cer:(System_Runtime_ConstrainedExecution_Cer)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.ConstrainedExecution.Consistency,System.Runtime.ConstrainedExecution.Cer" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Runtime.ConstrainedExecution.Consistency,System.Runtime.ConstrainedExecution.Cer" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 #pragma mark -

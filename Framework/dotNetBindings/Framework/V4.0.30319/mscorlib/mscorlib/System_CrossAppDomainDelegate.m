@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_CrossAppDomainDelegate *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -43,7 +43,9 @@
 	// Managed param types : System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
 
@@ -52,7 +54,7 @@
 	// Managed param types : System.IAsyncResult
     - (void)endInvoke_withResult:(System_IAsyncResult *)p1
     {
-		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Invoke
@@ -60,7 +62,7 @@
 	// Managed param types : 
     - (void)invoke
     {
-		[self invokeMonoMethod:"Invoke()" withNumArgs:0];
+		[self invokeMonoMethod:"Invoke()" withNumArgs:0];;
     }
 
 #pragma mark -

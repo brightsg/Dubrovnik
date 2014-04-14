@@ -32,7 +32,9 @@
 	// Managed param types : System.Object, System.Object
     - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Compare(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 

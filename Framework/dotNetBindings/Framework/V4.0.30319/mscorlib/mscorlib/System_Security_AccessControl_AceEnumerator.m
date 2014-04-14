@@ -47,7 +47,9 @@
 	// Managed param types : 
     - (BOOL)moveNext
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MoveNext()" withNumArgs:0];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -56,7 +58,7 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
     }
 
 #pragma mark -

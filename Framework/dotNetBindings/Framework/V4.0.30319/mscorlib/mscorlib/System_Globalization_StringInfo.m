@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Globalization_StringInfo *)new_withValue:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -75,7 +75,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -84,7 +86,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -93,7 +97,9 @@
 	// Managed param types : System.String, System.Int32
     + (NSString *)getNextTextElement_withStr:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNextTextElement(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -102,7 +108,9 @@
 	// Managed param types : System.String
     + (NSString *)getNextTextElement_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNextTextElement(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -111,7 +119,9 @@
 	// Managed param types : System.String
     + (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTextElementEnumerator(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -120,7 +130,9 @@
 	// Managed param types : System.String, System.Int32
     + (System_Globalization_TextElementEnumerator *)getTextElementEnumerator_withStr:(NSString *)p1 index:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTextElementEnumerator(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
     }
 
@@ -129,7 +141,9 @@
 	// Managed param types : System.String
     + (DBSystem_Array *)parseCombiningCharacters_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseCombiningCharacters(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -138,7 +152,9 @@
 	// Managed param types : System.Int32
     - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SubstringByTextElements(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -147,7 +163,9 @@
 	// Managed param types : System.Int32, System.Int32
     - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1 lengthInTextElements:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SubstringByTextElements(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

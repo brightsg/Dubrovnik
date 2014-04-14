@@ -32,7 +32,9 @@
 	// Managed param types : System.Object, ref System.Boolean&
     - (int64_t)getId_withObj:(System_Object *)p1 firstTimeRef:(BOOL*)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetId(object,bool&)" withNumArgs:2, [p1 monoValue], p2];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.Object, ref System.Boolean&
     - (int64_t)hasId_withObj:(System_Object *)p1 firstTimeRef:(BOOL*)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"HasId(object,bool&)" withNumArgs:2, [p1 monoValue], p2];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 

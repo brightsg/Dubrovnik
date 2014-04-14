@@ -32,7 +32,9 @@
 	// Managed param types : System.Nullable`1<T>, System.Nullable`1<T>
     + (int32_t)compare_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Nullable`1<T>,System.Nullable`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : System.Nullable`1<T>, System.Nullable`1<T>
     + (BOOL)equals_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.Nullable`1<T>,System.Nullable`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : System.Type
     + (System_Type *)getUnderlyingType_withNullableType:(System_Type *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnderlyingType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Type objectWithMonoObject:monoObject];
     }
 

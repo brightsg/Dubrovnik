@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : Equals
@@ -40,7 +40,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -49,7 +51,9 @@
 	// Managed param types : System.Threading.AsyncFlowControl
     - (BOOL)equals_withObjSTAsyncFlowControl:(System_Threading_AsyncFlowControl *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.AsyncFlowControl)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -58,7 +62,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -67,7 +73,9 @@
 	// Managed param types : System.Threading.AsyncFlowControl, System.Threading.AsyncFlowControl
     + (BOOL)op_Equality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.AsyncFlowControl,System.Threading.AsyncFlowControl)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -76,7 +84,9 @@
 	// Managed param types : System.Threading.AsyncFlowControl, System.Threading.AsyncFlowControl
     + (BOOL)op_Inequality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.AsyncFlowControl,System.Threading.AsyncFlowControl)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -85,7 +95,7 @@
 	// Managed param types : 
     - (void)undo
     {
-		[self invokeMonoMethod:"Undo()" withNumArgs:0];
+		[self invokeMonoMethod:"Undo()" withNumArgs:0];;
     }
 
 #pragma mark -

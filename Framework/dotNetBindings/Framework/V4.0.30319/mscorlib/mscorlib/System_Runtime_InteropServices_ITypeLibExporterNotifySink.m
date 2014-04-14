@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.ExporterEventKind, System.Int32, System.String
     - (void)reportEvent_withEventKind:(System_Runtime_InteropServices_ExporterEventKind)p1 eventCode:(int32_t)p2 eventMsg:(NSString *)p3
     {
-		[self invokeMonoMethod:"ReportEvent(System.Runtime.InteropServices.ExporterEventKind,int,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		[self invokeMonoMethod:"ReportEvent(System.Runtime.InteropServices.ExporterEventKind,int,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
     }
 
 	// Managed method name : ResolveRef
@@ -40,7 +40,9 @@
 	// Managed param types : System.Reflection.Assembly
     - (System_Object *)resolveRef_withAssembly:(System_Reflection_Assembly *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveRef(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 

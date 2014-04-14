@@ -32,7 +32,7 @@
 	// Managed param types : System.TimeSpan
     + (System_Runtime_Remoting_Lifetime_ClientSponsor *)new_withRenewalTime:(System_TimeSpan *)p1
     {
-		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -64,7 +64,7 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
+		[self invokeMonoMethod:"Close()" withNumArgs:0];;
     }
 
 	// Managed method name : InitializeLifetimeService
@@ -72,7 +72,9 @@
 	// Managed param types : 
     - (System_Object *)initializeLifetimeService
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -81,7 +83,9 @@
 	// Managed param types : System.MarshalByRefObject
     - (BOOL)register_withObj:(System_MarshalByRefObject *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -90,7 +94,9 @@
 	// Managed param types : System.Runtime.Remoting.Lifetime.ILease
     - (System_TimeSpan *)renewal_withLease:(System_Runtime_Remoting_Lifetime_ILease *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
@@ -99,7 +105,7 @@
 	// Managed param types : System.MarshalByRefObject
     - (void)unregister_withObj:(System_MarshalByRefObject *)p1
     {
-		[self invokeMonoMethod:"Unregister(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Unregister(System.MarshalByRefObject)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

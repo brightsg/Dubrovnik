@@ -32,7 +32,7 @@
 	// Managed param types : System.Boolean, System.Boolean, System.Security.AccessControl.ControlFlags, System.Security.Principal.SecurityIdentifier, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.SystemAcl, System.Security.AccessControl.DiscretionaryAcl
     + (System_Security_AccessControl_CommonSecurityDescriptor *)new_withIsContainer:(BOOL)p1 isDS:(BOOL)p2 flags:(System_Security_AccessControl_ControlFlags)p3 owner:(System_Security_Principal_SecurityIdentifier *)p4 group:(System_Security_Principal_SecurityIdentifier *)p5 systemAcl:(System_Security_AccessControl_SystemAcl *)p6 discretionaryAcl:(System_Security_AccessControl_DiscretionaryAcl *)p7
     {
-		return [[self alloc] initWithSignature:"bool,bool,System.Security.AccessControl.ControlFlags,System.Security.Principal.SecurityIdentifier,System.Security.Principal.SecurityIdentifier,System.Security.AccessControl.SystemAcl,System.Security.AccessControl.DiscretionaryAcl" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		return [[self alloc] initWithSignature:"bool,bool,System.Security.AccessControl.ControlFlags,System.Security.Principal.SecurityIdentifier,System.Security.Principal.SecurityIdentifier,System.Security.AccessControl.SystemAcl,System.Security.AccessControl.DiscretionaryAcl" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Boolean, System.Boolean, System.Security.AccessControl.RawSecurityDescriptor
     + (System_Security_AccessControl_CommonSecurityDescriptor *)new_withIsContainer:(BOOL)p1 isDS:(BOOL)p2 rawSecurityDescriptor:(System_Security_AccessControl_RawSecurityDescriptor *)p3
     {
-		return [[self alloc] initWithSignature:"bool,bool,System.Security.AccessControl.RawSecurityDescriptor" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		return [[self alloc] initWithSignature:"bool,bool,System.Security.AccessControl.RawSecurityDescriptor" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Boolean, System.Boolean, System.String
     + (System_Security_AccessControl_CommonSecurityDescriptor *)new_withIsContainer:(BOOL)p1 isDS:(BOOL)p2 sddlForm:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"bool,bool,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		return [[self alloc] initWithSignature:"bool,bool,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Boolean, System.Boolean, System.Byte[], System.Int32
     + (System_Security_AccessControl_CommonSecurityDescriptor *)new_withIsContainer:(BOOL)p1 isDS:(BOOL)p2 binaryForm:(NSData *)p3 offset:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"bool,bool,byte[],int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
+		return [[self alloc] initWithSignature:"bool,bool,byte[],int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];;
     }
 
 #pragma mark -
@@ -197,7 +197,7 @@
 	// Managed param types : System.Security.Principal.SecurityIdentifier
     - (void)purgeAccessControl_withSid:(System_Security_Principal_SecurityIdentifier *)p1
     {
-		[self invokeMonoMethod:"PurgeAccessControl(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"PurgeAccessControl(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : PurgeAudit
@@ -205,7 +205,7 @@
 	// Managed param types : System.Security.Principal.SecurityIdentifier
     - (void)purgeAudit_withSid:(System_Security_Principal_SecurityIdentifier *)p1
     {
-		[self invokeMonoMethod:"PurgeAudit(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"PurgeAudit(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetDiscretionaryAclProtection
@@ -213,7 +213,7 @@
 	// Managed param types : System.Boolean, System.Boolean
     - (void)setDiscretionaryAclProtection_withIsProtected:(BOOL)p1 preserveInheritance:(BOOL)p2
     {
-		[self invokeMonoMethod:"SetDiscretionaryAclProtection(bool,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoMethod:"SetDiscretionaryAclProtection(bool,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 	// Managed method name : SetSystemAclProtection
@@ -221,7 +221,7 @@
 	// Managed param types : System.Boolean, System.Boolean
     - (void)setSystemAclProtection_withIsProtected:(BOOL)p1 preserveInheritance:(BOOL)p2
     {
-		[self invokeMonoMethod:"SetSystemAclProtection(bool,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		[self invokeMonoMethod:"SetSystemAclProtection(bool,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 #pragma mark -

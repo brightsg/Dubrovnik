@@ -29,31 +29,31 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.ArraySegment`1<T>
-	// Managed param types : T[]
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1
+	// Managed param types : <T[]>
+    + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"System.Array[]" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"<_T_0>[]" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.ArraySegment`1<T>
-	// Managed param types : T[], System.Int32, System.Int32
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3
+	// Managed param types : <T[]>, System.Int32, System.Int32
+    + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Array[],int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		return [[self alloc] initWithSignature:"<_T_0>[],int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Array
-	// Managed property type : T[]
+	// Managed property type : <T[]>
     @synthesize array = _array;
-    - (DBSystem_Array *)array
+    - (System_Object *)array
     {
 		MonoObject *monoObject = [self getMonoProperty:"Array"];
 		if ([self object:_array isEqualToMonoObject:monoObject]) return _array;					
-		_array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_array = [System_Object subclassObjectWithMonoObject:monoObject];
 
 		return _array;
 	}
@@ -88,7 +88,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -97,7 +99,9 @@
 	// Managed param types : System.ArraySegment`1<T>
     - (BOOL)equals_withObjSArraySegmentA1:(System_ArraySegmentA1 *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ArraySegment`1<T>)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -106,7 +110,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -115,7 +121,9 @@
 	// Managed param types : System.ArraySegment`1<T>, System.ArraySegment`1<T>
     + (BOOL)op_Equality_withA:(System_ArraySegmentA1 *)p1 b:(System_ArraySegmentA1 *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.ArraySegment`1<T>,System.ArraySegment`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -124,7 +132,9 @@
 	// Managed param types : System.ArraySegment`1<T>, System.ArraySegment`1<T>
     + (BOOL)op_Inequality_withA:(System_ArraySegmentA1 *)p1 b:(System_ArraySegmentA1 *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.ArraySegment`1<T>,System.ArraySegment`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 

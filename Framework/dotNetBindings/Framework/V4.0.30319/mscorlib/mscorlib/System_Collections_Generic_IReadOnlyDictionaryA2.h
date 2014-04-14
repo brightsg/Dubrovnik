@@ -38,8 +38,8 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref TValue&
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(TValue **)p2;
+	// Managed param types : <TKey>, ref <TValue&>
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 
 @interface System_Collections_Generic_IReadOnlyDictionaryA2 : System_Object <System_Collections_Generic_IReadOnlyDictionaryA2>

@@ -46,7 +46,7 @@
 	// Managed param types : System.Type, System.String[]
     + (void)addAlgorithm_withAlgorithm:(System_Type *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : AddOID
@@ -54,7 +54,7 @@
 	// Managed param types : System.String, System.String[]
     + (void)addOID_withOid:(NSString *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoClassMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : CreateFromName
@@ -62,7 +62,9 @@
 	// Managed param types : System.String, System.Object[]
     + (System_Object *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -71,7 +73,9 @@
 	// Managed param types : System.String
     + (System_Object *)createFromName_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -80,7 +84,9 @@
 	// Managed param types : System.String
     + (NSData *)encodeOID_withStr:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"EncodeOID(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -89,7 +95,9 @@
 	// Managed param types : System.String
     + (NSString *)mapNameToOID_withName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"MapNameToOID(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

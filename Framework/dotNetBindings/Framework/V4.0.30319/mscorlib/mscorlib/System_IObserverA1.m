@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)onCompleted
     {
-		[self invokeMonoMethod:"OnCompleted()" withNumArgs:0];
+		[self invokeMonoMethod:"OnCompleted()" withNumArgs:0];;
     }
 
 	// Managed method name : OnError
@@ -40,7 +40,7 @@
 	// Managed param types : System.Exception
     - (void)onError_withError:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"OnError(System.Exception)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"OnError(System.Exception)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : OnNext
@@ -48,7 +48,7 @@
 	// Managed param types : <T>
     - (void)onNext_withValue:(System_Object *)p1
     {
-		[self invokeMonoMethod:"OnNext(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"OnNext(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

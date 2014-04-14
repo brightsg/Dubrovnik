@@ -80,7 +80,7 @@
 	// Managed param types : 
     - (void)break
     {
-		[self invokeMonoMethod:"Break()" withNumArgs:0];
+		[self invokeMonoMethod:"Break()" withNumArgs:0];;
     }
 
 	// Managed method name : Stop
@@ -88,7 +88,7 @@
 	// Managed param types : 
     - (void)stop
     {
-		[self invokeMonoMethod:"Stop()" withNumArgs:0];
+		[self invokeMonoMethod:"Stop()" withNumArgs:0];;
     }
 
 #pragma mark -

@@ -102,7 +102,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : ComputeHash
@@ -110,7 +110,9 @@
 	// Managed param types : System.IO.Stream
     - (NSData *)computeHash_withInputStream:(System_IO_Stream *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ComputeHash(System.IO.Stream)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -119,7 +121,9 @@
 	// Managed param types : System.Byte[]
     - (NSData *)computeHash_withBuffer:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ComputeHash(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -128,7 +132,9 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32
     - (NSData *)computeHash_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ComputeHash(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -137,7 +143,9 @@
 	// Managed param types : 
     + (System_Security_Cryptography_HashAlgorithm *)create
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
+		
 		return [System_Security_Cryptography_HashAlgorithm objectWithMonoObject:monoObject];
     }
 
@@ -146,7 +154,9 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_HashAlgorithm *)create_withHashName:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Cryptography_HashAlgorithm objectWithMonoObject:monoObject];
     }
 
@@ -155,7 +165,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : Initialize
@@ -163,7 +173,7 @@
 	// Managed param types : 
     - (void)initialize
     {
-		[self invokeMonoMethod:"Initialize()" withNumArgs:0];
+		[self invokeMonoMethod:"Initialize()" withNumArgs:0];;
     }
 
 	// Managed method name : TransformBlock
@@ -171,7 +181,9 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Byte[], System.Int32
     - (int32_t)transformBlock_withInputBuffer:(NSData *)p1 inputOffset:(int32_t)p2 inputCount:(int32_t)p3 outputBuffer:(NSData *)p4 outputOffset:(int32_t)p5
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"TransformBlock(byte[],int,int,byte[],int)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], DB_VALUE(p5)];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -180,7 +192,9 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32
     - (NSData *)transformFinalBlock_withInputBuffer:(NSData *)p1 inputOffset:(int32_t)p2 inputCount:(int32_t)p3
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"TransformFinalBlock(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 

@@ -75,7 +75,9 @@
 	// Managed param types : System.Object
     - (int32_t)add_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Add(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -84,7 +86,7 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Contains
@@ -92,7 +94,9 @@
 	// Managed param types : System.Object
     - (BOOL)contains_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -101,7 +105,9 @@
 	// Managed param types : System.Object
     - (int32_t)indexOf_withValue:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -110,7 +116,7 @@
 	// Managed param types : System.Int32, System.Object
     - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		[self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
     }
 
 	// Managed method name : Remove
@@ -118,7 +124,7 @@
 	// Managed param types : System.Object
     - (void)remove_withValue:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveAt
@@ -126,7 +132,7 @@
 	// Managed param types : System.Int32
     - (void)removeAt_withIndex:(int32_t)p1
     {
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 #pragma mark -

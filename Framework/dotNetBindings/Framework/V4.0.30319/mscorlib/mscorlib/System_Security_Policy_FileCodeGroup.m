@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Policy.IMembershipCondition, System.Security.Permissions.FileIOPermissionAccess
     + (System_Security_Policy_FileCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1 access:(System_Security_Permissions_FileIOPermissionAccess)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Permissions.FileIOPermissionAccess" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Permissions.FileIOPermissionAccess" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -82,7 +82,9 @@
 	// Managed param types : 
     - (System_Security_Policy_CodeGroup *)copy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
+		
 		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
     }
 
@@ -91,7 +93,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withO:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -100,7 +104,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -109,7 +115,9 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (System_Security_Policy_PolicyStatement *)resolve_withEvidence:(System_Security_Policy_Evidence *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
     }
 
@@ -118,7 +126,9 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (System_Security_Policy_CodeGroup *)resolveMatchingCodeGroups_withEvidence:(System_Security_Policy_Evidence *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
     }
 

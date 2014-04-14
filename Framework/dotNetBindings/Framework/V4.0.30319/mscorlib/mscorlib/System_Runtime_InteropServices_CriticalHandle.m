@@ -57,7 +57,7 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
+		[self invokeMonoMethod:"Close()" withNumArgs:0];;
     }
 
 	// Managed method name : Dispose
@@ -65,7 +65,7 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
     }
 
 	// Managed method name : SetHandleAsInvalid
@@ -73,7 +73,7 @@
 	// Managed param types : 
     - (void)setHandleAsInvalid
     {
-		[self invokeMonoMethod:"SetHandleAsInvalid()" withNumArgs:0];
+		[self invokeMonoMethod:"SetHandleAsInvalid()" withNumArgs:0];;
     }
 
 #pragma mark -

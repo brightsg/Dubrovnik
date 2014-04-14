@@ -71,7 +71,9 @@
 	// Managed param types : System.Int32
     - (System_Globalization_DaylightTime *)getDaylightChanges_withYear:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDaylightChanges(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [System_Globalization_DaylightTime objectWithMonoObject:monoObject];
     }
 
@@ -80,7 +82,9 @@
 	// Managed param types : System.DateTime
     - (System_TimeSpan *)getUtcOffset_withTime:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUtcOffset(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
 
@@ -89,7 +93,9 @@
 	// Managed param types : System.DateTime
     - (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsDaylightSavingTime(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -98,7 +104,9 @@
 	// Managed param types : System.DateTime, System.Globalization.DaylightTime
     + (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1 daylightTimes:(System_Globalization_DaylightTime *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDaylightSavingTime(System.DateTime,System.Globalization.DaylightTime)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -107,7 +115,9 @@
 	// Managed param types : System.DateTime
     - (NSDate *)toLocalTime_withTime:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToLocalTime(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
@@ -116,7 +126,9 @@
 	// Managed param types : System.DateTime
     - (NSDate *)toUniversalTime_withTime:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToUniversalTime(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 

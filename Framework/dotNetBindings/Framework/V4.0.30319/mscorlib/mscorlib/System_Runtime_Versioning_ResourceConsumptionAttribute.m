@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Versioning.ResourceScope
     + (System_Runtime_Versioning_ResourceConsumptionAttribute *)new_withResourceScope:(System_Runtime_Versioning_ResourceScope)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ResourceScope" withNumArgs:1, DB_VALUE(p1)];
+		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ResourceScope" withNumArgs:1, DB_VALUE(p1)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.Versioning.ResourceScope, System.Runtime.Versioning.ResourceScope
     + (System_Runtime_Versioning_ResourceConsumptionAttribute *)new_withResourceScope:(System_Runtime_Versioning_ResourceScope)p1 consumptionScope:(System_Runtime_Versioning_ResourceScope)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ResourceScope,System.Runtime.Versioning.ResourceScope" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ResourceScope,System.Runtime.Versioning.ResourceScope" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
     }
 
 #pragma mark -

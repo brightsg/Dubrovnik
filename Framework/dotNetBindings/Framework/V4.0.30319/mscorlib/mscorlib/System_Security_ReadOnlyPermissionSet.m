@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.SecurityElement
     + (System_Security_ReadOnlyPermissionSet *)new_withPermissionSetXml:(System_Security_SecurityElement *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -57,7 +57,9 @@
 	// Managed param types : 
     - (System_Security_PermissionSet *)copy
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
+		
 		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
     }
 
@@ -66,7 +68,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ToXml
@@ -74,7 +76,9 @@
 	// Managed param types : 
     - (System_Security_SecurityElement *)toXml
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
+		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
 

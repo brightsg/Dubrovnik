@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -257,7 +257,9 @@
 	// Managed param types : 
     - (System_Object *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Object objectWithMonoObject:monoObject];
     }
 
@@ -266,7 +268,9 @@
 	// Managed param types : System.String
     + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
 
@@ -275,7 +279,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetPublicKey
@@ -283,7 +287,9 @@
 	// Managed param types : 
     - (NSData *)getPublicKey
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKey()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -292,7 +298,9 @@
 	// Managed param types : 
     - (NSData *)getPublicKeyToken
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKeyToken()" withNumArgs:0];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -301,7 +309,7 @@
 	// Managed param types : System.Object
     - (void)onDeserialization_withSender:(System_Object *)p1
     {
-		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ReferenceMatchesDefinition
@@ -309,7 +317,9 @@
 	// Managed param types : System.Reflection.AssemblyName, System.Reflection.AssemblyName
     + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -318,7 +328,7 @@
 	// Managed param types : System.Byte[]
     - (void)setPublicKey_withPublicKey:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetPublicKeyToken
@@ -326,7 +336,7 @@
 	// Managed param types : System.Byte[]
     - (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoValue]];
+		[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ToString
@@ -334,7 +344,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

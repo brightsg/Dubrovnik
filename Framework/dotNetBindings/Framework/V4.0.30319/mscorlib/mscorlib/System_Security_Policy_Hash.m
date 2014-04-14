@@ -32,7 +32,7 @@
 	// Managed param types : System.Reflection.Assembly
     + (System_Security_Policy_Hash *)new_withAssembly:(System_Reflection_Assembly *)p1
     {
-		return [[self alloc] initWithSignature:"System.Reflection.Assembly" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"System.Reflection.Assembly" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -82,7 +82,9 @@
 	// Managed param types : 
     - (System_Security_Policy_EvidenceBase *)clone
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+		
 		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
     }
 
@@ -91,7 +93,9 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Policy_Hash *)createMD5_withMd5:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateMD5(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
@@ -100,7 +104,9 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Policy_Hash *)createSHA1_withSha1:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSHA1(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
@@ -109,7 +115,9 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Policy_Hash *)createSHA256_withSha256:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSHA256(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
     }
 
@@ -118,7 +126,9 @@
 	// Managed param types : System.Security.Cryptography.HashAlgorithm
     - (NSData *)generateHash_withHashAlg:(System_Security_Cryptography_HashAlgorithm *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenerateHash(System.Security.Cryptography.HashAlgorithm)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
@@ -127,7 +137,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : ToString
@@ -135,7 +145,9 @@
 	// Managed param types : 
     - (NSString *)toString
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
