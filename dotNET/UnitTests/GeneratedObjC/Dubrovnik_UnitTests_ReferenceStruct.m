@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -102,7 +102,9 @@
 	// Managed param types : System.String
     - (NSString *)stringMethod_withS1:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

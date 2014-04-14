@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1:(NSString *)p1 value2:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
@@ -820,7 +820,9 @@
 	// Managed param types : 
     + (NSString *)classDescription
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ClassDescription()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -829,17 +831,10 @@
 	// Managed param types : System.DateTime
     - (NSDate *)dateMethod_withD1:(NSDate *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSDate dateWithMonoDateTime:monoObject];
-    }
-
-	// Managed method name : DoubleIt
-	// Managed return type : System.Int32
-	// Managed param types : ref System.Int32&
-    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1
-    {
-		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
-		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : DoubleIt
@@ -847,7 +842,20 @@
 	// Managed param types : System.Int32
     - (int32_t)doubleIt_withXInt:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
+		
+		return DB_UNBOX_INT32(monoObject);
+    }
+
+	// Managed method name : DoubleIt
+	// Managed return type : System.Int32
+	// Managed param types : ref System.Int32&
+    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int&)" withNumArgs:1, p1];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -856,7 +864,9 @@
 	// Managed param types : System.Object
     - (BOOL)equals_withObj:(System_Object *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
@@ -865,7 +875,9 @@
 	// Managed param types : 
     - (int32_t)getHashCode
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -874,7 +886,9 @@
 	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
     - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -883,7 +897,7 @@
 	// Managed param types : 
     - (void)raiseUnitTestEvent1
     {
-		[self invokeMonoMethod:"RaiseUnitTestEvent1()" withNumArgs:0];
+		[self invokeMonoMethod:"RaiseUnitTestEvent1()" withNumArgs:0];;
     }
 
 	// Managed method name : RaiseUnitTestEvent2
@@ -891,7 +905,7 @@
 	// Managed param types : 
     - (void)raiseUnitTestEvent2
     {
-		[self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];
+		[self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];;
     }
 
 	// Managed method name : ReferenceStructMethod
@@ -899,7 +913,9 @@
 	// Managed param types : System.String
     - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [Dubrovnik_UnitTests_ReferenceStruct objectWithMonoObject:monoObject];
     }
 
@@ -908,7 +924,9 @@
 	// Managed param types : 
     - (NSString *)stringMethod
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -917,7 +935,9 @@
 	// Managed param types : System.String
     - (NSString *)stringMethod_withS1:(NSString *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -926,7 +946,9 @@
 	// Managed param types : System.Int32
     - (NSString *)stringMethod_withN:(int32_t)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, DB_VALUE(p1)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -935,7 +957,9 @@
 	// Managed param types : System.String, System.String
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -944,7 +968,9 @@
 	// Managed param types : System.String, System.Int32
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -953,7 +979,23 @@
 	// Managed param types : System.String, System.Object
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : StringMethodWithStringRef
+	// Managed return type : System.String
+	// Managed param types : ref System.String&
+    - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1
+    {
+		void *refPtr1 = [*p1 monoValue];
+
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethodWithStringRef(string&)" withNumArgs:1, &refPtr1];
+
+		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -962,7 +1004,9 @@
 	// Managed param types : System.Int64[]
     - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -971,7 +1015,9 @@
 	// Managed param types : System.Int32[]
     - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -980,7 +1026,9 @@
 	// Managed param types : System.Int16[]
     - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_INT16(monoObject);
     }
 
@@ -989,7 +1037,9 @@
 	// Managed param types : System.Byte[]
     - (uint8_t)sum_withByteArray:(NSData *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_UINT8(monoObject);
     }
 
@@ -998,7 +1048,9 @@
 	// Managed param types : System.Single[]
     - (float)sum_withFloatArray:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_FLOAT(monoObject);
     }
 
@@ -1007,7 +1059,9 @@
 	// Managed param types : System.Double[]
     - (double)sum_withDoubleArray:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoValue]];
+		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 
@@ -1016,7 +1070,9 @@
 	// Managed param types : System.String[]
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -1025,7 +1081,9 @@
 	// Managed param types : System.Int32*, System.Int32*
     - (int32_t)sumAndSwitch_withIntPtrX:(int32_t*)p1 intPtrY:(int32_t*)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(int*,int*)" withNumArgs:2, p1, p2];
+		
 		return DB_UNBOX_INT32(monoObject);
     }
 
@@ -1034,7 +1092,9 @@
 	// Managed param types : System.Int64*, System.Int64*
     - (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(long*,long*)" withNumArgs:2, p1, p2];
+		
 		return DB_UNBOX_INT64(monoObject);
     }
 
@@ -1043,7 +1103,9 @@
 	// Managed param types : System.Single*, System.Single*
     - (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(single*,single*)" withNumArgs:2, p1, p2];
+		
 		return DB_UNBOX_FLOAT(monoObject);
     }
 
@@ -1052,7 +1114,9 @@
 	// Managed param types : System.Double*, System.Double*
     - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(double*,double*)" withNumArgs:2, p1, p2];
+		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
 

@@ -95,6 +95,7 @@
 - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2;
 - (NSString *)stringMethodByRef:(NSString **)p1;
 - (NSString *)stringMethod_withN:(int32_t)p1;
+- (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1;
 
 // int parameter methods
 - (int32_t)doubleIt_withXInt:(int32_t)p1;

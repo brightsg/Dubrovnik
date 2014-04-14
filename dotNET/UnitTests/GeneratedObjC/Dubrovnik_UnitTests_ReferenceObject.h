@@ -224,13 +224,13 @@
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
-	// Managed param types : ref System.Int32&
-    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
+	// Managed param types : System.Int32
+    - (int32_t)doubleIt_withXInt:(int32_t)p1;
 
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
-	// Managed param types : System.Int32
-    - (int32_t)doubleIt_withXInt:(int32_t)p1;
+	// Managed param types : ref System.Int32&
+    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -291,6 +291,11 @@
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
+
+	// Managed method name : StringMethodWithStringRef
+	// Managed return type : System.String
+	// Managed param types : ref System.String&
+    - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1;
 
 	// Managed method name : Sum
 	// Managed return type : System.Int64

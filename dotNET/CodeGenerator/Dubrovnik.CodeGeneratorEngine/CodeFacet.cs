@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -162,34 +163,105 @@ namespace Dubrovnik
         }
 
         //
-        // StripGenericTypeInfoFromManagedName
+        // NormalizeGenericTypesInManagedIdentifier
         //
-        // Strip generic type info from managed name
+        // Normalize generic type info in a managed identifier.
+        // The normalization process removes all open generic type info.
+        // eg: System.List`1<T>+NestedClass will become System.List`1+NestedClass
         // 
-        public static string StripGenericTypeInfoFromManagedIdentifier(string managedIdentifier)
+        public static string NormalizeGenericTypesInManagedIdentifier(string managedIdentifier)
         {
            StringBuilder identifier = new StringBuilder("");
            if (!String.IsNullOrEmpty(managedIdentifier))
             {
                 identifier = new StringBuilder(managedIdentifier);
+                bool done = false;
+                int searchStartPos = 0;
 
                 // strip out generic type parameter delimiters
-                // TODO: handle cases such as IEnumerator`1<KeyValuePair`2<TKey, TValue>> -> IEnumeratorA1_KeyValuePairA2
+                // note the existence cases such as IEnumerator`1<KeyValuePair`2<TKey, TValue>>
+                // where one generic type definition is referenced within another.
                 do
                 {
-                    int idx1 = identifier.ToString().IndexOf("<");
-                    if (idx1 == -1) break;
+                    string genericParameters = null;
+                    bool hasGenericSubtype = false;
 
-                    int idx2 = identifier.ToString().IndexOf(">");
-                    if (idx2 > -1)
+                    // get generic <
+                    string cursor = "<";
+                    int genericStartPos = identifier.ToString().IndexOf(cursor, searchStartPos);
+                    if (genericStartPos == -1) break;
+
+                    // an int count would suffice here but a stack provides
+                    // greater sophistication should the need arise in future
+                    Stack<string> stack = new Stack<string>();
+                    stack.Push(cursor);
+
+                    // locate matching >
+                    int cursorPos = 0;
+                    for (cursorPos = genericStartPos + 1; cursorPos < identifier.ToString().Length; cursorPos++)
                     {
-                        string substring = identifier.ToString().Substring(idx1, idx2 - idx1 + 1);
-                        identifier.Replace(substring, "");
+                        cursor = identifier.ToString().Substring(cursorPos, 1);
+                        switch (cursor)
+                        {
+                            case "<":
+                                stack.Push(cursor);
+
+                                // type includes another generic type
+                                hasGenericSubtype = true;
+
+                                break;
+
+                            case ">":
+                                stack.Pop();
+                                break;
+
+                            default:
+                                break;
+
+                        }
+
+                        if (stack.Count == 0)
+                        {
+                            genericParameters = identifier.ToString().Substring(genericStartPos, cursorPos - genericStartPos + 1);
+                            break;
+                        }
+
                     }
-                } while (true);
+
+                    if (genericParameters != null)
+                    {
+                        string normalizedParameters = "";
+
+                        // if there is a generic subtype then this needs to be normalized too.
+                        if (hasGenericSubtype)
+                        {
+                            string subType = genericParameters.Substring(1, genericParameters.Length - 2);
+                            normalizedParameters = NormalizeGenericTypesInManagedIdentifier(subType);
+                            if (normalizedParameters != "")
+                            {
+                                normalizedParameters = "_" + normalizedParameters;
+                            }
+                        }
+
+                        // Replace the generic parameters with normalised version
+                        identifier.Replace(genericParameters, normalizedParameters, genericStartPos, genericParameters.Length);
+
+                        // reset the search start position
+                        searchStartPos = genericStartPos + normalizedParameters.Length + 1;
+                        if (searchStartPos >= identifier.ToString().Length)
+                        {
+                            done = true;
+                        }
+                    } 
+                    else
+                    {
+                        done = true;
+                    }
+                } while (!done);
             }
 
-           return identifier.ToString();
+            // NOte: at this stage the identifier may still contain space and , characters that were part of the generic signature
+            return identifier.ToString();
         }
 
         //
@@ -202,16 +274,18 @@ namespace Dubrovnik
         //
         public static string ObjCIdentifierFromManagedIdentifier(string managedIdentifier)
         {
-            // normalise the managed identifier for ObjC
+            // normalize the managed identifier for ObjC
 
-            // strip generic type info
-            managedIdentifier = StripGenericTypeInfoFromManagedIdentifier(managedIdentifier);
+            // normalize generic type info
+            managedIdentifier = NormalizeGenericTypesInManagedIdentifier(managedIdentifier);
             StringBuilder identifier = new StringBuilder(managedIdentifier);
 
             if (identifier.ToString() != "")
             {
                 // The following is done piecemeal  largely for informative purposes.
                 // For C# qualifier details see http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx
+                identifier.Replace(" ", ""); // "" may remain after generic type normailzation
+                identifier.Replace(",", "_"); // , may remain after generic type normailzation
                 identifier.Replace(".", "_"); // namespacing
                 identifier.Replace("+", "__"); // nested classes
                 identifier.Replace("\\", ""); // escape character
@@ -226,7 +300,7 @@ namespace Dubrovnik
                 Regex validObjcCNameRegex = new Regex("^[A-Za-z_][A-Za-z_0-9]*$");
                 if (!validObjcCNameRegex.IsMatch(identifier.ToString()))
                 {
-                    throw new Exception("{0} is not a valid ObjC identifier");
+                    throw new Exception(String.Format("{0} is not a valid ObjC identifier", identifier.ToString()));
                 }
             }
 

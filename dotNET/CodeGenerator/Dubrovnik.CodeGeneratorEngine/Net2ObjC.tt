@@ -319,7 +319,7 @@ public void WriteClassSetup(CodeFacet facet)
 <#+
 	if (OutputFileType == OutputType.Implementation) 
 	{
-		string name =  CodeFacet.StripGenericTypeInfoFromManagedIdentifier(facet.Name);
+		string name =  CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.Name);
 #>
 	{
 		return "<#=facet.TypeNamespace#>.<#=name#>";
@@ -718,6 +718,9 @@ public void WriteFacetAsMethod(MethodFacet facet)
 	StringBuilder monoSigBuilder = new StringBuilder();
 	StringBuilder objCParameterBuilder = new StringBuilder();
 	StringBuilder invokeArgsBuilder = new StringBuilder();
+	StringBuilder referencePreProcessBuilder = new StringBuilder();
+	StringBuilder referencePostProcessBuilder = new StringBuilder();
+
 	int idx = 0;
 	foreach (ParameterFacet parameter in facet.Parameters) 
 	{
@@ -732,7 +735,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 
 		//
 		// build the ObjC method interleaved parameter representation
-		//  eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
+		// eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
 		//
 		string objCParamTypeDecl = null;
 		bool objCParameterIsObject = true;
@@ -819,7 +822,7 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		// Managed parameter name + Managed parameter type + Ref
 		string objCParamName = ObjCIdentifierFromManagedIdentifier(parameter.Name);
 
-		// If the method is overloaded by parameter then makes th ObjC method
+		// If the method is overloaded by parameter then make the ObjC method
 		// name unique by including type info in the name.
 		//
 		// Managed methods are overloaded by name only.
@@ -870,7 +873,11 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		if (idx > 0) invokeArgsBuilder.Append(", ");
 		if (objCParameterIsObject) 
 		{
-			argFormat = "[p{0} monoValue]";
+			if (parameter.IsByRef) {
+				argFormat = "&refPtr{0}";	// use reference pointer
+            } else {
+				argFormat = "[p{0} monoValue]";
+            }
         } 
 		else 
 		{
@@ -885,6 +892,23 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		}
 		invokeArgsBuilder.AppendFormat(argFormat, idx + 1);
 
+		//
+		// Build reference parameter pre and post process assignment statements
+		//
+		// Reference parameters need to be assigned to temporary variables
+		// to allow for their mutation
+		//
+		if (objCParameterIsObject && parameter.IsByRef) {
+
+			// dereference and assign temporary variable
+			string preProcess = string.Format("void *refPtr{0} = [*p{0} monoValue];{1}", idx + 1, Environment.NewLine);
+			referencePreProcessBuilder.Append(preProcess);
+
+			// create new object subclass for reference 
+			string postProcess = string.Format("*p{0} = [System_Object subclassObjectWithMonoObject:refPtr{0}];{1}", idx + 1, Environment.NewLine);
+			referencePostProcessBuilder.Append(postProcess);
+        }
+
 		idx++;
     }
 
@@ -897,7 +921,10 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		invokeArgs += ", " + invokeArgsBuilder.ToString();
     }
 
-	string getExpression = String.Format(objCMethodFormat, monoMethodName, monoMethodSig, invokeArgs);
+	string getExpression = String.Format(objCMethodFormat, monoMethodName, monoMethodSig, invokeArgs) + ";";
+	if (referencePostProcessBuilder.Length > 0) {
+		getExpression += Environment.NewLine;
+    }
 
 	// validation
 	if (isConstructorMethod && String.IsNullOrEmpty(monoMethodSig)) throw new Exception("Mono method argument signature is empty");
@@ -939,7 +966,9 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		{
 			if (String.IsNullOrEmpty(managedValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
 #>
-		MonoObject *<#=ManagedVariableName#> = <#=getExpression#>;
+		<#=referencePreProcessBuilder.ToString()#>
+		MonoObject *<#=ManagedVariableName#> = <#=getExpression#>
+		<#=referencePostProcessBuilder.ToString()#>
 		return <#=managedValueToObjC#>;
 <#+	
 		}// if objCTypeDecl

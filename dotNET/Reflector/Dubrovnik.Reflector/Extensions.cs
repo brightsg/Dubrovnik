@@ -24,16 +24,37 @@ namespace Dubrovnik.Reflector {
                 }
             }
 
-            if (false)
-            {
-                Console.WriteLine("GetFriendlyName :{0} : {1}", type.FullName, s);
-            }
 
             return s;
         }
 
-        public static string GetFriendlyFullName(this Type type) {
-            var s = string.IsNullOrEmpty(type.FullName) ? type.Name : type.FullName;
+        public static string GetFriendlyFullName(this Type type)
+        {
+            /* The docs for Type.FullName state:
+             * 
+             * If the current Type represents a type parameter of a generic type, or an array type,
+             * pointer type, or byref type based on a type parameter, this property returns null.
+             * 
+             * */
+            string s = type.FullName;
+            if (string.IsNullOrEmpty(s))
+            {
+                /* 
+                 * If the type can be constructed then its namespace will be required.
+                 */
+                if (type.IsConstructedGenericType || type.IsPointer)
+                {
+                    s = type.Namespace + "." + type.Name;
+                }
+                else //if (type.IsGenericParameter || type.IsArray)
+                {
+                    s = type.Name;
+                }
+               /* else
+                {
+                    throw new Exception(String.Format("{0} : cannot determine full name", type.Name));
+                } */
+            }
 
             // Truncate full type info.
             // Note : we want to retain [] array specifier

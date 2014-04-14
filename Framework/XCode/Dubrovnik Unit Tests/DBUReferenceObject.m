@@ -457,16 +457,6 @@
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (NSString *)stringMethodByRef:(NSString **)p1
-{
-    MonoObject *p1Value = [*p1 monoValue];
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string&)" withNumArgs:1, &p1Value];
-    *p1 = [NSString stringWithMonoString:DB_STRING(p1Value)];
-    NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-    
-    return value;
-}
-
 //
 // mixed parameter methods
 //
@@ -477,6 +467,20 @@
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
+}
+
+// Managed method name : StringMethodWithStringRef
+// Managed return type : System.String
+// Managed param types : ref System.String&
+- (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1
+{
+    void *refPtr1 = [*p1 monoValue];
+    
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethodWithStringRef(string&)" withNumArgs:1, &refPtr1];
+    
+    *p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+    
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

@@ -1,5 +1,5 @@
-//#define EXPOSE_PASSING_NON_NUMERICS_BY_REF_FOR_TESTING
-//#define EXPOSE_GENERICS_FOR_TESTING
+#define EXPOSE_PASSING_OBJECTS_BY_REF_FOR_TESTING
+
 
 using System;
 using System.Text;
@@ -284,26 +284,10 @@ namespace Dubrovnik.UnitTests
         //
         // string methods with ref arg
         //
-#if EXPOSE_PASSING_NON_NUMERICS_BY_REF_FOR_TESTING
-        public string StringMethod(ref string s1) {
+#if EXPOSE_PASSING_OBJECTS_BY_REF_FOR_TESTING
+		public string StringMethodWithStringRef(ref string s1) {
             s1 += s1;
             return String.Format ("Dubrovnik.UnitTests.StringMethod: {0}", s1);
-        }
-        public string StringMethod(ref string s1, string s2)
-        {
-            s1 += s2;
-            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
-        }
-        public string StringMethod(string s1, ref string s2)
-        {
-            s2 += s1;
-            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
-        }
-        public string StringMethod(ref string s1, ref string s2)
-        {
-            s1 += s1;
-            s2 += s2;
-            return String.Format("Dubrovnik.UnitTests.StringMethod: {0}, {1}", s1, s2);
         }
 #endif
         //
@@ -327,23 +311,6 @@ namespace Dubrovnik.UnitTests
 
             return rstruct;
         }
-
-#if EXPOSE_GENERICS_FOR_TESTING
-
-        //
-        // Generic properties
-        //
-        public GenericReferenceObject<int, string> genericReferenceObject{ get; set; }
-
-        //
-        // Generic methods
-        //
-        // note we use U as the type parameter  rather than the more common T 
-        public U GenericMethodReturningGenericArgument<U>(U parameterU)
-        {
-            return parameterU;
-        }
-#endif
 
 		//
 		// date parameter methods

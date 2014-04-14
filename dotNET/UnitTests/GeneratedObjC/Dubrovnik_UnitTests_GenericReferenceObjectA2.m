@@ -63,6 +63,42 @@
 		[self setMonoProperty:"GenericPropertyWithTypeParameterU" valueObject:monoObject];          
 	}
 
+	// Managed property name : ListOfTypeT
+	// Managed property type : System.Collections.Generic.List`1<T>
+    @synthesize listOfTypeT = _listOfTypeT;
+    - (DBSystem_Collections_Generic_ListA1 *)listOfTypeT
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ListOfTypeT"];
+		if ([self object:_listOfTypeT isEqualToMonoObject:monoObject]) return _listOfTypeT;					
+		_listOfTypeT = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+
+		return _listOfTypeT;
+	}
+    - (void)setListOfTypeT:(DBSystem_Collections_Generic_ListA1 *)value
+	{
+		_listOfTypeT = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"ListOfTypeT" valueObject:monoObject];          
+	}
+
+	// Managed property name : ListOfTypeU
+	// Managed property type : System.Collections.Generic.List`1<U>
+    @synthesize listOfTypeU = _listOfTypeU;
+    - (DBSystem_Collections_Generic_ListA1 *)listOfTypeU
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ListOfTypeU"];
+		if ([self object:_listOfTypeU isEqualToMonoObject:monoObject]) return _listOfTypeU;					
+		_listOfTypeU = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+
+		return _listOfTypeU;
+	}
+    - (void)setListOfTypeU:(DBSystem_Collections_Generic_ListA1 *)value
+	{
+		_listOfTypeU = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"ListOfTypeU" valueObject:monoObject];          
+	}
+
 #pragma mark -
 #pragma mark Methods
 
@@ -71,7 +107,9 @@
 	// Managed param types : <T>, <U>
     - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
@@ -80,7 +118,9 @@
 	// Managed param types : <T>, <U>
     - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
+		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 

@@ -111,8 +111,21 @@ namespace Dubrovnik.Reflector {
             if (type.HasElementType) {
                 Type elementType = type.GetElementType();
                 xtw.WriteAttributeString("ElementType", elementType.GetFriendlyFullName());
+
+                // Hmm. we certainly need to know the element generic type info in some situations.
+                // Some more thought perhaps required here.
+                WriteGenericTypeAttributes(xtw, elementType);
             }
 
+            // write generic type attributes
+            WriteGenericTypeAttributes(xtw, type);
+        }
+
+        //
+        // WriteGenericTypeAttributes
+        //
+        private void WriteGenericTypeAttributes(XmlTextWriter xtw, Type type)
+        {
             //
             // For the low-down on generics and reflection see:
             // http://msdn.microsoft.com/en-us/library/ms172334.aspx
@@ -125,7 +138,6 @@ namespace Dubrovnik.Reflector {
                 xtw.WriteAttributeString("IsGenericParameter", Boolean.TrueString);
                 xtw.WriteAttributeString("GenericParameterPosition", type.GenericParameterPosition.ToString());
             }
-
         }
 
         //

@@ -22,6 +22,14 @@
 	// Managed property type : <U>
     @property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterU;
 
+	// Managed property name : ListOfTypeT
+	// Managed property type : System.Collections.Generic.List`1<T>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * listOfTypeT;
+
+	// Managed property name : ListOfTypeU
+	// Managed property type : System.Collections.Generic.List`1<U>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * listOfTypeU;
+
 #pragma mark -
 #pragma mark Methods
 

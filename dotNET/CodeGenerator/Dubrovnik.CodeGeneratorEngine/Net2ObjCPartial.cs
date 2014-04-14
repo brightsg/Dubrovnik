@@ -431,7 +431,7 @@ namespace Dubrovnik
         {
             string value = managedType;
 
-            if (managedType == null) return "????";
+            if (managedType == null) return "DBManagedObject";
 
             if (ObjCTypeAssociations.ContainsKey(managedType) && ObjCTypeAssociations[managedType].ObjCType != null)
             {
@@ -449,7 +449,7 @@ namespace Dubrovnik
             string decl = "";
             string managedType = ManagedTypeForAssociation(managedFacet);
 
-            if (managedType == null) return "NSObject *";
+            if (managedType == null) return "????";
 
             if (!ObjCTypeAssociations.ContainsKey(managedType))
             {
@@ -855,7 +855,7 @@ namespace Dubrovnik
             }
             else if (managedFacet.IsGenericType)
             {
-                managedType = CodeFacet.StripGenericTypeInfoFromManagedIdentifier(managedFacet.Type);
+                managedType = CodeFacet.NormalizeGenericTypesInManagedIdentifier(managedFacet.Type);
             }
 
             if (managedType == null)
@@ -1092,7 +1092,22 @@ namespace Dubrovnik
         // ManagedNameSpaceAndNameFromManagedType
         //
         void ManagedNameSpaceAndNameFromManagedType(string managedType, out string nspace, out string name) {
-            int idx = managedType.LastIndexOf('.');
+
+            // discard generic type info
+            int idx = managedType.IndexOf("<");
+            if (idx != -1)
+            {
+                managedType = managedType.Substring(0, idx);
+            }
+
+            // discard nested class info
+            idx = managedType.IndexOf("+");
+            if (idx != -1)
+            {
+                managedType = managedType.Substring(0, idx);
+            }
+
+            idx = managedType.LastIndexOf('.');
             if (idx != -1)
             {
                 nspace = managedType.Substring(0, idx);
@@ -1210,7 +1225,6 @@ namespace Dubrovnik
         public void GenerateTypeWarnings(CodeFacet facet)
         {
             // in production quality code we should not have any warnings!
-            if (facet.IsByRef && (facet.Type == "System.String&")) WriteLine("#warning object ref and out parameter implementation is pending");
         }
 
         //

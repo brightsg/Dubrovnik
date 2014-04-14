@@ -522,6 +522,18 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([classDescription dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
+- (void)doTestRefMethods:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    NSString *s1 = DBUTestString;
+    
+    // pass string by reference
+    [refObject stringMethodWithStringRef_withS1Ref:&s1];
+    STAssertTrue([s1 isEqualToString:[DBUTestString stringByAppendingString:DBUTestString]], DBUEqualityTestFailed);
+    
+}
+
 - (void)doTestPointerMethods:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
@@ -1282,6 +1294,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestExtensionMethods:refObject class:testClass];
     [self doTestArrayMethods:refObject class:testClass];
     [self doTestPointerMethods:refObject class:testClass];
+    [self doTestRefMethods:refObject class:testClass];
     
     //===================================
     // properties

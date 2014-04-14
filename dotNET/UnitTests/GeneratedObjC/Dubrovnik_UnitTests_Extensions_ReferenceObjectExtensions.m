@@ -32,7 +32,9 @@
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
     + (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -41,7 +43,9 @@
 	// Managed param types : 
     + (NSString *)staticString
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"StaticString()" withNumArgs:0];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
@@ -50,7 +54,9 @@
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject
     + (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
+		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 

@@ -16,6 +16,8 @@ namespace Dubrovnik.UnitTests
     {
         public T GenericPropertyWithTypeParameterT { get; set; }
         public U GenericPropertyWithTypeParameterU { get; set; }
+		public List<T> ListOfTypeT { get; set; }
+		public List<U> ListOfTypeU { get; set; }
 
         public T GenericMethodReturningParameterTypeT(T parameterT, U parameterU)
         {
@@ -27,10 +29,15 @@ namespace Dubrovnik.UnitTests
             return parameterU;
         }
 
+		/*
+		public T GenericMethodReturningParameterTypeT(ref T parameterT) {
+			return parameterT;
+		} */
+
 		//==============================
 		// nested classes
 		//==============================
-		public class NestedClass
+		public class NestedClass<A, B>
 		{
 			public string StringProperty { get; set; }
 
