@@ -7,8 +7,9 @@
 //
 
 #import "DBTypeManager.h"
-#import "System.Object.h"
+//#import "System.Object.h"
 #import "DBManagedNumber.h"
+#import "DBManagedObject.h"
 #import "DBBoxing.h"
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
@@ -544,7 +545,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
     // default to system object
     if (!managedClass) {
-        managedClass = [System_Object class];
+        managedClass = NSClassFromString(@"System_Object");
     }
 
     // instantiate an instance of the managed class

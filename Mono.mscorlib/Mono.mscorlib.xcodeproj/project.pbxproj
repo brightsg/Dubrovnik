@@ -1,0 +1,731 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
+		ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A29018FEFB0700213B80 /* InfoPlist.strings */; };
+		ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A29C18FEFB0700213B80 /* XCTest.framework */; };
+		ABB8A29E18FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
+		ABB8A2A118FEFB0700213B80 /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */; };
+		ABB8A2A718FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A2A518FEFB0700213B80 /* InfoPlist.strings */; };
+		ABB8A2A918FEFB0700213B80 /* Mono_mscorlibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A2A818FEFB0700213B80 /* Mono_mscorlibTests.m */; };
+		ABB8A37B18FF086200213B80 /* NSString+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A37918FF086200213B80 /* NSString+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A37C18FF086200213B80 /* NSString+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */; };
+		ABB8A38018FF092400213B80 /* DBSystem_IO_FileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A37E18FF092400213B80 /* DBSystem_IO_FileInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A38118FF092400213B80 /* DBSystem_IO_FileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */; };
+		ABB8A39618FF09F900213B80 /* DBSystem_Array.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A39018FF09F900213B80 /* DBSystem_Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A39118FF09F900213B80 /* DBSystem_Array.m */; };
+		ABB8A39818FF09F900213B80 /* DBSystem_Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A39218FF09F900213B80 /* DBSystem_Convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A39918FF09F900213B80 /* DBSystem_Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A39318FF09F900213B80 /* DBSystem_Convert.m */; };
+		ABB8A39A18FF09F900213B80 /* DBSystem_Enum.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A39418FF09F900213B80 /* DBSystem_Enum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A39B18FF09F900213B80 /* DBSystem_Enum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A39518FF09F900213B80 /* DBSystem_Enum.m */; };
+		ABB8A3E218FF0FE800213B80 /* NSArray+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E018FF0FE800213B80 /* NSArray+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */; };
+		ABB8A3FD18FF110000213B80 /* System.Array.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E418FF110000213B80 /* System.Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A3FE18FF110000213B80 /* System.Array.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3E518FF110000213B80 /* System.Array.m */; };
+		ABB8A3FF18FF110000213B80 /* System.AsyncCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E618FF110000213B80 /* System.AsyncCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40018FF110000213B80 /* System.Collections.ArrayList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E718FF110000213B80 /* System.Collections.ArrayList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40118FF110000213B80 /* System.Collections.ArrayList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3E818FF110000213B80 /* System.Collections.ArrayList.m */; };
+		ABB8A40218FF110000213B80 /* System.Collections.Generic.DictionaryA2.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E918FF110000213B80 /* System.Collections.Generic.DictionaryA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40318FF110000213B80 /* System.Collections.Generic.DictionaryA2.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3EA18FF110000213B80 /* System.Collections.Generic.DictionaryA2.m */; };
+		ABB8A40418FF110000213B80 /* System.Collections.Generic.ListA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3EB18FF110000213B80 /* System.Collections.Generic.ListA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40518FF110000213B80 /* System.Collections.Generic.ListA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3EC18FF110000213B80 /* System.Collections.Generic.ListA1.m */; };
+		ABB8A40618FF110000213B80 /* System.Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3ED18FF110000213B80 /* System.Convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40718FF110000213B80 /* System.Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3EE18FF110000213B80 /* System.Convert.m */; };
+		ABB8A40818FF110000213B80 /* System.Enum.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3EF18FF110000213B80 /* System.Enum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40918FF110000213B80 /* System.Enum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3F018FF110000213B80 /* System.Enum.m */; };
+		ABB8A40A18FF110000213B80 /* System.EventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3F118FF110000213B80 /* System.EventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40B18FF110000213B80 /* System.EventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3F218FF110000213B80 /* System.EventArgs.m */; };
+		ABB8A40C18FF110000213B80 /* System.IAsyncResult.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3F318FF110000213B80 /* System.IAsyncResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40D18FF110000213B80 /* System.IAsyncResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3F418FF110000213B80 /* System.IAsyncResult.m */; };
+		ABB8A40E18FF110000213B80 /* System.IO.FileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3F518FF110000213B80 /* System.IO.FileInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A40F18FF110000213B80 /* System.IO.FileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3F618FF110000213B80 /* System.IO.FileInfo.m */; };
+		ABB8A41018FF110000213B80 /* System.MulticastDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3F718FF110000213B80 /* System.MulticastDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A41118FF110000213B80 /* System.MulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3F818FF110000213B80 /* System.MulticastDelegate.m */; };
+		ABB8A41218FF110000213B80 /* System.Object.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3F918FF110000213B80 /* System.Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A41318FF110000213B80 /* System.Object.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3FA18FF110000213B80 /* System.Object.m */; };
+		ABB8A41418FF110000213B80 /* System.String.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3FB18FF110000213B80 /* System.String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A41518FF110000213B80 /* System.String.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3FC18FF110000213B80 /* System.String.m */; };
+		ABB8A41818FF113800213B80 /* System_Object+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A41618FF113800213B80 /* System_Object+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A41718FF113800213B80 /* System_Object+mscorlib.m */; };
+		ABB8A41C18FF155F00213B80 /* System.NullableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A41A18FF155F00213B80 /* System.NullableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A41D18FF155F00213B80 /* System.NullableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A41B18FF155F00213B80 /* System.NullableA1.m */; };
+		ABB8A42618FF15B300213B80 /* DBSystem_Collections_ArrayList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A41E18FF15B300213B80 /* DBSystem_Collections_ArrayList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A42718FF15B300213B80 /* DBSystem_Collections_ArrayList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A41F18FF15B300213B80 /* DBSystem_Collections_ArrayList.m */; };
+		ABB8A42818FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A42018FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A42918FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A42118FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m */; };
+		ABB8A42A18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A42218FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A42318FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m */; };
+		ABB8A42C18FF15B300213B80 /* DBSystem_Collections_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A42418FF15B300213B80 /* DBSystem_Collections_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A42518FF15B300213B80 /* DBSystem_Collections_IList.m */; };
+		ABB8A42F18FF189A00213B80 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A42E18FF189A00213B80 /* Dubrovnik.framework */; };
+		ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43218FF1F6300213B80 /* Interface_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A43B18FF232000213B80 /* Mono64.framework */; };
+		ABB8A47118FF2B1E00213B80 /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A29418FEFB0700213B80 /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ABB8A29F18FEFB0700213B80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABB8A27B18FEFB0700213B80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABB8A28318FEFB0700213B80;
+			remoteInfo = Mono.mscorlib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB8A28718FEFB0700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ABB8A28A18FEFB0700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABB8A28B18FEFB0700213B80 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ABB8A28C18FEFB0700213B80 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ABB8A28F18FEFB0700213B80 /* Mono.mscorlib-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlib-Info.plist"; sourceTree = "<group>"; };
+		ABB8A29118FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABB8A29318FEFB0700213B80 /* Mono.mscorlib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.mscorlib-Prefix.pch"; sourceTree = "<group>"; };
+		ABB8A29418FEFB0700213B80 /* Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
+		ABB8A29B18FEFB0700213B80 /* Mono.mscorlibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.mscorlibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB8A29C18FEFB0700213B80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ABB8A2A418FEFB0700213B80 /* Mono.mscorlibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlibTests-Info.plist"; sourceTree = "<group>"; };
+		ABB8A2A618FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABB8A2A818FEFB0700213B80 /* Mono_mscorlibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_mscorlibTests.m; sourceTree = "<group>"; };
+		ABB8A36B18FF04C200213B80 /* Generated bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated bindings"; sourceTree = "<group>"; };
+		ABB8A37918FF086200213B80 /* NSString+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+mscorlib.h"; sourceTree = "<group>"; };
+		ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+mscorlib.m"; sourceTree = "<group>"; };
+		ABB8A37E18FF092400213B80 /* DBSystem_IO_FileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_IO_FileInfo.h; sourceTree = "<group>"; };
+		ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_IO_FileInfo.m; sourceTree = "<group>"; };
+		ABB8A39018FF09F900213B80 /* DBSystem_Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Array.h; sourceTree = "<group>"; };
+		ABB8A39118FF09F900213B80 /* DBSystem_Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Array.m; sourceTree = "<group>"; };
+		ABB8A39218FF09F900213B80 /* DBSystem_Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Convert.h; sourceTree = "<group>"; };
+		ABB8A39318FF09F900213B80 /* DBSystem_Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Convert.m; sourceTree = "<group>"; };
+		ABB8A39418FF09F900213B80 /* DBSystem_Enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Enum.h; sourceTree = "<group>"; };
+		ABB8A39518FF09F900213B80 /* DBSystem_Enum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Enum.m; sourceTree = "<group>"; };
+		ABB8A3E018FF0FE800213B80 /* NSArray+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+mscorlib.h"; sourceTree = "<group>"; };
+		ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+mscorlib.m"; sourceTree = "<group>"; };
+		ABB8A3E418FF110000213B80 /* System.Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Array.h; sourceTree = "<group>"; };
+		ABB8A3E518FF110000213B80 /* System.Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Array.m; sourceTree = "<group>"; };
+		ABB8A3E618FF110000213B80 /* System.AsyncCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.AsyncCallback.h; sourceTree = "<group>"; };
+		ABB8A3E718FF110000213B80 /* System.Collections.ArrayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.ArrayList.h; sourceTree = "<group>"; };
+		ABB8A3E818FF110000213B80 /* System.Collections.ArrayList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.ArrayList.m; sourceTree = "<group>"; };
+		ABB8A3E918FF110000213B80 /* System.Collections.Generic.DictionaryA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.DictionaryA2.h; sourceTree = "<group>"; };
+		ABB8A3EA18FF110000213B80 /* System.Collections.Generic.DictionaryA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.DictionaryA2.m; sourceTree = "<group>"; };
+		ABB8A3EB18FF110000213B80 /* System.Collections.Generic.ListA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.ListA1.h; sourceTree = "<group>"; };
+		ABB8A3EC18FF110000213B80 /* System.Collections.Generic.ListA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.ListA1.m; sourceTree = "<group>"; };
+		ABB8A3ED18FF110000213B80 /* System.Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Convert.h; sourceTree = "<group>"; };
+		ABB8A3EE18FF110000213B80 /* System.Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Convert.m; sourceTree = "<group>"; };
+		ABB8A3EF18FF110000213B80 /* System.Enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Enum.h; sourceTree = "<group>"; };
+		ABB8A3F018FF110000213B80 /* System.Enum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Enum.m; sourceTree = "<group>"; };
+		ABB8A3F118FF110000213B80 /* System.EventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.EventArgs.h; sourceTree = "<group>"; };
+		ABB8A3F218FF110000213B80 /* System.EventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.EventArgs.m; sourceTree = "<group>"; };
+		ABB8A3F318FF110000213B80 /* System.IAsyncResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IAsyncResult.h; sourceTree = "<group>"; };
+		ABB8A3F418FF110000213B80 /* System.IAsyncResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.IAsyncResult.m; sourceTree = "<group>"; };
+		ABB8A3F518FF110000213B80 /* System.IO.FileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IO.FileInfo.h; sourceTree = "<group>"; };
+		ABB8A3F618FF110000213B80 /* System.IO.FileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.IO.FileInfo.m; sourceTree = "<group>"; };
+		ABB8A3F718FF110000213B80 /* System.MulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.MulticastDelegate.h; sourceTree = "<group>"; };
+		ABB8A3F818FF110000213B80 /* System.MulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.MulticastDelegate.m; sourceTree = "<group>"; };
+		ABB8A3F918FF110000213B80 /* System.Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Object.h; sourceTree = "<group>"; };
+		ABB8A3FA18FF110000213B80 /* System.Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Object.m; sourceTree = "<group>"; };
+		ABB8A3FB18FF110000213B80 /* System.String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.String.h; sourceTree = "<group>"; };
+		ABB8A3FC18FF110000213B80 /* System.String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.String.m; sourceTree = "<group>"; };
+		ABB8A41618FF113800213B80 /* System_Object+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Object+mscorlib.h"; sourceTree = "<group>"; };
+		ABB8A41718FF113800213B80 /* System_Object+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Object+mscorlib.m"; sourceTree = "<group>"; };
+		ABB8A41A18FF155F00213B80 /* System.NullableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.NullableA1.h; sourceTree = "<group>"; };
+		ABB8A41B18FF155F00213B80 /* System.NullableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.NullableA1.m; sourceTree = "<group>"; };
+		ABB8A41E18FF15B300213B80 /* DBSystem_Collections_ArrayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_ArrayList.h; sourceTree = "<group>"; };
+		ABB8A41F18FF15B300213B80 /* DBSystem_Collections_ArrayList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_ArrayList.m; sourceTree = "<group>"; };
+		ABB8A42018FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_Generic_DictionaryA2.h; sourceTree = "<group>"; };
+		ABB8A42118FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_Generic_DictionaryA2.m; sourceTree = "<group>"; };
+		ABB8A42218FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_Generic_ListA1.h; sourceTree = "<group>"; };
+		ABB8A42318FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_Generic_ListA1.m; sourceTree = "<group>"; };
+		ABB8A42418FF15B300213B80 /* DBSystem_Collections_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_IList.h; sourceTree = "<group>"; };
+		ABB8A42518FF15B300213B80 /* DBSystem_Collections_IList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_IList.m; sourceTree = "<group>"; };
+		ABB8A42E18FF189A00213B80 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
+		ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
+		ABB8A43218FF1F6300213B80 /* Interface_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
+		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABB8A28018FEFB0700213B80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */,
+				ABB8A42F18FF189A00213B80 /* Dubrovnik.framework in Frameworks */,
+				ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB8A29818FEFB0700213B80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A2A118FEFB0700213B80 /* Mono.mscorlib.framework in Frameworks */,
+				ABB8A29E18FEFB0700213B80 /* Cocoa.framework in Frameworks */,
+				ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABB8A27A18FEFB0700213B80 = {
+			isa = PBXGroup;
+			children = (
+				ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */,
+				ABB8A2A218FEFB0700213B80 /* Mono.mscorlibTests */,
+				ABB8A28618FEFB0700213B80 /* Frameworks */,
+				ABB8A28518FEFB0700213B80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABB8A28518FEFB0700213B80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */,
+				ABB8A29B18FEFB0700213B80 /* Mono.mscorlibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABB8A28618FEFB0700213B80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A43B18FF232000213B80 /* Mono64.framework */,
+				ABB8A42E18FF189A00213B80 /* Dubrovnik.framework */,
+				ABB8A28718FEFB0700213B80 /* Cocoa.framework */,
+				ABB8A29C18FEFB0700213B80 /* XCTest.framework */,
+				ABB8A28918FEFB0700213B80 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABB8A28918FEFB0700213B80 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A28A18FEFB0700213B80 /* Foundation.framework */,
+				ABB8A28B18FEFB0700213B80 /* CoreData.framework */,
+				ABB8A28C18FEFB0700213B80 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A43018FF1F6300213B80 /* Protocols */,
+				ABB8A37D18FF092400213B80 /* Helper classes */,
+				ABB8A37818FF086200213B80 /* Categories */,
+				ABB8A36B18FF04C200213B80 /* Generated bindings */,
+				ABB8A36A18FF04B700213B80 /* Manual bindings */,
+				ABB8A29418FEFB0700213B80 /* Framework.h */,
+				ABB8A28E18FEFB0700213B80 /* Supporting Files */,
+			);
+			path = Mono.mscorlib;
+			sourceTree = "<group>";
+		};
+		ABB8A28E18FEFB0700213B80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A28F18FEFB0700213B80 /* Mono.mscorlib-Info.plist */,
+				ABB8A29018FEFB0700213B80 /* InfoPlist.strings */,
+				ABB8A29318FEFB0700213B80 /* Mono.mscorlib-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABB8A2A218FEFB0700213B80 /* Mono.mscorlibTests */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A2A818FEFB0700213B80 /* Mono_mscorlibTests.m */,
+				ABB8A2A318FEFB0700213B80 /* Supporting Files */,
+			);
+			path = Mono.mscorlibTests;
+			sourceTree = "<group>";
+		};
+		ABB8A2A318FEFB0700213B80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A2A418FEFB0700213B80 /* Mono.mscorlibTests-Info.plist */,
+				ABB8A2A518FEFB0700213B80 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A41A18FF155F00213B80 /* System.NullableA1.h */,
+				ABB8A41B18FF155F00213B80 /* System.NullableA1.m */,
+				ABB8A3E418FF110000213B80 /* System.Array.h */,
+				ABB8A3E518FF110000213B80 /* System.Array.m */,
+				ABB8A3E618FF110000213B80 /* System.AsyncCallback.h */,
+				ABB8A3E718FF110000213B80 /* System.Collections.ArrayList.h */,
+				ABB8A3E818FF110000213B80 /* System.Collections.ArrayList.m */,
+				ABB8A3E918FF110000213B80 /* System.Collections.Generic.DictionaryA2.h */,
+				ABB8A3EA18FF110000213B80 /* System.Collections.Generic.DictionaryA2.m */,
+				ABB8A3EB18FF110000213B80 /* System.Collections.Generic.ListA1.h */,
+				ABB8A3EC18FF110000213B80 /* System.Collections.Generic.ListA1.m */,
+				ABB8A3ED18FF110000213B80 /* System.Convert.h */,
+				ABB8A3EE18FF110000213B80 /* System.Convert.m */,
+				ABB8A3EF18FF110000213B80 /* System.Enum.h */,
+				ABB8A3F018FF110000213B80 /* System.Enum.m */,
+				ABB8A3F118FF110000213B80 /* System.EventArgs.h */,
+				ABB8A3F218FF110000213B80 /* System.EventArgs.m */,
+				ABB8A3F318FF110000213B80 /* System.IAsyncResult.h */,
+				ABB8A3F418FF110000213B80 /* System.IAsyncResult.m */,
+				ABB8A3F518FF110000213B80 /* System.IO.FileInfo.h */,
+				ABB8A3F618FF110000213B80 /* System.IO.FileInfo.m */,
+				ABB8A3F718FF110000213B80 /* System.MulticastDelegate.h */,
+				ABB8A3F818FF110000213B80 /* System.MulticastDelegate.m */,
+				ABB8A3F918FF110000213B80 /* System.Object.h */,
+				ABB8A3FA18FF110000213B80 /* System.Object.m */,
+				ABB8A3FB18FF110000213B80 /* System.String.h */,
+				ABB8A3FC18FF110000213B80 /* System.String.m */,
+			);
+			path = "Manual bindings";
+			sourceTree = "<group>";
+		};
+		ABB8A37818FF086200213B80 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A3E018FF0FE800213B80 /* NSArray+mscorlib.h */,
+				ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */,
+				ABB8A37918FF086200213B80 /* NSString+mscorlib.h */,
+				ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */,
+				ABB8A41618FF113800213B80 /* System_Object+mscorlib.h */,
+				ABB8A41718FF113800213B80 /* System_Object+mscorlib.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ABB8A37D18FF092400213B80 /* Helper classes */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A41E18FF15B300213B80 /* DBSystem_Collections_ArrayList.h */,
+				ABB8A41F18FF15B300213B80 /* DBSystem_Collections_ArrayList.m */,
+				ABB8A42018FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.h */,
+				ABB8A42118FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m */,
+				ABB8A42218FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.h */,
+				ABB8A42318FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m */,
+				ABB8A42418FF15B300213B80 /* DBSystem_Collections_IList.h */,
+				ABB8A42518FF15B300213B80 /* DBSystem_Collections_IList.m */,
+				ABB8A39018FF09F900213B80 /* DBSystem_Array.h */,
+				ABB8A39118FF09F900213B80 /* DBSystem_Array.m */,
+				ABB8A39218FF09F900213B80 /* DBSystem_Convert.h */,
+				ABB8A39318FF09F900213B80 /* DBSystem_Convert.m */,
+				ABB8A39418FF09F900213B80 /* DBSystem_Enum.h */,
+				ABB8A39518FF09F900213B80 /* DBSystem_Enum.m */,
+				ABB8A37E18FF092400213B80 /* DBSystem_IO_FileInfo.h */,
+				ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */,
+			);
+			path = "Helper classes";
+			sourceTree = "<group>";
+		};
+		ABB8A43018FF1F6300213B80 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */,
+				ABB8A43218FF1F6300213B80 /* Interface_IList.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ABB8A28118FEFB0700213B80 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A47118FF2B1E00213B80 /* Framework.h in Headers */,
+				ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */,
+				ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */,
+				ABB8A41418FF110000213B80 /* System.String.h in Headers */,
+				ABB8A40418FF110000213B80 /* System.Collections.Generic.ListA1.h in Headers */,
+				ABB8A41018FF110000213B80 /* System.MulticastDelegate.h in Headers */,
+				ABB8A39618FF09F900213B80 /* DBSystem_Array.h in Headers */,
+				ABB8A3FF18FF110000213B80 /* System.AsyncCallback.h in Headers */,
+				ABB8A42818FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.h in Headers */,
+				ABB8A40218FF110000213B80 /* System.Collections.Generic.DictionaryA2.h in Headers */,
+				ABB8A39818FF09F900213B80 /* DBSystem_Convert.h in Headers */,
+				ABB8A40618FF110000213B80 /* System.Convert.h in Headers */,
+				ABB8A41C18FF155F00213B80 /* System.NullableA1.h in Headers */,
+				ABB8A41218FF110000213B80 /* System.Object.h in Headers */,
+				ABB8A41818FF113800213B80 /* System_Object+mscorlib.h in Headers */,
+				ABB8A40018FF110000213B80 /* System.Collections.ArrayList.h in Headers */,
+				ABB8A42C18FF15B300213B80 /* DBSystem_Collections_IList.h in Headers */,
+				ABB8A40818FF110000213B80 /* System.Enum.h in Headers */,
+				ABB8A40A18FF110000213B80 /* System.EventArgs.h in Headers */,
+				ABB8A42618FF15B300213B80 /* DBSystem_Collections_ArrayList.h in Headers */,
+				ABB8A42A18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.h in Headers */,
+				ABB8A40C18FF110000213B80 /* System.IAsyncResult.h in Headers */,
+				ABB8A3FD18FF110000213B80 /* System.Array.h in Headers */,
+				ABB8A3E218FF0FE800213B80 /* NSArray+mscorlib.h in Headers */,
+				ABB8A39A18FF09F900213B80 /* DBSystem_Enum.h in Headers */,
+				ABB8A40E18FF110000213B80 /* System.IO.FileInfo.h in Headers */,
+				ABB8A38018FF092400213B80 /* DBSystem_IO_FileInfo.h in Headers */,
+				ABB8A37B18FF086200213B80 /* NSString+mscorlib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ABB8A28318FEFB0700213B80 /* Mono.mscorlib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB8A2AC18FEFB0700213B80 /* Build configuration list for PBXNativeTarget "Mono.mscorlib" */;
+			buildPhases = (
+				ABB8A27F18FEFB0700213B80 /* Sources */,
+				ABB8A28018FEFB0700213B80 /* Frameworks */,
+				ABB8A28118FEFB0700213B80 /* Headers */,
+				ABB8A28218FEFB0700213B80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mono.mscorlib;
+			productName = Mono.mscorlib;
+			productReference = ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ABB8A29A18FEFB0700213B80 /* Mono.mscorlibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB8A2AF18FEFB0700213B80 /* Build configuration list for PBXNativeTarget "Mono.mscorlibTests" */;
+			buildPhases = (
+				ABB8A29718FEFB0700213B80 /* Sources */,
+				ABB8A29818FEFB0700213B80 /* Frameworks */,
+				ABB8A29918FEFB0700213B80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABB8A2A018FEFB0700213B80 /* PBXTargetDependency */,
+			);
+			name = Mono.mscorlibTests;
+			productName = Mono.mscorlibTests;
+			productReference = ABB8A29B18FEFB0700213B80 /* Mono.mscorlibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABB8A27B18FEFB0700213B80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thesaurus Software";
+				TargetAttributes = {
+					ABB8A29A18FEFB0700213B80 = {
+						TestTargetID = ABB8A28318FEFB0700213B80;
+					};
+				};
+			};
+			buildConfigurationList = ABB8A27E18FEFB0700213B80 /* Build configuration list for PBXProject "Mono.mscorlib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABB8A27A18FEFB0700213B80;
+			productRefGroup = ABB8A28518FEFB0700213B80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABB8A28318FEFB0700213B80 /* Mono.mscorlib */,
+				ABB8A29A18FEFB0700213B80 /* Mono.mscorlibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABB8A28218FEFB0700213B80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB8A29918FEFB0700213B80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A2A718FEFB0700213B80 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABB8A27F18FEFB0700213B80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */,
+				ABB8A41318FF110000213B80 /* System.Object.m in Sources */,
+				ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */,
+				ABB8A40518FF110000213B80 /* System.Collections.Generic.ListA1.m in Sources */,
+				ABB8A41D18FF155F00213B80 /* System.NullableA1.m in Sources */,
+				ABB8A42718FF15B300213B80 /* DBSystem_Collections_ArrayList.m in Sources */,
+				ABB8A39918FF09F900213B80 /* DBSystem_Convert.m in Sources */,
+				ABB8A38118FF092400213B80 /* DBSystem_IO_FileInfo.m in Sources */,
+				ABB8A40F18FF110000213B80 /* System.IO.FileInfo.m in Sources */,
+				ABB8A3FE18FF110000213B80 /* System.Array.m in Sources */,
+				ABB8A37C18FF086200213B80 /* NSString+mscorlib.m in Sources */,
+				ABB8A41518FF110000213B80 /* System.String.m in Sources */,
+				ABB8A40718FF110000213B80 /* System.Convert.m in Sources */,
+				ABB8A41118FF110000213B80 /* System.MulticastDelegate.m in Sources */,
+				ABB8A40118FF110000213B80 /* System.Collections.ArrayList.m in Sources */,
+				ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */,
+				ABB8A39B18FF09F900213B80 /* DBSystem_Enum.m in Sources */,
+				ABB8A42918FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m in Sources */,
+				ABB8A40318FF110000213B80 /* System.Collections.Generic.DictionaryA2.m in Sources */,
+				ABB8A40D18FF110000213B80 /* System.IAsyncResult.m in Sources */,
+				ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */,
+				ABB8A40918FF110000213B80 /* System.Enum.m in Sources */,
+				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
+				ABB8A40B18FF110000213B80 /* System.EventArgs.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB8A29718FEFB0700213B80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A2A918FEFB0700213B80 /* Mono_mscorlibTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ABB8A2A018FEFB0700213B80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABB8A28318FEFB0700213B80 /* Mono.mscorlib */;
+			targetProxy = ABB8A29F18FEFB0700213B80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ABB8A29018FEFB0700213B80 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB8A29118FEFB0700213B80 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABB8A2A518FEFB0700213B80 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB8A2A618FEFB0700213B80 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABB8A2AA18FEFB0700213B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ABB8A2AB18FEFB0700213B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ABB8A2AD18FEFB0700213B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
+				INFOPLIST_FILE = "Mono.mscorlib/Mono.mscorlib-Info.plist";
+				PRODUCT_NAME = Mono.mscorlib;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		ABB8A2AE18FEFB0700213B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
+				INFOPLIST_FILE = "Mono.mscorlib/Mono.mscorlib-Info.plist";
+				PRODUCT_NAME = Mono.mscorlib;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		ABB8A2B018FEFB0700213B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.mscorlib.framework/Versions/A/Mono.mscorlib";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Mono.mscorlibTests/Mono.mscorlibTests-Info.plist";
+				PRODUCT_NAME = Mono.mscorlibTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ABB8A2B118FEFB0700213B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.mscorlib.framework/Versions/A/Mono.mscorlib";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
+				INFOPLIST_FILE = "Mono.mscorlibTests/Mono.mscorlibTests-Info.plist";
+				PRODUCT_NAME = Mono.mscorlibTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABB8A27E18FEFB0700213B80 /* Build configuration list for PBXProject "Mono.mscorlib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB8A2AA18FEFB0700213B80 /* Debug */,
+				ABB8A2AB18FEFB0700213B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB8A2AC18FEFB0700213B80 /* Build configuration list for PBXNativeTarget "Mono.mscorlib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB8A2AD18FEFB0700213B80 /* Debug */,
+				ABB8A2AE18FEFB0700213B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB8A2AF18FEFB0700213B80 /* Build configuration list for PBXNativeTarget "Mono.mscorlibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB8A2B018FEFB0700213B80 /* Debug */,
+				ABB8A2B118FEFB0700213B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABB8A27B18FEFB0700213B80 /* Project object */;
+}

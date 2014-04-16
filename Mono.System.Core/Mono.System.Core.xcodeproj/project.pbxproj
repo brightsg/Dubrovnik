@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABB8A2FD18FEFED700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2FC18FEFED700213B80 /* Cocoa.framework */; };
+		ABB8A30718FEFED700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A30518FEFED700213B80 /* InfoPlist.strings */; };
+		ABB8A31218FEFED700213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A31118FEFED700213B80 /* XCTest.framework */; };
+		ABB8A31318FEFED700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2FC18FEFED700213B80 /* Cocoa.framework */; };
+		ABB8A31618FEFED700213B80 /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */; };
+		ABB8A31C18FEFED700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A31A18FEFED700213B80 /* InfoPlist.strings */; };
+		ABB8A31E18FEFED700213B80 /* Mono_System_CoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */; };
+		ABB8A37018FF061200213B80 /* System.Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A36E18FF061200213B80 /* System.Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A37118FF061200213B80 /* System.Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A36F18FF061200213B80 /* System.Linq.m */; };
+		ABB8A37318FF067400213B80 /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A37218FF067400213B80 /* Mono.mscorlib.framework */; };
+		ABB8A43918FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A43A18FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */; };
+		ABB8A43F18FF246000213B80 /* DBSystem.Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43D18FF246000213B80 /* DBSystem.Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A44018FF246000213B80 /* DBSystem.Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43E18FF246000213B80 /* DBSystem.Linq.m */; };
+		ABB8A44218FF253600213B80 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A44118FF253600213B80 /* Dubrovnik.framework */; };
+		ABB8A47218FF31AC00213B80 /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A30918FEFED700213B80 /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ABB8A31418FEFED700213B80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABB8A2F018FEFED700213B80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABB8A2F818FEFED700213B80;
+			remoteInfo = Mono.System.Core;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB8A2FC18FEFED700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ABB8A2FF18FEFED700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABB8A30018FEFED700213B80 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ABB8A30118FEFED700213B80 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ABB8A30418FEFED700213B80 /* Mono.System.Core-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.Core-Info.plist"; sourceTree = "<group>"; };
+		ABB8A30618FEFED700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABB8A30818FEFED700213B80 /* Mono.System.Core-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Core-Prefix.pch"; sourceTree = "<group>"; };
+		ABB8A30918FEFED700213B80 /* Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
+		ABB8A31018FEFED700213B80 /* Mono.System.CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.System.CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB8A31118FEFED700213B80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ABB8A31918FEFED700213B80 /* Mono.System.CoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.CoreTests-Info.plist"; sourceTree = "<group>"; };
+		ABB8A31B18FEFED700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_CoreTests.m; sourceTree = "<group>"; };
+		ABB8A36C18FF04E100213B80 /* Generated bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated bindings"; sourceTree = "<group>"; };
+		ABB8A36E18FF061200213B80 /* System.Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Linq.h; sourceTree = "<group>"; };
+		ABB8A36F18FF061200213B80 /* System.Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Linq.m; sourceTree = "<group>"; };
+		ABB8A37218FF067400213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = ../Mono.mscorlib/build/Debug/Mono.mscorlib.framework; sourceTree = "<group>"; };
+		ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBSystem_Collections_Generic_DictionaryA2+Linq.h"; sourceTree = "<group>"; };
+		ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBSystem_Collections_Generic_DictionaryA2+Linq.m"; sourceTree = "<group>"; };
+		ABB8A43D18FF246000213B80 /* DBSystem.Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Linq.h; sourceTree = "<group>"; };
+		ABB8A43E18FF246000213B80 /* DBSystem.Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Linq.m; sourceTree = "<group>"; };
+		ABB8A44118FF253600213B80 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABB8A2F518FEFED700213B80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A44218FF253600213B80 /* Dubrovnik.framework in Frameworks */,
+				ABB8A37318FF067400213B80 /* Mono.mscorlib.framework in Frameworks */,
+				ABB8A2FD18FEFED700213B80 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB8A30D18FEFED700213B80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A31318FEFED700213B80 /* Cocoa.framework in Frameworks */,
+				ABB8A31618FEFED700213B80 /* Mono.System.Core.framework in Frameworks */,
+				ABB8A31218FEFED700213B80 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABB8A2EF18FEFED700213B80 = {
+			isa = PBXGroup;
+			children = (
+				ABB8A30218FEFED700213B80 /* Mono.System.Core */,
+				ABB8A31718FEFED700213B80 /* Mono.System.CoreTests */,
+				ABB8A2FB18FEFED700213B80 /* Frameworks */,
+				ABB8A2FA18FEFED700213B80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABB8A2FA18FEFED700213B80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */,
+				ABB8A31018FEFED700213B80 /* Mono.System.CoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABB8A2FB18FEFED700213B80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A44118FF253600213B80 /* Dubrovnik.framework */,
+				ABB8A37218FF067400213B80 /* Mono.mscorlib.framework */,
+				ABB8A2FC18FEFED700213B80 /* Cocoa.framework */,
+				ABB8A31118FEFED700213B80 /* XCTest.framework */,
+				ABB8A2FE18FEFED700213B80 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABB8A2FE18FEFED700213B80 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A2FF18FEFED700213B80 /* Foundation.framework */,
+				ABB8A30018FEFED700213B80 /* CoreData.framework */,
+				ABB8A30118FEFED700213B80 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ABB8A30218FEFED700213B80 /* Mono.System.Core */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A43618FF218700213B80 /* Helper classes */,
+				ABB8A43518FF216700213B80 /* Categories */,
+				ABB8A36C18FF04E100213B80 /* Generated bindings */,
+				ABB8A36D18FF04E900213B80 /* Manual bindings */,
+				ABB8A30918FEFED700213B80 /* Framework.h */,
+				ABB8A30318FEFED700213B80 /* Supporting Files */,
+			);
+			path = Mono.System.Core;
+			sourceTree = "<group>";
+		};
+		ABB8A30318FEFED700213B80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A30418FEFED700213B80 /* Mono.System.Core-Info.plist */,
+				ABB8A30518FEFED700213B80 /* InfoPlist.strings */,
+				ABB8A30818FEFED700213B80 /* Mono.System.Core-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABB8A31718FEFED700213B80 /* Mono.System.CoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */,
+				ABB8A31818FEFED700213B80 /* Supporting Files */,
+			);
+			path = Mono.System.CoreTests;
+			sourceTree = "<group>";
+		};
+		ABB8A31818FEFED700213B80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A31918FEFED700213B80 /* Mono.System.CoreTests-Info.plist */,
+				ABB8A31A18FEFED700213B80 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABB8A36D18FF04E900213B80 /* Manual bindings */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A36E18FF061200213B80 /* System.Linq.h */,
+				ABB8A36F18FF061200213B80 /* System.Linq.m */,
+			);
+			path = "Manual bindings";
+			sourceTree = "<group>";
+		};
+		ABB8A43518FF216700213B80 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */,
+				ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ABB8A43618FF218700213B80 /* Helper classes */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A43D18FF246000213B80 /* DBSystem.Linq.h */,
+				ABB8A43E18FF246000213B80 /* DBSystem.Linq.m */,
+			);
+			path = "Helper classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ABB8A2F618FEFED700213B80 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A47218FF31AC00213B80 /* Framework.h in Headers */,
+				ABB8A43918FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h in Headers */,
+				ABB8A43F18FF246000213B80 /* DBSystem.Linq.h in Headers */,
+				ABB8A37018FF061200213B80 /* System.Linq.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ABB8A2F818FEFED700213B80 /* Mono.System.Core */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB8A32118FEFED700213B80 /* Build configuration list for PBXNativeTarget "Mono.System.Core" */;
+			buildPhases = (
+				ABB8A2F418FEFED700213B80 /* Sources */,
+				ABB8A2F518FEFED700213B80 /* Frameworks */,
+				ABB8A2F618FEFED700213B80 /* Headers */,
+				ABB8A2F718FEFED700213B80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mono.System.Core;
+			productName = Mono.System.Core;
+			productReference = ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ABB8A30F18FEFED700213B80 /* Mono.System.CoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB8A32418FEFED700213B80 /* Build configuration list for PBXNativeTarget "Mono.System.CoreTests" */;
+			buildPhases = (
+				ABB8A30C18FEFED700213B80 /* Sources */,
+				ABB8A30D18FEFED700213B80 /* Frameworks */,
+				ABB8A30E18FEFED700213B80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABB8A31518FEFED700213B80 /* PBXTargetDependency */,
+			);
+			name = Mono.System.CoreTests;
+			productName = Mono.System.CoreTests;
+			productReference = ABB8A31018FEFED700213B80 /* Mono.System.CoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABB8A2F018FEFED700213B80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thesaurus Software";
+				TargetAttributes = {
+					ABB8A30F18FEFED700213B80 = {
+						TestTargetID = ABB8A2F818FEFED700213B80;
+					};
+				};
+			};
+			buildConfigurationList = ABB8A2F318FEFED700213B80 /* Build configuration list for PBXProject "Mono.System.Core" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABB8A2EF18FEFED700213B80;
+			productRefGroup = ABB8A2FA18FEFED700213B80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABB8A2F818FEFED700213B80 /* Mono.System.Core */,
+				ABB8A30F18FEFED700213B80 /* Mono.System.CoreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABB8A2F718FEFED700213B80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A30718FEFED700213B80 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB8A30E18FEFED700213B80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A31C18FEFED700213B80 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABB8A2F418FEFED700213B80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A37118FF061200213B80 /* System.Linq.m in Sources */,
+				ABB8A43A18FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m in Sources */,
+				ABB8A44018FF246000213B80 /* DBSystem.Linq.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB8A30C18FEFED700213B80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB8A31E18FEFED700213B80 /* Mono_System_CoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ABB8A31518FEFED700213B80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABB8A2F818FEFED700213B80 /* Mono.System.Core */;
+			targetProxy = ABB8A31418FEFED700213B80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ABB8A30518FEFED700213B80 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB8A30618FEFED700213B80 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABB8A31A18FEFED700213B80 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB8A31B18FEFED700213B80 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABB8A31F18FEFED700213B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ABB8A32018FEFED700213B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ABB8A32218FEFED700213B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jonathan/Documents/Thesaurus/Development/xcode/BrightPay.OSX/Dubrovnik/Mono.mscorlib/build/Debug,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System.Core/Mono.System.Core-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		ABB8A32318FEFED700213B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jonathan/Documents/Thesaurus/Development/xcode/BrightPay.OSX/Dubrovnik/Mono.mscorlib/build/Debug,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System.Core/Mono.System.Core-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		ABB8A32518FEFED700213B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.System.Core.framework/Versions/A/Mono.System.Core";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Mono.System.CoreTests/Mono.System.CoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ABB8A32618FEFED700213B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.System.Core.framework/Versions/A/Mono.System.Core";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System.CoreTests/Mono.System.CoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABB8A2F318FEFED700213B80 /* Build configuration list for PBXProject "Mono.System.Core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB8A31F18FEFED700213B80 /* Debug */,
+				ABB8A32018FEFED700213B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB8A32118FEFED700213B80 /* Build configuration list for PBXNativeTarget "Mono.System.Core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB8A32218FEFED700213B80 /* Debug */,
+				ABB8A32318FEFED700213B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB8A32418FEFED700213B80 /* Build configuration list for PBXNativeTarget "Mono.System.CoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB8A32518FEFED700213B80 /* Debug */,
+				ABB8A32618FEFED700213B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABB8A2F018FEFED700213B80 /* Project object */;
+}

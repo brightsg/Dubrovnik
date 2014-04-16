@@ -21,8 +21,6 @@
 //
 #import "NSString+Dubrovnik.h"
 #import "DBManagedString.h"
-#import "System.Object.h"
-#import "System.String.h"
 
 @implementation NSString (Dubrovnik)
 
@@ -83,17 +81,5 @@
     
     return s;
 }
-
-- (System_String *)managedString
-{
-    return [[System_String alloc] initWithMonoObject:[self monoObject]];
-}
-
-- (System_Object *)managedObject
-{
-    return [self managedString];
-}
-
-
 
 @end

@@ -8,7 +8,7 @@
 
 #import "DBManagedNumber.h"
 #import "DBBoxing.h"
-#import "System.Object.h"
+#import "DBManagedObject.h"
 
 #define DB_INIT_INSTANCE \
 self = [super init]; \
@@ -673,23 +673,5 @@ typedef NS_ENUM(NSUInteger, DBManagedNumberTypeID) {
     if (self.gcHandle) {
         mono_gchandle_free(_gcHandle);
     }
-}
-
-#pragma mark -
-#pragma mark Message forwarding
-
-- (id)forwardingTargetForSelector:(SEL)aSelector
-{
-#pragma unused(aSelector)
-    if (!self.forwardingTarget) {
-        
-        // Is this correct ?
-        // eg: System.Int32 is a struct.
-        if (1) {
-            self.forwardingTarget = [System_Object objectWithMonoObject:self.representedMonoObject];
-        }
-    }
-    
-    return self.forwardingTarget;
 }
 @end

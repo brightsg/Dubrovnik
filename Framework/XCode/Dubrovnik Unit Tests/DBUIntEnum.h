@@ -6,7 +6,7 @@
 //
 //
 
-#import "DBSystem.Enum.h"
+#import "Mono.mscorlib/DBSystem_Enum.h"
 typedef int32_t eDBUIntEnum;
 
 @interface DBUIntEnum : DBSystem_Enum

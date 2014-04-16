@@ -27,8 +27,12 @@
 #import "DBBoxing.h"
 #import "NSString+Dubrovnik.h"
 #import "DBManagedMethod.h"
-#import "DBSystem.Convert.h"
 #import "DBTypemanager.h"
+
+@protocol System_object_predeclaration <NSObject>
+- (BOOL)equals_withObj:(DBManagedObject *)p1;
+- (int32_t)getHashCode;
+@end
 
 @interface DBManagedObject()
 
@@ -651,40 +655,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 	DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
 }
 
-#pragma mark -
-#pragma mark System.IConvertible convenience
-
-- (int8_t)int8Value {
-	return([DBSystem_Convert convertMonoObjectToInt8:self.monoObject]);
-}
-
-- (int16_t)int16Value {
-	return([DBSystem_Convert convertMonoObjectToInt16:self.monoObject]);
-}
-
-- (int32_t)int32Value {
-	return([DBSystem_Convert convertMonoObjectToInt32:self.monoObject]);
-}
-
-- (int64_t)int64Value {
-	return([DBSystem_Convert convertMonoObjectToInt64:self.monoObject]);
-}
-
-- (uint8_t)unsigned8Value {
-	return([DBSystem_Convert convertMonoObjectToUInt8:self.monoObject]);
-}
-
-- (uint16_t)unsigned16Value {
-	return([DBSystem_Convert convertMonoObjectToUInt16:self.monoObject]);
-}
-
-- (uint32_t)unsigned32Value {
-	return([DBSystem_Convert convertMonoObjectToUInt32:self.monoObject]);
-}
-
-- (uint64_t)unsigned64Value {
-	return([DBSystem_Convert convertMonoObjectToUInt64:self.monoObject]);
-}
 
 #pragma mark -
 #pragma mark Mono info

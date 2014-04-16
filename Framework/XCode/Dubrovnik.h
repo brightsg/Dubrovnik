@@ -47,40 +47,6 @@
 #import "DBManagedMethod.h"
 #import "DBManagedEvent.h"
 
-// Mono classes
-#import "System.Object.h"
-
-// representation subclasses
-
-// System
-#import "System.String.h"
-#import "DBSystem.Array.h"
-#import "DBSystem.Convert.h"
-#import "DBSystem.Enum.h"
-#import "DBSystem.Linq.h"
-#import "System.NullableA1.h"
-#import "System.MulticastDelegate.h"
-#import "System.IAsyncResult.h"
-#import "System.AsyncCallback.h"
-#import "System.EventArgs.h"
-
-// System.IO
-#import "DBSystem.IO.FileInfo.h"
-
-// System.Collections
-#import "DBSystem.Collections.IList.h"
-#import "DBSystem.Collections.ArrayList.h"
-#import "DBSystem.Collections.Generic.ListA1.h"
-#import "DBSystem.Collections.Generic.DictionaryA2.h"
-
-// System.Drawing
-#import "DBSystem.Drawing.Size.h"
-
-// System.Data.Entity
-#import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
-#import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
-#import "DBSystem.Data.Entity.Core.Objects.ObjectContext.h"
-
 // categories
 #import "NSCategories.h"
 

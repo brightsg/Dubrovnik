@@ -37,7 +37,4 @@
 
 - (NSString *)simpleObjCToMonoClassNameString;
 
-- (System_String *)managedString;
-- (System_Object *)managedObject;
-
 @end

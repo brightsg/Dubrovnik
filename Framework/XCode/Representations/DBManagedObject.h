@@ -99,17 +99,6 @@ extern char DBCacheSuffixChar;
 - (MonoObject *)getMonoProperty:(const char *)propertyName;
 - (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
 
-//System.IConvertible convenience
-- (int8_t)int8Value;
-- (int16_t)int16Value;
-- (int32_t)int32Value;
-- (int64_t)int64Value;
-   
-- (uint8_t)unsigned8Value;
-- (uint16_t)unsigned16Value;
-- (uint32_t)unsigned32Value;
-- (uint64_t)unsigned64Value;
-
 // Mono type info
 - (uintptr_t *)getMonoGenericTypeCount;
 - (MonoType *)getFirstMonoGenericType;
