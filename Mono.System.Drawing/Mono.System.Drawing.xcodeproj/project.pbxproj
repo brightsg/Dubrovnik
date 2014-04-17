@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB2E74B118FFD6C90061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AC18FFD6C90061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B218FFD6C90061C63E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AD18FFD6C90061C63E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E74B318FFD6C90061C63E /* GeneratedBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AE18FFD6C90061C63E /* GeneratedBinding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E74B318FFD6C90061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B418FFD6C90061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AF18FFD6C90061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B518FFD6C90061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B018FFD6C90061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A3AA18FF0B4900213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3A918FF0B4900213B80 /* Cocoa.framework */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		AB2E74AC18FFD6C90061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		AB2E74AD18FFD6C90061C63E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
-		AB2E74AE18FFD6C90061C63E /* GeneratedBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBinding.h; sourceTree = "<group>"; };
+		AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74AF18FFD6C90061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74B018FFD6C90061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
 		ABB8A3A618FF0B4900213B80 /* Mono.System.Drawing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Drawing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +97,7 @@
 			children = (
 				AB2E74AC18FFD6C90061C63E /* Categories.h */,
 				AB2E74AD18FFD6C90061C63E /* Framework.h */,
-				AB2E74AE18FFD6C90061C63E /* GeneratedBinding.h */,
+				AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */,
 				AB2E74AF18FFD6C90061C63E /* HelperClasses.h */,
 				AB2E74B018FFD6C90061C63E /* ManualBindings.h */,
 			);
@@ -224,7 +224,7 @@
 				ABB8A46118FF28A600213B80 /* System_Drawing_Size.h in Headers */,
 				AB2E74B418FFD6C90061C63E /* HelperClasses.h in Headers */,
 				AB2E74B518FFD6C90061C63E /* ManualBindings.h in Headers */,
-				AB2E74B318FFD6C90061C63E /* GeneratedBinding.h in Headers */,
+				AB2E74B318FFD6C90061C63E /* GeneratedBindings.h in Headers */,
 				AB2E74B218FFD6C90061C63E /* Framework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +462,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Drawing/Mono.System.Drawing-Prefix.pch";
 				INFOPLIST_FILE = "Mono.System.Drawing/Mono.System.Drawing-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -482,6 +483,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Drawing/Mono.System.Drawing-Prefix.pch";
 				INFOPLIST_FILE = "Mono.System.Drawing/Mono.System.Drawing-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};

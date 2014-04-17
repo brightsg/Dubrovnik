@@ -5,6 +5,8 @@
 //  Created by Jonathan Mitchell on 17/04/2014.
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
+#import "System.Data.Entity.Core.Objects.SaveOptions.h"
+
 #import "System.Data.Entity.EntityState.h"
 #import "System_Data.Entity.Core.Objects.DataClasses.EntityCollectionA1.h"
 #import "System.Data.Entity.Core.Objects.DataClasses.EntityObject.h"

@@ -1,0 +1,553 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABBD3B8D190013E800DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B8C190013E800DB59AF /* Cocoa.framework */; };
+		ABBD3B97190013E800DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3B95190013E800DB59AF /* InfoPlist.strings */; };
+		ABBD3BA2190013E900DB59AF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BA1190013E900DB59AF /* XCTest.framework */; };
+		ABBD3BA3190013E900DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B8C190013E800DB59AF /* Cocoa.framework */; };
+		ABBD3BA6190013E900DB59AF /* Mono.System.Net.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */; };
+		ABBD3BAC190013E900DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BAA190013E900DB59AF /* InfoPlist.strings */; };
+		ABBD3BAE190013E900DB59AF /* Mono_System_NetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BAD190013E900DB59AF /* Mono_System_NetTests.m */; };
+		ABBD3BFB1900157B00DB59AF /* System.Net.WebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3BF91900157B00DB59AF /* System.Net.WebRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBD3BFC1900157B00DB59AF /* System.Net.WebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BFA1900157B00DB59AF /* System.Net.WebRequest.m */; };
+		ABBD3C06190015B800DB59AF /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C01190015B800DB59AF /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBD3C07190015B800DB59AF /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C02190015B800DB59AF /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBD3C08190015B800DB59AF /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C03190015B800DB59AF /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C04190015B800DB59AF /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBD3C0A190015B800DB59AF /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C05190015B800DB59AF /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBD3C161900162400DB59AF /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3C151900162400DB59AF /* Dubrovnik.framework */; };
+		ABBD3C1A1900163000DB59AF /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3C191900163000DB59AF /* Mono.mscorlib.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ABBD3BA4190013E900DB59AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABBD3B80190013E800DB59AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABBD3B88190013E800DB59AF;
+			remoteInfo = Mono.System.Net;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Net.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABBD3B8C190013E800DB59AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ABBD3B8F190013E800DB59AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABBD3B90190013E800DB59AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ABBD3B91190013E800DB59AF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ABBD3B94190013E800DB59AF /* Mono.System.Net-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.Net-Info.plist"; sourceTree = "<group>"; };
+		ABBD3B96190013E800DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABBD3B98190013E800DB59AF /* Mono.System.Net-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Net-Prefix.pch"; sourceTree = "<group>"; };
+		ABBD3BA0190013E900DB59AF /* Mono.System.NetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.System.NetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABBD3BA1190013E900DB59AF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ABBD3BA9190013E900DB59AF /* Mono.System.NetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.NetTests-Info.plist"; sourceTree = "<group>"; };
+		ABBD3BAB190013E900DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABBD3BAD190013E900DB59AF /* Mono_System_NetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_NetTests.m; sourceTree = "<group>"; };
+		ABBD3BF3190014EC00DB59AF /* Generated Bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated Bindings"; sourceTree = "<group>"; };
+		ABBD3BF91900157B00DB59AF /* System.Net.WebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Net.WebRequest.h; sourceTree = "<group>"; };
+		ABBD3BFA1900157B00DB59AF /* System.Net.WebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Net.WebRequest.m; sourceTree = "<group>"; };
+		ABBD3C01190015B800DB59AF /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		ABBD3C02190015B800DB59AF /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
+		ABBD3C03190015B800DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
+		ABBD3C04190015B800DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
+		ABBD3C05190015B800DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		ABBD3C151900162400DB59AF /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
+		ABBD3C171900162900DB59AF /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.System.Core.framework"; sourceTree = "<group>"; };
+		ABBD3C191900163000DB59AF /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABBD3B85190013E800DB59AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBD3C1A1900163000DB59AF /* Mono.mscorlib.framework in Frameworks */,
+				ABBD3C161900162400DB59AF /* Dubrovnik.framework in Frameworks */,
+				ABBD3B8D190013E800DB59AF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABBD3B9D190013E900DB59AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBD3BA3190013E900DB59AF /* Cocoa.framework in Frameworks */,
+				ABBD3BA2190013E900DB59AF /* XCTest.framework in Frameworks */,
+				ABBD3BA6190013E900DB59AF /* Mono.System.Net.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABBD3B7F190013E800DB59AF = {
+			isa = PBXGroup;
+			children = (
+				ABBD3B92190013E800DB59AF /* Mono.System.Net */,
+				ABBD3BA7190013E900DB59AF /* Mono.System.NetTests */,
+				ABBD3B8B190013E800DB59AF /* Frameworks */,
+				ABBD3B8A190013E800DB59AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABBD3B8A190013E800DB59AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */,
+				ABBD3BA0190013E900DB59AF /* Mono.System.NetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABBD3B8B190013E800DB59AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3C191900163000DB59AF /* Mono.mscorlib.framework */,
+				ABBD3C171900162900DB59AF /* Mono.System.Core.framework */,
+				ABBD3C151900162400DB59AF /* Dubrovnik.framework */,
+				ABBD3B8C190013E800DB59AF /* Cocoa.framework */,
+				ABBD3BA1190013E900DB59AF /* XCTest.framework */,
+				ABBD3B8E190013E800DB59AF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABBD3B8E190013E800DB59AF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3B8F190013E800DB59AF /* Foundation.framework */,
+				ABBD3B90190013E800DB59AF /* CoreData.framework */,
+				ABBD3B91190013E800DB59AF /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ABBD3B92190013E800DB59AF /* Mono.System.Net */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3BEF190014D300DB59AF /* Categories */,
+				ABBD3BF3190014EC00DB59AF /* Generated Bindings */,
+				ABBD3BF0190014D300DB59AF /* Helper Classes */,
+				ABBD3BF1190014D300DB59AF /* Include */,
+				ABBD3BF2190014D300DB59AF /* Manual Bindings */,
+				ABBD3B93190013E800DB59AF /* Supporting Files */,
+			);
+			path = Mono.System.Net;
+			sourceTree = "<group>";
+		};
+		ABBD3B93190013E800DB59AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3B94190013E800DB59AF /* Mono.System.Net-Info.plist */,
+				ABBD3B95190013E800DB59AF /* InfoPlist.strings */,
+				ABBD3B98190013E800DB59AF /* Mono.System.Net-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABBD3BA7190013E900DB59AF /* Mono.System.NetTests */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3BAD190013E900DB59AF /* Mono_System_NetTests.m */,
+				ABBD3BA8190013E900DB59AF /* Supporting Files */,
+			);
+			path = Mono.System.NetTests;
+			sourceTree = "<group>";
+		};
+		ABBD3BA8190013E900DB59AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3BA9190013E900DB59AF /* Mono.System.NetTests-Info.plist */,
+				ABBD3BAA190013E900DB59AF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABBD3BEF190014D300DB59AF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ABBD3BF0190014D300DB59AF /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		ABBD3BF1190014D300DB59AF /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3C01190015B800DB59AF /* Categories.h */,
+				ABBD3C02190015B800DB59AF /* Framework.h */,
+				ABBD3C03190015B800DB59AF /* GeneratedBindings.h */,
+				ABBD3C04190015B800DB59AF /* HelperClasses.h */,
+				ABBD3C05190015B800DB59AF /* ManualBindings.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		ABBD3BF2190014D300DB59AF /* Manual Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				ABBD3BF91900157B00DB59AF /* System.Net.WebRequest.h */,
+				ABBD3BFA1900157B00DB59AF /* System.Net.WebRequest.m */,
+			);
+			path = "Manual Bindings";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ABBD3B86190013E800DB59AF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBD3C0A190015B800DB59AF /* ManualBindings.h in Headers */,
+				ABBD3C07190015B800DB59AF /* Framework.h in Headers */,
+				ABBD3C06190015B800DB59AF /* Categories.h in Headers */,
+				ABBD3C08190015B800DB59AF /* GeneratedBindings.h in Headers */,
+				ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */,
+				ABBD3BFB1900157B00DB59AF /* System.Net.WebRequest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ABBD3B88190013E800DB59AF /* Mono.System.Net */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABBD3BB1190013E900DB59AF /* Build configuration list for PBXNativeTarget "Mono.System.Net" */;
+			buildPhases = (
+				ABBD3B84190013E800DB59AF /* Sources */,
+				ABBD3B85190013E800DB59AF /* Frameworks */,
+				ABBD3B86190013E800DB59AF /* Headers */,
+				ABBD3B87190013E800DB59AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mono.System.Net;
+			productName = Mono.System.Net;
+			productReference = ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ABBD3B9F190013E900DB59AF /* Mono.System.NetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABBD3BB4190013E900DB59AF /* Build configuration list for PBXNativeTarget "Mono.System.NetTests" */;
+			buildPhases = (
+				ABBD3B9C190013E900DB59AF /* Sources */,
+				ABBD3B9D190013E900DB59AF /* Frameworks */,
+				ABBD3B9E190013E900DB59AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABBD3BA5190013E900DB59AF /* PBXTargetDependency */,
+			);
+			name = Mono.System.NetTests;
+			productName = Mono.System.NetTests;
+			productReference = ABBD3BA0190013E900DB59AF /* Mono.System.NetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABBD3B80190013E800DB59AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thesaurus Software";
+				TargetAttributes = {
+					ABBD3B9F190013E900DB59AF = {
+						TestTargetID = ABBD3B88190013E800DB59AF;
+					};
+				};
+			};
+			buildConfigurationList = ABBD3B83190013E800DB59AF /* Build configuration list for PBXProject "Mono.System.Net" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABBD3B7F190013E800DB59AF;
+			productRefGroup = ABBD3B8A190013E800DB59AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABBD3B88190013E800DB59AF /* Mono.System.Net */,
+				ABBD3B9F190013E900DB59AF /* Mono.System.NetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABBD3B87190013E800DB59AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBD3B97190013E800DB59AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABBD3B9E190013E900DB59AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBD3BAC190013E900DB59AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABBD3B84190013E800DB59AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBD3BFC1900157B00DB59AF /* System.Net.WebRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABBD3B9C190013E900DB59AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBD3BAE190013E900DB59AF /* Mono_System_NetTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ABBD3BA5190013E900DB59AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABBD3B88190013E800DB59AF /* Mono.System.Net */;
+			targetProxy = ABBD3BA4190013E900DB59AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ABBD3B95190013E800DB59AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABBD3B96190013E800DB59AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABBD3BAA190013E900DB59AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABBD3BAB190013E900DB59AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABBD3BAF190013E900DB59AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ABBD3BB0190013E900DB59AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ABBD3BB2190013E900DB59AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Net/Mono.System.Net-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System.Net/Mono.System.Net-Info.plist";
+				INSTALL_PATH = "@rpath";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		ABBD3BB3190013E900DB59AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Net/Mono.System.Net-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System.Net/Mono.System.Net-Info.plist";
+				INSTALL_PATH = "@rpath";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		ABBD3BB5190013E900DB59AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.System.Net.framework/Versions/A/Mono.System.Net";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Net/Mono.System.Net-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Mono.System.NetTests/Mono.System.NetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ABBD3BB6190013E900DB59AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.System.Net.framework/Versions/A/Mono.System.Net";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System.Net/Mono.System.Net-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System.NetTests/Mono.System.NetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABBD3B83190013E800DB59AF /* Build configuration list for PBXProject "Mono.System.Net" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABBD3BAF190013E900DB59AF /* Debug */,
+				ABBD3BB0190013E900DB59AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABBD3BB1190013E900DB59AF /* Build configuration list for PBXNativeTarget "Mono.System.Net" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABBD3BB2190013E900DB59AF /* Debug */,
+				ABBD3BB3190013E900DB59AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABBD3BB4190013E900DB59AF /* Build configuration list for PBXNativeTarget "Mono.System.NetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABBD3BB5190013E900DB59AF /* Debug */,
+				ABBD3BB6190013E900DB59AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABBD3B80190013E800DB59AF /* Project object */;
+}

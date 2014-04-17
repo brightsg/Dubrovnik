@@ -498,6 +498,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
 				INFOPLIST_FILE = "Mono.System.Core/Mono.System.Core-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -518,6 +519,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
 				INFOPLIST_FILE = "Mono.System.Core/Mono.System.Core-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};

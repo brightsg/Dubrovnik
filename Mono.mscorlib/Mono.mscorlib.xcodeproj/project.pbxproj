@@ -70,7 +70,6 @@
 		ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */; };
 		ABB8A3FD18FF110000213B80 /* System.Array.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E418FF110000213B80 /* System.Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A3FE18FF110000213B80 /* System.Array.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3E518FF110000213B80 /* System.Array.m */; };
-		ABB8A3FF18FF110000213B80 /* System.AsyncCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E618FF110000213B80 /* System.AsyncCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A40018FF110000213B80 /* System.Collections.ArrayList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E718FF110000213B80 /* System.Collections.ArrayList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A40118FF110000213B80 /* System.Collections.ArrayList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3E818FF110000213B80 /* System.Collections.ArrayList.m */; };
 		ABB8A40218FF110000213B80 /* System.Collections.Generic.DictionaryA2.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3E918FF110000213B80 /* System.Collections.Generic.DictionaryA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -192,7 +191,6 @@
 		ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+mscorlib.m"; sourceTree = "<group>"; };
 		ABB8A3E418FF110000213B80 /* System.Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Array.h; sourceTree = "<group>"; };
 		ABB8A3E518FF110000213B80 /* System.Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Array.m; sourceTree = "<group>"; };
-		ABB8A3E618FF110000213B80 /* System.AsyncCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.AsyncCallback.h; sourceTree = "<group>"; };
 		ABB8A3E718FF110000213B80 /* System.Collections.ArrayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.ArrayList.h; sourceTree = "<group>"; };
 		ABB8A3E818FF110000213B80 /* System.Collections.ArrayList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.ArrayList.m; sourceTree = "<group>"; };
 		ABB8A3E918FF110000213B80 /* System.Collections.Generic.DictionaryA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.DictionaryA2.h; sourceTree = "<group>"; };
@@ -396,7 +394,6 @@
 				ABB8A41B18FF155F00213B80 /* System.NullableA1.m */,
 				ABB8A3E418FF110000213B80 /* System.Array.h */,
 				ABB8A3E518FF110000213B80 /* System.Array.m */,
-				ABB8A3E618FF110000213B80 /* System.AsyncCallback.h */,
 				ABB8A3E718FF110000213B80 /* System.Collections.ArrayList.h */,
 				ABB8A3E818FF110000213B80 /* System.Collections.ArrayList.m */,
 				ABB8A3E918FF110000213B80 /* System.Collections.Generic.DictionaryA2.h */,
@@ -505,7 +502,6 @@
 				ABB8A40418FF110000213B80 /* System.Collections.Generic.ListA1.h in Headers */,
 				ABB8A41018FF110000213B80 /* System.MulticastDelegate.h in Headers */,
 				ABB8A39618FF09F900213B80 /* DBSystem_Array.h in Headers */,
-				ABB8A3FF18FF110000213B80 /* System.AsyncCallback.h in Headers */,
 				ABB8A42818FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.h in Headers */,
 				ABB8A40218FF110000213B80 /* System.Collections.Generic.DictionaryA2.h in Headers */,
 				ABB8A39818FF09F900213B80 /* DBSystem_Convert.h in Headers */,
@@ -802,6 +798,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
 				INFOPLIST_FILE = "Mono.mscorlib/Mono.mscorlib-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = Mono.mscorlib;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -822,6 +819,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
 				INFOPLIST_FILE = "Mono.mscorlib/Mono.mscorlib-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = Mono.mscorlib;
 				WRAPPER_EXTENSION = framework;
 			};

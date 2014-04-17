@@ -25,4 +25,10 @@
    <FileRef
       location = "group:Mono.System.Drawing/Mono.System.Drawing.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Mono.System.Net/Mono.System.Net.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Mono.System.Xml/Mono.System.Xml.xcodeproj">
+   </FileRef>
 </Workspace>

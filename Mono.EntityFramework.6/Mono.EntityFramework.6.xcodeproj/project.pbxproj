@@ -530,6 +530,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.EntityFramework.6/Mono.EntityFramework.6-Prefix.pch";
 				INFOPLIST_FILE = "Mono.EntityFramework.6/Mono.EntityFramework.6-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -550,6 +551,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.EntityFramework.6/Mono.EntityFramework.6-Prefix.pch";
 				INFOPLIST_FILE = "Mono.EntityFramework.6/Mono.EntityFramework.6-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
