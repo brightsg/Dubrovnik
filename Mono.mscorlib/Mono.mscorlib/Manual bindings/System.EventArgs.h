@@ -6,8 +6,6 @@
 //
 //
 
-#import <Dubrovnik/Dubrovnik.h>
-
 @interface System_EventArgs : DBManagedObject
 
 @end

@@ -6,7 +6,6 @@
 //
 //
 #import "System.Data.Entity.Core.Objects.ObjectQueryA1.h"
-#import "Mono.mscorlib/Interface_IEnumerable_T.h"
 
 @class DBSystem_Collections_IList;
 

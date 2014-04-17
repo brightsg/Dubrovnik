@@ -5,8 +5,6 @@
 //  Created by Jonathan on 08/07/2013.
 //
 //
-
-#import <Foundation/Foundation.h>
 #import "System.Data.Entity.Core.Objects.ObjectContext.h"
 
 @class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1, DBSystem_Array;

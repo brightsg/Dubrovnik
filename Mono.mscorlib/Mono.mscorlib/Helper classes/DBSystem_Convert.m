@@ -21,8 +21,6 @@
 //
 
 #import "DBSystem_Convert.h"
-#import "Dubrovnik/DBManagedClass.h"
-#import "Dubrovnik/DBBoxing.h"
 
 static DBManagedClass *_classRep = nil;
 

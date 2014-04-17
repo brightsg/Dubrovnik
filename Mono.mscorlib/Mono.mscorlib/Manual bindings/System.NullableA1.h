@@ -6,8 +6,6 @@
 //
 //
 
-#import "System.Object.h"
-
 NS_ENUM(NSInteger, DBSystemNullableTypes) {
     DBSystemNullableInt8,
     DBSystemNullableUint8,

@@ -6,8 +6,6 @@
 //
 //
 
-#import "Dubrovnik/DBManagedObject.h"
-
 @interface System_Object : DBManagedObject
 
 #pragma mark -

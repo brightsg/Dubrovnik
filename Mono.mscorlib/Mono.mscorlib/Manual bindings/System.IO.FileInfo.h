@@ -6,8 +6,6 @@
 //
 //
 
-#import "System.Object.h"
-
 @interface System_IO_FileInfo : System_Object
 
 @end

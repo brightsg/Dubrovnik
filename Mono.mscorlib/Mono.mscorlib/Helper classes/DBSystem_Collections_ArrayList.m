@@ -21,7 +21,6 @@
 //
 
 #import "DBSystem_Collections_ArrayList.h"
-#import "Dubrovnik/DBManagedEnvironment.h"
 
 static MonoClass *_monoClass = NULL;
 

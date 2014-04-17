@@ -2,8 +2,8 @@
 //  Dubrovnik.h
 //  Dubrovnik
 //
-//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
+//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -22,7 +22,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "DBMonoIncludes.h"
-#import "DBProtocols.h"
 
 // Expand a token
 #define DB_STR_EXPAND(tok) #tok
@@ -38,6 +37,8 @@
 
 // Environment
 #import "DBManagedEnvironment.h"
+
+// Type management
 #import "DBType.h"
 #import "DBTypeManager.h"
 

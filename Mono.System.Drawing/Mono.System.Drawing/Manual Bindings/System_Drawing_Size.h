@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import <Mono.mscorlib/System.Object.h>
-
 @interface System_Drawing_Size : System_Object
 
 @end

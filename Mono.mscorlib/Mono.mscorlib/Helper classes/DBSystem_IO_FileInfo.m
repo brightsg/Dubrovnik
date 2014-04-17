@@ -22,9 +22,6 @@
 
 #import "DBSystem_IO_FileInfo.h"
 
-#import "Dubrovnik/NSCategories.h"
-#import "Dubrovnik/DBManagedEnvironment.h"
-
 static MonoClass *_monoClass = NULL;
 
 @implementation DBSystem_IO_FileInfo

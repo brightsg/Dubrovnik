@@ -7,7 +7,6 @@
 //
 
 #import "DBSystem.Data.Entity.Core.Objects.ObjectSetA1.h"
-#import "Dubrovnik/DBTypeManager.h"
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1()
 

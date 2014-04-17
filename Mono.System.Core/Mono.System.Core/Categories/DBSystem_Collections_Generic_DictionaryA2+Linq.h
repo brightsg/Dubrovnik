@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import <Mono.mscorlib/DBSystem_Collections_Generic_DictionaryA2.h>
-
 @interface DBSystem_Collections_Generic_DictionaryA2 (Linq)
 - (NSArray *)allKeys;
 - (NSArray *)allValues;

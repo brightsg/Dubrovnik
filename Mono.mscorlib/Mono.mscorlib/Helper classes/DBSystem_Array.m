@@ -21,9 +21,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import "DBSystem_Array.h"
-#import "Dubrovnik/DBTypeManager.h"
 #import "DBSystem_Collections_IList.h"
-#import "Dubrovnik/DBType.h"
 
 @implementation DBSystem_Array
 

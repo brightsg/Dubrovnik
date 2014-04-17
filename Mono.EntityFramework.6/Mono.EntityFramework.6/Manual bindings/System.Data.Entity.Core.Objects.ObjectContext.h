@@ -6,8 +6,6 @@
 //
 //
 
-#import "Mono.mscorlib/System.Object.h"
-
 @interface System_Data_Entity_Core_Objects_ObjectContext : System_Object
 
 @end

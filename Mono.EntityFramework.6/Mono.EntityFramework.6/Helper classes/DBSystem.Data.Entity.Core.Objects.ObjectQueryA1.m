@@ -6,8 +6,6 @@
 //
 //
 #import "DBSystem.Data.Entity.Core.Objects.ObjectQueryA1.h"
-#import "Mono.System.Core/DBSystem.Linq.h"
-#import "Mono.mscorlib/DBSystem_Collections_IList.h"
 
 @interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1()
 @end

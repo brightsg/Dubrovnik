@@ -6,8 +6,6 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-
 @protocol Interface_IEnumerable_T <NSObject>
 
 @end

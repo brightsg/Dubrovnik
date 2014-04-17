@@ -27,8 +27,6 @@
 
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 
-#define DB_REFTYPE_BY_REFERENCE_SUPPORT 0
-
 #if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
 #import "Dubrovnik_UnitTests.h"
 #endif
@@ -474,12 +472,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     DBManagedObject *stringObj = [DBManagedObject objectWithMonoObject:(MonoObject *)monoString];
     NSString *stringMethod3 = [refObject stringMethod_withS1String:@"1" s2Object:stringObj];
     STAssertNotNil(stringMethod3, DBUObjectIsNil);
-    
-#if DB_REFTYPE_BY_REFERENCE_SUPPORT == 1
-    NSString *refString1 = @"Repeat me.";
-    NSString *refString2 = refString1;
-    [refObject stringMethodByRef:&refString2];
-#endif
     
     //
     // date methods

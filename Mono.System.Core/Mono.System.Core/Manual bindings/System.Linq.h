@@ -6,8 +6,6 @@
 //
 //
 
-#import "Mono.mscorlib/System.Object.h"
-
 @interface System_Linq : System_Object
 
 @end

@@ -7,6 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB2E742518FFCB7C0061C63E /* System.Reflection.ConstructorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742318FFCB7C0061C63E /* System.Reflection.ConstructorInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E742618FFCB7C0061C63E /* System.Reflection.ConstructorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E742418FFCB7C0061C63E /* System.Reflection.ConstructorInfo.m */; };
+		AB2E742D18FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742718FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E742E18FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E742818FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.m */; };
+		AB2E742F18FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742918FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E743018FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E742A18FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.m */; };
+		AB2E743118FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742B18FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E743218FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E742C18FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.m */; };
+		AB2E743F18FFCD0A0061C63E /* System.Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743318FFCD0A0061C63E /* System.Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E744018FFCD0A0061C63E /* System.Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743418FFCD0A0061C63E /* System.Reflection.m */; };
+		AB2E744118FFCD0A0061C63E /* System.Reflection.MethodInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743518FFCD0A0061C63E /* System.Reflection.MethodInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E744218FFCD0A0061C63E /* System.Reflection.MethodInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743618FFCD0A0061C63E /* System.Reflection.MethodInfo.m */; };
+		AB2E744318FFCD0A0061C63E /* System.Reflection.PropertyInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743718FFCD0A0061C63E /* System.Reflection.PropertyInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E744418FFCD0A0061C63E /* System.Reflection.PropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743818FFCD0A0061C63E /* System.Reflection.PropertyInfo.m */; };
+		AB2E744518FFCD0A0061C63E /* System.Text.Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743918FFCD0A0061C63E /* System.Text.Encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E744618FFCD0A0061C63E /* System.Text.Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743A18FFCD0A0061C63E /* System.Text.Encoding.m */; };
+		AB2E744718FFCD0A0061C63E /* System.TimeSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743B18FFCD0A0061C63E /* System.TimeSpan.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E744818FFCD0A0061C63E /* System.TimeSpan.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743C18FFCD0A0061C63E /* System.TimeSpan.m */; };
+		AB2E744918FFCD0A0061C63E /* System.Type.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743D18FFCD0A0061C63E /* System.Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E744A18FFCD0A0061C63E /* System.Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743E18FFCD0A0061C63E /* System.Type.m */; };
+		AB2E745118FFCD420061C63E /* System.IO.Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E744B18FFCD420061C63E /* System.IO.Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E745218FFCD420061C63E /* System.IO.Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E744C18FFCD420061C63E /* System.IO.Stream.m */; };
+		AB2E745318FFCD420061C63E /* System.IO.StringWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E744D18FFCD420061C63E /* System.IO.StringWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E745418FFCD420061C63E /* System.IO.StringWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E744E18FFCD420061C63E /* System.IO.StringWriter.m */; };
+		AB2E745518FFCD420061C63E /* System.IO.TextReader.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E744F18FFCD420061C63E /* System.IO.TextReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E745618FFCD420061C63E /* System.IO.TextReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E745018FFCD420061C63E /* System.IO.TextReader.m */; };
+		AB2E745E18FFCD8F0061C63E /* System.DayOfWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E745718FFCD8F0061C63E /* System.DayOfWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E745F18FFCD8F0061C63E /* System.Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E745818FFCD8F0061C63E /* System.Exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E746018FFCD8F0061C63E /* System.Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E745918FFCD8F0061C63E /* System.Exception.m */; };
+		AB2E746118FFCD8F0061C63E /* System.FuncA2.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E745A18FFCD8F0061C63E /* System.FuncA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E746218FFCD8F0061C63E /* System.FuncA2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E745B18FFCD8F0061C63E /* System.FuncA2.m */; };
+		AB2E746318FFCD8F0061C63E /* System.Globalization.CultureInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E745C18FFCD8F0061C63E /* System.Globalization.CultureInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E746418FFCD8F0061C63E /* System.Globalization.CultureInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E745D18FFCD8F0061C63E /* System.Globalization.CultureInfo.m */; };
+		AB2E746718FFCE2B0061C63E /* IEnumerableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E746818FFCE2B0061C63E /* IEnumerableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */; };
+		AB2E746F18FFCF980061C63E /* System.Collections.IEnumerable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E746D18FFCF980061C63E /* System.Collections.IEnumerable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E747018FFCF980061C63E /* System.Collections.IEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E746E18FFCF980061C63E /* System.Collections.IEnumerable.m */; };
+		AB2E74C718FFDB0D0061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C218FFDB0D0061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C318FFDB0D0061C63E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C518FFDB0D0061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E74CB18FFDB0D0061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C618FFDB0D0061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
 		ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A29018FEFB0700213B80 /* InfoPlist.strings */; };
 		ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A29C18FEFB0700213B80 /* XCTest.framework */; };
@@ -67,7 +109,6 @@
 		ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43218FF1F6300213B80 /* Interface_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A43B18FF232000213B80 /* Mono64.framework */; };
-		ABB8A47118FF2B1E00213B80 /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A29418FEFB0700213B80 /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +122,48 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB2E742318FFCB7C0061C63E /* System.Reflection.ConstructorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.ConstructorInfo.h; sourceTree = "<group>"; };
+		AB2E742418FFCB7C0061C63E /* System.Reflection.ConstructorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.ConstructorInfo.m; sourceTree = "<group>"; };
+		AB2E742718FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.IDictionaryA2.h; sourceTree = "<group>"; };
+		AB2E742818FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.IDictionaryA2.m; sourceTree = "<group>"; };
+		AB2E742918FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.IEnumerableA1.h; sourceTree = "<group>"; };
+		AB2E742A18FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.IEnumerableA1.m; sourceTree = "<group>"; };
+		AB2E742B18FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.Generic.KeyValuePairA2.h; sourceTree = "<group>"; };
+		AB2E742C18FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.Generic.KeyValuePairA2.m; sourceTree = "<group>"; };
+		AB2E743318FFCD0A0061C63E /* System.Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.h; sourceTree = "<group>"; };
+		AB2E743418FFCD0A0061C63E /* System.Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.m; sourceTree = "<group>"; };
+		AB2E743518FFCD0A0061C63E /* System.Reflection.MethodInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.MethodInfo.h; sourceTree = "<group>"; };
+		AB2E743618FFCD0A0061C63E /* System.Reflection.MethodInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.MethodInfo.m; sourceTree = "<group>"; };
+		AB2E743718FFCD0A0061C63E /* System.Reflection.PropertyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Reflection.PropertyInfo.h; sourceTree = "<group>"; };
+		AB2E743818FFCD0A0061C63E /* System.Reflection.PropertyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Reflection.PropertyInfo.m; sourceTree = "<group>"; };
+		AB2E743918FFCD0A0061C63E /* System.Text.Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Text.Encoding.h; sourceTree = "<group>"; };
+		AB2E743A18FFCD0A0061C63E /* System.Text.Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Text.Encoding.m; sourceTree = "<group>"; };
+		AB2E743B18FFCD0A0061C63E /* System.TimeSpan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.TimeSpan.h; sourceTree = "<group>"; };
+		AB2E743C18FFCD0A0061C63E /* System.TimeSpan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.TimeSpan.m; sourceTree = "<group>"; };
+		AB2E743D18FFCD0A0061C63E /* System.Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Type.h; sourceTree = "<group>"; };
+		AB2E743E18FFCD0A0061C63E /* System.Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Type.m; sourceTree = "<group>"; };
+		AB2E744B18FFCD420061C63E /* System.IO.Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IO.Stream.h; sourceTree = "<group>"; };
+		AB2E744C18FFCD420061C63E /* System.IO.Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.IO.Stream.m; sourceTree = "<group>"; };
+		AB2E744D18FFCD420061C63E /* System.IO.StringWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IO.StringWriter.h; sourceTree = "<group>"; };
+		AB2E744E18FFCD420061C63E /* System.IO.StringWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.IO.StringWriter.m; sourceTree = "<group>"; };
+		AB2E744F18FFCD420061C63E /* System.IO.TextReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.IO.TextReader.h; sourceTree = "<group>"; };
+		AB2E745018FFCD420061C63E /* System.IO.TextReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.IO.TextReader.m; sourceTree = "<group>"; };
+		AB2E745718FFCD8F0061C63E /* System.DayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.DayOfWeek.h; sourceTree = "<group>"; };
+		AB2E745818FFCD8F0061C63E /* System.Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Exception.h; sourceTree = "<group>"; };
+		AB2E745918FFCD8F0061C63E /* System.Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Exception.m; sourceTree = "<group>"; };
+		AB2E745A18FFCD8F0061C63E /* System.FuncA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.FuncA2.h; sourceTree = "<group>"; };
+		AB2E745B18FFCD8F0061C63E /* System.FuncA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.FuncA2.m; sourceTree = "<group>"; };
+		AB2E745C18FFCD8F0061C63E /* System.Globalization.CultureInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Globalization.CultureInfo.h; sourceTree = "<group>"; };
+		AB2E745D18FFCD8F0061C63E /* System.Globalization.CultureInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Globalization.CultureInfo.m; sourceTree = "<group>"; };
+		AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEnumerableA1.h; sourceTree = "<group>"; };
+		AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEnumerableA1.m; sourceTree = "<group>"; };
+		AB2E746D18FFCF980061C63E /* System.Collections.IEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Collections.IEnumerable.h; sourceTree = "<group>"; };
+		AB2E746E18FFCF980061C63E /* System.Collections.IEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Collections.IEnumerable.m; sourceTree = "<group>"; };
+		AB2E74C218FFDB0D0061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		AB2E74C318FFDB0D0061C63E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
+		AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
+		AB2E74C518FFDB0D0061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
+		AB2E74C618FFDB0D0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A28718FEFB0700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A28A18FEFB0700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,7 +172,6 @@
 		ABB8A28F18FEFB0700213B80 /* Mono.mscorlib-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlib-Info.plist"; sourceTree = "<group>"; };
 		ABB8A29118FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A29318FEFB0700213B80 /* Mono.mscorlib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.mscorlib-Prefix.pch"; sourceTree = "<group>"; };
-		ABB8A29418FEFB0700213B80 /* Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		ABB8A29B18FEFB0700213B80 /* Mono.mscorlibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.mscorlibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A29C18FEFB0700213B80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ABB8A2A418FEFB0700213B80 /* Mono.mscorlibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlibTests-Info.plist"; sourceTree = "<group>"; };
@@ -175,6 +257,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB2E74C118FFDB0D0061C63E /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				AB2E74C218FFDB0D0061C63E /* Categories.h */,
+				AB2E74C318FFDB0D0061C63E /* Framework.h */,
+				AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */,
+				AB2E74C518FFDB0D0061C63E /* HelperClasses.h */,
+				AB2E74C618FFDB0D0061C63E /* ManualBindings.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
 		ABB8A27A18FEFB0700213B80 = {
 			isa = PBXGroup;
 			children = (
@@ -219,12 +313,12 @@
 		ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */ = {
 			isa = PBXGroup;
 			children = (
+				AB2E74C118FFDB0D0061C63E /* Include */,
 				ABB8A43018FF1F6300213B80 /* Protocols */,
 				ABB8A37D18FF092400213B80 /* Helper classes */,
 				ABB8A37818FF086200213B80 /* Categories */,
 				ABB8A36B18FF04C200213B80 /* Generated bindings */,
 				ABB8A36A18FF04B700213B80 /* Manual bindings */,
-				ABB8A29418FEFB0700213B80 /* Framework.h */,
 				ABB8A28E18FEFB0700213B80 /* Supporting Files */,
 			);
 			path = Mono.mscorlib;
@@ -261,6 +355,43 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB2E746D18FFCF980061C63E /* System.Collections.IEnumerable.h */,
+				AB2E746E18FFCF980061C63E /* System.Collections.IEnumerable.m */,
+				AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */,
+				AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */,
+				AB2E745718FFCD8F0061C63E /* System.DayOfWeek.h */,
+				AB2E745818FFCD8F0061C63E /* System.Exception.h */,
+				AB2E745918FFCD8F0061C63E /* System.Exception.m */,
+				AB2E745A18FFCD8F0061C63E /* System.FuncA2.h */,
+				AB2E745B18FFCD8F0061C63E /* System.FuncA2.m */,
+				AB2E745C18FFCD8F0061C63E /* System.Globalization.CultureInfo.h */,
+				AB2E745D18FFCD8F0061C63E /* System.Globalization.CultureInfo.m */,
+				AB2E744B18FFCD420061C63E /* System.IO.Stream.h */,
+				AB2E744C18FFCD420061C63E /* System.IO.Stream.m */,
+				AB2E744D18FFCD420061C63E /* System.IO.StringWriter.h */,
+				AB2E744E18FFCD420061C63E /* System.IO.StringWriter.m */,
+				AB2E744F18FFCD420061C63E /* System.IO.TextReader.h */,
+				AB2E745018FFCD420061C63E /* System.IO.TextReader.m */,
+				AB2E743318FFCD0A0061C63E /* System.Reflection.h */,
+				AB2E743418FFCD0A0061C63E /* System.Reflection.m */,
+				AB2E743518FFCD0A0061C63E /* System.Reflection.MethodInfo.h */,
+				AB2E743618FFCD0A0061C63E /* System.Reflection.MethodInfo.m */,
+				AB2E743718FFCD0A0061C63E /* System.Reflection.PropertyInfo.h */,
+				AB2E743818FFCD0A0061C63E /* System.Reflection.PropertyInfo.m */,
+				AB2E743918FFCD0A0061C63E /* System.Text.Encoding.h */,
+				AB2E743A18FFCD0A0061C63E /* System.Text.Encoding.m */,
+				AB2E743B18FFCD0A0061C63E /* System.TimeSpan.h */,
+				AB2E743C18FFCD0A0061C63E /* System.TimeSpan.m */,
+				AB2E743D18FFCD0A0061C63E /* System.Type.h */,
+				AB2E743E18FFCD0A0061C63E /* System.Type.m */,
+				AB2E742718FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.h */,
+				AB2E742818FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.m */,
+				AB2E742918FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.h */,
+				AB2E742A18FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.m */,
+				AB2E742B18FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.h */,
+				AB2E742C18FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.m */,
+				AB2E742318FFCB7C0061C63E /* System.Reflection.ConstructorInfo.h */,
+				AB2E742418FFCB7C0061C63E /* System.Reflection.ConstructorInfo.m */,
 				ABB8A41A18FF155F00213B80 /* System.NullableA1.h */,
 				ABB8A41B18FF155F00213B80 /* System.NullableA1.m */,
 				ABB8A3E418FF110000213B80 /* System.Array.h */,
@@ -344,7 +475,30 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB8A47118FF2B1E00213B80 /* Framework.h in Headers */,
+				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
+				AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */,
+				AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */,
+				AB2E74C718FFDB0D0061C63E /* Categories.h in Headers */,
+				AB2E74CB18FFDB0D0061C63E /* ManualBindings.h in Headers */,
+				AB2E746F18FFCF980061C63E /* System.Collections.IEnumerable.h in Headers */,
+				AB2E745318FFCD420061C63E /* System.IO.StringWriter.h in Headers */,
+				AB2E744518FFCD0A0061C63E /* System.Text.Encoding.h in Headers */,
+				AB2E744918FFCD0A0061C63E /* System.Type.h in Headers */,
+				AB2E746318FFCD8F0061C63E /* System.Globalization.CultureInfo.h in Headers */,
+				AB2E746118FFCD8F0061C63E /* System.FuncA2.h in Headers */,
+				AB2E745118FFCD420061C63E /* System.IO.Stream.h in Headers */,
+				AB2E746718FFCE2B0061C63E /* IEnumerableA1.h in Headers */,
+				AB2E745E18FFCD8F0061C63E /* System.DayOfWeek.h in Headers */,
+				AB2E744118FFCD0A0061C63E /* System.Reflection.MethodInfo.h in Headers */,
+				AB2E743F18FFCD0A0061C63E /* System.Reflection.h in Headers */,
+				AB2E744318FFCD0A0061C63E /* System.Reflection.PropertyInfo.h in Headers */,
+				AB2E742D18FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.h in Headers */,
+				AB2E742F18FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.h in Headers */,
+				AB2E743118FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.h in Headers */,
+				AB2E745518FFCD420061C63E /* System.IO.TextReader.h in Headers */,
+				AB2E745F18FFCD8F0061C63E /* System.Exception.h in Headers */,
+				AB2E742518FFCB7C0061C63E /* System.Reflection.ConstructorInfo.h in Headers */,
+				AB2E744718FFCD0A0061C63E /* System.TimeSpan.h in Headers */,
 				ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */,
 				ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */,
 				ABB8A41418FF110000213B80 /* System.String.h in Headers */,
@@ -473,15 +627,24 @@
 				ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */,
 				ABB8A41318FF110000213B80 /* System.Object.m in Sources */,
 				ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */,
+				AB2E744418FFCD0A0061C63E /* System.Reflection.PropertyInfo.m in Sources */,
 				ABB8A40518FF110000213B80 /* System.Collections.Generic.ListA1.m in Sources */,
+				AB2E746818FFCE2B0061C63E /* IEnumerableA1.m in Sources */,
+				AB2E747018FFCF980061C63E /* System.Collections.IEnumerable.m in Sources */,
+				AB2E743018FFCCE50061C63E /* System.Collections.Generic.IEnumerableA1.m in Sources */,
 				ABB8A41D18FF155F00213B80 /* System.NullableA1.m in Sources */,
 				ABB8A42718FF15B300213B80 /* DBSystem_Collections_ArrayList.m in Sources */,
 				ABB8A39918FF09F900213B80 /* DBSystem_Convert.m in Sources */,
+				AB2E746418FFCD8F0061C63E /* System.Globalization.CultureInfo.m in Sources */,
+				AB2E744A18FFCD0A0061C63E /* System.Type.m in Sources */,
 				ABB8A38118FF092400213B80 /* DBSystem_IO_FileInfo.m in Sources */,
+				AB2E745618FFCD420061C63E /* System.IO.TextReader.m in Sources */,
 				ABB8A40F18FF110000213B80 /* System.IO.FileInfo.m in Sources */,
 				ABB8A3FE18FF110000213B80 /* System.Array.m in Sources */,
+				AB2E742E18FFCCE50061C63E /* System.Collections.Generic.IDictionaryA2.m in Sources */,
 				ABB8A37C18FF086200213B80 /* NSString+mscorlib.m in Sources */,
 				ABB8A41518FF110000213B80 /* System.String.m in Sources */,
+				AB2E743218FFCCE50061C63E /* System.Collections.Generic.KeyValuePairA2.m in Sources */,
 				ABB8A40718FF110000213B80 /* System.Convert.m in Sources */,
 				ABB8A41118FF110000213B80 /* System.MulticastDelegate.m in Sources */,
 				ABB8A40118FF110000213B80 /* System.Collections.ArrayList.m in Sources */,
@@ -489,11 +652,20 @@
 				ABB8A39B18FF09F900213B80 /* DBSystem_Enum.m in Sources */,
 				ABB8A42918FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m in Sources */,
 				ABB8A40318FF110000213B80 /* System.Collections.Generic.DictionaryA2.m in Sources */,
+				AB2E744218FFCD0A0061C63E /* System.Reflection.MethodInfo.m in Sources */,
+				AB2E744818FFCD0A0061C63E /* System.TimeSpan.m in Sources */,
 				ABB8A40D18FF110000213B80 /* System.IAsyncResult.m in Sources */,
 				ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */,
+				AB2E745218FFCD420061C63E /* System.IO.Stream.m in Sources */,
 				ABB8A40918FF110000213B80 /* System.Enum.m in Sources */,
+				AB2E746018FFCD8F0061C63E /* System.Exception.m in Sources */,
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
+				AB2E746218FFCD8F0061C63E /* System.FuncA2.m in Sources */,
 				ABB8A40B18FF110000213B80 /* System.EventArgs.m in Sources */,
+				AB2E745418FFCD420061C63E /* System.IO.StringWriter.m in Sources */,
+				AB2E744018FFCD0A0061C63E /* System.Reflection.m in Sources */,
+				AB2E744618FFCD0A0061C63E /* System.Text.Encoding.m in Sources */,
+				AB2E742618FFCB7C0061C63E /* System.Reflection.ConstructorInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

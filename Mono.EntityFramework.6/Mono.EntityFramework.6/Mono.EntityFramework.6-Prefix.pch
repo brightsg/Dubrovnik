@@ -6,4 +6,7 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
+    #import <Dubrovnik/Dubrovnik.h>
+    #import <Mono.mscorlib/Framework.h>
+    #import <Mono.System.Core/Framework.h>
 #endif

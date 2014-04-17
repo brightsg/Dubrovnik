@@ -6,8 +6,6 @@
 //
 //
 
-#import "System.Object.h"
-
 @interface System_Collections_ArrayList : System_Object
 
 @end

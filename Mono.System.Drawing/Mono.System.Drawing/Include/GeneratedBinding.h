@@ -1,5 +1,5 @@
 //
-//  Mono_System_Drawing.h
+//  GeneratedBindings.h
 //  Mono.System.Drawing
 //
 //  Created by Jonathan Mitchell on 16/04/2014.
@@ -8,6 +8,3 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Mono_System_Drawing : NSObject
-
-@end

@@ -6,8 +6,6 @@
 //
 //
 
-#import "System.Object.h"
-
 @interface System_Array : System_Object
 
 @end
