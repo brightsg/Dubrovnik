@@ -6,4 +6,4 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import "System.Net.WebRequest.h"
+#import "System_Net_WebRequest.h"

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Thesaurus Software Limited. All rights reserved.
 //
 
-#import "System.Net.WebRequest.h"
+#import "System_Net_WebRequest.h"
 
 @implementation System_Net_WebRequest
 
