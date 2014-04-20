@@ -7,5 +7,5 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
     #import <Dubrovnik/Dubrovnik.h>
-    #import "System.Object.h"
+    #import "System_Object.h"
 #endif

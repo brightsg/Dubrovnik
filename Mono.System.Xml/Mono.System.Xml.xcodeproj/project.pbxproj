@@ -14,8 +14,8 @@
 		ABBD3BDE1900141000DB59AF /* Mono.System.Xml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC11900141000DB59AF /* Mono.System.Xml.framework */; };
 		ABBD3BE41900141000DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BE21900141000DB59AF /* InfoPlist.strings */; };
 		ABBD3BE61900141000DB59AF /* Mono_System_XmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BE51900141000DB59AF /* Mono_System_XmlTests.m */; };
-		ABBD3BFF1900158B00DB59AF /* System.Xml.XmlTextWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3BFD1900158B00DB59AF /* System.Xml.XmlTextWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBD3C001900158B00DB59AF /* System.Xml.XmlTextWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BFE1900158B00DB59AF /* System.Xml.XmlTextWriter.m */; };
+		ABBD3BFF1900158B00DB59AF /* System_Xml_XmlTextWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABBD3C001900158B00DB59AF /* System_Xml_XmlTextWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */; };
 		ABBD3C10190015C000DB59AF /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0B190015C000DB59AF /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C11190015C000DB59AF /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0C190015C000DB59AF /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C12190015C000DB59AF /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0D190015C000DB59AF /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,8 +50,8 @@
 		ABBD3BE31900141000DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3BE51900141000DB59AF /* Mono_System_XmlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_XmlTests.m; sourceTree = "<group>"; };
 		ABBD3BF81900151200DB59AF /* Generated Bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated Bindings"; sourceTree = "<group>"; };
-		ABBD3BFD1900158B00DB59AF /* System.Xml.XmlTextWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Xml.XmlTextWriter.h; sourceTree = "<group>"; };
-		ABBD3BFE1900158B00DB59AF /* System.Xml.XmlTextWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Xml.XmlTextWriter.m; sourceTree = "<group>"; };
+		ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlTextWriter.h; sourceTree = "<group>"; };
+		ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlTextWriter.m; sourceTree = "<group>"; };
 		ABBD3C0B190015C000DB59AF /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		ABBD3C0C190015C000DB59AF /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		ABBD3C0D190015C000DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 		ABBD3BF71900150400DB59AF /* Manual Bindings */ = {
 			isa = PBXGroup;
 			children = (
-				ABBD3BFD1900158B00DB59AF /* System.Xml.XmlTextWriter.h */,
-				ABBD3BFE1900158B00DB59AF /* System.Xml.XmlTextWriter.m */,
+				ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */,
+				ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				ABBD3C10190015C000DB59AF /* Categories.h in Headers */,
 				ABBD3C12190015C000DB59AF /* GeneratedBindings.h in Headers */,
 				ABBD3C13190015C000DB59AF /* HelperClasses.h in Headers */,
-				ABBD3BFF1900158B00DB59AF /* System.Xml.XmlTextWriter.h in Headers */,
+				ABBD3BFF1900158B00DB59AF /* System_Xml_XmlTextWriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABBD3C001900158B00DB59AF /* System.Xml.XmlTextWriter.m in Sources */,
+				ABBD3C001900158B00DB59AF /* System_Xml_XmlTextWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

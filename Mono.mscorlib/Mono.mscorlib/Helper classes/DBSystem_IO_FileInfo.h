@@ -20,7 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "System.IO.FileInfo.h"
+#import "System_IO_FileInfo.h"
 
 @interface DBSystem_IO_FileInfo : System_IO_FileInfo {
 

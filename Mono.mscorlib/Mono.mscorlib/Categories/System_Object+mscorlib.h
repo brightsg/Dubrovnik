@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import "System.Object.h"
+#import "System_Object.h"
 
 @interface System_Object (mscorlib)
 

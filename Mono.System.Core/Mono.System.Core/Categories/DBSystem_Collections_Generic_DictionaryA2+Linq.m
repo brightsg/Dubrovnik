@@ -11,7 +11,7 @@
 @end
 
 #import "DBSystem_Collections_Generic_DictionaryA2+Linq.h"
-#import "DBSystem.Linq.h"
+#import "DBSystem_Linq.h"
 #import "Mono.mscorlib/DBSystem_Collections_IList.h"
 
 @implementation DBSystem_Collections_Generic_DictionaryA2 (Linq)

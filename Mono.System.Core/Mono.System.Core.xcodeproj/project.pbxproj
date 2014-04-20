@@ -13,8 +13,8 @@
 		AB2E747818FFCFCB0061C63E /* IOrderedQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E747218FFCFCB0061C63E /* IOrderedQueryableA1.m */; };
 		AB2E747918FFCFCB0061C63E /* IQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747318FFCFCB0061C63E /* IQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E747A18FFCFCB0061C63E /* IQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E747418FFCFCB0061C63E /* IQueryableA1.m */; };
-		AB2E747B18FFCFCB0061C63E /* System.Linq.IQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747518FFCFCB0061C63E /* System.Linq.IQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E747C18FFCFCB0061C63E /* System.Linq.IQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E747618FFCFCB0061C63E /* System.Linq.IQueryableA1.m */; };
+		AB2E747B18FFCFCB0061C63E /* System_Linq_IQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747518FFCFCB0061C63E /* System_Linq_IQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E747C18FFCFCB0061C63E /* System_Linq_IQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E747618FFCFCB0061C63E /* System_Linq_IQueryableA1.m */; };
 		AB2E74BC18FFD8630061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B718FFD8630061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74BD18FFD8630061C63E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B818FFD8630061C63E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74BE18FFD8630061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B918FFD8630061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,13 +27,13 @@
 		ABB8A31618FEFED700213B80 /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */; };
 		ABB8A31C18FEFED700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A31A18FEFED700213B80 /* InfoPlist.strings */; };
 		ABB8A31E18FEFED700213B80 /* Mono_System_CoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */; };
-		ABB8A37018FF061200213B80 /* System.Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A36E18FF061200213B80 /* System.Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A37118FF061200213B80 /* System.Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A36F18FF061200213B80 /* System.Linq.m */; };
+		ABB8A37018FF061200213B80 /* System_Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A36E18FF061200213B80 /* System_Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A37118FF061200213B80 /* System_Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A36F18FF061200213B80 /* System_Linq.m */; };
 		ABB8A37318FF067400213B80 /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A37218FF067400213B80 /* Mono.mscorlib.framework */; };
 		ABB8A43918FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43A18FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */; };
-		ABB8A43F18FF246000213B80 /* DBSystem.Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43D18FF246000213B80 /* DBSystem.Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A44018FF246000213B80 /* DBSystem.Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43E18FF246000213B80 /* DBSystem.Linq.m */; };
+		ABB8A43F18FF246000213B80 /* DBSystem_Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43D18FF246000213B80 /* DBSystem_Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A44018FF246000213B80 /* DBSystem_Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43E18FF246000213B80 /* DBSystem_Linq.m */; };
 		ABB8A44218FF253600213B80 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A44118FF253600213B80 /* Dubrovnik.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +54,8 @@
 		AB2E747218FFCFCB0061C63E /* IOrderedQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOrderedQueryableA1.m; sourceTree = "<group>"; };
 		AB2E747318FFCFCB0061C63E /* IQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQueryableA1.h; sourceTree = "<group>"; };
 		AB2E747418FFCFCB0061C63E /* IQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQueryableA1.m; sourceTree = "<group>"; };
-		AB2E747518FFCFCB0061C63E /* System.Linq.IQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Linq.IQueryableA1.h; sourceTree = "<group>"; };
-		AB2E747618FFCFCB0061C63E /* System.Linq.IQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Linq.IQueryableA1.m; sourceTree = "<group>"; };
+		AB2E747518FFCFCB0061C63E /* System_Linq_IQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryableA1.h; sourceTree = "<group>"; };
+		AB2E747618FFCFCB0061C63E /* System_Linq_IQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IQueryableA1.m; sourceTree = "<group>"; };
 		AB2E74B718FFD8630061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		AB2E74B818FFD8630061C63E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		AB2E74B918FFD8630061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
@@ -75,13 +75,13 @@
 		ABB8A31B18FEFED700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_CoreTests.m; sourceTree = "<group>"; };
 		ABB8A36C18FF04E100213B80 /* Generated bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated bindings"; sourceTree = "<group>"; };
-		ABB8A36E18FF061200213B80 /* System.Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.Linq.h; sourceTree = "<group>"; };
-		ABB8A36F18FF061200213B80 /* System.Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.Linq.m; sourceTree = "<group>"; };
+		ABB8A36E18FF061200213B80 /* System_Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq.h; sourceTree = "<group>"; };
+		ABB8A36F18FF061200213B80 /* System_Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq.m; sourceTree = "<group>"; };
 		ABB8A37218FF067400213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = ../Mono.mscorlib/build/Debug/Mono.mscorlib.framework; sourceTree = "<group>"; };
 		ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBSystem_Collections_Generic_DictionaryA2+Linq.h"; sourceTree = "<group>"; };
 		ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBSystem_Collections_Generic_DictionaryA2+Linq.m"; sourceTree = "<group>"; };
-		ABB8A43D18FF246000213B80 /* DBSystem.Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Linq.h; sourceTree = "<group>"; };
-		ABB8A43E18FF246000213B80 /* DBSystem.Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Linq.m; sourceTree = "<group>"; };
+		ABB8A43D18FF246000213B80 /* DBSystem_Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Linq.h; sourceTree = "<group>"; };
+		ABB8A43E18FF246000213B80 /* DBSystem_Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Linq.m; sourceTree = "<group>"; };
 		ABB8A44118FF253600213B80 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,12 +210,12 @@
 				AB2E747218FFCFCB0061C63E /* IOrderedQueryableA1.m */,
 				AB2E747318FFCFCB0061C63E /* IQueryableA1.h */,
 				AB2E747418FFCFCB0061C63E /* IQueryableA1.m */,
-				AB2E747518FFCFCB0061C63E /* System.Linq.IQueryableA1.h */,
-				AB2E747618FFCFCB0061C63E /* System.Linq.IQueryableA1.m */,
+				AB2E747518FFCFCB0061C63E /* System_Linq_IQueryableA1.h */,
+				AB2E747618FFCFCB0061C63E /* System_Linq_IQueryableA1.m */,
 				AB2E746918FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h */,
 				AB2E746A18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m */,
-				ABB8A36E18FF061200213B80 /* System.Linq.h */,
-				ABB8A36F18FF061200213B80 /* System.Linq.m */,
+				ABB8A36E18FF061200213B80 /* System_Linq.h */,
+				ABB8A36F18FF061200213B80 /* System_Linq.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 		ABB8A43618FF218700213B80 /* Helper classes */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A43D18FF246000213B80 /* DBSystem.Linq.h */,
-				ABB8A43E18FF246000213B80 /* DBSystem.Linq.m */,
+				ABB8A43D18FF246000213B80 /* DBSystem_Linq.h */,
+				ABB8A43E18FF246000213B80 /* DBSystem_Linq.m */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -251,12 +251,12 @@
 				AB2E74BE18FFD8630061C63E /* GeneratedBindings.h in Headers */,
 				AB2E74BD18FFD8630061C63E /* Framework.h in Headers */,
 				AB2E747718FFCFCB0061C63E /* IOrderedQueryableA1.h in Headers */,
-				AB2E747B18FFCFCB0061C63E /* System.Linq.IQueryableA1.h in Headers */,
+				AB2E747B18FFCFCB0061C63E /* System_Linq_IQueryableA1.h in Headers */,
 				AB2E747918FFCFCB0061C63E /* IQueryableA1.h in Headers */,
 				AB2E746B18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h in Headers */,
 				ABB8A43918FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h in Headers */,
-				ABB8A43F18FF246000213B80 /* DBSystem.Linq.h in Headers */,
-				ABB8A37018FF061200213B80 /* System.Linq.h in Headers */,
+				ABB8A43F18FF246000213B80 /* DBSystem_Linq.h in Headers */,
+				ABB8A37018FF061200213B80 /* System_Linq.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,11 +355,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB8A37118FF061200213B80 /* System.Linq.m in Sources */,
+				ABB8A37118FF061200213B80 /* System_Linq.m in Sources */,
 				ABB8A43A18FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m in Sources */,
 				AB2E747A18FFCFCB0061C63E /* IQueryableA1.m in Sources */,
-				ABB8A44018FF246000213B80 /* DBSystem.Linq.m in Sources */,
-				AB2E747C18FFCFCB0061C63E /* System.Linq.IQueryableA1.m in Sources */,
+				ABB8A44018FF246000213B80 /* DBSystem_Linq.m in Sources */,
+				AB2E747C18FFCFCB0061C63E /* System_Linq_IQueryableA1.m in Sources */,
 				AB2E746C18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m in Sources */,
 				AB2E747818FFCFCB0061C63E /* IOrderedQueryableA1.m in Sources */,
 			);

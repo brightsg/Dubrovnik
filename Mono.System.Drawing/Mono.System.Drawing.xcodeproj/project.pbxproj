@@ -19,8 +19,8 @@
 		ABB8A3C318FF0B4A00213B80 /* Mono.System.Drawing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3A618FF0B4900213B80 /* Mono.System.Drawing.framework */; };
 		ABB8A3C918FF0B4A00213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A3C718FF0B4A00213B80 /* InfoPlist.strings */; };
 		ABB8A3CB18FF0B4A00213B80 /* Mono_System_DrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3CA18FF0B4A00213B80 /* Mono_System_DrawingTests.m */; };
-		ABB8A3DA18FF0C4100213B80 /* DBSystem.Drawing.Size.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3D818FF0C4100213B80 /* DBSystem.Drawing.Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A3DB18FF0C4100213B80 /* DBSystem.Drawing.Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3D918FF0C4100213B80 /* DBSystem.Drawing.Size.m */; };
+		ABB8A3DA18FF0C4100213B80 /* DBSystem_Drawing_Size.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3D818FF0C4100213B80 /* DBSystem_Drawing_Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A3DB18FF0C4100213B80 /* DBSystem_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */; };
 		ABB8A46118FF28A600213B80 /* System_Drawing_Size.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A46218FF28A600213B80 /* System_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */; };
 		ABB8A46418FF294F00213B80 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A46318FF294F00213B80 /* Dubrovnik.framework */; };
@@ -58,8 +58,8 @@
 		ABB8A3C818FF0B4A00213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A3CA18FF0B4A00213B80 /* Mono_System_DrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_DrawingTests.m; sourceTree = "<group>"; };
 		ABB8A3D718FF0BF100213B80 /* Generated Bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated Bindings"; sourceTree = "<group>"; };
-		ABB8A3D818FF0C4100213B80 /* DBSystem.Drawing.Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem.Drawing.Size.h; sourceTree = "<group>"; };
-		ABB8A3D918FF0C4100213B80 /* DBSystem.Drawing.Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem.Drawing.Size.m; sourceTree = "<group>"; };
+		ABB8A3D818FF0C4100213B80 /* DBSystem_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Drawing_Size.h; sourceTree = "<group>"; };
+		ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Drawing_Size.m; sourceTree = "<group>"; };
 		ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Drawing_Size.h; sourceTree = "<group>"; };
 		ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Drawing_Size.m; sourceTree = "<group>"; };
 		ABB8A46318FF294F00213B80 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
@@ -206,8 +206,8 @@
 		ABB8A3D618FF0BE900213B80 /* Helper classes */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A3D818FF0C4100213B80 /* DBSystem.Drawing.Size.h */,
-				ABB8A3D918FF0C4100213B80 /* DBSystem.Drawing.Size.m */,
+				ABB8A3D818FF0C4100213B80 /* DBSystem_Drawing_Size.h */,
+				ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB2E74B118FFD6C90061C63E /* Categories.h in Headers */,
-				ABB8A3DA18FF0C4100213B80 /* DBSystem.Drawing.Size.h in Headers */,
+				ABB8A3DA18FF0C4100213B80 /* DBSystem_Drawing_Size.h in Headers */,
 				ABB8A46118FF28A600213B80 /* System_Drawing_Size.h in Headers */,
 				AB2E74B418FFD6C90061C63E /* HelperClasses.h in Headers */,
 				AB2E74B518FFD6C90061C63E /* ManualBindings.h in Headers */,
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB8A46218FF28A600213B80 /* System_Drawing_Size.m in Sources */,
-				ABB8A3DB18FF0C4100213B80 /* DBSystem.Drawing.Size.m in Sources */,
+				ABB8A3DB18FF0C4100213B80 /* DBSystem_Drawing_Size.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

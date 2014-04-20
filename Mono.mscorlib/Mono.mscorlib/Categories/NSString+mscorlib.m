@@ -20,8 +20,8 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import "NSString+mscorlib.h"
-#import "System.Object.h"
-#import "System.String.h"
+#import "System_Object.h"
+#import "System_String.h"
 
 @implementation NSString (mscorlib)
 

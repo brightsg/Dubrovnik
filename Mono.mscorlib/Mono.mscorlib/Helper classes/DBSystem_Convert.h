@@ -20,7 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "System.Convert.h"
+#import "System_Convert.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
 @interface DBSystem_Convert : System_Convert {

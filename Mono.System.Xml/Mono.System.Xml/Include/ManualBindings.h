@@ -6,4 +6,4 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import "System.Xml.XmlTextWriter.h"
+#import "System_Xml_XmlTextWriter.h"

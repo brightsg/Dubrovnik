@@ -6,7 +6,7 @@
 //
 //
 
-#import "System.Collections.Generic.ListA1.h"
+#import "System_Collections_Generic_ListA1.h"
 #import "Interface_IList.h"
 #import "Interface_IEnumerable_T.h"
 

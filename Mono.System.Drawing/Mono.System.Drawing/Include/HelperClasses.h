@@ -6,5 +6,4 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "DBSystem.Drawing.Size.h"
+#import "DBSystem_Drawing_Size.h"
