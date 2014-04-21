@@ -27,8 +27,11 @@
 	MonoThread *monoThread = mono_thread_attach([args monoDomain]);
 	id target = [args target];	
 	
-	[target performSelector:[args selector] withObject:[args argument]];
-	
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [target performSelector:[args selector] withObject:[args argument]];
+#pragma clang diagnostic pop
+    
 	mono_thread_detach(monoThread);
 }
 
