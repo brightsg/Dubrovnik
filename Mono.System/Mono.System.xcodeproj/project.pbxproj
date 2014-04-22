@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
+		ABA3971C1906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */; };
+		ABA397271906BA6300D5CA6E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397261906BA6300D5CA6E /* XCTest.framework */; };
+		ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
+		ABA3972B1906BA6300D5CA6E /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA3970E1906BA6300D5CA6E /* Mono.System.framework */; };
+		ABA397311906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3972F1906BA6300D5CA6E /* InfoPlist.strings */; };
+		ABA397331906BA6300D5CA6E /* Mono_SystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397321906BA6300D5CA6E /* Mono_SystemTests.m */; };
+		ABA397451906BAE600D5CA6E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397401906BAE600D5CA6E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA397461906BAE600D5CA6E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397411906BAE600D5CA6E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA397471906BAE600D5CA6E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397421906BAE600D5CA6E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA397481906BAE600D5CA6E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397431906BAE600D5CA6E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397441906BAE600D5CA6E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */; };
+		ABA397671906C16400D5CA6E /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397651906C16400D5CA6E /* Dubrovnik.framework */; };
+		ABA397681906C16400D5CA6E /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397661906C16400D5CA6E /* Mono.mscorlib.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ABA397291906BA6300D5CA6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABA397051906BA6300D5CA6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABA3970D1906BA6300D5CA6E;
+			remoteInfo = Mono.System;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ABA3970E1906BA6300D5CA6E /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA397111906BA6300D5CA6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ABA397141906BA6300D5CA6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABA397151906BA6300D5CA6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ABA397161906BA6300D5CA6E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ABA397191906BA6300D5CA6E /* Mono.System-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System-Info.plist"; sourceTree = "<group>"; };
+		ABA3971B1906BA6300D5CA6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABA3971D1906BA6300D5CA6E /* Mono.System-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System-Prefix.pch"; sourceTree = "<group>"; };
+		ABA397251906BA6300D5CA6E /* Mono.SystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.SystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA397261906BA6300D5CA6E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ABA3972E1906BA6300D5CA6E /* Mono.SystemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.SystemTests-Info.plist"; sourceTree = "<group>"; };
+		ABA397301906BA6300D5CA6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABA397321906BA6300D5CA6E /* Mono_SystemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_SystemTests.m; sourceTree = "<group>"; };
+		ABA397401906BAE600D5CA6E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		ABA397411906BAE600D5CA6E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
+		ABA397421906BAE600D5CA6E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
+		ABA397431906BAE600D5CA6E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
+		ABA397441906BAE600D5CA6E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_RegexOptions.h; sourceTree = "<group>"; };
+		ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_Regex.h; sourceTree = "<group>"; };
+		ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_RegularExpressions_Regex.m; sourceTree = "<group>"; };
+		ABA397651906C16400D5CA6E /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-bgxncshakzeeylefrqmhdpslkbmr/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
+		ABA397661906C16400D5CA6E /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-bgxncshakzeeylefrqmhdpslkbmr/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABA3970A1906BA6300D5CA6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA397671906C16400D5CA6E /* Dubrovnik.framework in Frameworks */,
+				ABA397681906C16400D5CA6E /* Mono.mscorlib.framework in Frameworks */,
+				ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABA397221906BA6300D5CA6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */,
+				ABA3972B1906BA6300D5CA6E /* Mono.System.framework in Frameworks */,
+				ABA397271906BA6300D5CA6E /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABA397041906BA6300D5CA6E = {
+			isa = PBXGroup;
+			children = (
+				ABA397171906BA6300D5CA6E /* Mono.System */,
+				ABA3972C1906BA6300D5CA6E /* Mono.SystemTests */,
+				ABA397101906BA6300D5CA6E /* Frameworks */,
+				ABA3970F1906BA6300D5CA6E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABA3970F1906BA6300D5CA6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABA3970E1906BA6300D5CA6E /* Mono.System.framework */,
+				ABA397251906BA6300D5CA6E /* Mono.SystemTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABA397101906BA6300D5CA6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABA397651906C16400D5CA6E /* Dubrovnik.framework */,
+				ABA397661906C16400D5CA6E /* Mono.mscorlib.framework */,
+				ABA397111906BA6300D5CA6E /* Cocoa.framework */,
+				ABA397261906BA6300D5CA6E /* XCTest.framework */,
+				ABA397131906BA6300D5CA6E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABA397131906BA6300D5CA6E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABA397141906BA6300D5CA6E /* Foundation.framework */,
+				ABA397151906BA6300D5CA6E /* CoreData.framework */,
+				ABA397161906BA6300D5CA6E /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ABA397171906BA6300D5CA6E /* Mono.System */ = {
+			isa = PBXGroup;
+			children = (
+				ABA3975C1906BFA700D5CA6E /* Manual Bindings */,
+				ABA3973F1906BAE600D5CA6E /* Include */,
+				ABA3973E1906BADC00D5CA6E /* Helper Classes */,
+				ABA3973D1906BAD200D5CA6E /* Generated Bindings */,
+				ABA3973C1906BAB500D5CA6E /* Categories */,
+				ABA397181906BA6300D5CA6E /* Supporting Files */,
+			);
+			path = Mono.System;
+			sourceTree = "<group>";
+		};
+		ABA397181906BA6300D5CA6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABA397191906BA6300D5CA6E /* Mono.System-Info.plist */,
+				ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */,
+				ABA3971D1906BA6300D5CA6E /* Mono.System-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABA3972C1906BA6300D5CA6E /* Mono.SystemTests */ = {
+			isa = PBXGroup;
+			children = (
+				ABA397321906BA6300D5CA6E /* Mono_SystemTests.m */,
+				ABA3972D1906BA6300D5CA6E /* Supporting Files */,
+			);
+			path = Mono.SystemTests;
+			sourceTree = "<group>";
+		};
+		ABA3972D1906BA6300D5CA6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABA3972E1906BA6300D5CA6E /* Mono.SystemTests-Info.plist */,
+				ABA3972F1906BA6300D5CA6E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABA3973C1906BAB500D5CA6E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ABA3973D1906BAD200D5CA6E /* Generated Bindings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Generated Bindings";
+			sourceTree = "<group>";
+		};
+		ABA3973E1906BADC00D5CA6E /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		ABA3973F1906BAE600D5CA6E /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				ABA397401906BAE600D5CA6E /* Categories.h */,
+				ABA397411906BAE600D5CA6E /* Framework.h */,
+				ABA397421906BAE600D5CA6E /* GeneratedBindings.h */,
+				ABA397431906BAE600D5CA6E /* HelperClasses.h */,
+				ABA397441906BAE600D5CA6E /* ManualBindings.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		ABA3975C1906BFA700D5CA6E /* Manual Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */,
+				ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */,
+				ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */,
+			);
+			path = "Manual Bindings";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ABA3970B1906BA6300D5CA6E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
+				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,
+				ABA397451906BAE600D5CA6E /* Categories.h in Headers */,
+				ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */,
+				ABA397461906BAE600D5CA6E /* Framework.h in Headers */,
+				ABA397471906BAE600D5CA6E /* GeneratedBindings.h in Headers */,
+				ABA397481906BAE600D5CA6E /* HelperClasses.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ABA3970D1906BA6300D5CA6E /* Mono.System */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABA397361906BA6300D5CA6E /* Build configuration list for PBXNativeTarget "Mono.System" */;
+			buildPhases = (
+				ABA397091906BA6300D5CA6E /* Sources */,
+				ABA3970A1906BA6300D5CA6E /* Frameworks */,
+				ABA3970B1906BA6300D5CA6E /* Headers */,
+				ABA3970C1906BA6300D5CA6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mono.System;
+			productName = Mono.System;
+			productReference = ABA3970E1906BA6300D5CA6E /* Mono.System.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ABA397241906BA6300D5CA6E /* Mono.SystemTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABA397391906BA6300D5CA6E /* Build configuration list for PBXNativeTarget "Mono.SystemTests" */;
+			buildPhases = (
+				ABA397211906BA6300D5CA6E /* Sources */,
+				ABA397221906BA6300D5CA6E /* Frameworks */,
+				ABA397231906BA6300D5CA6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABA3972A1906BA6300D5CA6E /* PBXTargetDependency */,
+			);
+			name = Mono.SystemTests;
+			productName = Mono.SystemTests;
+			productReference = ABA397251906BA6300D5CA6E /* Mono.SystemTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABA397051906BA6300D5CA6E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thesaurus Software";
+				TargetAttributes = {
+					ABA397241906BA6300D5CA6E = {
+						TestTargetID = ABA3970D1906BA6300D5CA6E;
+					};
+				};
+			};
+			buildConfigurationList = ABA397081906BA6300D5CA6E /* Build configuration list for PBXProject "Mono.System" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABA397041906BA6300D5CA6E;
+			productRefGroup = ABA3970F1906BA6300D5CA6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABA3970D1906BA6300D5CA6E /* Mono.System */,
+				ABA397241906BA6300D5CA6E /* Mono.SystemTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABA3970C1906BA6300D5CA6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA3971C1906BA6300D5CA6E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABA397231906BA6300D5CA6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA397311906BA6300D5CA6E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABA397091906BA6300D5CA6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABA397211906BA6300D5CA6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA397331906BA6300D5CA6E /* Mono_SystemTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ABA3972A1906BA6300D5CA6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABA3970D1906BA6300D5CA6E /* Mono.System */;
+			targetProxy = ABA397291906BA6300D5CA6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA3971B1906BA6300D5CA6E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABA3972F1906BA6300D5CA6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA397301906BA6300D5CA6E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABA397341906BA6300D5CA6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ABA397351906BA6300D5CA6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ABA397371906BA6300D5CA6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-bgxncshakzeeylefrqmhdpslkbmr/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System/Mono.System-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System/Mono.System-Info.plist";
+				INSTALL_PATH = "@rpath";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		ABA397381906BA6300D5CA6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-bgxncshakzeeylefrqmhdpslkbmr/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System/Mono.System-Prefix.pch";
+				INFOPLIST_FILE = "Mono.System/Mono.System-Info.plist";
+				INSTALL_PATH = "@rpath";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		ABA3973A1906BA6300D5CA6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.System.framework/Versions/A/Mono.System";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System/Mono.System-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Mono.SystemTests/Mono.SystemTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ABA3973B1906BA6300D5CA6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mono.System.framework/Versions/A/Mono.System";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mono.System/Mono.System-Prefix.pch";
+				INFOPLIST_FILE = "Mono.SystemTests/Mono.SystemTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABA397081906BA6300D5CA6E /* Build configuration list for PBXProject "Mono.System" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABA397341906BA6300D5CA6E /* Debug */,
+				ABA397351906BA6300D5CA6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABA397361906BA6300D5CA6E /* Build configuration list for PBXNativeTarget "Mono.System" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABA397371906BA6300D5CA6E /* Debug */,
+				ABA397381906BA6300D5CA6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABA397391906BA6300D5CA6E /* Build configuration list for PBXNativeTarget "Mono.SystemTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABA3973A1906BA6300D5CA6E /* Debug */,
+				ABA3973B1906BA6300D5CA6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABA397051906BA6300D5CA6E /* Project object */;
+}

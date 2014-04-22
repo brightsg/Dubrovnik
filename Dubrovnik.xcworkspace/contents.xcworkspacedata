@@ -31,4 +31,7 @@
    <FileRef
       location = "group:Mono.System.Xml/Mono.System.Xml.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Mono.System/Mono.System.xcodeproj">
+   </FileRef>
 </Workspace>
