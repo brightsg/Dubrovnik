@@ -6,4 +6,5 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
+#import "System_Text_RegularExpressions_RegexOptions.h"
 #import "System_Text_RegularExpressions_Regex.h"

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
-		9300D02808723DF40024409B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9300D02708723DF40024409B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93365A8D0872370700EC726F /* DBManagedClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 93365A870872370700EC726F /* DBManagedClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93365A8E0872370700EC726F /* DBManagedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 93365A880872370700EC726F /* DBManagedClass.m */; };
 		93365A8F0872370700EC726F /* DBManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 93365A890872370700EC726F /* DBManagedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,7 +27,6 @@
 		9D8863490974F55500365976 /* DBManagedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863470974F55500365976 /* DBManagedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88634A0974F55500365976 /* DBManagedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8863480974F55500365976 /* DBManagedString.m */; };
 		9D88636A0974F59A00365976 /* DBWrappers.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863680974F59A00365976 /* DBWrappers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D8BE945088613C500D019A5 /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE944088613C500D019A5 /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D8BE9670886152500D019A5 /* NSCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE9660886152500D019A5 /* NSCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D8BE971088615D200D019A5 /* DBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE970088615D200D019A5 /* DBUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,6 +40,8 @@
 		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB322C9F18B29DFD003E808A /* DBManagedObject+Enumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB322C9D18B29DFD003E808A /* DBManagedObject+Enumerable.m */; };
+		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; };
+		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; };
 		AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -131,7 +131,6 @@
 		32DBCF5E0370ADEE00C91783 /* Dubrovnik_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9300D02708723DF40024409B /* Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik.h; path = ../Dubrovnik.h; sourceTree = "<group>"; };
 		93365A870872370700EC726F /* DBManagedClass.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DBManagedClass.h; sourceTree = "<group>"; };
 		93365A880872370700EC726F /* DBManagedClass.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DBManagedClass.m; sourceTree = "<group>"; };
 		93365A890872370700EC726F /* DBManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DBManagedObject.h; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 		9D8863470974F55500365976 /* DBManagedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedString.h; sourceTree = "<group>"; };
 		9D8863480974F55500365976 /* DBManagedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedString.m; sourceTree = "<group>"; };
 		9D8863680974F59A00365976 /* DBWrappers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWrappers.h; sourceTree = "<group>"; };
-		9D8BE944088613C500D019A5 /* DBMonoIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMonoIncludes.h; path = ../DBMonoIncludes.h; sourceTree = "<group>"; };
 		9D8BE9660886152500D019A5 /* NSCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCategories.h; sourceTree = "<group>"; };
 		9D8BE970088615D200D019A5 /* DBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUtility.h; sourceTree = "<group>"; };
 		9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoRegisteredThread.h; sourceTree = "<group>"; };
@@ -164,6 +162,8 @@
 		AB2CD2FA178D74F20075CF6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		AB322C9C18B29DFD003E808A /* DBManagedObject+Enumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBManagedObject+Enumerable.h"; sourceTree = "<group>"; };
 		AB322C9D18B29DFD003E808A /* DBManagedObject+Enumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBManagedObject+Enumerable.m"; sourceTree = "<group>"; };
+		AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoIncludes.h; sourceTree = SOURCE_ROOT; };
+		AB3451DD190A96F500A6F47B /* Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.h; sourceTree = SOURCE_ROOT; };
 		AB3FB5C417F08B3D003E5304 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libJudy.README.txt; sourceTree = "<group>"; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
@@ -582,8 +582,8 @@
 		AB99495418B36BFD00FAC62D /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				9D8BE944088613C500D019A5 /* DBMonoIncludes.h */,
-				9300D02708723DF40024409B /* Dubrovnik.h */,
+				AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */,
+				AB3451DD190A96F500A6F47B /* Dubrovnik.h */,
 			);
 			path = Include;
 			sourceTree = "<group>";
@@ -606,6 +606,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */,
 				ABB8A3DE18FF0F4400213B80 /* NSString+Dubrovnik.h in Headers */,
 				AB91B69718EE03A00021B462 /* DBManagedEvent.h in Headers */,
 				AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */,
@@ -618,16 +619,15 @@
 				AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */,
 				93365A8D0872370700EC726F /* DBManagedClass.h in Headers */,
 				93365A8F0872370700EC726F /* DBManagedObject.h in Headers */,
-				9300D02808723DF40024409B /* Dubrovnik.h in Headers */,
 				9DF2367B0874E3CC008A199C /* NSData+Dubrovnik.h in Headers */,
 				9D021BFE08811729003E48C1 /* DBInvoke.h in Headers */,
 				9D13A6EE08833E74008ACA37 /* DBBoxing.h in Headers */,
-				9D8BE945088613C500D019A5 /* DBMonoIncludes.h in Headers */,
 				9D8BE9670886152500D019A5 /* NSCategories.h in Headers */,
 				9D8BE971088615D200D019A5 /* DBUtility.h in Headers */,
 				9D69DC4308B1851E008BB787 /* DBManagedEnvironment.h in Headers */,
 				9D68AF5408EA1569002C7AB0 /* NSDate+Dubrovnik.h in Headers */,
 				9D496B2F09082F6700CD26AF /* NSImage+Dubrovnik.h in Headers */,
+				AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */,
 				9D8863490974F55500365976 /* DBManagedString.h in Headers */,
 				9D88636A0974F59A00365976 /* DBWrappers.h in Headers */,
 				9D6335AE09750DAD00FB76DF /* DBManagedData.h in Headers */,
