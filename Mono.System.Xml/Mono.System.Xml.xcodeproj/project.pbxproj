@@ -49,7 +49,6 @@
 		ABBD3BE11900141000DB59AF /* Mono.System.XmlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.XmlTests-Info.plist"; sourceTree = "<group>"; };
 		ABBD3BE31900141000DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3BE51900141000DB59AF /* Mono_System_XmlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_XmlTests.m; sourceTree = "<group>"; };
-		ABBD3BF81900151200DB59AF /* Generated Bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated Bindings"; sourceTree = "<group>"; };
 		ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlTextWriter.h; sourceTree = "<group>"; };
 		ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlTextWriter.m; sourceTree = "<group>"; };
 		ABBD3C0B190015C000DB59AF /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
@@ -130,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				ABBD3BF41900150400DB59AF /* Categories */,
-				ABBD3BF81900151200DB59AF /* Generated Bindings */,
 				ABBD3BF51900150400DB59AF /* Helper Classes */,
 				ABBD3BF61900150400DB59AF /* Include */,
 				ABBD3BF71900150400DB59AF /* Manual Bindings */,

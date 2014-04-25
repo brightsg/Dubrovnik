@@ -40,8 +40,8 @@
 		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB322C9F18B29DFD003E808A /* DBManagedObject+Enumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB322C9D18B29DFD003E808A /* DBManagedObject+Enumerable.m */; };
-		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; };
-		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; };
+		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -607,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */,
+				AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */,
 				ABB8A3DE18FF0F4400213B80 /* NSString+Dubrovnik.h in Headers */,
 				AB91B69718EE03A00021B462 /* DBManagedEvent.h in Headers */,
 				AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */,
@@ -627,7 +628,6 @@
 				9D69DC4308B1851E008BB787 /* DBManagedEnvironment.h in Headers */,
 				9D68AF5408EA1569002C7AB0 /* NSDate+Dubrovnik.h in Headers */,
 				9D496B2F09082F6700CD26AF /* NSImage+Dubrovnik.h in Headers */,
-				AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */,
 				9D8863490974F55500365976 /* DBManagedString.h in Headers */,
 				9D88636A0974F59A00365976 /* DBWrappers.h in Headers */,
 				9D6335AE09750DAD00FB76DF /* DBManagedData.h in Headers */,
