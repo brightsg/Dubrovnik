@@ -41,10 +41,10 @@
 		ABB8A45218FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A44E18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m */; };
 		ABB8A45318FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A45418FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A45018FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m */; };
-		ABB8A45918FF266E00213B80 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A45718FF266E00213B80 /* Dubrovnik.framework */; };
-		ABB8A45A18FF266E00213B80 /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A45818FF266E00213B80 /* Mono.mscorlib.framework */; };
-		ABB8A45C18FF277D00213B80 /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A45B18FF277D00213B80 /* Mono.System.Core.framework */; };
 		ABB8A45E18FF27B200213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A45D18FF27B200213B80 /* Mono64.framework */; };
+		ABF5D27E190C57E300E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */; };
+		ABF5D27F190C57E300E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */; };
+		ABF5D280190C57E300E9CFBD /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,10 +99,10 @@
 		ABB8A44E18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_ObjectContext.m; sourceTree = "<group>"; };
 		ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_ObjectQueryA1.h; sourceTree = "<group>"; };
 		ABB8A45018FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_ObjectQueryA1.m; sourceTree = "<group>"; };
-		ABB8A45718FF266E00213B80 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
-		ABB8A45818FF266E00213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
-		ABB8A45B18FF277D00213B80 /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.System.Core.framework"; sourceTree = "<group>"; };
 		ABB8A45D18FF27B200213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +110,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF5D27E190C57E300E9CFBD /* Dubrovnik.framework in Frameworks */,
+				ABF5D27F190C57E300E9CFBD /* Mono.mscorlib.framework in Frameworks */,
+				ABF5D280190C57E300E9CFBD /* Mono.System.Core.framework in Frameworks */,
 				ABB8A45E18FF27B200213B80 /* Mono64.framework in Frameworks */,
-				ABB8A45C18FF277D00213B80 /* Mono.System.Core.framework in Frameworks */,
-				ABB8A45918FF266E00213B80 /* Dubrovnik.framework in Frameworks */,
-				ABB8A45A18FF266E00213B80 /* Mono.mscorlib.framework in Frameworks */,
 				ABB8A33E18FEFFD000213B80 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,10 +165,10 @@
 		ABB8A33C18FEFFD000213B80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */,
+				ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */,
+				ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */,
 				ABB8A45D18FF27B200213B80 /* Mono64.framework */,
-				ABB8A45B18FF277D00213B80 /* Mono.System.Core.framework */,
-				ABB8A45718FF266E00213B80 /* Dubrovnik.framework */,
-				ABB8A45818FF266E00213B80 /* Mono.mscorlib.framework */,
 				ABB8A33D18FEFFD000213B80 /* Cocoa.framework */,
 				ABB8A35218FEFFD100213B80 /* XCTest.framework */,
 				ABB8A33F18FEFFD000213B80 /* Other Frameworks */,
@@ -525,6 +525,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -546,6 +547,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

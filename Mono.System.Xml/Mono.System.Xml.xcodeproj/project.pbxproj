@@ -21,8 +21,8 @@
 		ABBD3C12190015C000DB59AF /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0D190015C000DB59AF /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C13190015C000DB59AF /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0E190015C000DB59AF /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C14190015C000DB59AF /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0F190015C000DB59AF /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBD3C1D1900173200DB59AF /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3C1B1900173200DB59AF /* Dubrovnik.framework */; };
-		ABBD3C1E1900173200DB59AF /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3C1C1900173200DB59AF /* Mono.mscorlib.framework */; };
+		ABF5D283190C584C00E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D281190C584C00E9CFBD /* Dubrovnik.framework */; };
+		ABF5D284190C584C00E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D282190C584C00E9CFBD /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,8 @@
 		ABBD3C0D190015C000DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		ABBD3C0E190015C000DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABBD3C0F190015C000DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
-		ABBD3C1B1900173200DB59AF /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
-		ABBD3C1C1900173200DB59AF /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
+		ABF5D281190C584C00E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF5D282190C584C00E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABBD3C1D1900173200DB59AF /* Dubrovnik.framework in Frameworks */,
-				ABBD3C1E1900173200DB59AF /* Mono.mscorlib.framework in Frameworks */,
+				ABF5D283190C584C00E9CFBD /* Dubrovnik.framework in Frameworks */,
+				ABF5D284190C584C00E9CFBD /* Mono.mscorlib.framework in Frameworks */,
 				ABBD3BC51900141000DB59AF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,8 +106,8 @@
 		ABBD3BC31900141000DB59AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABBD3C1B1900173200DB59AF /* Dubrovnik.framework */,
-				ABBD3C1C1900173200DB59AF /* Mono.mscorlib.framework */,
+				ABF5D281190C584C00E9CFBD /* Dubrovnik.framework */,
+				ABF5D282190C584C00E9CFBD /* Mono.mscorlib.framework */,
 				ABBD3BC41900141000DB59AF /* Cocoa.framework */,
 				ABBD3BD91900141000DB59AF /* XCTest.framework */,
 				ABBD3BC61900141000DB59AF /* Other Frameworks */,
@@ -442,6 +442,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -462,6 +463,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

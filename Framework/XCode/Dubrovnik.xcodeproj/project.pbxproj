@@ -73,10 +73,6 @@
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB8A3DE18FF0F4400213B80 /* NSString+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3DC18FF0F4400213B80 /* NSString+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A3DF18FF0F4400213B80 /* NSString+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3DD18FF0F4400213B80 /* NSString+Dubrovnik.m */; };
-		ABB8A46A18FF299900213B80 /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A46918FF299900213B80 /* Mono.mscorlib.framework */; };
-		ABB8A46C18FF299D00213B80 /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A46B18FF299D00213B80 /* Mono.System.Core.framework */; };
-		ABB8A46E18FF29A200213B80 /* Mono.System.Drawing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A46D18FF29A200213B80 /* Mono.System.Drawing.framework */; };
-		ABB8A47018FF29A500213B80 /* Mono.EntityFramework.6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A46F18FF29A500213B80 /* Mono.EntityFramework.6.framework */; };
 		ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */; };
 		ABBF10B317B3D2E1006F6E93 /* DBUIntEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10A917B3D2E1006F6E93 /* DBUIntEnum.m */; };
 		ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AB17B3D2E1006F6E93 /* DBULongEnum.m */; };
@@ -216,13 +212,8 @@
 		ABA3AFEE18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUGenericReferenceObjectA2.m; sourceTree = "<group>"; };
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
-		ABB8A2ED18FEFDCA00213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = ../../Mono.mscorlib/build/Debug/Mono.mscorlib.framework; sourceTree = "<group>"; };
 		ABB8A3DC18FF0F4400213B80 /* NSString+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Dubrovnik.h"; sourceTree = "<group>"; };
 		ABB8A3DD18FF0F4400213B80 /* NSString+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Dubrovnik.m"; sourceTree = "<group>"; };
-		ABB8A46918FF299900213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
-		ABB8A46B18FF299D00213B80 /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.System.Core.framework"; sourceTree = "<group>"; };
-		ABB8A46D18FF29A200213B80 /* Mono.System.Drawing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Drawing.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.System.Drawing.framework"; sourceTree = "<group>"; };
-		ABB8A46F18FF29A500213B80 /* Mono.EntityFramework.6.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.EntityFramework.6.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug/Mono.EntityFramework.6.framework"; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
 		ABBF10A717B3D2E1006F6E93 /* DBUReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceObject.m; sourceTree = "<group>"; };
 		ABBF10A817B3D2E1006F6E93 /* DBUIntEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIntEnum.h; sourceTree = "<group>"; };
@@ -256,10 +247,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB8A47018FF29A500213B80 /* Mono.EntityFramework.6.framework in Frameworks */,
-				ABB8A46E18FF29A200213B80 /* Mono.System.Drawing.framework in Frameworks */,
-				ABB8A46C18FF299D00213B80 /* Mono.System.Core.framework in Frameworks */,
-				ABB8A46A18FF299900213B80 /* Mono.mscorlib.framework in Frameworks */,
 				ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */,
 				AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */,
 				AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */,
@@ -466,11 +453,6 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A46F18FF29A500213B80 /* Mono.EntityFramework.6.framework */,
-				ABB8A46D18FF29A200213B80 /* Mono.System.Drawing.framework */,
-				ABB8A46B18FF299D00213B80 /* Mono.System.Core.framework */,
-				ABB8A46918FF299900213B80 /* Mono.mscorlib.framework */,
-				ABB8A2ED18FEFDCA00213B80 /* Mono.mscorlib.framework */,
 				ABD02CAE183180C400885CDC /* Mono64.framework */,
 				AB2CD2FA178D74F20075CF6A /* Cocoa.framework */,
 				AB588DC4178308000000AAC1 /* SenTestingKit.framework */,
