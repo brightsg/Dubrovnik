@@ -61,7 +61,7 @@
         dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray];
         
         // copy items to system array
-        for (NSUInteger i = 0; i < [self count]; i++) {
+        for (uint32_t i = 0; i < [self count]; i++) {
             id item = self[i];
             
             switch (type.typeID) {

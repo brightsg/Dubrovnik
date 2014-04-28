@@ -76,7 +76,7 @@
 	self = [super initWithMonoObject:(MonoObject *)monoObject];
 	
 	if(self) {
-		_arrayLength = mono_array_length((MonoArray *)monoObject);
+		_arrayLength = (uint32_t)mono_array_length((MonoArray *)monoObject);
 	}
 	
 	return(self);
