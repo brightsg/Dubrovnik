@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "Dubrovnik.UnitTests.ReferenceObject.NestedClass";
+		return "Dubrovnik.UnitTests.ReferenceObject+NestedClass";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

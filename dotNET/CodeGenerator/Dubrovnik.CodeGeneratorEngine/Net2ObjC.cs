@@ -1008,7 +1008,7 @@ this.Write("\r\n");
 
 	if (OutputFileType == OutputType.Implementation) 
 	{
-		string name =  CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.Name);
+		string name = CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.NameFromType);
 
         
         #line default

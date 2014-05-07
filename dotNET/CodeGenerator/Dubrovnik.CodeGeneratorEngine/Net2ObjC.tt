@@ -319,7 +319,7 @@ public void WriteClassSetup(CodeFacet facet)
 <#+
 	if (OutputFileType == OutputType.Implementation) 
 	{
-		string name =  CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.Name);
+		string name = CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.NameFromType);
 #>
 	{
 		return "<#=facet.TypeNamespace#>.<#=name#>";

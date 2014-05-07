@@ -95,6 +95,7 @@ namespace Dubrovnik
         public CodeFacet ObjCFacet { get; private set; }
 
         public string TypeNamespace { get; private set; }
+        public string NameFromType { get; private set; }
         public string ConstantValue { get; private set; }
         public string ElementType { get; private set; }
         public Int32 ArrayRank { get; private set; }
@@ -127,11 +128,28 @@ namespace Dubrovnik
                         GenericArgumentTypes = parts.Skip(1).ToArray();
                     }
 
+                    /* 
+                     *  Note that classes may be defined like so:
+                     *  
+                     *  <Class Name="Constants.AnnualLeave" 
+                     *          Type="MyStuff._2014.Constants+AnnualLeave" 
+                     *          BaseName="Object" 
+                     *          BaseType="System.Object">
+                     *         
+                     *  Note the difference between the Name and the Type when dealing with
+                     *  nested types.
+                     *  
+                     */
                     // get the namespace
                     int pos = typeValue.LastIndexOf('.');
                     if (pos > 0)
                     {
                         TypeNamespace = typeValue.Substring(0, pos);
+                        NameFromType = typeValue.Substring(pos + 1);
+                    }
+                    else
+                    {
+                        NameFromType = typeValue;
                     }
                 }
             }
