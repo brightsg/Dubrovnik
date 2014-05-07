@@ -105,7 +105,12 @@
 #pragma mark Field Access
 
 - (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr {
-	DBMonoClassGetField(_klass, fieldName, valuePtr);
+    DBMonoClassGetField(_klass, fieldName, valuePtr);
+}
+
+- (MonoObject *)getMonoField:(const char *)fieldName
+{
+    return DBMonoClassGetField(_klass, fieldName, nil);
 }
 
 - (void)setMonoField:(const char *)fieldName valueObject:(void *)valueObject {

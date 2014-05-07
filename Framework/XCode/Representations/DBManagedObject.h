@@ -89,8 +89,13 @@ extern char DBCacheSuffixChar;
 
 // Field Access
 + (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr;
++ (MonoObject *)getMonoClassField:(const char *)fieldName;
+
 + (void)setMonoClassField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
+
 - (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr;
+- (MonoObject *)getMonoField:(const char *)fieldName;
+
 - (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
 
 // Property Access

@@ -60,6 +60,8 @@
 		AB4D7BD018FC342900E7C2D3 /* Dubrovnik_UnitTests_TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4D7BC418FC342900E7C2D3 /* Dubrovnik_UnitTests_TestObject.m */; };
 		AB4D7BD118FC342900E7C2D3 /* Dubrovnik_UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4D7BC618FC342900E7C2D3 /* Dubrovnik_UnitTests.m */; };
 		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
+		AB6A00CE191A1D58000B12E9 /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6A00CD191A1D58000B12E9 /* Mono.mscorlib.framework */; };
+		AB6A00D0191A1D78000B12E9 /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6A00CF191A1D78000B12E9 /* Mono.System.Core.framework */; };
 		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -193,6 +195,8 @@
 		AB4D7BC618FC342900E7C2D3 /* Dubrovnik_UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests.m; sourceTree = "<group>"; };
 		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB588DC4178308000000AAC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AB6A00CD191A1D58000B12E9 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = ../../Mono.mscorlib/build/Debug/Mono.mscorlib.framework; sourceTree = "<group>"; };
+		AB6A00CF191A1D78000B12E9 /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = ../../Mono.System.Core/build/Debug/Mono.System.Core.framework; sourceTree = "<group>"; };
 		AB81D5C117D7B1B6007214E1 /* DBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBType.h; path = "Mono Environment/DBType.h"; sourceTree = "<group>"; };
 		AB81D5C217D7B1B6007214E1 /* DBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBType.m; path = "Mono Environment/DBType.m"; sourceTree = "<group>"; };
 		AB81D5C517D7B380007214E1 /* DBTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBTypeManager.h; path = "Mono Environment/DBTypeManager.h"; sourceTree = "<group>"; };
@@ -225,7 +229,7 @@
 		ABBF10AE17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_Unit_Tests.h; sourceTree = "<group>"; };
 		ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_Unit_Tests.m; sourceTree = "<group>"; };
 		ABBF10B117B3D2E1006F6E93 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ABD02CAE183180C400885CDC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		ABD02CAE183180C400885CDC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = SOURCE_ROOT; };
 		ABD2F23318FB100C00C2B561 /* DBUReferenceObject__NestedClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject__NestedClass.h; sourceTree = "<group>"; };
 		ABD2F23418FB100C00C2B561 /* DBUReferenceObject__NestedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceObject__NestedClass.m; sourceTree = "<group>"; };
 		ABF43FB6179FF4FC00BAB99E /* DBManagedMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedMethod.h; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB6A00D0191A1D78000B12E9 /* Mono.System.Core.framework in Frameworks */,
+				AB6A00CE191A1D58000B12E9 /* Mono.mscorlib.framework in Frameworks */,
 				ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */,
 				AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */,
 				AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */,
@@ -453,6 +459,8 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB6A00CF191A1D78000B12E9 /* Mono.System.Core.framework */,
+				AB6A00CD191A1D58000B12E9 /* Mono.mscorlib.framework */,
 				ABD02CAE183180C400885CDC /* Mono64.framework */,
 				AB2CD2FA178D74F20075CF6A /* Cocoa.framework */,
 				AB588DC4178308000000AAC1 /* SenTestingKit.framework */,
@@ -937,6 +945,8 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+					/Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/build/Debug,
+					/Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Core/build/Debug,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -984,6 +994,8 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
+					/Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/build/Debug,
+					/Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Core/build/Debug,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

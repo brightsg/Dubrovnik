@@ -527,16 +527,31 @@ MonoObject *DBMonoObjectGetProperty(MonoObject *monoObject, const char *property
 	MonoMethod *monoMethod = GetPropertyGetMethod(klass, propertyName);
 	
 	MonoObject *retval = NULL;
-	if(monoMethod != NULL) {
+	if (monoMethod != NULL) {
 		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
 		retval = mono_runtime_invoke(monoMethod, invokeObj, NULL, &monoException);
 	}
 	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
+	if (monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException));
+    }
 	
 	return(retval);
 }
 
+MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyName) {
+	MonoObject *monoException = NULL;
+	MonoMethod *monoMethod = GetPropertyGetMethod(monoClass, propertyName);
+	
+	MonoObject *retval = NULL;
+	if (monoMethod != NULL) {
+        retval = mono_runtime_invoke(monoMethod, NULL, NULL, &monoException);
+    }
+	
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
+	
+	return(retval);
+}
 
 void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, MonoObject *valueObject) {
 
@@ -560,24 +575,14 @@ void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, M
 	void *args[1];
 	args[0] = valueObject;
 	
-	if(monoMethod != NULL) {
+	if (monoMethod != NULL) {
 		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
 		mono_runtime_invoke(monoMethod, invokeObj, args, &monoException);
 	}
 	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
-}
-
-MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyName) {
-	MonoObject *monoException = NULL;
-	MonoMethod *monoMethod = GetPropertyGetMethod(monoClass, propertyName);
-	
-	MonoObject *retval = NULL;
-	if(monoMethod != NULL) retval = mono_runtime_invoke(monoMethod, NULL, NULL, &monoException);
-	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
-	
-	return(retval);
+	if (monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException));
+    }
 }
 
 void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, MonoObject *valueObject) {
@@ -588,17 +593,57 @@ void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, Mono
 	
 	mono_runtime_invoke(monoMethod, NULL, args, &monoException);
 	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
+	if (monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException));
+    }
 }
 
 //
 // Field Access
 //
-void DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject) {
+MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject) {
+    
+    /*
+     
+     if valueObject is assigned then it will be used to hold the field value
+     and the function return value will be NULL;
+     
+     if not then a boxed representation will be returned.
+     
+     */
+    
 	MonoClass *monoClass = mono_object_get_class(monoObject);
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
-	
-	mono_field_get_value(monoObject, field, valueObject);
+    MonoType* fieldType = mono_field_get_type(field);
+    MonoClass *klass = mono_class_from_mono_type(fieldType);
+    
+    // if no valueObject then use a local buffer
+    void *valuebuffer = valueObject;
+    BOOL localBuffer = NO;
+    if (valuebuffer == NULL) {
+        int32_t size = mono_class_instance_size(klass);
+        valuebuffer = malloc(size);
+        localBuffer = YES;
+    }
+    
+	mono_field_get_value(monoObject, field, valuebuffer);
+    
+    MonoObject *monoResult = nil;
+    
+    // if a local value buffer is assigned then return a boxed object
+    if (localBuffer) {
+        if (mono_class_is_valuetype(klass)) {
+            monoResult = mono_value_box(mono_domain_get(), klass, valuebuffer);
+        } else {
+            monoResult = *(void **)valuebuffer;
+        }
+    }
+    
+    if (localBuffer) {
+        free(valuebuffer);
+    }
+    
+    return monoResult;
 }
 
 void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObject *valueObject) {
@@ -608,12 +653,51 @@ void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObj
 	mono_field_set_value(monoObject, field, valueObject);
 }
 
-void DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject) {
+MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject) {
+    
+    /*
+    
+     if valueObject is assigned then it will be used to hold the field value
+     and the function return value will be NULL;
+     
+     if not then a boxed representation will be returned.
+     
+     */
+    
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
 	MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
+    MonoType* fieldType = mono_field_get_type(field);
+    MonoClass *klass = mono_class_from_mono_type(fieldType);
+    
+    // if no valueObject then use a local buffer
+    void *valuebuffer = valueObject;
+    BOOL localBuffer = NO;
+    if (valuebuffer == NULL) {
+        int32_t size = mono_class_instance_size(klass);
+        valuebuffer = malloc(size);
+        localBuffer = YES;
+    }
+    
     mono_runtime_class_init(vtable);
     
-	mono_field_static_get_value(vtable, field, valueObject);
+	mono_field_static_get_value(vtable, field, valuebuffer);
+    
+    MonoObject *monoResult = nil;
+    
+    // if a local value buffer is assigned then return a boxed object
+    if (localBuffer) {
+        if (mono_class_is_valuetype(klass)) {
+            monoResult = mono_value_box(mono_domain_get(), klass, valuebuffer);
+        } else {
+            monoResult = *(void **)valuebuffer;
+        }
+    }
+    
+    if (localBuffer) {
+        free(valuebuffer);
+    }
+    
+    return monoResult;
 }
 
 void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject) {

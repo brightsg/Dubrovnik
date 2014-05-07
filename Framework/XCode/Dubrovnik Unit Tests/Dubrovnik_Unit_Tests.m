@@ -23,7 +23,7 @@
  are not run against the generated unit test model.
  
  */
-#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 0
 
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 
@@ -389,25 +389,33 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // class fields
     //
+    if (YES) {
+        // class string field
+        NSString *classStringField = [testClass classStringField];
+        STAssertTrue([classStringField dbTestString:DBUTestString], DBUSubstringTestFailed);
+        
+        // string setter
+        classStringField = [classStringField stringByAppendingString:@" : modified"];
+        [testClass setClassStringField:classStringField];
+        STAssertTrue([[testClass classStringField] isEqualToString:classStringField], DBUEqualityTestFailed);
+        
+        // class int field
+        [testClass setClassIntField:1]; // set initially otherwise test fails when called again
+        int32_t classIntField = [testClass classIntField];
+        STAssertTrue(classIntField == 1, DBUEqualityTestFailed);
+        
+        // int setter
+        classIntField = 10;
+        [testClass setClassIntField:classIntField];
+        STAssertTrue([testClass classIntField] == classIntField, DBUEqualityTestFailed);
+    }
     
-    // class string field
-    NSString *classStringField = [testClass classStringField];
-    STAssertTrue([classStringField dbTestString:DBUTestString], DBUSubstringTestFailed);
-    
-    // string setter
-    classStringField = [classStringField stringByAppendingString:@" : modified"];
-    [testClass setClassStringField:classStringField];
-    STAssertTrue([[testClass classStringField] isEqualToString:classStringField], DBUEqualityTestFailed);
-    
-    // class int field
-    [testClass setClassIntField:1]; // set initially otherwise test fails when called again
-    int32_t classIntField = [testClass classIntField];
-    STAssertTrue(classIntField == 1, DBUEqualityTestFailed);
-    
-    // int setter
-    classIntField = 10;
-    [testClass setClassIntField:classIntField];
-    STAssertTrue([testClass classIntField] == classIntField, DBUEqualityTestFailed);
+    // class date field
+    if (YES) {
+        NSDate *classDateField = [testClass classDateField];
+        NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
+        STAssertTrue([classDateField compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+    }
     
     //
     // instance fields
@@ -430,6 +438,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     intField = 10;
     [refObject setIntField:intField];
     STAssertTrue([refObject intField] == intField, DBUEqualityTestFailed);
+    
+    // date field
+#warning this currently will abort
+    if (YES) {
+        NSDate *dateField = [refObject dateField];
+        STAssertNotNil(dateField, DBUObjectIsNil);
+    }
 }
 
 - (void)doTestExtensionMethods:(id)refObject class:(Class)testClass
@@ -1150,6 +1165,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)doTestProperties:(id)refObject class:(Class)testClass
 {
+    //
+    // class properties
+    //
+    NSString *classStringProperty = [testClass classStringProperty];
+    STAssertTrue([classStringProperty isEqualToString:@"Dubrovnik.UnitTests static property"], DBUEqualityTestFailed);
+
+    NSDate *classDateProperty = [testClass classDateProperty];
+    NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
+    STAssertTrue([classDateProperty compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+
     //
     // string property
     //

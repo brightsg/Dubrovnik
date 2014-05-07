@@ -73,10 +73,14 @@
 + (void)setClassStringField:(NSString *)value;
 + (int32_t)classIntField;
 + (void)setClassIntField:(int32_t)value;
++ (NSDate *)classDateField;
 
 // class methods
 + (NSString *)classDescription;
 
+// class properties
++ (NSString *)classStringProperty;
++ (NSDate *)classDateProperty;
 
 // event handling
 - (void)raiseUnitTestEvent1;
@@ -87,6 +91,7 @@
 - (void)setIntField:(int32_t)value;
 - (NSString *)stringField;
 - (void)setStringField:(NSString *)value;
+- (NSDate *)dateField;
 
 // string methods + overloads
 - (NSString *)stringMethod;

@@ -621,7 +621,12 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark Field Access
 
 + (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr {
-	DBMonoClassGetField([[self class] monoClass], fieldName, valuePtr);
+    DBMonoClassGetField([[self class] monoClass], fieldName, valuePtr);
+}
+
++ (MonoObject *)getMonoClassField:(const char *)fieldName
+{
+	return DBMonoClassGetField([[self class] monoClass], fieldName, nil);
 }
 
 + (void)setMonoClassField:(const char *)fieldName valueObject:(MonoObject *)valueObject {
@@ -630,6 +635,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr {
 	DBMonoObjectGetField(self.monoObject, fieldName, valuePtr);
+}
+
+- (MonoObject *)getMonoField:(const char *)fieldName
+{
+	return DBMonoObjectGetField(self.monoObject, fieldName, nil);
 }
 
 - (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject {

@@ -40,10 +40,16 @@
 
 + (NSString *)classStringField
 {
-    MonoObject *monoObject = nil;
-    [[self class] getMonoClassField:"ClassStringField" valuePtr:&monoObject];
+    MonoObject *monoObject = [[self class] getMonoClassField:"ClassStringField"];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
+
++ (NSDate *)classDateField
+{
+    MonoObject *monoObject = [[self class] getMonoClassField:"ClassDateField"];
+    return [NSDate dateWithMonoDateTime:monoObject];
+}
+
 + (void)setClassStringField:(NSString *)value
 {
     [[self class] setMonoClassField:"ClassStringField" valueObject:[value monoValue]];
@@ -51,11 +57,11 @@
 
 + (int32_t)classIntField
 {
-    int32_t value;
-    [[self class] getMonoClassField:"ClassIntField" valuePtr:&value];
+    MonoObject *monoObject = [[self class] getMonoClassField:"ClassIntField"];
     
-    return value;
+    return DB_UNBOX_INT32(monoObject);
 }
+
 + (void)setClassIntField:(int32_t)value
 {
     [[self class] setMonoClassField:"ClassIntField" valueObject:DB_VALUE(value)];
@@ -84,10 +90,31 @@
     [self setMonoField:"StringField" valueObject:[value monoValue]];
 }
 
+- (NSDate *)dateField
+{
+    MonoObject *monoObject = [self getMonoField:"DateField"];
+    return [NSDate dateWithMonoDateTime:monoObject];
+}
+
+#pragma mark -
+#pragma mark Mono class properties
+
++ (NSString *)classStringProperty
+{
+    MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassStringProperty"];
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
++ (NSDate *)classDateProperty
+{
+    MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassDateProperty"];
+    return [NSDate dateWithMonoDateTime:monoObject];
+}
+
 #pragma mark -
 #pragma mark Mono properties
 
-// If the ivar argument maintains a reference to the monoObject argument the return the
+// If the ivar argument maintains a reference to the monoObject argument
 #define IF_IVAR_EQ_MONO_RETURN(__ivar, __monoObject) if ([self object:__ivar isEqualToMonoObject:__monoObject]) return __ivar;
 
 // Managed type : System.String

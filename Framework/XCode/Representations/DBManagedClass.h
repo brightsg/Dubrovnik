@@ -43,6 +43,7 @@
 
 //Field Access
 - (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr;
+- (MonoObject *)getMonoField:(const char *)fieldName;
 - (void)setMonoField:(const char *)fieldName valueObject:(void *)valueObject;
 
 //Property Access

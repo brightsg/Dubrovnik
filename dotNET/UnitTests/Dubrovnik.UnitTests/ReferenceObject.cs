@@ -48,10 +48,15 @@ namespace Dubrovnik.UnitTests
 		}
 
 		// static properties
-		public static string ClassProperty 
+		public static string ClassStringProperty { get; set; }
+		public static DateTime ClassDateProperty { get; set; }
+
+		// static constructor
+		static ReferenceObject()
 		{
-			get;
-			set;
+			ClassStringProperty = "Dubrovnik.UnitTests static property";
+			ClassDateProperty = new DateTime (2014, 4, 6);
+			ClassDateField = new DateTime (2014, 4, 6);
 		}
 
 		// static fields
@@ -59,7 +64,7 @@ namespace Dubrovnik.UnitTests
 		public static int ClassIntField = 1;
 		public const string ClassConstStringField = "Dubrovnik.UnitTests const field";
 		public readonly string ClassReadonlyStringField = "Dubrovnik.UnitTests readonly field";
-
+		public static DateTime ClassDateField = new DateTime (2014, 4, 6);
 
 		//==============================
 		// constructors
@@ -149,8 +154,8 @@ namespace Dubrovnik.UnitTests
 			FloatNullable = null;
 
             // Initialize statics
-			ClassProperty = "Dubrovnik.UnitTests static property";
-			ClassStringField = "Dubrovnik.UnitTests static field";
+			//ClassProperty = "Dubrovnik.UnitTests static property";
+			//ClassStringField = "Dubrovnik.UnitTests static field";
 
 			//Console.WriteLine ("======= CONSTRUCTOR END ===========");
 			//Console.WriteLine (" ");

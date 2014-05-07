@@ -44,9 +44,9 @@ MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyNam
 void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, MonoObject *valueObject);
 
 //Field Access
-void DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject);
+MonoObject * DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject);
 void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObject *valueObject);
-void DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject);
+MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject);
 void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject);
 
 //Indexer Access
