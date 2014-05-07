@@ -31,6 +31,11 @@
 	// Managed field type : System.String
     + (NSString *)classConstStringField;
 
+	// Managed field name : ClassDateField
+	// Managed field type : System.DateTime
+    + (NSDate *)classDateField;
+    + (void)setClassDateField:(NSDate *)value;
+
 	// Managed field name : ClassIntField
 	// Managed field type : System.Int32
     + (int32_t)classIntField;
@@ -72,10 +77,15 @@
 	// Managed property type : System.Boolean[]
     @property (nonatomic, strong) DBSystem_Array * boolArray;
 
-	// Managed property name : ClassProperty
+	// Managed property name : ClassDateProperty
+	// Managed property type : System.DateTime
+    + (NSDate *)classDateProperty;
+    + (void)setClassDateProperty:(NSDate *)value;
+
+	// Managed property name : ClassStringProperty
 	// Managed property type : System.String
-    + (NSString *)classProperty;
-    + (void)setClassProperty:(NSString *)value;
+    + (NSString *)classStringProperty;
+    + (void)setClassStringProperty:(NSString *)value;
 
 	// Managed property name : Date
 	// Managed property type : System.DateTime

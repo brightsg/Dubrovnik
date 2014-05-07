@@ -451,7 +451,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
     }
 
 	// field access
-	string fieldAccessExpression ="", fieldAccessTypeDecl = "";
+	string fieldAccessExpression ="";
 
 	// instance property.
 	if (!facet.IsStatic) 
@@ -496,31 +496,16 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 	// field
 	else if (facet is FieldFacet) 
 	{
-		// note different field getter signature.
-		// valueObject is a pointer to storage for both value and reference types.
 		if (!facet.IsStatic) 
 		{
-			getFormat = "[self getMonoField:\"{0}\" valuePtr:DB_PTR({1})]";
+			getFormat = "[self getMonoField:\"{0}\"]";
 			setFormat = "[self setMonoField:\"{0}\" valueObject:{1}]";
 		} 
 		else 
 		{
-			getFormat = "[[self class] getMonoClassField:\"{0}\" valuePtr:DB_PTR({1})]";
+			getFormat = "[[self class] getMonoClassField:\"{0}\"]";
 			setFormat = "[[self class] setMonoClassField:\"{0}\" valueObject:{1}]";
         }
-
-		// field access
-		if (isObjectProperty) 
-		{
-			fieldAccessTypeDecl = monoObjectPtr;
-			fieldAccessExpression = managedValueToObjC;
-		} 
-		else 
-		{
-			fieldAccessTypeDecl = objCTypeDecl;
-			fieldAccessExpression = ManagedVariableName;
-        }
-
     } 
 	// invalid facet
 	else 
@@ -583,42 +568,20 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 		{
 #>
     {
-<#+
-			if (facet is PropertyFacet) 
-			{
-#>
 		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
 <#+	
-				if (isObjectProperty)
-				{
+			if (isObjectProperty)
+			{
 #>
 		<#=doPropertyEqualityTest#>					
 <#+	
-				}
+			}
 #>
 		<#=propertyStorage#> = <#=managedValueToObjC#>;
 
 		return <#=propertyStorage#>;
 	}
 <#+	
-            } 
-			else if (facet is FieldFacet) 
-			{
- #>
-		<#=fieldAccessTypeDecl#> <#=ManagedVariableName#>;
-		<#=getExpression#>;
-<#+	
-				if (isObjectProperty)
-				{
-#>
-		<#=doPropertyEqualityTest#>					
-<#+	
-				}
-#>
-		<#=propertyStorage#> = <#=fieldAccessExpression#>;
-		return <#=propertyStorage#>;
-	}
-<#+			}
 		} // if Implementation
     } // if IsReadable
 

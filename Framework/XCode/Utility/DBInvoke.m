@@ -605,10 +605,7 @@ MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, 
     
     /*
      
-     if valueObject is assigned then it will be used to hold the field value
-     and the function return value will be NULL;
-     
-     if not then a boxed representation will be returned.
+     See note in DBMonoClassGetField
      
      */
     
@@ -662,6 +659,9 @@ MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, voi
      
      if not then a boxed representation will be returned.
      
+     although boxing carries an overhead it is preferred as it makes the property and field
+     access APIs similar
+     
      */
     
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
@@ -706,6 +706,7 @@ void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject
     
     // Much like mono_runtime_object_init, mono_runtime_class_init must have been called prior
     // to accessing a static field.
+#warning perhaps this should be moved into a class initialise method.
 	mono_runtime_class_init(vtable);
     
 	mono_field_static_set_value(vtable, field, valueObject);

@@ -43,9 +43,9 @@
     @synthesize intField = _intField;
     - (int32_t)intField
     {
-		int32_t monoObject;
-		[self getMonoField:"intField" valuePtr:DB_PTR(monoObject)];
-		_intField = monoObject;
+		MonoObject *monoObject = [self getMonoField:"intField"];
+		_intField = DB_UNBOX_INT32(monoObject);
+
 		return _intField;
 	}
     - (void)setIntField:(int32_t)value
@@ -60,10 +60,10 @@
     @synthesize stringField = _stringField;
     - (NSString *)stringField
     {
-		MonoObject * monoObject;
-		[self getMonoField:"StringField" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"StringField"];
 		if ([self object:_stringField isEqualToMonoObject:monoObject]) return _stringField;					
 		_stringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _stringField;
 	}
     - (void)setStringField:(NSString *)value

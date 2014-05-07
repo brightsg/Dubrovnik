@@ -51,11 +51,29 @@
     static NSString * m_classConstStringField;
     + (NSString *)classConstStringField
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"ClassConstStringField" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"ClassConstStringField"];
 		if ([self object:m_classConstStringField isEqualToMonoObject:monoObject]) return m_classConstStringField;					
 		m_classConstStringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_classConstStringField;
+	}
+
+	// Managed field name : ClassDateField
+	// Managed field type : System.DateTime
+    static NSDate * m_classDateField;
+    + (NSDate *)classDateField
+    {
+		MonoObject *monoObject = [[self class] getMonoClassField:"ClassDateField"];
+		if ([self object:m_classDateField isEqualToMonoObject:monoObject]) return m_classDateField;					
+		m_classDateField = [NSDate dateWithMonoDateTime:monoObject];
+
+		return m_classDateField;
+	}
+    + (void)setClassDateField:(NSDate *)value
+	{
+		m_classDateField = value;
+		MonoObject *monoObject = [value monoValue];
+		[[self class] setMonoClassField:"ClassDateField" valueObject:monoObject];          
 	}
 
 	// Managed field name : ClassIntField
@@ -63,9 +81,9 @@
     static int32_t m_classIntField;
     + (int32_t)classIntField
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"ClassIntField" valuePtr:DB_PTR(monoObject)];
-		m_classIntField = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"ClassIntField"];
+		m_classIntField = DB_UNBOX_INT32(monoObject);
+
 		return m_classIntField;
 	}
     + (void)setClassIntField:(int32_t)value
@@ -80,10 +98,10 @@
     @synthesize classReadonlyStringField = _classReadonlyStringField;
     - (NSString *)classReadonlyStringField
     {
-		MonoObject * monoObject;
-		[self getMonoField:"ClassReadonlyStringField" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"ClassReadonlyStringField"];
 		if ([self object:_classReadonlyStringField isEqualToMonoObject:monoObject]) return _classReadonlyStringField;					
 		_classReadonlyStringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _classReadonlyStringField;
 	}
 
@@ -92,10 +110,10 @@
     static NSString * m_classStringField;
     + (NSString *)classStringField
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"ClassStringField" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"ClassStringField"];
 		if ([self object:m_classStringField isEqualToMonoObject:monoObject]) return m_classStringField;					
 		m_classStringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_classStringField;
 	}
     + (void)setClassStringField:(NSString *)value
@@ -110,10 +128,10 @@
     @synthesize dateField = _dateField;
     - (NSDate *)dateField
     {
-		MonoObject * monoObject;
-		[self getMonoField:"DateField" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"DateField"];
 		if ([self object:_dateField isEqualToMonoObject:monoObject]) return _dateField;					
 		_dateField = [NSDate dateWithMonoDateTime:monoObject];
+
 		return _dateField;
 	}
     - (void)setDateField:(NSDate *)value
@@ -128,9 +146,9 @@
     @synthesize intEnumField = _intEnumField;
     - (Dubrovnik_UnitTests_IntEnum)intEnumField
     {
-		Dubrovnik_UnitTests_IntEnum monoObject;
-		[self getMonoField:"IntEnumField" valuePtr:DB_PTR(monoObject)];
-		_intEnumField = monoObject;
+		MonoObject *monoObject = [self getMonoField:"IntEnumField"];
+		_intEnumField = DB_UNBOX_INT32(monoObject);
+
 		return _intEnumField;
 	}
     - (void)setIntEnumField:(Dubrovnik_UnitTests_IntEnum)value
@@ -145,9 +163,9 @@
     @synthesize intField = _intField;
     - (int32_t)intField
     {
-		int32_t monoObject;
-		[self getMonoField:"IntField" valuePtr:DB_PTR(monoObject)];
-		_intField = monoObject;
+		MonoObject *monoObject = [self getMonoField:"IntField"];
+		_intField = DB_UNBOX_INT32(monoObject);
+
 		return _intField;
 	}
     - (void)setIntField:(int32_t)value
@@ -162,9 +180,9 @@
     @synthesize longEnumField = _longEnumField;
     - (Dubrovnik_UnitTests_LongEnum)longEnumField
     {
-		Dubrovnik_UnitTests_LongEnum monoObject;
-		[self getMonoField:"LongEnumField" valuePtr:DB_PTR(monoObject)];
-		_longEnumField = monoObject;
+		MonoObject *monoObject = [self getMonoField:"LongEnumField"];
+		_longEnumField = DB_UNBOX_INT64(monoObject);
+
 		return _longEnumField;
 	}
     - (void)setLongEnumField:(Dubrovnik_UnitTests_LongEnum)value
@@ -179,10 +197,10 @@
     @synthesize stringField = _stringField;
     - (NSString *)stringField
     {
-		MonoObject * monoObject;
-		[self getMonoField:"StringField" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"StringField"];
 		if ([self object:_stringField isEqualToMonoObject:monoObject]) return _stringField;					
 		_stringField = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _stringField;
 	}
     - (void)setStringField:(NSString *)value
@@ -213,22 +231,40 @@
 		[self setMonoProperty:"BoolArray" valueObject:monoObject];          
 	}
 
-	// Managed property name : ClassProperty
-	// Managed property type : System.String
-    static NSString * m_classProperty;
-    + (NSString *)classProperty
+	// Managed property name : ClassDateProperty
+	// Managed property type : System.DateTime
+    static NSDate * m_classDateProperty;
+    + (NSDate *)classDateProperty
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassProperty"];
-		if ([self object:m_classProperty isEqualToMonoObject:monoObject]) return m_classProperty;					
-		m_classProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassDateProperty"];
+		if ([self object:m_classDateProperty isEqualToMonoObject:monoObject]) return m_classDateProperty;					
+		m_classDateProperty = [NSDate dateWithMonoDateTime:monoObject];
 
-		return m_classProperty;
+		return m_classDateProperty;
 	}
-    + (void)setClassProperty:(NSString *)value
+    + (void)setClassDateProperty:(NSDate *)value
 	{
-		m_classProperty = value;
+		m_classDateProperty = value;
 		MonoObject *monoObject = [value monoValue];
-		[[self class] setMonoClassProperty:"ClassProperty" valueObject:monoObject];          
+		[[self class] setMonoClassProperty:"ClassDateProperty" valueObject:monoObject];          
+	}
+
+	// Managed property name : ClassStringProperty
+	// Managed property type : System.String
+    static NSString * m_classStringProperty;
+    + (NSString *)classStringProperty
+    {
+		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassStringProperty"];
+		if ([self object:m_classStringProperty isEqualToMonoObject:monoObject]) return m_classStringProperty;					
+		m_classStringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_classStringProperty;
+	}
+    + (void)setClassStringProperty:(NSString *)value
+	{
+		m_classStringProperty = value;
+		MonoObject *monoObject = [value monoValue];
+		[[self class] setMonoClassProperty:"ClassStringProperty" valueObject:monoObject];          
 	}
 
 	// Managed property name : Date
@@ -1125,8 +1161,10 @@
 	- (void)dealloc
 	{
 		m_classConstStringField = nil;
+		m_classDateField = nil;
 		m_classStringField = nil;
-		m_classProperty = nil;
+		m_classDateProperty = nil;
+		m_classStringProperty = nil;
 	}
 @end
 //--Dubrovnik.CodeGenerator
