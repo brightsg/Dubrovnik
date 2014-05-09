@@ -625,7 +625,7 @@ MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, 
     
 	mono_field_get_value(monoObject, field, valuebuffer);
     
-    MonoObject *monoResult = nil;
+    MonoObject *monoResult = NULL;
     
     // if a local value buffer is assigned then return a boxed object
     if (localBuffer) {
@@ -682,7 +682,7 @@ MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, voi
     
 	mono_field_static_get_value(vtable, field, valuebuffer);
     
-    MonoObject *monoResult = nil;
+    MonoObject *monoResult = NULL;
     
     // if a local value buffer is assigned then return a boxed object
     if (localBuffer) {
