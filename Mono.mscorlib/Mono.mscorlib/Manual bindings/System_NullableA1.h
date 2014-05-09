@@ -5,6 +5,7 @@
 //  Created by Jonathan on 06/08/2013.
 //
 //
+#import "System_Object.h"
 
 NS_ENUM(NSInteger, DBSystemNullableTypes) {
     DBSystemNullableInt8,
@@ -21,6 +22,7 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
     DBSystemNullableFloat,
     DBSystemNullableBool,
 };
+
 @interface System_NullableA1 : System_Object
 
 #pragma mark -
