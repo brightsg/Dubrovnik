@@ -56,7 +56,6 @@ namespace Dubrovnik.UnitTests
 		{
 			ClassStringProperty = "Dubrovnik.UnitTests static property";
 			ClassDateProperty = new DateTime (2014, 4, 6);
-			ClassDateField = new DateTime (2014, 4, 6);
 		}
 
 		// static fields
