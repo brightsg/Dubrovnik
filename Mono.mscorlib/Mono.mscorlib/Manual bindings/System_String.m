@@ -10,4 +10,17 @@
 
 @implementation System_String
 
+#pragma mark -
+#pragma mark Setup
+// obligatory override
++ (const char *)monoClassName
+{
+    return "System.String";
+}
+// obligatory override
++ (const char *)monoAssemblyName
+{
+    return "mscorlib";
+}
+
 @end

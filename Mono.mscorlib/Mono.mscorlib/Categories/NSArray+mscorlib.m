@@ -21,9 +21,17 @@
 
 #import "NSArray+mscorlib.h"
 #import "DBSystem_Collections_ArrayList.h"
+#import "DBSystem_Collections_Generic_ListA1.h"
 #import "DBSystem_Array.h"
 
 @implementation NSArray (mscorlib)
+
+- (DBSystem_Collections_Generic_ListA1 *)dbscgListA1
+{
+    DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:self];
+    
+    return list;
+}
 
 - (DBSystem_Collections_ArrayList *)dbscArrayList
 {
@@ -48,7 +56,7 @@
 - (DBSystem_Array *)dbsArrayWithTypeName:(NSString *)name
 {
     // get the type
-    DBType *type = [[DBTypeManager sharedManager] typeWithName:name];
+    DBType *type = [[DBTypeManager sharedManager] typeForName:name];
     if (!type) return nil;
     
     // create a suitable MonoArray instance

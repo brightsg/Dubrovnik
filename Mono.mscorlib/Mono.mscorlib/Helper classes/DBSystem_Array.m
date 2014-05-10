@@ -34,7 +34,7 @@
 
 + (MonoArray *)monoArrayWithTypeName:(NSString *)name length:(uintptr_t)length
 {
-    DBType *type = [[DBTypeManager sharedManager] typeWithName:name];
+    DBType *type = [[DBTypeManager sharedManager] typeForName:name];
 	MonoArray *monoArray = nil;
     if (type) {
         monoArray = [self monoArrayWithType:type length:length];

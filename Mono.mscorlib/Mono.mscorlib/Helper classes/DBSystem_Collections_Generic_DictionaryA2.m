@@ -72,7 +72,7 @@
         // form the method signature using key generic type
         // TODO: perform method name caching
         MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
-        NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoType:monoType];
+        NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:monoType];
         NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoArgumentTypeName];
         
         MonoClass * monoClass = mono_class_from_mono_type(monoType);

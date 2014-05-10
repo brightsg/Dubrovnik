@@ -25,8 +25,6 @@
 		AB2E744618FFCD0A0061C63E /* System_Text_Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743A18FFCD0A0061C63E /* System_Text_Encoding.m */; };
 		AB2E744718FFCD0A0061C63E /* System_TimeSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743B18FFCD0A0061C63E /* System_TimeSpan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E744818FFCD0A0061C63E /* System_TimeSpan.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743C18FFCD0A0061C63E /* System_TimeSpan.m */; };
-		AB2E744918FFCD0A0061C63E /* System_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E743D18FFCD0A0061C63E /* System_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E744A18FFCD0A0061C63E /* System_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E743E18FFCD0A0061C63E /* System_Type.m */; };
 		AB2E745118FFCD420061C63E /* System_IO_Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E744B18FFCD420061C63E /* System_IO_Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E745218FFCD420061C63E /* System_IO_Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E744C18FFCD420061C63E /* System_IO_Stream.m */; };
 		AB2E745318FFCD420061C63E /* System_IO_StringWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E744D18FFCD420061C63E /* System_IO_StringWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,6 +47,10 @@
 		AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C518FFDB0D0061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74CB18FFDB0D0061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C618FFDB0D0061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B1191CFD5B009FF174 /* System_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B2191CFD5B009FF174 /* System_Type.m */; };
+		AB8306B7191D1231009FF174 /* DBSystem_Object.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B5191D1231009FF174 /* DBSystem_Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8306B8191D1231009FF174 /* DBSystem_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B6191D1231009FF174 /* DBSystem_Object.m */; };
 		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
 		ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A29018FEFB0700213B80 /* InfoPlist.strings */; };
 		ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A29C18FEFB0700213B80 /* XCTest.framework */; };
@@ -139,8 +141,6 @@
 		AB2E743A18FFCD0A0061C63E /* System_Text_Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_Encoding.m; sourceTree = "<group>"; };
 		AB2E743B18FFCD0A0061C63E /* System_TimeSpan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_TimeSpan.h; sourceTree = "<group>"; };
 		AB2E743C18FFCD0A0061C63E /* System_TimeSpan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_TimeSpan.m; sourceTree = "<group>"; };
-		AB2E743D18FFCD0A0061C63E /* System_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Type.h; sourceTree = "<group>"; };
-		AB2E743E18FFCD0A0061C63E /* System_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Type.m; sourceTree = "<group>"; };
 		AB2E744B18FFCD420061C63E /* System_IO_Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IO_Stream.h; sourceTree = "<group>"; };
 		AB2E744C18FFCD420061C63E /* System_IO_Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IO_Stream.m; sourceTree = "<group>"; };
 		AB2E744D18FFCD420061C63E /* System_IO_StringWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IO_StringWriter.h; sourceTree = "<group>"; };
@@ -163,6 +163,10 @@
 		AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74C518FFDB0D0061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74C618FFDB0D0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		AB8306B1191CFD5B009FF174 /* System_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Type.h; sourceTree = "<group>"; };
+		AB8306B2191CFD5B009FF174 /* System_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Type.m; sourceTree = "<group>"; };
+		AB8306B5191D1231009FF174 /* DBSystem_Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Object.h; sourceTree = "<group>"; };
+		AB8306B6191D1231009FF174 /* DBSystem_Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Object.m; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A28718FEFB0700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A28A18FEFB0700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -353,6 +357,8 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB8306B1191CFD5B009FF174 /* System_Type.h */,
+				AB8306B2191CFD5B009FF174 /* System_Type.m */,
 				AB2E746D18FFCF980061C63E /* System_Collections_IEnumerable.h */,
 				AB2E746E18FFCF980061C63E /* System_Collections_IEnumerable.m */,
 				AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */,
@@ -380,8 +386,6 @@
 				AB2E743A18FFCD0A0061C63E /* System_Text_Encoding.m */,
 				AB2E743B18FFCD0A0061C63E /* System_TimeSpan.h */,
 				AB2E743C18FFCD0A0061C63E /* System_TimeSpan.m */,
-				AB2E743D18FFCD0A0061C63E /* System_Type.h */,
-				AB2E743E18FFCD0A0061C63E /* System_Type.m */,
 				AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */,
 				AB2E742818FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.m */,
 				AB2E742918FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.h */,
@@ -452,6 +456,8 @@
 				ABB8A39518FF09F900213B80 /* DBSystem_Enum.m */,
 				ABB8A37E18FF092400213B80 /* DBSystem_IO_FileInfo.h */,
 				ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */,
+				AB8306B5191D1231009FF174 /* DBSystem_Object.h */,
+				AB8306B6191D1231009FF174 /* DBSystem_Object.m */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -472,6 +478,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8306B7191D1231009FF174 /* DBSystem_Object.h in Headers */,
+				AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */,
 				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
 				AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */,
 				AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */,
@@ -480,7 +488,6 @@
 				AB2E746F18FFCF980061C63E /* System_Collections_IEnumerable.h in Headers */,
 				AB2E745318FFCD420061C63E /* System_IO_StringWriter.h in Headers */,
 				AB2E744518FFCD0A0061C63E /* System_Text_Encoding.h in Headers */,
-				AB2E744918FFCD0A0061C63E /* System_Type.h in Headers */,
 				AB2E746318FFCD8F0061C63E /* System_Globalization_CultureInfo.h in Headers */,
 				AB2E746118FFCD8F0061C63E /* System_FuncA2.h in Headers */,
 				AB2E745118FFCD420061C63E /* System_IO_Stream.h in Headers */,
@@ -620,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8306B8191D1231009FF174 /* DBSystem_Object.m in Sources */,
 				ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */,
 				ABB8A41318FF110000213B80 /* System_Object.m in Sources */,
 				ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */,
@@ -632,7 +640,6 @@
 				ABB8A42718FF15B300213B80 /* DBSystem_Collections_ArrayList.m in Sources */,
 				ABB8A39918FF09F900213B80 /* DBSystem_Convert.m in Sources */,
 				AB2E746418FFCD8F0061C63E /* System_Globalization_CultureInfo.m in Sources */,
-				AB2E744A18FFCD0A0061C63E /* System_Type.m in Sources */,
 				ABB8A38118FF092400213B80 /* DBSystem_IO_FileInfo.m in Sources */,
 				AB2E745618FFCD420061C63E /* System_IO_TextReader.m in Sources */,
 				ABB8A40F18FF110000213B80 /* System_IO_FileInfo.m in Sources */,
@@ -655,6 +662,7 @@
 				AB2E745218FFCD420061C63E /* System_IO_Stream.m in Sources */,
 				ABB8A40918FF110000213B80 /* System_Enum.m in Sources */,
 				AB2E746018FFCD8F0061C63E /* System_Exception.m in Sources */,
+				AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */,
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
 				AB2E746218FFCD8F0061C63E /* System_FuncA2.m in Sources */,
 				ABB8A40B18FF110000213B80 /* System_EventArgs.m in Sources */,

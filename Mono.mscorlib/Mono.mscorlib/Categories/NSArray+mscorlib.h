@@ -25,6 +25,7 @@
 
 @interface NSArray (mscorlib)
 
+- (DBSystem_Collections_Generic_ListA1 *)dbscgListA1;
 - (DBSystem_Collections_ArrayList *)dbscArrayList;
 - (DBSystem_Array *)dbsArrayWithTypeName:(NSString *)name;
 

@@ -44,8 +44,10 @@
     // This object is a closed constructed type and the method signature will match
     // the object generic type.
     //
-    NSString *inflatedMethodName = [NSString stringWithFormat:@"AddObject(%s)", [[object class] monoClassName]];
-    [self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
+    //NSString *inflatedMethodName = [NSString stringWithFormat:@"AddObject(%s)", [[object class] monoClassName]];
+    //[self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
+    
+    [self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [object monoValue]];
 }
 
 - (DBManagedObject *)createObject
@@ -57,8 +59,9 @@
 
 - (void)deleteObject:(DBManagedObject *)object
 {
-    NSString *inflatedMethodName = [NSString stringWithFormat:@"DeleteObject(%s)", [[object class] monoClassName]];
-    [self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
+   // NSString *inflatedMethodName = [NSString stringWithFormat:@"DeleteObject(%s)", [[object class] monoClassName]];
+    //[self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
+    [self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [object monoValue]];
 }
 
 @end

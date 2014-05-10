@@ -10,6 +10,7 @@
 #import "DBUReferenceObject.h"
 #import "DBUIReferenceObject.h"
 #import "DBUGenericReferenceObjectA2.h"
+#import <mono.mscorlib/DBSystem_Object.h>
 
 // toggle 0-1
 // it may be useful to disable certain tests when adding support for new features
@@ -353,6 +354,50 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
     
     return refObject;
+}
+
+- (void)doTestGenericConstructors:(Class)testClass
+{
+    // allocate list<string> and populate
+    NSString *item = @"item 0";
+    DBSystem_Collections_Generic_ListA1 *stringList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[item, @"item 1"]];
+    [stringList add:[@"item 2" managedString]];
+    [stringList add:[@"item 3" managedString]];
+    STAssertTrue(stringList.count == 4, DBUEqualityTestFailed);
+    
+    // create array representation and validate
+    NSArray *stringArray = [stringList array];
+    STAssertTrue(stringArray.count == 4, DBUEqualityTestFailed);
+    STAssertTrue([stringArray[0] isEqualToString:item], DBUEqualityTestFailed);
+    STAssertTrue([stringArray[3] isEqualToString:@"item 3"], DBUEqualityTestFailed);
+    
+    // derive ListA1 from array
+    NSArray *stringArray2 = @[@"1", @"10", @"100", @"1000",];
+    DBSystem_Collections_Generic_ListA1 *numbersList = [stringArray2 dbscgListA1];
+    STAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
+    
+    // allocate list<testClass> and populate
+    id refObject1 = [testClass new];
+    id refObject2 = [testClass new];
+    DBSystem_Collections_Generic_ListA1 *refObjectList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[refObject1, refObject2]];
+    STAssertTrue(refObjectList.count == 2, DBUEqualityTestFailed);
+    
+    NSArray *refObjectArray = [refObjectList array];
+    STAssertTrue(refObjectArray.count == 2, DBUEqualityTestFailed);
+    STAssertTrue([refObjectArray[0] isEqual:refObject1], DBUEqualityTestFailed);
+    STAssertTrue([refObjectArray[1] isEqual:refObject2], DBUEqualityTestFailed);
+    
+    // test exception when add invalid type to generic collection
+    BOOL genericParameterExceptionRaised = NO;
+    @try {
+        [refObjectList add:[@"I should raise" managedObject]];
+    }
+    @catch (NSException *exception) {
+        genericParameterExceptionRaised = YES;
+    }
+    @finally {
+        STAssertTrue(genericParameterExceptionRaised, DBUExceptionTestFailed);
+    }
 }
 
 - (void)doTestForEquality:(id)refObject class:(Class)testClass
@@ -795,6 +840,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         bool b = [boolArray boolAtIndex:i];
         STAssertTrue(b == (i % 2 == 0 ? YES : NO), DBUEqualityTestFailed);
     }
+}
+
+- (void)doTestGenericMethods:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
 }
 
 - (void)doTestGenericProperties:(id)refObject class:(Class)testClass
@@ -1287,7 +1337,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // constructors
     //===================================
     id refObject = [self doTestConstructorsWithclass:testClass];
- 
+    [self doTestGenericConstructors:testClass];
+    
     //===================================
     // events
     //===================================
@@ -1311,6 +1362,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestArrayMethods:refObject class:testClass];
     [self doTestPointerMethods:refObject class:testClass];
     [self doTestRefMethods:refObject class:testClass];
+    [self doTestGenericMethods:refObject class:testClass];
     
     //===================================
     // properties

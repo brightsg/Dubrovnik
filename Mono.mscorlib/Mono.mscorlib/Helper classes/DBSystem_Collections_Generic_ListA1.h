@@ -15,8 +15,13 @@
 @interface DBSystem_Collections_Generic_ListA1 : System_Collections_Generic_ListA1 <Interface_IList, Interface_IEnumerable_T>
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject;
++ (instancetype)listWithObjects:(id)object;
+
 - (DBSystem_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;
+- (void)add:(System_Object *)object;
+
+@property (nonatomic, readonly) int32_t count;
 
 @end

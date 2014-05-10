@@ -11,6 +11,13 @@
 
 @implementation System_Object (mscorlib)
 
++ (id)newGenericObjectForItemObject:(id)itemObject
+{
+    id genericObject = [DBSystem_Object createInstanceOfCoreGenericTypeDefinition:(char *)[self monoClassName] itemObject:itemObject];
+    
+    return genericObject;
+}
+
 #pragma mark -
 #pragma mark System.IConvertible convenience
 

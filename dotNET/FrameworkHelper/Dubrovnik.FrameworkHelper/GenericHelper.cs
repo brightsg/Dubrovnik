@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Dubrovnik.FrameworkHelper
 {
@@ -63,6 +64,18 @@ namespace Dubrovnik.FrameworkHelper
         //
         // Generic type instantiation helpers
         //
+		// How to: Examine and Instantiate Generic Types with Reflection
+		// see http://msdn.microsoft.com/en-us/library/b8ytshk6.aspx
+		public static object CreateInstanceOfGenericType(Type genericTypeDefinition, Type[] parms)
+		{
+			// construct type from definition
+			Type constructedType = genericTypeDefinition.MakeGenericType(parms);
+
+			// create instance of constructed type
+			object obj = Activator.CreateInstance(constructedType);
+
+			return obj;
+		}
 	}
 }
 

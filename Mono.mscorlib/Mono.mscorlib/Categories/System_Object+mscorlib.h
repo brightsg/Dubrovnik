@@ -10,6 +10,8 @@
 
 @interface System_Object (mscorlib)
 
++ (id)newGenericObjectForItemObject:(id)itemObject;;
+
 //System.IConvertible convenience
 - (int8_t)int8Value;
 - (int16_t)int16Value;

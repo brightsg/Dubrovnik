@@ -77,18 +77,62 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 
 @interface DBTypeManager : NSObject
 
-
+/**
+ 
+ The shared type manager
+ 
+ */
 + (id)sharedManager;
 
 
-- (id)typeWithName:(NSString *)name;
+/**
+ 
+ A DBType object representing the named type.
+ If no exact match is found then the type representing System.Object is returned.
+ 
+ */
+- (id)typeForName:(NSString *)name;
+
+
+/**
+ 
+ An alias for the named type or nil.
+ 
+ */
 - (NSString *)aliasForName:(NSString *)name;
+
+/**
+ 
+ The MonoClass for the named type or nil.
+ 
+ */
 - (MonoClass *)monoClassWithName:(NSString *)name;
+
+
+/**
+ 
+ An object representing the MonoObject.
+ The most representative available subclass of DBManagedObject
+ will be chosen to represnt the MonoObject.
+ 
+ */
 - (id)objectWithMonoObject:(MonoObject *)monoObject;
+
+/**
+ 
+ An object representing a managed object.
+ This may be called when a managed object subclass is required 
+ to be generated from a DBManagedObject instance.
+ 
+ */
 - (id)objectWithManagedObject:(DBManagedObject *)managedObject;
-- (NSString *)monoAliasNameForMonoObject:(MonoObject *)monoObject;
-- (NSString *)monoArgumentTypeNameForMonoObject:(MonoObject *)monoObject;
-- (NSString *)monoArgumentTypeNameForMonoType:(MonoType *)monoType;
-- (NSString *)monoAliasNameForMonoType:(MonoType *)MonoType;
+
+/**
+ 
+ A type name suitable for use in a mono method signature.
+ A type alias will be returned if available.
+ 
+ */
+- (NSString *)monoTypeSignatureForMonoType:(MonoType *)monoType;
 
 @end

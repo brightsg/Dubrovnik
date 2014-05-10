@@ -262,7 +262,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return type.alias;
 }
 
-- (DBType *)typeWithName:(NSString *)name
+- (DBType *)typeForName:(NSString *)name
 {
     DBType *type = self.monoTypes[name];
     
@@ -274,6 +274,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return type;
 }
 
+
 - (MonoClass *)monoClassWithName:(NSString *)name
 {
     DBType *type =  (self.monoTypes)[name];
@@ -282,36 +283,17 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return klass;
 }
 
-- (NSString *)monoAliasNameForMonoObject:(MonoObject *)monoObject
+- (NSString *)monoTypeSignatureForMonoType:(MonoType *)monoType
 {
-    NSString *typeName = [DBType monoTypeNameForMonoObject:monoObject];
-    DBType *type = [self typeWithName:typeName];
-    return type.alias;
-}
-
-- (NSString *)monoArgumentTypeNameForMonoObject:(MonoObject *)monoObject
-{
-    NSString *typeName = [self monoAliasNameForMonoObject:monoObject];
-    if (!typeName) {
-        typeName = [DBType monoTypeNameForMonoObject:monoObject];
+    // get type name
+    NSString *typeName = [DBType monoTypeNameForMonoType:monoType];
+    
+    // substitute with alias if available
+    NSString *alias = [self aliasForName:typeName];
+    if (alias) {
+        typeName = alias;
     }
     return typeName;
-}
-
-- (NSString *)monoArgumentTypeNameForMonoType:(MonoType *)monoType
-{
-    NSString *typeName = [self monoAliasNameForMonoType:monoType];
-    if (!typeName) {
-        typeName = [DBType monoTypeNameForMonoType:monoType];
-    }
-    return typeName;
-}
-
-- (NSString *)monoAliasNameForMonoType:(MonoType *)MonoType
-{
-    NSString *typeName = [DBType monoTypeNameForMonoType:MonoType];
-    DBType *type = [self typeWithName:typeName];
-    return type.alias;
 }
 
 #pragma mark -
@@ -341,7 +323,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
     id object = nil;
     NSString *typeName = [DBType monoTypeNameForMonoObject:monoObject];
 
-    DBType *type = [self typeWithName:typeName];
+    DBType *type = [self typeForName:typeName];
     
     if (type) {
         switch ([type typeID]) {

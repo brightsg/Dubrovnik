@@ -182,7 +182,7 @@
             
             for (NSUInteger i = 0; i < self.genericParameterCount; i++) {
                 MonoType *genericType = [self getMonoGenericTypeAtIndex:i];
-                NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoArgumentTypeNameForMonoType:genericType];
+                NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:genericType];
                 [typeNames addObject:monoArgumentTypeName];
             }
             
