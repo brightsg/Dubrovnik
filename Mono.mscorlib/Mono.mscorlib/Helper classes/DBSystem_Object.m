@@ -14,10 +14,18 @@
 
 + (id)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName itemObject:(id)itemObject
 {
-    // mono_reflection_type_from_name
+    MonoImage *image = mono_get_corlib();
+    id object = [self createInstanceOfGenericTypeDefinition:genericTypeDefinitionName monoImage:image itemObject:itemObject];
     
+    return object;
+}
+
++ (id)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage itemObject:(id)itemObject
+{
     // get the contained item monoType
     MonoType *monoType = [DBType monoTypeForMonoObject:[itemObject monoObject]];
+    
+     // get System.Type representation
     MonoReflectionType *monoReflectionType = mono_type_get_object([DBManagedEnvironment currentDomain], monoType);
     
     // build a System.Array of item types
@@ -26,7 +34,12 @@
     DBSystem_Array *dbsAargTypes = [argTypes dbsArrayWithTypeName:@"System.Type"];
 
     // get the generic type definition
-    MonoType *monoGenericTypeDefinition = mono_reflection_type_from_name(genericTypeDefinitionName, mono_get_corlib());
+    //
+    // Retrieves a MonoType from given name. If the name is not fully qualified,
+    // it defaults to get the type from the image or, if image is NULL or loading
+    // from it fails, uses corlib.
+    // This is the embedded equivalent of System.Type.GetType();
+    MonoType *monoGenericTypeDefinition = mono_reflection_type_from_name(genericTypeDefinitionName, monoImage);
     
     // create instance using helper method
     MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateInstanceOfGenericType" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
