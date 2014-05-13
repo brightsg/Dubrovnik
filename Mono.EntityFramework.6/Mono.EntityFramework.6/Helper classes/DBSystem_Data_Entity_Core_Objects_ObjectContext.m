@@ -58,4 +58,15 @@
     DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *objectQuery = [DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoQueryObject];
     return objectQuery;
 }
+
+- (void)refresh_withRefreshMode:(System_Data_Entity_Core_Objects_RefreshMode)refreshMode object:(System_Object *)object
+{
+    [self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, DB_VALUE(refreshMode), [object monoValue]];
+}
+
+- (void)refreshObjectFromStore:(System_Object *)object
+{
+    // refresh object with store value - StoreWins
+    [self refresh_withRefreshMode:System_Data_Entity_Core_Objects_RefreshMode_StoreWins object:object];
+}
 @end

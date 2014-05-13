@@ -6,6 +6,7 @@
 //
 //
 #import "System_Data_Entity_Core_Objects_ObjectContext.h"
+#import "System_Data_Entity_Core_Objects_RefreshMode.h"
 
 @class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1, DBSystem_Array;
 
@@ -27,4 +28,6 @@
                                                     assemblyName:(const char *)assemblyName;
 
 
+- (void)refresh_withRefreshMode:(System_Data_Entity_Core_Objects_RefreshMode)refreshMode object:(System_Object *)object;
+- (void)refreshObjectFromStore:(System_Object *)object;
 @end

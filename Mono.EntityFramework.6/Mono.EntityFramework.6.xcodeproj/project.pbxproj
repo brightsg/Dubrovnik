@@ -42,6 +42,7 @@
 		ABB8A45318FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A45418FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A45018FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m */; };
 		ABB8A45E18FF27B200213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A45D18FF27B200213B80 /* Mono64.framework */; };
+		ABBAF84019223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBAF83F19223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF5D27E190C57E300E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */; };
 		ABF5D27F190C57E300E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */; };
 		ABF5D280190C57E300E9CFBD /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */; };
@@ -100,6 +101,7 @@
 		ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_ObjectQueryA1.h; sourceTree = "<group>"; };
 		ABB8A45018FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_ObjectQueryA1.m; sourceTree = "<group>"; };
 		ABB8A45D18FF27B200213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		ABBAF83F19223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_RefreshMode.h; sourceTree = "<group>"; };
 		ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +244,7 @@
 		ABB8A44C18FF261500213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				ABBAF83F19223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h */,
 				AB2E747E18FFD2160061C63E /* System_Data_Entity_EntityState.h */,
 				AB2E747F18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h */,
 				AB2E748018FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m */,
@@ -269,6 +272,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABBAF84019223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h in Headers */,
 				AB2E748B18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h in Headers */,
 				AB2E74A818FFD49A0061C63E /* GeneratedBindings.h in Headers */,
 				AB2E748A18FFD2160061C63E /* System_Data_Entity_EntityState.h in Headers */,
