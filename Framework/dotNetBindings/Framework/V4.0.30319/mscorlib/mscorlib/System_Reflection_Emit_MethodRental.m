@@ -32,9 +32,9 @@
     static int32_t m_jitImmediate;
     + (int32_t)jitImmediate
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"JitImmediate" valuePtr:DB_PTR(monoObject)];
-		m_jitImmediate = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"JitImmediate"];
+		m_jitImmediate = DB_UNBOX_INT32(monoObject);
+
 		return m_jitImmediate;
 	}
 
@@ -43,9 +43,9 @@
     static int32_t m_jitOnDemand;
     + (int32_t)jitOnDemand
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"JitOnDemand" valuePtr:DB_PTR(monoObject)];
-		m_jitOnDemand = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"JitOnDemand"];
+		m_jitOnDemand = DB_UNBOX_INT32(monoObject);
+
 		return m_jitOnDemand;
 	}
 

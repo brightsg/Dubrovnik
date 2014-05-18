@@ -43,10 +43,10 @@
     static System_Collections_Comparer * m_default;
     + (System_Collections_Comparer *)default
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Default" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Default"];
 		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
 		m_default = [System_Collections_Comparer objectWithMonoObject:monoObject];
+
 		return m_default;
 	}
 
@@ -55,10 +55,10 @@
     static System_Collections_Comparer * m_defaultInvariant;
     + (System_Collections_Comparer *)defaultInvariant
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DefaultInvariant" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultInvariant"];
 		if ([self object:m_defaultInvariant isEqualToMonoObject:monoObject]) return m_defaultInvariant;					
 		m_defaultInvariant = [System_Collections_Comparer objectWithMonoObject:monoObject];
+
 		return m_defaultInvariant;
 	}
 

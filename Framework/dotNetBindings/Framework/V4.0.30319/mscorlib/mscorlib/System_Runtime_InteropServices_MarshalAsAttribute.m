@@ -51,9 +51,9 @@
     @synthesize arraySubType = _arraySubType;
     - (System_Runtime_InteropServices_UnmanagedType)arraySubType
     {
-		System_Runtime_InteropServices_UnmanagedType monoObject;
-		[self getMonoField:"ArraySubType" valuePtr:DB_PTR(monoObject)];
-		_arraySubType = monoObject;
+		MonoObject *monoObject = [self getMonoField:"ArraySubType"];
+		_arraySubType = DB_UNBOX_INT32(monoObject);
+
 		return _arraySubType;
 	}
     - (void)setArraySubType:(System_Runtime_InteropServices_UnmanagedType)value
@@ -68,9 +68,9 @@
     @synthesize iidParameterIndex = _iidParameterIndex;
     - (int32_t)iidParameterIndex
     {
-		int32_t monoObject;
-		[self getMonoField:"IidParameterIndex" valuePtr:DB_PTR(monoObject)];
-		_iidParameterIndex = monoObject;
+		MonoObject *monoObject = [self getMonoField:"IidParameterIndex"];
+		_iidParameterIndex = DB_UNBOX_INT32(monoObject);
+
 		return _iidParameterIndex;
 	}
     - (void)setIidParameterIndex:(int32_t)value
@@ -85,10 +85,10 @@
     @synthesize marshalCookie = _marshalCookie;
     - (NSString *)marshalCookie
     {
-		MonoObject * monoObject;
-		[self getMonoField:"MarshalCookie" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"MarshalCookie"];
 		if ([self object:_marshalCookie isEqualToMonoObject:monoObject]) return _marshalCookie;					
 		_marshalCookie = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _marshalCookie;
 	}
     - (void)setMarshalCookie:(NSString *)value
@@ -103,10 +103,10 @@
     @synthesize marshalType = _marshalType;
     - (NSString *)marshalType
     {
-		MonoObject * monoObject;
-		[self getMonoField:"MarshalType" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"MarshalType"];
 		if ([self object:_marshalType isEqualToMonoObject:monoObject]) return _marshalType;					
 		_marshalType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _marshalType;
 	}
     - (void)setMarshalType:(NSString *)value
@@ -121,10 +121,10 @@
     @synthesize marshalTypeRef = _marshalTypeRef;
     - (System_Type *)marshalTypeRef
     {
-		MonoObject * monoObject;
-		[self getMonoField:"MarshalTypeRef" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"MarshalTypeRef"];
 		if ([self object:_marshalTypeRef isEqualToMonoObject:monoObject]) return _marshalTypeRef;					
 		_marshalTypeRef = [System_Type objectWithMonoObject:monoObject];
+
 		return _marshalTypeRef;
 	}
     - (void)setMarshalTypeRef:(System_Type *)value
@@ -139,9 +139,9 @@
     @synthesize safeArraySubType = _safeArraySubType;
     - (System_Runtime_InteropServices_VarEnum)safeArraySubType
     {
-		System_Runtime_InteropServices_VarEnum monoObject;
-		[self getMonoField:"SafeArraySubType" valuePtr:DB_PTR(monoObject)];
-		_safeArraySubType = monoObject;
+		MonoObject *monoObject = [self getMonoField:"SafeArraySubType"];
+		_safeArraySubType = DB_UNBOX_INT32(monoObject);
+
 		return _safeArraySubType;
 	}
     - (void)setSafeArraySubType:(System_Runtime_InteropServices_VarEnum)value
@@ -156,10 +156,10 @@
     @synthesize safeArrayUserDefinedSubType = _safeArrayUserDefinedSubType;
     - (System_Type *)safeArrayUserDefinedSubType
     {
-		MonoObject * monoObject;
-		[self getMonoField:"SafeArrayUserDefinedSubType" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"SafeArrayUserDefinedSubType"];
 		if ([self object:_safeArrayUserDefinedSubType isEqualToMonoObject:monoObject]) return _safeArrayUserDefinedSubType;					
 		_safeArrayUserDefinedSubType = [System_Type objectWithMonoObject:monoObject];
+
 		return _safeArrayUserDefinedSubType;
 	}
     - (void)setSafeArrayUserDefinedSubType:(System_Type *)value
@@ -174,9 +174,9 @@
     @synthesize sizeConst = _sizeConst;
     - (int32_t)sizeConst
     {
-		int32_t monoObject;
-		[self getMonoField:"SizeConst" valuePtr:DB_PTR(monoObject)];
-		_sizeConst = monoObject;
+		MonoObject *monoObject = [self getMonoField:"SizeConst"];
+		_sizeConst = DB_UNBOX_INT32(monoObject);
+
 		return _sizeConst;
 	}
     - (void)setSizeConst:(int32_t)value
@@ -191,9 +191,9 @@
     @synthesize sizeParamIndex = _sizeParamIndex;
     - (int16_t)sizeParamIndex
     {
-		int16_t monoObject;
-		[self getMonoField:"SizeParamIndex" valuePtr:DB_PTR(monoObject)];
-		_sizeParamIndex = monoObject;
+		MonoObject *monoObject = [self getMonoField:"SizeParamIndex"];
+		_sizeParamIndex = DB_UNBOX_INT16(monoObject);
+
 		return _sizeParamIndex;
 	}
     - (void)setSizeParamIndex:(int16_t)value

@@ -15,7 +15,7 @@ namespace Dubrovnik.UnitTests
     //==============================
     // interfaces
     //==============================
-    public interface IMinimalReferenceObject
+	public interface IMinimalReferenceObject 
     {
         string StringMethod(string s1, int n);
     }

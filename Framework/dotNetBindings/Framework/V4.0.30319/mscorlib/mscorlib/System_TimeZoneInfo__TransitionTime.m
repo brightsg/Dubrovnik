@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.TimeZoneInfo.TransitionTime";
+		return "System.TimeZoneInfo+TransitionTime";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

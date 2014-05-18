@@ -32,10 +32,10 @@
     @synthesize atime = _atime;
     - (System_Runtime_InteropServices_FILETIME *)atime
     {
-		MonoObject * monoObject;
-		[self getMonoField:"atime" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"atime"];
 		if ([self object:_atime isEqualToMonoObject:monoObject]) return _atime;					
 		_atime = [System_Runtime_InteropServices_FILETIME objectWithMonoObject:monoObject];
+
 		return _atime;
 	}
     - (void)setAtime:(System_Runtime_InteropServices_FILETIME *)value
@@ -50,9 +50,9 @@
     @synthesize cbSize = _cbSize;
     - (int64_t)cbSize
     {
-		int64_t monoObject;
-		[self getMonoField:"cbSize" valuePtr:DB_PTR(monoObject)];
-		_cbSize = monoObject;
+		MonoObject *monoObject = [self getMonoField:"cbSize"];
+		_cbSize = DB_UNBOX_INT64(monoObject);
+
 		return _cbSize;
 	}
     - (void)setCbSize:(int64_t)value
@@ -67,10 +67,10 @@
     @synthesize clsid = _clsid;
     - (System_Guid *)clsid
     {
-		MonoObject * monoObject;
-		[self getMonoField:"clsid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"clsid"];
 		if ([self object:_clsid isEqualToMonoObject:monoObject]) return _clsid;					
 		_clsid = [System_Guid objectWithMonoObject:monoObject];
+
 		return _clsid;
 	}
     - (void)setClsid:(System_Guid *)value
@@ -85,10 +85,10 @@
     @synthesize ctime = _ctime;
     - (System_Runtime_InteropServices_FILETIME *)ctime
     {
-		MonoObject * monoObject;
-		[self getMonoField:"ctime" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"ctime"];
 		if ([self object:_ctime isEqualToMonoObject:monoObject]) return _ctime;					
 		_ctime = [System_Runtime_InteropServices_FILETIME objectWithMonoObject:monoObject];
+
 		return _ctime;
 	}
     - (void)setCtime:(System_Runtime_InteropServices_FILETIME *)value
@@ -103,9 +103,9 @@
     @synthesize grfLocksSupported = _grfLocksSupported;
     - (int32_t)grfLocksSupported
     {
-		int32_t monoObject;
-		[self getMonoField:"grfLocksSupported" valuePtr:DB_PTR(monoObject)];
-		_grfLocksSupported = monoObject;
+		MonoObject *monoObject = [self getMonoField:"grfLocksSupported"];
+		_grfLocksSupported = DB_UNBOX_INT32(monoObject);
+
 		return _grfLocksSupported;
 	}
     - (void)setGrfLocksSupported:(int32_t)value
@@ -120,9 +120,9 @@
     @synthesize grfMode = _grfMode;
     - (int32_t)grfMode
     {
-		int32_t monoObject;
-		[self getMonoField:"grfMode" valuePtr:DB_PTR(monoObject)];
-		_grfMode = monoObject;
+		MonoObject *monoObject = [self getMonoField:"grfMode"];
+		_grfMode = DB_UNBOX_INT32(monoObject);
+
 		return _grfMode;
 	}
     - (void)setGrfMode:(int32_t)value
@@ -137,9 +137,9 @@
     @synthesize grfStateBits = _grfStateBits;
     - (int32_t)grfStateBits
     {
-		int32_t monoObject;
-		[self getMonoField:"grfStateBits" valuePtr:DB_PTR(monoObject)];
-		_grfStateBits = monoObject;
+		MonoObject *monoObject = [self getMonoField:"grfStateBits"];
+		_grfStateBits = DB_UNBOX_INT32(monoObject);
+
 		return _grfStateBits;
 	}
     - (void)setGrfStateBits:(int32_t)value
@@ -154,10 +154,10 @@
     @synthesize mtime = _mtime;
     - (System_Runtime_InteropServices_FILETIME *)mtime
     {
-		MonoObject * monoObject;
-		[self getMonoField:"mtime" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"mtime"];
 		if ([self object:_mtime isEqualToMonoObject:monoObject]) return _mtime;					
 		_mtime = [System_Runtime_InteropServices_FILETIME objectWithMonoObject:monoObject];
+
 		return _mtime;
 	}
     - (void)setMtime:(System_Runtime_InteropServices_FILETIME *)value
@@ -172,10 +172,10 @@
     @synthesize pwcsName = _pwcsName;
     - (NSString *)pwcsName
     {
-		MonoObject * monoObject;
-		[self getMonoField:"pwcsName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"pwcsName"];
 		if ([self object:_pwcsName isEqualToMonoObject:monoObject]) return _pwcsName;					
 		_pwcsName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _pwcsName;
 	}
     - (void)setPwcsName:(NSString *)value
@@ -190,9 +190,9 @@
     @synthesize reserved = _reserved;
     - (int32_t)reserved
     {
-		int32_t monoObject;
-		[self getMonoField:"reserved" valuePtr:DB_PTR(monoObject)];
-		_reserved = monoObject;
+		MonoObject *monoObject = [self getMonoField:"reserved"];
+		_reserved = DB_UNBOX_INT32(monoObject);
+
 		return _reserved;
 	}
     - (void)setReserved:(int32_t)value
@@ -207,9 +207,9 @@
     @synthesize type = _type;
     - (int32_t)type
     {
-		int32_t monoObject;
-		[self getMonoField:"type" valuePtr:DB_PTR(monoObject)];
-		_type = monoObject;
+		MonoObject *monoObject = [self getMonoField:"type"];
+		_type = DB_UNBOX_INT32(monoObject);
+
 		return _type;
 	}
     - (void)setType:(int32_t)value

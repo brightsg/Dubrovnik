@@ -32,9 +32,9 @@
     static int32_t m_maxValue;
     + (int32_t)maxValue
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		m_maxValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+		m_maxValue = DB_UNBOX_INT32(monoObject);
+
 		return m_maxValue;
 	}
 
@@ -43,9 +43,9 @@
     static int32_t m_minValue;
     + (int32_t)minValue
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		m_minValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+		m_minValue = DB_UNBOX_INT32(monoObject);
+
 		return m_minValue;
 	}
 

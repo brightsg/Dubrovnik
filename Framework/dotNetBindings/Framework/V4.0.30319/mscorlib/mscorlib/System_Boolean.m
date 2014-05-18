@@ -32,10 +32,10 @@
     static NSString * m_falseString;
     + (NSString *)falseString
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"FalseString" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"FalseString"];
 		if ([self object:m_falseString isEqualToMonoObject:monoObject]) return m_falseString;					
 		m_falseString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_falseString;
 	}
 
@@ -44,10 +44,10 @@
     static NSString * m_trueString;
     + (NSString *)trueString
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"TrueString" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"TrueString"];
 		if ([self object:m_trueString isEqualToMonoObject:monoObject]) return m_trueString;					
 		m_trueString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_trueString;
 	}
 

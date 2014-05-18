@@ -43,10 +43,10 @@
     static NSString * m_anyScheme;
     + (NSString *)anyScheme
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"AnyScheme" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"AnyScheme"];
 		if ([self object:m_anyScheme isEqualToMonoObject:monoObject]) return m_anyScheme;					
 		m_anyScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_anyScheme;
 	}
 
@@ -55,9 +55,9 @@
     static int32_t m_defaultPort;
     + (int32_t)defaultPort
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"DefaultPort" valuePtr:DB_PTR(monoObject)];
-		m_defaultPort = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultPort"];
+		m_defaultPort = DB_UNBOX_INT32(monoObject);
+
 		return m_defaultPort;
 	}
 
@@ -66,9 +66,9 @@
     static int32_t m_originPort;
     + (int32_t)originPort
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"OriginPort" valuePtr:DB_PTR(monoObject)];
-		m_originPort = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"OriginPort"];
+		m_originPort = DB_UNBOX_INT32(monoObject);
+
 		return m_originPort;
 	}
 
@@ -77,10 +77,10 @@
     static NSString * m_originScheme;
     + (NSString *)originScheme
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"OriginScheme" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"OriginScheme"];
 		if ([self object:m_originScheme isEqualToMonoObject:monoObject]) return m_originScheme;					
 		m_originScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_originScheme;
 	}
 

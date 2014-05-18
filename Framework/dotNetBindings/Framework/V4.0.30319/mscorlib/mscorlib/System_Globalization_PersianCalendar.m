@@ -32,9 +32,9 @@
     static int32_t m_persianEra;
     + (int32_t)persianEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"PersianEra" valuePtr:DB_PTR(monoObject)];
-		m_persianEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"PersianEra"];
+		m_persianEra = DB_UNBOX_INT32(monoObject);
+
 		return m_persianEra;
 	}
 

@@ -32,9 +32,9 @@
     static uint8_t m_aclRevision;
     + (uint8_t)aclRevision
     {
-		uint8_t monoObject;
-		[[self class] getMonoClassField:"AclRevision" valuePtr:DB_PTR(monoObject)];
-		m_aclRevision = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"AclRevision"];
+		m_aclRevision = DB_UNBOX_UINT8(monoObject);
+
 		return m_aclRevision;
 	}
 
@@ -43,9 +43,9 @@
     static uint8_t m_aclRevisionDS;
     + (uint8_t)aclRevisionDS
     {
-		uint8_t monoObject;
-		[[self class] getMonoClassField:"AclRevisionDS" valuePtr:DB_PTR(monoObject)];
-		m_aclRevisionDS = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"AclRevisionDS"];
+		m_aclRevisionDS = DB_UNBOX_UINT8(monoObject);
+
 		return m_aclRevisionDS;
 	}
 
@@ -54,9 +54,9 @@
     static int32_t m_maxBinaryLength;
     + (int32_t)maxBinaryLength
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"MaxBinaryLength" valuePtr:DB_PTR(monoObject)];
-		m_maxBinaryLength = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxBinaryLength"];
+		m_maxBinaryLength = DB_UNBOX_INT32(monoObject);
+
 		return m_maxBinaryLength;
 	}
 

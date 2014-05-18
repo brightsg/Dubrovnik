@@ -32,9 +32,9 @@
     static uint16_t m_delimiter;
     + (uint16_t)delimiter
     {
-		uint16_t monoObject;
-		[[self class] getMonoClassField:"Delimiter" valuePtr:DB_PTR(monoObject)];
-		m_delimiter = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"Delimiter"];
+		m_delimiter = DB_UNBOX_UINT16(monoObject);
+
 		return m_delimiter;
 	}
 
@@ -43,10 +43,10 @@
     static DBSystem_Array * m_emptyTypes;
     + (DBSystem_Array *)emptyTypes
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"EmptyTypes" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"EmptyTypes"];
 		if ([self object:m_emptyTypes isEqualToMonoObject:monoObject]) return m_emptyTypes;					
 		m_emptyTypes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return m_emptyTypes;
 	}
 
@@ -55,10 +55,10 @@
     static System_Reflection_MemberFilter * m_filterAttribute;
     + (System_Reflection_MemberFilter *)filterAttribute
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"FilterAttribute" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"FilterAttribute"];
 		if ([self object:m_filterAttribute isEqualToMonoObject:monoObject]) return m_filterAttribute;					
 		m_filterAttribute = [System_Reflection_MemberFilter objectWithMonoObject:monoObject];
+
 		return m_filterAttribute;
 	}
 
@@ -67,10 +67,10 @@
     static System_Reflection_MemberFilter * m_filterName;
     + (System_Reflection_MemberFilter *)filterName
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"FilterName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"FilterName"];
 		if ([self object:m_filterName isEqualToMonoObject:monoObject]) return m_filterName;					
 		m_filterName = [System_Reflection_MemberFilter objectWithMonoObject:monoObject];
+
 		return m_filterName;
 	}
 
@@ -79,10 +79,10 @@
     static System_Reflection_MemberFilter * m_filterNameIgnoreCase;
     + (System_Reflection_MemberFilter *)filterNameIgnoreCase
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"FilterNameIgnoreCase" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"FilterNameIgnoreCase"];
 		if ([self object:m_filterNameIgnoreCase isEqualToMonoObject:monoObject]) return m_filterNameIgnoreCase;					
 		m_filterNameIgnoreCase = [System_Reflection_MemberFilter objectWithMonoObject:monoObject];
+
 		return m_filterNameIgnoreCase;
 	}
 
@@ -91,10 +91,10 @@
     static System_Object * m_missing;
     + (System_Object *)missing
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Missing" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Missing"];
 		if ([self object:m_missing isEqualToMonoObject:monoObject]) return m_missing;					
 		m_missing = [System_Object objectWithMonoObject:monoObject];
+
 		return m_missing;
 	}
 

@@ -32,9 +32,9 @@
     static int32_t m_hebrewEra;
     + (int32_t)hebrewEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"HebrewEra" valuePtr:DB_PTR(monoObject)];
-		m_hebrewEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"HebrewEra"];
+		m_hebrewEra = DB_UNBOX_INT32(monoObject);
+
 		return m_hebrewEra;
 	}
 

@@ -67,9 +67,9 @@
     static int32_t m_maxBinaryLength;
     + (int32_t)maxBinaryLength
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"MaxBinaryLength" valuePtr:DB_PTR(monoObject)];
-		m_maxBinaryLength = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxBinaryLength"];
+		m_maxBinaryLength = DB_UNBOX_INT32(monoObject);
+
 		return m_maxBinaryLength;
 	}
 
@@ -78,9 +78,9 @@
     static int32_t m_minBinaryLength;
     + (int32_t)minBinaryLength
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"MinBinaryLength" valuePtr:DB_PTR(monoObject)];
-		m_minBinaryLength = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinBinaryLength"];
+		m_minBinaryLength = DB_UNBOX_INT32(monoObject);
+
 		return m_minBinaryLength;
 	}
 

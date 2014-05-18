@@ -32,10 +32,10 @@
     @synthesize interfaceMethods = _interfaceMethods;
     - (DBSystem_Array *)interfaceMethods
     {
-		MonoObject * monoObject;
-		[self getMonoField:"InterfaceMethods" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"InterfaceMethods"];
 		if ([self object:_interfaceMethods isEqualToMonoObject:monoObject]) return _interfaceMethods;					
 		_interfaceMethods = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _interfaceMethods;
 	}
     - (void)setInterfaceMethods:(DBSystem_Array *)value
@@ -50,10 +50,10 @@
     @synthesize interfaceType = _interfaceType;
     - (System_Type *)interfaceType
     {
-		MonoObject * monoObject;
-		[self getMonoField:"InterfaceType" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"InterfaceType"];
 		if ([self object:_interfaceType isEqualToMonoObject:monoObject]) return _interfaceType;					
 		_interfaceType = [System_Type objectWithMonoObject:monoObject];
+
 		return _interfaceType;
 	}
     - (void)setInterfaceType:(System_Type *)value
@@ -68,10 +68,10 @@
     @synthesize targetMethods = _targetMethods;
     - (DBSystem_Array *)targetMethods
     {
-		MonoObject * monoObject;
-		[self getMonoField:"TargetMethods" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"TargetMethods"];
 		if ([self object:_targetMethods isEqualToMonoObject:monoObject]) return _targetMethods;					
 		_targetMethods = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _targetMethods;
 	}
     - (void)setTargetMethods:(DBSystem_Array *)value
@@ -86,10 +86,10 @@
     @synthesize targetType = _targetType;
     - (System_Type *)targetType
     {
-		MonoObject * monoObject;
-		[self getMonoField:"TargetType" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"TargetType"];
 		if ([self object:_targetType isEqualToMonoObject:monoObject]) return _targetType;					
 		_targetType = [System_Type objectWithMonoObject:monoObject];
+
 		return _targetType;
 	}
     - (void)setTargetType:(System_Type *)value

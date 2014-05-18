@@ -59,9 +59,9 @@
     static void * m_zero;
     + (void *)zero
     {
-		void * monoObject;
-		[[self class] getMonoClassField:"Zero" valuePtr:DB_PTR(monoObject)];
-		m_zero = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
+		m_zero = DB_UNBOX_UPTR(monoObject);
+
 		return m_zero;
 	}
 

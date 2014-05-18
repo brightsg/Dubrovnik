@@ -32,9 +32,9 @@
     @synthesize cbStruct = _cbStruct;
     - (int32_t)cbStruct
     {
-		int32_t monoObject;
-		[self getMonoField:"cbStruct" valuePtr:DB_PTR(monoObject)];
-		_cbStruct = monoObject;
+		MonoObject *monoObject = [self getMonoField:"cbStruct"];
+		_cbStruct = DB_UNBOX_INT32(monoObject);
+
 		return _cbStruct;
 	}
     - (void)setCbStruct:(int32_t)value
@@ -49,9 +49,9 @@
     @synthesize dwTickCountDeadline = _dwTickCountDeadline;
     - (int32_t)dwTickCountDeadline
     {
-		int32_t monoObject;
-		[self getMonoField:"dwTickCountDeadline" valuePtr:DB_PTR(monoObject)];
-		_dwTickCountDeadline = monoObject;
+		MonoObject *monoObject = [self getMonoField:"dwTickCountDeadline"];
+		_dwTickCountDeadline = DB_UNBOX_INT32(monoObject);
+
 		return _dwTickCountDeadline;
 	}
     - (void)setDwTickCountDeadline:(int32_t)value
@@ -66,9 +66,9 @@
     @synthesize grfFlags = _grfFlags;
     - (int32_t)grfFlags
     {
-		int32_t monoObject;
-		[self getMonoField:"grfFlags" valuePtr:DB_PTR(monoObject)];
-		_grfFlags = monoObject;
+		MonoObject *monoObject = [self getMonoField:"grfFlags"];
+		_grfFlags = DB_UNBOX_INT32(monoObject);
+
 		return _grfFlags;
 	}
     - (void)setGrfFlags:(int32_t)value
@@ -83,9 +83,9 @@
     @synthesize grfMode = _grfMode;
     - (int32_t)grfMode
     {
-		int32_t monoObject;
-		[self getMonoField:"grfMode" valuePtr:DB_PTR(monoObject)];
-		_grfMode = monoObject;
+		MonoObject *monoObject = [self getMonoField:"grfMode"];
+		_grfMode = DB_UNBOX_INT32(monoObject);
+
 		return _grfMode;
 	}
     - (void)setGrfMode:(int32_t)value

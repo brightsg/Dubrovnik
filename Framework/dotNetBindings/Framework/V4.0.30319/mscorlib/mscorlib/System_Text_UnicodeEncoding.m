@@ -51,9 +51,9 @@
     static int32_t m_charSize;
     + (int32_t)charSize
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"CharSize" valuePtr:DB_PTR(monoObject)];
-		m_charSize = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"CharSize"];
+		m_charSize = DB_UNBOX_INT32(monoObject);
+
 		return m_charSize;
 	}
 

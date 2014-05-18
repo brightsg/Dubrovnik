@@ -32,9 +32,9 @@
     static int32_t m_currentEra;
     + (int32_t)currentEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"CurrentEra" valuePtr:DB_PTR(monoObject)];
-		m_currentEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"CurrentEra"];
+		m_currentEra = DB_UNBOX_INT32(monoObject);
+
 		return m_currentEra;
 	}
 

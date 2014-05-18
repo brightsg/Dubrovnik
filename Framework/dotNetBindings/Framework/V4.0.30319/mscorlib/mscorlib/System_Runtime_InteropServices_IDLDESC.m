@@ -32,9 +32,9 @@
     @synthesize dwReserved = _dwReserved;
     - (int32_t)dwReserved
     {
-		int32_t monoObject;
-		[self getMonoField:"dwReserved" valuePtr:DB_PTR(monoObject)];
-		_dwReserved = monoObject;
+		MonoObject *monoObject = [self getMonoField:"dwReserved"];
+		_dwReserved = DB_UNBOX_INT32(monoObject);
+
 		return _dwReserved;
 	}
     - (void)setDwReserved:(int32_t)value
@@ -49,9 +49,9 @@
     @synthesize wIDLFlags = _wIDLFlags;
     - (System_Runtime_InteropServices_IDLFLAG)wIDLFlags
     {
-		System_Runtime_InteropServices_IDLFLAG monoObject;
-		[self getMonoField:"wIDLFlags" valuePtr:DB_PTR(monoObject)];
-		_wIDLFlags = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wIDLFlags"];
+		_wIDLFlags = DB_UNBOX_INT16(monoObject);
+
 		return _wIDLFlags;
 	}
     - (void)setWIDLFlags:(System_Runtime_InteropServices_IDLFLAG)value

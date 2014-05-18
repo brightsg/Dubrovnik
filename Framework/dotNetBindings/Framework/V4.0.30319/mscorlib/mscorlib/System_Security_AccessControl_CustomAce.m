@@ -43,9 +43,9 @@
     static int32_t m_maxOpaqueLength;
     + (int32_t)maxOpaqueLength
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"MaxOpaqueLength" valuePtr:DB_PTR(monoObject)];
-		m_maxOpaqueLength = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxOpaqueLength"];
+		m_maxOpaqueLength = DB_UNBOX_INT32(monoObject);
+
 		return m_maxOpaqueLength;
 	}
 

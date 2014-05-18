@@ -59,9 +59,9 @@
     static int32_t m_headerVersionNumber;
     + (int32_t)headerVersionNumber
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"HeaderVersionNumber" valuePtr:DB_PTR(monoObject)];
-		m_headerVersionNumber = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"HeaderVersionNumber"];
+		m_headerVersionNumber = DB_UNBOX_INT32(monoObject);
+
 		return m_headerVersionNumber;
 	}
 
@@ -70,9 +70,9 @@
     static int32_t m_magicNumber;
     + (int32_t)magicNumber
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"MagicNumber" valuePtr:DB_PTR(monoObject)];
-		m_magicNumber = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MagicNumber"];
+		m_magicNumber = DB_UNBOX_INT32(monoObject);
+
 		return m_magicNumber;
 	}
 

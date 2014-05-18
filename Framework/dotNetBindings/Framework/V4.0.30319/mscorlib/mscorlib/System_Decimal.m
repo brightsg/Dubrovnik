@@ -99,10 +99,10 @@
     static NSDecimalNumber * m_maxValue;
     + (NSDecimalNumber *)maxValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
 		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
 		m_maxValue = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+
 		return m_maxValue;
 	}
 
@@ -111,10 +111,10 @@
     static NSDecimalNumber * m_minusOne;
     + (NSDecimalNumber *)minusOne
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MinusOne" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinusOne"];
 		if ([self object:m_minusOne isEqualToMonoObject:monoObject]) return m_minusOne;					
 		m_minusOne = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+
 		return m_minusOne;
 	}
 
@@ -123,10 +123,10 @@
     static NSDecimalNumber * m_minValue;
     + (NSDecimalNumber *)minValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
 		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
 		m_minValue = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+
 		return m_minValue;
 	}
 
@@ -135,10 +135,10 @@
     static NSDecimalNumber * m_one;
     + (NSDecimalNumber *)one
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"One" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"One"];
 		if ([self object:m_one isEqualToMonoObject:monoObject]) return m_one;					
 		m_one = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+
 		return m_one;
 	}
 
@@ -147,10 +147,10 @@
     static NSDecimalNumber * m_zero;
     + (NSDecimalNumber *)zero
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Zero" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
 		if ([self object:m_zero isEqualToMonoObject:monoObject]) return m_zero;					
 		m_zero = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+
 		return m_zero;
 	}
 

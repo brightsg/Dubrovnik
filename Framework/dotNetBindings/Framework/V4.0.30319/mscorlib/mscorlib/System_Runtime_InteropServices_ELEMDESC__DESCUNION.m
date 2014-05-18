@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.InteropServices.ELEMDESC.DESCUNION";
+		return "System.Runtime.InteropServices.ELEMDESC+DESCUNION";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,10 +32,10 @@
     @synthesize idldesc = _idldesc;
     - (System_Runtime_InteropServices_IDLDESC *)idldesc
     {
-		MonoObject * monoObject;
-		[self getMonoField:"idldesc" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"idldesc"];
 		if ([self object:_idldesc isEqualToMonoObject:monoObject]) return _idldesc;					
 		_idldesc = [System_Runtime_InteropServices_IDLDESC objectWithMonoObject:monoObject];
+
 		return _idldesc;
 	}
     - (void)setIdldesc:(System_Runtime_InteropServices_IDLDESC *)value
@@ -50,10 +50,10 @@
     @synthesize paramdesc = _paramdesc;
     - (System_Runtime_InteropServices_PARAMDESC *)paramdesc
     {
-		MonoObject * monoObject;
-		[self getMonoField:"paramdesc" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"paramdesc"];
 		if ([self object:_paramdesc isEqualToMonoObject:monoObject]) return _paramdesc;					
 		_paramdesc = [System_Runtime_InteropServices_PARAMDESC objectWithMonoObject:monoObject];
+
 		return _paramdesc;
 	}
     - (void)setParamdesc:(System_Runtime_InteropServices_PARAMDESC *)value

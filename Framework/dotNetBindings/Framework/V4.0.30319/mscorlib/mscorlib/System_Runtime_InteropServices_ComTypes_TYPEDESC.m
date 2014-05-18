@@ -32,9 +32,9 @@
     @synthesize lpValue = _lpValue;
     - (void *)lpValue
     {
-		void * monoObject;
-		[self getMonoField:"lpValue" valuePtr:DB_PTR(monoObject)];
-		_lpValue = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lpValue"];
+		_lpValue = DB_UNBOX_PTR(monoObject);
+
 		return _lpValue;
 	}
     - (void)setLpValue:(void *)value
@@ -49,9 +49,9 @@
     @synthesize vt = _vt;
     - (int16_t)vt
     {
-		int16_t monoObject;
-		[self getMonoField:"vt" valuePtr:DB_PTR(monoObject)];
-		_vt = monoObject;
+		MonoObject *monoObject = [self getMonoField:"vt"];
+		_vt = DB_UNBOX_INT16(monoObject);
+
 		return _vt;
 	}
     - (void)setVt:(int16_t)value

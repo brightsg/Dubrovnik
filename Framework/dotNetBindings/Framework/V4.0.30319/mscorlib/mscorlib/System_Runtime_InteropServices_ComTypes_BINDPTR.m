@@ -32,9 +32,9 @@
     @synthesize lpfuncdesc = _lpfuncdesc;
     - (void *)lpfuncdesc
     {
-		void * monoObject;
-		[self getMonoField:"lpfuncdesc" valuePtr:DB_PTR(monoObject)];
-		_lpfuncdesc = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lpfuncdesc"];
+		_lpfuncdesc = DB_UNBOX_PTR(monoObject);
+
 		return _lpfuncdesc;
 	}
     - (void)setLpfuncdesc:(void *)value
@@ -49,9 +49,9 @@
     @synthesize lptcomp = _lptcomp;
     - (void *)lptcomp
     {
-		void * monoObject;
-		[self getMonoField:"lptcomp" valuePtr:DB_PTR(monoObject)];
-		_lptcomp = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lptcomp"];
+		_lptcomp = DB_UNBOX_PTR(monoObject);
+
 		return _lptcomp;
 	}
     - (void)setLptcomp:(void *)value
@@ -66,9 +66,9 @@
     @synthesize lpvardesc = _lpvardesc;
     - (void *)lpvardesc
     {
-		void * monoObject;
-		[self getMonoField:"lpvardesc" valuePtr:DB_PTR(monoObject)];
-		_lpvardesc = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lpvardesc"];
+		_lpvardesc = DB_UNBOX_PTR(monoObject);
+
 		return _lpvardesc;
 	}
     - (void)setLpvardesc:(void *)value

@@ -32,9 +32,9 @@
     @synthesize lpVarValue = _lpVarValue;
     - (void *)lpVarValue
     {
-		void * monoObject;
-		[self getMonoField:"lpVarValue" valuePtr:DB_PTR(monoObject)];
-		_lpVarValue = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lpVarValue"];
+		_lpVarValue = DB_UNBOX_PTR(monoObject);
+
 		return _lpVarValue;
 	}
     - (void)setLpVarValue:(void *)value
@@ -49,9 +49,9 @@
     @synthesize wParamFlags = _wParamFlags;
     - (System_Runtime_InteropServices_PARAMFLAG)wParamFlags
     {
-		System_Runtime_InteropServices_PARAMFLAG monoObject;
-		[self getMonoField:"wParamFlags" valuePtr:DB_PTR(monoObject)];
-		_wParamFlags = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wParamFlags"];
+		_wParamFlags = DB_UNBOX_INT16(monoObject);
+
 		return _wParamFlags;
 	}
     - (void)setWParamFlags:(System_Runtime_InteropServices_PARAMFLAG)value

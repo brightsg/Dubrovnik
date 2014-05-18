@@ -762,6 +762,40 @@ this.Write("\r\n");
 }
 
 //
+// WriteCommentBlock
+//
+public void WriteCommentBlock(string info)
+{
+
+        
+        #line default
+        #line hidden
+        
+        #line 229 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write("\r\n/*\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 232 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(info));
+
+        
+        #line default
+        #line hidden
+        
+        #line 232 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write("\r\n*/\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 234 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+	
+}
+//
 // WriteImplementationFilePreliminaries
 //
 public void WriteImplementationFilePreliminaries()
@@ -779,7 +813,7 @@ public void WriteModuleFeatureRequirements()
         #line default
         #line hidden
         
-        #line 237 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 249 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n// ARC is required\r\n#if  ! __has_feature(objc_arc)\r\n#error This file requires A" +
         "RC. \r\n#endif\r\n\r\n");
 
@@ -787,7 +821,7 @@ this.Write("\r\n// ARC is required\r\n#if  ! __has_feature(objc_arc)\r\n#error T
         #line default
         #line hidden
         
-        #line 244 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 256 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 }
 
@@ -805,28 +839,28 @@ public void WriteInterfaceStart(CodeFacet facet, string module)
         #line default
         #line hidden
         
-        #line 256 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 268 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("@protocol ");
 
         
         #line default
         #line hidden
         
-        #line 257 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 269 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.ObjCFacet.Type));
 
         
         #line default
         #line hidden
         
-        #line 257 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 269 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" <NSObject>\r\n\r\n@required\r\n");
 
         
         #line default
         #line hidden
         
-        #line 260 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 272 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 	WriteClassSetup(facet);	
 }
@@ -843,49 +877,49 @@ public void WriteInterfaceEnd(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 271 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 283 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("@end\r\n\r\n@interface ");
 
         
         #line default
         #line hidden
         
-        #line 274 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 286 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.ObjCFacet.Type));
 
         
         #line default
         #line hidden
         
-        #line 274 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 286 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(superClass));
 
         
         #line default
         #line hidden
         
-        #line 274 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 286 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" <");
 
         
         #line default
         #line hidden
         
-        #line 274 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 286 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.ObjCFacet.Type));
 
         
         #line default
         #line hidden
         
-        #line 274 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 286 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(">\r\n\r\n@end\r\n");
 
         
         #line default
         #line hidden
         
-        #line 277 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 289 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	WriteModuleFooter();
 }
@@ -917,56 +951,56 @@ public void WriteClassStart(CodeFacet facet, string module)
         #line default
         #line hidden
         
-        #line 303 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 315 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("@");
 
         
         #line default
         #line hidden
         
-        #line 304 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 316 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(classPrefix));
 
         
         #line default
         #line hidden
         
-        #line 304 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 316 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 304 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 316 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(facet.ObjCFacet.Type));
 
         
         #line default
         #line hidden
         
-        #line 304 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 316 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(superClass));
 
         
         #line default
         #line hidden
         
-        #line 304 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 316 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(implementedProtocols));
 
         
         #line default
         #line hidden
         
-        #line 304 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 316 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 305 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 317 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 	WriteClassSetup(facet);	
 }
@@ -983,105 +1017,32 @@ public void WriteClassSetup(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 316 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 328 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t// obligatory override\r\n\t+ (const char *)monoClassName");
 
         
         #line default
         #line hidden
         
-        #line 318 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 330 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 318 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 330 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 319 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 331 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	if (OutputFileType == OutputType.Implementation) 
 	{
 		string name = CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.NameFromType);
-
-        
-        #line default
-        #line hidden
-        
-        #line 323 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write("\t{\r\n\t\treturn \"");
-
-        
-        #line default
-        #line hidden
-        
-        #line 325 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(facet.TypeNamespace));
-
-        
-        #line default
-        #line hidden
-        
-        #line 325 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(".");
-
-        
-        #line default
-        #line hidden
-        
-        #line 325 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(name));
-
-        
-        #line default
-        #line hidden
-        
-        #line 325 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write("\";\r\n\t}\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 327 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-
-    }
-
-        
-        #line default
-        #line hidden
-        
-        #line 329 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write("\t// obligatory override\r\n\t+ (const char *)monoAssemblyName");
-
-        
-        #line default
-        #line hidden
-        
-        #line 331 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(LT));
-
-        
-        #line default
-        #line hidden
-        
-        #line 331 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write("\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 332 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-	
-	if (OutputFileType == OutputType.Implementation) 
-	{
 
         
         #line default
@@ -1095,7 +1056,21 @@ this.Write("\t{\r\n\t\treturn \"");
         #line hidden
         
         #line 337 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(AssemblyFacet.Name));
+this.Write(this.ToStringHelper.ToStringWithCulture(facet.TypeNamespace));
+
+        
+        #line default
+        #line hidden
+        
+        #line 337 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write(".");
+
+        
+        #line default
+        #line hidden
+        
+        #line 337 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(name));
 
         
         #line default
@@ -1111,6 +1086,65 @@ this.Write("\";\r\n\t}\r\n");
         #line 339 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
     }
+
+        
+        #line default
+        #line hidden
+        
+        #line 341 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write("\t// obligatory override\r\n\t+ (const char *)monoAssemblyName");
+
+        
+        #line default
+        #line hidden
+        
+        #line 343 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(LT));
+
+        
+        #line default
+        #line hidden
+        
+        #line 343 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write("\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 344 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+	
+	if (OutputFileType == OutputType.Implementation) 
+	{
+
+        
+        #line default
+        #line hidden
+        
+        #line 347 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write("\t{\r\n\t\treturn \"");
+
+        
+        #line default
+        #line hidden
+        
+        #line 349 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(AssemblyFacet.Name));
+
+        
+        #line default
+        #line hidden
+        
+        #line 349 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+this.Write("\";\r\n\t}\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 351 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+
+    }
 }
 
 //
@@ -1124,14 +1158,14 @@ public void WriteClassEnd(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 349 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 361 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("@end\r\n");
 
         
         #line default
         #line hidden
         
-        #line 351 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 363 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	WriteModuleFooter();
 }
@@ -1149,14 +1183,14 @@ public void WriteClassTeardown(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 363 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 375 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t- (void)dealloc\r\n\t{\r\n");
 
         
         #line default
         #line hidden
         
-        #line 366 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 378 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		foreach (string staticObjectPropertyName in StaticObjectPropertyStorageNames)
         {
@@ -1165,28 +1199,28 @@ this.Write("\t- (void)dealloc\r\n\t{\r\n");
         #line default
         #line hidden
         
-        #line 369 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 381 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 370 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 382 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(staticObjectPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 370 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 382 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = nil;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 371 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 383 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
         }
 
@@ -1194,14 +1228,14 @@ this.Write(" = nil;\r\n");
         #line default
         #line hidden
         
-        #line 373 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 385 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 375 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 387 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 
 	this.StaticObjectPropertyStorageNames = null;
@@ -1229,42 +1263,42 @@ public void WriteEnumeration(EnumerationFacet enumeration)
         #line default
         #line hidden
         
-        #line 397 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 409 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("typedef NS_ENUM(");
 
         
         #line default
         #line hidden
         
-        #line 398 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 410 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCEnumType));
 
         
         #line default
         #line hidden
         
-        #line 398 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 410 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(", ");
 
         
         #line default
         #line hidden
         
-        #line 398 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 410 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCType));
 
         
         #line default
         #line hidden
         
-        #line 398 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 410 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(") {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 399 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 411 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 			foreach (FieldFacet field in enumeration.Fields) 
 			{
@@ -1274,56 +1308,56 @@ this.Write(") {\r\n");
         #line default
         #line hidden
         
-        #line 403 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 415 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t");
 
         
         #line default
         #line hidden
         
-        #line 404 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 416 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCType));
 
         
         #line default
         #line hidden
         
-        #line 404 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 416 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("_");
 
         
         #line default
         #line hidden
         
-        #line 404 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 416 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCFieldName));
 
         
         #line default
         #line hidden
         
-        #line 404 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 416 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 404 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 416 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(field.ConstantValue));
 
         
         #line default
         #line hidden
         
-        #line 404 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 416 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(",\r\n");
 
         
         #line default
         #line hidden
         
-        #line 405 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 417 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 			}
 
@@ -1331,14 +1365,14 @@ this.Write(",\r\n");
         #line default
         #line hidden
         
-        #line 407 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 419 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("};\r\n");
 
         
         #line default
         #line hidden
         
-        #line 409 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 421 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 			WriteModuleFooter();
 		}	
@@ -1455,70 +1489,70 @@ public void WriteFacetAsAccessor(CodeFacet facet)
         #line default
         #line hidden
         
-        #line 520 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 532 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed ");
 
         
         #line default
         #line hidden
         
-        #line 522 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 534 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(accessorDescription));
 
         
         #line default
         #line hidden
         
-        #line 522 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 534 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" name : ");
 
         
         #line default
         #line hidden
         
-        #line 522 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 534 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(accessorName));
 
         
         #line default
         #line hidden
         
-        #line 522 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 534 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed ");
 
         
         #line default
         #line hidden
         
-        #line 523 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 535 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(accessorDescription));
 
         
         #line default
         #line hidden
         
-        #line 523 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 535 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" type : ");
 
         
         #line default
         #line hidden
         
-        #line 523 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 535 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet)));
 
         
         #line default
         #line hidden
         
-        #line 523 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 535 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 524 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 536 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 	// Interface 
 	if (OutputFileType == OutputType.Interface) 
@@ -1532,49 +1566,49 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 532 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 544 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    @property ");
 
         
         #line default
         #line hidden
         
-        #line 533 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 545 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(propertyAttributes));
 
         
         #line default
         #line hidden
         
-        #line 533 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 545 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 533 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 545 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 533 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 545 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getterName));
 
         
         #line default
         #line hidden
         
-        #line 533 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 545 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 534 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 546 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	  
 			return;
         }    
@@ -1592,42 +1626,42 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 546 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 558 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    @synthesize ");
 
         
         #line default
         #line hidden
         
-        #line 547 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 559 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getterName));
 
         
         #line default
         #line hidden
         
-        #line 547 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 559 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 547 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 559 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(propertyStorage));
 
         
         #line default
         #line hidden
         
-        #line 547 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 559 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 548 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 560 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 		
 		} 
 		else 
@@ -1638,42 +1672,42 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 553 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    static ");
 
         
         #line default
         #line hidden
         
-        #line 554 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 566 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 554 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 566 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 554 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 566 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(propertyStorage));
 
         
         #line default
         #line hidden
         
-        #line 554 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 566 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 555 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 567 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
       
 		}
     }
@@ -1688,63 +1722,63 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 564 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 576 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    ");
 
         
         #line default
         #line hidden
         
-        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" (");
 
         
         #line default
         #line hidden
         
-        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getterName));
 
         
         #line default
         #line hidden
         
-        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 565 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 566 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 578 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 		
 		if (OutputFileType == OutputType.Implementation) 
 		{
@@ -1753,49 +1787,49 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 569 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 581 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    {\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 571 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(monoObjectPtr));
 
         
         #line default
         #line hidden
         
-        #line 571 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
         #line hidden
         
-        #line 571 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 571 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 571 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 583 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 572 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 584 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 			if (isObjectProperty)
 			{
@@ -1804,28 +1838,28 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 575 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 587 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 576 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 588 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(doPropertyEqualityTest));
 
         
         #line default
         #line hidden
         
-        #line 576 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 588 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t\t\t\t\r\n");
 
         
         #line default
         #line hidden
         
-        #line 577 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 589 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 			}
 
@@ -1833,56 +1867,56 @@ this.Write("\t\t\t\t\t\r\n");
         #line default
         #line hidden
         
-        #line 579 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 591 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 580 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 592 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(propertyStorage));
 
         
         #line default
         #line hidden
         
-        #line 580 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 592 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 580 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 592 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(managedValueToObjC));
 
         
         #line default
         #line hidden
         
-        #line 580 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 592 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\r\n\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 582 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(propertyStorage));
 
         
         #line default
         #line hidden
         
-        #line 582 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 584 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 596 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 		} // if Implementation
     } // if IsReadable
@@ -1897,77 +1931,77 @@ this.Write(";\r\n\t}\r\n");
         #line default
         #line hidden
         
-        #line 593 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 605 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    ");
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" (void)");
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(setterName));
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(":(");
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ObjCVariableName));
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 594 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 606 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 595 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 607 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		if (OutputFileType == OutputType.Implementation) 
 		{
@@ -1976,91 +2010,91 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 598 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 610 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 600 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(propertyStorage));
 
         
         #line default
         #line hidden
         
-        #line 600 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 600 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ObjCVariableName));
 
         
         #line default
         #line hidden
         
-        #line 600 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 612 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 601 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 613 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(monoObjectPtr));
 
         
         #line default
         #line hidden
         
-        #line 601 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 613 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
         #line hidden
         
-        #line 601 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 613 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 601 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 613 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCValueToMono));
 
         
         #line default
         #line hidden
         
-        #line 601 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 613 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 602 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 614 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(setExpression));
 
         
         #line default
         #line hidden
         
-        #line 602 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 614 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";          \r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 604 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 616 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
         }  // if Implementation
     } // if IsWritable
@@ -2363,112 +2397,112 @@ public void WriteFacetAsMethod(MethodFacet facet)
         #line default
         #line hidden
         
-        #line 901 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 913 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed method name : ");
 
         
         #line default
         #line hidden
         
-        #line 903 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 915 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(isConstructorMethod ? ".ctor" : monoMethodName));
 
         
         #line default
         #line hidden
         
-        #line 903 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 915 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed return type : ");
 
         
         #line default
         #line hidden
         
-        #line 904 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 916 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet)));
 
         
         #line default
         #line hidden
         
-        #line 904 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 916 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t// Managed param types : ");
 
         
         #line default
         #line hidden
         
-        #line 905 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 917 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet.Parameters)));
 
         
         #line default
         #line hidden
         
-        #line 905 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 917 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n    ");
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" (");
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodName));
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodParameters));
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 906 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 907 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 919 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 		
 	if (OutputFileType == OutputType.Implementation) 
 	{
@@ -2480,14 +2514,14 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 913 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 925 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 915 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 927 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		if (objCTypeDecl == "void") 
 		{
@@ -2496,28 +2530,28 @@ this.Write("    {\r\n");
         #line default
         #line hidden
         
-        #line 918 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 930 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 919 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 931 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 919 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 931 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 920 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 932 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		} 
 		else if (isConstructorMethod) 
@@ -2527,28 +2561,28 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 924 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 936 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 925 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 937 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 925 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 937 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 926 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 938 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 		} 
 		else 
@@ -2559,84 +2593,84 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 931 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 943 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 932 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 944 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(referencePreProcessBuilder.ToString()));
 
         
         #line default
         #line hidden
         
-        #line 932 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 944 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t\tMonoObject *");
 
         
         #line default
         #line hidden
         
-        #line 933 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 945 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
         #line hidden
         
-        #line 933 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 945 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 933 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 945 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 933 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 945 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 934 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 946 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(referencePostProcessBuilder.ToString()));
 
         
         #line default
         #line hidden
         
-        #line 934 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 946 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("\r\n\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 935 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 947 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(managedValueToObjC));
 
         
         #line default
         #line hidden
         
-        #line 935 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 947 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 936 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 948 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 	
 		}// if objCTypeDecl
 
@@ -2644,14 +2678,14 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 938 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 950 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 this.Write("    }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 940 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
+        #line 952 "\\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\CodeGenerator\Dubrovnik.CodeGeneratorEngine\Net2ObjC.tt"
 
 	} // if Implementation
 }

@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter";
+		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+ConfiguredTaskAwaiter";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

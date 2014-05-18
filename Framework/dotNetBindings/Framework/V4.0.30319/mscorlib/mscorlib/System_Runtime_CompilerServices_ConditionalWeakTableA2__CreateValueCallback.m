@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.ConditionalWeakTable`2.CreateValueCallback";
+		return "System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

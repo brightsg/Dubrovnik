@@ -32,10 +32,10 @@
     static System_DBNull * m_value;
     + (System_DBNull *)value
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Value" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Value"];
 		if ([self object:m_value isEqualToMonoObject:monoObject]) return m_value;					
 		m_value = [System_DBNull objectWithMonoObject:monoObject];
+
 		return m_value;
 	}
 

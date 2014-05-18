@@ -99,10 +99,10 @@
     static System_IO_StreamWriter * m_null;
     + (System_IO_StreamWriter *)null
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Null" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Null"];
 		if ([self object:m_null isEqualToMonoObject:monoObject]) return m_null;					
 		m_null = [System_IO_StreamWriter objectWithMonoObject:monoObject];
+
 		return m_null;
 	}
 

@@ -59,10 +59,10 @@
     @synthesize headerNamespace = _headerNamespace;
     - (NSString *)headerNamespace
     {
-		MonoObject * monoObject;
-		[self getMonoField:"HeaderNamespace" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"HeaderNamespace"];
 		if ([self object:_headerNamespace isEqualToMonoObject:monoObject]) return _headerNamespace;					
 		_headerNamespace = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _headerNamespace;
 	}
     - (void)setHeaderNamespace:(NSString *)value
@@ -77,9 +77,9 @@
     @synthesize mustUnderstand = _mustUnderstand;
     - (BOOL)mustUnderstand
     {
-		BOOL monoObject;
-		[self getMonoField:"MustUnderstand" valuePtr:DB_PTR(monoObject)];
-		_mustUnderstand = monoObject;
+		MonoObject *monoObject = [self getMonoField:"MustUnderstand"];
+		_mustUnderstand = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _mustUnderstand;
 	}
     - (void)setMustUnderstand:(BOOL)value
@@ -94,10 +94,10 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject * monoObject;
-		[self getMonoField:"Name" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"Name"];
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _name;
 	}
     - (void)setName:(NSString *)value
@@ -112,10 +112,10 @@
     @synthesize value = _value;
     - (System_Object *)value
     {
-		MonoObject * monoObject;
-		[self getMonoField:"Value" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"Value"];
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
 		_value = [System_Object objectWithMonoObject:monoObject];
+
 		return _value;
 	}
     - (void)setValue:(System_Object *)value

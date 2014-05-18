@@ -32,9 +32,9 @@
     static int32_t m_hijriEra;
     + (int32_t)hijriEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"HijriEra" valuePtr:DB_PTR(monoObject)];
-		m_hijriEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"HijriEra"];
+		m_hijriEra = DB_UNBOX_INT32(monoObject);
+
 		return m_hijriEra;
 	}
 

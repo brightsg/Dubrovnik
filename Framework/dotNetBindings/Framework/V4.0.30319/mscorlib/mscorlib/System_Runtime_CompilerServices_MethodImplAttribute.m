@@ -51,9 +51,9 @@
     @synthesize methodCodeType = _methodCodeType;
     - (System_Runtime_CompilerServices_MethodCodeType)methodCodeType
     {
-		System_Runtime_CompilerServices_MethodCodeType monoObject;
-		[self getMonoField:"MethodCodeType" valuePtr:DB_PTR(monoObject)];
-		_methodCodeType = monoObject;
+		MonoObject *monoObject = [self getMonoField:"MethodCodeType"];
+		_methodCodeType = DB_UNBOX_INT32(monoObject);
+
 		return _methodCodeType;
 	}
     - (void)setMethodCodeType:(System_Runtime_CompilerServices_MethodCodeType)value

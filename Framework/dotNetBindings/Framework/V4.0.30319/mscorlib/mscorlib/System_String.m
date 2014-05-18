@@ -99,10 +99,10 @@
     static NSString * m_empty;
     + (NSString *)empty
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Empty" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
 		m_empty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_empty;
 	}
 

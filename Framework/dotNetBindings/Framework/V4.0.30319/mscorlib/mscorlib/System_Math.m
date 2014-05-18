@@ -32,9 +32,9 @@
     static double m_e;
     + (double)e
     {
-		double monoObject;
-		[[self class] getMonoClassField:"E" valuePtr:DB_PTR(monoObject)];
-		m_e = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"E"];
+		m_e = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_e;
 	}
 
@@ -43,9 +43,9 @@
     static double m_pI;
     + (double)pI
     {
-		double monoObject;
-		[[self class] getMonoClassField:"PI" valuePtr:DB_PTR(monoObject)];
-		m_pI = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"PI"];
+		m_pI = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_pI;
 	}
 

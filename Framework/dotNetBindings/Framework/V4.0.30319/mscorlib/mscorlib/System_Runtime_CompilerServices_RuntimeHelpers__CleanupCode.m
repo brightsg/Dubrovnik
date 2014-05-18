@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.RuntimeHelpers.CleanupCode";
+		return "System.Runtime.CompilerServices.RuntimeHelpers+CleanupCode";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

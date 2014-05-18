@@ -83,7 +83,9 @@ namespace Dubrovnik
             // The ordering here helps to ensure that types are declared before they are referenced.
             //
 
-            // Write all enumerations.
+            WriteCommentBlock("Order here is Enumerations, Structs, Classes, Interfaces");
+
+            // Write all enumerations
             foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
             {
                 foreach (EnumerationFacet enumeration in @namespace.Enumerations)

@@ -32,10 +32,10 @@
     static NSString * m_actor;
     + (NSString *)actor
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Actor" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Actor"];
 		if ([self object:m_actor isEqualToMonoObject:monoObject]) return m_actor;					
 		m_actor = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_actor;
 	}
 
@@ -44,10 +44,10 @@
     static NSString * m_anonymous;
     + (NSString *)anonymous
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Anonymous" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Anonymous"];
 		if ([self object:m_anonymous isEqualToMonoObject:monoObject]) return m_anonymous;					
 		m_anonymous = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_anonymous;
 	}
 
@@ -56,10 +56,10 @@
     static NSString * m_authentication;
     + (NSString *)authentication
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Authentication" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Authentication"];
 		if ([self object:m_authentication isEqualToMonoObject:monoObject]) return m_authentication;					
 		m_authentication = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_authentication;
 	}
 
@@ -68,10 +68,10 @@
     static NSString * m_authenticationInstant;
     + (NSString *)authenticationInstant
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"AuthenticationInstant" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"AuthenticationInstant"];
 		if ([self object:m_authenticationInstant isEqualToMonoObject:monoObject]) return m_authenticationInstant;					
 		m_authenticationInstant = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_authenticationInstant;
 	}
 
@@ -80,10 +80,10 @@
     static NSString * m_authenticationMethod;
     + (NSString *)authenticationMethod
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"AuthenticationMethod" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"AuthenticationMethod"];
 		if ([self object:m_authenticationMethod isEqualToMonoObject:monoObject]) return m_authenticationMethod;					
 		m_authenticationMethod = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_authenticationMethod;
 	}
 
@@ -92,10 +92,10 @@
     static NSString * m_authorizationDecision;
     + (NSString *)authorizationDecision
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"AuthorizationDecision" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"AuthorizationDecision"];
 		if ([self object:m_authorizationDecision isEqualToMonoObject:monoObject]) return m_authorizationDecision;					
 		m_authorizationDecision = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_authorizationDecision;
 	}
 
@@ -104,10 +104,10 @@
     static NSString * m_cookiePath;
     + (NSString *)cookiePath
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"CookiePath" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"CookiePath"];
 		if ([self object:m_cookiePath isEqualToMonoObject:monoObject]) return m_cookiePath;					
 		m_cookiePath = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_cookiePath;
 	}
 
@@ -116,10 +116,10 @@
     static NSString * m_country;
     + (NSString *)country
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Country" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Country"];
 		if ([self object:m_country isEqualToMonoObject:monoObject]) return m_country;					
 		m_country = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_country;
 	}
 
@@ -128,10 +128,10 @@
     static NSString * m_dateOfBirth;
     + (NSString *)dateOfBirth
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DateOfBirth" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DateOfBirth"];
 		if ([self object:m_dateOfBirth isEqualToMonoObject:monoObject]) return m_dateOfBirth;					
 		m_dateOfBirth = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_dateOfBirth;
 	}
 
@@ -140,10 +140,10 @@
     static NSString * m_denyOnlyPrimaryGroupSid;
     + (NSString *)denyOnlyPrimaryGroupSid
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DenyOnlyPrimaryGroupSid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DenyOnlyPrimaryGroupSid"];
 		if ([self object:m_denyOnlyPrimaryGroupSid isEqualToMonoObject:monoObject]) return m_denyOnlyPrimaryGroupSid;					
 		m_denyOnlyPrimaryGroupSid = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_denyOnlyPrimaryGroupSid;
 	}
 
@@ -152,10 +152,10 @@
     static NSString * m_denyOnlyPrimarySid;
     + (NSString *)denyOnlyPrimarySid
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DenyOnlyPrimarySid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DenyOnlyPrimarySid"];
 		if ([self object:m_denyOnlyPrimarySid isEqualToMonoObject:monoObject]) return m_denyOnlyPrimarySid;					
 		m_denyOnlyPrimarySid = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_denyOnlyPrimarySid;
 	}
 
@@ -164,10 +164,10 @@
     static NSString * m_denyOnlySid;
     + (NSString *)denyOnlySid
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DenyOnlySid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DenyOnlySid"];
 		if ([self object:m_denyOnlySid isEqualToMonoObject:monoObject]) return m_denyOnlySid;					
 		m_denyOnlySid = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_denyOnlySid;
 	}
 
@@ -176,10 +176,10 @@
     static NSString * m_denyOnlyWindowsDeviceGroup;
     + (NSString *)denyOnlyWindowsDeviceGroup
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DenyOnlyWindowsDeviceGroup" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DenyOnlyWindowsDeviceGroup"];
 		if ([self object:m_denyOnlyWindowsDeviceGroup isEqualToMonoObject:monoObject]) return m_denyOnlyWindowsDeviceGroup;					
 		m_denyOnlyWindowsDeviceGroup = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_denyOnlyWindowsDeviceGroup;
 	}
 
@@ -188,10 +188,10 @@
     static NSString * m_dns;
     + (NSString *)dns
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Dns" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Dns"];
 		if ([self object:m_dns isEqualToMonoObject:monoObject]) return m_dns;					
 		m_dns = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_dns;
 	}
 
@@ -200,10 +200,10 @@
     static NSString * m_dsa;
     + (NSString *)dsa
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Dsa" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Dsa"];
 		if ([self object:m_dsa isEqualToMonoObject:monoObject]) return m_dsa;					
 		m_dsa = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_dsa;
 	}
 
@@ -212,10 +212,10 @@
     static NSString * m_email;
     + (NSString *)email
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Email" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Email"];
 		if ([self object:m_email isEqualToMonoObject:monoObject]) return m_email;					
 		m_email = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_email;
 	}
 
@@ -224,10 +224,10 @@
     static NSString * m_expiration;
     + (NSString *)expiration
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Expiration" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Expiration"];
 		if ([self object:m_expiration isEqualToMonoObject:monoObject]) return m_expiration;					
 		m_expiration = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_expiration;
 	}
 
@@ -236,10 +236,10 @@
     static NSString * m_expired;
     + (NSString *)expired
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Expired" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Expired"];
 		if ([self object:m_expired isEqualToMonoObject:monoObject]) return m_expired;					
 		m_expired = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_expired;
 	}
 
@@ -248,10 +248,10 @@
     static NSString * m_gender;
     + (NSString *)gender
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Gender" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Gender"];
 		if ([self object:m_gender isEqualToMonoObject:monoObject]) return m_gender;					
 		m_gender = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_gender;
 	}
 
@@ -260,10 +260,10 @@
     static NSString * m_givenName;
     + (NSString *)givenName
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"GivenName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"GivenName"];
 		if ([self object:m_givenName isEqualToMonoObject:monoObject]) return m_givenName;					
 		m_givenName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_givenName;
 	}
 
@@ -272,10 +272,10 @@
     static NSString * m_groupSid;
     + (NSString *)groupSid
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"GroupSid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"GroupSid"];
 		if ([self object:m_groupSid isEqualToMonoObject:monoObject]) return m_groupSid;					
 		m_groupSid = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_groupSid;
 	}
 
@@ -284,10 +284,10 @@
     static NSString * m_hash;
     + (NSString *)hash
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Hash" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Hash"];
 		if ([self object:m_hash isEqualToMonoObject:monoObject]) return m_hash;					
 		m_hash = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_hash;
 	}
 
@@ -296,10 +296,10 @@
     static NSString * m_homePhone;
     + (NSString *)homePhone
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"HomePhone" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"HomePhone"];
 		if ([self object:m_homePhone isEqualToMonoObject:monoObject]) return m_homePhone;					
 		m_homePhone = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_homePhone;
 	}
 
@@ -308,10 +308,10 @@
     static NSString * m_isPersistent;
     + (NSString *)isPersistent
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"IsPersistent" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"IsPersistent"];
 		if ([self object:m_isPersistent isEqualToMonoObject:monoObject]) return m_isPersistent;					
 		m_isPersistent = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_isPersistent;
 	}
 
@@ -320,10 +320,10 @@
     static NSString * m_locality;
     + (NSString *)locality
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Locality" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Locality"];
 		if ([self object:m_locality isEqualToMonoObject:monoObject]) return m_locality;					
 		m_locality = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_locality;
 	}
 
@@ -332,10 +332,10 @@
     static NSString * m_mobilePhone;
     + (NSString *)mobilePhone
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MobilePhone" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MobilePhone"];
 		if ([self object:m_mobilePhone isEqualToMonoObject:monoObject]) return m_mobilePhone;					
 		m_mobilePhone = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_mobilePhone;
 	}
 
@@ -344,10 +344,10 @@
     static NSString * m_name;
     + (NSString *)name
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Name" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Name"];
 		if ([self object:m_name isEqualToMonoObject:monoObject]) return m_name;					
 		m_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_name;
 	}
 
@@ -356,10 +356,10 @@
     static NSString * m_nameIdentifier;
     + (NSString *)nameIdentifier
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"NameIdentifier" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"NameIdentifier"];
 		if ([self object:m_nameIdentifier isEqualToMonoObject:monoObject]) return m_nameIdentifier;					
 		m_nameIdentifier = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_nameIdentifier;
 	}
 
@@ -368,10 +368,10 @@
     static NSString * m_otherPhone;
     + (NSString *)otherPhone
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"OtherPhone" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"OtherPhone"];
 		if ([self object:m_otherPhone isEqualToMonoObject:monoObject]) return m_otherPhone;					
 		m_otherPhone = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_otherPhone;
 	}
 
@@ -380,10 +380,10 @@
     static NSString * m_postalCode;
     + (NSString *)postalCode
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"PostalCode" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"PostalCode"];
 		if ([self object:m_postalCode isEqualToMonoObject:monoObject]) return m_postalCode;					
 		m_postalCode = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_postalCode;
 	}
 
@@ -392,10 +392,10 @@
     static NSString * m_primaryGroupSid;
     + (NSString *)primaryGroupSid
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"PrimaryGroupSid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"PrimaryGroupSid"];
 		if ([self object:m_primaryGroupSid isEqualToMonoObject:monoObject]) return m_primaryGroupSid;					
 		m_primaryGroupSid = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_primaryGroupSid;
 	}
 
@@ -404,10 +404,10 @@
     static NSString * m_primarySid;
     + (NSString *)primarySid
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"PrimarySid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"PrimarySid"];
 		if ([self object:m_primarySid isEqualToMonoObject:monoObject]) return m_primarySid;					
 		m_primarySid = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_primarySid;
 	}
 
@@ -416,10 +416,10 @@
     static NSString * m_role;
     + (NSString *)role
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Role" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Role"];
 		if ([self object:m_role isEqualToMonoObject:monoObject]) return m_role;					
 		m_role = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_role;
 	}
 
@@ -428,10 +428,10 @@
     static NSString * m_rsa;
     + (NSString *)rsa
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Rsa" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Rsa"];
 		if ([self object:m_rsa isEqualToMonoObject:monoObject]) return m_rsa;					
 		m_rsa = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_rsa;
 	}
 
@@ -440,10 +440,10 @@
     static NSString * m_serialNumber;
     + (NSString *)serialNumber
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"SerialNumber" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"SerialNumber"];
 		if ([self object:m_serialNumber isEqualToMonoObject:monoObject]) return m_serialNumber;					
 		m_serialNumber = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_serialNumber;
 	}
 
@@ -452,10 +452,10 @@
     static NSString * m_sid;
     + (NSString *)sid
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Sid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Sid"];
 		if ([self object:m_sid isEqualToMonoObject:monoObject]) return m_sid;					
 		m_sid = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_sid;
 	}
 
@@ -464,10 +464,10 @@
     static NSString * m_spn;
     + (NSString *)spn
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Spn" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Spn"];
 		if ([self object:m_spn isEqualToMonoObject:monoObject]) return m_spn;					
 		m_spn = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_spn;
 	}
 
@@ -476,10 +476,10 @@
     static NSString * m_stateOrProvince;
     + (NSString *)stateOrProvince
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"StateOrProvince" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"StateOrProvince"];
 		if ([self object:m_stateOrProvince isEqualToMonoObject:monoObject]) return m_stateOrProvince;					
 		m_stateOrProvince = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_stateOrProvince;
 	}
 
@@ -488,10 +488,10 @@
     static NSString * m_streetAddress;
     + (NSString *)streetAddress
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"StreetAddress" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"StreetAddress"];
 		if ([self object:m_streetAddress isEqualToMonoObject:monoObject]) return m_streetAddress;					
 		m_streetAddress = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_streetAddress;
 	}
 
@@ -500,10 +500,10 @@
     static NSString * m_surname;
     + (NSString *)surname
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Surname" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Surname"];
 		if ([self object:m_surname isEqualToMonoObject:monoObject]) return m_surname;					
 		m_surname = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_surname;
 	}
 
@@ -512,10 +512,10 @@
     static NSString * m_system;
     + (NSString *)system
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"System" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"System"];
 		if ([self object:m_system isEqualToMonoObject:monoObject]) return m_system;					
 		m_system = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_system;
 	}
 
@@ -524,10 +524,10 @@
     static NSString * m_thumbprint;
     + (NSString *)thumbprint
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Thumbprint" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Thumbprint"];
 		if ([self object:m_thumbprint isEqualToMonoObject:monoObject]) return m_thumbprint;					
 		m_thumbprint = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_thumbprint;
 	}
 
@@ -536,10 +536,10 @@
     static NSString * m_upn;
     + (NSString *)upn
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Upn" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Upn"];
 		if ([self object:m_upn isEqualToMonoObject:monoObject]) return m_upn;					
 		m_upn = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_upn;
 	}
 
@@ -548,10 +548,10 @@
     static NSString * m_uri;
     + (NSString *)uri
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Uri" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Uri"];
 		if ([self object:m_uri isEqualToMonoObject:monoObject]) return m_uri;					
 		m_uri = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_uri;
 	}
 
@@ -560,10 +560,10 @@
     static NSString * m_userData;
     + (NSString *)userData
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"UserData" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"UserData"];
 		if ([self object:m_userData isEqualToMonoObject:monoObject]) return m_userData;					
 		m_userData = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_userData;
 	}
 
@@ -572,10 +572,10 @@
     static NSString * m_version;
     + (NSString *)version
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Version" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Version"];
 		if ([self object:m_version isEqualToMonoObject:monoObject]) return m_version;					
 		m_version = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_version;
 	}
 
@@ -584,10 +584,10 @@
     static NSString * m_webpage;
     + (NSString *)webpage
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Webpage" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Webpage"];
 		if ([self object:m_webpage isEqualToMonoObject:monoObject]) return m_webpage;					
 		m_webpage = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_webpage;
 	}
 
@@ -596,10 +596,10 @@
     static NSString * m_windowsAccountName;
     + (NSString *)windowsAccountName
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"WindowsAccountName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"WindowsAccountName"];
 		if ([self object:m_windowsAccountName isEqualToMonoObject:monoObject]) return m_windowsAccountName;					
 		m_windowsAccountName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_windowsAccountName;
 	}
 
@@ -608,10 +608,10 @@
     static NSString * m_windowsDeviceClaim;
     + (NSString *)windowsDeviceClaim
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"WindowsDeviceClaim" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"WindowsDeviceClaim"];
 		if ([self object:m_windowsDeviceClaim isEqualToMonoObject:monoObject]) return m_windowsDeviceClaim;					
 		m_windowsDeviceClaim = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_windowsDeviceClaim;
 	}
 
@@ -620,10 +620,10 @@
     static NSString * m_windowsDeviceGroup;
     + (NSString *)windowsDeviceGroup
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"WindowsDeviceGroup" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"WindowsDeviceGroup"];
 		if ([self object:m_windowsDeviceGroup isEqualToMonoObject:monoObject]) return m_windowsDeviceGroup;					
 		m_windowsDeviceGroup = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_windowsDeviceGroup;
 	}
 
@@ -632,10 +632,10 @@
     static NSString * m_windowsFqbnVersion;
     + (NSString *)windowsFqbnVersion
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"WindowsFqbnVersion" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"WindowsFqbnVersion"];
 		if ([self object:m_windowsFqbnVersion isEqualToMonoObject:monoObject]) return m_windowsFqbnVersion;					
 		m_windowsFqbnVersion = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_windowsFqbnVersion;
 	}
 
@@ -644,10 +644,10 @@
     static NSString * m_windowsSubAuthority;
     + (NSString *)windowsSubAuthority
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"WindowsSubAuthority" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"WindowsSubAuthority"];
 		if ([self object:m_windowsSubAuthority isEqualToMonoObject:monoObject]) return m_windowsSubAuthority;					
 		m_windowsSubAuthority = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_windowsSubAuthority;
 	}
 
@@ -656,10 +656,10 @@
     static NSString * m_windowsUserClaim;
     + (NSString *)windowsUserClaim
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"WindowsUserClaim" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"WindowsUserClaim"];
 		if ([self object:m_windowsUserClaim isEqualToMonoObject:monoObject]) return m_windowsUserClaim;					
 		m_windowsUserClaim = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_windowsUserClaim;
 	}
 
@@ -668,10 +668,10 @@
     static NSString * m_x500DistinguishedName;
     + (NSString *)x500DistinguishedName
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"X500DistinguishedName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"X500DistinguishedName"];
 		if ([self object:m_x500DistinguishedName isEqualToMonoObject:monoObject]) return m_x500DistinguishedName;					
 		m_x500DistinguishedName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_x500DistinguishedName;
 	}
 

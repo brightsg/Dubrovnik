@@ -32,10 +32,10 @@
     static System_ModuleHandle * m_emptyHandle;
     + (System_ModuleHandle *)emptyHandle
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"EmptyHandle" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"EmptyHandle"];
 		if ([self object:m_emptyHandle isEqualToMonoObject:monoObject]) return m_emptyHandle;					
 		m_emptyHandle = [System_ModuleHandle objectWithMonoObject:monoObject];
+
 		return m_emptyHandle;
 	}
 

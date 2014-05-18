@@ -32,10 +32,10 @@
     static System_Guid * m_microsoft;
     + (System_Guid *)microsoft
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Microsoft" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Microsoft"];
 		if ([self object:m_microsoft isEqualToMonoObject:monoObject]) return m_microsoft;					
 		m_microsoft = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_microsoft;
 	}
 

@@ -32,9 +32,9 @@
     static uint16_t m_altDirectorySeparatorChar;
     + (uint16_t)altDirectorySeparatorChar
     {
-		uint16_t monoObject;
-		[[self class] getMonoClassField:"AltDirectorySeparatorChar" valuePtr:DB_PTR(monoObject)];
-		m_altDirectorySeparatorChar = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"AltDirectorySeparatorChar"];
+		m_altDirectorySeparatorChar = DB_UNBOX_UINT16(monoObject);
+
 		return m_altDirectorySeparatorChar;
 	}
 
@@ -43,9 +43,9 @@
     static uint16_t m_directorySeparatorChar;
     + (uint16_t)directorySeparatorChar
     {
-		uint16_t monoObject;
-		[[self class] getMonoClassField:"DirectorySeparatorChar" valuePtr:DB_PTR(monoObject)];
-		m_directorySeparatorChar = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"DirectorySeparatorChar"];
+		m_directorySeparatorChar = DB_UNBOX_UINT16(monoObject);
+
 		return m_directorySeparatorChar;
 	}
 
@@ -54,10 +54,10 @@
     static DBSystem_Array * m_invalidPathChars;
     + (DBSystem_Array *)invalidPathChars
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"InvalidPathChars" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"InvalidPathChars"];
 		if ([self object:m_invalidPathChars isEqualToMonoObject:monoObject]) return m_invalidPathChars;					
 		m_invalidPathChars = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+
 		return m_invalidPathChars;
 	}
 
@@ -66,9 +66,9 @@
     static uint16_t m_pathSeparator;
     + (uint16_t)pathSeparator
     {
-		uint16_t monoObject;
-		[[self class] getMonoClassField:"PathSeparator" valuePtr:DB_PTR(monoObject)];
-		m_pathSeparator = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"PathSeparator"];
+		m_pathSeparator = DB_UNBOX_UINT16(monoObject);
+
 		return m_pathSeparator;
 	}
 
@@ -77,9 +77,9 @@
     static uint16_t m_volumeSeparatorChar;
     + (uint16_t)volumeSeparatorChar
     {
-		uint16_t monoObject;
-		[[self class] getMonoClassField:"VolumeSeparatorChar" valuePtr:DB_PTR(monoObject)];
-		m_volumeSeparatorChar = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"VolumeSeparatorChar"];
+		m_volumeSeparatorChar = DB_UNBOX_UINT16(monoObject);
+
 		return m_volumeSeparatorChar;
 	}
 

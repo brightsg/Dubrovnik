@@ -32,9 +32,9 @@
     static int32_t m_julianEra;
     + (int32_t)julianEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"JulianEra" valuePtr:DB_PTR(monoObject)];
-		m_julianEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"JulianEra"];
+		m_julianEra = DB_UNBOX_INT32(monoObject);
+
 		return m_julianEra;
 	}
 

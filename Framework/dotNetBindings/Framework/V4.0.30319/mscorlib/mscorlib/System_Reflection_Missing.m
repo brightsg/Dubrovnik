@@ -32,10 +32,10 @@
     static System_Reflection_Missing * m_value;
     + (System_Reflection_Missing *)value
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Value" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Value"];
 		if ([self object:m_value isEqualToMonoObject:monoObject]) return m_value;					
 		m_value = [System_Reflection_Missing objectWithMonoObject:monoObject];
+
 		return m_value;
 	}
 

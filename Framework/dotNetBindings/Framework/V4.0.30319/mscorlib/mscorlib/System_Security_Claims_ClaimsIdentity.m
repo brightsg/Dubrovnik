@@ -99,10 +99,10 @@
     static NSString * m_defaultIssuer;
     + (NSString *)defaultIssuer
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DefaultIssuer" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultIssuer"];
 		if ([self object:m_defaultIssuer isEqualToMonoObject:monoObject]) return m_defaultIssuer;					
 		m_defaultIssuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_defaultIssuer;
 	}
 
@@ -111,10 +111,10 @@
     static NSString * m_defaultNameClaimType;
     + (NSString *)defaultNameClaimType
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DefaultNameClaimType" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultNameClaimType"];
 		if ([self object:m_defaultNameClaimType isEqualToMonoObject:monoObject]) return m_defaultNameClaimType;					
 		m_defaultNameClaimType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_defaultNameClaimType;
 	}
 
@@ -123,10 +123,10 @@
     static NSString * m_defaultRoleClaimType;
     + (NSString *)defaultRoleClaimType
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DefaultRoleClaimType" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultRoleClaimType"];
 		if ([self object:m_defaultRoleClaimType isEqualToMonoObject:monoObject]) return m_defaultRoleClaimType;					
 		m_defaultRoleClaimType = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_defaultRoleClaimType;
 	}
 

@@ -32,9 +32,9 @@
     static int32_t m_umAlQuraEra;
     + (int32_t)umAlQuraEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"UmAlQuraEra" valuePtr:DB_PTR(monoObject)];
-		m_umAlQuraEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"UmAlQuraEra"];
+		m_umAlQuraEra = DB_UNBOX_INT32(monoObject);
+
 		return m_umAlQuraEra;
 	}
 

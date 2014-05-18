@@ -32,9 +32,9 @@
     @synthesize eventHandle = _eventHandle;
     - (void *)eventHandle
     {
-		void * monoObject;
-		[self getMonoField:"EventHandle" valuePtr:DB_PTR(monoObject)];
-		_eventHandle = monoObject;
+		MonoObject *monoObject = [self getMonoField:"EventHandle"];
+		_eventHandle = DB_UNBOX_PTR(monoObject);
+
 		return _eventHandle;
 	}
     - (void)setEventHandle:(void *)value
@@ -49,9 +49,9 @@
     @synthesize internalHigh = _internalHigh;
     - (void *)internalHigh
     {
-		void * monoObject;
-		[self getMonoField:"InternalHigh" valuePtr:DB_PTR(monoObject)];
-		_internalHigh = monoObject;
+		MonoObject *monoObject = [self getMonoField:"InternalHigh"];
+		_internalHigh = DB_UNBOX_PTR(monoObject);
+
 		return _internalHigh;
 	}
     - (void)setInternalHigh:(void *)value
@@ -66,9 +66,9 @@
     @synthesize internalLow = _internalLow;
     - (void *)internalLow
     {
-		void * monoObject;
-		[self getMonoField:"InternalLow" valuePtr:DB_PTR(monoObject)];
-		_internalLow = monoObject;
+		MonoObject *monoObject = [self getMonoField:"InternalLow"];
+		_internalLow = DB_UNBOX_PTR(monoObject);
+
 		return _internalLow;
 	}
     - (void)setInternalLow:(void *)value
@@ -83,9 +83,9 @@
     @synthesize offsetHigh = _offsetHigh;
     - (int32_t)offsetHigh
     {
-		int32_t monoObject;
-		[self getMonoField:"OffsetHigh" valuePtr:DB_PTR(monoObject)];
-		_offsetHigh = monoObject;
+		MonoObject *monoObject = [self getMonoField:"OffsetHigh"];
+		_offsetHigh = DB_UNBOX_INT32(monoObject);
+
 		return _offsetHigh;
 	}
     - (void)setOffsetHigh:(int32_t)value
@@ -100,9 +100,9 @@
     @synthesize offsetLow = _offsetLow;
     - (int32_t)offsetLow
     {
-		int32_t monoObject;
-		[self getMonoField:"OffsetLow" valuePtr:DB_PTR(monoObject)];
-		_offsetLow = monoObject;
+		MonoObject *monoObject = [self getMonoField:"OffsetLow"];
+		_offsetLow = DB_UNBOX_INT32(monoObject);
+
 		return _offsetLow;
 	}
     - (void)setOffsetLow:(int32_t)value

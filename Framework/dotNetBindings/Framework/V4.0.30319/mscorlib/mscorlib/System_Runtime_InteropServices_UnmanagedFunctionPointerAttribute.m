@@ -43,9 +43,9 @@
     @synthesize bestFitMapping = _bestFitMapping;
     - (BOOL)bestFitMapping
     {
-		BOOL monoObject;
-		[self getMonoField:"BestFitMapping" valuePtr:DB_PTR(monoObject)];
-		_bestFitMapping = monoObject;
+		MonoObject *monoObject = [self getMonoField:"BestFitMapping"];
+		_bestFitMapping = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _bestFitMapping;
 	}
     - (void)setBestFitMapping:(BOOL)value
@@ -60,9 +60,9 @@
     @synthesize charSet = _charSet;
     - (System_Runtime_InteropServices_CharSet)charSet
     {
-		System_Runtime_InteropServices_CharSet monoObject;
-		[self getMonoField:"CharSet" valuePtr:DB_PTR(monoObject)];
-		_charSet = monoObject;
+		MonoObject *monoObject = [self getMonoField:"CharSet"];
+		_charSet = DB_UNBOX_INT32(monoObject);
+
 		return _charSet;
 	}
     - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value
@@ -77,9 +77,9 @@
     @synthesize setLastError = _setLastError;
     - (BOOL)setLastError
     {
-		BOOL monoObject;
-		[self getMonoField:"SetLastError" valuePtr:DB_PTR(monoObject)];
-		_setLastError = monoObject;
+		MonoObject *monoObject = [self getMonoField:"SetLastError"];
+		_setLastError = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _setLastError;
 	}
     - (void)setSetLastError:(BOOL)value
@@ -94,9 +94,9 @@
     @synthesize throwOnUnmappableChar = _throwOnUnmappableChar;
     - (BOOL)throwOnUnmappableChar
     {
-		BOOL monoObject;
-		[self getMonoField:"ThrowOnUnmappableChar" valuePtr:DB_PTR(monoObject)];
-		_throwOnUnmappableChar = monoObject;
+		MonoObject *monoObject = [self getMonoField:"ThrowOnUnmappableChar"];
+		_throwOnUnmappableChar = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _throwOnUnmappableChar;
 	}
     - (void)setThrowOnUnmappableChar:(BOOL)value

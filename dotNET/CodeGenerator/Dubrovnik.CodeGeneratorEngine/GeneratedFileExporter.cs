@@ -15,6 +15,7 @@ namespace Dubrovnik
         public static void WriteAllText(Net2ObjC.OutputType outputType, string contentFile, string content)
         {
 
+
             // .NET default string encoding is Unicode.
             // Here we choose UTF8 though.
             // TODO: allow choice of encoding
@@ -22,8 +23,9 @@ namespace Dubrovnik
             string outputFolder = Path.GetDirectoryName(contentFile);
 
 
+            // Content file contains an entire assembly representation
             // Xcode can choke on large single file assemblies.
-            // Give it a break and split the content
+            // Give it a break and split the content based on tags embedded in the content
             string tagStart = "//++" + Net2ObjC.GenToolName;
             string tagEnd = "//--" + Net2ObjC.GenToolName;
             List<string> fileList = new List<string>();
@@ -78,10 +80,12 @@ namespace Dubrovnik
 
             } while (idxStart != -1);
 
+            // truncate the content to before the first tag
             string truncatedContent = content.Substring(0, idxLimit);
             StringBuilder sb = new StringBuilder( truncatedContent );
             string outputFormat = "";
 
+            // get a format string for use when referencing extracted files in content file
             if (outputType == Net2ObjC.OutputType.Interface)
             {
                 outputFormat = "#import \"{0}\"";
@@ -91,6 +95,7 @@ namespace Dubrovnik
                 outputFormat = "// " +  Net2ObjC.GenToolName + " made {0}";
             }
 
+            // reference extract files either as an import or as a comment as appropriate
             foreach (string item in fileList) {
                 sb.AppendFormat(outputFormat, item);
                 sb.Append(Environment.NewLine);

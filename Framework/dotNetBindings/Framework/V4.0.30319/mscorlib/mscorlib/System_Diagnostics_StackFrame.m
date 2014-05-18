@@ -75,9 +75,9 @@
     static int32_t m_oFFSET_UNKNOWN;
     + (int32_t)oFFSET_UNKNOWN
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"OFFSET_UNKNOWN" valuePtr:DB_PTR(monoObject)];
-		m_oFFSET_UNKNOWN = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"OFFSET_UNKNOWN"];
+		m_oFFSET_UNKNOWN = DB_UNBOX_INT32(monoObject);
+
 		return m_oFFSET_UNKNOWN;
 	}
 

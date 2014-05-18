@@ -75,10 +75,10 @@
     @synthesize keyContainerName = _keyContainerName;
     - (NSString *)keyContainerName
     {
-		MonoObject * monoObject;
-		[self getMonoField:"KeyContainerName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"KeyContainerName"];
 		if ([self object:_keyContainerName isEqualToMonoObject:monoObject]) return _keyContainerName;					
 		_keyContainerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _keyContainerName;
 	}
     - (void)setKeyContainerName:(NSString *)value
@@ -93,9 +93,9 @@
     @synthesize keyNumber = _keyNumber;
     - (int32_t)keyNumber
     {
-		int32_t monoObject;
-		[self getMonoField:"KeyNumber" valuePtr:DB_PTR(monoObject)];
-		_keyNumber = monoObject;
+		MonoObject *monoObject = [self getMonoField:"KeyNumber"];
+		_keyNumber = DB_UNBOX_INT32(monoObject);
+
 		return _keyNumber;
 	}
     - (void)setKeyNumber:(int32_t)value
@@ -110,10 +110,10 @@
     @synthesize providerName = _providerName;
     - (NSString *)providerName
     {
-		MonoObject * monoObject;
-		[self getMonoField:"ProviderName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"ProviderName"];
 		if ([self object:_providerName isEqualToMonoObject:monoObject]) return _providerName;					
 		_providerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _providerName;
 	}
     - (void)setProviderName:(NSString *)value
@@ -128,9 +128,9 @@
     @synthesize providerType = _providerType;
     - (int32_t)providerType
     {
-		int32_t monoObject;
-		[self getMonoField:"ProviderType" valuePtr:DB_PTR(monoObject)];
-		_providerType = monoObject;
+		MonoObject *monoObject = [self getMonoField:"ProviderType"];
+		_providerType = DB_UNBOX_INT32(monoObject);
+
 		return _providerType;
 	}
     - (void)setProviderType:(int32_t)value

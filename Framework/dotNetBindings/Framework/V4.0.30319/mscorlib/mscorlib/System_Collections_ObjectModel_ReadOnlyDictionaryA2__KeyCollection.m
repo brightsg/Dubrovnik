@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.ReadOnlyDictionary`2.KeyCollection";
+		return "System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

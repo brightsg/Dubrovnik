@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter";
+		return "System.Runtime.CompilerServices.YieldAwaitable+YieldAwaiter";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

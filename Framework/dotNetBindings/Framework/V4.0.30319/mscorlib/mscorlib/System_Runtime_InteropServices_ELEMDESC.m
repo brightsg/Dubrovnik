@@ -32,10 +32,10 @@
     @synthesize desc = _desc;
     - (System_Runtime_InteropServices_ELEMDESC__DESCUNION *)desc
     {
-		MonoObject * monoObject;
-		[self getMonoField:"desc" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"desc"];
 		if ([self object:_desc isEqualToMonoObject:monoObject]) return _desc;					
 		_desc = [System_Runtime_InteropServices_ELEMDESC__DESCUNION objectWithMonoObject:monoObject];
+
 		return _desc;
 	}
     - (void)setDesc:(System_Runtime_InteropServices_ELEMDESC__DESCUNION *)value
@@ -50,10 +50,10 @@
     @synthesize tdesc = _tdesc;
     - (System_Runtime_InteropServices_TYPEDESC *)tdesc
     {
-		MonoObject * monoObject;
-		[self getMonoField:"tdesc" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"tdesc"];
 		if ([self object:_tdesc isEqualToMonoObject:monoObject]) return _tdesc;					
 		_tdesc = [System_Runtime_InteropServices_TYPEDESC objectWithMonoObject:monoObject];
+
 		return _tdesc;
 	}
     - (void)setTdesc:(System_Runtime_InteropServices_TYPEDESC *)value

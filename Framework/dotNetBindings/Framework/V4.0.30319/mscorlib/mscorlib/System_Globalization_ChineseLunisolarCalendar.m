@@ -32,9 +32,9 @@
     static int32_t m_chineseEra;
     + (int32_t)chineseEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"ChineseEra" valuePtr:DB_PTR(monoObject)];
-		m_chineseEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"ChineseEra"];
+		m_chineseEra = DB_UNBOX_INT32(monoObject);
+
 		return m_chineseEra;
 	}
 

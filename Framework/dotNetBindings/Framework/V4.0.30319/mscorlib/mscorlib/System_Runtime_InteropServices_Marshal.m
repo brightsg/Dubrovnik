@@ -32,9 +32,9 @@
     static int32_t m_systemDefaultCharSize;
     + (int32_t)systemDefaultCharSize
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"SystemDefaultCharSize" valuePtr:DB_PTR(monoObject)];
-		m_systemDefaultCharSize = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"SystemDefaultCharSize"];
+		m_systemDefaultCharSize = DB_UNBOX_INT32(monoObject);
+
 		return m_systemDefaultCharSize;
 	}
 
@@ -43,9 +43,9 @@
     static int32_t m_systemMaxDBCSCharSize;
     + (int32_t)systemMaxDBCSCharSize
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"SystemMaxDBCSCharSize" valuePtr:DB_PTR(monoObject)];
-		m_systemMaxDBCSCharSize = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"SystemMaxDBCSCharSize"];
+		m_systemMaxDBCSCharSize = DB_UNBOX_INT32(monoObject);
+
 		return m_systemMaxDBCSCharSize;
 	}
 

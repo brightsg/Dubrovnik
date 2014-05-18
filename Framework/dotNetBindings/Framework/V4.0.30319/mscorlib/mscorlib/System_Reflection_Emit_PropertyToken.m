@@ -32,10 +32,10 @@
     static System_Reflection_Emit_PropertyToken * m_empty;
     + (System_Reflection_Emit_PropertyToken *)empty
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Empty" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
 		m_empty = [System_Reflection_Emit_PropertyToken objectWithMonoObject:monoObject];
+
 		return m_empty;
 	}
 

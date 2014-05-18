@@ -32,10 +32,10 @@
     @synthesize guid = _guid;
     - (System_Guid *)guid
     {
-		MonoObject * monoObject;
-		[self getMonoField:"guid" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"guid"];
 		if ([self object:_guid isEqualToMonoObject:monoObject]) return _guid;					
 		_guid = [System_Guid objectWithMonoObject:monoObject];
+
 		return _guid;
 	}
     - (void)setGuid:(System_Guid *)value
@@ -50,9 +50,9 @@
     @synthesize lcid = _lcid;
     - (int32_t)lcid
     {
-		int32_t monoObject;
-		[self getMonoField:"lcid" valuePtr:DB_PTR(monoObject)];
-		_lcid = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lcid"];
+		_lcid = DB_UNBOX_INT32(monoObject);
+
 		return _lcid;
 	}
     - (void)setLcid:(int32_t)value
@@ -67,9 +67,9 @@
     @synthesize syskind = _syskind;
     - (System_Runtime_InteropServices_ComTypes_SYSKIND)syskind
     {
-		System_Runtime_InteropServices_ComTypes_SYSKIND monoObject;
-		[self getMonoField:"syskind" valuePtr:DB_PTR(monoObject)];
-		_syskind = monoObject;
+		MonoObject *monoObject = [self getMonoField:"syskind"];
+		_syskind = DB_UNBOX_INT32(monoObject);
+
 		return _syskind;
 	}
     - (void)setSyskind:(System_Runtime_InteropServices_ComTypes_SYSKIND)value
@@ -84,9 +84,9 @@
     @synthesize wLibFlags = _wLibFlags;
     - (System_Runtime_InteropServices_ComTypes_LIBFLAGS)wLibFlags
     {
-		System_Runtime_InteropServices_ComTypes_LIBFLAGS monoObject;
-		[self getMonoField:"wLibFlags" valuePtr:DB_PTR(monoObject)];
-		_wLibFlags = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wLibFlags"];
+		_wLibFlags = DB_UNBOX_INT16(monoObject);
+
 		return _wLibFlags;
 	}
     - (void)setWLibFlags:(System_Runtime_InteropServices_ComTypes_LIBFLAGS)value
@@ -101,9 +101,9 @@
     @synthesize wMajorVerNum = _wMajorVerNum;
     - (int16_t)wMajorVerNum
     {
-		int16_t monoObject;
-		[self getMonoField:"wMajorVerNum" valuePtr:DB_PTR(monoObject)];
-		_wMajorVerNum = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wMajorVerNum"];
+		_wMajorVerNum = DB_UNBOX_INT16(monoObject);
+
 		return _wMajorVerNum;
 	}
     - (void)setWMajorVerNum:(int16_t)value
@@ -118,9 +118,9 @@
     @synthesize wMinorVerNum = _wMinorVerNum;
     - (int16_t)wMinorVerNum
     {
-		int16_t monoObject;
-		[self getMonoField:"wMinorVerNum" valuePtr:DB_PTR(monoObject)];
-		_wMinorVerNum = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wMinorVerNum"];
+		_wMinorVerNum = DB_UNBOX_INT16(monoObject);
+
 		return _wMinorVerNum;
 	}
     - (void)setWMinorVerNum:(int16_t)value

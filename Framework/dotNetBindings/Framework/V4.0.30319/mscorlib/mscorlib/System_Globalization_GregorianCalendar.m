@@ -43,9 +43,9 @@
     static int32_t m_aDEra;
     + (int32_t)aDEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"ADEra" valuePtr:DB_PTR(monoObject)];
-		m_aDEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"ADEra"];
+		m_aDEra = DB_UNBOX_INT32(monoObject);
+
 		return m_aDEra;
 	}
 

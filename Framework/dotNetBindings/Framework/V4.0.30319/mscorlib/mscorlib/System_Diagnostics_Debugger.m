@@ -32,10 +32,10 @@
     static NSString * m_defaultCategory;
     + (NSString *)defaultCategory
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DefaultCategory" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultCategory"];
 		if ([self object:m_defaultCategory isEqualToMonoObject:monoObject]) return m_defaultCategory;					
 		m_defaultCategory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_defaultCategory;
 	}
 

@@ -222,6 +222,18 @@ public void WritePragmaMark(string info)
 }
 
 //
+// WriteCommentBlock
+//
+public void WriteCommentBlock(string info)
+{
+#>
+
+/*
+<#=info#>
+*/
+<#+	
+}
+//
 // WriteImplementationFilePreliminaries
 //
 public void WriteImplementationFilePreliminaries()

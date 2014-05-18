@@ -91,10 +91,10 @@
     static NSString * m_defaultIssuer;
     + (NSString *)defaultIssuer
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DefaultIssuer" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultIssuer"];
 		if ([self object:m_defaultIssuer isEqualToMonoObject:monoObject]) return m_defaultIssuer;					
 		m_defaultIssuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_defaultIssuer;
 	}
 

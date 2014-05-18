@@ -32,9 +32,9 @@
     static int32_t m_waitTimeout;
     + (int32_t)waitTimeout
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"WaitTimeout" valuePtr:DB_PTR(monoObject)];
-		m_waitTimeout = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"WaitTimeout"];
+		m_waitTimeout = DB_UNBOX_INT32(monoObject);
+
 		return m_waitTimeout;
 	}
 

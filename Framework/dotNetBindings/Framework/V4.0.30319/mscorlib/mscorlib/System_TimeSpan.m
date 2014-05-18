@@ -67,10 +67,10 @@
     static System_TimeSpan * m_maxValue;
     + (System_TimeSpan *)maxValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
 		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
 		m_maxValue = [System_TimeSpan objectWithMonoObject:monoObject];
+
 		return m_maxValue;
 	}
 
@@ -79,10 +79,10 @@
     static System_TimeSpan * m_minValue;
     + (System_TimeSpan *)minValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
 		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
 		m_minValue = [System_TimeSpan objectWithMonoObject:monoObject];
+
 		return m_minValue;
 	}
 
@@ -91,9 +91,9 @@
     static int64_t m_ticksPerDay;
     + (int64_t)ticksPerDay
     {
-		int64_t monoObject;
-		[[self class] getMonoClassField:"TicksPerDay" valuePtr:DB_PTR(monoObject)];
-		m_ticksPerDay = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerDay"];
+		m_ticksPerDay = DB_UNBOX_INT64(monoObject);
+
 		return m_ticksPerDay;
 	}
 
@@ -102,9 +102,9 @@
     static int64_t m_ticksPerHour;
     + (int64_t)ticksPerHour
     {
-		int64_t monoObject;
-		[[self class] getMonoClassField:"TicksPerHour" valuePtr:DB_PTR(monoObject)];
-		m_ticksPerHour = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerHour"];
+		m_ticksPerHour = DB_UNBOX_INT64(monoObject);
+
 		return m_ticksPerHour;
 	}
 
@@ -113,9 +113,9 @@
     static int64_t m_ticksPerMillisecond;
     + (int64_t)ticksPerMillisecond
     {
-		int64_t monoObject;
-		[[self class] getMonoClassField:"TicksPerMillisecond" valuePtr:DB_PTR(monoObject)];
-		m_ticksPerMillisecond = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerMillisecond"];
+		m_ticksPerMillisecond = DB_UNBOX_INT64(monoObject);
+
 		return m_ticksPerMillisecond;
 	}
 
@@ -124,9 +124,9 @@
     static int64_t m_ticksPerMinute;
     + (int64_t)ticksPerMinute
     {
-		int64_t monoObject;
-		[[self class] getMonoClassField:"TicksPerMinute" valuePtr:DB_PTR(monoObject)];
-		m_ticksPerMinute = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerMinute"];
+		m_ticksPerMinute = DB_UNBOX_INT64(monoObject);
+
 		return m_ticksPerMinute;
 	}
 
@@ -135,9 +135,9 @@
     static int64_t m_ticksPerSecond;
     + (int64_t)ticksPerSecond
     {
-		int64_t monoObject;
-		[[self class] getMonoClassField:"TicksPerSecond" valuePtr:DB_PTR(monoObject)];
-		m_ticksPerSecond = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerSecond"];
+		m_ticksPerSecond = DB_UNBOX_INT64(monoObject);
+
 		return m_ticksPerSecond;
 	}
 
@@ -146,10 +146,10 @@
     static System_TimeSpan * m_zero;
     + (System_TimeSpan *)zero
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Zero" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
 		if ([self object:m_zero isEqualToMonoObject:monoObject]) return m_zero;					
 		m_zero = [System_TimeSpan objectWithMonoObject:monoObject];
+
 		return m_zero;
 	}
 

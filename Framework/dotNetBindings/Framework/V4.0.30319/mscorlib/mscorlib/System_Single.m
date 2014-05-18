@@ -32,9 +32,9 @@
     static float m_epsilon;
     + (float)epsilon
     {
-		float monoObject;
-		[[self class] getMonoClassField:"Epsilon" valuePtr:DB_PTR(monoObject)];
-		m_epsilon = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"Epsilon"];
+		m_epsilon = DB_UNBOX_FLOAT(monoObject);
+
 		return m_epsilon;
 	}
 
@@ -43,9 +43,9 @@
     static float m_maxValue;
     + (float)maxValue
     {
-		float monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		m_maxValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+		m_maxValue = DB_UNBOX_FLOAT(monoObject);
+
 		return m_maxValue;
 	}
 
@@ -54,9 +54,9 @@
     static float m_minValue;
     + (float)minValue
     {
-		float monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		m_minValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+		m_minValue = DB_UNBOX_FLOAT(monoObject);
+
 		return m_minValue;
 	}
 
@@ -65,9 +65,9 @@
     static float m_naN;
     + (float)naN
     {
-		float monoObject;
-		[[self class] getMonoClassField:"NaN" valuePtr:DB_PTR(monoObject)];
-		m_naN = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"NaN"];
+		m_naN = DB_UNBOX_FLOAT(monoObject);
+
 		return m_naN;
 	}
 
@@ -76,9 +76,9 @@
     static float m_negativeInfinity;
     + (float)negativeInfinity
     {
-		float monoObject;
-		[[self class] getMonoClassField:"NegativeInfinity" valuePtr:DB_PTR(monoObject)];
-		m_negativeInfinity = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"NegativeInfinity"];
+		m_negativeInfinity = DB_UNBOX_FLOAT(monoObject);
+
 		return m_negativeInfinity;
 	}
 
@@ -87,9 +87,9 @@
     static float m_positiveInfinity;
     + (float)positiveInfinity
     {
-		float monoObject;
-		[[self class] getMonoClassField:"PositiveInfinity" valuePtr:DB_PTR(monoObject)];
-		m_positiveInfinity = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"PositiveInfinity"];
+		m_positiveInfinity = DB_UNBOX_FLOAT(monoObject);
+
 		return m_positiveInfinity;
 	}
 

@@ -32,9 +32,9 @@
     @synthesize dwHighDateTime = _dwHighDateTime;
     - (int32_t)dwHighDateTime
     {
-		int32_t monoObject;
-		[self getMonoField:"dwHighDateTime" valuePtr:DB_PTR(monoObject)];
-		_dwHighDateTime = monoObject;
+		MonoObject *monoObject = [self getMonoField:"dwHighDateTime"];
+		_dwHighDateTime = DB_UNBOX_INT32(monoObject);
+
 		return _dwHighDateTime;
 	}
     - (void)setDwHighDateTime:(int32_t)value
@@ -49,9 +49,9 @@
     @synthesize dwLowDateTime = _dwLowDateTime;
     - (int32_t)dwLowDateTime
     {
-		int32_t monoObject;
-		[self getMonoField:"dwLowDateTime" valuePtr:DB_PTR(monoObject)];
-		_dwLowDateTime = monoObject;
+		MonoObject *monoObject = [self getMonoField:"dwLowDateTime"];
+		_dwLowDateTime = DB_UNBOX_INT32(monoObject);
+
 		return _dwLowDateTime;
 	}
     - (void)setDwLowDateTime:(int32_t)value

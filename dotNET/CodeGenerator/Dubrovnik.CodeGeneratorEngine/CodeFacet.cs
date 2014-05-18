@@ -342,50 +342,53 @@ namespace Dubrovnik
             return name;
         }
 
-        /*
-         * Order the facets such that derived types occur after their base type
-         */ 
-        public void OrderByDerivation(IList<CodeFacet> facets)
+        public IList<CodeFacet> OrderByDerivation(IList<CodeFacet> facets)
         {
-            IList<CodeFacet> baseFacets = new List<CodeFacet>();
-
-            // Get facets that act as base types.
-            // TODO: improve efficency.
-            foreach (CodeFacet facet in facets) {
-                IEnumerable<CodeFacet> query = from f in facets where f.BaseType == facet.Type select f;
-                if (query.Count() > 0)
-                {
-                    baseFacets.Add(facet);
-                }
-            }
-
-            if (baseFacets.Count() > 0)
+            IList<CodeFacet> orderedFacets = new List<CodeFacet>();
+            foreach (CodeFacet facet in facets)
             {
-                // Remove the base facets
-                foreach (CodeFacet baseFacet in baseFacets)
+                // append facet if not present
+                if (!orderedFacets.Contains(facet))
                 {
-                    facets.Remove(baseFacet);
-                }
+                    orderedFacets.Add(facet);
+                    int idx = orderedFacets.Count() - 1;
 
-                // Reinsert each base facet prior to the first occurence of derived type
-                foreach (CodeFacet baseFacet in baseFacets)
-                {
-                    int idx = 0;    // default index
-                    for (int i = 0; i < facets.Count(); i++) {
-                        CodeFacet facet = facets[i];
-                        if (facet.BaseType != null && baseFacet.Type != null)
+                    // build type inheritance tree
+                    bool done = false;
+                    CodeFacet iFacet = facet;
+                    while (done == false)
+                    {
+                        // select basetype facet
+                        IEnumerable<CodeFacet> query = from f in facets where f.Type == iFacet.BaseType select f;
+                        if (!query.Any())
                         {
-                            if (facet.BaseType.Equals(baseFacet.Type))
+                            done = true;
+                        }
+                        else
+                        {
+                            if (query.Count() > 1)
                             {
-                                idx = i;
-                                break;
+                                throw new Exception(String.Format("Duplicate base types ({0}) found for type {1}",
+                                    query.Count().ToString(), iFacet.Type));
+                            }
+
+                            CodeFacet baseFacet = query.First();
+
+                            if (orderedFacets.Contains(baseFacet))
+                            {
+                                done = true;
+                            }
+                            else
+                            {
+                                 orderedFacets.Insert(idx, baseFacet);
+                                 iFacet = baseFacet;
                             }
                         }
                     }
-                    facets.Insert(idx, baseFacet);
                 }
             }
 
+            return orderedFacets;
         }
 
         public void SetDefaultBaseType()
@@ -436,9 +439,9 @@ namespace Dubrovnik
             // from a type defined in another. Hence we need to process all types together.
             IList<ClassFacet> classes = Classes();
             IList<CodeFacet> facets = classes.Cast<CodeFacet>().ToList();
-            OrderByDerivation(facets);
+            IList<CodeFacet> orderedFacets = OrderByDerivation(facets);
 
-            return facets.Cast<ClassFacet>().ToList(); ;
+            return orderedFacets.Cast<ClassFacet>().ToList(); ;
         }
     }
 

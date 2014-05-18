@@ -32,9 +32,9 @@
     @synthesize counter = _counter;
     - (int32_t)counter
     {
-		int32_t monoObject;
-		[self getMonoField:"Counter" valuePtr:DB_PTR(monoObject)];
-		_counter = monoObject;
+		MonoObject *monoObject = [self getMonoField:"Counter"];
+		_counter = DB_UNBOX_INT32(monoObject);
+
 		return _counter;
 	}
     - (void)setCounter:(int32_t)value
@@ -49,10 +49,10 @@
     @synthesize g = _g;
     - (NSData *)g
     {
-		MonoObject * monoObject;
-		[self getMonoField:"G" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"G"];
 		if ([self object:_g isEqualToMonoObject:monoObject]) return _g;					
 		_g = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _g;
 	}
     - (void)setG:(NSData *)value
@@ -67,10 +67,10 @@
     @synthesize j = _j;
     - (NSData *)j
     {
-		MonoObject * monoObject;
-		[self getMonoField:"J" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"J"];
 		if ([self object:_j isEqualToMonoObject:monoObject]) return _j;					
 		_j = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _j;
 	}
     - (void)setJ:(NSData *)value
@@ -85,10 +85,10 @@
     @synthesize p = _p;
     - (NSData *)p
     {
-		MonoObject * monoObject;
-		[self getMonoField:"P" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"P"];
 		if ([self object:_p isEqualToMonoObject:monoObject]) return _p;					
 		_p = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _p;
 	}
     - (void)setP:(NSData *)value
@@ -103,10 +103,10 @@
     @synthesize q = _q;
     - (NSData *)q
     {
-		MonoObject * monoObject;
-		[self getMonoField:"Q" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"Q"];
 		if ([self object:_q isEqualToMonoObject:monoObject]) return _q;					
 		_q = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _q;
 	}
     - (void)setQ:(NSData *)value
@@ -121,10 +121,10 @@
     @synthesize seed = _seed;
     - (NSData *)seed
     {
-		MonoObject * monoObject;
-		[self getMonoField:"Seed" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"Seed"];
 		if ([self object:_seed isEqualToMonoObject:monoObject]) return _seed;					
 		_seed = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _seed;
 	}
     - (void)setSeed:(NSData *)value
@@ -139,10 +139,10 @@
     @synthesize x = _x;
     - (NSData *)x
     {
-		MonoObject * monoObject;
-		[self getMonoField:"X" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"X"];
 		if ([self object:_x isEqualToMonoObject:monoObject]) return _x;					
 		_x = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _x;
 	}
     - (void)setX:(NSData *)value
@@ -157,10 +157,10 @@
     @synthesize y = _y;
     - (NSData *)y
     {
-		MonoObject * monoObject;
-		[self getMonoField:"Y" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"Y"];
 		if ([self object:_y isEqualToMonoObject:monoObject]) return _y;					
 		_y = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+
 		return _y;
 	}
     - (void)setY:(NSData *)value

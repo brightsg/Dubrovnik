@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.TimeZoneInfo.AdjustmentRule";
+		return "System.TimeZoneInfo+AdjustmentRule";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

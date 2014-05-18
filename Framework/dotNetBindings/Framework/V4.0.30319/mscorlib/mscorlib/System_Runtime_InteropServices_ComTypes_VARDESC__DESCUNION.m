@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.InteropServices.ComTypes.VARDESC.DESCUNION";
+		return "System.Runtime.InteropServices.ComTypes.VARDESC+DESCUNION";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,9 +32,9 @@
     @synthesize lpvarValue = _lpvarValue;
     - (void *)lpvarValue
     {
-		void * monoObject;
-		[self getMonoField:"lpvarValue" valuePtr:DB_PTR(monoObject)];
-		_lpvarValue = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lpvarValue"];
+		_lpvarValue = DB_UNBOX_PTR(monoObject);
+
 		return _lpvarValue;
 	}
     - (void)setLpvarValue:(void *)value
@@ -49,9 +49,9 @@
     @synthesize oInst = _oInst;
     - (int32_t)oInst
     {
-		int32_t monoObject;
-		[self getMonoField:"oInst" valuePtr:DB_PTR(monoObject)];
-		_oInst = monoObject;
+		MonoObject *monoObject = [self getMonoField:"oInst"];
+		_oInst = DB_UNBOX_INT32(monoObject);
+
 		return _oInst;
 	}
     - (void)setOInst:(int32_t)value

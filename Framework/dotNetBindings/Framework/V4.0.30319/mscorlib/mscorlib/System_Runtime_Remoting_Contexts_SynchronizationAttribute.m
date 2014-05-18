@@ -59,9 +59,9 @@
     static int32_t m_nOT_SUPPORTED;
     + (int32_t)nOT_SUPPORTED
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"NOT_SUPPORTED" valuePtr:DB_PTR(monoObject)];
-		m_nOT_SUPPORTED = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"NOT_SUPPORTED"];
+		m_nOT_SUPPORTED = DB_UNBOX_INT32(monoObject);
+
 		return m_nOT_SUPPORTED;
 	}
 
@@ -70,9 +70,9 @@
     static int32_t m_rEQUIRED;
     + (int32_t)rEQUIRED
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"REQUIRED" valuePtr:DB_PTR(monoObject)];
-		m_rEQUIRED = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"REQUIRED"];
+		m_rEQUIRED = DB_UNBOX_INT32(monoObject);
+
 		return m_rEQUIRED;
 	}
 
@@ -81,9 +81,9 @@
     static int32_t m_rEQUIRES_NEW;
     + (int32_t)rEQUIRES_NEW
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"REQUIRES_NEW" valuePtr:DB_PTR(monoObject)];
-		m_rEQUIRES_NEW = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"REQUIRES_NEW"];
+		m_rEQUIRES_NEW = DB_UNBOX_INT32(monoObject);
+
 		return m_rEQUIRES_NEW;
 	}
 
@@ -92,9 +92,9 @@
     static int32_t m_sUPPORTED;
     + (int32_t)sUPPORTED
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"SUPPORTED" valuePtr:DB_PTR(monoObject)];
-		m_sUPPORTED = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"SUPPORTED"];
+		m_sUPPORTED = DB_UNBOX_INT32(monoObject);
+
 		return m_sUPPORTED;
 	}
 

@@ -107,9 +107,9 @@
     static int32_t m_mETHODS_TO_SKIP;
     + (int32_t)mETHODS_TO_SKIP
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"METHODS_TO_SKIP" valuePtr:DB_PTR(monoObject)];
-		m_mETHODS_TO_SKIP = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"METHODS_TO_SKIP"];
+		m_mETHODS_TO_SKIP = DB_UNBOX_INT32(monoObject);
+
 		return m_mETHODS_TO_SKIP;
 	}
 

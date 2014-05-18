@@ -32,10 +32,10 @@
     static System_Reflection_TypeFilter * m_filterTypeName;
     + (System_Reflection_TypeFilter *)filterTypeName
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"FilterTypeName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"FilterTypeName"];
 		if ([self object:m_filterTypeName isEqualToMonoObject:monoObject]) return m_filterTypeName;					
 		m_filterTypeName = [System_Reflection_TypeFilter objectWithMonoObject:monoObject];
+
 		return m_filterTypeName;
 	}
 
@@ -44,10 +44,10 @@
     static System_Reflection_TypeFilter * m_filterTypeNameIgnoreCase;
     + (System_Reflection_TypeFilter *)filterTypeNameIgnoreCase
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"FilterTypeNameIgnoreCase" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"FilterTypeNameIgnoreCase"];
 		if ([self object:m_filterTypeNameIgnoreCase isEqualToMonoObject:monoObject]) return m_filterTypeNameIgnoreCase;					
 		m_filterTypeNameIgnoreCase = [System_Reflection_TypeFilter objectWithMonoObject:monoObject];
+
 		return m_filterTypeNameIgnoreCase;
 	}
 

@@ -32,10 +32,10 @@
     static Microsoft_Win32_RegistryKey * m_classesRoot;
     + (Microsoft_Win32_RegistryKey *)classesRoot
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"ClassesRoot" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"ClassesRoot"];
 		if ([self object:m_classesRoot isEqualToMonoObject:monoObject]) return m_classesRoot;					
 		m_classesRoot = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+
 		return m_classesRoot;
 	}
 
@@ -44,10 +44,10 @@
     static Microsoft_Win32_RegistryKey * m_currentConfig;
     + (Microsoft_Win32_RegistryKey *)currentConfig
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"CurrentConfig" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"CurrentConfig"];
 		if ([self object:m_currentConfig isEqualToMonoObject:monoObject]) return m_currentConfig;					
 		m_currentConfig = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+
 		return m_currentConfig;
 	}
 
@@ -56,10 +56,10 @@
     static Microsoft_Win32_RegistryKey * m_currentUser;
     + (Microsoft_Win32_RegistryKey *)currentUser
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"CurrentUser" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"CurrentUser"];
 		if ([self object:m_currentUser isEqualToMonoObject:monoObject]) return m_currentUser;					
 		m_currentUser = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+
 		return m_currentUser;
 	}
 
@@ -68,10 +68,10 @@
     static Microsoft_Win32_RegistryKey * m_dynData;
     + (Microsoft_Win32_RegistryKey *)dynData
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"DynData" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"DynData"];
 		if ([self object:m_dynData isEqualToMonoObject:monoObject]) return m_dynData;					
 		m_dynData = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+
 		return m_dynData;
 	}
 
@@ -80,10 +80,10 @@
     static Microsoft_Win32_RegistryKey * m_localMachine;
     + (Microsoft_Win32_RegistryKey *)localMachine
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"LocalMachine" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"LocalMachine"];
 		if ([self object:m_localMachine isEqualToMonoObject:monoObject]) return m_localMachine;					
 		m_localMachine = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+
 		return m_localMachine;
 	}
 
@@ -92,10 +92,10 @@
     static Microsoft_Win32_RegistryKey * m_performanceData;
     + (Microsoft_Win32_RegistryKey *)performanceData
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"PerformanceData" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"PerformanceData"];
 		if ([self object:m_performanceData isEqualToMonoObject:monoObject]) return m_performanceData;					
 		m_performanceData = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+
 		return m_performanceData;
 	}
 
@@ -104,10 +104,10 @@
     static Microsoft_Win32_RegistryKey * m_users;
     + (Microsoft_Win32_RegistryKey *)users
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Users" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Users"];
 		if ([self object:m_users isEqualToMonoObject:monoObject]) return m_users;					
 		m_users = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+
 		return m_users;
 	}
 

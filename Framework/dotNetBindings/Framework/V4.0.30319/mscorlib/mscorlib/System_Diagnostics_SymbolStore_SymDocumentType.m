@@ -32,10 +32,10 @@
     static System_Guid * m_text;
     + (System_Guid *)text
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Text" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Text"];
 		if ([self object:m_text isEqualToMonoObject:monoObject]) return m_text;					
 		m_text = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_text;
 	}
 

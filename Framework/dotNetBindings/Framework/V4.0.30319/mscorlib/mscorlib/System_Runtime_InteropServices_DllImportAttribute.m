@@ -43,9 +43,9 @@
     @synthesize bestFitMapping = _bestFitMapping;
     - (BOOL)bestFitMapping
     {
-		BOOL monoObject;
-		[self getMonoField:"BestFitMapping" valuePtr:DB_PTR(monoObject)];
-		_bestFitMapping = monoObject;
+		MonoObject *monoObject = [self getMonoField:"BestFitMapping"];
+		_bestFitMapping = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _bestFitMapping;
 	}
     - (void)setBestFitMapping:(BOOL)value
@@ -60,9 +60,9 @@
     @synthesize callingConvention = _callingConvention;
     - (System_Runtime_InteropServices_CallingConvention)callingConvention
     {
-		System_Runtime_InteropServices_CallingConvention monoObject;
-		[self getMonoField:"CallingConvention" valuePtr:DB_PTR(monoObject)];
-		_callingConvention = monoObject;
+		MonoObject *monoObject = [self getMonoField:"CallingConvention"];
+		_callingConvention = DB_UNBOX_INT32(monoObject);
+
 		return _callingConvention;
 	}
     - (void)setCallingConvention:(System_Runtime_InteropServices_CallingConvention)value
@@ -77,9 +77,9 @@
     @synthesize charSet = _charSet;
     - (System_Runtime_InteropServices_CharSet)charSet
     {
-		System_Runtime_InteropServices_CharSet monoObject;
-		[self getMonoField:"CharSet" valuePtr:DB_PTR(monoObject)];
-		_charSet = monoObject;
+		MonoObject *monoObject = [self getMonoField:"CharSet"];
+		_charSet = DB_UNBOX_INT32(monoObject);
+
 		return _charSet;
 	}
     - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value
@@ -94,10 +94,10 @@
     @synthesize entryPoint = _entryPoint;
     - (NSString *)entryPoint
     {
-		MonoObject * monoObject;
-		[self getMonoField:"EntryPoint" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"EntryPoint"];
 		if ([self object:_entryPoint isEqualToMonoObject:monoObject]) return _entryPoint;					
 		_entryPoint = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _entryPoint;
 	}
     - (void)setEntryPoint:(NSString *)value
@@ -112,9 +112,9 @@
     @synthesize exactSpelling = _exactSpelling;
     - (BOOL)exactSpelling
     {
-		BOOL monoObject;
-		[self getMonoField:"ExactSpelling" valuePtr:DB_PTR(monoObject)];
-		_exactSpelling = monoObject;
+		MonoObject *monoObject = [self getMonoField:"ExactSpelling"];
+		_exactSpelling = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _exactSpelling;
 	}
     - (void)setExactSpelling:(BOOL)value
@@ -129,9 +129,9 @@
     @synthesize preserveSig = _preserveSig;
     - (BOOL)preserveSig
     {
-		BOOL monoObject;
-		[self getMonoField:"PreserveSig" valuePtr:DB_PTR(monoObject)];
-		_preserveSig = monoObject;
+		MonoObject *monoObject = [self getMonoField:"PreserveSig"];
+		_preserveSig = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _preserveSig;
 	}
     - (void)setPreserveSig:(BOOL)value
@@ -146,9 +146,9 @@
     @synthesize setLastError = _setLastError;
     - (BOOL)setLastError
     {
-		BOOL monoObject;
-		[self getMonoField:"SetLastError" valuePtr:DB_PTR(monoObject)];
-		_setLastError = monoObject;
+		MonoObject *monoObject = [self getMonoField:"SetLastError"];
+		_setLastError = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _setLastError;
 	}
     - (void)setSetLastError:(BOOL)value
@@ -163,9 +163,9 @@
     @synthesize throwOnUnmappableChar = _throwOnUnmappableChar;
     - (BOOL)throwOnUnmappableChar
     {
-		BOOL monoObject;
-		[self getMonoField:"ThrowOnUnmappableChar" valuePtr:DB_PTR(monoObject)];
-		_throwOnUnmappableChar = monoObject;
+		MonoObject *monoObject = [self getMonoField:"ThrowOnUnmappableChar"];
+		_throwOnUnmappableChar = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _throwOnUnmappableChar;
 	}
     - (void)setThrowOnUnmappableChar:(BOOL)value

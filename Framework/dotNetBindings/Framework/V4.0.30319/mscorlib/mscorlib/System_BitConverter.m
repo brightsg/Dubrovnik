@@ -32,9 +32,9 @@
     static BOOL m_isLittleEndian;
     + (BOOL)isLittleEndian
     {
-		BOOL monoObject;
-		[[self class] getMonoClassField:"IsLittleEndian" valuePtr:DB_PTR(monoObject)];
-		m_isLittleEndian = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"IsLittleEndian"];
+		m_isLittleEndian = DB_UNBOX_BOOLEAN(monoObject);
+
 		return m_isLittleEndian;
 	}
 

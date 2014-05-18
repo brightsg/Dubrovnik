@@ -75,10 +75,10 @@
     static System_Guid * m_empty;
     + (System_Guid *)empty
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Empty" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
 		m_empty = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_empty;
 	}
 

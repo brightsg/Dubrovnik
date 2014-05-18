@@ -32,9 +32,9 @@
     static uint16_t m_maxValue;
     + (uint16_t)maxValue
     {
-		uint16_t monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		m_maxValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+		m_maxValue = DB_UNBOX_UINT16(monoObject);
+
 		return m_maxValue;
 	}
 
@@ -43,9 +43,9 @@
     static uint16_t m_minValue;
     + (uint16_t)minValue
     {
-		uint16_t monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		m_minValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+		m_minValue = DB_UNBOX_UINT16(monoObject);
+
 		return m_minValue;
 	}
 

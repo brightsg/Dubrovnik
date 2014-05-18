@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.RuntimeHelpers.TryCode";
+		return "System.Runtime.CompilerServices.RuntimeHelpers+TryCode";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

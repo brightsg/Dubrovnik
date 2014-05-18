@@ -32,9 +32,9 @@
     @synthesize cArgs = _cArgs;
     - (int32_t)cArgs
     {
-		int32_t monoObject;
-		[self getMonoField:"cArgs" valuePtr:DB_PTR(monoObject)];
-		_cArgs = monoObject;
+		MonoObject *monoObject = [self getMonoField:"cArgs"];
+		_cArgs = DB_UNBOX_INT32(monoObject);
+
 		return _cArgs;
 	}
     - (void)setCArgs:(int32_t)value
@@ -49,9 +49,9 @@
     @synthesize cNamedArgs = _cNamedArgs;
     - (int32_t)cNamedArgs
     {
-		int32_t monoObject;
-		[self getMonoField:"cNamedArgs" valuePtr:DB_PTR(monoObject)];
-		_cNamedArgs = monoObject;
+		MonoObject *monoObject = [self getMonoField:"cNamedArgs"];
+		_cNamedArgs = DB_UNBOX_INT32(monoObject);
+
 		return _cNamedArgs;
 	}
     - (void)setCNamedArgs:(int32_t)value
@@ -66,9 +66,9 @@
     @synthesize rgdispidNamedArgs = _rgdispidNamedArgs;
     - (void *)rgdispidNamedArgs
     {
-		void * monoObject;
-		[self getMonoField:"rgdispidNamedArgs" valuePtr:DB_PTR(monoObject)];
-		_rgdispidNamedArgs = monoObject;
+		MonoObject *monoObject = [self getMonoField:"rgdispidNamedArgs"];
+		_rgdispidNamedArgs = DB_UNBOX_PTR(monoObject);
+
 		return _rgdispidNamedArgs;
 	}
     - (void)setRgdispidNamedArgs:(void *)value
@@ -83,9 +83,9 @@
     @synthesize rgvarg = _rgvarg;
     - (void *)rgvarg
     {
-		void * monoObject;
-		[self getMonoField:"rgvarg" valuePtr:DB_PTR(monoObject)];
-		_rgvarg = monoObject;
+		MonoObject *monoObject = [self getMonoField:"rgvarg"];
+		_rgvarg = DB_UNBOX_PTR(monoObject);
+
 		return _rgvarg;
 	}
     - (void)setRgvarg:(void *)value

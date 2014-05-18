@@ -43,10 +43,10 @@
     static NSString * m_absentOriginScheme;
     + (NSString *)absentOriginScheme
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"AbsentOriginScheme" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"AbsentOriginScheme"];
 		if ([self object:m_absentOriginScheme isEqualToMonoObject:monoObject]) return m_absentOriginScheme;					
 		m_absentOriginScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_absentOriginScheme;
 	}
 
@@ -55,10 +55,10 @@
     static NSString * m_anyOtherOriginScheme;
     + (NSString *)anyOtherOriginScheme
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"AnyOtherOriginScheme" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"AnyOtherOriginScheme"];
 		if ([self object:m_anyOtherOriginScheme isEqualToMonoObject:monoObject]) return m_anyOtherOriginScheme;					
 		m_anyOtherOriginScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_anyOtherOriginScheme;
 	}
 

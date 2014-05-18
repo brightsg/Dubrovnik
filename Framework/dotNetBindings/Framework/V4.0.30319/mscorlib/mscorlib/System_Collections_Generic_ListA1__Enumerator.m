@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.List`1.Enumerator";
+		return "System.Collections.Generic.List`1+Enumerator";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

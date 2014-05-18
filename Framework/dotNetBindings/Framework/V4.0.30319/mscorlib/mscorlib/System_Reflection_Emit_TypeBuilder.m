@@ -32,9 +32,9 @@
     static int32_t m_unspecifiedTypeSize;
     + (int32_t)unspecifiedTypeSize
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"UnspecifiedTypeSize" valuePtr:DB_PTR(monoObject)];
-		m_unspecifiedTypeSize = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"UnspecifiedTypeSize"];
+		m_unspecifiedTypeSize = DB_UNBOX_INT32(monoObject);
+
 		return m_unspecifiedTypeSize;
 	}
 

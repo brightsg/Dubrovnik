@@ -32,10 +32,10 @@
     static System_Guid * m_basic;
     + (System_Guid *)basic
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Basic" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Basic"];
 		if ([self object:m_basic isEqualToMonoObject:monoObject]) return m_basic;					
 		m_basic = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_basic;
 	}
 
@@ -44,10 +44,10 @@
     static System_Guid * m_c;
     + (System_Guid *)c
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"C" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"C"];
 		if ([self object:m_c isEqualToMonoObject:monoObject]) return m_c;					
 		m_c = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_c;
 	}
 
@@ -56,10 +56,10 @@
     static System_Guid * m_cobol;
     + (System_Guid *)cobol
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Cobol" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Cobol"];
 		if ([self object:m_cobol isEqualToMonoObject:monoObject]) return m_cobol;					
 		m_cobol = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_cobol;
 	}
 
@@ -68,10 +68,10 @@
     static System_Guid * m_cPlusPlus;
     + (System_Guid *)cPlusPlus
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"CPlusPlus" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"CPlusPlus"];
 		if ([self object:m_cPlusPlus isEqualToMonoObject:monoObject]) return m_cPlusPlus;					
 		m_cPlusPlus = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_cPlusPlus;
 	}
 
@@ -80,10 +80,10 @@
     static System_Guid * m_cSharp;
     + (System_Guid *)cSharp
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"CSharp" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"CSharp"];
 		if ([self object:m_cSharp isEqualToMonoObject:monoObject]) return m_cSharp;					
 		m_cSharp = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_cSharp;
 	}
 
@@ -92,10 +92,10 @@
     static System_Guid * m_iLAssembly;
     + (System_Guid *)iLAssembly
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"ILAssembly" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"ILAssembly"];
 		if ([self object:m_iLAssembly isEqualToMonoObject:monoObject]) return m_iLAssembly;					
 		m_iLAssembly = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_iLAssembly;
 	}
 
@@ -104,10 +104,10 @@
     static System_Guid * m_java;
     + (System_Guid *)java
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Java" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Java"];
 		if ([self object:m_java isEqualToMonoObject:monoObject]) return m_java;					
 		m_java = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_java;
 	}
 
@@ -116,10 +116,10 @@
     static System_Guid * m_jScript;
     + (System_Guid *)jScript
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"JScript" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"JScript"];
 		if ([self object:m_jScript isEqualToMonoObject:monoObject]) return m_jScript;					
 		m_jScript = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_jScript;
 	}
 
@@ -128,10 +128,10 @@
     static System_Guid * m_mCPlusPlus;
     + (System_Guid *)mCPlusPlus
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MCPlusPlus" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MCPlusPlus"];
 		if ([self object:m_mCPlusPlus isEqualToMonoObject:monoObject]) return m_mCPlusPlus;					
 		m_mCPlusPlus = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_mCPlusPlus;
 	}
 
@@ -140,10 +140,10 @@
     static System_Guid * m_pascal;
     + (System_Guid *)pascal
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Pascal" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Pascal"];
 		if ([self object:m_pascal isEqualToMonoObject:monoObject]) return m_pascal;					
 		m_pascal = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_pascal;
 	}
 
@@ -152,10 +152,10 @@
     static System_Guid * m_sMC;
     + (System_Guid *)sMC
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"SMC" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"SMC"];
 		if ([self object:m_sMC isEqualToMonoObject:monoObject]) return m_sMC;					
 		m_sMC = [System_Guid objectWithMonoObject:monoObject];
+
 		return m_sMC;
 	}
 

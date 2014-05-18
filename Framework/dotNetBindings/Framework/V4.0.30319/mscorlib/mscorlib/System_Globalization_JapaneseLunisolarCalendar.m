@@ -32,9 +32,9 @@
     static int32_t m_japaneseEra;
     + (int32_t)japaneseEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"JapaneseEra" valuePtr:DB_PTR(monoObject)];
-		m_japaneseEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"JapaneseEra"];
+		m_japaneseEra = DB_UNBOX_INT32(monoObject);
+
 		return m_japaneseEra;
 	}
 

@@ -83,10 +83,10 @@
     static System_DateTimeOffset * m_maxValue;
     + (System_DateTimeOffset *)maxValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
 		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
 		m_maxValue = [System_DateTimeOffset objectWithMonoObject:monoObject];
+
 		return m_maxValue;
 	}
 
@@ -95,10 +95,10 @@
     static System_DateTimeOffset * m_minValue;
     + (System_DateTimeOffset *)minValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
 		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
 		m_minValue = [System_DateTimeOffset objectWithMonoObject:monoObject];
+
 		return m_minValue;
 	}
 

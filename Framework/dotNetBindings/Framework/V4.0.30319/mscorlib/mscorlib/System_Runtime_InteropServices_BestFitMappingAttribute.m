@@ -43,9 +43,9 @@
     @synthesize throwOnUnmappableChar = _throwOnUnmappableChar;
     - (BOOL)throwOnUnmappableChar
     {
-		BOOL monoObject;
-		[self getMonoField:"ThrowOnUnmappableChar" valuePtr:DB_PTR(monoObject)];
-		_throwOnUnmappableChar = monoObject;
+		MonoObject *monoObject = [self getMonoField:"ThrowOnUnmappableChar"];
+		_throwOnUnmappableChar = DB_UNBOX_BOOLEAN(monoObject);
+
 		return _throwOnUnmappableChar;
 	}
     - (void)setThrowOnUnmappableChar:(BOOL)value

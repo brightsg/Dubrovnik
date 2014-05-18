@@ -123,10 +123,10 @@
     static NSDate * m_maxValue;
     + (NSDate *)maxValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
 		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
 		m_maxValue = [NSDate dateWithMonoDateTime:monoObject];
+
 		return m_maxValue;
 	}
 
@@ -135,10 +135,10 @@
     static NSDate * m_minValue;
     + (NSDate *)minValue
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
 		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
 		m_minValue = [NSDate dateWithMonoDateTime:monoObject];
+
 		return m_minValue;
 	}
 

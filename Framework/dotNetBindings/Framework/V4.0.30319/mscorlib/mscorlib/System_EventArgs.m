@@ -32,10 +32,10 @@
     static System_EventArgs * m_empty;
     + (System_EventArgs *)empty
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"Empty" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
 		m_empty = [System_EventArgs objectWithMonoObject:monoObject];
+
 		return m_empty;
 	}
 

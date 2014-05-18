@@ -32,10 +32,10 @@
     static NSString * m_constructorName;
     + (NSString *)constructorName
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"ConstructorName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"ConstructorName"];
 		if ([self object:m_constructorName isEqualToMonoObject:monoObject]) return m_constructorName;					
 		m_constructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_constructorName;
 	}
 
@@ -44,10 +44,10 @@
     static NSString * m_typeConstructorName;
     + (NSString *)typeConstructorName
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"TypeConstructorName" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"TypeConstructorName"];
 		if ([self object:m_typeConstructorName isEqualToMonoObject:monoObject]) return m_typeConstructorName;					
 		m_typeConstructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return m_typeConstructorName;
 	}
 

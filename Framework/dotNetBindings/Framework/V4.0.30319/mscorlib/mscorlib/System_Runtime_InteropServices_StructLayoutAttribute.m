@@ -51,9 +51,9 @@
     @synthesize charSet = _charSet;
     - (System_Runtime_InteropServices_CharSet)charSet
     {
-		System_Runtime_InteropServices_CharSet monoObject;
-		[self getMonoField:"CharSet" valuePtr:DB_PTR(monoObject)];
-		_charSet = monoObject;
+		MonoObject *monoObject = [self getMonoField:"CharSet"];
+		_charSet = DB_UNBOX_INT32(monoObject);
+
 		return _charSet;
 	}
     - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value
@@ -68,9 +68,9 @@
     @synthesize pack = _pack;
     - (int32_t)pack
     {
-		int32_t monoObject;
-		[self getMonoField:"Pack" valuePtr:DB_PTR(monoObject)];
-		_pack = monoObject;
+		MonoObject *monoObject = [self getMonoField:"Pack"];
+		_pack = DB_UNBOX_INT32(monoObject);
+
 		return _pack;
 	}
     - (void)setPack:(int32_t)value
@@ -85,9 +85,9 @@
     @synthesize size = _size;
     - (int32_t)size
     {
-		int32_t monoObject;
-		[self getMonoField:"Size" valuePtr:DB_PTR(monoObject)];
-		_size = monoObject;
+		MonoObject *monoObject = [self getMonoField:"Size"];
+		_size = DB_UNBOX_INT32(monoObject);
+
 		return _size;
 	}
     - (void)setSize:(int32_t)value

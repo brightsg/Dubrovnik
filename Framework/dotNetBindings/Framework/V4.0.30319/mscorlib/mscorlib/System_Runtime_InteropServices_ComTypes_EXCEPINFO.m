@@ -32,10 +32,10 @@
     @synthesize bstrDescription = _bstrDescription;
     - (NSString *)bstrDescription
     {
-		MonoObject * monoObject;
-		[self getMonoField:"bstrDescription" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"bstrDescription"];
 		if ([self object:_bstrDescription isEqualToMonoObject:monoObject]) return _bstrDescription;					
 		_bstrDescription = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _bstrDescription;
 	}
     - (void)setBstrDescription:(NSString *)value
@@ -50,10 +50,10 @@
     @synthesize bstrHelpFile = _bstrHelpFile;
     - (NSString *)bstrHelpFile
     {
-		MonoObject * monoObject;
-		[self getMonoField:"bstrHelpFile" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"bstrHelpFile"];
 		if ([self object:_bstrHelpFile isEqualToMonoObject:monoObject]) return _bstrHelpFile;					
 		_bstrHelpFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _bstrHelpFile;
 	}
     - (void)setBstrHelpFile:(NSString *)value
@@ -68,10 +68,10 @@
     @synthesize bstrSource = _bstrSource;
     - (NSString *)bstrSource
     {
-		MonoObject * monoObject;
-		[self getMonoField:"bstrSource" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"bstrSource"];
 		if ([self object:_bstrSource isEqualToMonoObject:monoObject]) return _bstrSource;					
 		_bstrSource = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _bstrSource;
 	}
     - (void)setBstrSource:(NSString *)value
@@ -86,9 +86,9 @@
     @synthesize dwHelpContext = _dwHelpContext;
     - (int32_t)dwHelpContext
     {
-		int32_t monoObject;
-		[self getMonoField:"dwHelpContext" valuePtr:DB_PTR(monoObject)];
-		_dwHelpContext = monoObject;
+		MonoObject *monoObject = [self getMonoField:"dwHelpContext"];
+		_dwHelpContext = DB_UNBOX_INT32(monoObject);
+
 		return _dwHelpContext;
 	}
     - (void)setDwHelpContext:(int32_t)value
@@ -103,9 +103,9 @@
     @synthesize pfnDeferredFillIn = _pfnDeferredFillIn;
     - (void *)pfnDeferredFillIn
     {
-		void * monoObject;
-		[self getMonoField:"pfnDeferredFillIn" valuePtr:DB_PTR(monoObject)];
-		_pfnDeferredFillIn = monoObject;
+		MonoObject *monoObject = [self getMonoField:"pfnDeferredFillIn"];
+		_pfnDeferredFillIn = DB_UNBOX_PTR(monoObject);
+
 		return _pfnDeferredFillIn;
 	}
     - (void)setPfnDeferredFillIn:(void *)value
@@ -120,9 +120,9 @@
     @synthesize pvReserved = _pvReserved;
     - (void *)pvReserved
     {
-		void * monoObject;
-		[self getMonoField:"pvReserved" valuePtr:DB_PTR(monoObject)];
-		_pvReserved = monoObject;
+		MonoObject *monoObject = [self getMonoField:"pvReserved"];
+		_pvReserved = DB_UNBOX_PTR(monoObject);
+
 		return _pvReserved;
 	}
     - (void)setPvReserved:(void *)value
@@ -137,9 +137,9 @@
     @synthesize scode = _scode;
     - (int32_t)scode
     {
-		int32_t monoObject;
-		[self getMonoField:"scode" valuePtr:DB_PTR(monoObject)];
-		_scode = monoObject;
+		MonoObject *monoObject = [self getMonoField:"scode"];
+		_scode = DB_UNBOX_INT32(monoObject);
+
 		return _scode;
 	}
     - (void)setScode:(int32_t)value
@@ -154,9 +154,9 @@
     @synthesize wCode = _wCode;
     - (int16_t)wCode
     {
-		int16_t monoObject;
-		[self getMonoField:"wCode" valuePtr:DB_PTR(monoObject)];
-		_wCode = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wCode"];
+		_wCode = DB_UNBOX_INT16(monoObject);
+
 		return _wCode;
 	}
     - (void)setWCode:(int16_t)value
@@ -171,9 +171,9 @@
     @synthesize wReserved = _wReserved;
     - (int16_t)wReserved
     {
-		int16_t monoObject;
-		[self getMonoField:"wReserved" valuePtr:DB_PTR(monoObject)];
-		_wReserved = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wReserved"];
+		_wReserved = DB_UNBOX_INT16(monoObject);
+
 		return _wReserved;
 	}
     - (void)setWReserved:(int16_t)value

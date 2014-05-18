@@ -32,10 +32,10 @@
     @synthesize elemdescVar = _elemdescVar;
     - (System_Runtime_InteropServices_ELEMDESC *)elemdescVar
     {
-		MonoObject * monoObject;
-		[self getMonoField:"elemdescVar" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"elemdescVar"];
 		if ([self object:_elemdescVar isEqualToMonoObject:monoObject]) return _elemdescVar;					
 		_elemdescVar = [System_Runtime_InteropServices_ELEMDESC objectWithMonoObject:monoObject];
+
 		return _elemdescVar;
 	}
     - (void)setElemdescVar:(System_Runtime_InteropServices_ELEMDESC *)value
@@ -50,10 +50,10 @@
     @synthesize lpstrSchema = _lpstrSchema;
     - (NSString *)lpstrSchema
     {
-		MonoObject * monoObject;
-		[self getMonoField:"lpstrSchema" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"lpstrSchema"];
 		if ([self object:_lpstrSchema isEqualToMonoObject:monoObject]) return _lpstrSchema;					
 		_lpstrSchema = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
 		return _lpstrSchema;
 	}
     - (void)setLpstrSchema:(NSString *)value
@@ -68,9 +68,9 @@
     @synthesize memid = _memid;
     - (int32_t)memid
     {
-		int32_t monoObject;
-		[self getMonoField:"memid" valuePtr:DB_PTR(monoObject)];
-		_memid = monoObject;
+		MonoObject *monoObject = [self getMonoField:"memid"];
+		_memid = DB_UNBOX_INT32(monoObject);
+
 		return _memid;
 	}
     - (void)setMemid:(int32_t)value
@@ -85,9 +85,9 @@
     @synthesize varkind = _varkind;
     - (System_Runtime_InteropServices_VarEnum)varkind
     {
-		System_Runtime_InteropServices_VarEnum monoObject;
-		[self getMonoField:"varkind" valuePtr:DB_PTR(monoObject)];
-		_varkind = monoObject;
+		MonoObject *monoObject = [self getMonoField:"varkind"];
+		_varkind = DB_UNBOX_INT32(monoObject);
+
 		return _varkind;
 	}
     - (void)setVarkind:(System_Runtime_InteropServices_VarEnum)value
@@ -102,9 +102,9 @@
     @synthesize wVarFlags = _wVarFlags;
     - (int16_t)wVarFlags
     {
-		int16_t monoObject;
-		[self getMonoField:"wVarFlags" valuePtr:DB_PTR(monoObject)];
-		_wVarFlags = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wVarFlags"];
+		_wVarFlags = DB_UNBOX_INT16(monoObject);
+
 		return _wVarFlags;
 	}
     - (void)setWVarFlags:(int16_t)value

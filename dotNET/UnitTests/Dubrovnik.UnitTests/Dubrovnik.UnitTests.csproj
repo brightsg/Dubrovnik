@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>12.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D55F4706-469E-4D9A-9314-7D2DF17611A5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Dubrovnik.UnitTests</RootNamespace>
@@ -41,6 +39,7 @@
     <Compile Include="ReferenceStruct.cs" />
     <Compile Include="TestObject.cs" />
     <Compile Include="EventHelper.cs" />
+    <Compile Include="BaseObjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

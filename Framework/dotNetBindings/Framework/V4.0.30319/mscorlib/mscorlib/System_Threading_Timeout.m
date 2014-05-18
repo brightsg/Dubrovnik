@@ -32,9 +32,9 @@
     static int32_t m_infinite;
     + (int32_t)infinite
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"Infinite" valuePtr:DB_PTR(monoObject)];
-		m_infinite = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"Infinite"];
+		m_infinite = DB_UNBOX_INT32(monoObject);
+
 		return m_infinite;
 	}
 
@@ -43,10 +43,10 @@
     static System_TimeSpan * m_infiniteTimeSpan;
     + (System_TimeSpan *)infiniteTimeSpan
     {
-		MonoObject * monoObject;
-		[[self class] getMonoClassField:"InfiniteTimeSpan" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [[self class] getMonoClassField:"InfiniteTimeSpan"];
 		if ([self object:m_infiniteTimeSpan isEqualToMonoObject:monoObject]) return m_infiniteTimeSpan;					
 		m_infiniteTimeSpan = [System_TimeSpan objectWithMonoObject:monoObject];
+
 		return m_infiniteTimeSpan;
 	}
 

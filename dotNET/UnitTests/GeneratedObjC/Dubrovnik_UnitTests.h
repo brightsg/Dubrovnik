@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     5/7/2014 3:54:29 PM
+// Date:     5/18/2014 9:27:21 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5240.20578, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5251.38574, Culture=neutral, PublicKeyToken=null
 // Path:     \\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -64,6 +64,34 @@
 #warning DCIEventHelper_ class name collision.
 #else
 #define DCIEventHelper_ Dubrovnik_ClientApplication_IEventHelper
+#endif
+
+@class Dubrovnik_UnitTests_BaseObject;
+#ifdef DUBaseObject_
+#warning DUBaseObject_ class name collision.
+#else
+#define DUBaseObject_ Dubrovnik_UnitTests_BaseObject
+#endif
+
+@class Dubrovnik_UnitTests_BaseObjectOne;
+#ifdef DUBaseObjectOne_
+#warning DUBaseObjectOne_ class name collision.
+#else
+#define DUBaseObjectOne_ Dubrovnik_UnitTests_BaseObjectOne
+#endif
+
+@class Dubrovnik_UnitTests_BaseObjectThree;
+#ifdef DUBaseObjectThree_
+#warning DUBaseObjectThree_ class name collision.
+#else
+#define DUBaseObjectThree_ Dubrovnik_UnitTests_BaseObjectThree
+#endif
+
+@class Dubrovnik_UnitTests_BaseObjectTwo;
+#ifdef DUBaseObjectTwo_
+#warning DUBaseObjectTwo_ class name collision.
+#else
+#define DUBaseObjectTwo_ Dubrovnik_UnitTests_BaseObjectTwo
 #endif
 
 @class Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2;
@@ -124,10 +152,18 @@
 #endif
 
 
+/*
+Order here is Enumerations, Structs, Classes, Interfaces
+*/
+
 #import "Dubrovnik_UnitTests_IntEnum.h"
 #import "Dubrovnik_UnitTests_LongEnum.h"
 #import "Dubrovnik_UnitTests_ReferenceStruct.h"
 #import "Dubrovnik_ClientApplication_EventHelper.h"
+#import "Dubrovnik_UnitTests_BaseObjectThree.h"
+#import "Dubrovnik_UnitTests_BaseObjectTwo.h"
+#import "Dubrovnik_UnitTests_BaseObjectOne.h"
+#import "Dubrovnik_UnitTests_BaseObject.h"
 #import "Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2.h"
 #import "Dubrovnik_UnitTests_GenericReferenceObjectA2.h"
 #import "Dubrovnik_UnitTests_ReferenceObject.h"

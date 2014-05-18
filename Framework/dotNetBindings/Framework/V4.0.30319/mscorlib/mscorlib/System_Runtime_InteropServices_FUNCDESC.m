@@ -32,9 +32,9 @@
     @synthesize callconv = _callconv;
     - (System_Runtime_InteropServices_CALLCONV)callconv
     {
-		System_Runtime_InteropServices_CALLCONV monoObject;
-		[self getMonoField:"callconv" valuePtr:DB_PTR(monoObject)];
-		_callconv = monoObject;
+		MonoObject *monoObject = [self getMonoField:"callconv"];
+		_callconv = DB_UNBOX_INT32(monoObject);
+
 		return _callconv;
 	}
     - (void)setCallconv:(System_Runtime_InteropServices_CALLCONV)value
@@ -49,9 +49,9 @@
     @synthesize cParams = _cParams;
     - (int16_t)cParams
     {
-		int16_t monoObject;
-		[self getMonoField:"cParams" valuePtr:DB_PTR(monoObject)];
-		_cParams = monoObject;
+		MonoObject *monoObject = [self getMonoField:"cParams"];
+		_cParams = DB_UNBOX_INT16(monoObject);
+
 		return _cParams;
 	}
     - (void)setCParams:(int16_t)value
@@ -66,9 +66,9 @@
     @synthesize cParamsOpt = _cParamsOpt;
     - (int16_t)cParamsOpt
     {
-		int16_t monoObject;
-		[self getMonoField:"cParamsOpt" valuePtr:DB_PTR(monoObject)];
-		_cParamsOpt = monoObject;
+		MonoObject *monoObject = [self getMonoField:"cParamsOpt"];
+		_cParamsOpt = DB_UNBOX_INT16(monoObject);
+
 		return _cParamsOpt;
 	}
     - (void)setCParamsOpt:(int16_t)value
@@ -83,9 +83,9 @@
     @synthesize cScodes = _cScodes;
     - (int16_t)cScodes
     {
-		int16_t monoObject;
-		[self getMonoField:"cScodes" valuePtr:DB_PTR(monoObject)];
-		_cScodes = monoObject;
+		MonoObject *monoObject = [self getMonoField:"cScodes"];
+		_cScodes = DB_UNBOX_INT16(monoObject);
+
 		return _cScodes;
 	}
     - (void)setCScodes:(int16_t)value
@@ -100,10 +100,10 @@
     @synthesize elemdescFunc = _elemdescFunc;
     - (System_Runtime_InteropServices_ELEMDESC *)elemdescFunc
     {
-		MonoObject * monoObject;
-		[self getMonoField:"elemdescFunc" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"elemdescFunc"];
 		if ([self object:_elemdescFunc isEqualToMonoObject:monoObject]) return _elemdescFunc;					
 		_elemdescFunc = [System_Runtime_InteropServices_ELEMDESC objectWithMonoObject:monoObject];
+
 		return _elemdescFunc;
 	}
     - (void)setElemdescFunc:(System_Runtime_InteropServices_ELEMDESC *)value
@@ -118,9 +118,9 @@
     @synthesize funckind = _funckind;
     - (System_Runtime_InteropServices_FUNCKIND)funckind
     {
-		System_Runtime_InteropServices_FUNCKIND monoObject;
-		[self getMonoField:"funckind" valuePtr:DB_PTR(monoObject)];
-		_funckind = monoObject;
+		MonoObject *monoObject = [self getMonoField:"funckind"];
+		_funckind = DB_UNBOX_INT32(monoObject);
+
 		return _funckind;
 	}
     - (void)setFunckind:(System_Runtime_InteropServices_FUNCKIND)value
@@ -135,9 +135,9 @@
     @synthesize invkind = _invkind;
     - (System_Runtime_InteropServices_INVOKEKIND)invkind
     {
-		System_Runtime_InteropServices_INVOKEKIND monoObject;
-		[self getMonoField:"invkind" valuePtr:DB_PTR(monoObject)];
-		_invkind = monoObject;
+		MonoObject *monoObject = [self getMonoField:"invkind"];
+		_invkind = DB_UNBOX_INT32(monoObject);
+
 		return _invkind;
 	}
     - (void)setInvkind:(System_Runtime_InteropServices_INVOKEKIND)value
@@ -152,9 +152,9 @@
     @synthesize lprgelemdescParam = _lprgelemdescParam;
     - (void *)lprgelemdescParam
     {
-		void * monoObject;
-		[self getMonoField:"lprgelemdescParam" valuePtr:DB_PTR(monoObject)];
-		_lprgelemdescParam = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lprgelemdescParam"];
+		_lprgelemdescParam = DB_UNBOX_PTR(monoObject);
+
 		return _lprgelemdescParam;
 	}
     - (void)setLprgelemdescParam:(void *)value
@@ -169,9 +169,9 @@
     @synthesize lprgscode = _lprgscode;
     - (void *)lprgscode
     {
-		void * monoObject;
-		[self getMonoField:"lprgscode" valuePtr:DB_PTR(monoObject)];
-		_lprgscode = monoObject;
+		MonoObject *monoObject = [self getMonoField:"lprgscode"];
+		_lprgscode = DB_UNBOX_PTR(monoObject);
+
 		return _lprgscode;
 	}
     - (void)setLprgscode:(void *)value
@@ -186,9 +186,9 @@
     @synthesize memid = _memid;
     - (int32_t)memid
     {
-		int32_t monoObject;
-		[self getMonoField:"memid" valuePtr:DB_PTR(monoObject)];
-		_memid = monoObject;
+		MonoObject *monoObject = [self getMonoField:"memid"];
+		_memid = DB_UNBOX_INT32(monoObject);
+
 		return _memid;
 	}
     - (void)setMemid:(int32_t)value
@@ -203,9 +203,9 @@
     @synthesize oVft = _oVft;
     - (int16_t)oVft
     {
-		int16_t monoObject;
-		[self getMonoField:"oVft" valuePtr:DB_PTR(monoObject)];
-		_oVft = monoObject;
+		MonoObject *monoObject = [self getMonoField:"oVft"];
+		_oVft = DB_UNBOX_INT16(monoObject);
+
 		return _oVft;
 	}
     - (void)setOVft:(int16_t)value
@@ -220,9 +220,9 @@
     @synthesize wFuncFlags = _wFuncFlags;
     - (int16_t)wFuncFlags
     {
-		int16_t monoObject;
-		[self getMonoField:"wFuncFlags" valuePtr:DB_PTR(monoObject)];
-		_wFuncFlags = monoObject;
+		MonoObject *monoObject = [self getMonoField:"wFuncFlags"];
+		_wFuncFlags = DB_UNBOX_INT16(monoObject);
+
 		return _wFuncFlags;
 	}
     - (void)setWFuncFlags:(int16_t)value

@@ -32,9 +32,9 @@
     static int32_t m_gregorianEra;
     + (int32_t)gregorianEra
     {
-		int32_t monoObject;
-		[[self class] getMonoClassField:"GregorianEra" valuePtr:DB_PTR(monoObject)];
-		m_gregorianEra = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"GregorianEra"];
+		m_gregorianEra = DB_UNBOX_INT32(monoObject);
+
 		return m_gregorianEra;
 	}
 

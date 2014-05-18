@@ -32,9 +32,9 @@
     @synthesize dwCookie = _dwCookie;
     - (int32_t)dwCookie
     {
-		int32_t monoObject;
-		[self getMonoField:"dwCookie" valuePtr:DB_PTR(monoObject)];
-		_dwCookie = monoObject;
+		MonoObject *monoObject = [self getMonoField:"dwCookie"];
+		_dwCookie = DB_UNBOX_INT32(monoObject);
+
 		return _dwCookie;
 	}
     - (void)setDwCookie:(int32_t)value
@@ -49,10 +49,10 @@
     @synthesize pUnk = _pUnk;
     - (System_Object *)pUnk
     {
-		MonoObject * monoObject;
-		[self getMonoField:"pUnk" valuePtr:DB_PTR(monoObject)];
+		MonoObject *monoObject = [self getMonoField:"pUnk"];
 		if ([self object:_pUnk isEqualToMonoObject:monoObject]) return _pUnk;					
 		_pUnk = [System_Object objectWithMonoObject:monoObject];
+
 		return _pUnk;
 	}
     - (void)setPUnk:(System_Object *)value

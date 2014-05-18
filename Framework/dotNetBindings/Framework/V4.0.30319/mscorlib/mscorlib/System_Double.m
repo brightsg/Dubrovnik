@@ -32,9 +32,9 @@
     static double m_epsilon;
     + (double)epsilon
     {
-		double monoObject;
-		[[self class] getMonoClassField:"Epsilon" valuePtr:DB_PTR(monoObject)];
-		m_epsilon = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"Epsilon"];
+		m_epsilon = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_epsilon;
 	}
 
@@ -43,9 +43,9 @@
     static double m_maxValue;
     + (double)maxValue
     {
-		double monoObject;
-		[[self class] getMonoClassField:"MaxValue" valuePtr:DB_PTR(monoObject)];
-		m_maxValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+		m_maxValue = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_maxValue;
 	}
 
@@ -54,9 +54,9 @@
     static double m_minValue;
     + (double)minValue
     {
-		double monoObject;
-		[[self class] getMonoClassField:"MinValue" valuePtr:DB_PTR(monoObject)];
-		m_minValue = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+		m_minValue = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_minValue;
 	}
 
@@ -65,9 +65,9 @@
     static double m_naN;
     + (double)naN
     {
-		double monoObject;
-		[[self class] getMonoClassField:"NaN" valuePtr:DB_PTR(monoObject)];
-		m_naN = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"NaN"];
+		m_naN = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_naN;
 	}
 
@@ -76,9 +76,9 @@
     static double m_negativeInfinity;
     + (double)negativeInfinity
     {
-		double monoObject;
-		[[self class] getMonoClassField:"NegativeInfinity" valuePtr:DB_PTR(monoObject)];
-		m_negativeInfinity = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"NegativeInfinity"];
+		m_negativeInfinity = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_negativeInfinity;
 	}
 
@@ -87,9 +87,9 @@
     static double m_positiveInfinity;
     + (double)positiveInfinity
     {
-		double monoObject;
-		[[self class] getMonoClassField:"PositiveInfinity" valuePtr:DB_PTR(monoObject)];
-		m_positiveInfinity = monoObject;
+		MonoObject *monoObject = [[self class] getMonoClassField:"PositiveInfinity"];
+		m_positiveInfinity = DB_UNBOX_DOUBLE(monoObject);
+
 		return m_positiveInfinity;
 	}
 
