@@ -37,14 +37,24 @@ namespace Dubrovnik.Reflector {
              * 
              * */
             string s = type.FullName;
+            string sep = type.IsNested ? "+" : ".";
             if (string.IsNullOrEmpty(s))
             {
-                /* 
-                 * If the type can be constructed then its namespace will be required.
+                /*
+                 * DeclaringType
+                 * see http://msdn.microsoft.com/en-GB/library/system.type.declaringtype.aspx
+                 * 
                  */
-                if (type.IsConstructedGenericType || type.IsPointer)
+                if (type.DeclaringType != null)
                 {
-                    s = type.Namespace + "." + type.Name;
+                    s = type.DeclaringType.FullName + sep + type.Name;
+                } 
+                else if (type.IsConstructedGenericType || type.IsPointer)
+                {
+                    /* 
+                    * If the type can be constructed then its namespace will be required.
+                    */
+                    s = type.Namespace + sep + type.Name;
                 }
                 else //if (type.IsGenericParameter || type.IsArray)
                 {

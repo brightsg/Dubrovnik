@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "Dubrovnik.UnitTests.GenericReferenceObject`2";
+		return "Dubrovnik.UnitTests.GenericReferenceObject`2<Dubrovnik.UnitTests.GenericReferenceObject`2+T,Dubrovnik.UnitTests.GenericReferenceObject`2+U>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : GenericPropertyWithTypeParameterT
-	// Managed property type : <T>
+	// Managed property type : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
     @synthesize genericPropertyWithTypeParameterT = _genericPropertyWithTypeParameterT;
     - (System_Object *)genericPropertyWithTypeParameterT
     {
@@ -46,7 +46,7 @@
 	}
 
 	// Managed property name : GenericPropertyWithTypeParameterU
-	// Managed property type : <U>
+	// Managed property type : <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
     @synthesize genericPropertyWithTypeParameterU = _genericPropertyWithTypeParameterU;
     - (System_Object *)genericPropertyWithTypeParameterU
     {
@@ -64,7 +64,7 @@
 	}
 
 	// Managed property name : ListOfTypeT
-	// Managed property type : System.Collections.Generic.List`1<T>
+	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+T>
     @synthesize listOfTypeT = _listOfTypeT;
     - (DBSystem_Collections_Generic_ListA1 *)listOfTypeT
     {
@@ -82,7 +82,7 @@
 	}
 
 	// Managed property name : ListOfTypeU
-	// Managed property type : System.Collections.Generic.List`1<U>
+	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+U>
     @synthesize listOfTypeU = _listOfTypeU;
     - (DBSystem_Collections_Generic_ListA1 *)listOfTypeU
     {
@@ -99,12 +99,30 @@
 		[self setMonoProperty:"ListOfTypeU" valueObject:monoObject];          
 	}
 
+	// Managed property name : Nested
+	// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<Dubrovnik.UnitTests.GenericReferenceObject`2+T, Dubrovnik.UnitTests.GenericReferenceObject`2+U>+NestedClass
+    @synthesize nested = _nested;
+    - (Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass *)nested
+    {
+		MonoObject *monoObject = [self getMonoProperty:"Nested"];
+		if ([self object:_nested isEqualToMonoObject:monoObject]) return _nested;					
+		_nested = [Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass objectWithMonoObject:monoObject];
+
+		return _nested;
+	}
+    - (void)setNested:(Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass *)value
+	{
+		_nested = value;
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"Nested" valueObject:monoObject];          
+	}
+
 #pragma mark -
 #pragma mark Methods
 
 	// Managed method name : GenericMethodReturningParameterTypeT
-	// Managed return type : <T>
-	// Managed param types : <T>, <U>
+	// Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+	// Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
     - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		
@@ -114,8 +132,8 @@
     }
 
 	// Managed method name : GenericMethodReturningParameterTypeU
-	// Managed return type : <U>
-	// Managed param types : <T>, <U>
+	// Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+	// Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
     - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		

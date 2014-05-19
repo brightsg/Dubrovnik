@@ -1,7 +1,7 @@
 ﻿#import "Dubrovnik_UnitTests.h"
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2.m
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.m
 //
-// Managed class : GenericReferenceObject`2.NestedClass`2
+// Managed class : GenericReferenceObject`2<T, U>.NestedClass
 //
 
 // ARC is required
@@ -9,14 +9,14 @@
 #error This file requires ARC. 
 #endif
 
-@implementation Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2
+@implementation Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass
 
 #pragma mark -
 #pragma mark Setup
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "Dubrovnik.UnitTests.GenericReferenceObject`2+NestedClass`2";
+		return "Dubrovnik.UnitTests.GenericReferenceObject`2<Dubrovnik.UnitTests.GenericReferenceObject`2+NestedClass+T,Dubrovnik.UnitTests.GenericReferenceObject`2+NestedClass+U>+NestedClass";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

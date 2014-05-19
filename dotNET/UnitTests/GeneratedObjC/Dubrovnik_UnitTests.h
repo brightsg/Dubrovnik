@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     5/18/2014 9:27:21 PM
+// Date:     5/18/2014 10:08:56 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5251.38574, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5251.39062, Culture=neutral, PublicKeyToken=null
 // Path:     \\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -94,18 +94,18 @@
 #define DUBaseObjectTwo_ Dubrovnik_UnitTests_BaseObjectTwo
 #endif
 
-@class Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2;
-#ifdef DUGenericReferenceObjectA2_NestedClassA2_
-#warning DUGenericReferenceObjectA2_NestedClassA2_ class name collision.
+@class Dubrovnik_UnitTests_GenericReferenceObjectA2;
+#ifdef DUGUGUGenericReferenceObjectA2_
+#warning DUGUGUGenericReferenceObjectA2_ class name collision.
 #else
-#define DUGenericReferenceObjectA2_NestedClassA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2
+#define DUGUGUGenericReferenceObjectA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2
 #endif
 
-@class Dubrovnik_UnitTests_GenericReferenceObjectA2;
-#ifdef DUGenericReferenceObjectA2_
-#warning DUGenericReferenceObjectA2_ class name collision.
+@class Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass;
+#ifdef DUGUGUGenericReferenceObjectA2_NestedClass_
+#warning DUGUGUGenericReferenceObjectA2_NestedClass_ class name collision.
 #else
-#define DUGenericReferenceObjectA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2
+#define DUGUGUGenericReferenceObjectA2_NestedClass_ Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass
 #endif
 
 @class Dubrovnik_UnitTests_ReferenceObject;
@@ -164,8 +164,8 @@ Order here is Enumerations, Structs, Classes, Interfaces
 #import "Dubrovnik_UnitTests_BaseObjectTwo.h"
 #import "Dubrovnik_UnitTests_BaseObjectOne.h"
 #import "Dubrovnik_UnitTests_BaseObject.h"
-#import "Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2.h"
 #import "Dubrovnik_UnitTests_GenericReferenceObjectA2.h"
+#import "Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.h"
 #import "Dubrovnik_UnitTests_ReferenceObject.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__NestedClass.h"
 #import "Dubrovnik_UnitTests_TestObject.h"

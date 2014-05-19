@@ -1,8 +1,8 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.h
 //
-// Managed class : GenericReferenceObject`2.NestedClass`2
+// Managed class : GenericReferenceObject`2<T, U>.NestedClass
 //
-@interface Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClassA2 : System_Object
+@interface Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass : System_Object
 
 #pragma mark -
 #pragma mark Setup
