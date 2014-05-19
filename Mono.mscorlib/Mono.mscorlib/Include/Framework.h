@@ -12,4 +12,5 @@
 #import "ManualBindings.h"
 #import "HelperClasses.h"
 #import "Categories.h"
+#import "ValueTransformers.h"
 

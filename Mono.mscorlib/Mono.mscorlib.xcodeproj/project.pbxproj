@@ -51,6 +51,9 @@
 		AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B2191CFD5B009FF174 /* System_Type.m */; };
 		AB8306B7191D1231009FF174 /* DBSystem_Object.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B5191D1231009FF174 /* DBSystem_Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8306B8191D1231009FF174 /* DBSystem_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B6191D1231009FF174 /* DBSystem_Object.m */; };
+		AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */; };
+		AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
 		ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A29018FEFB0700213B80 /* InfoPlist.strings */; };
 		ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A29C18FEFB0700213B80 /* XCTest.framework */; };
@@ -109,6 +112,10 @@
 		ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43218FF1F6300213B80 /* Interface_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A43B18FF232000213B80 /* Mono64.framework */; };
+		ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */; };
+		ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE13552192AB0C5000689BC /* DBNullableInt64Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */; };
 		ABF5D272190C570000E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D271190C570000E9CFBD /* Dubrovnik.framework */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +174,9 @@
 		AB8306B2191CFD5B009FF174 /* System_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Type.m; sourceTree = "<group>"; };
 		AB8306B5191D1231009FF174 /* DBSystem_Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Object.h; sourceTree = "<group>"; };
 		AB8306B6191D1231009FF174 /* DBSystem_Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Object.m; sourceTree = "<group>"; };
+		AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDateTransformer.h; sourceTree = "<group>"; };
+		AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDateTransformer.m; sourceTree = "<group>"; };
+		AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTransformers.h; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A28718FEFB0700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A28A18FEFB0700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,6 +242,10 @@
 		ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
 		ABB8A43218FF1F6300213B80 /* Interface_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
 		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDecimalTransformer.h; sourceTree = "<group>"; };
+		ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDecimalTransformer.m; sourceTree = "<group>"; };
+		ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt64Transformer.h; sourceTree = "<group>"; };
+		ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt64Transformer.m; sourceTree = "<group>"; };
 		ABF5D271190C570000E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -267,8 +281,22 @@
 				AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */,
 				AB2E74C518FFDB0D0061C63E /* HelperClasses.h */,
 				AB2E74C618FFDB0D0061C63E /* ManualBindings.h */,
+				AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */,
 			);
 			path = Include;
+			sourceTree = "<group>";
+		};
+		AB950DE5192AA6720035ABC6 /* Value Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */,
+				AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */,
+				ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */,
+				ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */,
+				ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */,
+				ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */,
+			);
+			path = "Value Transformers";
 			sourceTree = "<group>";
 		};
 		ABB8A27A18FEFB0700213B80 = {
@@ -315,6 +343,7 @@
 		ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */ = {
 			isa = PBXGroup;
 			children = (
+				AB950DE5192AA6720035ABC6 /* Value Transformers */,
 				AB2E74C118FFDB0D0061C63E /* Include */,
 				ABB8A43018FF1F6300213B80 /* Protocols */,
 				ABB8A37D18FF092400213B80 /* Helper classes */,
@@ -478,6 +507,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */,
+				ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */,
+				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
+				AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */,
 				AB8306B7191D1231009FF174 /* DBSystem_Object.h in Headers */,
 				AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */,
 				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
@@ -631,6 +664,7 @@
 				ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */,
 				ABB8A41318FF110000213B80 /* System_Object.m in Sources */,
 				ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */,
+				AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */,
 				AB2E744418FFCD0A0061C63E /* System_Reflection_PropertyInfo.m in Sources */,
 				ABB8A40518FF110000213B80 /* System_Collections_Generic_ListA1.m in Sources */,
 				AB2E746818FFCE2B0061C63E /* IEnumerableA1.m in Sources */,
@@ -652,6 +686,7 @@
 				ABB8A41118FF110000213B80 /* System_MulticastDelegate.m in Sources */,
 				ABB8A40118FF110000213B80 /* System_Collections_ArrayList.m in Sources */,
 				ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */,
+				ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */,
 				ABB8A39B18FF09F900213B80 /* DBSystem_Enum.m in Sources */,
 				ABB8A42918FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m in Sources */,
 				ABB8A40318FF110000213B80 /* System_Collections_Generic_DictionaryA2.m in Sources */,
@@ -661,6 +696,7 @@
 				ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */,
 				AB2E745218FFCD420061C63E /* System_IO_Stream.m in Sources */,
 				ABB8A40918FF110000213B80 /* System_Enum.m in Sources */,
+				ABE13552192AB0C5000689BC /* DBNullableInt64Transformer.m in Sources */,
 				AB2E746018FFCD8F0061C63E /* System_Exception.m in Sources */,
 				AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */,
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
