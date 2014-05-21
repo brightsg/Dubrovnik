@@ -209,8 +209,11 @@
 {
     BOOL equal = NO;
     
-    if ([object respondsToSelector:@selector(monoObject)] && [object monoObject] == monoObject) {
-        equal = YES;
+    if ([object respondsToSelector:@selector(monoObject)]){
+        MonoObject *mo = [object monoObject];
+        if (mo == monoObject) {
+            equal = YES;
+        }
     }
     
     return equal;
