@@ -424,7 +424,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 - (MonoAssembly *)DubrovnikAssembly
 {
     if (!_DubrovnikAssembly) {
-        // load the assemble from the framework bundle
+        // load the assembly from the framework bundle
         NSString *assemblyName = @"Dubrovnik.FrameworkHelper";
         NSString *assemblyFile = [[NSBundle bundleForClass:[self class]] pathForResource:assemblyName ofType:@"dll" inDirectory:@"ManagedBinaries/Debug"];
         NSAssert(assemblyFile, @"Cannot find assembly : %@", assemblyFile);
