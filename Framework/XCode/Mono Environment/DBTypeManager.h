@@ -113,7 +113,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
  
  An object representing the MonoObject.
  The most representative available subclass of DBManagedObject
- will be chosen to represnt the MonoObject.
+ will be chosen to represent the MonoObject.
  
  */
 - (id)objectWithMonoObject:(MonoObject *)monoObject;
