@@ -79,19 +79,73 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
 }
 
+#pragma mark -
+#pragma mark Exception handling
+
 void NSRaiseExceptionFromMonoException(MonoObject *monoException)
 {
     NSException *e = NSExceptionFromMonoException(monoException);
-    [e raise];
+    [e performSelectorOnMainThread:@selector(raise) withObject:nil waitUntilDone:YES];
 }
 
 NSException *NSExceptionFromMonoException(MonoObject *monoException)
 {
-	NSString *exceptionMessage = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Message")];
-	NSString *exceptionStackTrace = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "StackTrace")];
-    NSException *e = [NSException exceptionWithName:exceptionMessage reason:exceptionStackTrace userInfo:nil];
+    //
+    // deconstruct the mono exception
+    //
     
-    NSLog(@"Dubrovnik exception: %@ %@", exceptionMessage, exceptionStackTrace);
+    // source
+    NSString *source = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Source")];
+    
+    // message
+	NSString *message = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Message")];
+	
+    // stacktrace
+    NSString *stackTrace = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "StackTrace")];
+    
+    // string representation
+	va_list va_args;
+	MonoObject *stringRepMonoObject = DBMonoObjectInvoke(monoException, "ToString()", 0, va_args);
+    NSString *stringRep = [NSString stringWithMonoString:DB_STRING(stringRepMonoObject)];
+    
+    // inner exception
+    NSException *innerException = nil;
+    MonoObject *innerExceptionMonoObject = DBMonoObjectGetProperty(monoException, "InnerException");
+    if (innerExceptionMonoObject) {
+        innerException = NSExceptionFromMonoException(innerExceptionMonoObject);
+    }
+    
+    //
+    // contsruct the NSException
+    //
+    
+    // name
+    NSMutableString *exceptionName = [NSMutableString stringWithString:@"Dubrovnik Framework : Managed Code Exception : "];
+    [exceptionName appendFormat:@"%@", message];
+
+    // reason
+    // the string rep includes inner exception info
+    NSMutableString *reason = [NSMutableString stringWithString:@""];
+    [reason appendFormat:@"%@", stringRep];
+    
+    // user info
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:5];
+    if (source) {
+        [userInfo setObject:source forKey:@"Source"];
+    }
+    if (innerException) {
+        [userInfo setObject:innerException forKey:@"InnerException"];
+    }
+    if (stackTrace) {
+        [userInfo setObject:stackTrace forKey:@"StackTrace"];
+    }
+    
+    // make it so
+    NSException *e = [NSException exceptionWithName:exceptionName reason:reason userInfo:userInfo];
+    
+    if (NO) {
+        NSLog(@"Dubrovnik exception:\n name: %@\n reason: %@\n exception: %@", e.name, e.reason, e);
+    }
     
 	return(e);
 }
