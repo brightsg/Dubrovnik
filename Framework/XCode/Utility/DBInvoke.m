@@ -85,7 +85,10 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 void NSRaiseExceptionFromMonoException(MonoObject *monoException)
 {
     NSException *e = NSExceptionFromMonoException(monoException);
-    [e performSelectorOnMainThread:@selector(raise) withObject:nil waitUntilDone:YES];
+    
+    // raise the exceptionon the current thread.
+    // it is up to the caller to catch this and raise it on the main thread if required.
+    [e raise];
 }
 
 NSException *NSExceptionFromMonoException(MonoObject *monoException)
