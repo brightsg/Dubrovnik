@@ -86,6 +86,13 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 
 /*!
  
+ Create a new nullable date instance
+ 
+ */
++ (id)newNullableFromDate:(NSDate *)date;
+
+/*!
+ 
  Create a new MonoObject from the given object and type name
  
  */

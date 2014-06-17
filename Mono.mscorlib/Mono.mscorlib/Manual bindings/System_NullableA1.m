@@ -121,6 +121,11 @@
     return nullable;
 }
 
++ (id)newNullableFromDate:(NSDate *)date
+{
+    return [self newNullableFromObject:date withTypeArgumentName:@"NSDate"];
+}
+
 #pragma mark -
 #pragma mark MonoObject representation methods
 
