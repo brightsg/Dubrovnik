@@ -65,6 +65,9 @@
 
 - (NSDictionary *)dictionary
 {
+    // note that this implementation will likely change the
+    // implicit ordering of the managed dictionary ie:
+    // keys may be retrieved in a different order in the managed and unmanaged dictionaries.
     NSArray *allKeys = self.allKeys;
     NSArray *allValues = self.allValues;
     
