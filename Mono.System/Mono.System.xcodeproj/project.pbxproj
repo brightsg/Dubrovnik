@@ -22,6 +22,8 @@
 		ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */; };
+		ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */; };
 		ABF5D28D190C58A900E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */; };
 		ABF5D28E190C58A900E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_RegexOptions.h; sourceTree = "<group>"; };
 		ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_Regex.h; sourceTree = "<group>"; };
 		ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_RegularExpressions_Regex.m; sourceTree = "<group>"; };
+		ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_ObjectModel_ObservableCollectionA1.h; sourceTree = "<group>"; };
+		ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_ObjectModel_ObservableCollectionA1.m; sourceTree = "<group>"; };
 		ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
 		ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +208,8 @@
 		ABA3975C1906BFA700D5CA6E /* Manual Bindings */ = {
 			isa = PBXGroup;
 			children = (
+				ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */,
+				ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */,
 				ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */,
 				ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */,
 				ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */,
@@ -218,6 +224,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
 				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
 				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,
 				ABA397451906BAE600D5CA6E /* Categories.h in Headers */,
@@ -323,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
 				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

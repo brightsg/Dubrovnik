@@ -8,5 +8,5 @@
 
 #import "System_Text_RegularExpressions_RegexOptions.h"
 #import "System_Text_RegularExpressions_Regex.h"
-
+#import "System_Collections_ObjectModel_ObservableCollectionA1.h"
 
