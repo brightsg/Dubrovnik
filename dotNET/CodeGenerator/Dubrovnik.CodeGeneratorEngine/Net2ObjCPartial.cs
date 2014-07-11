@@ -79,11 +79,11 @@ namespace Dubrovnik
         {
             //
             // Order is important here. 
-            // Objective-C types must be declared before they can be used.
-            // The ordering here helps to ensure that types are declared before they are referenced.
+            // Objective-C types and protocols must be declared before they can be used.
+            // The ordering here helps to ensure that types and protocols are declared before they are referenced.
             //
 
-            WriteCommentBlock("Order here is Enumerations, Structs, Classes, Interfaces");
+            WriteCommentBlock("Order here is Enumerations, Interfaces, Structs, Classes");
 
             // Write all enumerations
             foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
@@ -93,6 +93,13 @@ namespace Dubrovnik
                     WriteEnumeration(enumeration);
                 }
             
+            }
+
+            // Write all interfaces.
+            // Order by derivation
+            IList<InterfaceFacet> interfaces = AssemblyFacet.InterfacesOrderedByDerivation();
+            foreach (InterfaceFacet @interface in interfaces) {
+                WriteInterface(@interface);
             }
 
             // Write all structs
@@ -114,15 +121,6 @@ namespace Dubrovnik
                 WriteClass(@class);
             }
 
-            // Write all interfaces
-            foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
-            {
-                // write interfaces
-                foreach (InterfaceFacet @interface in @namespace.Interfaces)
-                {
-                    WriteInterface(@interface);
-                }
-            }
         }
 
         //
@@ -156,6 +154,8 @@ namespace Dubrovnik
         //
         public void WriteInterface(InterfaceFacet @interface)
         {
+            bool outputInterfaceClass = true;
+
             if (OutputFileType == OutputType.Interface)
             {
                 WriteInterfaceStart(@interface, "interface");
@@ -165,10 +165,13 @@ namespace Dubrovnik
             }
             else
             {
-                WriteClassStart(@interface, "interface");
-                WriteProperties(@interface.Properties);
-                WriteMethods(@interface.Methods);
-                WriteClassEnd(@interface);
+                if (outputInterfaceClass)
+                {
+                    WriteClassStart(@interface, "interface");
+                    WriteProperties(@interface.Properties);
+                    WriteMethods(@interface.Methods);
+                    WriteClassEnd(@interface);
+                }
             }
         }
 
@@ -584,15 +587,41 @@ namespace Dubrovnik
                     ClassFacet classFacet = (ClassFacet)facet;
                     if (classFacet.ImplementedInterfaces.Count > 0)
                     {
-                        value = " <";
-                        int i = 0;
-                        foreach (ImplementedInterfaceFacet implementedInterfaceFacet in classFacet.ImplementedInterfaces)
+                        var implementedInterfaces = classFacet.ImplementedInterfaces;
+                        bool filterSystemInterfaces = true;
+
+                        // we may wish to naively filter out system interfaces while full
+                        // system code generation is pending.
+                        // this will hopefully let us usefully represent user implemented interfaces.
+                        if (filterSystemInterfaces)
                         {
-                            if (i++ > 0) value += ", ";
-                            value += ObjCIdentifierFromManagedIdentifier(implementedInterfaceFacet.Type);
+                            implementedInterfaces = new List<ImplementedInterfaceFacet>();
+                            foreach (
+                                ImplementedInterfaceFacet implementedInterfaceFacet in classFacet.ImplementedInterfaces)
+                            {
+                                string interfaceType = implementedInterfaceFacet.Type;
+                                bool isNaiveSystemType = interfaceType.StartsWith("System.",
+                                    StringComparison.OrdinalIgnoreCase);
+
+                                if (!isNaiveSystemType)
+                                {
+                                    implementedInterfaces.Add(implementedInterfaceFacet);
+                                }
+                            }
                         }
 
-                        value += ">";
+                        if (implementedInterfaces.Count > 0)
+                        {
+                            value = " <";
+                            int i = 0;
+                            foreach (ImplementedInterfaceFacet implementedInterfaceFacet in implementedInterfaces)
+                            {
+                                if (i++ > 0) value += ", ";
+                                value += ObjCIdentifierFromManagedIdentifier(implementedInterfaceFacet.Type);
+                            }
+
+                            value += ">";
+                        }
                     }
                 }
             }

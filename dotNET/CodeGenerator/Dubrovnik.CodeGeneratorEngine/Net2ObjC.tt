@@ -193,11 +193,6 @@ public void WriteClassPredeclaration(CodeFacet facet)
 	string classDefine = ObjCIdentifierFromManagedIdentifier(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
 
-	if (facet.GetType() == typeof(InterfaceFacet)) {
-#>
-@protocol <#=classObjCType#>;
-<#+	
-    }
 #>
 @class <#=classObjCType#>;
 #ifdef <#=classDefine#>
@@ -259,14 +254,21 @@ public void WriteModuleFeatureRequirements()
 //
 // WriteInterfaceStart
 //
-public void WriteInterfaceStart(CodeFacet facet, string module)
+public void WriteInterfaceStart(InterfaceFacet facet, string module)
 {
 	// Allocate property name list
 	this.StaticObjectPropertyStorageNames = new List<string>();
 
 	WriteModuleBanner(facet, module);
+
+	// build list of base protocols 
+	string baseInterfaces = "NSObject";
+	foreach (ImplementedInterfaceFacet interfaceFacet in facet.ImplementedInterfaces) {
+		baseInterfaces += ", ";
+		baseInterfaces += interfaceFacet.ObjCFacet.Type;
+    }
 #>
-@protocol <#=facet.ObjCFacet.Type#> <NSObject>
+@protocol <#=facet.ObjCFacet.Type#> <<#=baseInterfaces#>>
 
 @required
 <#+	
@@ -279,14 +281,24 @@ public void WriteInterfaceStart(CodeFacet facet, string module)
 public void WriteInterfaceEnd(CodeFacet facet)
 {
 	
-	string superClass = OutputDeclarationSuffix(facet);
 #>
+
 @end
+
+<#+
+	bool outputInterfaceClass = true;
+
+	if (outputInterfaceClass) {
+			string superClass = OutputDeclarationSuffix(facet);
+
+#>
 
 @interface <#=facet.ObjCFacet.Type#><#=superClass#> <<#=facet.ObjCFacet.Type#>>
 
 @end
 <#+
+	}
+
 	WriteModuleFooter();
 }
 
@@ -302,13 +314,14 @@ public void WriteClassStart(CodeFacet facet, string module)
 	// prefix defines interface or implementation
 	string classPrefix = OutputDeclarationPrefix();
 	string superClass = OutputDeclarationSuffix(facet);
-	string implementedProtocols = OutputImplementedProtocolSuffix(facet);
+	string implementedProtocols = "";
 
 	// implemented protocol support is available but 
-	// we are not quite ready to supply all the framework managed interfaces that
+	// we may not quite ready to supply all the framework managed interfaces that
 	// are commonly referenced
+	bool outputImplementedProtocols = true;
 	if (true) {
-		implementedProtocols = "";
+		implementedProtocols =  OutputImplementedProtocolSuffix(facet);
     }
 
 	WriteModuleBanner(facet, module);

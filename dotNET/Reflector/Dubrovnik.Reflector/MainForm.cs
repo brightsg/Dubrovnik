@@ -278,9 +278,13 @@ namespace Dubrovnik.Reflector {
                             {
                                 foreach (Type interfaceType in implementedInterfaces)
                                 {
-                                    xtw.WriteStartElement("ImplementedInterface");
-                                    xtw.WriteAttributeString("Type", interfaceType.GetFriendlyFullName());
-                                    xtw.WriteEndElement();
+                                    if (interfaceType.IsPublic)
+                                    {
+                                        xtw.WriteStartElement("ImplementedInterface");
+                                        xtw.WriteAttributeString("Type", interfaceType.GetFriendlyFullName());
+                                        xtw.WriteEndElement();
+
+                                    }
                                 }
 
                             }

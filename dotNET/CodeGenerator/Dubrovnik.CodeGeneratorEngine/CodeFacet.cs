@@ -342,7 +342,7 @@ namespace Dubrovnik
             return name;
         }
 
-        public IList<CodeFacet> OrderByDerivation(IList<CodeFacet> facets)
+        public IList<CodeFacet> OrderTypeByDerivation(IList<CodeFacet> facets)
         {
             IList<CodeFacet> orderedFacets = new List<CodeFacet>();
             foreach (CodeFacet facet in facets)
@@ -358,7 +358,7 @@ namespace Dubrovnik
                     CodeFacet iFacet = facet;
                     while (done == false)
                     {
-                        // select basetype facet
+                        // select base type facet
                         IEnumerable<CodeFacet> query = from f in facets where f.Type == iFacet.BaseType select f;
                         if (!query.Any())
                         {
@@ -369,7 +369,7 @@ namespace Dubrovnik
                             if (query.Count() > 1)
                             {
                                 throw new Exception(String.Format("Duplicate base types ({0}) found for type {1}",
-                                    query.Count().ToString(), iFacet.Type));
+                                    query.Count(), iFacet.Type));
                             }
 
                             CodeFacet baseFacet = query.First();
@@ -384,6 +384,52 @@ namespace Dubrovnik
                                  iFacet = baseFacet;
                             }
                         }
+                    }
+                }
+            }
+
+            return orderedFacets;
+        }
+
+        public IList<InterfaceFacet> OrderInterfacesByDerivation(IList<InterfaceFacet> facets) {
+            
+            IList<InterfaceFacet> orderedFacets = new List<InterfaceFacet>();
+            
+            foreach (InterfaceFacet facet in facets) {
+
+                // append facet if not present
+                if (!orderedFacets.Contains(facet)) {
+                    orderedFacets.Add(facet);
+                    int idx = orderedFacets.Count() - 1;
+
+                    // build interface derivation tree
+                    bool done = false;
+                    InterfaceFacet iFacet = facet;
+                    while (done == false)
+                    {
+                        foreach (ImplementedInterfaceFacet impIntFacet in iFacet.ImplementedInterfaces)
+                        {
+                            IEnumerable<InterfaceFacet> query = from f in facets where f.Type == impIntFacet.Type select f;
+
+                            if (!query.Any())
+                            {
+                                break;
+                            } else {
+                                if (query.Count() > 1) {
+                                    throw new Exception(String.Format("Duplicate base interfaces ({0}) found for interface type {1}",
+                                        query.Count(), iFacet.Type));
+                                }
+
+                                InterfaceFacet baseInterfaceFacet = query.First();
+
+                                if (!orderedFacets.Contains(baseInterfaceFacet)) {
+                                    orderedFacets.Insert(idx, baseInterfaceFacet);
+                                    iFacet = baseInterfaceFacet;
+                                }
+                            }
+                        }
+
+                        done = true;
                     }
                 }
             }
@@ -439,10 +485,29 @@ namespace Dubrovnik
             // from a type defined in another. Hence we need to process all types together.
             IList<ClassFacet> classes = Classes();
             IList<CodeFacet> facets = classes.Cast<CodeFacet>().ToList();
-            IList<CodeFacet> orderedFacets = OrderByDerivation(facets);
+            IList<CodeFacet> orderedFacets = OrderTypeByDerivation(facets);
 
             return orderedFacets.Cast<ClassFacet>().ToList(); ;
         }
+
+        /*
+        *  Order interfaces so that derived interfaces occur after their base interface.
+        */
+        public IList<InterfaceFacet> InterfacesOrderedByDerivation() {
+
+
+            var interfaceFacets = new List<InterfaceFacet>();
+            foreach (NamespaceFacet @namespace in this.Namespaces) {
+                foreach (InterfaceFacet @interface in @namespace.Interfaces) {
+                    interfaceFacets.Add(@interface);
+                }
+            }
+
+            IList<InterfaceFacet> orderedFacets = OrderInterfacesByDerivation(interfaceFacets);
+
+            return orderedFacets;
+        }
+
     }
 
     /*
@@ -480,6 +545,7 @@ namespace Dubrovnik
             : base(xelement)
         {
             Properties = new FacetList<PropertyFacet>(xelement, "Property");
+            ImplementedInterfaces = new FacetList<ImplementedInterfaceFacet>(xelement, "ImplementedInterface");
             Methods = new FacetList<MethodFacet>(xelement, "Method");
             ParseMethodsForOverrides(Methods);
         }
@@ -487,6 +553,7 @@ namespace Dubrovnik
         // TODO: add events, indexers
         public IList<PropertyFacet> Properties { get; set; }
         public IList<MethodFacet> Methods { get; set; }
+        public IList<ImplementedInterfaceFacet> ImplementedInterfaces { get; set; }
 
         //
         // ParseMethodsForOverrides
