@@ -103,6 +103,10 @@
 	// Managed property type : System.Collections.Generic.List`1<System.Double>
     @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * doubleList;
 
+	// Managed property name : ExIntTestProperty
+	// Managed property type : System.Boolean
+    @property (nonatomic) BOOL exIntTestProperty;
+
 	// Managed property name : FloatArray
 	// Managed property type : System.Single[]
     @property (nonatomic, strong) DBSystem_Array * floatArray;

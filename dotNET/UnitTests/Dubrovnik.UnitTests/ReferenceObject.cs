@@ -204,7 +204,7 @@ namespace Dubrovnik.UnitTests
         public ITestProperty InterfaceTestProperty { get; set; }
 
         // explicit interface properties
-        bool ExIntTestProperty { get; set; }
+        public bool ExIntTestProperty { get; set; }
         float IReferenceObject2.ExIntTestProperty { get; set; }
         int IReferenceObject1.ExIntTestProperty { get; set; }
 

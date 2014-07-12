@@ -339,6 +339,23 @@
 		[self setMonoProperty:"DoubleList" valueObject:monoObject];          
 	}
 
+	// Managed property name : ExIntTestProperty
+	// Managed property type : System.Boolean
+    @synthesize exIntTestProperty = _exIntTestProperty;
+    - (BOOL)exIntTestProperty
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ExIntTestProperty"];
+		_exIntTestProperty = DB_UNBOX_BOOLEAN(monoObject);
+
+		return _exIntTestProperty;
+	}
+    - (void)setExIntTestProperty:(BOOL)value
+	{
+		_exIntTestProperty = value;
+		MonoObject *monoObject = DB_VALUE(value);
+		[self setMonoProperty:"ExIntTestProperty" valueObject:monoObject];          
+	}
+
 	// Managed property name : FloatArray
 	// Managed property type : System.Single[]
     @synthesize floatArray = _floatArray;
