@@ -25,26 +25,6 @@
 	}
 
 #pragma mark -
-#pragma mark Properties
-
-	// Managed property name : ExIntTestProperty
-	// Managed property type : System.Int32
-    @synthesize exIntTestProperty = _exIntTestProperty;
-    - (int32_t)exIntTestProperty
-    {
-		MonoObject *monoObject = [self getMonoProperty:"ExIntTestProperty"];
-		_exIntTestProperty = DB_UNBOX_INT32(monoObject);
-
-		return _exIntTestProperty;
-	}
-    - (void)setExIntTestProperty:(int32_t)value
-	{
-		_exIntTestProperty = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ExIntTestProperty" valueObject:monoObject];          
-	}
-
-#pragma mark -
 #pragma mark Teardown
 	- (void)dealloc
 	{

@@ -168,8 +168,13 @@ namespace Dubrovnik
                 if (outputInterfaceClass)
                 {
                     WriteClassStart(@interface, "interface");
-                    WriteProperties(@interface.Properties);
-                    WriteMethods(@interface.Methods);
+
+                    bool outputInterfaceAccessors = false;
+                    if (outputInterfaceAccessors)
+                    {
+                        WriteProperties(@interface.Properties);
+                        WriteMethods(@interface.Methods);
+                    }
                     WriteClassEnd(@interface);
                 }
             }
