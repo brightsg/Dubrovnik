@@ -12,11 +12,12 @@
  signatures for the same property or method from two or more interfaces. 
  This is not supported by Objective-C.
 
- In general then it seems best to omit the actual property and method predeclarations.
+ In general this likely means that invalid type warnings may be generated when an ObjC class
+ conforms to more than one managed protocol.
  It should still be possible to test for protocol conformance using Class - conformsToProtocol:
 
 */
-/*
+
 
 #pragma mark -
 #pragma mark Setup
@@ -25,7 +26,7 @@
 	// obligatory override
 	+ (const char *)monoAssemblyName;
 
-*/
+
 @end
 
 

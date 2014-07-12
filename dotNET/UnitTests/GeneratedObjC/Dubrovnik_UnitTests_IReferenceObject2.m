@@ -25,6 +25,26 @@
 	}
 
 #pragma mark -
+#pragma mark Properties
+
+	// Managed property name : ExIntTestProperty
+	// Managed property type : System.Single
+    @synthesize exIntTestProperty = _exIntTestProperty;
+    - (float)exIntTestProperty
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ExIntTestProperty"];
+		_exIntTestProperty = DB_UNBOX_FLOAT(monoObject);
+
+		return _exIntTestProperty;
+	}
+    - (void)setExIntTestProperty:(float)value
+	{
+		_exIntTestProperty = value;
+		MonoObject *monoObject = DB_VALUE(value);
+		[self setMonoProperty:"ExIntTestProperty" valueObject:monoObject];          
+	}
+
+#pragma mark -
 #pragma mark Teardown
 	- (void)dealloc
 	{

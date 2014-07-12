@@ -169,7 +169,7 @@ namespace Dubrovnik
                 {
                     WriteClassStart(@interface, "interface");
 
-                    bool outputInterfaceAccessors = false;
+                    bool outputInterfaceAccessors = true;
                     if (outputInterfaceAccessors)
                     {
                         WriteProperties(@interface.Properties);
