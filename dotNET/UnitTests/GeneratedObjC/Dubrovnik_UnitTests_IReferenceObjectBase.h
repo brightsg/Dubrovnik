@@ -13,6 +13,13 @@
 	// obligatory override
 	+ (const char *)monoAssemblyName;
 
+#pragma mark -
+#pragma mark Properties
+
+	// Managed property name : InterfaceTestProperty
+	// Managed property type : Dubrovnik.UnitTests.ITestProperty
+    @property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
+
 @end
 
 

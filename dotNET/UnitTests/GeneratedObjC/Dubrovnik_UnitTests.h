@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     7/12/2014 2:44:04 PM
+// Date:     7/12/2014 8:04:45 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5306.24677, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5306.34324, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -156,6 +156,13 @@
 #define DUIReferenceObjectBase_ Dubrovnik_UnitTests_IReferenceObjectBase
 #endif
 
+@class Dubrovnik_UnitTests_ITestProperty;
+#ifdef DUITestProperty_
+#warning DUITestProperty_ class name collision.
+#else
+#define DUITestProperty_ Dubrovnik_UnitTests_ITestProperty
+#endif
+
 @class Dubrovnik_UnitTests_ReferenceStruct;
 #ifdef DUReferenceStruct_
 #warning DUReferenceStruct_ class name collision.
@@ -182,6 +189,7 @@ Order here is Enumerations, Interfaces, Structs, Classes
 #import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
 #import "Dubrovnik_UnitTests_IReferenceObject1.h"
 #import "Dubrovnik_UnitTests_IReferenceObject2.h"
+#import "Dubrovnik_UnitTests_ITestProperty.h"
 #import "Dubrovnik_UnitTests_ReferenceStruct.h"
 #import "Dubrovnik_ClientApplication_EventHelper.h"
 #import "Dubrovnik_UnitTests_BaseObjectThree.h"

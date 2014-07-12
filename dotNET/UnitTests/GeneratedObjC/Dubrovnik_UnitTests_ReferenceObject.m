@@ -515,6 +515,24 @@
 		[self setMonoProperty:"IntEnumeration" valueObject:monoObject];          
 	}
 
+	// Managed property name : InterfaceTestProperty
+	// Managed property type : Dubrovnik.UnitTests.ITestProperty
+    @synthesize interfaceTestProperty = _interfaceTestProperty;
+    - (Dubrovnik_UnitTests_ITestProperty *)interfaceTestProperty
+    {
+		MonoObject *monoObject = [self getMonoProperty:"InterfaceTestProperty"];
+		if ([self object:_interfaceTestProperty isEqualToMonoObject:monoObject]) return _interfaceTestProperty;					
+		_interfaceTestProperty = [Dubrovnik_UnitTests_ITestProperty objectWithMonoObject:monoObject];
+
+		return _interfaceTestProperty;
+	}
+    - (void)setInterfaceTestProperty:(Dubrovnik_UnitTests_ITestProperty *)value
+	{
+		_interfaceTestProperty = value;
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"InterfaceTestProperty" valueObject:monoObject];          
+	}
+
 	// Managed property name : IntIntDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
     @synthesize intIntDictionary = _intIntDictionary;

@@ -25,6 +25,27 @@
 	}
 
 #pragma mark -
+#pragma mark Properties
+
+	// Managed property name : InterfaceTestProperty
+	// Managed property type : Dubrovnik.UnitTests.ITestProperty
+    @synthesize interfaceTestProperty = _interfaceTestProperty;
+    - (Dubrovnik_UnitTests_ITestProperty *)interfaceTestProperty
+    {
+		MonoObject *monoObject = [self getMonoProperty:"InterfaceTestProperty"];
+		if ([self object:_interfaceTestProperty isEqualToMonoObject:monoObject]) return _interfaceTestProperty;					
+		_interfaceTestProperty = [Dubrovnik_UnitTests_ITestProperty objectWithMonoObject:monoObject];
+
+		return _interfaceTestProperty;
+	}
+    - (void)setInterfaceTestProperty:(Dubrovnik_UnitTests_ITestProperty *)value
+	{
+		_interfaceTestProperty = value;
+		MonoObject *monoObject = [value monoObject];
+		[self setMonoProperty:"InterfaceTestProperty" valueObject:monoObject];          
+	}
+
+#pragma mark -
 #pragma mark Teardown
 	- (void)dealloc
 	{

@@ -143,6 +143,10 @@
 	// Managed property type : Dubrovnik.UnitTests.IntEnum
     @property (nonatomic) Dubrovnik_UnitTests_IntEnum intEnumeration;
 
+	// Managed property name : InterfaceTestProperty
+	// Managed property type : Dubrovnik.UnitTests.ITestProperty
+    @property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
+
 	// Managed property name : IntIntDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
     @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intIntDictionary;

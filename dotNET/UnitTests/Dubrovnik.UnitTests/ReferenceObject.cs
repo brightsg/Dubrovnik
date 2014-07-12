@@ -15,16 +15,21 @@ namespace Dubrovnik.UnitTests
     //==============================
     // interfaces
     //==============================
-    public interface IReferenceObject1 : IReferenceObjectBase
+
+    public interface ITestProperty
     {
         
     }
+    public interface IReferenceObject1 : IReferenceObjectBase
+    {
+        int ExIntTestProperty { get; set; }
+    }
     public interface IReferenceObject2 : IReferenceObjectBase
     {
-
+        float ExIntTestProperty { get; set; }
     }
     public interface IReferenceObjectBase {
-
+        ITestProperty InterfaceTestProperty { get; set; }
     }
 	public interface IMinimalReferenceObject 
     {
@@ -42,6 +47,7 @@ namespace Dubrovnik.UnitTests
 	//==============================
     public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2
 	{
+
 		//==============================
 		// events
 		//==============================
@@ -193,6 +199,14 @@ namespace Dubrovnik.UnitTests
 		//==============================
 		// properties
 		//==============================
+
+        // interface
+        public ITestProperty InterfaceTestProperty { get; set; }
+
+        // explicit interface properties
+        bool ExIntTestProperty { get; set; }
+        float IReferenceObject2.ExIntTestProperty { get; set; }
+        int IReferenceObject1.ExIntTestProperty { get; set; }
 
         // object properties
         public string StringProperty { get; set; }

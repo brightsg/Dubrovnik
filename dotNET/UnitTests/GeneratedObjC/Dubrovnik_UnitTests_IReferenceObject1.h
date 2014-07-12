@@ -13,6 +13,13 @@
 	// obligatory override
 	+ (const char *)monoAssemblyName;
 
+#pragma mark -
+#pragma mark Properties
+
+	// Managed property name : ExIntTestProperty
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t exIntTestProperty;
+
 @end
 
 
