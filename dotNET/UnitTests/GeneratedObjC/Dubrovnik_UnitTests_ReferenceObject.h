@@ -2,7 +2,7 @@
 //
 // Managed class : ReferenceObject
 //
-@interface Dubrovnik_UnitTests_ReferenceObject : System_Object
+@interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject, Dubrovnik_UnitTests_IReferenceObject1, Dubrovnik_UnitTests_IReferenceObjectBase, Dubrovnik_UnitTests_IReferenceObject2>
 
 #pragma mark -
 #pragma mark Setup

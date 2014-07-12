@@ -2,7 +2,7 @@
 //
 // Managed class : EventHelper
 //
-@interface Dubrovnik_ClientApplication_EventHelper : System_Object
+@interface Dubrovnik_ClientApplication_EventHelper : System_Object <Dubrovnik_ClientApplication_IEventHelper>
 
 #pragma mark -
 #pragma mark Setup

@@ -9,11 +9,11 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     5/18/2014 10:08:56 PM
+// Date:     7/12/2014 2:44:04 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5251.39062, Culture=neutral, PublicKeyToken=null
-// Path:     \\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5306.24677, Culture=neutral, PublicKeyToken=null
+// Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
 // OS Arch:  64 bit
@@ -38,9 +38,14 @@
 
 
 /*
-Order here is Enumerations, Structs, Classes, Interfaces
+Order here is Enumerations, Interfaces, Structs, Classes
 */
 
+// Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_IEventHelper.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IMinimalReferenceObject.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObjectBase.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject1.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject2.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceStruct.m
 // Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_EventHelper.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObjectThree.m
@@ -53,5 +58,3 @@ Order here is Enumerations, Structs, Classes, Interfaces
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__NestedClass.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_TestObject.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.m
-// Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_IEventHelper.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IMinimalReferenceObject.m

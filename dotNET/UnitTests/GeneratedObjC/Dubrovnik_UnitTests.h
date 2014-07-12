@@ -9,11 +9,11 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     5/18/2014 10:08:56 PM
+// Date:     7/12/2014 2:44:04 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5251.39062, Culture=neutral, PublicKeyToken=null
-// Path:     \\vmware-host\Shared Folders\Documents\Thesaurus\Development\OSX\BrightPay\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5306.24677, Culture=neutral, PublicKeyToken=null
+// Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
 // OS Arch:  64 bit
@@ -58,7 +58,6 @@
 #define DCEventHelper_ Dubrovnik_ClientApplication_EventHelper
 #endif
 
-@protocol Dubrovnik_ClientApplication_IEventHelper;
 @class Dubrovnik_ClientApplication_IEventHelper;
 #ifdef DCIEventHelper_
 #warning DCIEventHelper_ class name collision.
@@ -129,12 +128,32 @@
 #define DUTestObject_ Dubrovnik_UnitTests_TestObject
 #endif
 
-@protocol Dubrovnik_UnitTests_IMinimalReferenceObject;
 @class Dubrovnik_UnitTests_IMinimalReferenceObject;
 #ifdef DUIMinimalReferenceObject_
 #warning DUIMinimalReferenceObject_ class name collision.
 #else
 #define DUIMinimalReferenceObject_ Dubrovnik_UnitTests_IMinimalReferenceObject
+#endif
+
+@class Dubrovnik_UnitTests_IReferenceObject1;
+#ifdef DUIReferenceObject1_
+#warning DUIReferenceObject1_ class name collision.
+#else
+#define DUIReferenceObject1_ Dubrovnik_UnitTests_IReferenceObject1
+#endif
+
+@class Dubrovnik_UnitTests_IReferenceObject2;
+#ifdef DUIReferenceObject2_
+#warning DUIReferenceObject2_ class name collision.
+#else
+#define DUIReferenceObject2_ Dubrovnik_UnitTests_IReferenceObject2
+#endif
+
+@class Dubrovnik_UnitTests_IReferenceObjectBase;
+#ifdef DUIReferenceObjectBase_
+#warning DUIReferenceObjectBase_ class name collision.
+#else
+#define DUIReferenceObjectBase_ Dubrovnik_UnitTests_IReferenceObjectBase
 #endif
 
 @class Dubrovnik_UnitTests_ReferenceStruct;
@@ -153,11 +172,16 @@
 
 
 /*
-Order here is Enumerations, Structs, Classes, Interfaces
+Order here is Enumerations, Interfaces, Structs, Classes
 */
 
 #import "Dubrovnik_UnitTests_IntEnum.h"
 #import "Dubrovnik_UnitTests_LongEnum.h"
+#import "Dubrovnik_ClientApplication_IEventHelper.h"
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2.h"
 #import "Dubrovnik_UnitTests_ReferenceStruct.h"
 #import "Dubrovnik_ClientApplication_EventHelper.h"
 #import "Dubrovnik_UnitTests_BaseObjectThree.h"
@@ -170,5 +194,3 @@ Order here is Enumerations, Structs, Classes, Interfaces
 #import "Dubrovnik_UnitTests_ReferenceObject__NestedClass.h"
 #import "Dubrovnik_UnitTests_TestObject.h"
 #import "Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.h"
-#import "Dubrovnik_ClientApplication_IEventHelper.h"
-#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"

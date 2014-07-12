@@ -15,6 +15,17 @@ namespace Dubrovnik.UnitTests
     //==============================
     // interfaces
     //==============================
+    public interface IReferenceObject1 : IReferenceObjectBase
+    {
+        
+    }
+    public interface IReferenceObject2 : IReferenceObjectBase
+    {
+
+    }
+    public interface IReferenceObjectBase {
+
+    }
 	public interface IMinimalReferenceObject 
     {
         string StringMethod(string s1, int n);
@@ -29,7 +40,7 @@ namespace Dubrovnik.UnitTests
 	//==============================
 	// classes
 	//==============================
-    public class ReferenceObject : IMinimalReferenceObject
+    public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2
 	{
 		//==============================
 		// events
