@@ -214,6 +214,7 @@
 - (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary;
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary;
 - (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary;
+- (DBSystem_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary;
 
 - (System_NullableA1 *)intNullable;
 - (void)setIntNullable:(System_NullableA1 *)value;

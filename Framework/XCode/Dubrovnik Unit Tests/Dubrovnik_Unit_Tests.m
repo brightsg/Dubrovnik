@@ -1106,6 +1106,49 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
 
     
+    //=======================================
+    // Dictionary<int,Dictionary<int,string>>
+    //=======================================
+    DBSystem_Collections_Generic_DictionaryA2 *intIntStringDictA2 = [refObject intIntStringDictionaryDictionary];
+    
+    // test all keys
+    NSArray *intIntStringDictDictKeys = [intIntStringDictA2 allKeys];
+    STAssertTrue([intIntStringDictDictKeys count] == 2, DBUCountTestFailed);
+    STAssertTrue([intIntStringDictDictKeys containsObject:@0], DBUObjectNotFound);
+    STAssertTrue([intIntStringDictDictKeys containsObject:@1], DBUObjectNotFound);
+
+    // sub dict 1
+    DBSystem_Collections_Generic_DictionaryA2 *subDict1 = [intIntStringDictA2 objectForKey:[@0 managedNumberFromIntValue]];
+    
+    // test all keys
+    NSArray *subDict1Keys = [subDict1 allKeys];
+    STAssertTrue([subDict1Keys count] == 2, DBUCountTestFailed);
+    STAssertTrue([subDict1Keys containsObject:@0], DBUObjectNotFound);
+    STAssertTrue([subDict1Keys containsObject:@1], DBUObjectNotFound);
+
+    // test all values
+    NSString *stringValue = [subDict1 objectForKey:[@0 managedNumberFromIntValue]];
+    STAssertTrue([stringValue isEqualToString:@"string0"], DBUEqualityTestFailed);
+
+    stringValue = [subDict1 objectForKey:[@1 managedNumberFromIntValue]];
+    STAssertTrue([stringValue isEqualToString:@"string1"], DBUEqualityTestFailed);
+    
+    // sub dict 2
+    DBSystem_Collections_Generic_DictionaryA2 *subDict2 = [intIntStringDictA2 objectForKey:[@1 managedNumberFromIntValue]];
+    
+    // test all keys
+    NSArray *subDict2Keys = [subDict2 allKeys];
+    STAssertTrue([subDict2Keys count] == 2, DBUCountTestFailed);
+    STAssertTrue([subDict2Keys containsObject:@10], DBUObjectNotFound);
+    STAssertTrue([subDict2Keys containsObject:@11], DBUObjectNotFound);
+
+    // test all values
+    stringValue = [subDict2 objectForKey:[@10 managedNumberFromIntValue]];
+    STAssertTrue([stringValue isEqualToString:@"string10"], DBUEqualityTestFailed);
+    
+    stringValue = [subDict2 objectForKey:[@11 managedNumberFromIntValue]];
+    STAssertTrue([stringValue isEqualToString:@"string11"], DBUEqualityTestFailed);
+    
     //============================
     // System.Nullable<T>
     //=============================
@@ -1220,7 +1263,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // int
     Dubrovnik_UnitTests_IReferenceObject1 *refObject1 = [refObject referenceObject1];
-    [refObject1 logMonoClassInfo];
     [refObject1 setExIntTestProperty:89467];
     int32_t intValue = [refObject1 exIntTestProperty];
     
@@ -1229,7 +1271,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // float
     Dubrovnik_UnitTests_IReferenceObject2 *refObject2 = [refObject referenceObject2];
-    [refObject2 logMonoClassInfo];
     [refObject2 setExIntTestProperty:20202.f];
     float floatValue = [refObject2 exIntTestProperty];
     

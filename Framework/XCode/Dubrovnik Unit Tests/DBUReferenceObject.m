@@ -438,6 +438,15 @@
     return dict;
 }
 
+- (DBSystem_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary
+{
+    MonoObject * monoObject = [self getMonoProperty:"IntIntStringDictionaryDictionary"];
+    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
+    return dict;
+}
+
+
+
 - (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"StringObjectDictionary"];
