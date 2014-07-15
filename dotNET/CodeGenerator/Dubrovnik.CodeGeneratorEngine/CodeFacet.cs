@@ -191,9 +191,15 @@ namespace Dubrovnik
         // 
         public static string NormalizeGenericTypesInManagedIdentifier(string managedIdentifier)
         {
-           StringBuilder identifier = new StringBuilder("");
-           if (!String.IsNullOrEmpty(managedIdentifier))
+
+            StringBuilder identifier = new StringBuilder("");
+            if (!String.IsNullOrEmpty(managedIdentifier))
             {
+                int genericTypeIndicator = managedIdentifier.Split('<').Length - 1;
+                if (genericTypeIndicator > 1) {
+                    int b = 1;
+                }
+
                 identifier = new StringBuilder(managedIdentifier);
                 bool done = false;
                 int searchStartPos = 0;
@@ -253,7 +259,7 @@ namespace Dubrovnik
                         string normalizedParameters = "";
 
                         // if there is a generic subtype then this needs to be normalized too.
-                        if (hasGenericSubtype)
+                        if (hasGenericSubtype && false)
                         {
                             string subType = genericParameters.Substring(1, genericParameters.Length - 2);
                             normalizedParameters = NormalizeGenericTypesInManagedIdentifier(subType);
@@ -280,8 +286,19 @@ namespace Dubrovnik
                 } while (!done);
             }
 
-            // NOte: at this stage the identifier may still contain space and , characters that were part of the generic signature
-            return identifier.ToString();
+            // Note: at this stage the identifier may still contain space and , characters that were part of the generic signature
+            string result = identifier.ToString();
+
+            if (!String.IsNullOrEmpty(result))
+            {
+                int genericTypeIndicator = result.Split('<').Length - 1;
+                if (genericTypeIndicator > 1)
+                {
+                    int b = 1;
+                }
+            }
+
+            return result;
         }
 
         //

@@ -568,6 +568,24 @@
 		[self setMonoProperty:"IntIntDictionary" valueObject:monoObject];          
 	}
 
+	// Managed property name : IntIntStringDictionaryDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Collections.Generic.Dictionary`2<System.Int32, System.String>>
+    @synthesize intIntStringDictionaryDictionary = _intIntStringDictionaryDictionary;
+    - (DBSystem_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary
+    {
+		MonoObject *monoObject = [self getMonoProperty:"IntIntStringDictionaryDictionary"];
+		if ([self object:_intIntStringDictionaryDictionary isEqualToMonoObject:monoObject]) return _intIntStringDictionaryDictionary;					
+		_intIntStringDictionaryDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+
+		return _intIntStringDictionaryDictionary;
+	}
+    - (void)setIntIntStringDictionaryDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+	{
+		_intIntStringDictionaryDictionary = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"IntIntStringDictionaryDictionary" valueObject:monoObject];          
+	}
+
 	// Managed property name : IntList
 	// Managed property type : System.Collections.Generic.List`1<System.Int32>
     @synthesize intList = _intList;

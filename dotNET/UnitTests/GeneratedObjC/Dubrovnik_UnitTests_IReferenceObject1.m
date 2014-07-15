@@ -41,7 +41,7 @@
 	{
 		_exIntTestProperty = value;
 		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ExIntTestProperty" valueObject:monoObject];
+		[self setMonoProperty:"ExIntTestProperty" valueObject:monoObject];          
 	}
 
 #pragma mark -

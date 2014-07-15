@@ -155,6 +155,10 @@
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
     @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intIntDictionary;
 
+	// Managed property name : IntIntStringDictionaryDictionary
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Collections.Generic.Dictionary`2<System.Int32, System.String>>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intIntStringDictionaryDictionary;
+
 	// Managed property name : IntList
 	// Managed property type : System.Collections.Generic.List`1<System.Int32>
     @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * intList;

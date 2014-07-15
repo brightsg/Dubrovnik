@@ -160,6 +160,11 @@ namespace Dubrovnik.UnitTests
 				{ 1, 8 },
 				{ 1F,  "Dubrovnik.UnitTests 2" },
 			};
+            IntIntStringDictionaryDictionary = new Dictionary<int, Dictionary<int, string>>
+            {
+                { 0, new Dictionary<int, string>{{0, "string0"}, {1, "string1"}}},
+                { 1, new Dictionary<int, string>{{10, "string10"}, {11, "string11"}}},
+            };
 
 			StringStringGenericReferenceObject = new GenericReferenceObject<string, string>();
 			StringStringGenericReferenceObject.GenericPropertyWithTypeParameterT = "I am of type T == string";
@@ -275,6 +280,7 @@ namespace Dubrovnik.UnitTests
 		public Dictionary<string, object> StringObjectDictionary { get; set; }
 		public Dictionary<int, int> IntIntDictionary { get; set; }
 		public Dictionary<object, object> ObjectObjectDictionary { get; set; }
+        public Dictionary<int, Dictionary<int,string>> IntIntStringDictionaryDictionary { get; set; }
 
 		public Nullable<int> IntNullable { get; set; }
 		public Nullable<float> FloatNullable { get; set; }
