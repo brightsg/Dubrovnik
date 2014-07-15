@@ -10,6 +10,15 @@
 #import "DBULongEnum.h"
 #import "DBUGenericReferenceObjectA2.h"
 
+@class Dubrovnik_UnitTests_ITestProperty;
+
+// auto generated
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2.h"
+#import "Dubrovnik_UnitTests_ITestProperty.h"
+
 @class DBUIReferenceObject;
 
 /*
@@ -22,7 +31,7 @@
 //
 // Mono struct ReferenceStruct
 //
-@interface DBUReferenceStruct : System_Object
+@interface DBUReferenceStruct : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject, Dubrovnik_UnitTests_IReferenceObject1, Dubrovnik_UnitTests_IReferenceObjectBase, Dubrovnik_UnitTests_IReferenceObject2>
 
 #pragma mark -
 #pragma mark Setup
