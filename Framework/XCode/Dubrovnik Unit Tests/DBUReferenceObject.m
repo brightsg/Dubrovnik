@@ -320,6 +320,31 @@
 }
 
 #pragma mark -
+#pragma mark Mono explicit interface access properties
+
+- (Dubrovnik_UnitTests_IReferenceObject1 *)referenceObject1
+{
+    MonoObject *monoObject = [self getMonoProperty:"ReferenceObject1"];
+    return [Dubrovnik_UnitTests_IReferenceObject1 objectWithMonoObject:monoObject];
+}
+
+- (Dubrovnik_UnitTests_IReferenceObject2 *)referenceObject2
+{
+    MonoObject *monoObject = [self getMonoProperty:"ReferenceObject2"];
+    return [Dubrovnik_UnitTests_IReferenceObject2 objectWithMonoObject:monoObject];
+}
+
+- (BOOL)exIntTestProperty
+{
+    MonoObject *monoObject = [self getMonoProperty:"ExIntTestProperty"];
+    return DB_UNBOX_BOOLEAN(monoObject);
+}
+- (void)setExIntTestProperty:(BOOL)value
+{
+    [self setMonoProperty:"ExIntTestProperty" valueObject:DB_VALUE(value)];
+}
+
+#pragma mark -
 #pragma mark Mono array list properties
 
 - (DBSystem_Collections_ArrayList *)stringArrayList

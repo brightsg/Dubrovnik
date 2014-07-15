@@ -193,8 +193,10 @@
 
 // managed interface property
 - (DBUIReferenceObject *)minimalReferenceObject;
-
-@property (nonatomic) BOOL exIntTestProperty;
+- (Dubrovnik_UnitTests_IReferenceObject1 *)referenceObject1;
+- (Dubrovnik_UnitTests_IReferenceObject2 *)referenceObject2;
+- (BOOL)exIntTestProperty;
+- (void)setExIntTestProperty:(BOOL)value;
 
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 
