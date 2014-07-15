@@ -187,6 +187,14 @@
 	// Managed property type : System.IntPtr
     @property (nonatomic) void * pointer;
 
+	// Managed property name : ReferenceObject1
+	// Managed property type : Dubrovnik.UnitTests.IReferenceObject1
+    @property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IReferenceObject1 * referenceObject1;
+
+	// Managed property name : ReferenceObject2
+	// Managed property type : Dubrovnik.UnitTests.IReferenceObject2
+    @property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IReferenceObject2 * referenceObject2;
+
 	// Managed property name : ReferenceObjectList
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
     @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * referenceObjectList;

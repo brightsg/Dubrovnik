@@ -204,21 +204,37 @@ namespace Dubrovnik.UnitTests
         public ITestProperty InterfaceTestProperty { get; set; }
 
         // explicit interface properties
+        /*
+         * Here we have one property with 3 different return types
+         * two of which should be accessible via explicit interface references
+         */
         public bool ExIntTestProperty { get; set; }
         float IReferenceObject2.ExIntTestProperty { get; set; }
         int IReferenceObject1.ExIntTestProperty { get; set; }
+
+        // get interfaces
+        public IMinimalReferenceObject MinimalReferenceObject {
+            get {
+                return (IMinimalReferenceObject)this;
+            }
+        }
+
+        public IReferenceObject1 ReferenceObject1 {
+            get {
+                return (IReferenceObject1)this;
+            }
+        }
+
+        public IReferenceObject2 ReferenceObject2 {
+            get {
+                return (IReferenceObject2)this;
+            }
+        }
 
         // object properties
         public string StringProperty { get; set; }
 		public string Name { get; set;}
         public ReferenceObject ReferenceObjectRelative  { get; set;}
-        public IMinimalReferenceObject MinimalReferenceObject
-        {
-            get
-            {
-                return (IMinimalReferenceObject)this;
-            }
-        }
 
         // value type properties
 		public DateTime Date { get; set;}

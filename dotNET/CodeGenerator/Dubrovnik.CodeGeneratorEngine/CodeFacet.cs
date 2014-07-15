@@ -38,6 +38,7 @@ namespace Dubrovnik
             IsEnum = XElementAttributeBool(xelement, "IsEnum");
             IsValueType = XElementAttributeBool(xelement, "IsValueType");
             IsByRef = XElementAttributeBool(xelement, "IsByRef");
+            IsInterface = XElementAttributeBool(xelement, "IsInterface");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
             IsPointer = XElementAttributeBool(xelement, "IsPointer");
             IsArray = XElementAttributeBool(xelement, "IsArray");
@@ -88,6 +89,7 @@ namespace Dubrovnik
         public bool IsPointer { get; private set; }
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }
+        public bool IsInterface { get; private set; }
         public string BaseName { get; private set; }
         public string BaseType { get; private set; }
         public string UnderlyingType { get; private set; }
