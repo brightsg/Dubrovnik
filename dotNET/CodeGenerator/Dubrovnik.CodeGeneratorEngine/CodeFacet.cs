@@ -581,7 +581,6 @@ namespace Dubrovnik
         {
             Fields = new FacetList<FieldFacet>(xelement, "Field"); 
             Constructors = new FacetList<MethodFacet>(xelement, "Constructor");
-            ImplementedInterfaces = new FacetList<ImplementedInterfaceFacet>(xelement, "ImplementedInterface");
 
             // process the constructors
             foreach (MethodFacet facet in Constructors)
@@ -595,7 +594,6 @@ namespace Dubrovnik
         // TODO: add destructors, constants, operators, delegates, structs
         public IList<FieldFacet> Fields { get; set; }
         public IList<MethodFacet> Constructors { get; set; }
-        public IList<ImplementedInterfaceFacet> ImplementedInterfaces { get; set; }
     }
 
     /*

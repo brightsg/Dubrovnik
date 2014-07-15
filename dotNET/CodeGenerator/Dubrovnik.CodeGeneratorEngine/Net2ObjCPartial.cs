@@ -154,29 +154,32 @@ namespace Dubrovnik
         //
         public void WriteInterface(InterfaceFacet @interface)
         {
-            bool outputInterfaceClass = true;
-
             if (OutputFileType == OutputType.Interface)
             {
+                // write interface as protocol
                 WriteInterfaceStart(@interface, "interface");
                 WriteProperties(@interface.Properties);
-                WriteMethods(@interface.Methods);
+                WriteMethods(@interface.Methods); 
                 WriteInterfaceEnd(@interface);
+
+                // write interface as auxiliary protocol
+                WriteInterfaceStart(@interface, "interface", true);
+                WriteProperties(@interface.Properties);
+                WriteMethods(@interface.Methods);
+                WriteInterfaceEnd(@interface, true);
+
+                // write interface as class interface
+                WriteClassStart(@interface, "interface", false);
+                WriteProperties(@interface.Properties);
+                WriteMethods(@interface.Methods);
+                WriteClassEnd(@interface);
             }
             else
             {
-                if (outputInterfaceClass)
-                {
-                    WriteClassStart(@interface, "interface");
-
-                    bool outputInterfaceAccessors = true;
-                    if (outputInterfaceAccessors)
-                    {
-                        WriteProperties(@interface.Properties);
-                        WriteMethods(@interface.Methods);
-                    }
-                    WriteClassEnd(@interface);
-                }
+                WriteClassStart(@interface, "interface");
+                WriteProperties(@interface.Properties);
+                WriteMethods(@interface.Methods);
+                WriteClassEnd(@interface);
             }
         }
 
@@ -587,12 +590,15 @@ namespace Dubrovnik
             string value = "";
             if (OutputFileType == OutputType.Interface)
             {
-                if (facet is ClassFacet)
+
+                // class or interface facet
+                if (facet is InterfaceFacet)
                 {
-                    ClassFacet classFacet = (ClassFacet)facet;
-                    if (classFacet.ImplementedInterfaces.Count > 0)
+                    var interfaceFacet = (InterfaceFacet)facet;
+                    IList<ImplementedInterfaceFacet> implementedInterfaces = interfaceFacet.ImplementedInterfaces;
+
+                    if (implementedInterfaces.Count > 0)
                     {
-                        var implementedInterfaces = classFacet.ImplementedInterfaces;
                         bool filterSystemInterfaces = true;
 
                         // we may wish to naively filter out system interfaces while full
@@ -600,9 +606,9 @@ namespace Dubrovnik
                         // this will hopefully let us usefully represent user implemented interfaces.
                         if (filterSystemInterfaces)
                         {
-                            implementedInterfaces = new List<ImplementedInterfaceFacet>();
+                            var interfaces = new List<ImplementedInterfaceFacet>();
                             foreach (
-                                ImplementedInterfaceFacet implementedInterfaceFacet in classFacet.ImplementedInterfaces)
+                                ImplementedInterfaceFacet implementedInterfaceFacet in implementedInterfaces)
                             {
                                 string interfaceType = implementedInterfaceFacet.Type;
                                 bool isNaiveSystemType = interfaceType.StartsWith("System.",
@@ -610,25 +616,41 @@ namespace Dubrovnik
 
                                 if (!isNaiveSystemType)
                                 {
-                                    implementedInterfaces.Add(implementedInterfaceFacet);
+                                    interfaces.Add(implementedInterfaceFacet);
                                 }
                             }
+
+                            implementedInterfaces = interfaces;
                         }
 
                         if (implementedInterfaces.Count > 0)
                         {
-                            value = " <";
-                            int i = 0;
-                            foreach (ImplementedInterfaceFacet implementedInterfaceFacet in implementedInterfaces)
-                            {
-                                if (i++ > 0) value += ", ";
-                                value += ObjCIdentifierFromManagedIdentifier(implementedInterfaceFacet.Type);
+                            // cast
+                            IList<CodeFacet> codeFacets = implementedInterfaces.Cast<CodeFacet>().ToList();
+
+                            // facet is interface facet type?
+                            if (facet.GetType() == typeof(InterfaceFacet)) {
+                                // insert the interface's own type as we are defining the protocols
+                                // that will be used to define a class representing the interface
+                                codeFacets.Insert(0, facet);
                             }
 
+
+                            value = " <";
+                            int i = 0;
+                            foreach (CodeFacet codeFacet in codeFacets)
+                            {
+                                if (i++ > 0) value += ", ";
+                                value += ObjCIdentifierFromManagedIdentifier(codeFacet.Type);
+                            }
+
+ 
                             value += ">";
                         }
                     }
                 }
+
+              
             }
             return value;
         }
