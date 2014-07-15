@@ -104,6 +104,9 @@ namespace Dubrovnik.Reflector {
             // Reference
             if (type.IsByRef) xtw.WriteAttributeString("IsByRef", Boolean.TrueString);
 
+            // Interface
+            if (type.IsInterface) xtw.WriteAttributeString("IsInterface", Boolean.TrueString);
+
             // Element types
             //
             // Array[], pointer* and by ref types

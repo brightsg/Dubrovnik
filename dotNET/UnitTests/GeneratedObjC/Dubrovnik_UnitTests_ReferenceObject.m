@@ -703,6 +703,30 @@
 		[self setMonoProperty:"Pointer" valueObject:monoObject];          
 	}
 
+	// Managed property name : ReferenceObject1
+	// Managed property type : Dubrovnik.UnitTests.IReferenceObject1
+    @synthesize referenceObject1 = _referenceObject1;
+    - (Dubrovnik_UnitTests_IReferenceObject1 *)referenceObject1
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ReferenceObject1"];
+		if ([self object:_referenceObject1 isEqualToMonoObject:monoObject]) return _referenceObject1;					
+		_referenceObject1 = [Dubrovnik_UnitTests_IReferenceObject1 objectWithMonoObject:monoObject];
+
+		return _referenceObject1;
+	}
+
+	// Managed property name : ReferenceObject2
+	// Managed property type : Dubrovnik.UnitTests.IReferenceObject2
+    @synthesize referenceObject2 = _referenceObject2;
+    - (Dubrovnik_UnitTests_IReferenceObject2 *)referenceObject2
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ReferenceObject2"];
+		if ([self object:_referenceObject2 isEqualToMonoObject:monoObject]) return _referenceObject2;					
+		_referenceObject2 = [Dubrovnik_UnitTests_IReferenceObject2 objectWithMonoObject:monoObject];
+
+		return _referenceObject2;
+	}
+
 	// Managed property name : ReferenceObjectList
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
     @synthesize referenceObjectList = _referenceObjectList;
