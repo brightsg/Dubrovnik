@@ -169,12 +169,13 @@ namespace Dubrovnik.UnitTests
 			IntNullable = 1;
 			FloatNullable = null;
 
-            // Initialize statics
-			//ClassProperty = "Dubrovnik.UnitTests static property";
-			//ClassStringField = "Dubrovnik.UnitTests static field";
+            // initialise interface test properties
+		    ExIntTestProperty = true;
+		    (this as IReferenceObject1).ExIntTestProperty = 10101;
+            (this as IReferenceObject2).ExIntTestProperty = 20202f;
 
-			//Console.WriteLine ("======= CONSTRUCTOR END ===========");
-			//Console.WriteLine (" ");
+		    //Console.WriteLine ("======= CONSTRUCTOR END ===========");
+		    //Console.WriteLine (" ");
 		}
 
 		public ReferenceObject (string value) : this ()
