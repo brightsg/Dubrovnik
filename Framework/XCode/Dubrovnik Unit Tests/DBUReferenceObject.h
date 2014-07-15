@@ -194,6 +194,8 @@
 // managed interface property
 - (DBUIReferenceObject *)minimalReferenceObject;
 
+@property (nonatomic) BOOL exIntTestProperty;
+
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 
 - (NSString *)extensionString;

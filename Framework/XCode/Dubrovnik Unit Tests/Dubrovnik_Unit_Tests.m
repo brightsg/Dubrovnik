@@ -1209,7 +1209,22 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // query interface property
     NSString * minimalRefString = [minimRefObject stringMethod_withS1:@"1" n:2];
     STAssertTrue([minimalRefString dbTestString:DBUTestString], DBUSubstringTestFailed);
-
+    
+    // query explicit interface implementation properties.
+    // we shaould be able to access the same property with three different return types via the
+    // original object and two explicit interface references.
+    
+    // BOOL
+    BOOL boolValue = [(DBUReferenceObject *)refObject exIntTestProperty];   // cast need to silence type warning
+    NSAssert(boolValue == YES, DBUEqualityTestFailed);
+    
+    // int
+    Dubrovnik_UnitTests_IReferenceObject1 *refObject1 = [refObject referenceObject1];
+    NSAssert([refObject1 exIntTestProperty] == 10101, DBUEqualityTestFailed);
+    
+    // float
+    Dubrovnik_UnitTests_IReferenceObject2 *refObject2 = [refObject referenceObject2];
+    NSAssert([refObject2 exIntTestProperty] == 20202.f, DBUEqualityTestFailed);
 }
 
 - (void)doTestProperties:(id)refObject class:(Class)testClass
