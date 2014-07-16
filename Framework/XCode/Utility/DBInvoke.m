@@ -37,6 +37,8 @@
 #import "DBInvoke.h"
 #import "NSCategories.h"
 
+char *DBFormatPropertyName(const char * propertyName, const char* fmt);
+
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
 	if(numArgs > 0) {
 		int i;
@@ -461,16 +463,19 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertySetMethod(Mo
 	if(valuePointer != NULL) meth = (MonoMethod *)*valuePointer;
 	
 	if(meth == NULL) {
-		//MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
-		//meth = mono_property_get_set_method(monoProperty);
-		char methodName[strlen(propertyName) + 6]; // + "set_"
-		sprintf(methodName, ":set_%s", propertyName);
+        
+        // Get the setter method name.
+        // An API exists to get property set method but it is not used here.
+		// MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
+		// meth = mono_property_get_set_method(monoProperty);
+        char *methodName = DBFormatPropertyName(propertyName, ":%sset_%s");
         
         // Note: Exact name matching requirement is set to NO.
         // This enables searching for property setter methods by name only.
         // TODO: Require full method signature ?
 		meth = GetMonoClassMethod(monoClass, methodName, NO);
-
+        free(methodName);
+        
 		SetPropertySetMethod(monoClass, propertyName, meth);
 	}
 	
@@ -510,17 +515,18 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(Mo
 	if(meth == NULL) {
         // cache miss
         
-//		MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
-//		meth = mono_property_get_get_method(monoProperty);
-		char methodName[strlen(propertyName) + 8]; // + ":get_\0"
-        char *fmt = ":get_%s";
-        sprintf(methodName, fmt, propertyName);
+        // Get the getter method name.
+        // note: an explicit API exists for this, though we do not utilise it here.
+        // MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
+        // meth = mono_property_get_get_method(monoProperty);
+        char *methodName = DBFormatPropertyName(propertyName, ":%sget_%s");
         
         // Note: Exact name matching requirement is set to NO.
         // This enables searching for property getter methods by name only.
         // TODO: Require full method signature ?
 		meth = GetMonoClassMethod(monoClass, methodName, NO);
-
+        free(methodName);
+        
         // update the cache
 		SetPropertyGetMethod(monoClass, propertyName, meth);
 	}
@@ -528,6 +534,36 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(Mo
 	pthread_mutex_unlock(&propertyGetCacheMutex);
 	
 	return(meth);
+}
+
+__attribute__((always_inline)) inline char *DBFormatPropertyName(const char * propertyName, const char* fmt)
+{
+    // get explicit interface prefix.
+    
+    char *prefix = "";
+    const char *name = propertyName;
+    char *delim = strrchr(propertyName, '.');
+    if (delim != NULL) {
+        
+        // get prefix
+        int nPrefix = delim - propertyName + 1;
+        prefix = malloc(nPrefix);
+        strncpy(prefix, propertyName, nPrefix);
+        prefix[nPrefix] = '\0';
+        
+        // get name
+        name = delim + 1;
+    }
+
+    // form the getter
+    int maxMethodName = strlen(prefix) + strlen(name) + strlen(fmt);
+    char *methodName = malloc(maxMethodName);
+    snprintf(methodName, maxMethodName, fmt, prefix, name);
+    if (delim) {
+        free(prefix);
+    }
+    
+    return methodName;
 }
 
 #pragma mark -

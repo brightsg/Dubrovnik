@@ -1249,7 +1249,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // get managed interface object
     id minimRefObject = [refObject minimalReferenceObject];
     
-    // query interface property
+    // query interface method
     NSString * minimalRefString = [minimRefObject stringMethod_withS1:@"1" n:2];
     STAssertTrue([minimalRefString dbTestString:DBUTestString], DBUSubstringTestFailed);
     
@@ -1266,16 +1266,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [refObject1 setExIntTestProperty:89467];
     int32_t intValue = [refObject1 exIntTestProperty];
     
-#warning failing test code
-    if (NO) NSAssert(intValue == 89467, DBUEqualityTestFailed);
+    NSAssert(intValue == 89467, DBUEqualityTestFailed);
     
     // float
     Dubrovnik_UnitTests_IReferenceObject2 *refObject2 = [refObject referenceObject2];
     [refObject2 setExIntTestProperty:20202.f];
     float floatValue = [refObject2 exIntTestProperty];
-    
-#warning failing test code
-    if (NO) NSAssert(floatValue == 20202.f, DBUEqualityTestFailed);
+
+    NSAssert(floatValue == 20202.f, DBUEqualityTestFailed);
 }
 
 - (void)doTestProperties:(id)refObject class:(Class)testClass
