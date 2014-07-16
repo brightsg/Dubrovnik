@@ -32,7 +32,7 @@
     @synthesize interfaceTestProperty = _interfaceTestProperty;
     - (Dubrovnik_UnitTests_ITestProperty *)interfaceTestProperty
     {
-		MonoObject *monoObject = [self getMonoProperty:"InterfaceTestProperty"];
+		MonoObject *monoObject = [self getMonoProperty:"Dubrovnik.UnitTests.IReferenceObjectBase.InterfaceTestProperty"];
 		if ([self object:_interfaceTestProperty isEqualToMonoObject:monoObject]) return _interfaceTestProperty;					
 		_interfaceTestProperty = [Dubrovnik_UnitTests_ITestProperty objectWithMonoObject:monoObject];
 
@@ -42,7 +42,7 @@
 	{
 		_interfaceTestProperty = value;
 		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"InterfaceTestProperty" valueObject:monoObject];          
+		[self setMonoProperty:"Dubrovnik.UnitTests.IReferenceObjectBase.InterfaceTestProperty" valueObject:monoObject];          
 	}
 
 #pragma mark -

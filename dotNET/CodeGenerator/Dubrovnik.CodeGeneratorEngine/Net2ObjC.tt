@@ -482,7 +482,7 @@ typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 //
 // WriteFacetAsAccessor
 // 
-public void WriteFacetAsAccessor(CodeFacet facet)
+public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> options = null)
 {
 	// define getters and setters
 	string accessorName = facet.Name;
@@ -575,8 +575,18 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 		throw new Exception("Cannot write facet as accessor");
     }
 
-	string getExpression = String.Format(getFormat, accessorName, ManagedVariableName);
-	string setExpression = String.Format(setFormat, accessorName, ManagedVariableName);
+	// form mono method invocation name.
+	// a prefix may be required, for instance when calling explicit interface properties.
+	string monoMethodPrefix = "";
+	if (options != null) {
+		if (options.ContainsKey("cAPIMethodPrefix")) {
+			monoMethodPrefix = (string)options["cAPIMethodPrefix"];
+        }
+    }
+	string monoInvocationName = monoMethodPrefix + accessorName;
+
+	string getExpression = String.Format(getFormat, monoInvocationName, ManagedVariableName);
+	string setExpression = String.Format(setFormat, monoInvocationName, ManagedVariableName);
 
 	// Info comment
 #>
@@ -671,7 +681,7 @@ public void WriteFacetAsAccessor(CodeFacet facet)
 //
 // WriteFacetAsMethod
 //
-public void WriteFacetAsMethod(MethodFacet facet)
+public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> options = null)
 {
 	// In order to ensure compilation of an assembly and its references 
 	// the generated code must resolve all types.
@@ -946,7 +956,17 @@ public void WriteFacetAsMethod(MethodFacet facet)
 		invokeArgs += ", " + invokeArgsBuilder.ToString();
     }
 
-	string getExpression = String.Format(objCMethodFormat, monoMethodName, monoMethodSig, invokeArgs) + ";";
+	// form mono method invocation name.
+	// a prefix may be required, for instance when calling explicit interface methods.
+	string monoMethodPrefix = "";
+	if (options != null) {
+		if (options.ContainsKey("cAPIMethodPrefix")) {
+			monoMethodPrefix = (string)options["cAPIMethodPrefix"];
+        }
+    }
+	string monoInvocationName = monoMethodPrefix + monoMethodName;
+
+	string getExpression = String.Format(objCMethodFormat, monoInvocationName, monoMethodSig, invokeArgs) + ";";
 	if (referencePostProcessBuilder.Length > 0) {
 		getExpression += Environment.NewLine;
     }

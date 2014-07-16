@@ -157,18 +157,25 @@ namespace Dubrovnik
             if (OutputFileType == OutputType.Interface)
             {
                 // write interface as protocol
+                // this will be used to test for ObjC protocol conformance with
+                // Class -conformsToProtocol while still permitting
+                // the expression of explicit managed interfaces.
+                // accessor foward declarations are omitted from the protocol by default.
                 WriteInterfaceStart(@interface, "interface");
                 WriteProperties(@interface.Properties);
                 WriteMethods(@interface.Methods); 
                 WriteInterfaceEnd(@interface);
 
                 // write interface as auxiliary protocol
+                // this can be used in expressions such as id <protocol>
+                // where it is helpful if the accessors are predeclared in the protocol
                 WriteInterfaceStart(@interface, "interface", true);
                 WriteProperties(@interface.Properties);
                 WriteMethods(@interface.Methods);
                 WriteInterfaceEnd(@interface, true);
 
                 // write interface as class interface
+                // this will expose a managed interface as a bound ObjC class
                 WriteClassStart(@interface, "interface", false);
                 WriteProperties(@interface.Properties);
                 WriteMethods(@interface.Methods);
@@ -176,9 +183,11 @@ namespace Dubrovnik
             }
             else
             {
+                // implementation
+                var options = new Dictionary<string, object> {{"cAPIMethodPrefix", @interface.Type + "."} };
                 WriteClassStart(@interface, "interface");
-                WriteProperties(@interface.Properties);
-                WriteMethods(@interface.Methods);
+                WriteProperties(@interface.Properties, options);
+                WriteMethods(@interface.Methods, options);
                 WriteClassEnd(@interface);
             }
         }
@@ -188,7 +197,7 @@ namespace Dubrovnik
         //
         public void WriteFields(IList<FieldFacet> fields)
         {
-            if (fields.Count() > 0)
+            if (fields.Any())
             {
                 WritePragmaMark("Fields");
 
@@ -202,15 +211,15 @@ namespace Dubrovnik
         //
         // WriteProperties
         //
-        public void WriteProperties(IList<PropertyFacet> properties)
+        public void WriteProperties(IList<PropertyFacet> properties,  Dictionary<string, object> options = null)
         {
-            if (properties.Count() > 0)
+            if (properties.Any())
             {
                 WritePragmaMark("Properties");
 
                 foreach (PropertyFacet property in properties)
                 {
-                    WriteFacetAsAccessor(property);
+                    WriteFacetAsAccessor(property, options);
                 }
             }
         }
@@ -218,15 +227,15 @@ namespace Dubrovnik
         //
         // WriteMethods
         //
-        public void WriteMethods(IList<MethodFacet> methods)
+        public void WriteMethods(IList<MethodFacet> methods, Dictionary<string, object> options = null)
         {
-            if (methods.Count() > 0)
+            if (methods.Any())
             {
                 WritePragmaMark("Methods");
 
                 foreach (MethodFacet facet in methods)
                 {
-                    WriteFacetAsMethod(facet);
+                    WriteFacetAsMethod(facet, options);
                 }
             }
         }
@@ -237,7 +246,7 @@ namespace Dubrovnik
         //
         public void WriteConstructors(IList<MethodFacet> methods)
         {
-            if (methods.Count() > 0)
+            if (methods.Any())
             {
                 WritePragmaMark("Constructors");
 

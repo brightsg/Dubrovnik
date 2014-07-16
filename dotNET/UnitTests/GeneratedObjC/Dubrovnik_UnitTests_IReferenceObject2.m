@@ -32,7 +32,7 @@
     @synthesize exIntTestProperty = _exIntTestProperty;
     - (float)exIntTestProperty
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExIntTestProperty"];
+		MonoObject *monoObject = [self getMonoProperty:"Dubrovnik.UnitTests.IReferenceObject2.ExIntTestProperty"];
 		_exIntTestProperty = DB_UNBOX_FLOAT(monoObject);
 
 		return _exIntTestProperty;
@@ -41,7 +41,7 @@
 	{
 		_exIntTestProperty = value;
 		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ExIntTestProperty" valueObject:monoObject];          
+		[self setMonoProperty:"Dubrovnik.UnitTests.IReferenceObject2.ExIntTestProperty" valueObject:monoObject];          
 	}
 
 #pragma mark -
