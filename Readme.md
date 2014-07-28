@@ -15,7 +15,7 @@ The Dubrovnik code generator operates on a compiled .NET assembly and emits Obje
 [C# managed reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs). This object expresses all the managed language features that we want to be able to access from Objective-C.
 
 2. From the above we generate an
-[Objective-C reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests_ReferenceObject.m) using the Dubrovnik code generator. This object provides Obj-C level access to our reference managed object.
+[Objective-C reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests_ReferenceObject.m) using the Dubrovnik code generator. This object provides Obj-C level access to our reference managed object. Each type in an assembly is rendered separately and referenced in the [assembly header](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests.h). The code generator strives to import everything in the correct sequence! The assembly header can be extensive in the case of a [core system assembly](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/Generated-bindings/mscorlib.h).
 
 3. The binding between the managed reference object and its unmanaged Obj-C representation is exercised by the numerous
 [unit tests](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/Framework/XCode/Dubrovnik%20Unit%20Tests/Dubrovnik_Unit_Tests.m).
@@ -47,7 +47,7 @@ Outstanding Project Goals
 
 The following project goals are outstanding:
 
-1. Generate automatic bindings for all types in mscorlib.dll. This is pretty well advanced.
+1. Generate automatic bindings for all types in mscorlib.dll. This is pretty well advanced. Some fixes to the core codegen are required. Some issues will be resolved by the postflight processor.
 1. Automatic generic method support in generated code.
 
 What's in the Bag?
@@ -383,7 +383,7 @@ DBCommandLineExample demonstrates a number of Dubrovnik features
 
 - Writing a Dubrovnik wrapper for a C# class
 
-- Exception handling/Users/jonathan/Documents/Thesaurus/Development/xcode.OLD
+- Exception handling
   
 DBCocoaExample is the classic Currency Converter application; it demonstrates a simple front end that uses mono for its backend.
 
