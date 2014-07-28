@@ -13,6 +13,12 @@
 @class Dubrovnik_UnitTests_ITestProperty;
 
 // auto generated
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"
+#import "Dubrovnik_UnitTests_ITestProperty_Protocol.h"
+
 #import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
 #import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
 #import "Dubrovnik_UnitTests_IReferenceObject1.h"
