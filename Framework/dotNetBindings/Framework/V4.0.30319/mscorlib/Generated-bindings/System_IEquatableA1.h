@@ -16,7 +16,7 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.IEquatable`1+T>
     - (BOOL)equals_withOther:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

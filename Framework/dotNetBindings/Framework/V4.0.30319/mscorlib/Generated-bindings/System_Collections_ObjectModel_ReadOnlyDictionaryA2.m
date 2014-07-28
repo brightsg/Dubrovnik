@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.ReadOnlyDictionary`2";
+		return "System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey,System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,11 +28,11 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.ObjectModel.ReadOnlyDictionary`2<TKey, TValue>
-	// Managed param types : System.Collections.Generic.IDictionary`2<TKey, TValue>
+	// Managed return type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>
     + (System_Collections_ObjectModel_ReadOnlyDictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<TKey, TValue>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -50,7 +50,7 @@
 	}
 
 	// Managed property name : Item
-	// Managed property type : <TValue>
+	// Managed property type : <System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>
     @synthesize item = _item;
     - (System_Object *)item
     {
@@ -62,25 +62,25 @@
 	}
 
 	// Managed property name : Keys
-	// Managed property type : System.Collections.ObjectModel.KeyCollection
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>+KeyCollection
     @synthesize keys = _keys;
-    - (System_Collections_ObjectModel_KeyCollection *)keys
+    - (System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection *)keys
     {
 		MonoObject *monoObject = [self getMonoProperty:"Keys"];
 		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
-		_keys = [System_Collections_ObjectModel_KeyCollection objectWithMonoObject:monoObject];
+		_keys = [System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection objectWithMonoObject:monoObject];
 
 		return _keys;
 	}
 
 	// Managed property name : Values
-	// Managed property type : System.Collections.ObjectModel.ValueCollection
+	// Managed property type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>+ValueCollection
     @synthesize values = _values;
-    - (System_Collections_ObjectModel_ValueCollection *)values
+    - (System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection *)values
     {
 		MonoObject *monoObject = [self getMonoProperty:"Values"];
 		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
-		_values = [System_Collections_ObjectModel_ValueCollection objectWithMonoObject:monoObject];
+		_values = [System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection objectWithMonoObject:monoObject];
 
 		return _values;
 	}
@@ -90,7 +90,7 @@
 
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey>
     - (BOOL)containsKey_withKey:(System_Object *)p1
     {
 		
@@ -100,7 +100,7 @@
     }
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<TKey, TValue>>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {
@@ -112,7 +112,7 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref <TValue&>
+	// Managed param types : <System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey>, ref <TValue&>
     - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
 		void *refPtr2 = [*p2 monoValue];

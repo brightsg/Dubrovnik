@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IReadOnlyList`1";
+		return "System.Collections.Generic.IReadOnlyList`1<System.Collections.Generic.IReadOnlyList`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,11 +28,11 @@
 #pragma mark Properties
 
 	// Managed property name : Item
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.Generic.IReadOnlyList`1+T>
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyList`1<T>.Item"];
+		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyList`1<System.Collections.Generic.IReadOnlyList`1+T>.Item"];
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Object subclassObjectWithMonoObject:monoObject];
 

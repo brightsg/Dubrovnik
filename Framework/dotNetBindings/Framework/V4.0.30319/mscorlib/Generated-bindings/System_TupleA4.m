@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Tuple`4";
+		return "System.Tuple`4<System.Tuple`4+T1,System.Tuple`4+T2,System.Tuple`4+T3,System.Tuple`4+T4>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,8 +28,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Tuple`4<T1, T2, T3, T4>
-	// Managed param types : <T1>, <T2>, <T3>, <T4>
+	// Managed return type : System.Tuple`4<System.Tuple`4+T1, System.Tuple`4+T2, System.Tuple`4+T3, System.Tuple`4+T4>
+	// Managed param types : <System.Tuple`4+T1>, <System.Tuple`4+T2>, <System.Tuple`4+T3>, <System.Tuple`4+T4>
     + (System_TupleA4 *)new_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4
     {
 		return [[self alloc] initWithSignature:"<_T_0>,<_T_1>,<_T_2>,<_T_3>" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
@@ -39,7 +39,7 @@
 #pragma mark Properties
 
 	// Managed property name : Item1
-	// Managed property type : <T1>
+	// Managed property type : <System.Tuple`4+T1>
     @synthesize item1 = _item1;
     - (System_Object *)item1
     {
@@ -51,7 +51,7 @@
 	}
 
 	// Managed property name : Item2
-	// Managed property type : <T2>
+	// Managed property type : <System.Tuple`4+T2>
     @synthesize item2 = _item2;
     - (System_Object *)item2
     {
@@ -63,7 +63,7 @@
 	}
 
 	// Managed property name : Item3
-	// Managed property type : <T3>
+	// Managed property type : <System.Tuple`4+T3>
     @synthesize item3 = _item3;
     - (System_Object *)item3
     {
@@ -75,7 +75,7 @@
 	}
 
 	// Managed property name : Item4
-	// Managed property type : <T4>
+	// Managed property type : <System.Tuple`4+T4>
     @synthesize item4 = _item4;
     - (System_Object *)item4
     {

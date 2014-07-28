@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Security.AccessControl.ObjectSecurity`1";
+		return "System.Security.AccessControl.ObjectSecurity`1<System.Security.AccessControl.ObjectSecurity`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -79,18 +79,18 @@
 
 	// Managed method name : AddAccessRule
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AccessRule`1<T>
+	// Managed param types : System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)addAccessRule_withRule:(System_Security_AccessControl_AccessRuleA1 *)p1
     {
-		[self invokeMonoMethod:"AddAccessRule(System.Security.AccessControl.AccessRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddAccessRule(System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : AddAuditRule
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AuditRule`1<T>
+	// Managed param types : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)addAuditRule_withRule:(System_Security_AccessControl_AuditRuleA1 *)p1
     {
-		[self invokeMonoMethod:"AddAuditRule(System.Security.AccessControl.AuditRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddAuditRule(System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : AuditRuleFactory
@@ -106,80 +106,80 @@
 
 	// Managed method name : RemoveAccessRule
 	// Managed return type : System.Boolean
-	// Managed param types : System.Security.AccessControl.AccessRule`1<T>
+	// Managed param types : System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (BOOL)removeAccessRule_withRule:(System_Security_AccessControl_AccessRuleA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAccessRule(System.Security.AccessControl.AccessRule`1<T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAccessRule(System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : RemoveAccessRuleAll
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AccessRule`1<T>
+	// Managed param types : System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)removeAccessRuleAll_withRule:(System_Security_AccessControl_AccessRuleA1 *)p1
     {
-		[self invokeMonoMethod:"RemoveAccessRuleAll(System.Security.AccessControl.AccessRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAccessRuleAll(System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveAccessRuleSpecific
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AccessRule`1<T>
+	// Managed param types : System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)removeAccessRuleSpecific_withRule:(System_Security_AccessControl_AccessRuleA1 *)p1
     {
-		[self invokeMonoMethod:"RemoveAccessRuleSpecific(System.Security.AccessControl.AccessRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAccessRuleSpecific(System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveAuditRule
 	// Managed return type : System.Boolean
-	// Managed param types : System.Security.AccessControl.AuditRule`1<T>
+	// Managed param types : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (BOOL)removeAuditRule_withRule:(System_Security_AccessControl_AuditRuleA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAuditRule(System.Security.AccessControl.AuditRule`1<T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAuditRule(System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : RemoveAuditRuleAll
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AuditRule`1<T>
+	// Managed param types : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)removeAuditRuleAll_withRule:(System_Security_AccessControl_AuditRuleA1 *)p1
     {
-		[self invokeMonoMethod:"RemoveAuditRuleAll(System.Security.AccessControl.AuditRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAuditRuleAll(System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : RemoveAuditRuleSpecific
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AuditRule`1<T>
+	// Managed param types : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)removeAuditRuleSpecific_withRule:(System_Security_AccessControl_AuditRuleA1 *)p1
     {
-		[self invokeMonoMethod:"RemoveAuditRuleSpecific(System.Security.AccessControl.AuditRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAuditRuleSpecific(System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : ResetAccessRule
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AccessRule`1<T>
+	// Managed param types : System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)resetAccessRule_withRule:(System_Security_AccessControl_AccessRuleA1 *)p1
     {
-		[self invokeMonoMethod:"ResetAccessRule(System.Security.AccessControl.AccessRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"ResetAccessRule(System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetAccessRule
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AccessRule`1<T>
+	// Managed param types : System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)setAccessRule_withRule:(System_Security_AccessControl_AccessRuleA1 *)p1
     {
-		[self invokeMonoMethod:"SetAccessRule(System.Security.AccessControl.AccessRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetAccessRule(System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : SetAuditRule
 	// Managed return type : System.Void
-	// Managed param types : System.Security.AccessControl.AuditRule`1<T>
+	// Managed param types : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>
     - (void)setAuditRule_withRule:(System_Security_AccessControl_AuditRuleA1 *)p1
     {
-		[self invokeMonoMethod:"SetAuditRule(System.Security.AccessControl.AuditRule`1<T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetAuditRule(System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.ObjectSecurity`1+T>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

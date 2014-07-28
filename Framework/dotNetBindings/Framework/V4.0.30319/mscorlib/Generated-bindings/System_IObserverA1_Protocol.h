@@ -48,7 +48,7 @@
 
 	// Managed method name : OnNext
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.IObserver`1+T>
     - (void)onNext_withValue:(System_Object *)p1;
 #endif
 
@@ -82,7 +82,7 @@
 
 	// Managed method name : OnNext
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.IObserver`1+T>
     - (void)onNext_withValue:(System_Object *)p1;
 
 @end

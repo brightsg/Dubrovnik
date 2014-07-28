@@ -38,12 +38,12 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : <T>, <T>
+	// Managed param types : <System.Collections.Generic.IEqualityComparer`1+T>, <System.Collections.Generic.IEqualityComparer`1+T>
     - (BOOL)equals_withX:(System_Object *)p1 y:(System_Object *)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.IEqualityComparer`1+T>
     - (int32_t)getHashCode_withObj:(System_Object *)p1;
 #endif
 
@@ -67,12 +67,12 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : <T>, <T>
+	// Managed param types : <System.Collections.Generic.IEqualityComparer`1+T>, <System.Collections.Generic.IEqualityComparer`1+T>
     - (BOOL)equals_withX:(System_Object *)p1 y:(System_Object *)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.IEqualityComparer`1+T>
     - (int32_t)getHashCode_withObj:(System_Object *)p1;
 
 @end

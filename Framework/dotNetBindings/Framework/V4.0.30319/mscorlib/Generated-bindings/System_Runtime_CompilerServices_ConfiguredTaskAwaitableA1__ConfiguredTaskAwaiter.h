@@ -22,7 +22,7 @@
 #pragma mark Methods
 
 	// Managed method name : GetResult
-	// Managed return type : <TResult>
+	// Managed return type : <System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+ConfiguredTaskAwaiter+TResult>
 	// Managed param types : 
     - (System_Object *)getResult;
 

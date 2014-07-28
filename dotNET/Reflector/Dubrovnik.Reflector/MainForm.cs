@@ -281,7 +281,8 @@ namespace Dubrovnik.Reflector {
                             {
                                 foreach (Type interfaceType in implementedInterfaces)
                                 {
-                                    if (interfaceType.IsPublic)
+                                    // IsVisible helps to exclude internal interfaces
+                                    if (interfaceType.IsPublic && interfaceType.IsVisible)
                                     {
                                         xtw.WriteStartElement("ImplementedInterface");
                                         xtw.WriteAttributeString("Type", interfaceType.GetFriendlyFullName());

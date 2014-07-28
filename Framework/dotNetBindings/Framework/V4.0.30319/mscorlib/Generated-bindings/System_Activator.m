@@ -138,7 +138,7 @@
     }
 
 	// Managed method name : CreateInstance
-	// Managed return type : <T>
+	// Managed return type : <System.Activator+T>
 	// Managed param types : 
     + (System_Object *)createInstance
     {

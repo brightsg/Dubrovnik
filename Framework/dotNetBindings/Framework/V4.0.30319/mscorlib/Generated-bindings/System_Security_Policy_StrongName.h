@@ -2,7 +2,7 @@
 //
 // Managed class : StrongName
 //
-@interface System_Security_Policy_StrongName : System_Security_Policy_EvidenceBase <System_Security_Policy_IIdentityPermissionFactory, System_Security_Policy_IDelayEvaluatedEvidence>
+@interface System_Security_Policy_StrongName : System_Security_Policy_EvidenceBase <System_Security_Policy_IIdentityPermissionFactory>
 
 #pragma mark -
 #pragma mark Setup

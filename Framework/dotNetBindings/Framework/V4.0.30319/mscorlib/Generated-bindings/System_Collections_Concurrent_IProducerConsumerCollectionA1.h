@@ -26,7 +26,7 @@
 
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Concurrent.IProducerConsumerCollection`1+T>
     - (BOOL)tryAdd_withItem:(System_Object *)p1;
 
 	// Managed method name : TryTake

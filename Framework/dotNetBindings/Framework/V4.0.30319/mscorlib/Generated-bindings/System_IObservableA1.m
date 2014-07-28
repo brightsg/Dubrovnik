@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.IObservable`1";
+		return "System.IObservable`1<System.IObservable`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,11 +29,11 @@
 
 	// Managed method name : Subscribe
 	// Managed return type : System.IDisposable
-	// Managed param types : System.IObserver`1<T>
+	// Managed param types : System.IObserver`1<System.IObservable`1+T>
     - (System_IDisposable *)subscribe_withObserver:(System_IObserverA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.IObservable`1<T>.Subscribe(System.IObserver`1<T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.IObservable`1<System.IObservable`1+T>.Subscribe(System.IObserver`1<System.IObservable`1+T>)" withNumArgs:1, [p1 monoValue]];
 		
 		return [System_IDisposable objectWithMonoObject:monoObject];
     }

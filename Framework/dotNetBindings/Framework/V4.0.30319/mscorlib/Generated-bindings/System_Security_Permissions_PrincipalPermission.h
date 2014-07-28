@@ -2,7 +2,7 @@
 //
 // Managed class : PrincipalPermission
 //
-@interface System_Security_Permissions_PrincipalPermission : System_Object <System_Security_IPermission, System_Security_ISecurityEncodable, System_Security_Permissions_IUnrestrictedPermission, System_Security_Permissions_IBuiltInPermission>
+@interface System_Security_Permissions_PrincipalPermission : System_Object <System_Security_IPermission, System_Security_ISecurityEncodable, System_Security_Permissions_IUnrestrictedPermission>
 
 #pragma mark -
 #pragma mark Setup

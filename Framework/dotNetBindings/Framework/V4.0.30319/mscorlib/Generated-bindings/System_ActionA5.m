@@ -40,7 +40,7 @@
 
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
-	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>, System.AsyncCallback, System.Object
+	// Managed param types : <System.Action`5+T1>, <System.Action`5+T2>, <System.Action`5+T3>, <System.Action`5+T4>, <System.Action`5+T5>, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5 callback:(System_AsyncCallback *)p6 object:(System_Object *)p7
     {
 		
@@ -59,7 +59,7 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
-	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>
+	// Managed param types : <System.Action`5+T1>, <System.Action`5+T2>, <System.Action`5+T3>, <System.Action`5+T4>, <System.Action`5+T5>
     - (void)invoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5
     {
 		[self invokeMonoMethod:"Invoke(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;

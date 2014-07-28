@@ -15,7 +15,7 @@
 #pragma mark Properties
 
 	// Managed property name : Item
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.Generic.IReadOnlyList`1+T>
     @property (nonatomic, strong, readonly) System_Object * item;
 @end
 //--Dubrovnik.CodeGenerator

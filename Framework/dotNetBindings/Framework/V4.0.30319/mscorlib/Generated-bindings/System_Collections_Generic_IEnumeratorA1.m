@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IEnumerator`1";
+		return "System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerator`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,11 +28,11 @@
 #pragma mark Properties
 
 	// Managed property name : Current
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.Generic.IEnumerator`1+T>
     @synthesize current = _current;
     - (System_Object *)current
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IEnumerator`1<T>.Current"];
+		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerator`1+T>.Current"];
 		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
 		_current = [System_Object subclassObjectWithMonoObject:monoObject];
 

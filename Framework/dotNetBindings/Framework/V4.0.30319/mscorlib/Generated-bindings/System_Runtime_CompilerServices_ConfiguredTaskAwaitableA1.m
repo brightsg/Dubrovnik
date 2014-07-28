@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1";
+		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+TResult>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,14 +28,14 @@
 #pragma mark Methods
 
 	// Managed method name : GetAwaiter
-	// Managed return type : System.Runtime.CompilerServices.ConfiguredTaskAwaiter
+	// Managed return type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+TResult>+ConfiguredTaskAwaiter
 	// Managed param types : 
-    - (System_Runtime_CompilerServices_ConfiguredTaskAwaiter *)getAwaiter
+    - (System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter *)getAwaiter
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAwaiter()" withNumArgs:0];
 		
-		return [System_Runtime_CompilerServices_ConfiguredTaskAwaiter objectWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter objectWithMonoObject:monoObject];
     }
 
 #pragma mark -

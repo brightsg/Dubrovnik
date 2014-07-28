@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IEqualityComparer`1";
+		return "System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.IEqualityComparer`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,22 +29,22 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : <T>, <T>
+	// Managed param types : <System.Collections.Generic.IEqualityComparer`1+T>, <System.Collections.Generic.IEqualityComparer`1+T>
     - (BOOL)equals_withX:(System_Object *)p1 y:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEqualityComparer`1<T>.Equals(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.IEqualityComparer`1+T>.Equals(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.IEqualityComparer`1+T>
     - (int32_t)getHashCode_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEqualityComparer`1<T>.GetHashCode(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.IEqualityComparer`1+T>.GetHashCode(<_T_0>)" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

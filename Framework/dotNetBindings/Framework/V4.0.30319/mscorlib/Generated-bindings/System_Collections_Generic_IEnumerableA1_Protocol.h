@@ -37,7 +37,7 @@
 #pragma mark Methods
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<T>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
 #endif
@@ -61,7 +61,7 @@
 #pragma mark Methods
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<T>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
 

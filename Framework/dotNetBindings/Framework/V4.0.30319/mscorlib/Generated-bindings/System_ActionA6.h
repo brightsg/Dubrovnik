@@ -24,7 +24,7 @@
 
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
-	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>, <T6>, System.AsyncCallback, System.Object
+	// Managed param types : <System.Action`6+T1>, <System.Action`6+T2>, <System.Action`6+T3>, <System.Action`6+T4>, <System.Action`6+T5>, <System.Action`6+T6>, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5 arg6:(System_Object *)p6 callback:(System_AsyncCallback *)p7 object:(System_Object *)p8;
 
 	// Managed method name : EndInvoke
@@ -34,7 +34,7 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
-	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>, <T6>
+	// Managed param types : <System.Action`6+T1>, <System.Action`6+T2>, <System.Action`6+T3>, <System.Action`6+T4>, <System.Action`6+T5>, <System.Action`6+T6>
     - (void)invoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5 arg6:(System_Object *)p6;
 @end
 //--Dubrovnik.CodeGenerator

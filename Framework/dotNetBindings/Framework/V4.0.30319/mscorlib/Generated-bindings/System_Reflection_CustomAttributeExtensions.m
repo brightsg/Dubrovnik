@@ -72,7 +72,7 @@
     }
 
 	// Managed method name : GetCustomAttribute
-	// Managed return type : <T>
+	// Managed return type : <System.Reflection.CustomAttributeExtensions+T>
 	// Managed param types : System.Reflection.Assembly
     + (System_Object *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1
     {
@@ -83,7 +83,7 @@
     }
 
 	// Managed method name : GetCustomAttribute
-	// Managed return type : <T>
+	// Managed return type : <System.Reflection.CustomAttributeExtensions+T>
 	// Managed param types : System.Reflection.Module
     + (System_Object *)getCustomAttribute_withElementSRModule:(System_Reflection_Module *)p1
     {
@@ -94,7 +94,7 @@
     }
 
 	// Managed method name : GetCustomAttribute
-	// Managed return type : <T>
+	// Managed return type : <System.Reflection.CustomAttributeExtensions+T>
 	// Managed param types : System.Reflection.MemberInfo
     + (System_Object *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1
     {
@@ -105,7 +105,7 @@
     }
 
 	// Managed method name : GetCustomAttribute
-	// Managed return type : <T>
+	// Managed return type : <System.Reflection.CustomAttributeExtensions+T>
 	// Managed param types : System.Reflection.ParameterInfo
     + (System_Object *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1
     {
@@ -138,7 +138,7 @@
     }
 
 	// Managed method name : GetCustomAttribute
-	// Managed return type : <T>
+	// Managed return type : <System.Reflection.CustomAttributeExtensions+T>
 	// Managed param types : System.Reflection.MemberInfo, System.Boolean
     + (System_Object *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2
     {
@@ -149,7 +149,7 @@
     }
 
 	// Managed method name : GetCustomAttribute
-	// Managed return type : <T>
+	// Managed return type : <System.Reflection.CustomAttributeExtensions+T>
 	// Managed param types : System.Reflection.ParameterInfo, System.Boolean
     + (System_Object *)getCustomAttribute_withElementSRParameterInfo:(System_Reflection_ParameterInfo *)p1 inheritBool:(BOOL)p2
     {

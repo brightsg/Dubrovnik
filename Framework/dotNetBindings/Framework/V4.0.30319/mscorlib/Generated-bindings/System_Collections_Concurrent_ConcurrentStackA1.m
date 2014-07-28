@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.ConcurrentStack`1";
+		return "System.Collections.Concurrent.ConcurrentStack`1<System.Collections.Concurrent.ConcurrentStack`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,11 +28,11 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Concurrent.ConcurrentStack`1<T>
-	// Managed param types : System.Collections.Generic.IEnumerable`1<T>
+	// Managed return type : System.Collections.Concurrent.ConcurrentStack`1<System.Collections.Concurrent.ConcurrentStack`1+T>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentStack`1+T>
     + (System_Collections_Concurrent_ConcurrentStackA1 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<T>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentStack`1+T>" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -80,7 +80,7 @@
     }
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<T>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.ConcurrentStack`1+T>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {
@@ -92,7 +92,7 @@
 
 	// Managed method name : Push
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Concurrent.ConcurrentStack`1+T>
     - (void)push_withItem:(System_Object *)p1
     {
 		[self invokeMonoMethod:"Push(<_T_0>)" withNumArgs:1, [p1 monoValue]];;

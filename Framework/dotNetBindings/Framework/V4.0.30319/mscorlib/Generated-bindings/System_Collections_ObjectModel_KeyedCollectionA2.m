@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.KeyedCollection`2";
+		return "System.Collections.ObjectModel.KeyedCollection`2<System.Collections.ObjectModel.KeyedCollection`2+TKey,System.Collections.ObjectModel.KeyedCollection`2+TItem>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : Comparer
-	// Managed property type : System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed property type : System.Collections.Generic.IEqualityComparer`1<System.Collections.ObjectModel.KeyedCollection`2+TKey>
     @synthesize comparer = _comparer;
     - (System_Collections_Generic_IEqualityComparerA1 *)comparer
     {
@@ -40,7 +40,7 @@
 	}
 
 	// Managed property name : Item
-	// Managed property type : <TItem>
+	// Managed property type : <System.Collections.ObjectModel.KeyedCollection`2+TItem>
     @synthesize item = _item;
     - (System_Object *)item
     {
@@ -56,7 +56,7 @@
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.ObjectModel.KeyedCollection`2+TKey>
     - (BOOL)contains_withKey:(System_Object *)p1
     {
 		
@@ -67,7 +67,7 @@
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.ObjectModel.KeyedCollection`2+TKey>
     - (BOOL)remove_withKey:(System_Object *)p1
     {
 		

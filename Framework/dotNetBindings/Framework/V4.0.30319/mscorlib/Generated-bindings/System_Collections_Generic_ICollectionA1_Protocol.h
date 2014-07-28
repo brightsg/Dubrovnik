@@ -49,7 +49,7 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (void)add_withItem:(System_Object *)p1;
 
 	// Managed method name : Clear
@@ -59,7 +59,7 @@
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (BOOL)contains_withItem:(System_Object *)p1;
 
 	// Managed method name : CopyTo
@@ -69,7 +69,7 @@
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (BOOL)remove_withItem:(System_Object *)p1;
 #endif
 
@@ -104,7 +104,7 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (void)add_withItem:(System_Object *)p1;
 
 	// Managed method name : Clear
@@ -114,7 +114,7 @@
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (BOOL)contains_withItem:(System_Object *)p1;
 
 	// Managed method name : CopyTo
@@ -124,7 +124,7 @@
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (BOOL)remove_withItem:(System_Object *)p1;
 
 @end

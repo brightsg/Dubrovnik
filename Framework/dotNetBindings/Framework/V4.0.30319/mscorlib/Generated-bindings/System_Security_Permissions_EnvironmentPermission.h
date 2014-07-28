@@ -2,7 +2,7 @@
 //
 // Managed class : EnvironmentPermission
 //
-@interface System_Security_Permissions_EnvironmentPermission : System_Security_CodeAccessPermission <System_Security_IPermission, System_Security_ISecurityEncodable, System_Security_IStackWalk, System_Security_Permissions_IUnrestrictedPermission, System_Security_Permissions_IBuiltInPermission>
+@interface System_Security_Permissions_EnvironmentPermission : System_Security_CodeAccessPermission <System_Security_IPermission, System_Security_ISecurityEncodable, System_Security_IStackWalk, System_Security_Permissions_IUnrestrictedPermission>
 
 #pragma mark -
 #pragma mark Setup

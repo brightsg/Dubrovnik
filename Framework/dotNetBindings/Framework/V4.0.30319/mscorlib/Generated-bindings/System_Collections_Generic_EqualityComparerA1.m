@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.EqualityComparer`1";
+		return "System.Collections.Generic.EqualityComparer`1<System.Collections.Generic.EqualityComparer`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : Default
-	// Managed property type : System.Collections.Generic.EqualityComparer`1<T>
+	// Managed property type : System.Collections.Generic.EqualityComparer`1<System.Collections.Generic.EqualityComparer`1+T>
     static System_Collections_Generic_EqualityComparerA1 * m_default;
     + (System_Collections_Generic_EqualityComparerA1 *)default
     {
@@ -44,7 +44,7 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : <T>, <T>
+	// Managed param types : <System.Collections.Generic.EqualityComparer`1+T>, <System.Collections.Generic.EqualityComparer`1+T>
     - (BOOL)equals_withX:(System_Object *)p1 y:(System_Object *)p2
     {
 		
@@ -55,7 +55,7 @@
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.EqualityComparer`1+T>
     - (int32_t)getHashCode_withObj:(System_Object *)p1
     {
 		

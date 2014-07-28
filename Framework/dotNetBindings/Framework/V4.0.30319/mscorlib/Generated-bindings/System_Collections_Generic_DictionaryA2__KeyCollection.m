@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.Dictionary`2+KeyCollection";
+		return "System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey,System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,8 +28,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>+KeyCollection
-	// Managed param types : System.Collections.Generic.Dictionary`2<TKey, TValue>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
+	// Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
     + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)p1
     {
 		return [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2" withNumArgs:1, [p1 monoValue]];;
@@ -61,14 +61,14 @@
     }
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.Enumerator
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection+Enumerator
 	// Managed param types : 
-    - (System_Collections_Generic_Enumerator *)getEnumerator
+    - (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_Generic_Enumerator objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator objectWithMonoObject:monoObject];
     }
 
 #pragma mark -

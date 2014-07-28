@@ -2,7 +2,7 @@
 //
 // Managed class : HashMembershipCondition
 //
-@interface System_Security_Policy_HashMembershipCondition : System_Object <System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback, System_Security_Policy_IReportMatchMembershipCondition, System_Security_Policy_IMembershipCondition, System_Security_ISecurityEncodable, System_Security_ISecurityPolicyEncodable>
+@interface System_Security_Policy_HashMembershipCondition : System_Object <System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback, System_Security_Policy_IMembershipCondition, System_Security_ISecurityEncodable, System_Security_ISecurityPolicyEncodable>
 
 #pragma mark -
 #pragma mark Setup

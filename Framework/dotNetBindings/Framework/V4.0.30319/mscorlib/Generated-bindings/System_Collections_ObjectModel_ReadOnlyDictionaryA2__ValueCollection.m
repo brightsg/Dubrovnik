@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection";
+		return "System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TKey,System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TValue>+ValueCollection";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -50,7 +50,7 @@
     }
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<TValue>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TValue>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {

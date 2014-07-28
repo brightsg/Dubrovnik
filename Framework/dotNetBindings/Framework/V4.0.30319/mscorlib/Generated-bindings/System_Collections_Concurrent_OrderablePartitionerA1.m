@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.OrderablePartitioner`1";
+		return "System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -82,7 +82,7 @@
 #pragma mark Methods
 
 	// Managed method name : GetDynamicPartitions
-	// Managed return type : System.Collections.Generic.IEnumerable`1<TSource>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumerableA1 *)getDynamicPartitions
     {
@@ -93,7 +93,7 @@
     }
 
 	// Managed method name : GetOrderableDynamicPartitions
-	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Int64, TSource>>
+	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Int64, System.Collections.Concurrent.OrderablePartitioner`1+TSource>>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumerableA1 *)getOrderableDynamicPartitions
     {
@@ -104,7 +104,7 @@
     }
 
 	// Managed method name : GetOrderablePartitions
-	// Managed return type : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Int64, TSource>>>
+	// Managed return type : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Int64, System.Collections.Concurrent.OrderablePartitioner`1+TSource>>>
 	// Managed param types : System.Int32
     - (System_Collections_Generic_IListA1 *)getOrderablePartitions_withPartitionCount:(int32_t)p1
     {
@@ -115,7 +115,7 @@
     }
 
 	// Managed method name : GetPartitions
-	// Managed return type : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<TSource>>
+	// Managed return type : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>>
 	// Managed param types : System.Int32
     - (System_Collections_Generic_IListA1 *)getPartitions_withPartitionCount:(int32_t)p1
     {

@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.EventHandler`1";
+		return "System.EventHandler`1<System.EventHandler`1+TEventArgs>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.EventHandler`1<TEventArgs>
+	// Managed return type : System.EventHandler`1<System.EventHandler`1+TEventArgs>
 	// Managed param types : System.Object, System.IntPtr
     + (System_EventHandlerA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
@@ -40,7 +40,7 @@
 
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
-	// Managed param types : System.Object, <TEventArgs>, System.AsyncCallback, System.Object
+	// Managed param types : System.Object, <System.EventHandler`1+TEventArgs>, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withSender:(System_Object *)p1 e:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
@@ -59,7 +59,7 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
-	// Managed param types : System.Object, <TEventArgs>
+	// Managed param types : System.Object, <System.EventHandler`1+TEventArgs>
     - (void)invoke_withSender:(System_Object *)p1 e:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Invoke(object,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;

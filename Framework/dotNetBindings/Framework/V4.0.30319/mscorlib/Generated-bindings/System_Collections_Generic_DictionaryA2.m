@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.Dictionary`2";
+		return "System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey,System.Collections.Generic.Dictionary`2+TValue>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
 	// Managed param types : System.Int32
     + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1
     {
@@ -36,42 +36,42 @@
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     + (System_Collections_Generic_DictionaryA2 *)new_withComparer:(System_Collections_Generic_IEqualityComparerA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Int32, System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Int32, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2
     {
-		return [[self alloc] initWithSignature:"int,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"int,System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Collections.Generic.IDictionary`2<TKey, TValue>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
     + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<TKey, TValue>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Collections.Generic.IDictionary`2<TKey, TValue>, System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<TKey, TValue>,System.Collections.Generic.IEqualityComparer`1<TKey>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>,System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Comparer
-	// Managed property type : System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed property type : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     @synthesize comparer = _comparer;
     - (System_Collections_Generic_IEqualityComparerA1 *)comparer
     {
@@ -94,7 +94,7 @@
 	}
 
 	// Managed property name : Item
-	// Managed property type : <TValue>
+	// Managed property type : <System.Collections.Generic.Dictionary`2+TValue>
     @synthesize item = _item;
     - (System_Object *)item
     {
@@ -112,25 +112,25 @@
 	}
 
 	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.KeyCollection
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+KeyCollection
     @synthesize keys = _keys;
-    - (System_Collections_Generic_KeyCollection *)keys
+    - (System_Collections_Generic_DictionaryA2__KeyCollection *)keys
     {
 		MonoObject *monoObject = [self getMonoProperty:"Keys"];
 		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
-		_keys = [System_Collections_Generic_KeyCollection objectWithMonoObject:monoObject];
+		_keys = [System_Collections_Generic_DictionaryA2__KeyCollection objectWithMonoObject:monoObject];
 
 		return _keys;
 	}
 
 	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.ValueCollection
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+ValueCollection
     @synthesize values = _values;
-    - (System_Collections_Generic_ValueCollection *)values
+    - (System_Collections_Generic_DictionaryA2__ValueCollection *)values
     {
 		MonoObject *monoObject = [self getMonoProperty:"Values"];
 		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
-		_values = [System_Collections_Generic_ValueCollection objectWithMonoObject:monoObject];
+		_values = [System_Collections_Generic_DictionaryA2__ValueCollection objectWithMonoObject:monoObject];
 
 		return _values;
 	}
@@ -140,7 +140,7 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <TKey>, <TValue>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, <System.Collections.Generic.Dictionary`2+TValue>
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
@@ -156,7 +156,7 @@
 
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
     - (BOOL)containsKey_withKey:(System_Object *)p1
     {
 		
@@ -167,7 +167,7 @@
 
 	// Managed method name : ContainsValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TValue>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TValue>
     - (BOOL)containsValue_withValue:(System_Object *)p1
     {
 		
@@ -177,14 +177,14 @@
     }
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.Enumerator
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+Enumerator
 	// Managed param types : 
-    - (System_Collections_Generic_Enumerator *)getEnumerator
+    - (System_Collections_Generic_DictionaryA2__Enumerator *)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_Generic_Enumerator objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_DictionaryA2__Enumerator objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -205,7 +205,7 @@
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
     - (BOOL)remove_withKey:(System_Object *)p1
     {
 		
@@ -216,7 +216,7 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref <TValue&>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, ref <TValue&>
     - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
 		void *refPtr2 = [*p2 monoValue];

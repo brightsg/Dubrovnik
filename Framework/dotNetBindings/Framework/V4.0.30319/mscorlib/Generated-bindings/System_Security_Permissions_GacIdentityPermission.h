@@ -2,7 +2,7 @@
 //
 // Managed class : GacIdentityPermission
 //
-@interface System_Security_Permissions_GacIdentityPermission : System_Security_CodeAccessPermission <System_Security_IPermission, System_Security_ISecurityEncodable, System_Security_IStackWalk, System_Security_Permissions_IBuiltInPermission>
+@interface System_Security_Permissions_GacIdentityPermission : System_Security_CodeAccessPermission <System_Security_IPermission, System_Security_ISecurityEncodable, System_Security_IStackWalk>
 
 #pragma mark -
 #pragma mark Setup

@@ -15,13 +15,13 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.WeakReference`1<T>
-	// Managed param types : <T>, System.Boolean
+	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
+	// Managed param types : <System.WeakReference`1+T>, System.Boolean
     + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2;
 
 	// Managed method name : .ctor
-	// Managed return type : System.WeakReference`1<T>
-	// Managed param types : <T>
+	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
+	// Managed param types : <System.WeakReference`1+T>
     + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1;
 
 #pragma mark -
@@ -34,7 +34,7 @@
 
 	// Managed method name : SetTarget
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.WeakReference`1+T>
     - (void)setTarget_withTarget:(System_Object *)p1;
 
 	// Managed method name : TryGetTarget

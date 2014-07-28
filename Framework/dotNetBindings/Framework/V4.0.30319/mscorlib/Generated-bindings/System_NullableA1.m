@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Nullable`1";
+		return "System.Nullable`1<System.Nullable`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,8 +28,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Nullable`1<T>
-	// Managed param types : <T>
+	// Managed return type : System.Nullable`1<System.Nullable`1+T>
+	// Managed param types : <System.Nullable`1+T>
     + (System_NullableA1 *)new_withValue:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];;
@@ -50,7 +50,7 @@
 	}
 
 	// Managed property name : Value
-	// Managed property type : <T>
+	// Managed property type : <System.Nullable`1+T>
     @synthesize value = _value;
     - (System_Object *)value
     {
@@ -87,7 +87,7 @@
     }
 
 	// Managed method name : GetValueOrDefault
-	// Managed return type : <T>
+	// Managed return type : <System.Nullable`1+T>
 	// Managed param types : 
     - (System_Object *)getValueOrDefault
     {
@@ -98,8 +98,8 @@
     }
 
 	// Managed method name : GetValueOrDefault
-	// Managed return type : <T>
-	// Managed param types : <T>
+	// Managed return type : <System.Nullable`1+T>
+	// Managed param types : <System.Nullable`1+T>
     - (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1
     {
 		
@@ -109,19 +109,19 @@
     }
 
 	// Managed method name : op_Explicit
-	// Managed return type : <T>
-	// Managed param types : System.Nullable`1<T>
+	// Managed return type : <System.Nullable`1+T>
+	// Managed param types : System.Nullable`1<System.Nullable`1+T>
     + (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Nullable`1<T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Nullable`1<System.Nullable`1+T>)" withNumArgs:1, [p1 monoValue]];
 		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Implicit
-	// Managed return type : System.Nullable`1<T>
-	// Managed param types : <T>
+	// Managed return type : System.Nullable`1<System.Nullable`1+T>
+	// Managed param types : <System.Nullable`1+T>
     + (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1
     {
 		

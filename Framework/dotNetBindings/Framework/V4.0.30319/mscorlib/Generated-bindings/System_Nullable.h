@@ -16,12 +16,12 @@
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
-	// Managed param types : System.Nullable`1<T>, System.Nullable`1<T>
+	// Managed param types : System.Nullable`1<System.Nullable+T>, System.Nullable`1<System.Nullable+T>
     + (int32_t)compare_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Nullable`1<T>, System.Nullable`1<T>
+	// Managed param types : System.Nullable`1<System.Nullable+T>, System.Nullable`1<System.Nullable+T>
     + (BOOL)equals_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2;
 
 	// Managed method name : GetUnderlyingType

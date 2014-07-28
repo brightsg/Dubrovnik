@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Security.AccessControl.AuditRule`1";
+		return "System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.AuditRule`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,32 +28,32 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Security.AccessControl.AuditRule`1<T>
-	// Managed param types : System.Security.Principal.IdentityReference, <T>, System.Security.AccessControl.AuditFlags
+	// Managed return type : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.AuditRule`1+T>
+	// Managed param types : System.Security.Principal.IdentityReference, <System.Security.AccessControl.AuditRule`1+T>, System.Security.AccessControl.AuditFlags
     + (System_Security_AccessControl_AuditRuleA1 *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 rights:(System_Object *)p2 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p3
     {
 		return [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,<_T_0>,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Security.AccessControl.AuditRule`1<T>
-	// Managed param types : System.Security.Principal.IdentityReference, <T>, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
+	// Managed return type : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.AuditRule`1+T>
+	// Managed param types : System.Security.Principal.IdentityReference, <System.Security.AccessControl.AuditRule`1+T>, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
     + (System_Security_AccessControl_AuditRuleA1 *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 rights:(System_Object *)p2 inheritanceFlagsSSAInheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p3 propagationFlagsSSAPropagationFlags:(System_Security_AccessControl_PropagationFlags)p4 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p5
     {
 		return [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,<_T_0>,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Security.AccessControl.AuditRule`1<T>
-	// Managed param types : System.String, <T>, System.Security.AccessControl.AuditFlags
+	// Managed return type : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.AuditRule`1+T>
+	// Managed param types : System.String, <System.Security.AccessControl.AuditRule`1+T>, System.Security.AccessControl.AuditFlags
     + (System_Security_AccessControl_AuditRuleA1 *)new_withIdentityString:(NSString *)p1 rights:(System_Object *)p2 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p3
     {
 		return [[self alloc] initWithSignature:"string,<_T_0>,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Security.AccessControl.AuditRule`1<T>
-	// Managed param types : System.String, <T>, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
+	// Managed return type : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.AuditRule`1+T>
+	// Managed param types : System.String, <System.Security.AccessControl.AuditRule`1+T>, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
     + (System_Security_AccessControl_AuditRuleA1 *)new_withIdentityString:(NSString *)p1 rights:(System_Object *)p2 inheritanceFlagsSSAInheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p3 propagationFlagsSSAPropagationFlags:(System_Security_AccessControl_PropagationFlags)p4 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p5
     {
 		return [[self alloc] initWithSignature:"string,<_T_0>,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
@@ -63,7 +63,7 @@
 #pragma mark Properties
 
 	// Managed property name : Rights
-	// Managed property type : <T>
+	// Managed property type : <System.Security.AccessControl.AuditRule`1+T>
     @synthesize rights = _rights;
     - (System_Object *)rights
     {

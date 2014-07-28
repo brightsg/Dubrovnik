@@ -2,7 +2,7 @@
 //
 // Managed struct : AsyncTaskMethodBuilder`1<TResult>
 //
-@interface System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1 : DBManagedObject <System_Runtime_CompilerServices_IAsyncMethodBuilder>
+@interface System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1 : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup
@@ -15,7 +15,7 @@
 #pragma mark Properties
 
 	// Managed property name : Task
-	// Managed property type : System.Threading.Tasks.Task`1<TResult>
+	// Managed property type : System.Threading.Tasks.Task`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>
     @property (nonatomic, strong, readonly) System_Threading_Tasks_TaskA1 * task;
 
 #pragma mark -
@@ -32,7 +32,7 @@
     - (void)awaitUnsafeOnCompleted_withAwaiterRef:(System_Object **)p1 stateMachineRef:(System_Object **)p2;
 
 	// Managed method name : Create
-	// Managed return type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<TResult>
+	// Managed return type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>
 	// Managed param types : 
     + (System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1 *)create;
 
@@ -43,7 +43,7 @@
 
 	// Managed method name : SetResult
 	// Managed return type : System.Void
-	// Managed param types : <TResult>
+	// Managed param types : <System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>
     - (void)setResult_withResult:(System_Object *)p1;
 
 	// Managed method name : SetStateMachine

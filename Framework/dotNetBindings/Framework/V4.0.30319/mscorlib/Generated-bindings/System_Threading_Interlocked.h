@@ -55,8 +55,8 @@
     + (void *)compareExchange_withLocation1IntptrRef:(void **)p1 valueIntptr:(void *)p2 comparandIntptr:(void *)p3;
 
 	// Managed method name : CompareExchange
-	// Managed return type : <T>
-	// Managed param types : ref <T&>, <T>, <T>
+	// Managed return type : <System.Threading.Interlocked+T>
+	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>, <System.Threading.Interlocked+T>
     + (System_Object *)compareExchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3;
 
 	// Managed method name : Decrement
@@ -100,8 +100,8 @@
     + (void *)exchange_withLocation1IntptrRef:(void **)p1 valueIntptr:(void *)p2;
 
 	// Managed method name : Exchange
-	// Managed return type : <T>
-	// Managed param types : ref <T&>, <T>
+	// Managed return type : <System.Threading.Interlocked+T>
+	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>
     + (System_Object *)exchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2;
 
 	// Managed method name : Increment

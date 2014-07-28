@@ -275,7 +275,7 @@
 
 	// Managed method name : CreateAggregatedObject
 	// Managed return type : System.IntPtr
-	// Managed param types : System.IntPtr, <T>
+	// Managed param types : System.IntPtr, <System.Runtime.InteropServices.Marshal+T>
     + (void *)createAggregatedObject_withPOuterIntptr:(void *)p1 o:(System_Object *)p2
     {
 		
@@ -296,8 +296,8 @@
     }
 
 	// Managed method name : CreateWrapperOfType
-	// Managed return type : <TWrapper>
-	// Managed param types : <T>
+	// Managed return type : <System.Runtime.InteropServices.Marshal+TWrapper>
+	// Managed param types : <System.Runtime.InteropServices.Marshal+T>
     + (System_Object *)createWrapperOfType_withO:(System_Object *)p1
     {
 		
@@ -403,7 +403,7 @@
 
 	// Managed method name : GetComInterfaceForObject
 	// Managed return type : System.IntPtr
-	// Managed param types : <T>
+	// Managed param types : <System.Runtime.InteropServices.Marshal+T>
     + (void *)getComInterfaceForObject_withO:(System_Object *)p1
     {
 		
@@ -468,7 +468,7 @@
     }
 
 	// Managed method name : GetDelegateForFunctionPointer
-	// Managed return type : <TDelegate>
+	// Managed return type : <System.Runtime.InteropServices.Marshal+TDelegate>
 	// Managed param types : System.IntPtr
     + (System_Object *)getDelegateForFunctionPointer_withPtr:(void *)p1
     {
@@ -546,7 +546,7 @@
 
 	// Managed method name : GetFunctionPointerForDelegate
 	// Managed return type : System.IntPtr
-	// Managed param types : <TDelegate>
+	// Managed param types : <System.Runtime.InteropServices.Marshal+TDelegate>
     + (void *)getFunctionPointerForDelegate_withD:(System_Object *)p1
     {
 		
@@ -689,7 +689,7 @@
 
 	// Managed method name : GetNativeVariantForObject
 	// Managed return type : System.Void
-	// Managed param types : <T>, System.IntPtr
+	// Managed param types : <System.Runtime.InteropServices.Marshal+T>, System.IntPtr
     + (void)getNativeVariantForObject_withObj:(System_Object *)p1 pDstNativeVariantIntptr:(void *)p2
     {
 		[self invokeMonoClassMethod:"GetNativeVariantForObject(<_T_0>,intptr)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
@@ -1048,7 +1048,7 @@
 
 	// Managed method name : PtrToStructure
 	// Managed return type : System.Void
-	// Managed param types : System.IntPtr, <T>
+	// Managed param types : System.IntPtr, <System.Runtime.InteropServices.Marshal+T>
     + (void)ptrToStructure_withPtrIntptr:(void *)p1 structure:(System_Object *)p2
     {
 		[self invokeMonoClassMethod:"PtrToStructure(intptr,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
@@ -1066,7 +1066,7 @@
     }
 
 	// Managed method name : PtrToStructure
-	// Managed return type : <T>
+	// Managed return type : <System.Runtime.InteropServices.Marshal+T>
 	// Managed param types : System.IntPtr
     + (System_Object *)ptrToStructure_withPtr:(void *)p1
     {
@@ -1386,7 +1386,7 @@
 
 	// Managed method name : SizeOf
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Runtime.InteropServices.Marshal+T>
     + (int32_t)sizeOf_withStructure:(System_Object *)p1
     {
 		
@@ -1504,7 +1504,7 @@
 
 	// Managed method name : StructureToPtr
 	// Managed return type : System.Void
-	// Managed param types : <T>, System.IntPtr, System.Boolean
+	// Managed param types : <System.Runtime.InteropServices.Marshal+T>, System.IntPtr, System.Boolean
     + (void)structureToPtr_withStructure:(System_Object *)p1 ptrIntptr:(void *)p2 fDeleteOldBool:(BOOL)p3
     {
 		[self invokeMonoClassMethod:"StructureToPtr(<_T_0>,intptr,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;

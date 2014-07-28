@@ -15,8 +15,8 @@
 #pragma mark Methods
 
 	// Managed method name : GetAwaiter
-	// Managed return type : System.Runtime.CompilerServices.ConfiguredTaskAwaiter
+	// Managed return type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+TResult>+ConfiguredTaskAwaiter
 	// Managed param types : 
-    - (System_Runtime_CompilerServices_ConfiguredTaskAwaiter *)getAwaiter;
+    - (System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter *)getAwaiter;
 @end
 //--Dubrovnik.CodeGenerator

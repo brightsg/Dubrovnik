@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.IProducerConsumerCollection`1";
+		return "System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,7 @@
 	// Managed param types : <T[]>, System.Int32
     - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<T>.CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : ToArray
@@ -41,18 +41,18 @@
     - (System_Object *)toArray
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<T>.ToArray()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.ToArray()" withNumArgs:0];
 		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Concurrent.IProducerConsumerCollection`1+T>
     - (BOOL)tryAdd_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<T>.TryAdd(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryAdd(<_T_0>)" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -64,7 +64,7 @@
     {
 		void *refPtr1 = [*p1 monoValue];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<T>.TryTake(<_T_0>&)" withNumArgs:1, &refPtr1];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryTake(<_T_0>&)" withNumArgs:1, &refPtr1];
 
 		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
 

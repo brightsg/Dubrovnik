@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1";
+		return "System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : InvocationList
-	// Managed property type : <T>
+	// Managed property type : <System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>
     @synthesize invocationList = _invocationList;
     - (System_Object *)invocationList
     {
@@ -50,7 +50,7 @@
 
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
-	// Managed param types : <T>
+	// Managed param types : <System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>
     - (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)addEventHandler_withHandler:(System_Object *)p1
     {
 		
@@ -60,13 +60,13 @@
     }
 
 	// Managed method name : GetOrCreateEventRegistrationTokenTable
-	// Managed return type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<T>
+	// Managed return type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>
 	// Managed param types : ref System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1&
     + (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1 *)getOrCreateEventRegistrationTokenTable_withRefEventTableRef:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1 **)p1
     {
 		void *refPtr1 = [*p1 monoValue];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetOrCreateEventRegistrationTokenTable(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<T>&)" withNumArgs:1, &refPtr1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetOrCreateEventRegistrationTokenTable(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>&)" withNumArgs:1, &refPtr1];
 
 		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
 
@@ -83,7 +83,7 @@
 
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>
     - (void)removeEventHandler_withHandler:(System_Object *)p1
     {
 		[self invokeMonoMethod:"RemoveEventHandler(<_T_0>)" withNumArgs:1, [p1 monoValue]];;

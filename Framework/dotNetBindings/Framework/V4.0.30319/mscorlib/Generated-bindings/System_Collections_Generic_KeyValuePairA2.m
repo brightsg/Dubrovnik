@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.KeyValuePair`2";
+		return "System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey,System.Collections.Generic.KeyValuePair`2+TValue>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,8 +28,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.KeyValuePair`2<TKey, TValue>
-	// Managed param types : <TKey>, <TValue>
+	// Managed return type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
+	// Managed param types : <System.Collections.Generic.KeyValuePair`2+TKey>, <System.Collections.Generic.KeyValuePair`2+TValue>
     + (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
 		return [[self alloc] initWithSignature:"<_T_0>,<_T_1>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
@@ -39,7 +39,7 @@
 #pragma mark Properties
 
 	// Managed property name : Key
-	// Managed property type : <TKey>
+	// Managed property type : <System.Collections.Generic.KeyValuePair`2+TKey>
     @synthesize key = _key;
     - (System_Object *)key
     {
@@ -51,7 +51,7 @@
 	}
 
 	// Managed property name : Value
-	// Managed property type : <TValue>
+	// Managed property type : <System.Collections.Generic.KeyValuePair`2+TValue>
     @synthesize value = _value;
     - (System_Object *)value
     {

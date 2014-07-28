@@ -15,8 +15,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Nullable`1<T>
-	// Managed param types : <T>
+	// Managed return type : System.Nullable`1<System.Nullable`1+T>
+	// Managed param types : <System.Nullable`1+T>
     + (System_NullableA1 *)new_withValue:(System_Object *)p1;
 
 #pragma mark -
@@ -27,7 +27,7 @@
     @property (nonatomic, readonly) BOOL hasValue;
 
 	// Managed property name : Value
-	// Managed property type : <T>
+	// Managed property type : <System.Nullable`1+T>
     @property (nonatomic, strong, readonly) System_Object * value;
 
 #pragma mark -
@@ -44,23 +44,23 @@
     - (int32_t)getHashCode;
 
 	// Managed method name : GetValueOrDefault
-	// Managed return type : <T>
+	// Managed return type : <System.Nullable`1+T>
 	// Managed param types : 
     - (System_Object *)getValueOrDefault;
 
 	// Managed method name : GetValueOrDefault
-	// Managed return type : <T>
-	// Managed param types : <T>
+	// Managed return type : <System.Nullable`1+T>
+	// Managed param types : <System.Nullable`1+T>
     - (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1;
 
 	// Managed method name : op_Explicit
-	// Managed return type : <T>
-	// Managed param types : System.Nullable`1<T>
+	// Managed return type : <System.Nullable`1+T>
+	// Managed param types : System.Nullable`1<System.Nullable`1+T>
     + (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1;
 
 	// Managed method name : op_Implicit
-	// Managed return type : System.Nullable`1<T>
-	// Managed param types : <T>
+	// Managed return type : System.Nullable`1<System.Nullable`1+T>
+	// Managed param types : <System.Nullable`1+T>
     + (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1;
 
 	// Managed method name : ToString

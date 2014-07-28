@@ -2,7 +2,7 @@
 //
 // Managed struct : AsyncVoidMethodBuilder
 //
-@interface System_Runtime_CompilerServices_AsyncVoidMethodBuilder : DBManagedObject <System_Runtime_CompilerServices_IAsyncMethodBuilder>
+@interface System_Runtime_CompilerServices_AsyncVoidMethodBuilder : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup

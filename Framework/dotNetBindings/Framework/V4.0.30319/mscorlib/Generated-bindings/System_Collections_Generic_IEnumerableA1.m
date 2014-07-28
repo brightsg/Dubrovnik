@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IEnumerable`1";
+		return "System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IEnumerable`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,12 +28,12 @@
 #pragma mark Methods
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<T>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEnumerable`1<T>.GetEnumerator()" withNumArgs:0];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IEnumerable`1+T>.GetEnumerator()" withNumArgs:0];
 		
 		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
     }

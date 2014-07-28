@@ -2,7 +2,7 @@
 //
 // Managed class : NetCodeGroup
 //
-@interface System_Security_Policy_NetCodeGroup : System_Security_Policy_CodeGroup <System_Security_Policy_IUnionSemanticCodeGroup>
+@interface System_Security_Policy_NetCodeGroup : System_Security_Policy_CodeGroup
 
 #pragma mark -
 #pragma mark Setup

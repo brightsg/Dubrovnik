@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.Comparer`1";
+		return "System.Collections.Generic.Comparer`1<System.Collections.Generic.Comparer`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : Default
-	// Managed property type : System.Collections.Generic.Comparer`1<T>
+	// Managed property type : System.Collections.Generic.Comparer`1<System.Collections.Generic.Comparer`1+T>
     static System_Collections_Generic_ComparerA1 * m_default;
     + (System_Collections_Generic_ComparerA1 *)default
     {
@@ -44,7 +44,7 @@
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
-	// Managed param types : <T>, <T>
+	// Managed param types : <System.Collections.Generic.Comparer`1+T>, <System.Collections.Generic.Comparer`1+T>
     - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2
     {
 		
@@ -54,12 +54,12 @@
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Generic.Comparer`1<T>
-	// Managed param types : System.Comparison`1<T>
+	// Managed return type : System.Collections.Generic.Comparer`1<System.Collections.Generic.Comparer`1+T>
+	// Managed param types : System.Comparison`1<System.Collections.Generic.Comparer`1+T>
     + (System_Collections_Generic_ComparerA1 *)create_withComparison:(System_ComparisonA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Comparison`1<T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Comparison`1<System.Collections.Generic.Comparer`1+T>)" withNumArgs:1, [p1 monoValue]];
 		
 		return [System_Collections_Generic_ComparerA1 objectWithMonoObject:monoObject];
     }

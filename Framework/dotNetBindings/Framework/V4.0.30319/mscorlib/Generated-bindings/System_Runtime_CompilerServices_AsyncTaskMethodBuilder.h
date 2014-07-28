@@ -2,7 +2,7 @@
 //
 // Managed struct : AsyncTaskMethodBuilder
 //
-@interface System_Runtime_CompilerServices_AsyncTaskMethodBuilder : DBManagedObject <System_Runtime_CompilerServices_IAsyncMethodBuilder>
+@interface System_Runtime_CompilerServices_AsyncTaskMethodBuilder : DBManagedObject
 
 #pragma mark -
 #pragma mark Setup

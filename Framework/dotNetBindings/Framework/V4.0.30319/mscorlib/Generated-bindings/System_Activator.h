@@ -65,7 +65,7 @@
     + (System_Object *)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2;
 
 	// Managed method name : CreateInstance
-	// Managed return type : <T>
+	// Managed return type : <System.Activator+T>
 	// Managed param types : 
     + (System_Object *)createInstance;
 

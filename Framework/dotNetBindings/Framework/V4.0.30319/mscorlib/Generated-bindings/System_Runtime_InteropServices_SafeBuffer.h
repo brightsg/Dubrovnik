@@ -42,7 +42,7 @@
     - (void)initialize_withNumElements:(uint32_t)p1;
 
 	// Managed method name : Read
-	// Managed return type : <T>
+	// Managed return type : <System.Runtime.InteropServices.SafeBuffer+T>
 	// Managed param types : System.UInt64
     - (System_Object *)read_withByteOffset:(uint64_t)p1;
 
@@ -58,7 +58,7 @@
 
 	// Managed method name : Write
 	// Managed return type : System.Void
-	// Managed param types : System.UInt64, <T>
+	// Managed param types : System.UInt64, <System.Runtime.InteropServices.SafeBuffer+T>
     - (void)write_withByteOffset:(uint64_t)p1 value:(System_Object *)p2;
 
 	// Managed method name : WriteArray

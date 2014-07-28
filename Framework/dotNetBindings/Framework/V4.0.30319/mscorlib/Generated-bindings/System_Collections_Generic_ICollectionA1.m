@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.ICollection`1";
+		return "System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,7 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.ICollection`1<T>.Count"];
+		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Count"];
 		_count = DB_UNBOX_INT32(monoObject);
 
 		return _count;
@@ -43,7 +43,7 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.ICollection`1<T>.IsReadOnly"];
+		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.IsReadOnly"];
 		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
 
 		return _isReadOnly;
@@ -54,10 +54,10 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (void)add_withItem:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<T>.Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : Clear
@@ -65,16 +65,16 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<T>.Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Clear()" withNumArgs:0];;
     }
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (BOOL)contains_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<T>.Contains(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Contains(<_T_0>)" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -84,16 +84,16 @@
 	// Managed param types : <T[]>, System.Int32
     - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<T>.CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.ICollection`1+T>
     - (BOOL)remove_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<T>.Remove(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Remove(<_T_0>)" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

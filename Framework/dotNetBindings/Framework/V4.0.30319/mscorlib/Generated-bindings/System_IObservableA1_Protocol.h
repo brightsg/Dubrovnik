@@ -38,7 +38,7 @@
 
 	// Managed method name : Subscribe
 	// Managed return type : System.IDisposable
-	// Managed param types : System.IObserver`1<T>
+	// Managed param types : System.IObserver`1<System.IObservable`1+T>
     - (System_IDisposable *)subscribe_withObserver:(System_IObserverA1 *)p1;
 #endif
 
@@ -62,7 +62,7 @@
 
 	// Managed method name : Subscribe
 	// Managed return type : System.IDisposable
-	// Managed param types : System.IObserver`1<T>
+	// Managed param types : System.IObserver`1<System.IObservable`1+T>
     - (System_IDisposable *)subscribe_withObserver:(System_IObserverA1 *)p1;
 
 @end

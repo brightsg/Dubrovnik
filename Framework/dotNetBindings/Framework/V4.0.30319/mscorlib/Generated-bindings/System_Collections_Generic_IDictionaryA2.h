@@ -15,15 +15,15 @@
 #pragma mark Properties
 
 	// Managed property name : Item
-	// Managed property type : <TValue>
+	// Managed property type : <System.Collections.Generic.IDictionary`2+TValue>
     @property (nonatomic, strong) System_Object * item;
 
 	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.ICollection`1<TKey>
+	// Managed property type : System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TKey>
     @property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * keys;
 
 	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.ICollection`1<TValue>
+	// Managed property type : System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TValue>
     @property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * values;
 
 #pragma mark -
@@ -31,22 +31,22 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <TKey>, <TValue>
+	// Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, <System.Collections.Generic.IDictionary`2+TValue>
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
     - (BOOL)containsKey_withKey:(System_Object *)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
     - (BOOL)remove_withKey:(System_Object *)p1;
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref <TValue&>
+	// Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, ref <TValue&>
     - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

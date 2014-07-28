@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IComparer`1";
+		return "System.Collections.Generic.IComparer`1<System.Collections.Generic.IComparer`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,11 +29,11 @@
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
-	// Managed param types : <T>, <T>
+	// Managed param types : <System.Collections.Generic.IComparer`1+T>, <System.Collections.Generic.IComparer`1+T>
     - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IComparer`1<T>.Compare(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IComparer`1<System.Collections.Generic.IComparer`1+T>.Compare(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

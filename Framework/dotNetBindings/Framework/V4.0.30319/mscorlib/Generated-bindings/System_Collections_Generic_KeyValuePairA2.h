@@ -15,19 +15,19 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.KeyValuePair`2<TKey, TValue>
-	// Managed param types : <TKey>, <TValue>
+	// Managed return type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
+	// Managed param types : <System.Collections.Generic.KeyValuePair`2+TKey>, <System.Collections.Generic.KeyValuePair`2+TValue>
     + (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Key
-	// Managed property type : <TKey>
+	// Managed property type : <System.Collections.Generic.KeyValuePair`2+TKey>
     @property (nonatomic, strong, readonly) System_Object * key;
 
 	// Managed property name : Value
-	// Managed property type : <TValue>
+	// Managed property type : <System.Collections.Generic.KeyValuePair`2+TValue>
     @property (nonatomic, strong, readonly) System_Object * value;
 
 #pragma mark -

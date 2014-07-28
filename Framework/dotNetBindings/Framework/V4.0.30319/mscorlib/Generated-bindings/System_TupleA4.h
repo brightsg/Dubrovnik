@@ -2,7 +2,7 @@
 //
 // Managed class : Tuple`4<T1, T2, T3, T4>
 //
-@interface System_TupleA4 : System_Object <System_Collections_IStructuralEquatable, System_Collections_IStructuralComparable, System_IComparable, System_ITuple>
+@interface System_TupleA4 : System_Object <System_Collections_IStructuralEquatable, System_Collections_IStructuralComparable, System_IComparable>
 
 #pragma mark -
 #pragma mark Setup
@@ -15,27 +15,27 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Tuple`4<T1, T2, T3, T4>
-	// Managed param types : <T1>, <T2>, <T3>, <T4>
+	// Managed return type : System.Tuple`4<System.Tuple`4+T1, System.Tuple`4+T2, System.Tuple`4+T3, System.Tuple`4+T4>
+	// Managed param types : <System.Tuple`4+T1>, <System.Tuple`4+T2>, <System.Tuple`4+T3>, <System.Tuple`4+T4>
     + (System_TupleA4 *)new_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Item1
-	// Managed property type : <T1>
+	// Managed property type : <System.Tuple`4+T1>
     @property (nonatomic, strong, readonly) System_Object * item1;
 
 	// Managed property name : Item2
-	// Managed property type : <T2>
+	// Managed property type : <System.Tuple`4+T2>
     @property (nonatomic, strong, readonly) System_Object * item2;
 
 	// Managed property name : Item3
-	// Managed property type : <T3>
+	// Managed property type : <System.Tuple`4+T3>
     @property (nonatomic, strong, readonly) System_Object * item3;
 
 	// Managed property name : Item4
-	// Managed property type : <T4>
+	// Managed property type : <System.Tuple`4+T4>
     @property (nonatomic, strong, readonly) System_Object * item4;
 
 #pragma mark -

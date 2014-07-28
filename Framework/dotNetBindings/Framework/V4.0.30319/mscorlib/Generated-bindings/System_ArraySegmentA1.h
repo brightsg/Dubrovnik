@@ -15,12 +15,12 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.ArraySegment`1<T>
+	// Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 	// Managed param types : <T[]>
     + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1;
 
 	// Managed method name : .ctor
-	// Managed return type : System.ArraySegment`1<T>
+	// Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 	// Managed param types : <T[]>, System.Int32, System.Int32
     + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1 offset:(int32_t)p2 count:(int32_t)p3;
 
@@ -49,7 +49,7 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.ArraySegment`1<T>
+	// Managed param types : System.ArraySegment`1<System.ArraySegment`1+T>
     - (BOOL)equals_withObjSArraySegmentA1:(System_ArraySegmentA1 *)p1;
 
 	// Managed method name : GetHashCode
@@ -59,12 +59,12 @@
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
-	// Managed param types : System.ArraySegment`1<T>, System.ArraySegment`1<T>
+	// Managed param types : System.ArraySegment`1<System.ArraySegment`1+T>, System.ArraySegment`1<System.ArraySegment`1+T>
     + (BOOL)op_Equality_withA:(System_ArraySegmentA1 *)p1 b:(System_ArraySegmentA1 *)p2;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
-	// Managed param types : System.ArraySegment`1<T>, System.ArraySegment`1<T>
+	// Managed param types : System.ArraySegment`1<System.ArraySegment`1+T>, System.ArraySegment`1<System.ArraySegment`1+T>
     + (BOOL)op_Inequality_withA:(System_ArraySegmentA1 *)p1 b:(System_ArraySegmentA1 *)p2;
 @end
 //--Dubrovnik.CodeGenerator

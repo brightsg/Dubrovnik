@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Tuple`1";
+		return "System.Tuple`1<System.Tuple`1+T1>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,8 +28,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Tuple`1<T1>
-	// Managed param types : <T1>
+	// Managed return type : System.Tuple`1<System.Tuple`1+T1>
+	// Managed param types : <System.Tuple`1+T1>
     + (System_TupleA1 *)new_withItem1:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];;
@@ -39,7 +39,7 @@
 #pragma mark Properties
 
 	// Managed property name : Item1
-	// Managed property type : <T1>
+	// Managed property type : <System.Tuple`1+T1>
     @synthesize item1 = _item1;
     - (System_Object *)item1
     {

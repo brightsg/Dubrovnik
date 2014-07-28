@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.Collection`1";
+		return "System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,11 +28,11 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.ObjectModel.Collection`1<T>
-	// Managed param types : System.Collections.Generic.IList`1<T>
+	// Managed return type : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T>
+	// Managed param types : System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T>
     + (System_Collections_ObjectModel_CollectionA1 *)new_withList:(System_Collections_Generic_IListA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IList`1<T>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T>" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -
@@ -50,7 +50,7 @@
 	}
 
 	// Managed property name : Item
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.ObjectModel.Collection`1+T>
     @synthesize item = _item;
     - (System_Object *)item
     {
@@ -72,7 +72,7 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (void)add_withItem:(System_Object *)p1
     {
 		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
@@ -88,7 +88,7 @@
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (BOOL)contains_withItem:(System_Object *)p1
     {
 		
@@ -106,7 +106,7 @@
     }
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<T>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
     {
@@ -118,7 +118,7 @@
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (int32_t)indexOf_withItem:(System_Object *)p1
     {
 		
@@ -129,7 +129,7 @@
 
 	// Managed method name : Insert
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, <T>
+	// Managed param types : System.Int32, <System.Collections.ObjectModel.Collection`1+T>
     - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
@@ -137,7 +137,7 @@
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (BOOL)remove_withItem:(System_Object *)p1
     {
 		

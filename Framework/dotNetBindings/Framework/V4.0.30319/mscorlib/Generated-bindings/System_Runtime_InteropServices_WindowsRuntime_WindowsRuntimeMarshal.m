@@ -29,10 +29,10 @@
 
 	// Managed method name : AddEventHandler
 	// Managed return type : System.Void
-	// Managed param types : System.Func`2<T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <T>
+	// Managed param types : System.Func`2<System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T>
     + (void)addEventHandler_withAddMethod:(System_FuncA2 *)p1 removeMethod:(System_ActionA1 *)p2 handler:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"AddEventHandler(System.Func`2<T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,<_T_0>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"AddEventHandler(System.Func`2<System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,<_T_0>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
     }
 
 	// Managed method name : FreeHString
@@ -75,7 +75,7 @@
 
 	// Managed method name : RemoveEventHandler
 	// Managed return type : System.Void
-	// Managed param types : System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <T>
+	// Managed param types : System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T>
     + (void)removeEventHandler_withRemoveMethod:(System_ActionA1 *)p1 handler:(System_Object *)p2
     {
 		[self invokeMonoClassMethod:"RemoveEventHandler(System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;

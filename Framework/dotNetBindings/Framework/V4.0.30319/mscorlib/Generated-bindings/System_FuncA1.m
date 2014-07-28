@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Func`1";
+		return "System.Func`1<System.Func`1+TResult>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Func`1<TResult>
+	// Managed return type : System.Func`1<System.Func`1+TResult>
 	// Managed param types : System.Object, System.IntPtr
     + (System_FuncA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
@@ -50,7 +50,7 @@
     }
 
 	// Managed method name : EndInvoke
-	// Managed return type : <TResult>
+	// Managed return type : <System.Func`1+TResult>
 	// Managed param types : System.IAsyncResult
     - (System_Object *)endInvoke_withResult:(System_IAsyncResult *)p1
     {
@@ -61,7 +61,7 @@
     }
 
 	// Managed method name : Invoke
-	// Managed return type : <TResult>
+	// Managed return type : <System.Func`1+TResult>
 	// Managed param types : 
     - (System_Object *)invoke
     {

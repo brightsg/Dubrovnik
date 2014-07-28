@@ -2,7 +2,7 @@
 //
 // Managed class : Tuple`6
 //
-@interface System_TupleA6 : System_Object <System_Collections_IStructuralEquatable, System_Collections_IStructuralComparable, System_IComparable, System_ITuple>
+@interface System_TupleA6 : System_Object <System_Collections_IStructuralEquatable, System_Collections_IStructuralComparable, System_IComparable>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,34 +16,34 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Tuple`6
-	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>, <T6>
+	// Managed param types : <System.Tuple`6+T1>, <System.Tuple`6+T2>, <System.Tuple`6+T3>, <System.Tuple`6+T4>, <System.Tuple`6+T5>, <System.Tuple`6+T6>
     + (System_TupleA6 *)new_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4 item5:(System_Object *)p5 item6:(System_Object *)p6;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Item1
-	// Managed property type : <T1>
+	// Managed property type : <System.Tuple`6+T1>
     @property (nonatomic, strong, readonly) System_Object * item1;
 
 	// Managed property name : Item2
-	// Managed property type : <T2>
+	// Managed property type : <System.Tuple`6+T2>
     @property (nonatomic, strong, readonly) System_Object * item2;
 
 	// Managed property name : Item3
-	// Managed property type : <T3>
+	// Managed property type : <System.Tuple`6+T3>
     @property (nonatomic, strong, readonly) System_Object * item3;
 
 	// Managed property name : Item4
-	// Managed property type : <T4>
+	// Managed property type : <System.Tuple`6+T4>
     @property (nonatomic, strong, readonly) System_Object * item4;
 
 	// Managed property name : Item5
-	// Managed property type : <T5>
+	// Managed property type : <System.Tuple`6+T5>
     @property (nonatomic, strong, readonly) System_Object * item5;
 
 	// Managed property name : Item6
-	// Managed property type : <T6>
+	// Managed property type : <System.Tuple`6+T6>
     @property (nonatomic, strong, readonly) System_Object * item6;
 
 #pragma mark -

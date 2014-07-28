@@ -15,7 +15,7 @@
 #pragma mark Properties
 
 	// Managed property name : Current
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.Generic.List`1+Enumerator+T>
     @property (nonatomic, strong, readonly) System_Object * current;
 
 #pragma mark -

@@ -2,7 +2,7 @@
 //
 // Managed class : MethodResponse
 //
-@interface System_Runtime_Remoting_Messaging_MethodResponse : System_Object <System_Runtime_Remoting_Messaging_IMethodReturnMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage, System_Runtime_Serialization_ISerializable, System_Runtime_Remoting_Messaging_ISerializationRootObject, System_Runtime_Remoting_Messaging_IInternalMessage>
+@interface System_Runtime_Remoting_Messaging_MethodResponse : System_Object <System_Runtime_Remoting_Messaging_IMethodReturnMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage, System_Runtime_Serialization_ISerializable>
 
 #pragma mark -
 #pragma mark Setup

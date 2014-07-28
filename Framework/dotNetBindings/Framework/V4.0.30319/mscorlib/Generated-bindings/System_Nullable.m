@@ -29,22 +29,22 @@
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
-	// Managed param types : System.Nullable`1<T>, System.Nullable`1<T>
+	// Managed param types : System.Nullable`1<System.Nullable+T>, System.Nullable`1<System.Nullable+T>
     + (int32_t)compare_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Nullable`1<T>,System.Nullable`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Nullable`1<System.Nullable+T>,System.Nullable`1<System.Nullable+T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Nullable`1<T>, System.Nullable`1<T>
+	// Managed param types : System.Nullable`1<System.Nullable+T>, System.Nullable`1<System.Nullable+T>
     + (BOOL)equals_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.Nullable`1<T>,System.Nullable`1<T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.Nullable`1<System.Nullable+T>,System.Nullable`1<System.Nullable+T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

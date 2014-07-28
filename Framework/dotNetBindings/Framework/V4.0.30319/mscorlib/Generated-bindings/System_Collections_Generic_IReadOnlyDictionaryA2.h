@@ -15,15 +15,15 @@
 #pragma mark Properties
 
 	// Managed property name : Item
-	// Managed property type : <TValue>
+	// Managed property type : <System.Collections.Generic.IReadOnlyDictionary`2+TValue>
     @property (nonatomic, strong, readonly) System_Object * item;
 
 	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.IEnumerable`1<TKey>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IReadOnlyDictionary`2+TKey>
     @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * keys;
 
 	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.IEnumerable`1<TValue>
+	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IReadOnlyDictionary`2+TValue>
     @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * values;
 
 #pragma mark -
@@ -31,12 +31,12 @@
 
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>
     - (BOOL)containsKey_withKey:(System_Object *)p1;
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref <TValue&>
+	// Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>, ref <TValue&>
     - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

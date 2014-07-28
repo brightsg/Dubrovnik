@@ -15,7 +15,7 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Action`2<T1, T2>
+	// Managed return type : System.Action`2<System.Action`2+T1, System.Action`2+T2>
 	// Managed param types : System.Object, System.IntPtr
     + (System_ActionA2 *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
@@ -24,7 +24,7 @@
 
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
-	// Managed param types : <T1>, <T2>, System.AsyncCallback, System.Object
+	// Managed param types : <System.Action`2+T1>, <System.Action`2+T2>, System.AsyncCallback, System.Object
     - (System_IAsyncResult *)beginInvoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
 
 	// Managed method name : EndInvoke
@@ -34,7 +34,7 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
-	// Managed param types : <T1>, <T2>
+	// Managed param types : <System.Action`2+T1>, <System.Action`2+T2>
     - (void)invoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

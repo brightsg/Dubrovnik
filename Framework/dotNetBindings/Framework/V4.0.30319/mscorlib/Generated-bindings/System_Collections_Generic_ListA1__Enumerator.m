@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.List`1+Enumerator";
+		return "System.Collections.Generic.List`1<System.Collections.Generic.List`1+Enumerator+T>+Enumerator";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : Current
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.Generic.List`1+Enumerator+T>
     @synthesize current = _current;
     - (System_Object *)current
     {

@@ -2,7 +2,7 @@
 //
 // Managed class : MethodCall
 //
-@interface System_Runtime_Remoting_Messaging_MethodCall : System_Object <System_Runtime_Remoting_Messaging_IMethodCallMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage, System_Runtime_Serialization_ISerializable, System_Runtime_Remoting_Messaging_IInternalMessage, System_Runtime_Remoting_Messaging_ISerializationRootObject>
+@interface System_Runtime_Remoting_Messaging_MethodCall : System_Object <System_Runtime_Remoting_Messaging_IMethodCallMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage, System_Runtime_Serialization_ISerializable>
 
 #pragma mark -
 #pragma mark Setup

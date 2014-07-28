@@ -15,8 +15,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.ObjectModel.Collection`1<T>
-	// Managed param types : System.Collections.Generic.IList`1<T>
+	// Managed return type : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T>
+	// Managed param types : System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T>
     + (System_Collections_ObjectModel_CollectionA1 *)new_withList:(System_Collections_Generic_IListA1 *)p1;
 
 #pragma mark -
@@ -27,7 +27,7 @@
     @property (nonatomic, readonly) int32_t count;
 
 	// Managed property name : Item
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.ObjectModel.Collection`1+T>
     @property (nonatomic, strong) System_Object * item;
 
 #pragma mark -
@@ -35,7 +35,7 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (void)add_withItem:(System_Object *)p1;
 
 	// Managed method name : Clear
@@ -45,7 +45,7 @@
 
 	// Managed method name : Contains
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (BOOL)contains_withItem:(System_Object *)p1;
 
 	// Managed method name : CopyTo
@@ -54,23 +54,23 @@
     - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<T>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (int32_t)indexOf_withItem:(System_Object *)p1;
 
 	// Managed method name : Insert
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, <T>
+	// Managed param types : System.Int32, <System.Collections.ObjectModel.Collection`1+T>
     - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (BOOL)remove_withItem:(System_Object *)p1;
 
 	// Managed method name : RemoveAt

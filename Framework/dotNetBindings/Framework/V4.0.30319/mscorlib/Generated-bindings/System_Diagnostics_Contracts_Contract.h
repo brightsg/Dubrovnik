@@ -66,12 +66,12 @@
 
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
-	// Managed param types : System.Collections.Generic.IEnumerable`1<T>, System.Predicate`1<T>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Diagnostics.Contracts.Contract+T>, System.Predicate`1<System.Diagnostics.Contracts.Contract+T>
     + (BOOL)exists_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1 predicate:(System_PredicateA1 *)p2;
 
 	// Managed method name : ForAll
 	// Managed return type : System.Boolean
-	// Managed param types : System.Collections.Generic.IEnumerable`1<T>, System.Predicate`1<T>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Diagnostics.Contracts.Contract+T>, System.Predicate`1<System.Diagnostics.Contracts.Contract+T>
     + (BOOL)forAll_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1 predicate:(System_PredicateA1 *)p2;
 
 	// Managed method name : ForAll
@@ -90,17 +90,17 @@
     + (void)invariant_withCondition:(BOOL)p1 userMessage:(NSString *)p2;
 
 	// Managed method name : OldValue
-	// Managed return type : <T>
-	// Managed param types : <T>
+	// Managed return type : <System.Diagnostics.Contracts.Contract+T>
+	// Managed param types : <System.Diagnostics.Contracts.Contract+T>
     + (System_Object *)oldValue_withValue:(System_Object *)p1;
 
 	// Managed method name : Result
-	// Managed return type : <T>
+	// Managed return type : <System.Diagnostics.Contracts.Contract+T>
 	// Managed param types : 
     + (System_Object *)result;
 
 	// Managed method name : ValueAtReturn
-	// Managed return type : <T>
+	// Managed return type : <System.Diagnostics.Contracts.Contract+T>
 	// Managed param types : ref <T&>
     + (System_Object *)valueAtReturn_withValueRef:(System_Object **)p1;
 @end

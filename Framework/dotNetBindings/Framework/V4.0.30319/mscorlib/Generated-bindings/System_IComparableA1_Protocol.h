@@ -38,7 +38,7 @@
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.IComparable`1+T>
     - (int32_t)compareTo_withOther:(System_Object *)p1;
 #endif
 
@@ -62,7 +62,7 @@
 
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.IComparable`1+T>
     - (int32_t)compareTo_withOther:(System_Object *)p1;
 
 @end

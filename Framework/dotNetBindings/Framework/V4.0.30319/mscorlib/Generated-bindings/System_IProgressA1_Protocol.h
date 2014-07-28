@@ -38,7 +38,7 @@
 
 	// Managed method name : Report
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.IProgress`1+T>
     - (void)report_withValue:(System_Object *)p1;
 #endif
 
@@ -62,7 +62,7 @@
 
 	// Managed method name : Report
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.IProgress`1+T>
     - (void)report_withValue:(System_Object *)p1;
 
 @end

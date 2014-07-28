@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.Dictionary`2+Enumerator";
+		return "System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+Enumerator+TKey,System.Collections.Generic.Dictionary`2+Enumerator+TValue>+Enumerator";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : Current
-	// Managed property type : System.Collections.Generic.KeyValuePair`2<TKey, TValue>
+	// Managed property type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+Enumerator+TKey, System.Collections.Generic.Dictionary`2+Enumerator+TValue>
     @synthesize current = _current;
     - (System_Collections_Generic_KeyValuePairA2 *)current
     {

@@ -15,18 +15,18 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.ThreadLocal`1<T>
+	// Managed return type : System.Threading.ThreadLocal`1<System.Threading.ThreadLocal`1+T>
 	// Managed param types : System.Boolean
     + (System_Threading_ThreadLocalA1 *)new_withTrackAllValues:(BOOL)p1;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.ThreadLocal`1<T>
-	// Managed param types : System.Func`1<T>
+	// Managed return type : System.Threading.ThreadLocal`1<System.Threading.ThreadLocal`1+T>
+	// Managed param types : System.Func`1<System.Threading.ThreadLocal`1+T>
     + (System_Threading_ThreadLocalA1 *)new_withValueFactory:(System_FuncA1 *)p1;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.ThreadLocal`1<T>
-	// Managed param types : System.Func`1<T>, System.Boolean
+	// Managed return type : System.Threading.ThreadLocal`1<System.Threading.ThreadLocal`1+T>
+	// Managed param types : System.Func`1<System.Threading.ThreadLocal`1+T>, System.Boolean
     + (System_Threading_ThreadLocalA1 *)new_withValueFactory:(System_FuncA1 *)p1 trackAllValues:(BOOL)p2;
 
 #pragma mark -
@@ -37,11 +37,11 @@
     @property (nonatomic, readonly) BOOL isValueCreated;
 
 	// Managed property name : Value
-	// Managed property type : <T>
+	// Managed property type : <System.Threading.ThreadLocal`1+T>
     @property (nonatomic, strong) System_Object * value;
 
 	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.IList`1<T>
+	// Managed property type : System.Collections.Generic.IList`1<System.Threading.ThreadLocal`1+T>
     @property (nonatomic, strong, readonly) System_Collections_Generic_IListA1 * values;
 
 #pragma mark -

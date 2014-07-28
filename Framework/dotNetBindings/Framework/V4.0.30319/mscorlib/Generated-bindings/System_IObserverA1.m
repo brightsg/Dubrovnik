@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.IObserver`1";
+		return "System.IObserver`1<System.IObserver`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,7 @@
 	// Managed param types : 
     - (void)onCompleted
     {
-		[self invokeMonoMethod:"System.IObserver`1<T>.OnCompleted()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.IObserver`1<System.IObserver`1+T>.OnCompleted()" withNumArgs:0];;
     }
 
 	// Managed method name : OnError
@@ -40,15 +40,15 @@
 	// Managed param types : System.Exception
     - (void)onError_withError:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"System.IObserver`1<T>.OnError(System.Exception)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.IObserver`1<System.IObserver`1+T>.OnError(System.Exception)" withNumArgs:1, [p1 monoValue]];;
     }
 
 	// Managed method name : OnNext
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.IObserver`1+T>
     - (void)onNext_withValue:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.IObserver`1<T>.OnNext(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.IObserver`1<System.IObserver`1+T>.OnNext(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

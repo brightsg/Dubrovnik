@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.ConditionalWeakTable`2";
+		return "System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey,System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,15 +29,15 @@
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <TKey>, <TValue>
+	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, <System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
 		[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetOrCreateValue
-	// Managed return type : <TValue>
-	// Managed param types : <TKey>
+	// Managed return type : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>
+	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>
     - (System_Object *)getOrCreateValue_withKey:(System_Object *)p1
     {
 		
@@ -47,19 +47,19 @@
     }
 
 	// Managed method name : GetValue
-	// Managed return type : <TValue>
-	// Managed param types : <TKey>, System.Runtime.CompilerServices.CreateValueCallback
-    - (System_Object *)getValue_withKey:(System_Object *)p1 createValueCallback:(System_Runtime_CompilerServices_CreateValueCallback *)p2
+	// Managed return type : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>
+	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>+CreateValueCallback
+    - (System_Object *)getValue_withKey:(System_Object *)p1 createValueCallback:(System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(<_T_0>,System.Runtime.CompilerServices.CreateValueCallback)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(<_T_0>,System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>+CreateValueCallback)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>
     - (BOOL)remove_withKey:(System_Object *)p1
     {
 		
@@ -70,7 +70,7 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref <TValue&>
+	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, ref <TValue&>
     - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
 		void *refPtr2 = [*p2 monoValue];

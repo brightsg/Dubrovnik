@@ -2,7 +2,7 @@
 //
 // Managed class : Task
 //
-@interface System_Threading_Tasks_Task : System_Object <System_Threading_IThreadPoolWorkItem, System_IAsyncResult, System_IDisposable>
+@interface System_Threading_Tasks_Task : System_Object <System_IAsyncResult, System_IDisposable>
 
 #pragma mark -
 #pragma mark Setup
@@ -156,53 +156,53 @@
     - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Threading.Tasks.Task, TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Threading.Tasks.Task, TResult>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Threading.Tasks.Task, TResult>, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 scheduler:(System_Threading_Tasks_TaskScheduler *)p2;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Threading.Tasks.Task, TResult>, System.Threading.Tasks.TaskContinuationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>, System.Threading.Tasks.TaskContinuationOptions
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p2;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Threading.Tasks.Task, TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3 scheduler:(System_Threading_Tasks_TaskScheduler *)p4;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, TResult>, System.Object
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>, System.Object
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, TResult>, System.Object, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>, System.Object, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, TResult>, System.Object, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>, System.Object, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 scheduler:(System_Threading_Tasks_TaskScheduler *)p3;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, TResult>, System.Object, System.Threading.Tasks.TaskContinuationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>, System.Object, System.Threading.Tasks.TaskContinuationOptions
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3;
 
 	// Managed method name : ContinueWith
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, TResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5;
 
 	// Managed method name : Delay
@@ -231,8 +231,8 @@
     - (void)dispose;
 
 	// Managed method name : FromResult
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : <TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : <System.Threading.Tasks.Task+TResult>
     + (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(System_Object *)p1;
 
 	// Managed method name : GetAwaiter
@@ -251,13 +251,13 @@
     + (System_Threading_Tasks_Task *)run_withAction:(System_Action *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : Run
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.Task+TResult>
     + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFuncA1:(System_FuncA1 *)p1;
 
 	// Managed method name : Run
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<TResult>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.Task+TResult>, System.Threading.CancellationToken
     + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFuncA1:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : Run
@@ -271,13 +271,13 @@
     + (System_Threading_Tasks_Task *)run_withFunctionSFuncA1:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : Run
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<System.Threading.Tasks.Task`1<TResult>>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
     + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFuncA1:(System_FuncA1 *)p1;
 
 	// Managed method name : Run
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<System.Threading.Tasks.Task`1<TResult>>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>, System.Threading.CancellationToken
     + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFuncA1:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
 
 	// Managed method name : RunSynchronously
@@ -387,7 +387,7 @@
 
 	// Managed method name : WhenAll
 	// Managed return type : System.Threading.Tasks.Task`1<TResult[]>
-	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<TResult>>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
     + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 	// Managed method name : WhenAll
@@ -406,13 +406,13 @@
     + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 	// Managed method name : WhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<TResult>>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
 	// Managed param types : Task`1[]
     + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSArray:(DBSystem_Array *)p1;
 
 	// Managed method name : WhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<TResult>>
-	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<TResult>>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
     + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 	// Managed method name : Yield

@@ -119,8 +119,8 @@
     }
 
 	// Managed method name : CompareExchange
-	// Managed return type : <T>
-	// Managed param types : ref <T&>, <T>, <T>
+	// Managed return type : <System.Threading.Interlocked+T>
+	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>, <System.Threading.Interlocked+T>
     + (System_Object *)compareExchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3
     {
 		void *refPtr1 = [*p1 monoValue];
@@ -224,8 +224,8 @@
     }
 
 	// Managed method name : Exchange
-	// Managed return type : <T>
-	// Managed param types : ref <T&>, <T>
+	// Managed return type : <System.Threading.Interlocked+T>
+	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>
     + (System_Object *)exchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2
     {
 		void *refPtr1 = [*p1 monoValue];

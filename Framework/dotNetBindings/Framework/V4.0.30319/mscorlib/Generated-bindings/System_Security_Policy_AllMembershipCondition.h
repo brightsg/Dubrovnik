@@ -2,7 +2,7 @@
 //
 // Managed class : AllMembershipCondition
 //
-@interface System_Security_Policy_AllMembershipCondition : System_Object <System_Security_Policy_IConstantMembershipCondition, System_Security_Policy_IReportMatchMembershipCondition, System_Security_Policy_IMembershipCondition, System_Security_ISecurityEncodable, System_Security_ISecurityPolicyEncodable>
+@interface System_Security_Policy_AllMembershipCondition : System_Object <System_Security_Policy_IMembershipCondition, System_Security_ISecurityEncodable, System_Security_ISecurityPolicyEncodable>
 
 #pragma mark -
 #pragma mark Setup

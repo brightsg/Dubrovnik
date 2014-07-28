@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.IProgress`1";
+		return "System.IProgress`1<System.IProgress`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,10 +29,10 @@
 
 	// Managed method name : Report
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.IProgress`1+T>
     - (void)report_withValue:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.IProgress`1<T>.Report(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.IProgress`1<System.IProgress`1+T>.Report(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
     }
 
 #pragma mark -

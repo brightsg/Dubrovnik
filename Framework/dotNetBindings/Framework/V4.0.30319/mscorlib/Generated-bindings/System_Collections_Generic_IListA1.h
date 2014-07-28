@@ -15,7 +15,7 @@
 #pragma mark Properties
 
 	// Managed property name : Item
-	// Managed property type : <T>
+	// Managed property type : <System.Collections.Generic.IList`1+T>
     @property (nonatomic, strong) System_Object * item;
 
 #pragma mark -
@@ -23,12 +23,12 @@
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T>
+	// Managed param types : <System.Collections.Generic.IList`1+T>
     - (int32_t)indexOf_withItem:(System_Object *)p1;
 
 	// Managed method name : Insert
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, <T>
+	// Managed param types : System.Int32, <System.Collections.Generic.IList`1+T>
     - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
 
 	// Managed method name : RemoveAt

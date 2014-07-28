@@ -28,40 +28,40 @@
 #pragma mark Methods
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<TSource>
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Collections_Generic_IEnumerableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<TSource>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>)" withNumArgs:1, [p1 monoValue]];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<TSource>
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Collections.Concurrent.EnumerablePartitionerOptions
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>, System.Collections.Concurrent.EnumerablePartitionerOptions
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Collections_Generic_IEnumerableA1 *)p1 partitionerOptions:(System_Collections_Concurrent_EnumerablePartitionerOptions)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<TSource>
-	// Managed param types : System.Collections.Generic.IList`1<TSource>, System.Boolean
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+	// Managed param types : System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>, System.Boolean
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(System_Collections_Generic_IListA1 *)p1 loadBalance:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<TSource>,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<TSource>
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
 	// Managed param types : <TSource[]>, System.Boolean
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(System_Object *)p1 loadBalance:(BOOL)p2
     {

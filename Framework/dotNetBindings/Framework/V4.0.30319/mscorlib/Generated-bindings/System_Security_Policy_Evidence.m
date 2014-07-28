@@ -129,7 +129,7 @@
 
 	// Managed method name : AddAssemblyEvidence
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Security.Policy.Evidence+T>
     - (void)addAssemblyEvidence_withEvidence:(System_Object *)p1
     {
 		[self invokeMonoMethod:"AddAssemblyEvidence(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
@@ -145,7 +145,7 @@
 
 	// Managed method name : AddHostEvidence
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Security.Policy.Evidence+T>
     - (void)addHostEvidence_withEvidence:(System_Object *)p1
     {
 		[self invokeMonoMethod:"AddHostEvidence(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
@@ -190,7 +190,7 @@
     }
 
 	// Managed method name : GetAssemblyEvidence
-	// Managed return type : <T>
+	// Managed return type : <System.Security.Policy.Evidence+T>
 	// Managed param types : 
     - (System_Object *)getAssemblyEvidence
     {
@@ -223,7 +223,7 @@
     }
 
 	// Managed method name : GetHostEvidence
-	// Managed return type : <T>
+	// Managed return type : <System.Security.Policy.Evidence+T>
 	// Managed param types : 
     - (System_Object *)getHostEvidence
     {

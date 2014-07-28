@@ -15,17 +15,17 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<TResult>
+	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
 	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
     + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<TResult>
+	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
 	// Managed param types : System.Threading.Tasks.TaskCreationOptions
     + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withCreationOptions:(System_Threading_Tasks_TaskCreationOptions)p1;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<TResult>
+	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
 	// Managed param types : System.Object
     + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1;
 
@@ -33,7 +33,7 @@
 #pragma mark Properties
 
 	// Managed property name : Task
-	// Managed property type : System.Threading.Tasks.Task`1<TResult>
+	// Managed property type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
     @property (nonatomic, strong, readonly) System_Threading_Tasks_TaskA1 * task;
 
 #pragma mark -
@@ -56,7 +56,7 @@
 
 	// Managed method name : SetResult
 	// Managed return type : System.Void
-	// Managed param types : <TResult>
+	// Managed param types : <System.Threading.Tasks.TaskCompletionSource`1+TResult>
     - (void)setResult_withResult:(System_Object *)p1;
 
 	// Managed method name : TrySetCanceled
@@ -76,7 +76,7 @@
 
 	// Managed method name : TrySetResult
 	// Managed return type : System.Boolean
-	// Managed param types : <TResult>
+	// Managed param types : <System.Threading.Tasks.TaskCompletionSource`1+TResult>
     - (BOOL)trySetResult_withResult:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

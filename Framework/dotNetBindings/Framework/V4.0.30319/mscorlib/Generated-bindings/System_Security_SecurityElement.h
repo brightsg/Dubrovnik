@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityElement
 //
-@interface System_Security_SecurityElement : System_Object <System_Security_ISecurityElementFactory>
+@interface System_Security_SecurityElement : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1";
+		return "System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Properties
 
 	// Managed property name : Task
-	// Managed property type : System.Threading.Tasks.Task`1<TResult>
+	// Managed property type : System.Threading.Tasks.Task`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>
     @synthesize task = _task;
     - (System_Threading_Tasks_TaskA1 *)task
     {
@@ -61,7 +61,7 @@
     }
 
 	// Managed method name : Create
-	// Managed return type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<TResult>
+	// Managed return type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>
 	// Managed param types : 
     + (System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1 *)create
     {
@@ -81,7 +81,7 @@
 
 	// Managed method name : SetResult
 	// Managed return type : System.Void
-	// Managed param types : <TResult>
+	// Managed param types : <System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>
     - (void)setResult_withResult:(System_Object *)p1
     {
 		[self invokeMonoMethod:"SetResult(<_T_0>)" withNumArgs:1, [p1 monoValue]];;

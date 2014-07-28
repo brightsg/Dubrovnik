@@ -62,7 +62,7 @@
 
 	// Managed method name : AddAssemblyEvidence
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Security.Policy.Evidence+T>
     - (void)addAssemblyEvidence_withEvidence:(System_Object *)p1;
 
 	// Managed method name : AddHost
@@ -72,7 +72,7 @@
 
 	// Managed method name : AddHostEvidence
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.Security.Policy.Evidence+T>
     - (void)addHostEvidence_withEvidence:(System_Object *)p1;
 
 	// Managed method name : Clear
@@ -96,7 +96,7 @@
     - (System_Collections_IEnumerator *)getAssemblyEnumerator;
 
 	// Managed method name : GetAssemblyEvidence
-	// Managed return type : <T>
+	// Managed return type : <System.Security.Policy.Evidence+T>
 	// Managed param types : 
     - (System_Object *)getAssemblyEvidence;
 
@@ -111,7 +111,7 @@
     - (System_Collections_IEnumerator *)getHostEnumerator;
 
 	// Managed method name : GetHostEvidence
-	// Managed return type : <T>
+	// Managed return type : <System.Security.Policy.Evidence+T>
 	// Managed param types : 
     - (System_Object *)getHostEvidence;
 

@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Threading.Tasks.TaskFactory`1";
+		return "System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,7 +28,7 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskFactory`1<TResult>
+	// Managed return type : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult>
 	// Managed param types : System.Threading.CancellationToken
     + (System_Threading_Tasks_TaskFactoryA1 *)new_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
@@ -36,7 +36,7 @@
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskFactory`1<TResult>
+	// Managed return type : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult>
 	// Managed param types : System.Threading.Tasks.TaskScheduler
     + (System_Threading_Tasks_TaskFactoryA1 *)new_withScheduler:(System_Threading_Tasks_TaskScheduler *)p1
     {
@@ -44,7 +44,7 @@
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskFactory`1<TResult>
+	// Managed return type : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult>
 	// Managed param types : System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskContinuationOptions
     + (System_Threading_Tasks_TaskFactoryA1 *)new_withCreationOptions:(System_Threading_Tasks_TaskCreationOptions)p1 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p2
     {
@@ -52,7 +52,7 @@
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskFactory`1<TResult>
+	// Managed return type : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult>
 	// Managed param types : System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
     + (System_Threading_Tasks_TaskFactoryA1 *)new_withCancellationToken:(System_Threading_CancellationToken *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2 continuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3 scheduler:(System_Threading_Tasks_TaskScheduler *)p4
     {
@@ -112,386 +112,386 @@
 #pragma mark Methods
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], TResult>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], TResult>, System.Threading.Tasks.TaskContinuationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<Task`1[], TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<Task`1[], TResult>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<Task`1[], TResult>, System.Threading.Tasks.TaskContinuationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAll
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<Task`1[], TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Array[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, TResult>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, TResult>, System.Threading.Tasks.TaskContinuationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>, System.Threading.Tasks.TaskContinuationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ContinueWhenAny
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSArray:(DBSystem_Array *)p1 continuationFunctionSFuncA2:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(System_Threading_Tasks_TaskContinuationOptions)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<TAntecedentResult>, TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Array[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withAsyncResult:(System_IAsyncResult *)p1 endMethod:(System_FuncA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.IAsyncResult,System.Func`2<System.IAsyncResult, TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.IAsyncResult,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, TResult>, System.Threading.Tasks.TaskCreationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskCreationOptions
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withAsyncResult:(System_IAsyncResult *)p1 endMethod:(System_FuncA2 *)p2 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.IAsyncResult,System.Func`2<System.IAsyncResult, TResult>,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.IAsyncResult,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, TResult>, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withAsyncResult:(System_IAsyncResult *)p1 endMethod:(System_FuncA2 *)p2 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p3 scheduler:(System_Threading_Tasks_TaskScheduler *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.IAsyncResult,System.Func`2<System.IAsyncResult, TResult>,System.Threading.Tasks.TaskCreationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.IAsyncResult,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.Tasks.TaskCreationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, TResult>, System.Object
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA3 *)p1 endMethod:(System_FuncA2 *)p2 state:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, TResult>,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, TResult>, System.Object, System.Threading.Tasks.TaskCreationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object, System.Threading.Tasks.TaskCreationOptions
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA3 *)p1 endMethod:(System_FuncA2 *)p2 state:(System_Object *)p3 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, TResult>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`4<TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, TResult>, <TArg1>, System.Object
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`4<System.Threading.Tasks.TaskFactory`1+TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, <System.Threading.Tasks.TaskFactory`1+TArg1>, System.Object
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA4 *)p1 endMethod:(System_FuncA2 *)p2 arg1:(System_Object *)p3 state:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`4<TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, TResult>,<_T_0>,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`4<System.Threading.Tasks.TaskFactory`1+TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,<_T_0>,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`4<TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, TResult>, <TArg1>, System.Object, System.Threading.Tasks.TaskCreationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`4<System.Threading.Tasks.TaskFactory`1+TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, <System.Threading.Tasks.TaskFactory`1+TArg1>, System.Object, System.Threading.Tasks.TaskCreationOptions
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA4 *)p1 endMethod:(System_FuncA2 *)p2 arg1:(System_Object *)p3 state:(System_Object *)p4 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`4<TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, TResult>,<_T_0>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`4<System.Threading.Tasks.TaskFactory`1+TArg1, System.AsyncCallback, System.Object, System.IAsyncResult>,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,<_T_0>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`5, System.Func`2<System.IAsyncResult, TResult>, <TArg1>, <TArg2>, System.Object
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`5, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, <System.Threading.Tasks.TaskFactory`1+TArg1>, <System.Threading.Tasks.TaskFactory`1+TArg2>, System.Object
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA5 *)p1 endMethod:(System_FuncA2 *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 state:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`5,System.Func`2<System.IAsyncResult, TResult>,<_T_0>,<_T_1>,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`5,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,<_T_0>,<_T_1>,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`5, System.Func`2<System.IAsyncResult, TResult>, <TArg1>, <TArg2>, System.Object, System.Threading.Tasks.TaskCreationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`5, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, <System.Threading.Tasks.TaskFactory`1+TArg1>, <System.Threading.Tasks.TaskFactory`1+TArg2>, System.Object, System.Threading.Tasks.TaskCreationOptions
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA5 *)p1 endMethod:(System_FuncA2 *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 state:(System_Object *)p5 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`5,System.Func`2<System.IAsyncResult, TResult>,<_T_0>,<_T_1>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], DB_VALUE(p6)];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`5,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,<_T_0>,<_T_1>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], DB_VALUE(p6)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`6, System.Func`2<System.IAsyncResult, TResult>, <TArg1>, <TArg2>, <TArg3>, System.Object
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`6, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, <System.Threading.Tasks.TaskFactory`1+TArg1>, <System.Threading.Tasks.TaskFactory`1+TArg2>, <System.Threading.Tasks.TaskFactory`1+TArg3>, System.Object
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA6 *)p1 endMethod:(System_FuncA2 *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5 state:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`6,System.Func`2<System.IAsyncResult, TResult>,<_T_0>,<_T_1>,<_T_2>,object)" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`6,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,<_T_0>,<_T_1>,<_T_2>,object)" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`6, System.Func`2<System.IAsyncResult, TResult>, <TArg1>, <TArg2>, <TArg3>, System.Object, System.Threading.Tasks.TaskCreationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`6, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, <System.Threading.Tasks.TaskFactory`1+TArg1>, <System.Threading.Tasks.TaskFactory`1+TArg2>, <System.Threading.Tasks.TaskFactory`1+TArg3>, System.Object, System.Threading.Tasks.TaskCreationOptions
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA6 *)p1 endMethod:(System_FuncA2 *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5 state:(System_Object *)p6 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p7
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`6,System.Func`2<System.IAsyncResult, TResult>,<_T_0>,<_T_1>,<_T_2>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];
+		MonoObject *monoObject = [self invokeMonoMethod:"FromAsync(System.Func`6,System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>,<_T_0>,<_T_1>,<_T_2>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], DB_VALUE(p7)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<TResult>
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<TResult>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>)" withNumArgs:1, [p1 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<TResult>, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<TResult>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<TResult>, System.Threading.Tasks.TaskCreationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskCreationOptions
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA1 *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<TResult>,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`1<TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p3 scheduler:(System_Threading_Tasks_TaskScheduler *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`1<System.Threading.Tasks.TaskFactory`1+TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Object, TResult>, System.Object
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, TResult>,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Object, TResult>, System.Object, System.Threading.CancellationToken
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object, System.Threading.CancellationToken
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, TResult>,object,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>,object,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Object, TResult>, System.Object, System.Threading.Tasks.TaskCreationOptions
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object, System.Threading.Tasks.TaskCreationOptions
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, TResult>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>,object,System.Threading.Tasks.TaskCreationOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : StartNew
-	// Managed return type : System.Threading.Tasks.Task`1<TResult>
-	// Managed param types : System.Func`2<System.Object, TResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskScheduler
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)startNew_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, TResult>,object,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartNew(System.Func`2<System.Object, System.Threading.Tasks.TaskFactory`1+TResult>,object,System.Threading.CancellationToken,System.Threading.Tasks.TaskCreationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }

@@ -117,264 +117,264 @@
 
 	// Managed method name : For
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Int32, System.Int32, System.Func`1<TLocal>, System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Int32, System.Int32, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Func`1<TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : For
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Int64, System.Int64, System.Func`1<TLocal>, System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Int64, System.Int64, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Func`1<TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : For
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Int32, System.Int32, System.Threading.Tasks.ParallelOptions, System.Func`1<TLocal>, System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Int32, System.Int32, System.Threading.Tasks.ParallelOptions, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 localInitSFuncA1:(System_FuncA1 *)p4 bodySFuncA4:(System_FuncA4 *)p5 localFinallySActionA1:(System_ActionA1 *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Func`1<TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : For
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Int64, System.Int64, System.Threading.Tasks.ParallelOptions, System.Func`1<TLocal>, System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Int64, System.Int64, System.Threading.Tasks.ParallelOptions, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 localInitSFuncA1:(System_FuncA1 *)p4 bodySFuncA4:(System_FuncA4 *)p5 localFinallySActionA1:(System_ActionA1 *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Func`1<TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Action`1<TSource>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Action`1<System.Threading.Tasks.Parallel+TSource>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 bodySActionA1:(System_ActionA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Action`1<TSource>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Action`1<TSource>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`1<System.Threading.Tasks.Parallel+TSource>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA1:(System_ActionA1 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<TSource>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 bodySActionA2:(System_ActionA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA2:(System_ActionA2 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 bodySActionA3:(System_ActionA3 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA3:(System_ActionA3 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Func`1<TLocal>, System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA4:(System_FuncA4 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`1<TLocal>,System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<TLocal>, System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<TLocal>,System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Func`1<TLocal>, System.Func`5, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`5, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA5:(System_FuncA5 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`1<TLocal>,System.Func`5,System.Action`1<TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<TLocal>, System.Func`5, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`5, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA5:(System_FuncA5 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<TLocal>,System.Func`5,System.Action`1<TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.Partitioner`1<TSource>, System.Action`1<TSource>
+	// Managed param types : System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Action`1<System.Threading.Tasks.Parallel+TSource>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 bodySActionA1:(System_ActionA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<TSource>,System.Action`1<TSource>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.Partitioner`1<TSource>, System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>
+	// Managed param types : System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 bodySActionA2:(System_ActionA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<TSource>,System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<TSource>, System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
+	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 bodySActionA3:(System_ActionA3 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<TSource>,System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.Partitioner`1<TSource>, System.Func`1<TLocal>, System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA4:(System_FuncA4 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<TSource>,System.Func`1<TLocal>,System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<TSource>, System.Func`1<TLocal>, System.Func`5, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`5, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA5:(System_FuncA5 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<TSource>,System.Func`1<TLocal>,System.Func`5,System.Action`1<TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.Partitioner`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Action`1<TSource>
+	// Managed param types : System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`1<System.Threading.Tasks.Parallel+TSource>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA1:(System_ActionA1 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<TSource>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.Partitioner`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>
+	// Managed param types : System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA2:(System_ActionA2 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
+	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA3:(System_ActionA3 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.Partitioner`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<TLocal>, System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<TLocal>,System.Func`4<TSource, System.Threading.Tasks.ParallelLoopState, TLocal, TLocal>,System.Action`1<TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<TLocal>, System.Func`5, System.Action`1<TLocal>
+	// Managed param types : System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Func`1<System.Threading.Tasks.Parallel+TLocal>, System.Func`5, System.Action`1<System.Threading.Tasks.Parallel+TLocal>
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA5:(System_FuncA5 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<TLocal>,System.Func`5,System.Action`1<TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }

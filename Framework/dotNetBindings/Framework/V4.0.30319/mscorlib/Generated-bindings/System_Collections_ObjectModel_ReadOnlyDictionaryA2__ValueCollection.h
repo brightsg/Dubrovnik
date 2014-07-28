@@ -27,7 +27,7 @@
     - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.IEnumerator`1<TValue>
+	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TValue>
 	// Managed param types : 
     - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
 @end

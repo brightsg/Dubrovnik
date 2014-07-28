@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.IEquatable`1";
+		return "System.IEquatable`1<System.IEquatable`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,11 +29,11 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : <T>
+	// Managed param types : <System.IEquatable`1+T>
     - (BOOL)equals_withOther:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.IEquatable`1<T>.Equals(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.IEquatable`1<System.IEquatable`1+T>.Equals(<_T_0>)" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

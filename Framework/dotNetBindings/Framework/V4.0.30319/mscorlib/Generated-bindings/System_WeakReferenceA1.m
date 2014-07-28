@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.WeakReference`1";
+		return "System.WeakReference`1<System.WeakReference`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -28,16 +28,16 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.WeakReference`1<T>
-	// Managed param types : <T>, System.Boolean
+	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
+	// Managed param types : <System.WeakReference`1+T>, System.Boolean
     + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2
     {
 		return [[self alloc] initWithSignature:"<_T_0>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
-	// Managed return type : System.WeakReference`1<T>
-	// Managed param types : <T>
+	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
+	// Managed param types : <System.WeakReference`1+T>
     + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1
     {
 		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];;
@@ -56,7 +56,7 @@
 
 	// Managed method name : SetTarget
 	// Managed return type : System.Void
-	// Managed param types : <T>
+	// Managed param types : <System.WeakReference`1+T>
     - (void)setTarget_withTarget:(System_Object *)p1
     {
 		[self invokeMonoMethod:"SetTarget(<_T_0>)" withNumArgs:1, [p1 monoValue]];;

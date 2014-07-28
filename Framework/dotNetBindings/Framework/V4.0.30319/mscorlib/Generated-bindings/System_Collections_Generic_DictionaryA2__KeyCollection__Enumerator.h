@@ -15,7 +15,7 @@
 #pragma mark Properties
 
 	// Managed property name : Current
-	// Managed property type : <TKey>
+	// Managed property type : <System.Collections.Generic.Dictionary`2+KeyCollection+Enumerator+TKey>
     @property (nonatomic, strong, readonly) System_Object * current;
 
 #pragma mark -

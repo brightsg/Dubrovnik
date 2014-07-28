@@ -15,8 +15,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>+KeyCollection
-	// Managed param types : System.Collections.Generic.Dictionary`2<TKey, TValue>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
+	// Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
     + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)p1;
 
 #pragma mark -
@@ -35,8 +35,8 @@
     - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.Enumerator
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection+Enumerator
 	// Managed param types : 
-    - (System_Collections_Generic_Enumerator *)getEnumerator;
+    - (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator;
 @end
 //--Dubrovnik.CodeGenerator

@@ -29,7 +29,7 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Tuple`5
-	// Managed param types : <T1>, <T2>, <T3>, <T4>, <T5>
+	// Managed param types : <System.Tuple`5+T1>, <System.Tuple`5+T2>, <System.Tuple`5+T3>, <System.Tuple`5+T4>, <System.Tuple`5+T5>
     + (System_TupleA5 *)new_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4 item5:(System_Object *)p5
     {
 		return [[self alloc] initWithSignature:"<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
@@ -39,7 +39,7 @@
 #pragma mark Properties
 
 	// Managed property name : Item1
-	// Managed property type : <T1>
+	// Managed property type : <System.Tuple`5+T1>
     @synthesize item1 = _item1;
     - (System_Object *)item1
     {
@@ -51,7 +51,7 @@
 	}
 
 	// Managed property name : Item2
-	// Managed property type : <T2>
+	// Managed property type : <System.Tuple`5+T2>
     @synthesize item2 = _item2;
     - (System_Object *)item2
     {
@@ -63,7 +63,7 @@
 	}
 
 	// Managed property name : Item3
-	// Managed property type : <T3>
+	// Managed property type : <System.Tuple`5+T3>
     @synthesize item3 = _item3;
     - (System_Object *)item3
     {
@@ -75,7 +75,7 @@
 	}
 
 	// Managed property name : Item4
-	// Managed property type : <T4>
+	// Managed property type : <System.Tuple`5+T4>
     @synthesize item4 = _item4;
     - (System_Object *)item4
     {
@@ -87,7 +87,7 @@
 	}
 
 	// Managed property name : Item5
-	// Managed property type : <T5>
+	// Managed property type : <System.Tuple`5+T5>
     @synthesize item5 = _item5;
     - (System_Object *)item5
     {

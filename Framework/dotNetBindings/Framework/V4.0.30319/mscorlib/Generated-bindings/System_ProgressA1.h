@@ -15,8 +15,8 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Progress`1<T>
-	// Managed param types : System.Action`1<T>
+	// Managed return type : System.Progress`1<System.Progress`1+T>
+	// Managed param types : System.Action`1<System.Progress`1+T>
     + (System_ProgressA1 *)new_withHandler:(System_ActionA1 *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -171,7 +171,7 @@
     }
 
 	// Managed method name : Read
-	// Managed return type : <T>
+	// Managed return type : <System.Threading.Volatile+T>
 	// Managed param types : ref <T&>
     + (System_Object *)read_withLocationRef:(System_Object **)p1
     {
@@ -290,7 +290,7 @@
 
 	// Managed method name : Write
 	// Managed return type : System.Void
-	// Managed param types : ref <T&>, <T>
+	// Managed param types : ref <T&>, <System.Threading.Volatile+T>
     + (void)write_withLocationRef:(System_Object **)p1 value:(System_Object *)p2
     {
 		[self invokeMonoClassMethod:"Write(<_T_0>&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoValue]];

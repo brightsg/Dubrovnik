@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IReadOnlyCollection`1";
+		return "System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T>";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,7 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyCollection`1<T>.Count"];
+		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T>.Count"];
 		_count = DB_UNBOX_INT32(monoObject);
 
 		return _count;

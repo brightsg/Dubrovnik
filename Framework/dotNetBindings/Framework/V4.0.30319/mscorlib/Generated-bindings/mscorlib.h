@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     7/28/2014 2:35:59 PM
+// Date:     7/28/2014 8:19:10 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -118,31 +118,31 @@
 #endif
 
 @class System_ActionA1;
-#ifdef SActionA1_
-#warning SActionA1_ class name collision.
+#ifdef SAActionA1_
+#warning SAActionA1_ class name collision.
 #else
-#define SActionA1_ System_ActionA1
+#define SAActionA1_ System_ActionA1
 #endif
 
 @class System_ActionA2;
-#ifdef SActionA2_
-#warning SActionA2_ class name collision.
+#ifdef SAAActionA2_
+#warning SAAActionA2_ class name collision.
 #else
-#define SActionA2_ System_ActionA2
+#define SAAActionA2_ System_ActionA2
 #endif
 
 @class System_ActionA3;
-#ifdef SActionA3_
-#warning SActionA3_ class name collision.
+#ifdef SAAAActionA3_
+#warning SAAAActionA3_ class name collision.
 #else
-#define SActionA3_ System_ActionA3
+#define SAAAActionA3_ System_ActionA3
 #endif
 
 @class System_ActionA4;
-#ifdef SActionA4_
-#warning SActionA4_ class name collision.
+#ifdef SAAAAActionA4_
+#warning SAAAAActionA4_ class name collision.
 #else
-#define SActionA4_ System_ActionA4
+#define SAAAAActionA4_ System_ActionA4
 #endif
 
 @class System_ActionA5;
@@ -370,10 +370,10 @@
 #endif
 
 @class System_ComparisonA1;
-#ifdef SComparisonA1_
-#warning SComparisonA1_ class name collision.
+#ifdef SCComparisonA1_
+#warning SCComparisonA1_ class name collision.
 #else
-#define SComparisonA1_ System_ComparisonA1
+#define SCComparisonA1_ System_ComparisonA1
 #endif
 
 @class System_Console;
@@ -426,10 +426,10 @@
 #endif
 
 @class System_ConverterA2;
-#ifdef SConverterA2_
-#warning SConverterA2_ class name collision.
+#ifdef SCCConverterA2_
+#warning SCCConverterA2_ class name collision.
 #else
-#define SConverterA2_ System_ConverterA2
+#define SCCConverterA2_ System_ConverterA2
 #endif
 
 @class System_CrossAppDomainDelegate;
@@ -517,10 +517,10 @@
 #endif
 
 @class System_EventHandlerA1;
-#ifdef SEventHandlerA1_
-#warning SEventHandlerA1_ class name collision.
+#ifdef SEEventHandlerA1_
+#warning SEEventHandlerA1_ class name collision.
 #else
-#define SEventHandlerA1_ System_EventHandlerA1
+#define SEEventHandlerA1_ System_EventHandlerA1
 #endif
 
 @class System_Exception;
@@ -559,31 +559,31 @@
 #endif
 
 @class System_FuncA1;
-#ifdef SFuncA1_
-#warning SFuncA1_ class name collision.
+#ifdef SFFuncA1_
+#warning SFFuncA1_ class name collision.
 #else
-#define SFuncA1_ System_FuncA1
+#define SFFuncA1_ System_FuncA1
 #endif
 
 @class System_FuncA2;
-#ifdef SFuncA2_
-#warning SFuncA2_ class name collision.
+#ifdef SFFFuncA2_
+#warning SFFFuncA2_ class name collision.
 #else
-#define SFuncA2_ System_FuncA2
+#define SFFFuncA2_ System_FuncA2
 #endif
 
 @class System_FuncA3;
-#ifdef SFuncA3_
-#warning SFuncA3_ class name collision.
+#ifdef SFFFFuncA3_
+#warning SFFFFuncA3_ class name collision.
 #else
-#define SFuncA3_ System_FuncA3
+#define SFFFFuncA3_ System_FuncA3
 #endif
 
 @class System_FuncA4;
-#ifdef SFuncA4_
-#warning SFuncA4_ class name collision.
+#ifdef SFFFFFuncA4_
+#warning SFFFFFuncA4_ class name collision.
 #else
-#define SFuncA4_ System_FuncA4
+#define SFFFFFuncA4_ System_FuncA4
 #endif
 
 @class System_FuncA5;
@@ -678,10 +678,10 @@
 #endif
 
 @class System_LazyA1;
-#ifdef SLazyA1_
-#warning SLazyA1_ class name collision.
+#ifdef SLLazyA1_
+#warning SLLazyA1_ class name collision.
 #else
-#define SLazyA1_ System_LazyA1
+#define SLLazyA1_ System_LazyA1
 #endif
 
 @class System_LoaderOptimizationAttribute;
@@ -874,17 +874,17 @@
 #endif
 
 @class System_PredicateA1;
-#ifdef SPredicateA1_
-#warning SPredicateA1_ class name collision.
+#ifdef SPPredicateA1_
+#warning SPPredicateA1_ class name collision.
 #else
-#define SPredicateA1_ System_PredicateA1
+#define SPPredicateA1_ System_PredicateA1
 #endif
 
 @class System_ProgressA1;
-#ifdef SProgressA1_
-#warning SProgressA1_ class name collision.
+#ifdef SPProgressA1_
+#warning SPProgressA1_ class name collision.
 #else
-#define SProgressA1_ System_ProgressA1
+#define SPProgressA1_ System_ProgressA1
 #endif
 
 @class System_Random;
@@ -1007,31 +1007,31 @@
 #endif
 
 @class System_TupleA1;
-#ifdef STupleA1_
-#warning STupleA1_ class name collision.
+#ifdef STTupleA1_
+#warning STTupleA1_ class name collision.
 #else
-#define STupleA1_ System_TupleA1
+#define STTupleA1_ System_TupleA1
 #endif
 
 @class System_TupleA2;
-#ifdef STupleA2_
-#warning STupleA2_ class name collision.
+#ifdef STTTupleA2_
+#warning STTTupleA2_ class name collision.
 #else
-#define STupleA2_ System_TupleA2
+#define STTTupleA2_ System_TupleA2
 #endif
 
 @class System_TupleA3;
-#ifdef STupleA3_
-#warning STupleA3_ class name collision.
+#ifdef STTTTupleA3_
+#warning STTTTupleA3_ class name collision.
 #else
-#define STupleA3_ System_TupleA3
+#define STTTTupleA3_ System_TupleA3
 #endif
 
 @class System_TupleA4;
-#ifdef STupleA4_
-#warning STupleA4_ class name collision.
+#ifdef STTTTTupleA4_
+#warning STTTTTupleA4_ class name collision.
 #else
-#define STupleA4_ System_TupleA4
+#define STTTTTupleA4_ System_TupleA4
 #endif
 
 @class System_TupleA5;
@@ -1140,10 +1140,10 @@
 #endif
 
 @class System_WeakReferenceA1;
-#ifdef SWeakReferenceA1_
-#warning SWeakReferenceA1_ class name collision.
+#ifdef SWWeakReferenceA1_
+#warning SWWeakReferenceA1_ class name collision.
 #else
-#define SWeakReferenceA1_ System_WeakReferenceA1
+#define SWWeakReferenceA1_ System_WeakReferenceA1
 #endif
 
 @class System__AppDomain;
@@ -1182,10 +1182,10 @@
 #endif
 
 @class System_IComparableA1;
-#ifdef SIComparableA1_
-#warning SIComparableA1_ class name collision.
+#ifdef SIIComparableA1_
+#warning SIIComparableA1_ class name collision.
 #else
-#define SIComparableA1_ System_IComparableA1
+#define SIIComparableA1_ System_IComparableA1
 #endif
 
 @class System_IConvertible;
@@ -1210,10 +1210,10 @@
 #endif
 
 @class System_IEquatableA1;
-#ifdef SIEquatableA1_
-#warning SIEquatableA1_ class name collision.
+#ifdef SIIEquatableA1_
+#warning SIIEquatableA1_ class name collision.
 #else
-#define SIEquatableA1_ System_IEquatableA1
+#define SIIEquatableA1_ System_IEquatableA1
 #endif
 
 @class System_IFormatProvider;
@@ -1231,24 +1231,24 @@
 #endif
 
 @class System_IObservableA1;
-#ifdef SIObservableA1_
-#warning SIObservableA1_ class name collision.
+#ifdef SIIObservableA1_
+#warning SIIObservableA1_ class name collision.
 #else
-#define SIObservableA1_ System_IObservableA1
+#define SIIObservableA1_ System_IObservableA1
 #endif
 
 @class System_IObserverA1;
-#ifdef SIObserverA1_
-#warning SIObserverA1_ class name collision.
+#ifdef SIIObserverA1_
+#warning SIIObserverA1_ class name collision.
 #else
-#define SIObserverA1_ System_IObserverA1
+#define SIIObserverA1_ System_IObserverA1
 #endif
 
 @class System_IProgressA1;
-#ifdef SIProgressA1_
-#warning SIProgressA1_ class name collision.
+#ifdef SIIProgressA1_
+#warning SIIProgressA1_ class name collision.
 #else
-#define SIProgressA1_ System_IProgressA1
+#define SIIProgressA1_ System_IProgressA1
 #endif
 
 @class System_IServiceProvider;
@@ -1266,10 +1266,10 @@
 #endif
 
 @class System_ArraySegmentA1;
-#ifdef SArraySegmentA1_
-#warning SArraySegmentA1_ class name collision.
+#ifdef SAArraySegmentA1_
+#warning SAArraySegmentA1_ class name collision.
 #else
-#define SArraySegmentA1_ System_ArraySegmentA1
+#define SAArraySegmentA1_ System_ArraySegmentA1
 #endif
 
 @class System_Boolean;
@@ -1371,10 +1371,10 @@
 #endif
 
 @class System_NullableA1;
-#ifdef SNullableA1_
-#warning SNullableA1_ class name collision.
+#ifdef SNNullableA1_
+#warning SNNullableA1_ class name collision.
 #else
-#define SNullableA1_ System_NullableA1
+#define SNNullableA1_ System_NullableA1
 #endif
 
 @class System_RuntimeArgumentHandle;
@@ -1651,31 +1651,31 @@
 #endif
 
 @class System_Collections_Concurrent_ConcurrentDictionaryA2;
-#ifdef SCCConcurrentDictionaryA2_
-#warning SCCConcurrentDictionaryA2_ class name collision.
+#ifdef SCCCCCCCCConcurrentDictionaryA2_
+#warning SCCCCCCCCConcurrentDictionaryA2_ class name collision.
 #else
-#define SCCConcurrentDictionaryA2_ System_Collections_Concurrent_ConcurrentDictionaryA2
+#define SCCCCCCCCConcurrentDictionaryA2_ System_Collections_Concurrent_ConcurrentDictionaryA2
 #endif
 
 @class System_Collections_Concurrent_ConcurrentQueueA1;
-#ifdef SCCConcurrentQueueA1_
-#warning SCCConcurrentQueueA1_ class name collision.
+#ifdef SCCCCCConcurrentQueueA1_
+#warning SCCCCCConcurrentQueueA1_ class name collision.
 #else
-#define SCCConcurrentQueueA1_ System_Collections_Concurrent_ConcurrentQueueA1
+#define SCCCCCConcurrentQueueA1_ System_Collections_Concurrent_ConcurrentQueueA1
 #endif
 
 @class System_Collections_Concurrent_ConcurrentStackA1;
-#ifdef SCCConcurrentStackA1_
-#warning SCCConcurrentStackA1_ class name collision.
+#ifdef SCCCCCConcurrentStackA1_
+#warning SCCCCCConcurrentStackA1_ class name collision.
 #else
-#define SCCConcurrentStackA1_ System_Collections_Concurrent_ConcurrentStackA1
+#define SCCCCCConcurrentStackA1_ System_Collections_Concurrent_ConcurrentStackA1
 #endif
 
 @class System_Collections_Concurrent_OrderablePartitionerA1;
-#ifdef SCCOrderablePartitionerA1_
-#warning SCCOrderablePartitionerA1_ class name collision.
+#ifdef SCCOCCOrderablePartitionerA1_
+#warning SCCOCCOrderablePartitionerA1_ class name collision.
 #else
-#define SCCOrderablePartitionerA1_ System_Collections_Concurrent_OrderablePartitionerA1
+#define SCCOCCOrderablePartitionerA1_ System_Collections_Concurrent_OrderablePartitionerA1
 #endif
 
 @class System_Collections_Concurrent_Partitioner;
@@ -1686,52 +1686,52 @@
 #endif
 
 @class System_Collections_Concurrent_PartitionerA1;
-#ifdef SCCPartitionerA1_
-#warning SCCPartitionerA1_ class name collision.
+#ifdef SCCPCCPartitionerA1_
+#warning SCCPCCPartitionerA1_ class name collision.
 #else
-#define SCCPartitionerA1_ System_Collections_Concurrent_PartitionerA1
+#define SCCPCCPartitionerA1_ System_Collections_Concurrent_PartitionerA1
 #endif
 
 @class System_Collections_Concurrent_IProducerConsumerCollectionA1;
-#ifdef SCCIProducerConsumerCollectionA1_
-#warning SCCIProducerConsumerCollectionA1_ class name collision.
+#ifdef SCCICCIProducerConsumerCollectionA1_
+#warning SCCICCIProducerConsumerCollectionA1_ class name collision.
 #else
-#define SCCIProducerConsumerCollectionA1_ System_Collections_Concurrent_IProducerConsumerCollectionA1
+#define SCCICCIProducerConsumerCollectionA1_ System_Collections_Concurrent_IProducerConsumerCollectionA1
 #endif
 
 @class System_Collections_Generic_ComparerA1;
-#ifdef SCGComparerA1_
-#warning SCGComparerA1_ class name collision.
+#ifdef SCGCCGComparerA1_
+#warning SCGCCGComparerA1_ class name collision.
 #else
-#define SCGComparerA1_ System_Collections_Generic_ComparerA1
+#define SCGCCGComparerA1_ System_Collections_Generic_ComparerA1
 #endif
 
 @class System_Collections_Generic_DictionaryA2;
-#ifdef SCGDictionaryA2_
-#warning SCGDictionaryA2_ class name collision.
+#ifdef SCGDCGDCGDictionaryA2_
+#warning SCGDCGDCGDictionaryA2_ class name collision.
 #else
-#define SCGDictionaryA2_ System_Collections_Generic_DictionaryA2
+#define SCGDCGDCGDictionaryA2_ System_Collections_Generic_DictionaryA2
 #endif
 
 @class System_Collections_Generic_DictionaryA2__KeyCollection;
-#ifdef SCGDictionaryA2_KeyCollection_
-#warning SCGDictionaryA2_KeyCollection_ class name collision.
+#ifdef SCGDCGDCGDictionaryA2_KeyCollection_
+#warning SCGDCGDCGDictionaryA2_KeyCollection_ class name collision.
 #else
-#define SCGDictionaryA2_KeyCollection_ System_Collections_Generic_DictionaryA2__KeyCollection
+#define SCGDCGDCGDictionaryA2_KeyCollection_ System_Collections_Generic_DictionaryA2__KeyCollection
 #endif
 
 @class System_Collections_Generic_DictionaryA2__ValueCollection;
-#ifdef SCGDictionaryA2_ValueCollection_
-#warning SCGDictionaryA2_ValueCollection_ class name collision.
+#ifdef SCGDCGDCGDictionaryA2_ValueCollection_
+#warning SCGDCGDCGDictionaryA2_ValueCollection_ class name collision.
 #else
-#define SCGDictionaryA2_ValueCollection_ System_Collections_Generic_DictionaryA2__ValueCollection
+#define SCGDCGDCGDictionaryA2_ValueCollection_ System_Collections_Generic_DictionaryA2__ValueCollection
 #endif
 
 @class System_Collections_Generic_EqualityComparerA1;
-#ifdef SCGEqualityComparerA1_
-#warning SCGEqualityComparerA1_ class name collision.
+#ifdef SCGECGEqualityComparerA1_
+#warning SCGECGEqualityComparerA1_ class name collision.
 #else
-#define SCGEqualityComparerA1_ System_Collections_Generic_EqualityComparerA1
+#define SCGECGEqualityComparerA1_ System_Collections_Generic_EqualityComparerA1
 #endif
 
 @class System_Collections_Generic_KeyNotFoundException;
@@ -1742,157 +1742,157 @@
 #endif
 
 @class System_Collections_Generic_ListA1;
-#ifdef SCGListA1_
-#warning SCGListA1_ class name collision.
+#ifdef SCGLCGListA1_
+#warning SCGLCGListA1_ class name collision.
 #else
-#define SCGListA1_ System_Collections_Generic_ListA1
+#define SCGLCGListA1_ System_Collections_Generic_ListA1
 #endif
 
 @class System_Collections_Generic_ICollectionA1;
-#ifdef SCGICollectionA1_
-#warning SCGICollectionA1_ class name collision.
+#ifdef SCGICGICollectionA1_
+#warning SCGICGICollectionA1_ class name collision.
 #else
-#define SCGICollectionA1_ System_Collections_Generic_ICollectionA1
+#define SCGICGICollectionA1_ System_Collections_Generic_ICollectionA1
 #endif
 
 @class System_Collections_Generic_IComparerA1;
-#ifdef SCGIComparerA1_
-#warning SCGIComparerA1_ class name collision.
+#ifdef SCGICGIComparerA1_
+#warning SCGICGIComparerA1_ class name collision.
 #else
-#define SCGIComparerA1_ System_Collections_Generic_IComparerA1
+#define SCGICGIComparerA1_ System_Collections_Generic_IComparerA1
 #endif
 
 @class System_Collections_Generic_IDictionaryA2;
-#ifdef SCGIDictionaryA2_
-#warning SCGIDictionaryA2_ class name collision.
+#ifdef SCGICGICGIDictionaryA2_
+#warning SCGICGICGIDictionaryA2_ class name collision.
 #else
-#define SCGIDictionaryA2_ System_Collections_Generic_IDictionaryA2
+#define SCGICGICGIDictionaryA2_ System_Collections_Generic_IDictionaryA2
 #endif
 
 @class System_Collections_Generic_IEnumerableA1;
-#ifdef SCGIEnumerableA1_
-#warning SCGIEnumerableA1_ class name collision.
+#ifdef SCGICGIEnumerableA1_
+#warning SCGICGIEnumerableA1_ class name collision.
 #else
-#define SCGIEnumerableA1_ System_Collections_Generic_IEnumerableA1
+#define SCGICGIEnumerableA1_ System_Collections_Generic_IEnumerableA1
 #endif
 
 @class System_Collections_Generic_IEnumeratorA1;
-#ifdef SCGIEnumeratorA1_
-#warning SCGIEnumeratorA1_ class name collision.
+#ifdef SCGICGIEnumeratorA1_
+#warning SCGICGIEnumeratorA1_ class name collision.
 #else
-#define SCGIEnumeratorA1_ System_Collections_Generic_IEnumeratorA1
+#define SCGICGIEnumeratorA1_ System_Collections_Generic_IEnumeratorA1
 #endif
 
 @class System_Collections_Generic_IEqualityComparerA1;
-#ifdef SCGIEqualityComparerA1_
-#warning SCGIEqualityComparerA1_ class name collision.
+#ifdef SCGICGIEqualityComparerA1_
+#warning SCGICGIEqualityComparerA1_ class name collision.
 #else
-#define SCGIEqualityComparerA1_ System_Collections_Generic_IEqualityComparerA1
+#define SCGICGIEqualityComparerA1_ System_Collections_Generic_IEqualityComparerA1
 #endif
 
 @class System_Collections_Generic_IListA1;
-#ifdef SCGIListA1_
-#warning SCGIListA1_ class name collision.
+#ifdef SCGICGIListA1_
+#warning SCGICGIListA1_ class name collision.
 #else
-#define SCGIListA1_ System_Collections_Generic_IListA1
+#define SCGICGIListA1_ System_Collections_Generic_IListA1
 #endif
 
 @class System_Collections_Generic_IReadOnlyCollectionA1;
-#ifdef SCGIReadOnlyCollectionA1_
-#warning SCGIReadOnlyCollectionA1_ class name collision.
+#ifdef SCGICGIReadOnlyCollectionA1_
+#warning SCGICGIReadOnlyCollectionA1_ class name collision.
 #else
-#define SCGIReadOnlyCollectionA1_ System_Collections_Generic_IReadOnlyCollectionA1
+#define SCGICGIReadOnlyCollectionA1_ System_Collections_Generic_IReadOnlyCollectionA1
 #endif
 
 @class System_Collections_Generic_IReadOnlyDictionaryA2;
-#ifdef SCGIReadOnlyDictionaryA2_
-#warning SCGIReadOnlyDictionaryA2_ class name collision.
+#ifdef SCGICGICGIReadOnlyDictionaryA2_
+#warning SCGICGICGIReadOnlyDictionaryA2_ class name collision.
 #else
-#define SCGIReadOnlyDictionaryA2_ System_Collections_Generic_IReadOnlyDictionaryA2
+#define SCGICGICGIReadOnlyDictionaryA2_ System_Collections_Generic_IReadOnlyDictionaryA2
 #endif
 
 @class System_Collections_Generic_IReadOnlyListA1;
-#ifdef SCGIReadOnlyListA1_
-#warning SCGIReadOnlyListA1_ class name collision.
+#ifdef SCGICGIReadOnlyListA1_
+#warning SCGICGIReadOnlyListA1_ class name collision.
 #else
-#define SCGIReadOnlyListA1_ System_Collections_Generic_IReadOnlyListA1
+#define SCGICGIReadOnlyListA1_ System_Collections_Generic_IReadOnlyListA1
 #endif
 
 @class System_Collections_Generic_DictionaryA2__Enumerator;
-#ifdef SCGDictionaryA2_Enumerator_
-#warning SCGDictionaryA2_Enumerator_ class name collision.
+#ifdef SCGDCGDCGDictionaryA2_Enumerator_
+#warning SCGDCGDCGDictionaryA2_Enumerator_ class name collision.
 #else
-#define SCGDictionaryA2_Enumerator_ System_Collections_Generic_DictionaryA2__Enumerator
+#define SCGDCGDCGDictionaryA2_Enumerator_ System_Collections_Generic_DictionaryA2__Enumerator
 #endif
 
 @class System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator;
-#ifdef SCGDictionaryA2_KeyCollection_Enumerator_
-#warning SCGDictionaryA2_KeyCollection_Enumerator_ class name collision.
+#ifdef SCGDCGDCGDictionaryA2_KeyCollection_Enumerator_
+#warning SCGDCGDCGDictionaryA2_KeyCollection_Enumerator_ class name collision.
 #else
-#define SCGDictionaryA2_KeyCollection_Enumerator_ System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator
+#define SCGDCGDCGDictionaryA2_KeyCollection_Enumerator_ System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator
 #endif
 
 @class System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator;
-#ifdef SCGDictionaryA2_ValueCollection_Enumerator_
-#warning SCGDictionaryA2_ValueCollection_Enumerator_ class name collision.
+#ifdef SCGDCGDCGDictionaryA2_ValueCollection_Enumerator_
+#warning SCGDCGDCGDictionaryA2_ValueCollection_Enumerator_ class name collision.
 #else
-#define SCGDictionaryA2_ValueCollection_Enumerator_ System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator
+#define SCGDCGDCGDictionaryA2_ValueCollection_Enumerator_ System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator
 #endif
 
 @class System_Collections_Generic_KeyValuePairA2;
-#ifdef SCGKeyValuePairA2_
-#warning SCGKeyValuePairA2_ class name collision.
+#ifdef SCGKCGKCGKeyValuePairA2_
+#warning SCGKCGKCGKeyValuePairA2_ class name collision.
 #else
-#define SCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
+#define SCGKCGKCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
 #endif
 
 @class System_Collections_Generic_ListA1__Enumerator;
-#ifdef SCGListA1_Enumerator_
-#warning SCGListA1_Enumerator_ class name collision.
+#ifdef SCGLCGListA1_Enumerator_
+#warning SCGLCGListA1_Enumerator_ class name collision.
 #else
-#define SCGListA1_Enumerator_ System_Collections_Generic_ListA1__Enumerator
+#define SCGLCGListA1_Enumerator_ System_Collections_Generic_ListA1__Enumerator
 #endif
 
 @class System_Collections_ObjectModel_CollectionA1;
-#ifdef SCOCollectionA1_
-#warning SCOCollectionA1_ class name collision.
+#ifdef SCOCCOCollectionA1_
+#warning SCOCCOCollectionA1_ class name collision.
 #else
-#define SCOCollectionA1_ System_Collections_ObjectModel_CollectionA1
+#define SCOCCOCollectionA1_ System_Collections_ObjectModel_CollectionA1
 #endif
 
 @class System_Collections_ObjectModel_KeyedCollectionA2;
-#ifdef SCOKeyedCollectionA2_
-#warning SCOKeyedCollectionA2_ class name collision.
+#ifdef SCOKCOKCOKeyedCollectionA2_
+#warning SCOKCOKCOKeyedCollectionA2_ class name collision.
 #else
-#define SCOKeyedCollectionA2_ System_Collections_ObjectModel_KeyedCollectionA2
+#define SCOKCOKCOKeyedCollectionA2_ System_Collections_ObjectModel_KeyedCollectionA2
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyCollectionA1;
-#ifdef SCOReadOnlyCollectionA1_
-#warning SCOReadOnlyCollectionA1_ class name collision.
+#ifdef SCORCOReadOnlyCollectionA1_
+#warning SCORCOReadOnlyCollectionA1_ class name collision.
 #else
-#define SCOReadOnlyCollectionA1_ System_Collections_ObjectModel_ReadOnlyCollectionA1
+#define SCORCOReadOnlyCollectionA1_ System_Collections_ObjectModel_ReadOnlyCollectionA1
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyDictionaryA2;
-#ifdef SCOReadOnlyDictionaryA2_
-#warning SCOReadOnlyDictionaryA2_ class name collision.
+#ifdef SCORCORCOReadOnlyDictionaryA2_
+#warning SCORCORCOReadOnlyDictionaryA2_ class name collision.
 #else
-#define SCOReadOnlyDictionaryA2_ System_Collections_ObjectModel_ReadOnlyDictionaryA2
+#define SCORCORCOReadOnlyDictionaryA2_ System_Collections_ObjectModel_ReadOnlyDictionaryA2
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection;
-#ifdef SCOReadOnlyDictionaryA2_KeyCollection_
-#warning SCOReadOnlyDictionaryA2_KeyCollection_ class name collision.
+#ifdef SCORCORCOReadOnlyDictionaryA2_KeyCollection_
+#warning SCORCORCOReadOnlyDictionaryA2_KeyCollection_ class name collision.
 #else
-#define SCOReadOnlyDictionaryA2_KeyCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection
+#define SCORCORCOReadOnlyDictionaryA2_KeyCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection;
-#ifdef SCOReadOnlyDictionaryA2_ValueCollection_
-#warning SCOReadOnlyDictionaryA2_ValueCollection_ class name collision.
+#ifdef SCORCORCOReadOnlyDictionaryA2_ValueCollection_
+#warning SCORCORCOReadOnlyDictionaryA2_ValueCollection_ class name collision.
 #else
-#define SCOReadOnlyDictionaryA2_ValueCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection
+#define SCORCORCOReadOnlyDictionaryA2_ValueCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection
 #endif
 
 @class System_Configuration_Assemblies_AssemblyHash;
@@ -3590,17 +3590,17 @@
 #endif
 
 @class System_Runtime_CompilerServices_ConditionalWeakTableA2;
-#ifdef SRCConditionalWeakTableA2_
-#warning SRCConditionalWeakTableA2_ class name collision.
+#ifdef SRCCRCCRCConditionalWeakTableA2_
+#warning SRCCRCCRCConditionalWeakTableA2_ class name collision.
 #else
-#define SRCConditionalWeakTableA2_ System_Runtime_CompilerServices_ConditionalWeakTableA2
+#define SRCCRCCRCConditionalWeakTableA2_ System_Runtime_CompilerServices_ConditionalWeakTableA2
 #endif
 
 @class System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback;
-#ifdef SRCConditionalWeakTableA2_CreateValueCallback_
-#warning SRCConditionalWeakTableA2_CreateValueCallback_ class name collision.
+#ifdef SRCCRCCRCConditionalWeakTableA2_CreateValueCallback_
+#warning SRCCRCCRCConditionalWeakTableA2_CreateValueCallback_ class name collision.
 #else
-#define SRCConditionalWeakTableA2_CreateValueCallback_ System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback
+#define SRCCRCCRCConditionalWeakTableA2_CreateValueCallback_ System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback
 #endif
 
 @class System_Runtime_CompilerServices_ContractHelper;
@@ -3947,10 +3947,10 @@
 #endif
 
 @class System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1;
-#ifdef SRCAsyncTaskMethodBuilderA1_
-#warning SRCAsyncTaskMethodBuilderA1_ class name collision.
+#ifdef SRCARCAsyncTaskMethodBuilderA1_
+#warning SRCARCAsyncTaskMethodBuilderA1_ class name collision.
 #else
-#define SRCAsyncTaskMethodBuilderA1_ System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1
+#define SRCARCAsyncTaskMethodBuilderA1_ System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1
 #endif
 
 @class System_Runtime_CompilerServices_AsyncVoidMethodBuilder;
@@ -3975,17 +3975,17 @@
 #endif
 
 @class System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1;
-#ifdef SRCConfiguredTaskAwaitableA1_
-#warning SRCConfiguredTaskAwaitableA1_ class name collision.
+#ifdef SRCCRCConfiguredTaskAwaitableA1_
+#warning SRCCRCConfiguredTaskAwaitableA1_ class name collision.
 #else
-#define SRCConfiguredTaskAwaitableA1_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1
+#define SRCCRCConfiguredTaskAwaitableA1_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1
 #endif
 
 @class System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter;
-#ifdef SRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_
-#warning SRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ class name collision.
+#ifdef SRCCRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_
+#warning SRCCRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ class name collision.
 #else
-#define SRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter
+#define SRCCRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter
 #endif
 
 @class System_Runtime_CompilerServices_TaskAwaiter;
@@ -3996,10 +3996,10 @@
 #endif
 
 @class System_Runtime_CompilerServices_TaskAwaiterA1;
-#ifdef SRCTaskAwaiterA1_
-#warning SRCTaskAwaiterA1_ class name collision.
+#ifdef SRCTRCTaskAwaiterA1_
+#warning SRCTRCTaskAwaiterA1_ class name collision.
 #else
-#define SRCTaskAwaiterA1_ System_Runtime_CompilerServices_TaskAwaiterA1
+#define SRCTRCTaskAwaiterA1_ System_Runtime_CompilerServices_TaskAwaiterA1
 #endif
 
 @class System_Runtime_CompilerServices_YieldAwaitable;
@@ -5326,10 +5326,10 @@
 #endif
 
 @class System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1;
-#ifdef SRIWEventRegistrationTokenTableA1_
-#warning SRIWEventRegistrationTokenTableA1_ class name collision.
+#ifdef SRIWERIWEventRegistrationTokenTableA1_
+#warning SRIWERIWEventRegistrationTokenTableA1_ class name collision.
 #else
-#define SRIWEventRegistrationTokenTableA1_ System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1
+#define SRIWERIWEventRegistrationTokenTableA1_ System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1
 #endif
 
 @class System_Runtime_InteropServices_WindowsRuntime_InterfaceImplementedInVersionAttribute;
@@ -6817,10 +6817,10 @@
 #endif
 
 @class System_Security_AccessControl_AccessRuleA1;
-#ifdef SSAAccessRuleA1_
-#warning SSAAccessRuleA1_ class name collision.
+#ifdef SSAASAAccessRuleA1_
+#warning SSAASAAccessRuleA1_ class name collision.
 #else
-#define SSAAccessRuleA1_ System_Security_AccessControl_AccessRuleA1
+#define SSAASAAccessRuleA1_ System_Security_AccessControl_AccessRuleA1
 #endif
 
 @class System_Security_AccessControl_AceEnumerator;
@@ -6838,10 +6838,10 @@
 #endif
 
 @class System_Security_AccessControl_AuditRuleA1;
-#ifdef SSAAuditRuleA1_
-#warning SSAAuditRuleA1_ class name collision.
+#ifdef SSAASAAuditRuleA1_
+#warning SSAASAAuditRuleA1_ class name collision.
 #else
-#define SSAAuditRuleA1_ System_Security_AccessControl_AuditRuleA1
+#define SSAASAAuditRuleA1_ System_Security_AccessControl_AuditRuleA1
 #endif
 
 @class System_Security_AccessControl_AuthorizationRule;
@@ -7076,10 +7076,10 @@
 #endif
 
 @class System_Security_AccessControl_ObjectSecurityA1;
-#ifdef SSAObjectSecurityA1_
-#warning SSAObjectSecurityA1_ class name collision.
+#ifdef SSAOSAObjectSecurityA1_
+#warning SSAOSAObjectSecurityA1_ class name collision.
 #else
-#define SSAObjectSecurityA1_ System_Security_AccessControl_ObjectSecurityA1
+#define SSAOSAObjectSecurityA1_ System_Security_AccessControl_ObjectSecurityA1
 #endif
 
 @class System_Security_AccessControl_PrivilegeNotHeldException;
@@ -8721,10 +8721,10 @@
 #endif
 
 @class System_Threading_ThreadLocalA1;
-#ifdef STThreadLocalA1_
-#warning STThreadLocalA1_ class name collision.
+#ifdef STTTThreadLocalA1_
+#warning STTTThreadLocalA1_ class name collision.
 #else
-#define STThreadLocalA1_ System_Threading_ThreadLocalA1
+#define STTTThreadLocalA1_ System_Threading_ThreadLocalA1
 #endif
 
 @class System_Threading_ThreadPool;
@@ -8896,10 +8896,10 @@
 #endif
 
 @class System_Threading_Tasks_TaskA1;
-#ifdef STTTaskA1_
-#warning STTTaskA1_ class name collision.
+#ifdef STTTTTTaskA1_
+#warning STTTTTTaskA1_ class name collision.
 #else
-#define STTTaskA1_ System_Threading_Tasks_TaskA1
+#define STTTTTTaskA1_ System_Threading_Tasks_TaskA1
 #endif
 
 @class System_Threading_Tasks_TaskCanceledException;
@@ -8910,10 +8910,10 @@
 #endif
 
 @class System_Threading_Tasks_TaskCompletionSourceA1;
-#ifdef STTTaskCompletionSourceA1_
-#warning STTTaskCompletionSourceA1_ class name collision.
+#ifdef STTTTTTaskCompletionSourceA1_
+#warning STTTTTTaskCompletionSourceA1_ class name collision.
 #else
-#define STTTaskCompletionSourceA1_ System_Threading_Tasks_TaskCompletionSourceA1
+#define STTTTTTaskCompletionSourceA1_ System_Threading_Tasks_TaskCompletionSourceA1
 #endif
 
 @class System_Threading_Tasks_TaskFactory;
@@ -8924,10 +8924,10 @@
 #endif
 
 @class System_Threading_Tasks_TaskFactoryA1;
-#ifdef STTTaskFactoryA1_
-#warning STTTaskFactoryA1_ class name collision.
+#ifdef STTTTTTaskFactoryA1_
+#warning STTTTTTaskFactoryA1_ class name collision.
 #else
-#define STTTaskFactoryA1_ System_Threading_Tasks_TaskFactoryA1
+#define STTTTTTaskFactoryA1_ System_Threading_Tasks_TaskFactoryA1
 #endif
 
 @class System_Threading_Tasks_TaskScheduler;

@@ -15,35 +15,35 @@
 #pragma mark Constructors
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
 	// Managed param types : System.Int32
     + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     + (System_Collections_Generic_DictionaryA2 *)new_withComparer:(System_Collections_Generic_IEqualityComparerA1 *)p1;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Int32, System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Int32, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Collections.Generic.IDictionary`2<TKey, TValue>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
     + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1;
 
 	// Managed method name : .ctor
-	// Managed return type : System.Collections.Generic.Dictionary`2<TKey, TValue>
-	// Managed param types : System.Collections.Generic.IDictionary`2<TKey, TValue>, System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Comparer
-	// Managed property type : System.Collections.Generic.IEqualityComparer`1<TKey>
+	// Managed property type : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
     @property (nonatomic, strong, readonly) System_Collections_Generic_IEqualityComparerA1 * comparer;
 
 	// Managed property name : Count
@@ -51,23 +51,23 @@
     @property (nonatomic, readonly) int32_t count;
 
 	// Managed property name : Item
-	// Managed property type : <TValue>
+	// Managed property type : <System.Collections.Generic.Dictionary`2+TValue>
     @property (nonatomic, strong) System_Object * item;
 
 	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.KeyCollection
-    @property (nonatomic, strong, readonly) System_Collections_Generic_KeyCollection * keys;
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+KeyCollection
+    @property (nonatomic, strong, readonly) System_Collections_Generic_DictionaryA2__KeyCollection * keys;
 
 	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.ValueCollection
-    @property (nonatomic, strong, readonly) System_Collections_Generic_ValueCollection * values;
+	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+ValueCollection
+    @property (nonatomic, strong, readonly) System_Collections_Generic_DictionaryA2__ValueCollection * values;
 
 #pragma mark -
 #pragma mark Methods
 
 	// Managed method name : Add
 	// Managed return type : System.Void
-	// Managed param types : <TKey>, <TValue>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, <System.Collections.Generic.Dictionary`2+TValue>
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 	// Managed method name : Clear
@@ -77,18 +77,18 @@
 
 	// Managed method name : ContainsKey
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
     - (BOOL)containsKey_withKey:(System_Object *)p1;
 
 	// Managed method name : ContainsValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TValue>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TValue>
     - (BOOL)containsValue_withValue:(System_Object *)p1;
 
 	// Managed method name : GetEnumerator
-	// Managed return type : System.Collections.Generic.Enumerator
+	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+Enumerator
 	// Managed param types : 
-    - (System_Collections_Generic_Enumerator *)getEnumerator;
+    - (System_Collections_Generic_DictionaryA2__Enumerator *)getEnumerator;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void
@@ -102,12 +102,12 @@
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
     - (BOOL)remove_withKey:(System_Object *)p1;
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <TKey>, ref <TValue&>
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, ref <TValue&>
     - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

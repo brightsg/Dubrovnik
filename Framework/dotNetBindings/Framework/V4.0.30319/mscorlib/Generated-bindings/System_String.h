@@ -177,7 +177,7 @@
 
 	// Managed method name : Concat
 	// Managed return type : System.String
-	// Managed param types : System.Collections.Generic.IEnumerable`1<T>
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String+T>
     + (NSString *)concat_withValuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 	// Managed method name : Concat
@@ -407,7 +407,7 @@
 
 	// Managed method name : Join
 	// Managed return type : System.String
-	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<T>
+	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String+T>
     + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2;
 
 	// Managed method name : Join
