@@ -10,4 +10,4 @@ Why the makefile
 
 Xcode chokes when trying to build such a large target. Source indexing is the problem, hence the makefile.
 
-The project source is still acessible via the mscorlib folder reference.
+The project source is still acessible via the Generated-bindings folder reference.

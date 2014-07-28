@@ -8,11 +8,19 @@ Issues:
 
 1. Helper types such as DBSystem_Array need to be injected into the class hierarchy at the correct point so that they get included in the correct location.
 
-2. An Obj-C can redeclare a property as readonly say once it has been declared readwrite. Might have to forge ro properties.
+    FIX: Use postflight processing to include the required class headers.
 
-3. -(void)init is invalid. Likely need to deal with alloc, new, copy and init.
+1. An Obj-C cannot redeclare a property as readonly say once it has been declared readwrite.
 
-4. Compiling is very slow. Implement using a [pch file](http://clang.llvm.org/docs/UsersManual.html#precompiled-headers)
+	FIX: Use postflight processing to rewrite the offending property attribute and add a warning pragma. 
+
+1. -(void)init is invalid. Likely need to deal with alloc, new, copy and init.
+
+    FIX: use a codegen stage to prefix convention bound method and accessor names.
+
+1. Compiling is very slow. 
+
+    FIX: Implement a [pch file](http://clang.llvm.org/docs/UsersManual.html#precompiled-headers)
 
 
 
