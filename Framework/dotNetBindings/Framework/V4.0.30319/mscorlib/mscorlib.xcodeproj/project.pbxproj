@@ -7,19 +7,44 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		AB07F36D17D5F93A004A10D3 /* mscorlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mscorlib; sourceTree = "<group>"; };
 		AB58212617CBD71A00599DBB /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		AB952C3517F1B17100E604D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		ABA3A5FE18ECA9AF006756AA /* mscorlib.__Extra__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mscorlib.__Extra__.h; sourceTree = "<group>"; };
+		ABB375C21986B5D300EE7517 /* Generated-bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated-bindings"; sourceTree = "<group>"; };
+		ABB375C41986B5E300EE7517 /* DBSystem_Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Array.h; sourceTree = "<group>"; };
+		ABB375C51986B5E300EE7517 /* DBSystem_Array.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Array.m; sourceTree = "<group>"; };
+		ABB375C61986B5E300EE7517 /* DBSystem_Collections_ArrayList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_ArrayList.h; sourceTree = "<group>"; };
+		ABB375C71986B5E300EE7517 /* DBSystem_Collections_ArrayList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_ArrayList.m; sourceTree = "<group>"; };
+		ABB375C81986B5E300EE7517 /* DBSystem_Collections_Generic_DictionaryA2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_Generic_DictionaryA2.h; sourceTree = "<group>"; };
+		ABB375C91986B5E300EE7517 /* DBSystem_Collections_Generic_DictionaryA2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_Generic_DictionaryA2.m; sourceTree = "<group>"; };
+		ABB375CA1986B5E300EE7517 /* DBSystem_Collections_Generic_ListA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_Generic_ListA1.h; sourceTree = "<group>"; };
+		ABB375CB1986B5E300EE7517 /* DBSystem_Collections_Generic_ListA1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_Generic_ListA1.m; sourceTree = "<group>"; };
+		ABB375CC1986B5E300EE7517 /* DBSystem_Collections_IList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_IList.h; sourceTree = "<group>"; };
+		ABB375CD1986B5E300EE7517 /* DBSystem_Collections_IList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_IList.m; sourceTree = "<group>"; };
+		ABB375CE1986B5E300EE7517 /* DBSystem_Convert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Convert.h; sourceTree = "<group>"; };
+		ABB375CF1986B5E300EE7517 /* DBSystem_Convert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Convert.m; sourceTree = "<group>"; };
+		ABB375D01986B5E300EE7517 /* DBSystem_Enum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Enum.h; sourceTree = "<group>"; };
+		ABB375D11986B5E300EE7517 /* DBSystem_Enum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Enum.m; sourceTree = "<group>"; };
+		ABB375D21986B5E300EE7517 /* DBSystem_IO_FileInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_IO_FileInfo.h; sourceTree = "<group>"; };
+		ABB375D31986B5E300EE7517 /* DBSystem_IO_FileInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_IO_FileInfo.m; sourceTree = "<group>"; };
+		ABB375D41986B5E300EE7517 /* DBSystem_Object.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Object.h; sourceTree = "<group>"; };
+		ABB375D51986B5E300EE7517 /* DBSystem_Object.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Object.m; sourceTree = "<group>"; };
+		ABB375D61986B64000EE7517 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.md; sourceTree = "<group>"; };
+		ABB375D81986B67900EE7517 /* mscorlib.codegen.config.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.codegen.config.objc.xml; sourceTree = "<group>"; };
+		ABB375D91986B67900EE7517 /* mscorlib.codegen.postflight.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.codegen.postflight.objc.xml; sourceTree = "<group>"; };
+		ABB375DA1986B67900EE7517 /* mscorlib.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		AB58211B17CBD6B600599DBB = {
 			isa = PBXGroup;
 			children = (
+				ABB375D71986B66400EE7517 /* Code generator XML */,
+				ABB375D61986B64000EE7517 /* TODO.md */,
+				ABB375C31986B5E300EE7517 /* Helper-classes */,
+				ABB375C21986B5D300EE7517 /* Generated-bindings */,
 				ABA3A5FD18ECA9AF006756AA /* include */,
 				AB952C3517F1B17100E604D3 /* README.md */,
-				AB07F36D17D5F93A004A10D3 /* mscorlib */,
 				AB58212617CBD71A00599DBB /* makefile */,
 			);
 			sourceTree = "<group>";
@@ -30,6 +55,41 @@
 				ABA3A5FE18ECA9AF006756AA /* mscorlib.__Extra__.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		ABB375C31986B5E300EE7517 /* Helper-classes */ = {
+			isa = PBXGroup;
+			children = (
+				ABB375C41986B5E300EE7517 /* DBSystem_Array.h */,
+				ABB375C51986B5E300EE7517 /* DBSystem_Array.m */,
+				ABB375C61986B5E300EE7517 /* DBSystem_Collections_ArrayList.h */,
+				ABB375C71986B5E300EE7517 /* DBSystem_Collections_ArrayList.m */,
+				ABB375C81986B5E300EE7517 /* DBSystem_Collections_Generic_DictionaryA2.h */,
+				ABB375C91986B5E300EE7517 /* DBSystem_Collections_Generic_DictionaryA2.m */,
+				ABB375CA1986B5E300EE7517 /* DBSystem_Collections_Generic_ListA1.h */,
+				ABB375CB1986B5E300EE7517 /* DBSystem_Collections_Generic_ListA1.m */,
+				ABB375CC1986B5E300EE7517 /* DBSystem_Collections_IList.h */,
+				ABB375CD1986B5E300EE7517 /* DBSystem_Collections_IList.m */,
+				ABB375CE1986B5E300EE7517 /* DBSystem_Convert.h */,
+				ABB375CF1986B5E300EE7517 /* DBSystem_Convert.m */,
+				ABB375D01986B5E300EE7517 /* DBSystem_Enum.h */,
+				ABB375D11986B5E300EE7517 /* DBSystem_Enum.m */,
+				ABB375D21986B5E300EE7517 /* DBSystem_IO_FileInfo.h */,
+				ABB375D31986B5E300EE7517 /* DBSystem_IO_FileInfo.m */,
+				ABB375D41986B5E300EE7517 /* DBSystem_Object.h */,
+				ABB375D51986B5E300EE7517 /* DBSystem_Object.m */,
+			);
+			path = "Helper-classes";
+			sourceTree = "<group>";
+		};
+		ABB375D71986B66400EE7517 /* Code generator XML */ = {
+			isa = PBXGroup;
+			children = (
+				ABB375D81986B67900EE7517 /* mscorlib.codegen.config.objc.xml */,
+				ABB375D91986B67900EE7517 /* mscorlib.codegen.postflight.objc.xml */,
+				ABB375DA1986B67900EE7517 /* mscorlib.xml */,
+			);
+			name = "Code generator XML";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
