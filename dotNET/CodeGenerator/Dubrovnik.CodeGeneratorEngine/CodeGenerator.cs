@@ -48,7 +48,9 @@ namespace Dubrovnik
             N2ObjC = new Net2ObjC();
             N2ObjC.Host = templateHost;
             N2ObjC.AssemblyFacet = assemblyFacet;
+            N2ObjC.XMLFilePath = XMLFile;
 
+            // run the template
             LogText =  N2ObjC.TransformText();
 
             bool saveLog = false;
@@ -72,8 +74,6 @@ namespace Dubrovnik
                 }
                 ErrorText = errors.ToString();
             } 
-
-
         }
     }
 }

@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     7/16/2014 11:00:46 AM
+// Date:     7/28/2014 2:32:51 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5309.24067, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5322.23174, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -149,11 +149,25 @@
 #define DUIReferenceObject2_ Dubrovnik_UnitTests_IReferenceObject2
 #endif
 
+@class Dubrovnik_UnitTests_IReferenceObject3;
+#ifdef DUIReferenceObject3_
+#warning DUIReferenceObject3_ class name collision.
+#else
+#define DUIReferenceObject3_ Dubrovnik_UnitTests_IReferenceObject3
+#endif
+
 @class Dubrovnik_UnitTests_IReferenceObjectBase;
 #ifdef DUIReferenceObjectBase_
 #warning DUIReferenceObjectBase_ class name collision.
 #else
 #define DUIReferenceObjectBase_ Dubrovnik_UnitTests_IReferenceObjectBase
+#endif
+
+@class Dubrovnik_UnitTests_IReferenceObjectBase1;
+#ifdef DUIReferenceObjectBase1_
+#warning DUIReferenceObjectBase1_ class name collision.
+#else
+#define DUIReferenceObjectBase1_ Dubrovnik_UnitTests_IReferenceObjectBase1
 #endif
 
 @class Dubrovnik_UnitTests_ITestProperty;
@@ -179,17 +193,21 @@
 
 
 /*
-Order here is Enumerations, Interfaces, Structs, Classes
+
+Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes
+
 */
 
 #import "Dubrovnik_UnitTests_IntEnum.h"
 #import "Dubrovnik_UnitTests_LongEnum.h"
-#import "Dubrovnik_ClientApplication_IEventHelper.h"
-#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
-#import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
-#import "Dubrovnik_UnitTests_IReferenceObject1.h"
-#import "Dubrovnik_UnitTests_IReferenceObject2.h"
-#import "Dubrovnik_UnitTests_ITestProperty.h"
+#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase1_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject3_Protocol.h"
+#import "Dubrovnik_UnitTests_ITestProperty_Protocol.h"
 #import "Dubrovnik_UnitTests_ReferenceStruct.h"
 #import "Dubrovnik_ClientApplication_EventHelper.h"
 #import "Dubrovnik_UnitTests_BaseObjectThree.h"
@@ -202,3 +220,11 @@ Order here is Enumerations, Interfaces, Structs, Classes
 #import "Dubrovnik_UnitTests_ReferenceObject__NestedClass.h"
 #import "Dubrovnik_UnitTests_TestObject.h"
 #import "Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.h"
+#import "Dubrovnik_ClientApplication_IEventHelper.h"
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase1.h"
+#import "Dubrovnik_UnitTests_IReferenceObject3.h"
+#import "Dubrovnik_UnitTests_ITestProperty.h"

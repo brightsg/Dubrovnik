@@ -23,6 +23,8 @@ namespace Dubrovnik
         public bool AppendFirstArgSignatureToMethodName { get; private set; }
         public string TimeStamp { get; private set; }
         public IList<String> StaticObjectPropertyStorageNames { get; set; }
+        public ConfigObjC Config { get; private set; }
+
         public Net2ObjC() : base ()
         {
             // build associations between Managed and ObjC types
@@ -33,7 +35,7 @@ namespace Dubrovnik
             ImplementEnumerationsAsClasses = false;
             AppendFirstArgSignatureToMethodName = true;
             TimeStamp = DateTime.Now.ToString();
-         }
+        }
 
         //
         // GenerateObjC
@@ -83,7 +85,7 @@ namespace Dubrovnik
             // The ordering here helps to ensure that types and protocols are declared before they are referenced.
             //
 
-            WriteCommentBlock("Order here is Enumerations, Interfaces, Structs, Classes");
+            WriteCommentBlock("Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes");
 
             // Write all enumerations
             foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
@@ -99,7 +101,11 @@ namespace Dubrovnik
             // Order by derivation
             IList<InterfaceFacet> interfaces = AssemblyFacet.InterfacesOrderedByDerivation();
             foreach (InterfaceFacet @interface in interfaces) {
+
+                // we don't want to overwrite the class header so we append a suffix.
+                @interface.OutputFileNameSuffix = ".Protocol";
                 WriteInterface(@interface);
+                @interface.OutputFileNameSuffix = "";
             }
 
             // Write all structs
@@ -121,6 +127,12 @@ namespace Dubrovnik
                 WriteClass(@class);
             }
 
+            // Write all interface classes
+            // This are classes that provide access to the properties and methods of an explicit interface
+            foreach (InterfaceFacet @interface in interfaces)
+            {
+                WriteInterfaceClass(@interface);
+            }
         }
 
         //
@@ -174,17 +186,25 @@ namespace Dubrovnik
                 WriteMethods(@interface.Methods);
                 WriteInterfaceEnd(@interface, true);
 
+            }
+           
+        }
+
+        //
+        // WriteInterfaceClass
+        //
+        public void WriteInterfaceClass(InterfaceFacet @interface) {
+            if (OutputFileType == OutputType.Interface) {
+
                 // write interface as class interface
                 // this will expose a managed interface as a bound ObjC class
-                WriteClassStart(@interface, "interface", false);
+                WriteClassStart(@interface, "interface");
                 WriteProperties(@interface.Properties);
                 WriteMethods(@interface.Methods);
                 WriteClassEnd(@interface);
-            }
-            else
-            {
+            } else {
                 // implementation
-                var options = new Dictionary<string, object> {{"cAPIMethodPrefix", @interface.Type + "."} };
+                var options = new Dictionary<string, object> { { "cAPIMethodPrefix", @interface.Type + "." } };
                 WriteClassStart(@interface, "interface");
                 WriteProperties(@interface.Properties, options);
                 WriteMethods(@interface.Methods, options);
@@ -288,6 +308,9 @@ namespace Dubrovnik
             // build an operation log
             StringBuilder log = new StringBuilder();
 
+            // get configuration info for the assembly
+            Config = ConfigObjC.ConfigObjCForAssembly(XMLFilePath);
+
             // generate the interface
             log.AppendFormat("Generating interface file {0}...\n", this.InterfaceFile);
             OutputFileType = OutputType.Interface;
@@ -302,6 +325,9 @@ namespace Dubrovnik
             GenerateObjC(include);
             ImplementationOutput = Output();
             log.AppendFormat("Implementation file {0} done\n", this.ImplementationFile);
+
+            // get configuration info for the assembly
+            PostflightObjC postflight = PostflightObjC.PostflightObjCForAssembly(XMLFilePath);
 
             // write the log string as the final output of this template
             WriteLine(log.ToString());
@@ -608,12 +634,10 @@ namespace Dubrovnik
 
                     if (implementedInterfaces.Count > 0)
                     {
-                        bool filterSystemInterfaces = true;
-
                         // we may wish to naively filter out system interfaces while full
                         // system code generation is pending.
                         // this will hopefully let us usefully represent user implemented interfaces.
-                        if (filterSystemInterfaces)
+                        if (Config.FilterSystemInterfaces)
                         {
                             var interfaces = new List<ImplementedInterfaceFacet>();
                             foreach (
@@ -1151,7 +1175,7 @@ namespace Dubrovnik
 
             // System.Enum
             manTA = new ManagedTypeAssociation { ManagedType = "System.Enum" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBEnum", GetterFormat = "[DBEnum objectWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Enum", GetterFormat = "[DBSystem_Enum objectWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
         }
 

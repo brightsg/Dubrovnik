@@ -102,6 +102,8 @@ namespace Dubrovnik
         public string ElementType { get; private set; }
         public Int32 ArrayRank { get; private set; }
 
+        public string OutputFileNameSuffix { get; set; }
+    
         public bool IsStruct {
             get
             {
@@ -179,7 +181,13 @@ namespace Dubrovnik
         //
         public string OutputFileName()
         {
-            return ObjCIdentifierFromManagedIdentifier(Type);
+            string typeName = Type;
+            if (OutputFileNameSuffix != null)
+            {
+                typeName += OutputFileNameSuffix;
+            }
+
+            return ObjCIdentifierFromManagedIdentifier(typeName);
         }
 
         //
@@ -342,48 +350,66 @@ namespace Dubrovnik
             IList<CodeFacet> orderedFacets = new List<CodeFacet>();
             foreach (CodeFacet facet in facets)
             {
-                // append facet if not present
-                if (!orderedFacets.Contains(facet))
-                {
-                    orderedFacets.Add(facet);
-                    int idx = orderedFacets.Count() - 1;
-
-                    // build type inheritance tree
-                    bool done = false;
-                    CodeFacet iFacet = facet;
-                    while (done == false)
-                    {
-                        // select base type facet
-                        IEnumerable<CodeFacet> query = from f in facets where f.Type == iFacet.BaseType select f;
-                        if (!query.Any())
-                        {
-                            done = true;
-                        }
-                        else
-                        {
-                            if (query.Count() > 1)
-                            {
-                                throw new Exception(String.Format("Duplicate base types ({0}) found for type {1}",
-                                    query.Count(), iFacet.Type));
-                            }
-
-                            CodeFacet baseFacet = query.First();
-
-                            if (orderedFacets.Contains(baseFacet))
-                            {
-                                done = true;
-                            }
-                            else
-                            {
-                                 orderedFacets.Insert(idx, baseFacet);
-                                 iFacet = baseFacet;
-                            }
-                        }
-                    }
-                }
+                // build inherited type hierarchy
+                OrderBaseTypeByDerivation(facet, facets, orderedFacets);
             }
 
             return orderedFacets;
+        }
+
+        private void OrderBaseTypeByDerivation(CodeFacet facet,  IList < CodeFacet > facets, IList<CodeFacet> orderedFacets)
+        {
+            // assign root
+            CodeFacet rootFacet = facet;
+
+            // if root already ordered then we are done
+            if (orderedFacets.Contains(rootFacet))
+            {
+               return;
+            }
+
+            // add root
+            orderedFacets.Add(rootFacet);
+
+            // loop until base type hierarchy is exhausted
+            while (true) {
+                
+                // System.Object won't have a base type
+                if (rootFacet.BaseType == null)
+                {
+                    break;
+                }
+
+                // select base type facet
+                IEnumerable<CodeFacet> query = from f in facets where f.ObjCFacet.Type == rootFacet.ObjCFacet.BaseType select f;
+                if (!query.Any()) {
+                    //throw new Exception(String.Format("Facet not found for base type name{0}", rootFacet.BaseType));
+
+                    break;
+                } 
+
+                // validate
+                if (query.Count() > 1) {
+                    throw new Exception(String.Format("Duplicate base types ({0}) found for type {1}", query.Count(), rootFacet.Type));
+                }
+                    
+                // get the base facet
+                CodeFacet baseFacet = query.First();
+
+                // if this root is already ordered then we are done
+                if (orderedFacets.Contains(baseFacet)) {
+                    break;
+                } 
+
+                // insert base facet before its root
+                int idx = orderedFacets.IndexOf(rootFacet);
+                orderedFacets.Insert(idx, baseFacet);
+
+                // use the base facet as the root for
+                // another inheritance type search
+                rootFacet = baseFacet;
+
+            }
         }
 
         public IList<InterfaceFacet> OrderInterfacesByDerivation(IList<InterfaceFacet> facets) {
@@ -392,44 +418,67 @@ namespace Dubrovnik
             
             foreach (InterfaceFacet facet in facets) {
 
-                // append facet if not present
-                if (!orderedFacets.Contains(facet)) {
-                    orderedFacets.Add(facet);
-                    int idx = orderedFacets.Count() - 1;
-
-                    // build interface derivation tree
-                    bool done = false;
-                    InterfaceFacet iFacet = facet;
-                    while (done == false)
-                    {
-                        foreach (ImplementedInterfaceFacet impIntFacet in iFacet.ImplementedInterfaces)
-                        {
-                            IEnumerable<InterfaceFacet> query = from f in facets where f.Type == impIntFacet.Type select f;
-
-                            if (!query.Any())
-                            {
-                                break;
-                            } else {
-                                if (query.Count() > 1) {
-                                    throw new Exception(String.Format("Duplicate base interfaces ({0}) found for interface type {1}",
-                                        query.Count(), iFacet.Type));
-                                }
-
-                                InterfaceFacet baseInterfaceFacet = query.First();
-
-                                if (!orderedFacets.Contains(baseInterfaceFacet)) {
-                                    orderedFacets.Insert(idx, baseInterfaceFacet);
-                                    iFacet = baseInterfaceFacet;
-                                }
-                            }
-                        }
-
-                        done = true;
-                    }
-                }
+                // build implemented interfaces hierarchy
+                OrderImplementedInterfacesByDerivation(facet, facets, orderedFacets);
             }
 
             return orderedFacets;
+        }
+
+        private void OrderImplementedInterfacesByDerivation(InterfaceFacet facet, IList<InterfaceFacet> facets, IList<InterfaceFacet> orderedFacets)
+        {
+            // assign root
+            InterfaceFacet interfaceFacet = facet;
+
+            // if root already ordered then we are done
+            if (orderedFacets.Contains(interfaceFacet)) {
+                return;
+            }
+
+            // add root
+            orderedFacets.Add(interfaceFacet);
+
+            // iterate over all implemented interfaces
+            var implementedInterfaces = interfaceFacet.ImplementedInterfaces;
+            foreach (ImplementedInterfaceFacet impIntFacet in implementedInterfaces)
+            {
+                // the cursor will initially reference an ImplementedInterfaceFacet
+                // but may subsequently refer to an InterfaceFacet
+                CodeFacet cursorFacet = impIntFacet;
+
+                // loop until interface hierarchy is exhausted
+                while (true)
+                {
+                    IEnumerable<InterfaceFacet> query = from f in facets where f.ObjCFacet.Type == cursorFacet.ObjCFacet.Type select f;
+
+                    if (!query.Any())
+                    {
+                        throw new Exception(String.Format("Facet not found for implemented interface type name{0}", cursorFacet.Type));
+                    }
+
+                    if (query.Count() > 1)
+                    {
+                        throw new Exception(String.Format("Duplicate base interfaces ({0}) found for interface type {1}", query.Count(), cursorFacet.Type));
+                    }
+
+                    InterfaceFacet baseInterfaceFacet = query.First();
+
+                    if (orderedFacets.Contains(baseInterfaceFacet))
+                    {
+                       break;
+                    }
+
+                    // insert base facet before its root
+                    int idx = orderedFacets.IndexOf(interfaceFacet);
+                    orderedFacets.Insert(idx, baseInterfaceFacet);
+
+                    // use the base facet as the cursor for
+                    // another interface search
+                    cursorFacet = baseInterfaceFacet;
+                    interfaceFacet = baseInterfaceFacet;
+                }
+            }
+
         }
 
         public void SetDefaultBaseType()

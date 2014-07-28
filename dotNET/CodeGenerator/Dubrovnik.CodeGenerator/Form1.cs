@@ -137,11 +137,12 @@ namespace Dubrovnik
                 // output interface
                 if (ouputMonolithicInterface)
                 {
-                    File.WriteAllText(interfaceFile, _codeGen.N2ObjC.InterfaceOutput, Encoding.UTF8); 
+                    File.WriteAllText(interfaceFile, _codeGen.N2ObjC.InterfaceOutput, Encoding.UTF8);
                 }
                 else
                 {
-                    GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Interface, interfaceFile, _codeGen.N2ObjC.InterfaceOutput);
+                    GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Interface, interfaceFile,
+                        _codeGen.N2ObjC.InterfaceOutput);
                 }
 
                 // output implementation
@@ -155,9 +156,20 @@ namespace Dubrovnik
                         _codeGen.N2ObjC.ImplementationOutput);
                 }
 
-                MessageBox.Show(string.Format("The code was successfully exported to {0}.", dialog.SelectedPath));
+                // do post flight processing
+                PostflightObjC postflight = PostflightObjC.PostflightObjCForAssembly(_codeGen.N2ObjC.XMLFilePath);
+                if (!postflight.Process())
+                {
+                    // problems
+                    MessageBox.Show(string.Format("The code was exported to {0} but problems occurred during the postflight processing.", dialog.SelectedPath));
+                }
+                else
+                {
+                    // success
+                    MessageBox.Show(string.Format("The code was successfully exported to {0}.", dialog.SelectedPath));
+                 }
 
-                // persistence is not futile
+            // persistence is not futile
                 Properties.Settings.Default.ExportPath = dialog.SelectedPath;
             }
             catch (Exception e)

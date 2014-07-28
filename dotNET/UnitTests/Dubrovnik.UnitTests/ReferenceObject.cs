@@ -28,10 +28,18 @@ namespace Dubrovnik.UnitTests
     {
         float ExIntTestProperty { get; set; }
     }
+    public interface IReferenceObject3 : IReferenceObjectBase1 {
+        float ExIntTestProperty { get; set; }
+    }
     public interface IReferenceObjectBase {
         ITestProperty InterfaceTestProperty { get; set; }
     }
-	public interface IMinimalReferenceObject 
+
+    public interface IReferenceObjectBase1
+    {
+    }
+
+    public interface IMinimalReferenceObject 
     {
         string StringMethod(string s1, int n);
     }
