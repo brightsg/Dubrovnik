@@ -254,6 +254,8 @@
 		ABB375BA1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_IReferenceObjectBase1.h; sourceTree = "<group>"; };
 		ABB375BB1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_IReferenceObjectBase1.m; sourceTree = "<group>"; };
 		ABB375BC1986AFF800EE7517 /* Dubrovnik_UnitTests_ITestProperty_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_ITestProperty_Protocol.h; sourceTree = "<group>"; };
+		ABB375C01986B2EA00EE7517 /* Dubrovnik.UnitTests.codegen.config.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Dubrovnik.UnitTests.codegen.config.objc.xml; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests.codegen.config.objc.xml; sourceTree = "<group>"; };
+		ABB375C11986B2EA00EE7517 /* Dubrovnik.UnitTests.codegen.postflight.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Dubrovnik.UnitTests.codegen.postflight.objc.xml; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests.codegen.postflight.objc.xml; sourceTree = "<group>"; };
 		ABB8A3DC18FF0F4400213B80 /* NSString+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Dubrovnik.h"; sourceTree = "<group>"; };
 		ABB8A3DD18FF0F4400213B80 /* NSString+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Dubrovnik.m"; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
@@ -476,9 +478,9 @@
 		AB21917917BD2E5300F44D07 /* Dubrovnik.UnitTests assembly */ = {
 			isa = PBXGroup;
 			children = (
+				ABB375BF1986B28E00EE7517 /* Code generator XML */,
 				AB91B68618ED77C00021B462 /* C# source */,
 				AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */,
-				ABA3AFEC18F7F42F00D6806E /* Dubrovnik.UnitTests.xml */,
 				AB8DDC5818EED03A00FEEA8B /* GeneratedObjC */,
 				AB91B68818ED788E0021B462 /* ManualObjC */,
 			);
@@ -642,6 +644,16 @@
 				AB3451DD190A96F500A6F47B /* Dubrovnik.h */,
 			);
 			path = Include;
+			sourceTree = "<group>";
+		};
+		ABB375BF1986B28E00EE7517 /* Code generator XML */ = {
+			isa = PBXGroup;
+			children = (
+				ABB375C01986B2EA00EE7517 /* Dubrovnik.UnitTests.codegen.config.objc.xml */,
+				ABB375C11986B2EA00EE7517 /* Dubrovnik.UnitTests.codegen.postflight.objc.xml */,
+				ABA3AFEC18F7F42F00D6806E /* Dubrovnik.UnitTests.xml */,
+			);
+			name = "Code generator XML";
 			sourceTree = "<group>";
 		};
 		ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */ = {
