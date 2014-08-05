@@ -29,6 +29,8 @@
 #import "DBManagedMethod.h"
 #import "DBTypemanager.h"
 
+static NSMutableArray *m_boundKeys;
+
 @protocol System_object_predeclaration <NSObject>
 - (BOOL)equals_withObj:(DBManagedObject *)p1;
 - (int32_t)getHashCode;
@@ -666,6 +668,38 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
 	DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
+}
+
+
+#pragma mark -
+#pragma mark KVO support
+
++ (void)registerObservedKeys:(NSArray *)keys
+{
+    /*
+     
+     When binding to or observing managed objects it is often necessary to generate manual KVO notifications.
+     As a convenience observed keys can be registered here prior to calling - sendChangeNotificationsForRegisteredObservedKeys.
+     
+     */
+    
+    if (!m_boundKeys) {
+        m_boundKeys = [NSMutableArray arrayWithCapacity:10];
+    }
+    
+    for (NSString *key in keys) {
+        if (![m_boundKeys containsObject:key]) {
+            [m_boundKeys addObject:key];
+        }
+    }
+}
+
+- (void)sendChangeNotificationsForRegisteredObservedKeys
+{
+    for (NSString *key in m_boundKeys) {
+        [self willChangeValueForKey:key];
+        [self didChangeValueForKey:key];
+    }
 }
 
 

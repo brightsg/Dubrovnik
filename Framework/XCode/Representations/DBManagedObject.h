@@ -115,6 +115,10 @@ extern char DBCacheSuffixChar;
 + (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx;
 + (MonoArray *)getMonoGenericTypes:(MonoClass *)monoClass;
 
+// KVO support
++ (void)registerObservedKeys:(NSArray *)keys;
+- (void)sendChangeNotificationsForRegisteredObservedKeys;
+
 // Mono info
 - (int)monoMethodCount;
 - (void)logMonoClassInfo;
