@@ -51,6 +51,17 @@
 		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall2(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
+	// Managed method name : ObjectSupportsEvent
+	// Managed return type : System.Boolean
+	// Managed param types : System.Object, System.String
+    - (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ObjectSupportsEvent(object,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
 #pragma mark -
 #pragma mark Teardown
 	- (void)dealloc

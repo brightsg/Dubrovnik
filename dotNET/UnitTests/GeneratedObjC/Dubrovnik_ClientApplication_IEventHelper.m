@@ -35,6 +35,17 @@
 		[self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];;
     }
 
+	// Managed method name : ObjectSupportsEvent
+	// Managed return type : System.Boolean
+	// Managed param types : System.Object, System.String
+    - (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ObjectSupportsEvent(object,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
 #pragma mark -
 #pragma mark Teardown
 	- (void)dealloc
