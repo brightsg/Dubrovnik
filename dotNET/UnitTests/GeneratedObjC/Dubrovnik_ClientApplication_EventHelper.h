@@ -29,9 +29,14 @@
 	// Managed param types : System.Object, System.EventArgs
     + (void)dubrovnikEventHandlerICall2_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
 
+	// Managed method name : ManagedEvent_ManagedObject_PropertyChanged
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.EventArgs
+    + (void)managedEvent_ManagedObject_PropertyChanged_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+
 	// Managed method name : ObjectSupportsEvent
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.String
-    - (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2;
+    + (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator
