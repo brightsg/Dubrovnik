@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 /*
  * This helper class should be included in a client application assembly.
- * Event handler internal calls must be defined for all events that require routing to unmanged code.
+ * Event handler internal calls must be defined for all events that require routing to unmanaged code.
  *
  */
 namespace Dubrovnik.ClientApplication
@@ -67,8 +67,15 @@ namespace Dubrovnik.ClientApplication
 			evMethod.Invoke (obj, args);
 		}
 
+        /*
+         * Dubrovnik System Event internal callback function names
+         */
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        public static extern void ManagedEvent_ManagedObject_PropertyChanged(object sender, EventArgs args); 
+
 		/*
-		 * Event internal callback function names
+		 * User Event internal callback function names
 		 */
 		[MethodImpl (MethodImplOptions.InternalCall)] 
 		public static extern void DubrovnikEventHandlerICall1(object sender, EventArgs args); 
