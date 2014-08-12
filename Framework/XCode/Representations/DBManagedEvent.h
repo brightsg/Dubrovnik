@@ -12,11 +12,11 @@
 //
 // dispatch managed event
 //
-#define DBDispatchEvent(KLASS, SELECTOR_STRING) \
+#define DBDispatchEvent(EVENT_NAME, SELECTOR_STRING) \
 do { \
     [DBManagedEvent dispatchEventFromMonoSender:monoSender \
                                         eventArgs:monoEventArgs \
-                                        targetClass:[KLASS class] \
+                                        eventName: EVENT_NAME \
                                         targetSelectorName: SELECTOR_STRING]; \
 } while (NO)
 
@@ -74,12 +74,12 @@ do { \
 
 + (void)dispatchEventFromMonoSender:(MonoObject *)monoSender
                           eventArgs:(MonoObject *)monoEventArgs
-                        targetClass:(Class)targetClass
+                          eventName:(NSString *)eventName
                  targetSelectorName:(NSString *)targetSelectorName
                             options:(NSDictionary *)options;
 
 + (void)dispatchEventFromMonoSender:(MonoObject *)monoSender
                           eventArgs:(MonoObject *)monoEventArgs
-                        targetClass:(Class)targetClass
+                          eventName:(NSString *)eventName
                  targetSelectorName:(NSString *)targetSelectorName;
 @end

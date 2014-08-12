@@ -1450,7 +1450,7 @@ static void DubrovnikEventHandlerICall1(MonoObject* monoSender, MonoObject* mono
 {
     [DBManagedEvent dispatchEventFromMonoSender:monoSender
                                       eventArgs:monoEventArgs
-                                    targetClass:[Dubrovnik_Unit_Tests class]
+                                      eventName:@"UnitTestEvent1"
                              targetSelectorName:@"event1ReceivedFromSender:item:"];
 }
 
@@ -1465,7 +1465,7 @@ static void DubrovnikEventHandlerICall2(MonoObject* monoSender, MonoObject* mono
 {
     [DBManagedEvent dispatchEventFromMonoSender:monoSender
                                       eventArgs:monoEventArgs
-                                    targetClass:[Dubrovnik_Unit_Tests class]
+                                      eventName:@"UnitTestEvent2"
                              targetSelectorName:@"event2ReceivedFromSender:item:"];
 }
 

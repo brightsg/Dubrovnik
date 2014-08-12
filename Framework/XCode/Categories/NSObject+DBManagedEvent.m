@@ -10,26 +10,20 @@
 #import <objc/runtime.h>
 #import "DBManagedEvent.h"
 
+static NSMutableDictionary *m_managedVventDictionary;
+
 @implementation NSObject (DBManagedEvent)
 
-+ (NSMapTable *)managedEventSenderMap
++ (NSMutableDictionary *)managedEventSenderMap
 {
-    static NSMutableDictionary *classDictionary;
-    if (!classDictionary) {
-        classDictionary = [NSMutableDictionary dictionaryWithCapacity:10];
+    if (!m_managedVventDictionary) {
+        m_managedVventDictionary = [NSMutableDictionary dictionaryWithCapacity:10];
     }
-    
-    NSString *className = NSStringFromClass(self);
-    NSMapTable *classMapTable = classDictionary[className];
-    if (!classMapTable) {
-        classMapTable = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory valueOptions:NSPointerFunctionsWeakMemory];
-        classDictionary[className] = classMapTable;
-    }
-    
-    return classMapTable;
+     
+    return m_managedVventDictionary;
 }
 
-- (NSMapTable *)managedEventSenderMap
+- (NSMutableDictionary *)managedEventSenderMap
 {
     return [[self class] managedEventSenderMap];
 }
