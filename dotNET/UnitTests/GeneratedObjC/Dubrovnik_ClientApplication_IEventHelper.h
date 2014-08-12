@@ -18,5 +18,10 @@
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.String, System.String, System.Boolean
     - (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
+
+	// Managed method name : ObjectSupportsEvent
+	// Managed return type : System.Boolean
+	// Managed param types : System.Object, System.String
+    - (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator
