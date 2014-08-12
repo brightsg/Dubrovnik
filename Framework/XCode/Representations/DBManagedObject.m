@@ -28,8 +28,27 @@
 #import "NSString+Dubrovnik.h"
 #import "DBManagedMethod.h"
 #import "DBTypemanager.h"
+#import "DBManagedEvent.h"
+#import "NSObject+DBManagedEvent.h"
 
 static NSMutableArray *m_boundKeys;
+
+/*
+ 
+ Managed event callback functions
+ 
+ */
+
+static NSString *DBPropertyChangedEvent = @"PropertyChanged";
+static NSString *DBPropertyChangedEventFunction = @"managedEvent_ManagedObject_PropertyChanged";
+
+static void managedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, MonoObject* monoEventArgs)
+{
+    [DBManagedEvent dispatchEventFromMonoSender:monoSender
+                                      eventArgs:monoEventArgs
+                                      eventName:DBPropertyChangedEvent
+                             targetSelectorName:@"eventSender:propertyChanged:"];
+}
 
 @protocol System_object_predeclaration <NSObject>
 - (BOOL)equals_withObj:(DBManagedObject *)p1;
@@ -49,6 +68,12 @@ static NSMutableArray *m_boundKeys;
 @implementation DBManagedObject
 
 @dynamic monoObject;
+
++ (void)initialize
+{
+    // register unmanaged handlers for managed events
+    [DBManagedEvent registerManagedEventHandler:DBPropertyChangedEventFunction unmanagedHandler:&managedEvent_ManagedObject_PropertyChanged];
+}
 
 #pragma mark -
 #pragma mark class methods for overriding
@@ -125,8 +150,11 @@ static NSMutableArray *m_boundKeys;
 	return([self initWithSignature:"" withNumArgs:0]);
 }
 
+
 - (id)initWithMonoObject:(MonoObject *)monoObject
 {
+    // this is the designated initialise
+    
     self = [super init];
 	if (self) {
 		self.monoObject = monoObject;
@@ -141,6 +169,7 @@ static NSMutableArray *m_boundKeys;
 	
 	return self;
 }
+
 - (id)initWithSignature:(const char *)signature withNumArgs:(int)numArgs, ... {
 	MonoClass *monoClass = [[self class] monoClass];
 	if(monoClass == NULL) return(nil);
@@ -190,6 +219,12 @@ static NSMutableArray *m_boundKeys;
             
             self.genericParameterMonoArgumentTypeNames = typeNames;
         }
+    }
+    
+    @try {
+        [self addManagedEventHandlerForObject:self eventName:DBPropertyChangedEvent handlerMethodName:DBPropertyChangedEventFunction];
+    } @catch (NSException *e) {
+        NSLog(@"Cannot register PropertyChanged event handler for : %@", self);
     }
 }
 
@@ -667,9 +702,39 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 }
 
 - (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
-	DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
+
+    NSString *unmanagedPropertyName = nil;
+    
+    if (self.observationInfo) {
+        unmanagedPropertyName = [self unmanagedPropertyName:propertyName];
+    }
+
+    // set the managed property
+    DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
+    
+    if (unmanagedPropertyName) {
+        
+    }
 }
 
+- (NSString *)unmanagedPropertyName:(const char *)managedPropertyName
+{
+    NSMutableString *name = [NSMutableString stringWithUTF8String:managedPropertyName];
+    NSString *firstChar = [name substringToIndex:1];
+    [name replaceCharactersInRange:NSMakeRange(0, 1) withString:[firstChar lowercaseString]];
+    
+    NSAssert([self respondsToSelector:NSSelectorFromString(name)], @"invalid property name");
+
+    return name;
+}
+
+#pragma mark -
+#pragma mark Managed event handling
+
+- (void)eventSender:(id)sender propertyChanged:(id)item
+{
+    NSLog(@"sender : %@ propertychanged: %@", sender, item);
+}
 
 #pragma mark -
 #pragma mark KVO support
