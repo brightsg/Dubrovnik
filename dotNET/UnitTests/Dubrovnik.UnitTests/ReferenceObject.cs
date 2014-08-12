@@ -8,8 +8,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Reflection;
+using System.ComponentModel;
 
 // all default string values must include the following unit test : Dubrovnik
+
 namespace Dubrovnik.UnitTests
 {
     //==============================
@@ -53,7 +55,7 @@ namespace Dubrovnik.UnitTests
 	//==============================
 	// classes
 	//==============================
-    public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2
+	public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2, INotifyPropertyChanged
 	{
 
 		//==============================
@@ -61,6 +63,7 @@ namespace Dubrovnik.UnitTests
 		//==============================
 		public event EventHandler UnitTestEvent1;
 		public event EventHandler UnitTestEvent2;
+		public event PropertyChangedEventHandler PropertyChanged;
 
 		//==============================
 		// statics
@@ -293,6 +296,30 @@ namespace Dubrovnik.UnitTests
 		public Nullable<int> IntNullable { get; set; }
 		public Nullable<float> FloatNullable { get; set; }
 
+		// notifying properties
+		private string notifyingProperty1;
+		private string notifyingProperty2;
+
+		public string NotifyingProperty1 
+		{
+			get { return notifyingProperty1; }
+			set
+			{
+				notifyingProperty1 = value;
+				OnPropertyChanged ("NotifyingProperty1");
+			}
+		}
+
+		public string NotifyingProperty2 
+		{
+			get { return notifyingProperty2; }
+			set
+			{
+				notifyingProperty2 = value;
+				OnPropertyChanged ("NotifyingProperty2");
+			}
+		}
+
 		//==============================
 		// methods
 		//==============================
@@ -512,6 +539,15 @@ namespace Dubrovnik.UnitTests
 
             return sum;
         }
+
+		protected void OnPropertyChanged(string name)
+		{
+			PropertyChangedEventHandler handler = PropertyChanged;
+			if (handler != null)
+			{
+				handler(this, new PropertyChangedEventArgs(name));
+			}
+		}
 
 		//=========================
 		// Event generation

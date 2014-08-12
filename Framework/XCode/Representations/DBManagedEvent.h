@@ -42,6 +42,7 @@ do { \
 @protocol BPManagedEventHelper
 @required
 + (void)configureStaticEventHandler_withObj:(DBManagedObject *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
+- (BOOL)objectSupportsEvent_withObj:(DBManagedObject *)p1 objEventName:(NSString *)p2;
 @end
 
 @interface DBManagedEvent : NSObject
@@ -54,6 +55,8 @@ do { \
 + (void)setEventArgumentClassName:(NSString *)value;
 + (NSString *)eventArgumentItemSelectorName;
 + (void)setEventArgumentItemSelectorName:(NSString *)value;
+
++ (BOOL)object:(DBManagedObject *)managedObject supportsEventName:(NSString *)eventName;
 
 + (void)configureHandlerForObject:(DBManagedObject *)managedObject
                              eventName:(NSString *)eventName

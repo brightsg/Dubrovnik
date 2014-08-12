@@ -40,9 +40,9 @@ static NSMutableArray *m_boundKeys;
  */
 
 static NSString *DBPropertyChangedEvent = @"PropertyChanged";
-static NSString *DBPropertyChangedEventFunction = @"managedEvent_ManagedObject_PropertyChanged";
+static NSString *DBPropertyChangedEventFunction = @"ManagedEvent_ManagedObject_PropertyChanged";
 
-static void managedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, MonoObject* monoEventArgs)
+static void ManagedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, MonoObject* monoEventArgs)
 {
     [DBManagedEvent dispatchEventFromMonoSender:monoSender
                                       eventArgs:monoEventArgs
@@ -71,8 +71,7 @@ static void managedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
 
 + (void)initialize
 {
-    // register unmanaged handlers for managed events
-    [DBManagedEvent registerManagedEventHandler:DBPropertyChangedEventFunction unmanagedHandler:&managedEvent_ManagedObject_PropertyChanged];
+    // doing stuff here can cause issues with the managed runtime
 }
 
 #pragma mark -
@@ -161,7 +160,7 @@ static void managedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
 		
 		if (monoObject != NULL) {
             self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
-            [self setup];
+            [self setupTypeInstance];
         } else {
 			self = nil;
 		}
@@ -198,7 +197,20 @@ static void managedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
 	return([NSString stringWithMonoString:monoString]);
 }
 
-- (void)setup
+#pragma mark -
+#pragma mark type handling
+
+- (BOOL)isValueType
+{
+    return [DBType monoObjectContainsValueType:self.monoObject];
+}
+
+- (BOOL)isReferenceType
+{
+    return ![self isValueType];
+}
+
+- (void)setupTypeInstance
 {
     // TODO: test the managed type to determine if type is a generic
     BOOL isGenericType = YES;
@@ -220,11 +232,34 @@ static void managedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
             self.genericParameterMonoArgumentTypeNames = typeNames;
         }
     }
+
+    if ([self isValueType]) {
+        [self setupValueTypeInstance];
+    } else {
+        [self setupReferenceTypeInstance];
+    }
+}
+
+- (void)setupValueTypeInstance
+{
+    // stub only
+}
+
+- (void)setupReferenceTypeInstance
+{
+    // register unmanaged handlers for managed events.
+    // we don't do this in +initialize as it raises.
+    static bool m_eventHandlersRegistered;
+    if (!m_eventHandlersRegistered) {
+        
+        [DBManagedEvent registerManagedEventHandler:DBPropertyChangedEventFunction unmanagedHandler:&ManagedEvent_ManagedObject_PropertyChanged];
+        
+        m_eventHandlersRegistered = YES;
+    }
     
-    @try {
+    // add event handler for property changed event if supported
+    if ([DBManagedEvent object:self supportsEventName:@"PropertyChanged"]) {
         [self addManagedEventHandlerForObject:self eventName:DBPropertyChangedEvent handlerMethodName:DBPropertyChangedEventFunction];
-    } @catch (NSException *e) {
-        NSLog(@"Cannot register PropertyChanged event handler for : %@", self);
     }
 }
 

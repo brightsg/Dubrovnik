@@ -59,6 +59,15 @@ static NSString *_eventArgumentItemSelectorName = nil;
 #pragma mark -
 #pragma mark Event handler configuration and registration
 
++ (BOOL)object:(DBManagedObject *)managedObject supportsEventName:(NSString *)eventName
+{
+    Class helperClass = NSClassFromString([self eventHelperClassName]);
+    if (!helperClass) {
+        [NSException raise:@"Invalid event helper class" format:@"Helper class not available: %@", [self eventHelperClassName]];
+    }
+    return [[helperClass class] objectSupportsEvent_withObj:managedObject objEventName:eventName];
+}
+
 + (void)configureHandlerForObject:(DBManagedObject *)managedObject
                              eventName:(NSString *)eventName
                      handlerMethodName:(NSString *)handlerMethodName
