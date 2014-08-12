@@ -12,7 +12,7 @@ namespace Dubrovnik.ClientApplication
 	public interface IEventHelper
 	{
 		void ConfigureStaticEventHandler (object obj, string objEventName, string handlerMethodName, bool attach);
-	    bool ObjectSupportsEvent(object obj, string objEventName);
+        bool ObjectSupportsEvent(object obj, string objEventName);
 	}
 
 	public class EventHelper : IEventHelper
@@ -21,10 +21,15 @@ namespace Dubrovnik.ClientApplication
 		{
 		}
 
-        public bool ObjectSupportsEvent(object obj, string objEventName) {
+        public static bool ObjectSupportsEvent(object obj, string objEventName) {
             // get info for the event
             EventInfo evInfo = obj.GetType().GetEvent(objEventName);
             return (evInfo != null);
+        }
+
+        bool IEventHelper.ObjectSupportsEvent(object obj, string objEventName)
+        {
+            return EventHelper.ObjectSupportsEvent(obj, objEventName);
         }
 
 	 	void IEventHelper.ConfigureStaticEventHandler (object obj, string objEventName, string handlerMethodName, bool attach)
