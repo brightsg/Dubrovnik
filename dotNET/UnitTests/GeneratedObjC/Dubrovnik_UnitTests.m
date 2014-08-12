@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     8/12/2014 7:41:03 PM
+// Date:     8/12/2014 10:12:40 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5337.33607, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.5337.38133, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
@@ -23,6 +23,9 @@
 //
 // Asm Ref:  mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+//
+// Asm Ref:  System
+// Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 //
 // Manual changes to this file may cause unexpected behavior in your application.
 // Manual changes to this file will be overwritten if the code is regenerated.

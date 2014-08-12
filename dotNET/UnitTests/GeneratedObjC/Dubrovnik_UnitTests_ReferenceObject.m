@@ -686,6 +686,42 @@
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
+	// Managed property name : NotifyingProperty1
+	// Managed property type : System.String
+    @synthesize notifyingProperty1 = _notifyingProperty1;
+    - (NSString *)notifyingProperty1
+    {
+		MonoObject *monoObject = [self getMonoProperty:"NotifyingProperty1"];
+		if ([self object:_notifyingProperty1 isEqualToMonoObject:monoObject]) return _notifyingProperty1;					
+		_notifyingProperty1 = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _notifyingProperty1;
+	}
+    - (void)setNotifyingProperty1:(NSString *)value
+	{
+		_notifyingProperty1 = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"NotifyingProperty1" valueObject:monoObject];          
+	}
+
+	// Managed property name : NotifyingProperty2
+	// Managed property type : System.String
+    @synthesize notifyingProperty2 = _notifyingProperty2;
+    - (NSString *)notifyingProperty2
+    {
+		MonoObject *monoObject = [self getMonoProperty:"NotifyingProperty2"];
+		if ([self object:_notifyingProperty2 isEqualToMonoObject:monoObject]) return _notifyingProperty2;					
+		_notifyingProperty2 = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _notifyingProperty2;
+	}
+    - (void)setNotifyingProperty2:(NSString *)value
+	{
+		_notifyingProperty2 = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"NotifyingProperty2" valueObject:monoObject];          
+	}
+
 	// Managed property name : ObjectObjectDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Object, System.Object>
     @synthesize objectObjectDictionary = _objectObjectDictionary;

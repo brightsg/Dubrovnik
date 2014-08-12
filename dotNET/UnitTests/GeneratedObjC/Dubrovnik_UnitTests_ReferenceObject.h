@@ -183,6 +183,14 @@
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * name;
 
+	// Managed property name : NotifyingProperty1
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * notifyingProperty1;
+
+	// Managed property name : NotifyingProperty2
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * notifyingProperty2;
+
 	// Managed property name : ObjectObjectDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Object, System.Object>
     @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * objectObjectDictionary;
