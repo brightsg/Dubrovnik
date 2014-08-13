@@ -305,9 +305,11 @@ namespace Dubrovnik.UnitTests
 			get { return notifyingProperty1; }
 			set
 			{
-				notifyingProperty1 = value;
+                Console.WriteLine(@"Will change property NotifyingProperty1");
+                notifyingProperty1 = value;
 				OnPropertyChanged ("NotifyingProperty1");
-			}
+                Console.WriteLine(@"Did change property NotifyingProperty1");
+            }
 		}
 
 		public string NotifyingProperty2 
