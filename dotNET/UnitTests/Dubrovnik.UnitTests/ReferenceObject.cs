@@ -549,7 +549,7 @@ namespace Dubrovnik.UnitTests
 			{
 			    foreach (var subscriber in PropertyChanged.GetInvocationList())
 			    {
-                    Console.Write(@"Property {0} Subscriber: {1}", propertyName, subscriber.ToString());
+                    Console.WriteLine(@"Property {0} Subscriber: {1}", propertyName, subscriber.ToString());
 			    }
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
