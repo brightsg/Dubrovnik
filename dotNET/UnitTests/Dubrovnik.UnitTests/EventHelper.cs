@@ -47,13 +47,13 @@ namespace Dubrovnik.ClientApplication
 			}
 
 			// use reflection to assign delegate method to event
-			// get type for the handler class from the handler assembly
+			// get type for the handler class (this class) from the handler assembly
 			Type handlerClassType = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType;
 			if (handlerClassType == null) {
 				throw new Exception(String.Format( "Cannot get handler class type"));
 			}
 
-			// get method info for the handler method
+			// get method info for the managed handler method
 			MethodInfo handlerMethod = handlerClassType.GetMethod (handlerMethodName, BindingFlags.Public | BindingFlags.FlattenHierarchy | BindingFlags.Static);
 			if (handlerMethod == null) {
 				throw new Exception(String.Format( "Cannot get method info for handler : {0}", handlerMethodName));

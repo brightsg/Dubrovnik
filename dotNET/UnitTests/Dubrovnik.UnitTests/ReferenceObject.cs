@@ -297,16 +297,17 @@ namespace Dubrovnik.UnitTests
 		public Nullable<float> FloatNullable { get; set; }
 
 		// notifying properties
-		private string notifyingProperty1;
-		private string notifyingProperty2;
+		private string _notifyingProperty1;
+		private string _notifyingProperty2;
 
 		public string NotifyingProperty1 
 		{
-			get { return notifyingProperty1; }
+			get { return _notifyingProperty1; }
 			set
 			{
                 Console.WriteLine(@"Will change property NotifyingProperty1");
-                notifyingProperty1 = value;
+                _notifyingProperty1 = value;
+                Console.WriteLine(@"Calling onPropertyChanged...");
 				OnPropertyChanged ("NotifyingProperty1");
                 Console.WriteLine(@"Did change property NotifyingProperty1");
             }
@@ -314,10 +315,10 @@ namespace Dubrovnik.UnitTests
 
 		public string NotifyingProperty2 
 		{
-			get { return notifyingProperty2; }
+			get { return _notifyingProperty2; }
 			set
 			{
-				notifyingProperty2 = value;
+				_notifyingProperty2 = value;
 				OnPropertyChanged ("NotifyingProperty2");
 			}
 		}
@@ -542,12 +543,15 @@ namespace Dubrovnik.UnitTests
             return sum;
         }
 
-		protected void OnPropertyChanged(string name)
+		protected void OnPropertyChanged(string propertyName)
 		{
-			PropertyChangedEventHandler handler = PropertyChanged;
-			if (handler != null)
+            if (PropertyChanged != null)
 			{
-				handler(this, new PropertyChangedEventArgs(name));
+			    foreach (EventHandler subscriber in PropertyChanged.GetInvocationList())
+			    {
+			        Console.Write(@"Property {0} Subscriber: {1}", subscriber.ToString());
+			    }
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 
