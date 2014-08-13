@@ -547,9 +547,9 @@ namespace Dubrovnik.UnitTests
 		{
             if (PropertyChanged != null)
 			{
-			    foreach (EventHandler subscriber in PropertyChanged.GetInvocationList())
+			    foreach (var subscriber in PropertyChanged.GetInvocationList())
 			    {
-			        Console.Write(@"Property {0} Subscriber: {1}", subscriber.ToString());
+                    Console.Write(@"Property {0} Subscriber: {1}", propertyName, subscriber.ToString());
 			    }
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
