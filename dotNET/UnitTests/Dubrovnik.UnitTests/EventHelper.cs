@@ -22,6 +22,9 @@ namespace Dubrovnik.ClientApplication
 		}
 
         public static bool ObjectSupportsEvent(object obj, string objEventName) {
+
+            Console.WriteLine("ObjectSupportsEvent {0} {1}", obj, objEventName);
+
             // get info for the event
             EventInfo evInfo = obj.GetType().GetEvent(objEventName);
             return (evInfo != null);
