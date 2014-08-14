@@ -55,7 +55,7 @@ namespace Dubrovnik.UnitTests
 	//==============================
 	// classes
 	//==============================
-	public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2, INotifyPropertyChanged
+    public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2, INotifyPropertyChanged, INotifyPropertyChanging
 	{
 
 		//==============================
@@ -64,6 +64,7 @@ namespace Dubrovnik.UnitTests
 		public event EventHandler UnitTestEvent1;
 		public event EventHandler UnitTestEvent2;
 		public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangingEventHandler PropertyChanging;
 
 		//==============================
 		// statics
@@ -306,8 +307,8 @@ namespace Dubrovnik.UnitTests
 			set
 			{
                 Console.WriteLine(@"Will change property NotifyingProperty1");
+                OnPropertyChanging("NotifyingProperty1");
                 _notifyingProperty1 = value;
-                Console.WriteLine(@"Calling onPropertyChanged...");
 				OnPropertyChanged ("NotifyingProperty1");
                 Console.WriteLine(@"Did change property NotifyingProperty1");
             }
@@ -318,6 +319,7 @@ namespace Dubrovnik.UnitTests
 			get { return _notifyingProperty2; }
 			set
 			{
+                OnPropertyChanging("NotifyingProperty2");
 				_notifyingProperty2 = value;
 				OnPropertyChanged ("NotifyingProperty2");
 			}
@@ -554,6 +556,13 @@ namespace Dubrovnik.UnitTests
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+
+        protected void OnPropertyChanging(string propertyName) {
+            if (PropertyChanging != null)
+            {
+                PropertyChanging(this, new PropertyChangingEventArgs(propertyName));
+            }
+        }
 
 		//=========================
 		// Event generation

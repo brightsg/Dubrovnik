@@ -45,7 +45,7 @@ namespace Dubrovnik.ClientApplication
 			if (evInfo == null) {
 				throw new Exception(String.Format( "Cannot locate event: {0} on object of type : {1}", objEventName, obj.GetType().ToString()));
 			}
-
+            
 			// use reflection to assign delegate method to event
 			// get type for the handler class (this class) from the handler assembly
 			Type handlerClassType = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType;
@@ -77,7 +77,10 @@ namespace Dubrovnik.ClientApplication
          */
 
         [MethodImpl(MethodImplOptions.InternalCall)]
-        public static extern void ManagedEvent_ManagedObject_PropertyChanged(object sender, EventArgs args); 
+        public static extern void ManagedEvent_ManagedObject_PropertyChanged(object sender, EventArgs args);
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        public static extern void ManagedEvent_ManagedObject_PropertyChanging(object sender, EventArgs args); 
 
 		/*
 		 * User Event internal callback function names
