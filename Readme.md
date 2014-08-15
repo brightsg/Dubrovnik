@@ -39,8 +39,9 @@ Accomplished Project Goals
 1. Generic method calling.
 1. Obj-C property support in generated code.
 1. Managed event handling.
+1. Automatic KVO notifications for managed objects that implement PropertyChanging and PropertyChanged events.
 1. Managed interface representation.
-2. Explicit interface property and method invocation.
+1. Explicit interface property and method invocation.
 
 Outstanding Project Goals
 =============
@@ -343,7 +344,9 @@ The natural Objective-C equivalent of a managed interface is a protocol. However
 Managed Event Handling
 ======================
 
-Managed events can be routed to any Objective-C object. An example of this can be seen in the unit test module.
+Managed events can be routed to any Objective-C object via a defined selector. An example of this can be seen in the unit test module.
+
+By default, if a managed object supports the PropertyChanging or PropertyChanged events then corresponding -willChangeValueForKey: and -didChangeValueForKey: KVO notifications will be sent. This means that managed objects can be observed or bound to in a more or less transparent fashion.
 
 Threading Support
 =============

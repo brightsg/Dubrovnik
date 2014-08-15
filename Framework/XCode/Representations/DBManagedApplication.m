@@ -40,6 +40,25 @@
 #pragma mark -
 #pragma mark Managed event handling
 
+/*
+ 
+ NOTE:
+ 
+ The PropertyChanging and PropertyChanged events are forwarded as -willChangeValueForKey and
+ -didChangeValueForKey and as such must be issued in a way that is KVO compliant.
+ Failure to ensure KVO compliance may lead to a KVO framework code exception.
+ 
+ KVO compliance can using be achieved simply by issuing the PropertyChanging and PropertyChanged events
+ in the property accessor.
+ 
+ Note that it may be possible to omit the PropertyChanging event without encountering an exception if the
+ changed property is not a non terminal part of an observed key path.
+ 
+ EntityObject seems to issue events in a way that is KVO compliant.
+ 
+ EntityFramework navigation properties may pose more of a problem and may require additional intervention.
+ 
+ */
 - (void)eventSender:(DBManagedObject *)sender propertyChanging:(DBManagedObject *)monoEventArgs
 {
     // monoEventArgs should be an instance of System.ComponentModel.PropertyChangedEventArgs
