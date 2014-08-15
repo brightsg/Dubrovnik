@@ -21,7 +21,6 @@ static NSMutableDictionary *m_senderMap;
 + (NSMutableDictionary *)senderMap
 {
     if (!m_senderMap) {
-        //
         m_senderMap = [NSMutableDictionary  dictionaryWithCapacity:5];
     }
     
@@ -192,6 +191,47 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
                           eventName:(NSString *)eventName
                  targetSelectorName:(NSString *)targetSelectorName
                       options:(NSDictionary *)options
+{
+    BOOL isBackgroundThreadEvent = NO;
+    
+    // determine if event thread raised on the main thread
+    if ([NSThread currentThread] != [NSThread mainThread]) {
+        
+#ifdef TRACE
+        NSLog(@"BACKGROUND thead event");
+#endif
+        isBackgroundThreadEvent = YES;
+    } 
+    
+    // the block
+    dispatch_block_t dispatchEventBlk = ^{
+        [self _dispatchEventFromMonoSender:monoSender
+                                    eventArgs:monoEventArgs
+                                    eventName:eventName
+                           targetSelectorName:targetSelectorName
+                                      options:options];
+    };
+                  
+    if (isBackgroundThreadEvent) {
+        // we want a synchronous operation here to keep event
+        // processing kosher so dispatch on the main queue.
+        // http://stackoverflow.com/questions/10984732/why-cant-we-use-a-dispatch-sync-on-the-current-queue
+        //
+        // note that thread calls should be avoided!
+        // https://developer.apple.com/library/ios/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1
+        // if this becomes a problem use a category to explicitly execute the block on a a the main thread.
+        dispatch_sync(dispatch_get_main_queue(), dispatchEventBlk);
+    } else {
+        dispatchEventBlk();
+    }
+}
+
++ (void)_dispatchEventFromMonoSender:(MonoObject *)monoSender
+                          eventArgs:(MonoObject *)monoEventArgs
+                          eventName:(NSString *)eventName
+                 targetSelectorName:(NSString *)targetSelectorName
+                            options:(NSDictionary *)options
+
 {
 #pragma unused(options)
     

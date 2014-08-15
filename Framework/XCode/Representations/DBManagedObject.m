@@ -163,31 +163,28 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	return([self initWithSignature:"" withNumArgs:0]);
 }
 
-
 - (id)initWithMonoObject:(MonoObject *)monoObject
 {
     // *************************************
     // this is the designated initialiser
     // *************************************
     
-    // get cached instance
-    // a linear search is required as the value of monoObject can change
-    // (even though it points to the same managed object - moveable memory at work)
-    // which makes it unsuitable as a key
-    static NSPointerArray *m_instanceCache;
-    if (!m_instanceCache) {
-        m_instanceCache = [NSPointerArray weakObjectsPointerArray];
-    }
-    for (DBManagedObject *object in m_instanceCache) {
-        if (object.monoObject == monoObject) {
-            
-            if ([object isKindOfClass:[self class]]) {
-                self = object;
-                return self;
-            }
+    // establish behaviour defaults
+    BOOL useCachedInstance = YES;
+    BOOL addNewInstanceToCache = YES;
+    
+    if (useCachedInstance) {
+        // get cached instance.
+        // this is essential to avoid generating multiple unmanaged wrappers
+        // for a given managed object
+        id object = [self cachedInstanceForMonoObject:monoObject];
+        if (object) {
+            self = object;
+            return self;
         }
     }
     
+    // create inistance
     self = [super init];
 	if (self) {
 		self.monoObject = monoObject;
@@ -200,9 +197,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 		}
 	}
 	
-    // add to cache
-    if (self) {
-        [m_instanceCache addPointer:(__bridge void *)self];
+    // cache instance
+    if (self && addNewInstanceToCache) {
+        [[self instanceCache] addPointer:(__bridge void *)self];
     }
     
 	return self;
@@ -234,6 +231,40 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	MonoString *monoString = (MonoString *)[self invokeMonoMethod:"System.Object:ToString()" withNumArgs:0];
 	
 	return([NSString stringWithMonoString:monoString]);
+}
+
+#pragma mark -
+#pragma mark Instance cache
+
+- (NSPointerArray *)instanceCache
+{
+    static NSPointerArray *m_instanceCache;
+    if (!m_instanceCache) {
+        m_instanceCache = [NSPointerArray weakObjectsPointerArray];
+    }
+
+    return m_instanceCache;
+}
+
+- (id)cachedInstanceForMonoObject:(MonoObject *)monoObject
+{
+    // TODO: increase efficiency here by keying by class name.
+    // don't forget to seach up class hierarchy.
+    
+    // get cached instance
+    // a linear search is required as the value of monoObject can change
+    // (even though it points to the same managed object - moveable memory at work)
+    // which makes it unsuitable for use as a key
+    for (DBManagedObject *object in [self instanceCache]) {
+        if (object.monoObject == monoObject) {
+            
+            if ([object isKindOfClass:[self class]]) {
+                return object;
+            }
+        }
+    }
+    
+    return nil;
 }
 
 #pragma mark -
