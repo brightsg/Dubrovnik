@@ -40,17 +40,50 @@ namespace Dubrovnik.ClientApplication
 		public static void ConfigureStaticEventHandler(object obj, string objEventName, string handlerMethodName, bool attach)
 		{ 
 
-			// get info for the event
-			EventInfo evInfo = obj.GetType ().GetEvent (objEventName);
-			if (evInfo == null) {
-				throw new Exception(String.Format( "Cannot locate event: {0} on object of type : {1}", objEventName, obj.GetType().ToString()));
-			}
-            
 			// use reflection to assign delegate method to event
 			// get type for the handler class (this class) from the handler assembly
-			Type handlerClassType = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType;
+			Type handlerClassType = System.Reflection.MethodBase.GetCurrentMethod ().DeclaringType;
 			if (handlerClassType == null) {
-				throw new Exception(String.Format( "Cannot get handler class type"));
+				throw new Exception (String.Format ("Cannot get handler class type"));
+			}
+
+			// determine if required delegate exists
+			bool delegateExists = false;
+
+			// get the delegate fields for the given event.
+			// NOTE: this is unreliable and ONLY works for field-like events
+			FieldInfo eventFieldInfo = obj.GetType ().GetField (objEventName, BindingFlags.NonPublic | BindingFlags.Instance);
+			if (eventFieldInfo != null) {
+				System.MulticastDelegate eventHandler = eventFieldInfo.GetValue (obj) as System.MulticastDelegate;
+				if (eventHandler != null) {
+					foreach (Delegate dg in eventHandler.GetInvocationList()) {
+						MethodInfo delegateMethodInfo = dg.Method;
+
+						Console.WriteLine ("Method name = {0} ", delegateMethodInfo.Name);
+						Console.WriteLine ("Method declaring type = {0} ", delegateMethodInfo.DeclaringType);
+						Console.WriteLine ("Delegate target = {0} ", dg.Target);
+
+						// does the existing delegate method target the incoming method
+						if (delegateMethodInfo.Name == handlerMethodName && delegateMethodInfo.DeclaringType == handlerClassType && dg.Target == null) {
+							delegateExists = true;
+							break;
+						}
+					}
+				} 
+			}
+
+			// we only want to register events once against this object.
+			// we similarly only want to delete existing delegates
+			if (attach && delegateExists || !attach && !delegateExists) {
+				Console.WriteLine ("DELEGATE EXISTS");
+				return;
+			}
+			Console.WriteLine ("DELEGATE WILL BE ADDED");
+
+			// get info for the event
+			EventInfo evInfo = obj.GetType().GetEvent (objEventName);
+			if (evInfo == null) {
+				throw new Exception(String.Format( "Cannot locate event: {0} on object of type : {1}", objEventName, obj.GetType().ToString()));
 			}
 
 			// get method info for the managed handler method

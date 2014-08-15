@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:Framework/XCode/Dubrovnik.xcodeproj">
+      location = "group:Framework/XCode/Dubrovnik.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Framework/examples/DBCocoaExample/DBCocoaExample.xcodeproj">

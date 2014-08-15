@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB17805D199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */; };
+		AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
 		ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
 		ABA3971C1906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */; };
 		ABA397271906BA6300D5CA6E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397261906BA6300D5CA6E /* XCTest.framework */; };
 		ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
-		ABA3972B1906BA6300D5CA6E /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA3970E1906BA6300D5CA6E /* Mono.System.framework */; };
 		ABA397311906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3972F1906BA6300D5CA6E /* InfoPlist.strings */; };
 		ABA397331906BA6300D5CA6E /* Mono_SystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397321906BA6300D5CA6E /* Mono_SystemTests.m */; };
 		ABA397451906BAE600D5CA6E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397401906BAE600D5CA6E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB17805D199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangedEventArgs.h; sourceTree = "<group>"; };
+		AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventArgs.m; sourceTree = "<group>"; };
+		AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangingEventArgs.h; sourceTree = "<group>"; };
+		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
 		ABA3970E1906BA6300D5CA6E /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA397111906BA6300D5CA6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABA397141906BA6300D5CA6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,7 +89,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */,
-				ABA3972B1906BA6300D5CA6E /* Mono.System.framework in Frameworks */,
 				ABA397271906BA6300D5CA6E /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,9 +142,6 @@
 			children = (
 				ABA3975C1906BFA700D5CA6E /* Manual Bindings */,
 				ABA3973F1906BAE600D5CA6E /* Include */,
-				ABA3973E1906BADC00D5CA6E /* Helper Classes */,
-				ABA3973D1906BAD200D5CA6E /* Generated Bindings */,
-				ABA3973C1906BAB500D5CA6E /* Categories */,
 				ABA397181906BA6300D5CA6E /* Supporting Files */,
 			);
 			path = Mono.System;
@@ -172,27 +175,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ABA3973C1906BAB500D5CA6E /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		ABA3973D1906BAD200D5CA6E /* Generated Bindings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Generated Bindings";
-			sourceTree = "<group>";
-		};
-		ABA3973E1906BADC00D5CA6E /* Helper Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Helper Classes";
-			sourceTree = "<group>";
-		};
 		ABA3973F1906BAE600D5CA6E /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +190,10 @@
 		ABA3975C1906BFA700D5CA6E /* Manual Bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */,
+				AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */,
+				AB17805D199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h */,
+				AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */,
 				ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */,
 				ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */,
 				ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */,
@@ -224,6 +210,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
+				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
 				ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
 				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
 				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,
@@ -330,7 +318,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
 				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
+				AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
 				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

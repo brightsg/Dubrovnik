@@ -28,8 +28,13 @@ extern char DBCacheSuffixChar;
 
 @interface DBManagedObject : NSObject <NSCopying>
 
+// Mono support properties
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
+
+// Event support properties
+@property (strong, nonatomic) NSMutableDictionary *managedEventMap;
+@property (assign, nonatomic) BOOL automaticallyNotifiesObserversOfManagedPropertyChanges;
 
 // Subclasses must override these
 + (const char *)monoAssemblyName;
@@ -103,6 +108,10 @@ extern char DBCacheSuffixChar;
 + (void)setMonoClassProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
 - (MonoObject *)getMonoProperty:(const char *)propertyName;
 - (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
+
+// Property names
+- (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;
++ (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;
 
 // Mono type info
 - (uintptr_t *)getMonoGenericTypeCount;

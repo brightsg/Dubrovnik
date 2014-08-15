@@ -10,23 +10,7 @@
 #import <objc/runtime.h>
 #import "DBManagedEvent.h"
 
-static NSMutableDictionary *m_managedVventDictionary;
-
 @implementation NSObject (DBManagedEvent)
-
-+ (NSMutableDictionary *)managedEventSenderMap
-{
-    if (!m_managedVventDictionary) {
-        m_managedVventDictionary = [NSMutableDictionary dictionaryWithCapacity:10];
-    }
-     
-    return m_managedVventDictionary;
-}
-
-- (NSMutableDictionary *)managedEventSenderMap
-{
-    return [[self class] managedEventSenderMap];
-}
 
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
                   eventName:(NSString *)eventName

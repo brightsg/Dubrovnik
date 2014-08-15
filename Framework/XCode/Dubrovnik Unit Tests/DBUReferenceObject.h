@@ -208,6 +208,10 @@
 
 - (NSString *)extensionString;
 
+// notifying properties
+@property (nonatomic, strong) NSString * notifyingProperty1;
+@property (nonatomic, strong) NSString * notifyingProperty2;
+
 // generic type properties
 
 - (DBSystem_Collections_Generic_ListA1 *)stringList;

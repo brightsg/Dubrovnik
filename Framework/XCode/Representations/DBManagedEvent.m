@@ -11,7 +11,22 @@
 #import "DBManagedObject.h"
 #import "DBTypeManager.h"
 
+static NSMutableDictionary *m_senderMap;
+
 @implementation DBManagedEvent
+
+#pragma mark -
+#pragma mark Event map
+
++ (NSMutableDictionary *)senderMap
+{
+    if (!m_senderMap) {
+        //
+        m_senderMap = [NSMutableDictionary  dictionaryWithCapacity:5];
+    }
+    
+    return m_senderMap;
+}
 
 #pragma mark -
 #pragma mark Event handler configuration and registration
@@ -36,26 +51,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     _eventHelperClassName = value;
 }
 
-static NSString *_eventArgumentClassName = @"System_EventArgs";
-+ (NSString *)eventArgumentClassName
-{
-    return _eventArgumentClassName;
-}
-+ (void)setEventArgumentClassName:(NSString *)value
-{
-    _eventArgumentClassName = value;
-}
-
-static NSString *_eventArgumentItemSelectorName = nil;
-+ (NSString *)eventArgumentItemSelectorName
-{
-    return _eventArgumentItemSelectorName;
-}
-+ (void)setEventArgumentItemSelectorName:(NSString *)value
-{
-    _eventArgumentItemSelectorName = value;
-}
-
 #pragma mark -
 #pragma mark Event handler configuration and registration
 
@@ -75,12 +70,15 @@ static NSString *_eventArgumentItemSelectorName = nil;
 {
     /*
     
-     The handler method name MUST represent an internal call defined in the EventeHelper.
+     The handler method name MUST represent an internal call defined in the managed EventHelper.
      e.g: if handlerMethodName == @"MyObject_ItemAdded" then the following must exist
-     in managed code.
+     in managed code:
      
-     [MethodImpl (MethodImplOptions.InternalCall)]
-     public static extern void MyObject_ItemAdded(object sender, EventArgs args);
+     public class EventHelper : IEventHelper
+     {
+        [MethodImpl (MethodImplOptions.InternalCall)]
+        public static extern void MyObject_ItemAdded(object sender, EventArgs args);
+     }
      
      in C we will require:
      
@@ -97,18 +95,23 @@ static NSString *_eventArgumentItemSelectorName = nil;
      
      */
 
-    // we are aiming, when attach== YES, to achieve:
+    // we are aiming, when attach == YES, to achieve:
     // object.eventname += handlerClassName.handlerMethodName
-    // mote: if the handlerMethodName is defined within the handlerClass as an internal call then
+    // note: if the handlerMethodName is defined within the handlerClass as an internal call then
     // when fired the event will call back into unmanaged code.
     Class helperClass = NSClassFromString([self eventHelperClassName]);
     if (!helperClass) {
         [NSException raise:@"Invalid event helper class" format:@"Helper class not available: %@", [self eventHelperClassName]];
     }
+
+#ifdef TRACE
+    NSLog(@"MonoObject %p", [managedObject monoObject]);
+#endif
+    
     [[helperClass class] configureStaticEventHandler_withObj:(id)managedObject objEventName:eventName handlerMethodName:handlerMethodName attach:attach];
 }
 
-+ (void)addHandlerForObject:(DBManagedObject *)managedObject
++ (void)addHandlerForObject:(DBManagedObject *)sender
                   eventName:(NSString *)eventName
           handlerMethodName:(NSString *)handlerMethodName
                      target:(id)target
@@ -116,24 +119,32 @@ static NSString *_eventArgumentItemSelectorName = nil;
 {
 #pragma unused(options)
     
-    [self configureHandlerForObject:managedObject eventName:eventName handlerMethodName:handlerMethodName attach:YES];
+    NSMutableDictionary *senderMap = [self senderMap];
     
-    // app global map
-    NSMutableDictionary *map = [target managedEventSenderMap];
-    
-    // map for specified event
-    NSMutableDictionary *mapForEvent = [map objectForKey:eventName];
-    if (!mapForEvent) {
-        mapForEvent = [NSMutableDictionary dictionaryWithCapacity:3];
-        map[eventName] = mapForEvent;
+    NSString *key = [NSString stringWithFormat:@"%s:%@", [sender monoTypeName], eventName];
+    NSMutableArray *senders = senderMap[key];
+    if (!senders ) {
+        senders = [NSMutableArray arrayWithCapacity:5];
+        senderMap[key] = senders;
     }
+    [senders addObject:sender];
     
-    // targets for event
-    NSPointerArray *eventTargets = mapForEvent[managedObject];
+    // get the sender's managed event map
+    NSMutableDictionary *eventMap = [sender managedEventMap];
+
+    // get targets for event
+    NSPointerArray *eventTargets = eventMap[eventName];
     if (!eventTargets) {
+        
+        [self configureHandlerForObject:sender eventName:eventName handlerMethodName:handlerMethodName attach:YES];
+
         eventTargets = [NSPointerArray weakObjectsPointerArray];    // zeroing weak reference
-        mapForEvent[managedObject] = eventTargets;
+        eventMap[eventName] = eventTargets;
+    } else {
+        NSLog(@"Event has more than one target");
     }
+    
+    // add new target
     [eventTargets addPointer:(__bridge void *)(target)];
 }
 
@@ -165,6 +176,17 @@ static NSString *_eventArgumentItemSelectorName = nil;
                               options:nil];
 }
 
++ (NSString *)senderMapKeyForMonoObject:(MonoObject *)monoObject eventName:(NSString *)eventName
+{
+    MonoClass *monoClass = mono_object_get_class(monoObject);
+    MonoType *monoType = mono_class_get_type(monoClass);
+    char *monoTypeName = mono_type_get_name(monoType);
+    
+    NSString *key = [NSString stringWithFormat:@"%s:%@", monoTypeName, eventName];
+
+    return key;
+}
+
 + (void)dispatchEventFromMonoSender:(MonoObject *)monoSender
                           eventArgs:(MonoObject *)monoEventArgs
                           eventName:(NSString *)eventName
@@ -173,77 +195,88 @@ static NSString *_eventArgumentItemSelectorName = nil;
 {
 #pragma unused(options)
     
-    id sender = [[DBTypeManager sharedManager] objectWithMonoObject:monoSender];
-    NSDictionary *map = [self managedEventSenderMap];
-    NSDictionary *mapForEvent = [map objectForKey:eventName];
-    if (!mapForEvent) {
+    // get registered senders for className:EventName key
+    NSMutableDictionary *senderMap = [self senderMap];
+    NSString *key = [self senderMapKeyForMonoObject:monoSender eventName:eventName];
+    NSMutableArray *senders = senderMap[key];
+    if (!senders ) {
+        NSLog(@"No sender mapping for key : %@", key);
         return;
     }
-    NSPointerArray *eventTargets = mapForEvent[sender];
-    if (!eventTargets) {
-        return;
-    }
-    bool doCompact = NO;
     
-    // get event target
-    for (id eventTarget in eventTargets) {
-        
-        // NULL is valid as NSPointerArray holds zeroing weak references
-        if (!eventTarget) {
-            doCompact = YES;
-            continue;
-        }
-        
-        // dispatch selector event to target
-        SEL eventSelector = NSSelectorFromString(targetSelectorName);
-        if ([eventTarget respondsToSelector:eventSelector]) {
+    // get the object that represents the sender.
+    // this linear search looks primitive but the fact is that we have no reliable unique value
+    // to use as a key. keying as down above with className:EventName is the best that can be done IMHO
+    // -monoObject is only constant while an object is on the stack.
+    //
+    // Note: a given MonoObject may be refernced by more than one instance of DBManagedObject
+    // hence the need to check every object!
+    DBManagedObject *sender = nil;
+    for (DBManagedObject *object in senders) {
+        if (object.monoObject == monoSender) {
             
-            // selector must have signature matching sender:item:
-            NSMethodSignature *methodSignature = [eventTarget methodSignatureForSelector:eventSelector];
-            if ([methodSignature numberOfArguments] - 2 != 2) {
-                [NSException raise:@"Invalid selector" format:@"selector %@ must accept two arguments", targetSelectorName];
+            sender = object;
+            if (!sender) {
+                NSLog(@"No sender for key : %@", key);
+                return;
             }
             
-            // process the mono event arguments.
-            // note that this implementation allows for a single event argument class.
-            // a more flexible solution would to be to define the event argument class and selector
-            // in the options
-            DBManagedObject *eventObject = nil;
-            if ([self eventArgumentClassName]) {
+            // get the event targets registered with the sender
+            NSPointerArray *eventTargets = sender.managedEventMap[eventName];
+            if (!eventTargets) {
+                NSLog(@"No event targets for key : %@ event name: %@", key, eventName);
+                return;
+            }
+            
+            bool doCompact = NO;
+            
+            // get event target
+            for (id eventTarget in eventTargets) {
                 
-                // instantiate event argument class
-                Class eventArgumentClass = NSClassFromString([self eventArgumentClassName]);
-                if (!eventArgumentClass) {
-                    [NSException raise:@"Invalid event argument class" format:@"Class not available: %@", [self eventArgumentClassName]];
+                // NULL is valid as NSPointerArray holds zeroing weak references
+                if (!eventTarget) {
+                    doCompact = YES;
+                    continue;
                 }
-                eventObject = [[[eventArgumentClass class] alloc] initWithMonoObject:monoEventArgs];
                 
-                // retrieve item from argument
-                if ([self eventArgumentItemSelectorName]) {
-                    SEL itemSelector = NSSelectorFromString([self eventArgumentItemSelectorName]);
-                    if (!itemSelector) {
-                        [NSException raise:@"Invalid event argument selector" format:@"Selector not available: %@", [self eventArgumentItemSelectorName]];
+                // dispatch selector event to target
+                SEL eventSelector = NSSelectorFromString(targetSelectorName);
+                if ([eventTarget respondsToSelector:eventSelector]) {
+                    
+                    // selector must have signature matching sender:item:
+                    NSMethodSignature *methodSignature = [eventTarget methodSignatureForSelector:eventSelector];
+                    if ([methodSignature numberOfArguments] - 2 != 2) {
+                        [NSException raise:@"Invalid selector" format:@"selector %@ must accept two arguments", targetSelectorName];
                     }
-
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"   
-                    DBManagedObject *item = [eventObject performSelector:itemSelector withObject:nil];
-    #pragma clang diagnostic pop
-                 
-                    eventObject = [[DBTypeManager sharedManager] objectWithManagedObject:item];
+                    
+                    // this will be a subclass of System.EventArgs
+                    DBManagedObject *eventArguments = [[DBTypeManager sharedManager] objectWithMonoObject:monoEventArgs];
+                    DBManagedObject *eventArgument = nil;
+                    
+                    // process the mono event arguments.
+                    NSString *eventArgsKey = options[@"eventArgsKey"];
+                    if (eventArgsKey) {
+                        eventArgument = [eventArguments valueForKey:eventArgsKey];
+                    } else {
+                        eventArgument = eventArguments;
+                    }
+                    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                    [eventTarget performSelector:eventSelector withObject:sender withObject:eventArgument];
+#pragma clang diagnostic pop
+                } else {
+                    
                 }
             }
-
             
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [eventTarget performSelector:eventSelector withObject:sender withObject:eventObject];
-    #pragma clang diagnostic pop
+            if (doCompact) {
+                [eventTargets compact];
+            }
+            
+            // should we search on? Likely not.
+            break;
         }
-    }
-    
-    if (doCompact) {
-        [eventTargets compact];
     }
     
     return;

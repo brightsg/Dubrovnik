@@ -190,7 +190,6 @@
 		ABB8A2A418FEFB0700213B80 /* Mono.mscorlibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlibTests-Info.plist"; sourceTree = "<group>"; };
 		ABB8A2A618FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A2A818FEFB0700213B80 /* Mono_mscorlibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_mscorlibTests.m; sourceTree = "<group>"; };
-		ABB8A36B18FF04C200213B80 /* Generated bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated bindings"; sourceTree = "<group>"; };
 		ABB8A37918FF086200213B80 /* NSString+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+mscorlib.h"; sourceTree = "<group>"; };
 		ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+mscorlib.m"; sourceTree = "<group>"; };
 		ABB8A37E18FF092400213B80 /* DBSystem_IO_FileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_IO_FileInfo.h; sourceTree = "<group>"; };
@@ -348,7 +347,6 @@
 				ABB8A43018FF1F6300213B80 /* Protocols */,
 				ABB8A37D18FF092400213B80 /* Helper classes */,
 				ABB8A37818FF086200213B80 /* Categories */,
-				ABB8A36B18FF04C200213B80 /* Generated bindings */,
 				ABB8A36A18FF04B700213B80 /* Manual bindings */,
 				ABB8A28E18FEFB0700213B80 /* Supporting Files */,
 			);

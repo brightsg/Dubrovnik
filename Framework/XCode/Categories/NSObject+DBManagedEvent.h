@@ -11,9 +11,6 @@
 @class DBManagedObject;
 @interface NSObject (DBManagedEvent)
 
-+ (NSMutableDictionary *)managedEventSenderMap;
-- (NSMutableDictionary *)managedEventSenderMap;
-
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
                   eventName:(NSString *)eventName
           handlerMethodName:(NSString *)handlerMethodName;

@@ -12,21 +12,23 @@
 //
 // dispatch managed event
 //
-#define DBDispatchEvent(EVENT_NAME, SELECTOR_STRING) \
+#define DBDispatchEvent(EVENT_NAME, SELECTOR_STRING, OPTIONS) \
 do { \
     [DBManagedEvent dispatchEventFromMonoSender:monoSender \
                                         eventArgs:monoEventArgs \
                                         eventName: EVENT_NAME \
-                                        targetSelectorName: SELECTOR_STRING]; \
+                                        targetSelectorName: SELECTOR_STRING \
+                                        options : OPTIONS \
+    ]; \
 } while (NO)
 
 //
 // define a managed event handler
 //
-#define DBDefineEventHandler(FUNCTION_NAME, CLASS_NAME, SELECTOR_STRING) \
+#define DBDefineEventHandler(FUNCTION_NAME, CLASS_NAME, SELECTOR_STRING, OPTIONS) \
 static void FUNCTION_NAME(MonoObject* monoSender, MonoObject* monoEventArgs) \
 { \
-    DBDispatchEvent(CLASS_NAME, SELECTOR_STRING); \
+    DBDispatchEvent(CLASS_NAME, SELECTOR_STRING, OPTIONS); \
 } \
 
 //
@@ -51,10 +53,6 @@ do { \
 + (void)setManagedEventHelperClassName:(NSString *)value;
 + (NSString *)eventHelperClassName;
 + (void)setEventHelperClassName:(NSString *)value;
-+ (NSString *)eventArgumentClassName;
-+ (void)setEventArgumentClassName:(NSString *)value;
-+ (NSString *)eventArgumentItemSelectorName;
-+ (void)setEventArgumentItemSelectorName:(NSString *)value;
 
 + (BOOL)object:(DBManagedObject *)managedObject supportsEventName:(NSString *)eventName;
 

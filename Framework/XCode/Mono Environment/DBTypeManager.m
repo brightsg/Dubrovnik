@@ -509,7 +509,8 @@ NSString * DBType_System_Exception =  @"System.Exception";
         // look for DB prefixed class
         managedClass = NSClassFromString([@"DB" stringByAppendingString:managedClassName]);
         
-        // look for exact class name match
+        // look for exact class name match.
+        // classes 
         if (!managedClass) {
             managedClass = NSClassFromString(managedClassName);
         }

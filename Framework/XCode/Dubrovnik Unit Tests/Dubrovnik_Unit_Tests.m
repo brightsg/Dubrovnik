@@ -332,8 +332,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // default constructor
     //
     id refObject = [testClass new];
+    
     STAssertNotNil(refObject, DBUObjectNotCreated);
     
+    //[refObject setAutomaticallyNotifiesObservesOfManagedPropertyChanges:YES];
+
     // log the class
     if (0) {
         [refObject logMonoClassInfo];
@@ -403,12 +406,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)doTestForEquality:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
-    
     // object equality is based on equality of the underlying mono object
     
     // compare two wrapped instances of the same managed object
     System_Object *object1 = [[System_Object alloc] initWithMonoObject:[refObject monoObject]];
-    STAssertTrue(refObject != object1, DBUInequalityTestFailed);
+    
+    STAssertTrue(refObject == object1, DBUInequalityTestFailed);
     STAssertTrue([refObject monoObject] == object1.monoObject, DBUEqualityTestFailed);
     STAssertTrue([refObject isEqual:object1], DBUEqualityTestFailed);
     
@@ -842,6 +845,15 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
 }
 
+- (void)doTestNotifyingProperties:(id)refObject class:(Class)testClass
+{
+#pragma unused(testClass)
+    
+    [refObject setNotifyingProperty1:DBUTestString];
+    [refObject setNotifyingProperty2:DBUTestString];
+    
+}
+
 - (void)doTestGenericMethods:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
@@ -947,7 +959,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [intIntDictA2 objectForKey:[DBManagedObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
-    // key is a DSNumber representing an int
+    // key is a DBManagedNumber representing an int
     value = [intIntDictA2 objectForKey:[DBManagedNumber numberWithInt:intKey]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
 
@@ -1403,18 +1415,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // constructors
     //===================================
     id refObject = [self doTestConstructorsWithclass:testClass];
+
     [self doTestGenericConstructors:testClass];
-    
+
     //===================================
     // events
     //===================================
     [self doTestEvents:refObject class:testClass];
-    
+
     //===================================
     // equality
     //===================================
     [self doTestForEquality:refObject class:testClass];
-    
+
     //===================================
     // fields
     //===================================
@@ -1438,6 +1451,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestGenericProperties:refObject class:testClass];
     [self doTestPointerProperties:refObject class:testClass];
     [self doTestPropertyPersistence:refObject class:testClass];
+    [self doTestNotifyingProperties:refObject class:testClass];
     
     //===================================
     // representations
@@ -1456,7 +1470,7 @@ static void DubrovnikEventHandlerICall1(MonoObject* monoSender, MonoObject* mono
                              targetSelectorName:@"event1ReceivedFromSender:item:"];
 }
 
-- (void)event1ReceivedFromSender:(DBManagedObject *)sender item:(id)item
+- (void)event1ReceivedFromSender:(DBManagedObject *)sender item:(System_EventArgs *)item
 {
 #pragma unused(sender, item)
     self.event1Fired = YES;
@@ -1471,7 +1485,7 @@ static void DubrovnikEventHandlerICall2(MonoObject* monoSender, MonoObject* mono
                              targetSelectorName:@"event2ReceivedFromSender:item:"];
 }
 
-- (void)event2ReceivedFromSender:(id)sender item:(id)item
+- (void)event2ReceivedFromSender:(id)sender item:(System_EventArgs *)item
 {
 #pragma unused(sender, item)
     self.event2Fired = YES;

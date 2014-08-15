@@ -30,6 +30,7 @@
 #import "DBTypemanager.h"
 #import "DBManagedEvent.h"
 #import "NSObject+DBManagedEvent.h"
+#import "DBManagedApplication.h"
 
 static NSMutableArray *m_boundKeys;
 
@@ -50,6 +51,18 @@ static void ManagedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
                              targetSelectorName:@"eventSender:propertyChanged:"];
 }
 
+static NSString *DBPropertyChangingEvent = @"PropertyChanging";
+static NSString *DBPropertyChangingEventFunction = @"ManagedEvent_ManagedObject_PropertyChanging";
+
+static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, MonoObject* monoEventArgs)
+{
+    [DBManagedEvent dispatchEventFromMonoSender:monoSender
+                                      eventArgs:monoEventArgs
+                                      eventName:DBPropertyChangingEvent
+                             targetSelectorName:@"eventSender:propertyChanging:"];
+}
+
+
 @protocol System_object_predeclaration <NSObject>
 - (BOOL)equals_withObj:(DBManagedObject *)p1;
 - (int32_t)getHashCode;
@@ -63,6 +76,7 @@ static void ManagedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
 @property BOOL isGenericType;
 @property NSUInteger genericParameterCount;
 @property (strong) NSArray *genericParameterMonoArgumentTypeNames;
+@property (strong) NSMutableArray *activePropertyNames;
 @end
 
 @implementation DBManagedObject
@@ -152,7 +166,27 @@ static void ManagedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
 
 - (id)initWithMonoObject:(MonoObject *)monoObject
 {
-    // this is the designated initialise
+    // *************************************
+    // this is the designated initialiser
+    // *************************************
+    
+    // get cached instance
+    // a linear search is required as the value of monoObject can change
+    // (even though it points to the same managed object - moveable memory at work)
+    // which makes it unsuitable as a key
+    static NSPointerArray *m_instanceCache;
+    if (!m_instanceCache) {
+        m_instanceCache = [NSPointerArray weakObjectsPointerArray];
+    }
+    for (DBManagedObject *object in m_instanceCache) {
+        if (object.monoObject == monoObject) {
+            
+            if ([object isKindOfClass:[self class]]) {
+                self = object;
+                return self;
+            }
+        }
+    }
     
     self = [super init];
 	if (self) {
@@ -166,6 +200,11 @@ static void ManagedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
 		}
 	}
 	
+    // add to cache
+    if (self) {
+        [m_instanceCache addPointer:(__bridge void *)self];
+    }
+    
 	return self;
 }
 
@@ -253,13 +292,81 @@ static void ManagedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
     if (!m_eventHandlersRegistered) {
         
         [DBManagedEvent registerManagedEventHandler:DBPropertyChangedEventFunction unmanagedHandler:&ManagedEvent_ManagedObject_PropertyChanged];
+        [DBManagedEvent registerManagedEventHandler:DBPropertyChangingEventFunction unmanagedHandler:&ManagedEvent_ManagedObject_PropertyChanging];
         
         m_eventHandlersRegistered = YES;
     }
     
+    // Note that we we need to remain aware of what happens when more than one instance of
+    // this class references a given MonoObject
+    BOOL automaticallyNotifyObservers = YES;
+    
+    if (automaticallyNotifyObservers) {
+        self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
+    }
+}
+
+#pragma mark -
+#pragma mark Event handling
+
+- (NSMutableDictionary *)managedEventMap
+{
+    if (!_managedEventMap) {
+        _managedEventMap = [NSMutableDictionary dictionaryWithCapacity:2];
+    }
+    
+    return _managedEventMap;
+}
+
+- (void)setAutomaticallyNotifiesObserversOfManagedPropertyChanges:(BOOL)value
+{
+    if (_automaticallyNotifiesObserversOfManagedPropertyChanges == value) {
+        return;
+    }
+    
+    _automaticallyNotifiesObserversOfManagedPropertyChanges = value;
+    
+    /* NOTE:
+     
+     We only want these events handlers to be assigned once for each MonoObject even if
+     the managed object is wrapped by more than one unmanaged object. Failure to do this
+     results in multiple delegates being created whenever a MonoObject instance is referenced
+     by multiple instances of this class.
+     
+     The calls below will only add the event handler if it is not already present.
+     It will also only delete the event if present.
+     
+     Note that deleting the event on a receiver will effectively delete it on
+     all instances that reference the same MonoObject
+     
+     */
+    
     // add event handler for property changed event if supported
     if ([DBManagedEvent object:self supportsEventName:@"PropertyChanged"]) {
-        [self addManagedEventHandlerForObject:self eventName:DBPropertyChangedEvent handlerMethodName:DBPropertyChangedEventFunction];
+        
+        if (value) {
+            [[DBManagedApplication sharedApplication] addManagedEventHandlerForObject:self
+                                                                        eventName:DBPropertyChangedEvent
+                                                                handlerMethodName:DBPropertyChangedEventFunction];
+        } else {
+            [[DBManagedApplication sharedApplication] removeManagedEventHandlerForObject:self
+                                                                            eventName:DBPropertyChangedEvent
+                                                                    handlerMethodName:DBPropertyChangedEventFunction];
+        }
+    }
+
+    // add event handler for property changing event if supported
+    if ([DBManagedEvent object:self supportsEventName:@"PropertyChanging"]) {
+        
+        if (value) {
+            [[DBManagedApplication sharedApplication] addManagedEventHandlerForObject:self
+                                                                        eventName:DBPropertyChangingEvent
+                                                                handlerMethodName:DBPropertyChangingEventFunction];
+        } else {
+            [[DBManagedApplication sharedApplication] removeManagedEventHandlerForObject:self
+                                                                            eventName:DBPropertyChangingEvent
+                                                                    handlerMethodName:DBPropertyChangingEventFunction];
+        }
     }
 }
 
@@ -341,8 +448,22 @@ static void ManagedEvent_ManagedObject_PropertyChanged(MonoObject* monoSender, M
 #pragma mark NSCopying Protocol
 
 - (id)copyWithZone:(NSZone *)zone {
-	id copy = [[[self class] allocWithZone:zone] initWithMonoObject:self.monoObject];
-	
+    
+    // copying is often necessitated, for example when using the object as a dictionary key,
+    // to fix the object in a known state.
+    // for complex objects however knowing when or whether to produce a shallow or deep copy can be problematic.
+    // should the copy propagate into the underlying managed object?
+    // and what are the possible consequences of the above?
+    
+    id copy = self;
+    
+#warning Thought required!
+    bool generateLocalCopy = NO;
+    
+    if (generateLocalCopy) {
+        copy = [[[self class] allocWithZone:zone] initWithMonoObject:self.monoObject];
+	}
+    
 	return(copy);
 }
 
@@ -742,34 +863,48 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     if (self.observationInfo) {
         unmanagedPropertyName = [self unmanagedPropertyName:propertyName];
+        [self addActiveProperty:unmanagedPropertyName];
     }
 
     // set the managed property
     DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
     
     if (unmanagedPropertyName) {
-        
+        [self removeActiveProperty:unmanagedPropertyName];
     }
 }
 
+- (void)addActiveProperty:(NSString *)propertyName
+{
+    if (!self.activePropertyNames) {
+        self.activePropertyNames = [NSMutableArray arrayWithCapacity:2];
+    }
+    [self.activePropertyNames addObject:propertyName];
+}
+
+- (void)removeActiveProperty:(NSString *)propertyName
+{
+    [self.activePropertyNames removeObject:propertyName];
+
+}
+
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName
+{
+    NSString *name = [[self class] unmanagedPropertyName:managedPropertyName];
+    
+    return name;
+}
+
++ (NSString *)unmanagedPropertyName:(const char *)managedPropertyName
 {
     NSMutableString *name = [NSMutableString stringWithUTF8String:managedPropertyName];
     NSString *firstChar = [name substringToIndex:1];
     [name replaceCharactersInRange:NSMakeRange(0, 1) withString:[firstChar lowercaseString]];
     
-    NSAssert([self respondsToSelector:NSSelectorFromString(name)], @"invalid property name");
 
     return name;
 }
 
-#pragma mark -
-#pragma mark Managed event handling
-
-- (void)eventSender:(id)sender propertyChanged:(id)item
-{
-    NSLog(@"sender : %@ propertychanged: %@", sender, item);
-}
 
 #pragma mark -
 #pragma mark KVO support
@@ -778,7 +913,9 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 {
     /*
      
-     When binding to or observing managed objects it is often necessary to generate manual KVO notifications.
+     When binding to or observing managed objects it may be necessary to generate manual KVO notifications
+     depending on the state of -automaticallyNotifiesObserversOfManagedPropertyChanges.
+     
      As a convenience observed keys can be registered here prior to calling - sendChangeNotificationsForRegisteredObservedKeys.
      
      */
@@ -797,8 +934,27 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 - (void)sendChangeNotificationsForRegisteredObservedKeys
 {
     for (NSString *key in m_boundKeys) {
+        
+        // note this will likely fail if the key is an intermediate value in a observed key path
+        // as the KVO system will not have opportunity to remove the old observed key
         [self willChangeValueForKey:key];
         [self didChangeValueForKey:key];
+    }
+}
+
+- (void)willChangeValueForKey:(NSString *)key
+{
+    if (![self.activePropertyNames containsObject:key]) {
+        [super willChangeValueForKey:key];
+    } else {
+        int brk = 0;
+    }
+}
+
+- (void)didChangeValueForKey:(NSString *)key
+{
+    if (![self.activePropertyNames containsObject:key]) {
+        [super didChangeValueForKey:key];
     }
 }
 
