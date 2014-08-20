@@ -1176,7 +1176,7 @@
     - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[][])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_INT64(monoObject);
     }
@@ -1187,7 +1187,7 @@
     - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[][])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -1198,7 +1198,7 @@
     - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[][])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_INT16(monoObject);
     }
@@ -1209,7 +1209,7 @@
     - (uint8_t)sum_withByteArray:(NSData *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[][])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_UINT8(monoObject);
     }
@@ -1220,7 +1220,7 @@
     - (float)sum_withFloatArray:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[][])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }
@@ -1231,7 +1231,7 @@
     - (double)sum_withDoubleArray:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[][])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoValue]];
 		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
@@ -1242,7 +1242,7 @@
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[][])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

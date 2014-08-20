@@ -831,7 +831,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		string monoMethodParameterType = ManagedTypeInvokeFromManagedType(monoParameterType);
 		if (parameter.IsArray)  
 		{
-			monoMethodParameterType += "[]";
+			//monoMethodParameterType += "[]";
         }
  
 		if (parameter.IsGenericParameter) {
