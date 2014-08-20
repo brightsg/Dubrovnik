@@ -823,24 +823,17 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 
 		//
 		// Build the mono method argument signature
-		// eg: int,long,string
-		// Use a type associate if available.
-		// If not then default to the parameter type
 		//
 		if (idx > 0) monoSigBuilder.Append(",");
-		string monoMethodParameterType = ManagedTypeInvokeFromManagedType(monoParameterType);
-		if (parameter.IsArray)  
-		{
-			//monoMethodParameterType += "[]";
-        }
+		string monoParameterTypeInvoke = ManagedTypeInvokeFromManagedType(monoParameterType);
  
 		if (parameter.IsGenericParameter) {
 
 			// in order for the C api to substitute the correct type at run time
 			// the generic parameter position needs to be indicated.
-			monoMethodParameterType = string.Format(monoMethodParameterType, parameter.GenericParameterPosition);
+			monoParameterTypeInvoke = string.Format(monoParameterTypeInvoke, parameter.GenericParameterPosition);
         }
-		monoSigBuilder.Append(monoMethodParameterType);
+		monoSigBuilder.Append(monoParameterTypeInvoke);
 		if (parameter.IsPointer) 
 		{
 			monoSigBuilder.Append("*");
@@ -872,7 +865,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			// We adopt a minimal as opposed to a full type repesentation here in order
 			// to minimize the parameter length.
 			// Time will tell how it flies.
-			objCParamOverloadSuffix = ObjCMinimalIdentifierFromManagedIdentifier(monoMethodParameterType);
+			objCParamOverloadSuffix = ObjCMinimalIdentifierFromManagedIdentifier(monoParameterTypeInvoke);
         }
 		if (parameter.IsByRef) 
 		{
