@@ -825,14 +825,31 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		// Build the mono method argument signature
 		//
 		if (idx > 0) monoSigBuilder.Append(",");
-		string monoParameterTypeInvoke = ManagedTypeInvokeFromManagedType(monoParameterType);
+		string monoParameterTypeInvoke = null;
  
+		// if type is a a GenericParameter
 		if (parameter.IsGenericParameter) {
 
+			// generic parameters must have an associate
+			if (managedTypeAssociate == null) {
+				 throw new Exception("Missing managed type association for generic parameter."); 
+            }
+
+			monoParameterTypeInvoke = managedTypeAssociate.ManagedTypeInvoke;
+			if (parameter.IsArray)  
+			{
+				monoParameterTypeInvoke += "[]";
+            }
+			if (monoParameterTypeInvoke == null) {
+				int b = 0;
+            }
 			// in order for the C api to substitute the correct type at run time
 			// the generic parameter position needs to be indicated.
 			monoParameterTypeInvoke = string.Format(monoParameterTypeInvoke, parameter.GenericParameterPosition);
+        } else {
+			monoParameterTypeInvoke = ManagedTypeInvokeFromManagedType(monoParameterType);
         }
+
 		monoSigBuilder.Append(monoParameterTypeInvoke);
 		if (parameter.IsPointer) 
 		{

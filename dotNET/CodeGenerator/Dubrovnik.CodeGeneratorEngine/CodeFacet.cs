@@ -59,7 +59,7 @@ namespace Dubrovnik
             IsGenericParameter = XElementAttributeBool(xelement, "IsGenericParameter");
             ContainsGenericParameters = XElementAttributeBool(xelement, "ContainsGenericParameters");
             GenericParameterPosition = Convert.ToInt32(XElementAttributeValue(xelement, "GenericParameterPosition"));
-
+            
             // define ObjC code facet
             ObjCFacet = new CodeFacet(this);
         }
@@ -710,10 +710,12 @@ namespace Dubrovnik
             Parameters = new FacetList<ParameterFacet>(xelement, "Parameter");
             IsGenericMethod = XElementAttributeBool(xelement, "IsGenericMethod");
             IsGenericMethodDefinition = XElementAttributeBool(xelement, "IsGenericMethodDefinition");
+            ContainsGenericMethodParameters = XElementAttributeBool(xelement, "ContainsGenericMethodParameters");
         }
         public IList<ParameterFacet> Parameters { get; set; }
         public bool IsGenericMethod { get; set; }
         public bool IsGenericMethodDefinition { get; set; }
+        public bool ContainsGenericMethodParameters { get; set; }
         public bool IsOverloadedNameMethod { get; private set; }
         public bool IsOverloadedParameterMethod { get; private set; }
         public bool IsOverloadedSignatureMethod { get; private set; }

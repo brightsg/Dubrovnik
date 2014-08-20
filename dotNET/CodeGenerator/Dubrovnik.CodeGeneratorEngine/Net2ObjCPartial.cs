@@ -355,7 +355,7 @@ namespace Dubrovnik
             {
                 get
                 {
-                    /*if (_ManagedTypeInvoke == null)
+                    if (_ManagedTypeInvoke == null)
                     {
                         if (ManagedTypeAlias != null)
                         {
@@ -363,7 +363,7 @@ namespace Dubrovnik
                         }
 
                         return ManagedType;
-                    }*/
+                    }
 
                     return _ManagedTypeInvoke;
                 }
@@ -1199,14 +1199,14 @@ namespace Dubrovnik
  
                 ManagedTypeAssociation mta = entry.Value;
 
-                string replacementType = null;
-                if (mta.ManagedTypeInvoke != null)
+                string replacementType = mta.ManagedTypeInvoke;
+                /*if (mta.ManagedTypeInvoke != null)
                 {
                     replacementType = mta.ManagedTypeInvoke;
                 } else if (mta.ManagedTypeAlias != null)
                 {
                     replacementType = mta.ManagedTypeAlias;
-                }
+                }*/
 
                 if (replacementType != null)
                 {

@@ -136,6 +136,7 @@ namespace Dubrovnik.Reflector {
             if (type.IsGenericType) xtw.WriteAttributeString("IsGenericType", Boolean.TrueString);
             if (type.IsGenericTypeDefinition) xtw.WriteAttributeString("IsGenericTypeDefinition", Boolean.TrueString);
             if (type.IsConstructedGenericType) xtw.WriteAttributeString("IsConstructedGenericType", Boolean.TrueString);
+            if (type.ContainsGenericParameters) xtw.WriteAttributeString("ContainsGenericParameters", Boolean.TrueString);
             if (type.IsGenericParameter)
             {
                 xtw.WriteAttributeString("IsGenericParameter", Boolean.TrueString);
@@ -395,7 +396,7 @@ namespace Dubrovnik.Reflector {
                                 // See the Remarks section here http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
                                 if (methodInfo.IsGenericMethod) xtw.WriteAttributeString("IsGenericMethod", Boolean.TrueString);
                                 if (methodInfo.IsGenericMethodDefinition) xtw.WriteAttributeString("IsGenericMethodDefinition", Boolean.TrueString);
-                                if (methodInfo.ContainsGenericParameters) xtw.WriteAttributeString("ContainsGenericParameters", Boolean.TrueString);
+                                if (methodInfo.ContainsGenericParameters) xtw.WriteAttributeString("ContainsGenericMethodParameters", Boolean.TrueString);
 
                                 WriteGenericTypeElements(xtw, methodInfo.ReturnType);
 
