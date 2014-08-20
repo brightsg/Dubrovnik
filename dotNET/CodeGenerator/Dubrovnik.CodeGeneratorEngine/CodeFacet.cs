@@ -453,7 +453,8 @@ namespace Dubrovnik
 
                     if (!query.Any())
                     {
-                        throw new Exception(String.Format("Facet not found for implemented interface type name{0}", cursorFacet.Type));
+                        //throw new Exception(String.Format("Facet not found for implemented interface type name{0}", cursorFacet.Type));
+                        break;
                     }
 
                     if (query.Count() > 1)
