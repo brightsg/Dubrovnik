@@ -250,6 +250,11 @@
 #pragma mark -
 #pragma mark Methods
 
+	// Managed method name : AddIEnumerable
+	// Managed return type : System.String
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
+    - (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1;
+
 	// Managed method name : ClassDescription
 	// Managed return type : System.String
 	// Managed param types : 
@@ -299,6 +304,11 @@
 	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
 	// Managed param types : System.String
     - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
+
+	// Managed method name : ReverseList
+	// Managed return type : System.Boolean
+	// Managed param types : System.Collections.Generic.List`1<System.String>
+    - (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1;
 
 	// Managed method name : StringMethod
 	// Managed return type : System.String

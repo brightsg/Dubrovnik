@@ -34,6 +34,11 @@
 	// Managed param types : System.Object, System.EventArgs
     + (void)managedEvent_ManagedObject_PropertyChanged_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
 
+	// Managed method name : ManagedEvent_ManagedObject_PropertyChanging
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.EventArgs
+    + (void)managedEvent_ManagedObject_PropertyChanging_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+
 	// Managed method name : ObjectSupportsEvent
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.String

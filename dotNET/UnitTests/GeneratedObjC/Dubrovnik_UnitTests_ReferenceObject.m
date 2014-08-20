@@ -964,6 +964,17 @@
 #pragma mark -
 #pragma mark Methods
 
+	// Managed method name : AddIEnumerable
+	// Managed return type : System.String
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
+    - (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoValue]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
 	// Managed method name : ClassDescription
 	// Managed return type : System.String
 	// Managed param types : 
@@ -1066,6 +1077,17 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
 		
 		return [Dubrovnik_UnitTests_ReferenceStruct objectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : ReverseList
+	// Managed return type : System.Boolean
+	// Managed param types : System.Collections.Generic.List`1<System.String>
+    - (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<System.String>)" withNumArgs:1, [p1 monoValue]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : StringMethod

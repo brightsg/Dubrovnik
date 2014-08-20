@@ -2,6 +2,7 @@
 
 
 using System;
+using System.Linq;
 using System.Text;
 using Dubrovnik.UnitTests;
 using System.Collections;
@@ -545,6 +546,53 @@ namespace Dubrovnik.UnitTests
             return sum;
         }
 
+        //
+        // Generic parameter methods
+        //
+        public bool ReverseList(List<string> list)
+        {
+            list.Reverse();
+            return true;
+        }
+
+        /*
+        public bool ReverseList(List<int> list) {
+            list.Reverse();
+            return true;
+        }
+        */
+
+        public string AddIEnumerable(IEnumerable<string> list)
+        {
+            string value = null;
+            foreach (var item in list)
+            {
+                if (value == null)
+                {
+                    value = item;
+                }
+                else
+                {
+                value += item;                    
+                }
+            }
+            return value;
+        }
+
+        /*
+        public int AddIEnumerable(IEnumerable<int> list)
+        {
+            int value = 0;
+            foreach (var item in list) {
+                value += item;
+            }
+            return value;
+        }
+        */
+
+        //
+        // Event raising methods
+        //
 		protected void OnPropertyChanged(string propertyName)
 		{
             if (PropertyChanged != null)

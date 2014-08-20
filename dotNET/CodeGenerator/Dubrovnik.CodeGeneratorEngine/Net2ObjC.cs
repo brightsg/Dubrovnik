@@ -2321,7 +2321,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (idx > 0) monoSigBuilder.Append(",");
 		string monoMethodParameterType = null;
 
-		if (managedTypeAssociate != null) 
+		if (managedTypeAssociate != null && parameter.IsGenericType == false) 
 		{
 			 monoMethodParameterType = managedTypeAssociate.ManagedTypeInvoke;
 			if (parameter.IsArray)  

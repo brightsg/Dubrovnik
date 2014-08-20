@@ -59,6 +59,14 @@
 		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanged(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
+	// Managed method name : ManagedEvent_ManagedObject_PropertyChanging
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.EventArgs
+    + (void)managedEvent_ManagedObject_PropertyChanging_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
+    {
+		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanging(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+    }
+
 	// Managed method name : ObjectSupportsEvent
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.String
