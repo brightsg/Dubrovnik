@@ -570,6 +570,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #endif
     
     //
+    // Generic parameter methods
+    //
+    DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
+    [refObject reverseList_withList:list];
+
+    //
     // static methods
     //
     NSString *classDescription = (NSString *)[testClass classDescription];

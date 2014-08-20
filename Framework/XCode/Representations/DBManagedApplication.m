@@ -12,12 +12,14 @@
 #import "NSString+Dubrovnik.h"
 #import "DBInvoke.h"
 
+#define DB_TRACE
+
 @implementation DBManagedApplication
 
 #pragma mark -
 #pragma mark Singleton
 
-+ (instancetype)sharedApplication {
++ (instancetype)sharedManagedApplication {
     
     static DBManagedApplication *sharedApplication = nil;
     static dispatch_once_t onceToken;
@@ -72,15 +74,17 @@
         // get the unmanged property name
         NSString *propertyName = [sender unmanagedPropertyName:[managedPropertyName UTF8String]];
  
-#ifdef TRACE
+#ifdef DB_TRACE
         NSLog(@"PropertyChanging event sender : %@ %p MonoObject %p property name: %@", [sender class], sender, sender.monoObject, propertyName);
+        id value = [sender valueForKey:propertyName];
+        NSLog(@"Property value : %@ %p", value, value);
 #endif
         // raise KVO notifications for the unmanaged property name
         [sender willChangeValueForKey:propertyName];
         
     } else {
         
-#ifdef TRACE
+#ifdef DB_TRACE
         NSLog(@"PropertyChanging event sender : %@ does not respond to -propertyName. Are you linked to to Mono.System?", monoEventArgs);
 #endif
         
@@ -100,8 +104,10 @@
         // get the unmanged property name
         NSString *propertyName = [sender unmanagedPropertyName:[managedPropertyName UTF8String]];
         
-#ifdef TRACE
+#ifdef DB_TRACE
         NSLog(@"PropertyChanged event sender : %@ %p MonoObject %p property name: %@", [sender class], sender, sender.monoObject, propertyName);
+        id value = [sender valueForKey:propertyName];
+        NSLog(@"Property value : %@ %p", value, value);
 #endif
         // raise KVO notifications for the unmanaged property name
         // note: this may fail if a prior willChangeValueForKey has not been sent
@@ -109,7 +115,7 @@
         
     } else {
         
-#ifdef TRACE
+#ifdef DB_TRACE
         NSLog(@"PropertyChanged event sender : %@ does not respond to -propertyName. Are you linked to to Mono.System?", monoEventArgs);
 #endif
         

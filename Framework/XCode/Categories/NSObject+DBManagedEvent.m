@@ -13,6 +13,16 @@
 @implementation NSObject (DBManagedEvent)
 
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
+                              eventName:(NSString *)eventName
+{
+    [DBManagedEvent addHandlerForObject:managedObject
+                              eventName:eventName
+                      handlerMethodName:eventName
+                                 target:self
+                                options:nil];
+}
+
+- (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
                   eventName:(NSString *)eventName
           handlerMethodName:(NSString *)handlerMethodName
 {

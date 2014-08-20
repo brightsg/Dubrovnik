@@ -92,7 +92,7 @@
 		ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */; };
 		ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */; };
 		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
-		ABCF4AB8199ABD44009BE714 /* DBManagedApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCF4AB6199ABD44009BE714 /* DBManagedApplication.h */; };
+		ABCF4AB8199ABD44009BE714 /* DBManagedApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCF4AB6199ABD44009BE714 /* DBManagedApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABCF4AB9199ABD44009BE714 /* DBManagedApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF4AB7199ABD44009BE714 /* DBManagedApplication.m */; };
 		ABD02CAF183180C400885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
 		ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
@@ -684,6 +684,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABCF4AB8199ABD44009BE714 /* DBManagedApplication.h in Headers */,
 				AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */,
 				AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */,
 				ABB8A3DE18FF0F4400213B80 /* NSString+Dubrovnik.h in Headers */,
@@ -693,7 +694,6 @@
 				9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */,
 				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
-				ABCF4AB8199ABD44009BE714 /* DBManagedApplication.h in Headers */,
 				ABF43FB8179FF4FC00BAB99E /* DBManagedMethod.h in Headers */,
 				AB49E434178ABAAE00D01244 /* NSNumber+Dubrovnik.h in Headers */,
 				AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */,

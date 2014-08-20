@@ -47,6 +47,7 @@
 #import "DBManagedObject.h"
 #import "DBManagedMethod.h"
 #import "DBManagedEvent.h"
+#import "DBManagedApplication.h"
 
 // categories
 #import "NSCategories.h"

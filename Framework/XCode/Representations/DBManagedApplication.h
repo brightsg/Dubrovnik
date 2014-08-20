@@ -11,7 +11,7 @@
 @class DBManagedObject;
 
 @interface DBManagedApplication : NSObject
-+ (instancetype)sharedApplication;
++ (instancetype)sharedManagedApplication;
 
 - (void)eventSender:(DBManagedObject *)sender propertyChanging:(DBManagedObject *)monoEventArgs;
 - (void)eventSender:(DBManagedObject *)sender propertyChanged:(DBManagedObject *)monoEventArgs;

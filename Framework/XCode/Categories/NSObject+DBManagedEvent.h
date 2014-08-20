@@ -12,6 +12,9 @@
 @interface NSObject (DBManagedEvent)
 
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
+                              eventName:(NSString *)eventName;
+
+- (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
                   eventName:(NSString *)eventName
           handlerMethodName:(NSString *)handlerMethodName;
 

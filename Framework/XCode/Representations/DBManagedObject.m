@@ -376,11 +376,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     if ([DBManagedEvent object:self supportsEventName:@"PropertyChanged"]) {
         
         if (value) {
-            [[DBManagedApplication sharedApplication] addManagedEventHandlerForObject:self
+            [[DBManagedApplication sharedManagedApplication] addManagedEventHandlerForObject:self
                                                                         eventName:DBPropertyChangedEvent
                                                                 handlerMethodName:DBPropertyChangedEventFunction];
         } else {
-            [[DBManagedApplication sharedApplication] removeManagedEventHandlerForObject:self
+            [[DBManagedApplication sharedManagedApplication] removeManagedEventHandlerForObject:self
                                                                             eventName:DBPropertyChangedEvent
                                                                     handlerMethodName:DBPropertyChangedEventFunction];
         }
@@ -390,11 +390,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     if ([DBManagedEvent object:self supportsEventName:@"PropertyChanging"]) {
         
         if (value) {
-            [[DBManagedApplication sharedApplication] addManagedEventHandlerForObject:self
+            [[DBManagedApplication sharedManagedApplication] addManagedEventHandlerForObject:self
                                                                         eventName:DBPropertyChangingEvent
                                                                 handlerMethodName:DBPropertyChangingEventFunction];
         } else {
-            [[DBManagedApplication sharedApplication] removeManagedEventHandlerForObject:self
+            [[DBManagedApplication sharedManagedApplication] removeManagedEventHandlerForObject:self
                                                                             eventName:DBPropertyChangingEvent
                                                                     handlerMethodName:DBPropertyChangingEventFunction];
         }

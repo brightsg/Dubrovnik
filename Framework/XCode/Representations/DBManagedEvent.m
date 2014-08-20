@@ -219,7 +219,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         //
         // note that thread calls should be avoided!
         // https://developer.apple.com/library/ios/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1
-        // if this becomes a problem use a category to explicitly execute the block on a a the main thread.
+        // if this becomes a problem use a category to explicitly execute the block on the main thread.
         dispatch_sync(dispatch_get_main_queue(), dispatchEventBlk);
     } else {
         dispatchEventBlk();
