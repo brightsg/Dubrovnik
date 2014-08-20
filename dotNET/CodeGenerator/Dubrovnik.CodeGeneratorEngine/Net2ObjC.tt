@@ -828,18 +828,12 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		// If not then default to the parameter type
 		//
 		if (idx > 0) monoSigBuilder.Append(",");
-		string monoMethodParameterType = null;
-
-		if (managedTypeAssociate != null && parameter.IsGenericType == false) 
+		string monoMethodParameterType = ManagedTypeInvokeFromManagedType(monoParameterType);
+		if (parameter.IsArray)  
 		{
-			 monoMethodParameterType = managedTypeAssociate.ManagedTypeInvoke;
-			if (parameter.IsArray)  
-			{
-				monoMethodParameterType += "[]";
-            }
+			monoMethodParameterType += "[]";
         }
-
-		if (monoMethodParameterType == null) monoMethodParameterType = monoParameterType;
+ 
 		if (parameter.IsGenericParameter) {
 
 			// in order for the C api to substitute the correct type at run time

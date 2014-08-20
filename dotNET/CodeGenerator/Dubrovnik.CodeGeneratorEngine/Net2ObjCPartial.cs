@@ -355,7 +355,7 @@ namespace Dubrovnik
             {
                 get
                 {
-                    if (_ManagedTypeInvoke == null)
+                    /*if (_ManagedTypeInvoke == null)
                     {
                         if (ManagedTypeAlias != null)
                         {
@@ -363,7 +363,8 @@ namespace Dubrovnik
                         }
 
                         return ManagedType;
-                    }
+                    }*/
+
                     return _ManagedTypeInvoke;
                 }
 
@@ -1177,6 +1178,43 @@ namespace Dubrovnik
             manTA = new ManagedTypeAssociation { ManagedType = "System.Enum" };
             objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Enum", GetterFormat = "[DBSystem_Enum objectWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
+        }
+
+        //
+        // ManagedTypeInvokeFromManagedType
+        //
+        // This managed representation is used when invoking managed methods
+        //
+        // Generates a managed type alias from a given managed type.
+        // This may be as simple as :System.String -> string.
+        // or it may be more complex like:
+        // IEnumerator`1<KeyValuePair`2<System.String, System.Int32>> -> 
+        // IEnumerator`1<KeyValuePair`2<string, int>>
+        //
+        public string ManagedTypeInvokeFromManagedType(string managedType)
+        {
+            StringBuilder result = new StringBuilder(managedType);
+
+            foreach (KeyValuePair<string, ManagedTypeAssociation> entry in ManagedTypeAssociations) {
+ 
+                ManagedTypeAssociation mta = entry.Value;
+
+                string replacementType = null;
+                if (mta.ManagedTypeInvoke != null)
+                {
+                    replacementType = mta.ManagedTypeInvoke;
+                } else if (mta.ManagedTypeAlias != null)
+                {
+                    replacementType = mta.ManagedTypeAlias;
+                }
+
+                if (replacementType != null)
+                {
+                    result.Replace(mta.ManagedType, replacementType);
+                }
+            }
+
+            return result.ToString();
         }
 
         //
