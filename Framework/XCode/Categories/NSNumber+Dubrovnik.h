@@ -15,19 +15,19 @@
 + (id)objectWithMonoObject:(MonoObject *)monoObject;
 + (id)numberWithMonoObject:(MonoObject *)monoObject;
 
-- (DBNumber *)managedNumberFromCharValue;
-- (DBNumber *)managedNumberFromUnsignedCharValue;
-- (DBNumber *)managedNumberFromShortValue;
-- (DBNumber *)managedNumberFromUnsignedShortValue;
-- (DBNumber *)managedNumberFromIntValue;
-- (DBNumber *)managedNumberFromUnsignedIntValue;
-- (DBNumber *)managedNumberFromLongValue;
-- (DBNumber *)managedNumberFromUnsignedLongValue;
-- (DBNumber *)managedNumberFromLongLongValue;
-- (DBNumber *)managedNumberFromUnsignedLongLongValue;
-- (DBNumber *)managedNumberFromFloatValue;
-- (DBNumber *)managedNumberFromDoubleValue;
-- (DBNumber *)managedNumberFromIntegerValue;
-- (DBNumber *)managedNumberFromUnsignedIntegerValue;
+- (DBNumber *)dbNumberFromCharValue;
+- (DBNumber *)dbNumberFromUnsignedCharValue;
+- (DBNumber *)dbNumberFromShortValue;
+- (DBNumber *)dbNumberFromUnsignedShortValue;
+- (DBNumber *)dbNumberFromIntValue;
+- (DBNumber *)dbNumberFromUnsignedIntValue;
+- (DBNumber *)dbNumberFromLongValue;
+- (DBNumber *)dbNumberFromUnsignedLongValue;
+- (DBNumber *)dbNumberFromLongLongValue;
+- (DBNumber *)dbNumberFromUnsignedLongLongValue;
+- (DBNumber *)dbNumberFromFloatValue;
+- (DBNumber *)dbNumberFromDoubleValue;
+- (DBNumber *)dbNumberFromIntegerValue;
+- (DBNumber *)dbNumberFromUnsignedIntegerValue;
 
 @end

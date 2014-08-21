@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-#define DBNumInt(X) [DBNumber managedNumberWithInt: (X) ]
+#define DBNumInt(X) [DBNumber numberWithInt:(X)]
 
 @interface DBNumber : NSNumber
 
@@ -18,21 +18,21 @@
  Factory methods
  
  */
-+ (instancetype)managedNumberWithChar:(char)value;
-+ (instancetype)managedNumberWithUnsignedChar:(unsigned char)value;
-+ (instancetype)managedNumberWithShort:(short)value;
-+ (instancetype)managedNumberWithUnsignedShort:(unsigned short)value;
-+ (instancetype)managedNumberWithInt:(int)value;
-+ (instancetype)managedNumberWithUnsignedInt:(unsigned int)value;
-+ (instancetype)managedNumberWithLong:(long)value;
-+ (instancetype)managedNumberWithUnsignedLong:(unsigned long)value;
-+ (instancetype)managedNumberWithLongLong:(long long)value;
-+ (instancetype)managedNumberWithUnsignedLongLong:(unsigned long long)value;
-+ (instancetype)managedNumberWithFloat:(float)value;
-+ (instancetype)managedNumberWithDouble:(double)value;
-+ (instancetype)managedNumberWithBool:(BOOL)value;
-+ (instancetype)managedNumberWithInteger:(NSInteger)value;
-+ (instancetype)managedNumberWithUnsignedInteger:(NSUInteger)value;
++ (instancetype)numberWithChar:(char)value;
++ (instancetype)numberWithUnsignedChar:(unsigned char)value;
++ (instancetype)numberWithShort:(short)value;
++ (instancetype)numberWithUnsignedShort:(unsigned short)value;
++ (instancetype)numberWithInt:(int)value;
++ (instancetype)numberWithUnsignedInt:(unsigned int)value;
++ (instancetype)numberWithLong:(long)value;
++ (instancetype)numberWithUnsignedLong:(unsigned long)value;
++ (instancetype)numberWithLongLong:(long long)value;
++ (instancetype)numberWithUnsignedLongLong:(unsigned long long)value;
++ (instancetype)numberWithFloat:(float)value;
++ (instancetype)numberWithDouble:(double)value;
++ (instancetype)numberWithBool:(BOOL)value;
++ (instancetype)numberWithInteger:(NSInteger)value;
++ (instancetype)numberWithUnsignedInteger:(NSUInteger)value;
 
 
 /*!

@@ -47,77 +47,77 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 #pragma mark +
 #pragma mark Factory
 
-+ (instancetype)managedNumberWithChar:(char)value
++ (instancetype)numberWithChar:(char)value
 {
     return [[self alloc] initWithChar:value];
 }
 
-+ (instancetype)managedNumberWithUnsignedChar:(unsigned char)value
++ (instancetype)numberWithUnsignedChar:(unsigned char)value
 {
     return [[self alloc] initWithUnsignedChar:value];
 }
 
-+ (instancetype)managedNumberWithShort:(short)value
++ (instancetype)numberWithShort:(short)value
 {
     return [[self alloc] initWithShort:value];
 }
 
-+ (instancetype)managedNumberWithUnsignedShort:(unsigned short)value
++ (instancetype)numberWithUnsignedShort:(unsigned short)value
 {
     return [[self alloc] initWithUnsignedShort:value];
 }
 
-+ (instancetype)managedNumberWithInt:(int)value
++ (instancetype)numberWithInt:(int)value
 {
     return [[self alloc] initWithInt:value];
 }
 
-+ (instancetype)managedNumberWithUnsignedInt:(unsigned int)value
++ (instancetype)numberWithUnsignedInt:(unsigned int)value
 {
     return [[self alloc] initWithUnsignedInt:value];
 }
 
-+ (instancetype)managedNumberWithLong:(long)value
++ (instancetype)numberWithLong:(long)value
 {
     return [[self alloc] initWithLong:value];
 }
 
-+ (instancetype)managedNumberWithUnsignedLong:(unsigned long)value
++ (instancetype)numberWithUnsignedLong:(unsigned long)value
 {
     return [[self alloc] initWithUnsignedLong:value];
 }
 
-+ (instancetype)managedNumberWithLongLong:(long long)value
++ (instancetype)numberWithLongLong:(long long)value
 {
     return [[self alloc] initWithLongLong:value];
 }
 
-+ (instancetype)managedNumberWithUnsignedLongLong:(unsigned long long)value
++ (instancetype)numberWithUnsignedLongLong:(unsigned long long)value
 {
     return [[self alloc] initWithUnsignedLongLong:value];
 }
 
-+ (instancetype)managedNumberWithFloat:(float)value
++ (instancetype)numberWithFloat:(float)value
 {
     return [[self alloc] initWithFloat:value];
 }
 
-+ (instancetype)managedNumberWithDouble:(double)value
++ (instancetype)numberWithDouble:(double)value
 {
     return [[self alloc] initWithDouble:value];
 }
 
-+ (instancetype)managedNumberWithBool:(BOOL)value
++ (instancetype)numberWithBool:(BOOL)value
 {
     return [[self alloc] initWithBool:value];
 }
 
-+ (instancetype)managedNumberWithInteger:(NSInteger)value
++ (instancetype)numberWithInteger:(NSInteger)value
 {
     return [[self alloc] initWithInteger:value];
 }
 
-+ (instancetype)managedNumberWithUnsignedInteger:(NSUInteger)value
++ (instancetype)numberWithUnsignedInteger:(NSUInteger)value
 {
     return [[self alloc] initWithUnsignedInteger:value];
 }

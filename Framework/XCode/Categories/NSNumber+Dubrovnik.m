@@ -40,74 +40,74 @@
 #pragma mark -
 #pragma mark - DBNumber creation
 
-- (DBNumber *)managedNumberFromCharValue
+- (DBNumber *)dbNumberFromCharValue
 {
-    return [DBNumber managedNumberWithChar:[self charValue]];
+    return [DBNumber numberWithChar:[self charValue]];
 }
 
-- (DBNumber *)managedNumberFromUnsignedCharValue
+- (DBNumber *)dbNumberFromUnsignedCharValue
 {
-    return [DBNumber managedNumberWithUnsignedChar:[self unsignedCharValue]];
+    return [DBNumber numberWithUnsignedChar:[self unsignedCharValue]];
 }
 
-- (DBNumber *)managedNumberFromShortValue
+- (DBNumber *)dbNumberFromShortValue
 {
-    return [DBNumber managedNumberWithShort:[self shortValue]];
+    return [DBNumber numberWithShort:[self shortValue]];
 }
 
-- (DBNumber *)managedNumberFromUnsignedShortValue
+- (DBNumber *)dbNumberFromUnsignedShortValue
 {
-    return [DBNumber managedNumberWithUnsignedShort:[self unsignedShortValue]];
+    return [DBNumber numberWithUnsignedShort:[self unsignedShortValue]];
 }
 
-- (DBNumber *)managedNumberFromIntValue
+- (DBNumber *)dbNumberFromIntValue
 {
-    return [DBNumber managedNumberWithInt:[self intValue]];
+    return [DBNumber numberWithInt:[self intValue]];
 }
 
-- (DBNumber *)managedNumberFromUnsignedIntValue
+- (DBNumber *)dbNumberFromUnsignedIntValue
 {
-    return [DBNumber managedNumberWithUnsignedInt:[self unsignedIntValue]];
+    return [DBNumber numberWithUnsignedInt:[self unsignedIntValue]];
 }
 
-- (DBNumber *)managedNumberFromLongValue
+- (DBNumber *)dbNumberFromLongValue
 {
-    return [DBNumber managedNumberWithLong:[self longValue]];
+    return [DBNumber numberWithLong:[self longValue]];
 }
 
-- (DBNumber *)managedNumberFromUnsignedLongValue
+- (DBNumber *)dbNumberFromUnsignedLongValue
 {
-    return [DBNumber managedNumberWithUnsignedLong:[self unsignedLongValue]];
+    return [DBNumber numberWithUnsignedLong:[self unsignedLongValue]];
 }
 
-- (DBNumber *)managedNumberFromLongLongValue
+- (DBNumber *)dbNumberFromLongLongValue
 {
-    return [DBNumber managedNumberWithLongLong:[self longLongValue]];
+    return [DBNumber numberWithLongLong:[self longLongValue]];
 }
 
-- (DBNumber *)managedNumberFromUnsignedLongLongValue
+- (DBNumber *)dbNumberFromUnsignedLongLongValue
 {
-    return [DBNumber managedNumberWithUnsignedLongLong:[self unsignedLongLongValue]];
+    return [DBNumber numberWithUnsignedLongLong:[self unsignedLongLongValue]];
 }
 
-- (DBNumber *)managedNumberFromFloatValue
+- (DBNumber *)dbNumberFromFloatValue
 {
-    return [DBNumber managedNumberWithFloat:[self floatValue]];
+    return [DBNumber numberWithFloat:[self floatValue]];
 }
 
-- (DBNumber *)managedNumberFromDoubleValue
+- (DBNumber *)dbNumberFromDoubleValue
 {
-    return [DBNumber managedNumberWithDouble:[self doubleValue]];
+    return [DBNumber numberWithDouble:[self doubleValue]];
 }
 
-- (DBNumber *)managedNumberFromIntegerValue
+- (DBNumber *)dbNumberFromIntegerValue
 {
-    return [DBNumber managedNumberWithInteger:[self integerValue]];
+    return [DBNumber numberWithInteger:[self integerValue]];
 }
 
-- (DBNumber *)managedNumberFromUnsignedIntegerValue
+- (DBNumber *)dbNumberFromUnsignedIntegerValue
 {
-    return [DBNumber managedNumberWithUnsignedInteger:[self unsignedIntegerValue]];
+    return [DBNumber numberWithUnsignedInteger:[self unsignedIntegerValue]];
 }
 
 @end
