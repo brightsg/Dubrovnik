@@ -18,14 +18,14 @@
 		9D13A6EE08833E74008ACA37 /* DBBoxing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13A6EC08833E74008ACA37 /* DBBoxing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D496B2F09082F6700CD26AF /* NSImage+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D496B2D09082F6700CD26AF /* NSImage+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D496B3009082F6700CD26AF /* NSImage+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D496B2E09082F6700CD26AF /* NSImage+Dubrovnik.m */; };
-		9D6335AE09750DAD00FB76DF /* DBManagedData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6335AC09750DAD00FB76DF /* DBManagedData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D6335AF09750DAD00FB76DF /* DBManagedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6335AD09750DAD00FB76DF /* DBManagedData.m */; };
+		9D6335AE09750DAD00FB76DF /* DBData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6335AC09750DAD00FB76DF /* DBData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D6335AF09750DAD00FB76DF /* DBData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6335AD09750DAD00FB76DF /* DBData.m */; };
 		9D68AF5408EA1569002C7AB0 /* NSDate+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D68AF5208EA1569002C7AB0 /* NSDate+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D68AF5508EA1569002C7AB0 /* NSDate+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68AF5308EA1569002C7AB0 /* NSDate+Dubrovnik.m */; };
 		9D69DC4308B1851E008BB787 /* DBManagedEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D69DC4108B1851E008BB787 /* DBManagedEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D69DC4408B1851E008BB787 /* DBManagedEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D69DC4208B1851E008BB787 /* DBManagedEnvironment.m */; };
-		9D8863490974F55500365976 /* DBManagedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863470974F55500365976 /* DBManagedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D88634A0974F55500365976 /* DBManagedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8863480974F55500365976 /* DBManagedString.m */; };
+		9D8863490974F55500365976 /* DBString.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863470974F55500365976 /* DBString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88634A0974F55500365976 /* DBString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8863480974F55500365976 /* DBString.m */; };
 		9D88636A0974F59A00365976 /* DBWrappers.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863680974F59A00365976 /* DBWrappers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D8BE9670886152500D019A5 /* NSCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE9660886152500D019A5 /* NSCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D8BE971088615D200D019A5 /* DBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE970088615D200D019A5 /* DBUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,8 +34,8 @@
 		9DF2367B0874E3CC008A199C /* NSData+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF236790874E3CC008A199C /* NSData+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DF2367C0874E3CC008A199C /* NSData+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2367A0874E3CC008A199C /* NSData+Dubrovnik.m */; };
 		AB00206417C654AC00178AFC /* Debug in Copy Managed Binaries */ = {isa = PBXBuildFile; fileRef = AB00206217C6549E00178AFC /* Debug */; };
-		AB120DA518BB47F300461FA2 /* DBManagedNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = AB120DA318BB47F300461FA2 /* DBManagedNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB120DA618BB47F300461FA2 /* DBManagedNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = AB120DA418BB47F300461FA2 /* DBManagedNumber.m */; };
+		AB120DA518BB47F300461FA2 /* DBNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = AB120DA318BB47F300461FA2 /* DBNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB120DA618BB47F300461FA2 /* DBNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = AB120DA418BB47F300461FA2 /* DBNumber.m */; };
 		AB178068199B80DD005DC8BC /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB178067199B80DD005DC8BC /* Mono.System.Core.framework */; };
 		AB17806A199B8122005DC8BC /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB178069199B8122005DC8BC /* Mono.mscorlib.framework */; };
 		AB17806C199B8161005DC8BC /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB17806B199B8161005DC8BC /* Mono.System.framework */; };
@@ -152,14 +152,14 @@
 		9D13A6EC08833E74008ACA37 /* DBBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBBoxing.h; sourceTree = "<group>"; };
 		9D496B2D09082F6700CD26AF /* NSImage+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Dubrovnik.h"; sourceTree = "<group>"; };
 		9D496B2E09082F6700CD26AF /* NSImage+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Dubrovnik.m"; sourceTree = "<group>"; };
-		9D6335AC09750DAD00FB76DF /* DBManagedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedData.h; sourceTree = "<group>"; };
-		9D6335AD09750DAD00FB76DF /* DBManagedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedData.m; sourceTree = "<group>"; };
+		9D6335AC09750DAD00FB76DF /* DBData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBData.h; sourceTree = "<group>"; };
+		9D6335AD09750DAD00FB76DF /* DBData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBData.m; sourceTree = "<group>"; };
 		9D68AF5208EA1569002C7AB0 /* NSDate+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Dubrovnik.h"; sourceTree = "<group>"; };
 		9D68AF5308EA1569002C7AB0 /* NSDate+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Dubrovnik.m"; sourceTree = "<group>"; };
 		9D69DC4108B1851E008BB787 /* DBManagedEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedEnvironment.h; sourceTree = "<group>"; };
 		9D69DC4208B1851E008BB787 /* DBManagedEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedEnvironment.m; sourceTree = "<group>"; };
-		9D8863470974F55500365976 /* DBManagedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedString.h; sourceTree = "<group>"; };
-		9D8863480974F55500365976 /* DBManagedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedString.m; sourceTree = "<group>"; };
+		9D8863470974F55500365976 /* DBString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBString.h; sourceTree = "<group>"; };
+		9D8863480974F55500365976 /* DBString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBString.m; sourceTree = "<group>"; };
 		9D8863680974F59A00365976 /* DBWrappers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWrappers.h; sourceTree = "<group>"; };
 		9D8BE9660886152500D019A5 /* NSCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCategories.h; sourceTree = "<group>"; };
 		9D8BE970088615D200D019A5 /* DBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUtility.h; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 		9DF236790874E3CC008A199C /* NSData+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Dubrovnik.h"; sourceTree = "<group>"; };
 		9DF2367A0874E3CC008A199C /* NSData+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB00206217C6549E00178AFC /* Debug */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Debug; path = ../../dotNET/FrameworkHelper/Dubrovnik.FrameworkHelper/bin/Debug; sourceTree = "<group>"; };
-		AB120DA318BB47F300461FA2 /* DBManagedNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedNumber.h; sourceTree = "<group>"; };
-		AB120DA418BB47F300461FA2 /* DBManagedNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedNumber.m; sourceTree = "<group>"; };
+		AB120DA318BB47F300461FA2 /* DBNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNumber.h; sourceTree = "<group>"; };
+		AB120DA418BB47F300461FA2 /* DBNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNumber.m; sourceTree = "<group>"; };
 		AB178067199B80DD005DC8BC /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.System.Core.framework"; sourceTree = "<group>"; };
 		AB178069199B8122005DC8BC /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
 		AB17806B199B8161005DC8BC /* Mono.System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.System.framework"; sourceTree = "<group>"; };
@@ -435,12 +435,12 @@
 			isa = PBXGroup;
 			children = (
 				9D8863680974F59A00365976 /* DBWrappers.h */,
-				9D8863470974F55500365976 /* DBManagedString.h */,
-				9D8863480974F55500365976 /* DBManagedString.m */,
-				9D6335AC09750DAD00FB76DF /* DBManagedData.h */,
-				9D6335AD09750DAD00FB76DF /* DBManagedData.m */,
-				AB120DA318BB47F300461FA2 /* DBManagedNumber.h */,
-				AB120DA418BB47F300461FA2 /* DBManagedNumber.m */,
+				9D8863470974F55500365976 /* DBString.h */,
+				9D8863480974F55500365976 /* DBString.m */,
+				9D6335AC09750DAD00FB76DF /* DBData.h */,
+				9D6335AD09750DAD00FB76DF /* DBData.m */,
+				AB120DA318BB47F300461FA2 /* DBNumber.h */,
+				AB120DA418BB47F300461FA2 /* DBNumber.m */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -690,7 +690,7 @@
 				ABB8A3DE18FF0F4400213B80 /* NSString+Dubrovnik.h in Headers */,
 				AB91B69718EE03A00021B462 /* DBManagedEvent.h in Headers */,
 				AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */,
-				AB120DA518BB47F300461FA2 /* DBManagedNumber.h in Headers */,
+				AB120DA518BB47F300461FA2 /* DBNumber.h in Headers */,
 				9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */,
 				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
@@ -707,9 +707,9 @@
 				9D69DC4308B1851E008BB787 /* DBManagedEnvironment.h in Headers */,
 				9D68AF5408EA1569002C7AB0 /* NSDate+Dubrovnik.h in Headers */,
 				9D496B2F09082F6700CD26AF /* NSImage+Dubrovnik.h in Headers */,
-				9D8863490974F55500365976 /* DBManagedString.h in Headers */,
+				9D8863490974F55500365976 /* DBString.h in Headers */,
 				9D88636A0974F59A00365976 /* DBWrappers.h in Headers */,
-				9D6335AE09750DAD00FB76DF /* DBManagedData.h in Headers */,
+				9D6335AE09750DAD00FB76DF /* DBData.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +839,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB120DA618BB47F300461FA2 /* DBManagedNumber.m in Sources */,
+				AB120DA618BB47F300461FA2 /* DBNumber.m in Sources */,
 				AB91B69818EE03A00021B462 /* DBManagedEvent.m in Sources */,
 				93365A8E0872370700EC726F /* DBManagedClass.m in Sources */,
 				93365A900872370700EC726F /* DBManagedObject.m in Sources */,
@@ -851,9 +851,9 @@
 				9D68AF5508EA1569002C7AB0 /* NSDate+Dubrovnik.m in Sources */,
 				ABB8A3DF18FF0F4400213B80 /* NSString+Dubrovnik.m in Sources */,
 				9D496B3009082F6700CD26AF /* NSImage+Dubrovnik.m in Sources */,
-				9D88634A0974F55500365976 /* DBManagedString.m in Sources */,
+				9D88634A0974F55500365976 /* DBString.m in Sources */,
 				ABCF4AB9199ABD44009BE714 /* DBManagedApplication.m in Sources */,
-				9D6335AF09750DAD00FB76DF /* DBManagedData.m in Sources */,
+				9D6335AF09750DAD00FB76DF /* DBData.m in Sources */,
 				AB49E431178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m in Sources */,
 				AB49E435178ABAAE00D01244 /* NSNumber+Dubrovnik.m in Sources */,
 				ABF43FB9179FF4FC00BAB99E /* DBManagedMethod.m in Sources */,

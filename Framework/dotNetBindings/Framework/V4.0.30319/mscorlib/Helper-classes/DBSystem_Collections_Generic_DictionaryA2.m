@@ -91,7 +91,7 @@
         containsKey = DB_UNBOX_BOOLEAN(monoObject);
     } else {
         if ([key isKindOfClass:[NSNumber class]]) {
-            [NSException raise:@"Invalid numeric key object" format:@"%@ numeric key %@ (%@) must be a subclass of NSNumber that responds to -monoObject and -monoValue. Dubrovnik provides DBManagedNumber for just this purpose.", [self class], key, [key class]];
+            [NSException raise:@"Invalid numeric key object" format:@"%@ numeric key %@ (%@) must be a subclass of NSNumber that responds to -monoObject and -monoValue. Dubrovnik provides DBNumber for just this purpose.", [self class], key, [key class]];
             
         } else {
             [NSException raise:@"Invalid key object" format:@"%@ Key %@ (%@) must respond to -monoObject and -monoValue.", [self class], key, [key class]];

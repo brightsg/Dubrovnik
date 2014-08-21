@@ -10,7 +10,7 @@
 #import "DBTypeManager.h"
 #import "DBInvoke.h"
 #import "DBBoxing.h"
-#import "DBManagedNumber.h"
+#import "DBNumber.h"
 
 @implementation NSNumber (Dubrovnik)
 
@@ -19,7 +19,7 @@
  Note: We do not define -monoObject and -MonoValue methods for good reason ie:
  we cannot rely on -objCType to accurately report the type used for initialisation.
  
- Use DBManagedNumber explicitly.
+ Use DBNumber explicitly.
  
  */
 #pragma mark -
@@ -38,76 +38,76 @@
 }
 
 #pragma mark -
-#pragma mark - DBManagedNumber creation
+#pragma mark - DBNumber creation
 
-- (DBManagedNumber *)managedNumberFromCharValue
+- (DBNumber *)managedNumberFromCharValue
 {
-    return [DBManagedNumber managedNumberWithChar:[self charValue]];
+    return [DBNumber managedNumberWithChar:[self charValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromUnsignedCharValue
+- (DBNumber *)managedNumberFromUnsignedCharValue
 {
-    return [DBManagedNumber managedNumberWithUnsignedChar:[self unsignedCharValue]];
+    return [DBNumber managedNumberWithUnsignedChar:[self unsignedCharValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromShortValue
+- (DBNumber *)managedNumberFromShortValue
 {
-    return [DBManagedNumber managedNumberWithShort:[self shortValue]];
+    return [DBNumber managedNumberWithShort:[self shortValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromUnsignedShortValue
+- (DBNumber *)managedNumberFromUnsignedShortValue
 {
-    return [DBManagedNumber managedNumberWithUnsignedShort:[self unsignedShortValue]];
+    return [DBNumber managedNumberWithUnsignedShort:[self unsignedShortValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromIntValue
+- (DBNumber *)managedNumberFromIntValue
 {
-    return [DBManagedNumber managedNumberWithInt:[self intValue]];
+    return [DBNumber managedNumberWithInt:[self intValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromUnsignedIntValue
+- (DBNumber *)managedNumberFromUnsignedIntValue
 {
-    return [DBManagedNumber managedNumberWithUnsignedInt:[self unsignedIntValue]];
+    return [DBNumber managedNumberWithUnsignedInt:[self unsignedIntValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromLongValue
+- (DBNumber *)managedNumberFromLongValue
 {
-    return [DBManagedNumber managedNumberWithLong:[self longValue]];
+    return [DBNumber managedNumberWithLong:[self longValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromUnsignedLongValue
+- (DBNumber *)managedNumberFromUnsignedLongValue
 {
-    return [DBManagedNumber managedNumberWithUnsignedLong:[self unsignedLongValue]];
+    return [DBNumber managedNumberWithUnsignedLong:[self unsignedLongValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromLongLongValue
+- (DBNumber *)managedNumberFromLongLongValue
 {
-    return [DBManagedNumber managedNumberWithLongLong:[self longLongValue]];
+    return [DBNumber managedNumberWithLongLong:[self longLongValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromUnsignedLongLongValue
+- (DBNumber *)managedNumberFromUnsignedLongLongValue
 {
-    return [DBManagedNumber managedNumberWithUnsignedLongLong:[self unsignedLongLongValue]];
+    return [DBNumber managedNumberWithUnsignedLongLong:[self unsignedLongLongValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromFloatValue
+- (DBNumber *)managedNumberFromFloatValue
 {
-    return [DBManagedNumber managedNumberWithFloat:[self floatValue]];
+    return [DBNumber managedNumberWithFloat:[self floatValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromDoubleValue
+- (DBNumber *)managedNumberFromDoubleValue
 {
-    return [DBManagedNumber managedNumberWithDouble:[self doubleValue]];
+    return [DBNumber managedNumberWithDouble:[self doubleValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromIntegerValue
+- (DBNumber *)managedNumberFromIntegerValue
 {
-    return [DBManagedNumber managedNumberWithInteger:[self integerValue]];
+    return [DBNumber managedNumberWithInteger:[self integerValue]];
 }
 
-- (DBManagedNumber *)managedNumberFromUnsignedIntegerValue
+- (DBNumber *)managedNumberFromUnsignedIntegerValue
 {
-    return [DBManagedNumber managedNumberWithUnsignedInteger:[self unsignedIntegerValue]];
+    return [DBNumber managedNumberWithUnsignedInteger:[self unsignedIntegerValue]];
 }
 
 @end

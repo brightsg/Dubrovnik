@@ -20,19 +20,19 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import "NSString+Dubrovnik.h"
-#import "DBManagedString.h"
+#import "DBString.h"
 
 @implementation NSString (Dubrovnik)
 
 + (id)stringWithMonoString:(MonoString *)monoString {
-	DBManagedString *wrappedString = [[DBManagedString alloc] initWithMonoString:monoString];
+	DBString *wrappedString = [[DBString alloc] initWithMonoString:monoString];
 	
 	return(wrappedString);
 }
 
 - (id)initWithMonoString:(MonoString *)monoString {
 	if(self) {
-		self = [[DBManagedString alloc] initWithMonoString:monoString];
+		self = [[DBString alloc] initWithMonoString:monoString];
 	}
 	
 	return(self);
@@ -42,7 +42,7 @@
 
 // This method is here so that we can get NSStrings right out of ILists and Arrays
 + (id)objectWithMonoObject:(MonoString *)monoString {
-	DBManagedString *wrappedString = [[DBManagedString alloc] initWithMonoString:monoString];
+	DBString *wrappedString = [[DBString alloc] initWithMonoString:monoString];
 	
 	return(wrappedString);	
 }

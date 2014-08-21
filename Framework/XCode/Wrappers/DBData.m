@@ -1,5 +1,5 @@
 //
-//  DBManagedData.m
+//  DBData.m
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 1/11/06.
@@ -21,15 +21,15 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBManagedData.h"
+#import "DBData.h"
 
-@interface DBManagedData()
+@interface DBData()
 @property (assign) int32_t gcHandle;
 @property (assign) uintptr_t dataLength;
 @property (assign) const void *dataBytes;
 @end
 
-@implementation DBManagedData
+@implementation DBData
 
 - (id)initWithMonoArray:(MonoArray *)monoArray {
 	self = [super init];
@@ -73,13 +73,13 @@
 #pragma mark Other Overrides
 
 - (id)copy {
-	DBManagedData *copy = [[DBManagedData alloc] initWithMonoArray:self.representedMonoArray];
+	DBData *copy = [[DBData alloc] initWithMonoArray:self.representedMonoArray];
 	
 	return(copy);
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-	DBManagedData *copy = [[DBManagedData allocWithZone:zone] initWithMonoArray:self.representedMonoArray];
+	DBData *copy = [[DBData allocWithZone:zone] initWithMonoArray:self.representedMonoArray];
 	
 	return(copy);
 }

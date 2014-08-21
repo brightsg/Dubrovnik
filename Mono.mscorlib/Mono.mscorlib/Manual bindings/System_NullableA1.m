@@ -138,7 +138,7 @@
     // it would be best to defer this method to DBTypeManager
     
     // NOTE: the desired typename is expicitly passed.
-    // if DBManagedNumber is passed then the type can be accurately
+    // if DBNumber is passed then the type can be accurately
     // obtained from -monoObjCType
     
     // A MonoObject representation of a nullable object is simply

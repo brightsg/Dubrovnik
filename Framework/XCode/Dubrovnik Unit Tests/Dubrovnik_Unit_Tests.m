@@ -180,37 +180,37 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)testNumberRepresentation
 {
     // test
-    DBManagedNumber *n1 = [@((int)1) managedNumberFromIntValue];
+    DBNumber *n1 = [@((int)1) managedNumberFromIntValue];
     STAssertTrue(*(int *)[n1 valuePointer] == 1, DBUEqualityTestFailed);
     STAssertTrue([n1 valuePointer] == [n1 valuePointer], DBUEqualityTestFailed);
     STAssertTrue(*(int *)[n1 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
     // basic equality
-    DBManagedNumber *n2 = [DBManagedNumber managedNumberWithInt:1];
+    DBNumber *n2 = [DBNumber managedNumberWithInt:1];
     STAssertTrue(*(int *)[n2 valuePointer] == 1, DBUEqualityTestFailed);
     STAssertTrue(*(int *)[n2 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
     // create int from MonoObject
     int intValue = 10289;
-    DBManagedNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
+    DBNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
     STAssertTrue(strcmp([nInt objCType], @encode(int)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(int *)[nInt valuePointer] == intValue, DBUEqualityTestFailed);
     
     // create long long from MonoObject
     long long longLongValue = LONG_LONG_MAX;
-    DBManagedNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
+    DBNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
     STAssertTrue(strcmp([nLongLong objCType], @encode(long long)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(long long *)[nLongLong valuePointer] == longLongValue, DBUEqualityTestFailed);
 
     // create double from MonoObject
     double doubleValue = 13245456.;
-    DBManagedNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
+    DBNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
     STAssertTrue(strcmp([nDouble objCType], @encode(double)) == 0, DBUEqualityTestFailed);
     STAssertTrue(*(double *)[nDouble valuePointer] == doubleValue, DBUEqualityTestFailed);
     
-    // test DBManagedNumber
-    DBManagedNumber *dn = [[DBManagedNumber alloc] initWithInt:100];
-    DBManagedNumber *dn1 = [DBManagedNumber managedNumberWithInt:100];
+    // test DBNumber
+    DBNumber *dn = [[DBNumber alloc] initWithInt:100];
+    DBNumber *dn1 = [DBNumber managedNumberWithInt:100];
     STAssertTrue([[dn stringValue] isEqualToString:@"100"], DBUEqualityTestFailed);
     
     // test NSNumber methods
@@ -221,36 +221,36 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertNotNil([dn descriptionWithLocale:nil], DBUNotNilTestFailed);
     
     // test encoding
-    STAssertTrue([@([[DBManagedNumber managedNumberWithBool:YES] monoObjCType]) isEqualToString:@(@encode(BOOL))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithChar:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedChar:1] monoObjCType]) isEqualToString:@(@encode(unsigned char))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithShort:1] monoObjCType]) isEqualToString:@(@encode(short))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedShort:1] monoObjCType]) isEqualToString:@(@encode(unsigned short))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithInt:1] monoObjCType]) isEqualToString:@(@encode(int))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedInt:1] monoObjCType]) isEqualToString:@(@encode(unsigned int))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithLong:1] monoObjCType]) isEqualToString:@(@encode(long))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithLongLong:1] monoObjCType]) isEqualToString:@(@encode(long long))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedLongLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long long))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithFloat:1] monoObjCType]) isEqualToString:@(@encode(float))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithDouble:1] monoObjCType]) isEqualToString:@(@encode(double))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithInteger:1] monoObjCType]) isEqualToString:@(@encode(NSInteger))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBManagedNumber managedNumberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(NSUInteger))], DBUEqualityTestFailed);
-    STAssertFalse([@([[DBManagedNumber managedNumberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUDesignedToFailTestPassed);
+    STAssertTrue([@([[DBNumber managedNumberWithBool:YES] monoObjCType]) isEqualToString:@(@encode(BOOL))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithChar:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithUnsignedChar:1] monoObjCType]) isEqualToString:@(@encode(unsigned char))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithShort:1] monoObjCType]) isEqualToString:@(@encode(short))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithUnsignedShort:1] monoObjCType]) isEqualToString:@(@encode(unsigned short))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithInt:1] monoObjCType]) isEqualToString:@(@encode(int))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithUnsignedInt:1] monoObjCType]) isEqualToString:@(@encode(unsigned int))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithLong:1] monoObjCType]) isEqualToString:@(@encode(long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithUnsignedLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithLongLong:1] monoObjCType]) isEqualToString:@(@encode(long long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithUnsignedLongLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long long))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithFloat:1] monoObjCType]) isEqualToString:@(@encode(float))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithDouble:1] monoObjCType]) isEqualToString:@(@encode(double))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithInteger:1] monoObjCType]) isEqualToString:@(@encode(NSInteger))], DBUEqualityTestFailed);
+    STAssertTrue([@([[DBNumber managedNumberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(NSUInteger))], DBUEqualityTestFailed);
+    STAssertFalse([@([[DBNumber managedNumberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUDesignedToFailTestPassed);
     
     // test setCompareEnforcesTypeMatch
-    DBManagedNumber *typeMatchIntN = [@55 managedNumberFromIntValue];
-    DBManagedNumber *typeMatchLongN = [@55 managedNumberFromLongValue];
-    DBManagedNumber *typeMatchFloatN = [@55 managedNumberFromFloatValue];
+    DBNumber *typeMatchIntN = [@55 managedNumberFromIntValue];
+    DBNumber *typeMatchLongN = [@55 managedNumberFromLongValue];
+    DBNumber *typeMatchFloatN = [@55 managedNumberFromFloatValue];
     
-    DBManagedNumber *typeMatchDoubleN = [@55 managedNumberFromDoubleValue];
+    DBNumber *typeMatchDoubleN = [@55 managedNumberFromDoubleValue];
     
     // test default behaviour with NSNumber
     STAssertTrue([typeMatchIntN isEqual:@55.], DBUEqualityTestFailed);
     STAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
     STAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
 
-    // test default behaviour with DBManagedNumber
+    // test default behaviour with DBNumber
     STAssertTrue([typeMatchIntN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
     STAssertTrue([typeMatchLongN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
     STAssertTrue([typeMatchFloatN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
@@ -265,12 +265,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
     STAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
     
-    // DBManagedNumber should fail to match instance initialised with another type
+    // DBNumber should fail to match instance initialised with another type
     STAssertFalse([typeMatchIntN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
     STAssertFalse([typeMatchLongN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
     STAssertFalse([typeMatchFloatN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
     
-    // DBManagedNumber should match instance initialised with matching type
+    // DBNumber should match instance initialised with matching type
     STAssertTrue([typeMatchIntN isEqual:[@55 managedNumberFromIntValue]], DBUEqualityTestFailed);
     STAssertTrue([typeMatchLongN isEqual:[@55 managedNumberFromLongValue]], DBUEqualityTestFailed);
     STAssertTrue([typeMatchFloatN isEqual:[@55 managedNumberFromFloatValue]], DBUEqualityTestFailed);
@@ -280,7 +280,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)testStringRepresentation
 {
     NSString *string1 = @"I am the test string";
-    DBManagedString *string2 = [DBManagedString objectWithMonoObject:[string1 monoString]];
+    DBString *string2 = [DBString objectWithMonoObject:[string1 monoString]];
     STAssertTrue([string1 isEqualToString:string2], DBUEqualityTestFailed);
     
     // create string from mono object
@@ -577,7 +577,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSArray *revList = [list array];
     NSAssert([revList[0] isEqualToString:@"2"], DBUEqualityTestFailed);
     NSAssert([revList[1] isEqualToString:@"1"], DBUEqualityTestFailed);
-    [DBManagedNumber managedNumberWithInt: (1) ];
+    [DBNumber managedNumberWithInt: (1) ];
 
     // this should fail
     BOOL reverseInListException = NO;
@@ -983,8 +983,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [intIntDictA2 objectForKey:[DBManagedObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
-    // key is a DBManagedNumber representing an int
-    value = [intIntDictA2 objectForKey:[DBManagedNumber numberWithInt:intKey]];
+    // key is a DBNumber representing an int
+    value = [intIntDictA2 objectForKey:[DBNumber numberWithInt:intKey]];
     STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
 
     // object for key requires a type that represnts a mono type
@@ -1080,7 +1080,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue([objectObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
     STAssertTrue([objectObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
     STAssertTrue([objectObjectDictKeys containsObject:@1], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictKeys containsObject:[DBManagedNumber numberWithFloat:1]], DBUObjectNotFound);
+    STAssertTrue([objectObjectDictKeys containsObject:[DBNumber numberWithFloat:1]], DBUObjectNotFound);
     
     // test all values
     NSArray *objectObjectDictValues = [objectObjectDictA2 allValues];
@@ -1123,13 +1123,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // these are subtle tests that indicate that Dictionary<K,V> keys are type sensitive.
     // managed int 1 and float 1 are different keys.
-    // to access a key which has a type duplicate in an NSDictionary use a DBManagedNumber as shown.
+    // to access a key which has a type duplicate in an NSDictionary use a DBNumber as shown.
     
     // NSNumber access will fail
     value = [objectObjectDict objectForKey:@1];
     STAssertNil(value, DBUNilTestFailed);
 
-    DBManagedNumber *managedKey = [@1 managedNumberFromIntValue];
+    DBNumber *managedKey = [@1 managedNumberFromIntValue];
     [managedKey setCompareEnforcesTypeMatch];
     
     value = [objectObjectDict objectForKey:managedKey];

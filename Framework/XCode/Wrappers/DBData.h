@@ -1,5 +1,5 @@
 //
-//  DBManagedData.h
+//  DBData.h
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 1/11/06.
@@ -24,7 +24,7 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@interface DBManagedData : NSData
+@interface DBData : NSData
 
 - (id)initWithMonoArray:(MonoArray *)monoArray;
 

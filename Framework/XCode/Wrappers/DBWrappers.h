@@ -21,6 +21,6 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBManagedData.h"
-#import "DBManagedString.h"
-#import "DBManagedNumber.h"
+#import "DBData.h"
+#import "DBString.h"
+#import "DBNumber.h"

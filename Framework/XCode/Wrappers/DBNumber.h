@@ -1,5 +1,5 @@
 //
-//  DBManagedNumber.h
+//  DBNumber.h
 //  Dubrovnik
 //
 //  Created by Jonathan Mitchell on 24/02/2014.
@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-#define DBNumInt(X) [DBManagedNumber managedNumberWithInt: (X) ]
+#define DBNumInt(X) [DBNumber managedNumberWithInt: (X) ]
 
-@interface DBManagedNumber : NSNumber
+@interface DBNumber : NSNumber
 
 /*!
  
