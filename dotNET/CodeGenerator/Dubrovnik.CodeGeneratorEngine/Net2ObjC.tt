@@ -840,9 +840,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			{
 				monoParameterTypeInvoke += "[]";
             }
-			if (monoParameterTypeInvoke == null) {
-				int b = 0;
-            }
+			
 			// in order for the C api to substitute the correct type at run time
 			// the generic parameter position needs to be indicated.
 			monoParameterTypeInvoke = string.Format(monoParameterTypeInvoke, parameter.GenericParameterPosition);
