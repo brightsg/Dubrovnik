@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
+#define DBNumInt(X) [DBManagedNumber managedNumberWithInt: (X) ]
+
 @interface DBManagedNumber : NSNumber
 
 /*!

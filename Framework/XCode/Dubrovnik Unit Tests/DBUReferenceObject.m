@@ -688,12 +688,19 @@
 }
 
 #pragma mark -
-#pragma mark Generic parameter methods
+#pragma mark Generic argument methods
 
 - (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoValue]];
     return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1
+{
+    MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoValue]];
+    
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

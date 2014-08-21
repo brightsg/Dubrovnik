@@ -142,8 +142,9 @@
 - (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2;
 - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 
-// generic parameter methods
+// generic argument methods
 - (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1;
+- (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 // string property implementation
 @property (retain, nonatomic) NSString *stringProperty;

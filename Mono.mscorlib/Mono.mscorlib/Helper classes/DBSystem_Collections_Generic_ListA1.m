@@ -47,6 +47,9 @@
         DBManagedObject *managedObject = object;
         
         if (![object isKindOfClass:[DBManagedObject class]]) {
+            if (![object respondsToSelector:@selector(managedObject)]) {
+                [NSException raise:@"No managed object representation" format:@"%@ %@ : does not repond to -managedObject", object, [object className]];
+            }
             managedObject = [object managedObject];
         }
         

@@ -570,11 +570,29 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #endif
     
     //
-    // Generic parameter methods
+    // Generic argument methods
     //
     DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
     [refObject reverseList_withList:list];
+    NSArray *revList = [list array];
+    NSAssert([revList[0] isEqualToString:@"2"], DBUEqualityTestFailed);
+    NSAssert([revList[1] isEqualToString:@"1"], DBUEqualityTestFailed);
+    [DBManagedNumber managedNumberWithInt: (1) ];
 
+    // this should fail
+    BOOL reverseInListException = NO;
+    @try {
+        DBSystem_Collections_Generic_ListA1 *intList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
+        [refObject reverseList_withList:intList];
+    } @catch (NSException *e) {
+        reverseInListException = YES;
+    }
+    NSAssert(reverseInListException, DBUEqualityTestFailed);
+    
+    DBSystem_Collections_Generic_ListA1 *list1 = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
+    NSString *addList = [refObject addIEnumerable_withList:(id)list1];
+    NSAssert([addList isEqualToString:@"12"], DBUEqualityTestFailed);
+    
     //
     // static methods
     //
