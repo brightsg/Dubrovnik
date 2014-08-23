@@ -15,11 +15,9 @@
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
                               eventName:(NSString *)eventName
 {
-    [DBManagedEvent addHandlerForObject:managedObject
-                              eventName:eventName
-                      handlerMethodName:eventName
-                                 target:self
-                                options:nil];
+    [self addManagedEventHandlerForObject:managedObject
+                                eventName:eventName
+                        handlerMethodName:eventName];
 }
 
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
@@ -34,12 +32,24 @@
 }
 
 - (void)removeManagedEventHandlerForObject:(DBManagedObject *)managedObject
+                                 eventName:(NSString *)eventName
+{
+    [self removeManagedEventHandlerForObject:managedObject
+                                   eventName:eventName
+                           handlerMethodName:eventName];
+}
+
+- (void)removeManagedEventHandlerForObject:(DBManagedObject *)managedObject
                               eventName:(NSString *)eventName
                       handlerMethodName:(NSString *)handlerMethodName
 {
     // TODO: it would be prefereable if the handlerMethodName was keyed by the managedObject + eventName
     // so that the event could be removed without having to refer to the handler name
-    [DBManagedEvent removeHandlerForObject:managedObject eventName:eventName handlerMethodName:handlerMethodName];
+    [DBManagedEvent removeHandlerForObject:managedObject
+                                 eventName:eventName
+                         handlerMethodName:handlerMethodName
+                                    target:self
+                                   options:nil];
 }
 
 @end

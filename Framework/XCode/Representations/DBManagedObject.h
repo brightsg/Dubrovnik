@@ -24,6 +24,12 @@ extern char DBCacheSuffixChar;
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
+typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
+{
+    DBCacheHasMonoObject = 0x01 << 0,
+    DBCacheHasInstance = 0x01 << 1,
+};
+
 @class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
 
 @interface DBManagedObject : NSObject <NSCopying>
@@ -31,6 +37,13 @@ extern char DBCacheSuffixChar;
 // Mono support properties
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
+
+/*!
+ 
+ If YES then -isEquals includes test for managed object equality if available.
+ 
+ */
+@property (assign) BOOL testForManagedObjectEquality;
 
 // Event support properties
 @property (strong, nonatomic) NSMutableDictionary *managedEventMap;

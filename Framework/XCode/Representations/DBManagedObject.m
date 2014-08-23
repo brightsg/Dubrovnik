@@ -172,12 +172,13 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // establish behaviour defaults
     BOOL useCachedInstance = YES;
     BOOL addNewInstanceToCache = YES;
+    DBManagedInstanceInfo info = 0;
     
     if (useCachedInstance) {
         // get cached instance.
         // this is essential to avoid generating multiple unmanaged wrappers
         // for a given managed object
-        id object = [self cachedInstanceForMonoObject:monoObject];
+        id object = [self cachedInstanceForMonoObject:monoObject info:&info];
         if (object) {
             self = object;
             return self;
@@ -191,7 +192,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 		
 		if (monoObject != NULL) {
             self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
-            [self setupTypeInstance];
+            [self setupTypeInstance:info];
         } else {
 			self = nil;
 		}
@@ -246,10 +247,10 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return m_instanceCache;
 }
 
-- (id)cachedInstanceForMonoObject:(MonoObject *)monoObject
+- (id)cachedInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
 {
     // TODO: increase efficiency here by keying by class name.
-    // don't forget to seach up class hierarchy.
+    // don't forget to search up class hierarchy.
     
     // get cached instance
     // a linear search is required as the value of monoObject can change
@@ -258,7 +259,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     for (DBManagedObject *object in [self instanceCache]) {
         if (object.monoObject == monoObject) {
             
+            *info |= DBCacheHasMonoObject;
+            
+            // managed monoObject may be wrapped by more than one unmanaged instance.
+            // so we look for a class match.
             if ([object isKindOfClass:[self class]]) {
+                
+                *info |= DBCacheHasInstance;
+
                 return object;
             }
         }
@@ -280,7 +288,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return ![self isValueType];
 }
 
-- (void)setupTypeInstance
+- (void)setupTypeInstance:(DBManagedInstanceInfo)info
 {
     // TODO: test the managed type to determine if type is a generic
     BOOL isGenericType = YES;
@@ -303,19 +311,23 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         }
     }
 
+    self.testForManagedObjectEquality = YES;
+    
     if ([self isValueType]) {
-        [self setupValueTypeInstance];
+        [self setupValueTypeInstance:info];
     } else {
-        [self setupReferenceTypeInstance];
+        [self setupReferenceTypeInstance:info];
     }
 }
 
-- (void)setupValueTypeInstance
+- (void)setupValueTypeInstance:(DBManagedInstanceInfo)info
 {
+#pragma unused(info)
+    
     // stub only
 }
 
-- (void)setupReferenceTypeInstance
+- (void)setupReferenceTypeInstance:(DBManagedInstanceInfo)info
 {
     // register unmanaged handlers for managed events.
     // we don't do this in +initialize as it raises.
@@ -330,7 +342,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     
     // Note that we we need to remain aware of what happens when more than one instance of
     // this class references a given MonoObject
-    BOOL automaticallyNotifyObservers = YES;
+    BOOL automaticallyNotifyObservers = (info & DBCacheHasMonoObject) == 0;
     
     if (automaticallyNotifyObservers) {
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
@@ -454,13 +466,21 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
             return YES;
         }
         
-        // check for object equality
-        // if the subclass implements equals_withObj then use it
-        if ([self respondsToSelector:@selector(equals_withObj:)]) {
+        // check for managed object equality if desired.
+        //
+        // when considering objects with regard to their ObjC identity it may be preferable to
+        // forgo the managed object equality testing.
+        // when considering objects with regard to their managed identity it is often desirable
+        // to enforce the managed equality test.
+        //
+        // when testing arrays for unmanaged object membership use -indexOfObjectIdenticalTo: in preference
+        // to containsObject:
+        if ([self respondsToSelector:@selector(equals_withObj:)] && self.testForManagedObjectEquality) {
             if ([(id)self equals_withObj:other]) {
                 return YES;
             }
         }
+
     }
     
     return NO;

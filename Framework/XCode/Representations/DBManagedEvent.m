@@ -10,6 +10,7 @@
 #import "NSObject+DBManagedEvent.h"
 #import "DBManagedObject.h"
 #import "DBTypeManager.h"
+#import "NSPointerArray+Dubrovnik.h"
 
 static NSMutableDictionary *m_senderMap;
 
@@ -103,7 +104,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         [NSException raise:@"Invalid event helper class" format:@"Helper class not available: %@", [self eventHelperClassName]];
     }
 
-#ifdef TRACE
+#ifdef DB_TRACE
     NSLog(@"MonoObject %p", [managedObject monoObject]);
 #endif
     
@@ -118,40 +119,95 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 {
 #pragma unused(options)
     
+    // add sender to collection of event sending objects.
+    // this improves performance when looking up the unmanaged rep of a MonoObject
+    // compared to searching the collection of all managed objects.
+    NSMutableArray *senders = [self sendersForSender:sender eventName:eventName];
+    
+    // test for unmanaged object membership - containsObject: is not appropriate here
+    if ([senders indexOfObjectIdenticalTo:sender] == NSNotFound) {
+        [senders addObject:sender];
+    }
+    
+    // add new target
+    NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
+    [eventTargets addPointer:(__bridge void *)(target)];
+    
+    if (eventTargets.count == 1) {
+        [self configureHandlerForObject:sender eventName:eventName handlerMethodName:handlerMethodName attach:YES];
+    } else {
+#ifdef DB_TRACE
+        NSLog(@"Event has multiple targets : %lu", (unsigned long)eventTargets.count);
+#endif
+    }
+}
+
++ (NSPointerArray *)eventTargetsForSender:(DBManagedObject *)sender
+                           eventName:(NSString *)eventName
+{
+    // get the sender's managed event map
+    NSMutableDictionary *eventMap = [sender managedEventMap];
+    
+    // get targets for event
+    NSPointerArray *eventTargets = eventMap[eventName];
+    if (!eventTargets) {
+        
+        eventTargets = [NSPointerArray weakObjectsPointerArray];    // zeroing weak reference
+        eventMap[eventName] = eventTargets;
+    }
+    
+    return eventTargets;
+}
+
++ (NSMutableArray *)sendersForSender:(DBManagedObject *)sender
+                           eventName:(NSString *)eventName
+{
     NSMutableDictionary *senderMap = [self senderMap];
     
+    // get entry for type and eventname
     NSString *key = [NSString stringWithFormat:@"%s:%@", [sender monoTypeName], eventName];
     NSMutableArray *senders = senderMap[key];
     if (!senders ) {
         senders = [NSMutableArray arrayWithCapacity:5];
         senderMap[key] = senders;
     }
-    [senders addObject:sender];
-    
-    // get the sender's managed event map
-    NSMutableDictionary *eventMap = [sender managedEventMap];
 
-    // get targets for event
-    NSPointerArray *eventTargets = eventMap[eventName];
-    if (!eventTargets) {
-        
-        [self configureHandlerForObject:sender eventName:eventName handlerMethodName:handlerMethodName attach:YES];
-
-        eventTargets = [NSPointerArray weakObjectsPointerArray];    // zeroing weak reference
-        eventMap[eventName] = eventTargets;
-    } else {
-        NSLog(@"Event has more than one target");
-    }
-    
-    // add new target
-    [eventTargets addPointer:(__bridge void *)(target)];
+    return senders;
 }
 
-+ (void)removeHandlerForObject:(DBManagedObject *)managedObject
++ (void)removeHandlerForObject:(DBManagedObject *)sender
                        eventName:(NSString *)eventName
                handlerMethodName:(NSString *)handlerMethodName
+                        target:(id)target
+                       options:(NSDictionary *)options
 {
-    [self configureHandlerForObject:managedObject eventName:eventName handlerMethodName:handlerMethodName attach:NO];
+#pragma unused(options)
+    
+    // remove target for event
+    NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
+    NSUInteger targetIndex = [eventTargets db_indexForObjectPointer:target];
+    
+    if (targetIndex != NSUIntegerMax) {
+        [eventTargets removePointerAtIndex:targetIndex];
+    } else {
+        NSLog(@"Target: %@ not registered with sender : %@ for event : %@", target, sender, eventName);
+    }
+    
+    
+    // remove sender and event handler when all targets removed
+    NSMutableArray *senders = [self sendersForSender:sender eventName:eventName];
+    
+    // test for unmanaged object membership - containsObject: is not appropriate here
+    NSUInteger senderIndex = [senders indexOfObjectIdenticalTo:sender];
+    if (senderIndex != NSNotFound) {
+        
+        if (eventTargets.count == 0) {
+            [self configureHandlerForObject:sender eventName:eventName handlerMethodName:handlerMethodName attach:NO];
+            [senders removeObjectAtIndex:senderIndex];
+        }
+    } else {
+        NSLog(@"Cannot remove event handler for object : %@ for event : %@", sender, eventName);
+    }
 }
 
 + (void)registerManagedEventHandler:(NSString *)managedHandlerName unmanagedHandler:(void *)handlerFunction
@@ -197,7 +253,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // determine if event thread raised on the main thread
     if ([NSThread currentThread] != [NSThread mainThread]) {
         
-#ifdef TRACE
+#ifdef DB_TRACE
         NSLog(@"BACKGROUND thead event");
 #endif
         isBackgroundThreadEvent = YES;

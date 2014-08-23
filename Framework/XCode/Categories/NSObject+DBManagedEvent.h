@@ -21,4 +21,7 @@
 - (void)removeManagedEventHandlerForObject:(DBManagedObject *)managedObject
                                   eventName:(NSString *)eventName
                           handlerMethodName:(NSString *)handlerMethodName;
+
+- (void)removeManagedEventHandlerForObject:(DBManagedObject *)managedObject
+                                 eventName:(NSString *)eventName;
 @end

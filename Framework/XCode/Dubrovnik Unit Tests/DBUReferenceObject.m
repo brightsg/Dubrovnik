@@ -112,6 +112,31 @@
 }
 
 #pragma mark -
+#pragma mark Equality
+
+// Managed method name : Equals
+// Managed return type : System.Boolean
+// Managed param types : System.Object
+- (BOOL)equals_withObj:(System_Object *)p1
+{
+    
+    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+    
+    return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+// Managed method name : GetHashCode
+// Managed return type : System.Int32
+// Managed param types :
+- (int32_t)getHashCode
+{
+    
+    MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+    
+    return DB_UNBOX_INT32(monoObject);
+}
+
+#pragma mark -
 #pragma mark Mono properties
 
 // If the ivar argument maintains a reference to the monoObject argument

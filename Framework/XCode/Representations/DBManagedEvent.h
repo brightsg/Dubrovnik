@@ -69,7 +69,9 @@ do { \
 
 + (void)removeHandlerForObject:(DBManagedObject *)managedObject
                        eventName:(NSString *)eventName
-               handlerMethodName:(NSString *)handlerMethodName;
+             handlerMethodName:(NSString *)handlerMethodName
+                        target:(id)target
+                       options:(NSDictionary *)options;
 
 + (void)registerManagedEventHandler:(NSString *)managedHandlerName unmanagedHandler:(void *)handlerFunction;
 
@@ -83,4 +85,10 @@ do { \
                           eventArgs:(MonoObject *)monoEventArgs
                           eventName:(NSString *)eventName
                  targetSelectorName:(NSString *)targetSelectorName;
+
++ (NSPointerArray *)eventTargetsForSender:(DBManagedObject *)sender
+                                eventName:(NSString *)eventName;
+
++ (NSMutableArray *)sendersForSender:(DBManagedObject *)sender
+                           eventName:(NSString *)eventName;
 @end
