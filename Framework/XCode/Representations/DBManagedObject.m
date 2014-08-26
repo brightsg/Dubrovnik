@@ -249,8 +249,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (id)cachedInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
 {
-    // TODO: increase efficiency here by keying by class name.
-    // don't forget to search up class hierarchy.
+#warning TODO key by mono_object_hash
+    // TODO: increase efficiency here by keying by mono_object_hash and checking for direct equality of monoObject pointer.
     
     // get cached instance
     // a linear search is required as the value of monoObject can change
