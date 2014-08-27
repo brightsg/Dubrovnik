@@ -12,7 +12,7 @@
 #import "NSString+Dubrovnik.h"
 #import "DBInvoke.h"
 
-#define DB_TRACE
+//#define DB_TRACE
 
 @implementation DBManagedApplication
 
