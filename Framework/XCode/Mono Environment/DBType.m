@@ -26,6 +26,13 @@
     return type;
 }
 
++ (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass
+{
+    DBType *type = [[self alloc] initWithName:name alias:alias invoke:invoke id:typeID monoClass:monoClass];
+    
+    return type;
+}
+
 #pragma mark -
 #pragma mark Mono type support
 
@@ -151,15 +158,20 @@
 
 - (id)initWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass
 {
+    return [self initWithName:name alias:alias invoke:nil id:typeID monoClass:monoClass];
+}
+
+- (id)initWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass
+{
     self = [super init];
     if (self) {
         self.name = name;
         self.alias = alias;
+        self.invoke = invoke;
         self.monoClass = monoClass;
         self.typeID = typeID;
     }
     
     return self;
 }
-
 @end

@@ -10,26 +10,26 @@
 #import "DBBoxing.h"
 #import "DBManagedObject.h"
 
-#define DB_INIT_INSTANCE \
+#define DB_INIT_INSTANCE(encoding) \
 self = [super init]; \
-if (self) { self.monoObjCType = @encode(typeof(value)); self.number = @(value);}\
+if (self) { self.monoObjCType = encoding; self.number = @(value);}\
 return self;
 
 
 typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
-    DBNumberTypeBool,
-    DBNumberTypeChar,
-    DBNumberTypeUnsignedChar,
-    DBNumberTypeShort,
-    DBNumberTypeUnsignedShort,
-    DBNumberTypeInt,
-    DBNumberTypeUnsignedInt,
-    DBNumberTypeLong,
-    DBNumberTypeUnsignedLong,
-    DBNumberTypeLongLong,
-    DBNumberTypeUnsignedLongLong,
-    DBNumberTypeFloat,
-    DBNumberTypeDouble,
+    DBNumberTypeBool = 0,
+    DBNumberTypeChar = 1,
+    DBNumberTypeUnsignedChar = 2,
+    DBNumberTypeShort = 3,
+    DBNumberTypeUnsignedShort = 4,
+    DBNumberTypeInt = 5,
+    DBNumberTypeUnsignedInt = 6,
+    DBNumberTypeLong = 7,
+    DBNumberTypeUnsignedLong = 8,
+    DBNumberTypeLongLong = 9,
+    DBNumberTypeUnsignedLongLong = 10,
+    DBNumberTypeFloat = 11,
+    DBNumberTypeDouble = 12,
 };
 
 @interface DBNumber()
@@ -128,21 +128,30 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 + (NSDictionary *)typeIndexDictionary
 {
     static NSDictionary *dict = nil;
-    if (!dict) {
+    if (!dict) {        
         dict = @{
-                   @(@encode(BOOL)): @(DBNumberTypeBool),
-                   @(@encode(char)): @(DBNumberTypeChar),
-                   @(@encode(unsigned char)): @(DBNumberTypeUnsignedChar),
-                   @(@encode(short)): @(DBNumberTypeShort),
-                   @(@encode(unsigned short)): @(DBNumberTypeUnsignedShort),
-                   @(@encode(int)): @(DBNumberTypeInt),
-                   @(@encode(unsigned int)): @(DBNumberTypeUnsignedInt),
-                   @(@encode(long)): @(DBNumberTypeLong),
-                   @(@encode(unsigned long)): @(DBNumberTypeUnsignedLong),
-                   @(@encode(long long)): @(DBNumberTypeLongLong),
-                   @(@encode(unsigned long long)): @(DBNumberTypeUnsignedLongLong),
-                   @(@encode(float)): @(DBNumberTypeFloat),
-                   @(@encode(double)): @(DBNumberTypeDouble),
+                 //@(@encode(BOOL)): @(DBNumberTypeBool),
+                 @"c": @(DBNumberTypeChar),
+                 @"C": @(DBNumberTypeUnsignedChar),
+                 @(@encode(short)): @(DBNumberTypeShort),
+                 @(@encode(unsigned short)): @(DBNumberTypeUnsignedShort),
+                 @(@encode(int)): @(DBNumberTypeInt),
+                 @(@encode(unsigned int)): @(DBNumberTypeUnsignedInt),
+                 
+                 // TODO : revisit this and consider other encoding collisions too
+                 
+                 // @encode(long) and @encode(long long) produce the same result
+                 // http://stackoverflow.com/questions/2467243/ivar-definitions-show-long-type-encoding-as-long-long-type-encoding
+                 // hence
+                 //@(@encode(long)): @(DBNumberTypeLong),
+                 @"1": @(DBNumberTypeLong),
+                 
+                 @(@encode(unsigned long)): @(DBNumberTypeUnsignedLong),
+                 @(@encode(long long)): @(DBNumberTypeLongLong),
+                 @(@encode(unsigned long long)): @(DBNumberTypeUnsignedLongLong),
+                 @(@encode(float)): @(DBNumberTypeFloat),
+                 @(@encode(double)): @(DBNumberTypeDouble),
+
                 };
     }
     return dict;
@@ -253,77 +262,77 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 
 - (id)initWithChar:(char)value
 {
-   DB_INIT_INSTANCE
+   DB_INIT_INSTANCE("c")
 }
 
 - (id)initWithUnsignedChar:(unsigned char)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE("C")
 }
 
 - (id)initWithShort:(short)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithUnsignedShort:(unsigned short)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithInt:(int)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithUnsignedInt:(unsigned int)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithLong:(long)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE("l")
 }
 
 - (id)initWithUnsignedLong:(unsigned long)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithLongLong:(long long)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithUnsignedLongLong:(unsigned long long)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithFloat:(float)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithDouble:(double)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithBool:(BOOL)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithInteger:(NSInteger)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 - (id)initWithUnsignedInteger:(NSUInteger)value
 {
-    DB_INIT_INSTANCE
+    DB_INIT_INSTANCE(@encode(typeof(value)))
 }
 
 #pragma mark -
@@ -508,11 +517,17 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 - (MonoObject *)monoObject
 {
     return self.representedMonoObject;
+    
 }
 
 - (void *)monoValue
 {
     return (void *)[self valuePointer];
+}
+
+- (id)managedObject
+{
+    return [DBManagedObject objectWithMonoObject:self.monoObject];
 }
 
 @dynamic representedMonoObject;

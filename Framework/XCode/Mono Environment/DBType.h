@@ -12,14 +12,17 @@
 
 @property (strong) NSString *name;
 @property (strong) NSString *alias;
+@property (strong) NSString *invoke;
 @property (assign) MonoClass *monoClass;
 @property (assign) NSUInteger typeID;
 
 + (instancetype)typeWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
 + (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass;
++ (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass;
 
 - (id)initWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
 - (id)initWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass;
+- (id)initWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass;
 
 // MonoType methods
 + (NSString *)monoTypeNameForMonoType:(MonoType *)monoType;

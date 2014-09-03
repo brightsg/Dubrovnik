@@ -54,6 +54,11 @@
 - (void)setInt64AtIndex:(int)index value:(int64_t)value;
 - (int32_t)int32AtIndex:(int)index;
 - (void)setInt32AtIndex:(int)index value:(int32_t)value;
+- (float)floatAtIndex:(int)index;
+- (double)doubleAtIndex:(int)index;
+- (int16_t)int16AtIndex:(int)index;
+- (int8_t)int8AtIndex:(int)index;
+- (char)charAtIndex:(int)index;
 
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;

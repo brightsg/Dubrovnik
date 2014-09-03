@@ -24,17 +24,22 @@ NSString * DBAlias_System_String = @"string";
 NSString * DBAlias_System_Boolean = @"bool";
 NSString * DBAlias_System_Byte = @"byte";
 NSString * DBAlias_System_SByte = @"sbyte";
-NSString * DBAlias_System_Int16 = @"short";
-NSString * DBAlias_System_UInt16 = @"ushort";
+NSString * DBAlias_System_Int16 = @"short"; // API method invoke as int16
+NSString * DBAlias_System_UInt16 = @"ushort"; // API method invoke as uint16
 NSString * DBAlias_System_Int32 = @"int";
 NSString * DBAlias_System_UInt32 = @"uint";
-NSString * DBAlias_System_Int64 = @"int64";
-NSString * DBAlias_System_UInt64 = @"uint64";
-NSString * DBAlias_System_Single = @"float";
+NSString * DBAlias_System_Int64 = @"long";
+NSString * DBAlias_System_UInt64 = @"ulong";
+NSString * DBAlias_System_Single = @"float"; // API method single
 NSString * DBAlias_System_Double = @"double";
 NSString * DBAlias_System_Decimal = @"decimal";
 NSString * DBAlias_System_Char = @"char";
 
+/* method invoke */
+// these type names are used only as parameter types in embedded API method signatures
+NSString * DBInvoke_System_Int16 = @"int16";
+NSString * DBInvoke_System_UInt16 = @"uint16";
+NSString * DBInvoke_System_Single = @"single";
 
 /* System types */
 
@@ -47,8 +52,8 @@ NSString * DBType_System_Int16 =  @"System.Int16";
 NSString * DBType_System_UInt16 =  @"System.UInt16";
 NSString * DBType_System_Int32 =  @"System.Int32";
 NSString * DBType_System_UInt32 =  @"System.UInt32";
-NSString * DBType_System_IntPtr =  @"System.IntPtr";
-NSString * DBType_System_UIntPtr =  @"System.UIntPtr";
+NSString * DBType_System_IntPtr =  @"System.IntPtr"; // API method invoke as intptr
+NSString * DBType_System_UIntPtr =  @"System.UIntPtr"; // API method invoke uintptr
 NSString * DBType_System_Int64 =  @"System.Int64";
 NSString * DBType_System_UInt64 =  @"System.UInt64";
 NSString * DBType_System_Single =  @"System.Single";
@@ -137,6 +142,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
         
         [self add:[DBType typeWithName:DBType_System_Int16
                                  alias:DBAlias_System_Int16
+                                invoke:DBInvoke_System_Int16
                                     id:DBTypeID_System_Int16
                              monoClass:mono_get_int16_class()
                    ]
@@ -144,6 +150,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
         
         [self add:[DBType typeWithName:DBType_System_UInt16
                                  alias:DBAlias_System_UInt16
+                                invoke:DBInvoke_System_UInt16
                                     id:DBTypeID_System_UInt16
                              monoClass:mono_get_uint16_class()
                    ]
@@ -179,6 +186,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
         
         [self add:[DBType typeWithName:DBType_System_Single
                                  alias:DBAlias_System_Single
+                                invoke:DBInvoke_System_Single
                                     id:DBTypeID_System_Single
                              monoClass:mono_get_single_class()
                    ]
@@ -255,6 +263,13 @@ NSString * DBType_System_Exception =  @"System.Exception";
 #pragma mark -
 #pragma mark Type support
 
+- (NSString *)invokeForName:(NSString *)name
+{
+    DBType *type = (self.monoTypes)[name];
+    
+    return type.invoke != nil ? type.invoke : type.alias;
+}
+
 - (NSString *)aliasForName:(NSString *)name
 {
     DBType *type = (self.monoTypes)[name];
@@ -288,8 +303,8 @@ NSString * DBType_System_Exception =  @"System.Exception";
     // get type name
     NSString *typeName = [DBType monoTypeNameForMonoType:monoType];
     
-    // substitute with alias if available
-    NSString *alias = [self aliasForName:typeName];
+    // substitute with invoke/alias if available
+    NSString *alias = [self invokeForName:typeName];
     if (alias) {
         typeName = alias;
     }

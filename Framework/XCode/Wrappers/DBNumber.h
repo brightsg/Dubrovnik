@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
+#define DBNumChar(X) [DBNumber numberWithChar:(X)]
+#define DBNumShort(X) [DBNumber numberWithShort:(X)]
 #define DBNumInt(X) [DBNumber numberWithInt:(X)]
+#define DBNumLong(X) [DBNumber numberWithLong:(X)]
+#define DBNumLongLong(X) [DBNumber numberWithLongLong:(X)]
+#define DBNumFloat(X) [DBNumber numberWithFloat:(X)]
+#define DBNumDouble(X) [DBNumber numberWithDouble:(X)]
 
 @interface DBNumber : NSNumber
 
@@ -50,6 +56,8 @@
  */
 - (void *)monoValue;
 - (MonoObject *)monoObject;
+
+- (id)managedObject;
 
 @property (assign, nonatomic, readonly) MonoObject *representedMonoObject;
 @property (assign, nonatomic, readonly) const char *monoObjCType;
