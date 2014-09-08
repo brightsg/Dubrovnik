@@ -75,9 +75,9 @@
         NSString *propertyName = [sender unmanagedPropertyName:[managedPropertyName UTF8String]];
  
 #ifdef DB_TRACE
-        NSLog(@"PropertyChanging event sender : %@ %p MonoObject %p property name: %@", [sender class], sender, sender.monoObject, propertyName);
+        //NSLog(@"PropertyChanging event sender : %@ %p MonoObject %p property name: %@", [sender class], sender, sender.monoObject, propertyName);
         id value = [sender valueForKey:propertyName];
-        NSLog(@"Property value : %@ %p", value, value);
+        NSLog(@"PropertyChanging %@ value : %@ %p", propertyName, value, value);
 #endif
         // raise KVO notifications for the unmanaged property name
         [sender willChangeValueForKey:propertyName];
@@ -105,9 +105,9 @@
         NSString *propertyName = [sender unmanagedPropertyName:[managedPropertyName UTF8String]];
         
 #ifdef DB_TRACE
-        NSLog(@"PropertyChanged event sender : %@ %p MonoObject %p property name: %@", [sender class], sender, sender.monoObject, propertyName);
+        //NSLog(@"PropertyChanged event sender : %@ %p MonoObject %p property name: %@", [sender class], sender, sender.monoObject, propertyName);
         id value = [sender valueForKey:propertyName];
-        NSLog(@"Property value : %@ %p", value, value);
+        NSLog(@"PropertyChanged %@ value : %@ %p", propertyName, value, value);
 #endif
         // raise KVO notifications for the unmanaged property name
         // note: this may fail if a prior willChangeValueForKey has not been sent

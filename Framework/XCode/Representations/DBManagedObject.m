@@ -912,6 +912,8 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
     NSString *unmanagedPropertyName = nil;
     
+    // if this object is observed then track property setting
+    // so that we can detect propertyChanging/propertyChanged events arising from the managed code
     if (self.observationInfo) {
         unmanagedPropertyName = [self unmanagedPropertyName:propertyName];
         [self addActiveProperty:unmanagedPropertyName];
@@ -995,15 +997,15 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)willChangeValueForKey:(NSString *)key
 {
+    // do not reissue if rarising as a result of a local property call
     if (![self.activePropertyNames containsObject:key]) {
         [super willChangeValueForKey:key];
-    } else {
-        int brk = 0;
     }
 }
 
 - (void)didChangeValueForKey:(NSString *)key
 {
+    // do not reissue if rarising as a result of a local property call
     if (![self.activePropertyNames containsObject:key]) {
         [super didChangeValueForKey:key];
     }
