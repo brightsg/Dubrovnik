@@ -32,6 +32,8 @@
 #import "NSObject+DBManagedEvent.h"
 #import "DBManagedApplication.h"
 
+#define DB_TRACE_OBJECT_CACHE
+
 static NSMutableArray *m_boundKeys;
 
 /*
@@ -247,10 +249,28 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return m_instanceCache;
 }
 
+
 - (id)cachedInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
 {
 #warning TODO key by mono_object_hash
     // TODO: increase efficiency here by keying by mono_object_hash and checking for direct equality of monoObject pointer.
+    
+#ifdef DB_TRACE_OBJECT_CACHE
+    NSUInteger nullCount = 0;
+    NSUInteger objectCount = 0;
+    NSLog(@"Instance cache size: %lu", [self instanceCache].count);
+    for (DBManagedObject *object in [self instanceCache]) {
+        if (object == NULL) {
+            nullCount++;
+        } else {
+            objectCount++;
+        }
+    }
+    NSLog(@"Instance cache size: %lu objects: %lu NULLs : %lu", [self instanceCache].count, objectCount, nullCount);
+    if (nullCount > 500) {
+        [[self instanceCache] compact]; // this does nothing, ever!
+    }
+#endif
     
     // get cached instance
     // a linear search is required as the value of monoObject can change
@@ -997,7 +1017,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)willChangeValueForKey:(NSString *)key
 {
-    // do not reissue if rarising as a result of a local property call
+    // do not reissue if raising as a result of a local property call
     if (![self.activePropertyNames containsObject:key]) {
         [super willChangeValueForKey:key];
     }
@@ -1005,7 +1025,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)didChangeValueForKey:(NSString *)key
 {
-    // do not reissue if rarising as a result of a local property call
+    // do not reissue if raising as a result of a local property call
     if (![self.activePropertyNames containsObject:key]) {
         [super didChangeValueForKey:key];
     }
