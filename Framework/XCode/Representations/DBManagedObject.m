@@ -33,6 +33,9 @@
 #import "DBManagedApplication.h"
 
 #define DB_TRACE_OBJECT_CACHE
+#define DB_TRACE_KVO
+
+static NSLock *m_instanceCacheLock = nil;
 
 static NSMutableArray *m_boundKeys;
 
@@ -157,7 +160,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
-#pragma mark instance methods
+#pragma mark Lifecycle
 
 - (id)init
 {
@@ -202,7 +205,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	
     // cache instance
     if (self && addNewInstanceToCache) {
+        [self lockInstanceCache];
         [[self instanceCache] addPointer:(__bridge void *)self];
+        [self unlockInstanceCache];
     }
     
 	return self;
@@ -224,6 +229,25 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 - (void)dealloc {
+    static NSUInteger m_deallocCount = 0;
+    
+    m_deallocCount++;
+    if (m_deallocCount >= 100) {
+        
+        [self lockInstanceCache];
+        
+        // NSPointerArray -compact is broken
+        NSPointerArray *instanceCache = [self instanceCache];
+        for (NSUInteger idx = instanceCache.count - 1; idx > 0; idx--) {
+            if ([instanceCache pointerAtIndex:idx] == NULL) {
+                [instanceCache removePointerAtIndex:idx];
+            }
+        }
+        m_deallocCount = 0;
+        
+        [self unlockInstanceCache];
+    }
+    
     
 	if(_mono_gchandle != 0) {
 		mono_gchandle_free(_mono_gchandle);
@@ -239,6 +263,20 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark Instance cache
 
+- (void)lockInstanceCache
+{
+    if (m_instanceCacheLock == nil) {
+        m_instanceCacheLock = [[NSLock alloc] init];
+    }
+    
+    [m_instanceCacheLock lock];
+}
+
+- (void)unlockInstanceCache
+{
+    [m_instanceCacheLock unlock];
+}
+
 - (NSPointerArray *)instanceCache
 {
     static NSPointerArray *m_instanceCache;
@@ -246,12 +284,15 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         m_instanceCache = [NSPointerArray weakObjectsPointerArray];
     }
 
+    
     return m_instanceCache;
 }
 
 
 - (id)cachedInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
 {
+    [self lockInstanceCache];
+    
 #warning TODO key by mono_object_hash
     // TODO: increase efficiency here by keying by mono_object_hash and checking for direct equality of monoObject pointer.
     
@@ -276,6 +317,19 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // a linear search is required as the value of monoObject can change
     // (even though it points to the same managed object - moveable memory at work)
     // which makes it unsuitable for use as a key
+    id cachedInstance = nil;
+    NSUInteger cachedInstanceIndex = [self cachedInstanceIndexForMonoObject:monoObject info:info];
+    if (cachedInstanceIndex != NSNotFound) {
+        cachedInstance = [[self instanceCache] pointerAtIndex:cachedInstanceIndex];
+    }
+    [self unlockInstanceCache];
+
+    return cachedInstance;
+}
+
+- (NSUInteger)cachedInstanceIndexForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
+{
+    NSUInteger idx = 0;
     for (DBManagedObject *object in [self instanceCache]) {
         if (object.monoObject == monoObject) {
             
@@ -286,13 +340,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
             if ([object isKindOfClass:[self class]]) {
                 
                 *info |= DBCacheHasInstance;
-
-                return object;
+                
+                return idx;
             }
         }
+        idx++;
     }
     
-    return nil;
+    return NSNotFound;
 }
 
 #pragma mark -
@@ -1019,6 +1074,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 {
     // do not reissue if raising as a result of a local property call
     if (![self.activePropertyNames containsObject:key]) {
+        
+#ifdef DB_TRACE_KVO
+        NSLog(@"%@ -%@ key: %@ observation info: %@", self, NSStringFromSelector(_cmd), key, [self observationInfo]);
+#endif
+        
         [super willChangeValueForKey:key];
     }
 }
