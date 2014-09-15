@@ -60,6 +60,11 @@ typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
 + (id)subclassObjectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
++ (void)compactInstanceCache;
++ (NSPointerArray *)instanceCache;
+- (void)compactInstanceCache;
+- (NSPointerArray *)instanceCache;
+
 // Initialisation methods
 
 /*!

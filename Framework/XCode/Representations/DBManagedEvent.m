@@ -122,12 +122,15 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // add sender to collection of event sending objects.
     // this improves performance when looking up the unmanaged rep of a MonoObject
     // compared to searching the collection of all managed objects.
+    
+    
     NSMutableArray *senders = [self sendersForSender:sender eventName:eventName];
     
     // test for unmanaged object membership - containsObject: is not appropriate here
     if ([senders indexOfObjectIdenticalTo:sender] == NSNotFound) {
         [senders addObject:sender];
     }
+    
     
     // add new target
     NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
@@ -254,7 +257,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     if ([NSThread currentThread] != [NSThread mainThread]) {
         
 #ifdef DB_TRACE
-        NSLog(@"BACKGROUND thead event");
+        NSLog(@"BACKGROUND thread event");
 #endif
         isBackgroundThreadEvent = YES;
     } 

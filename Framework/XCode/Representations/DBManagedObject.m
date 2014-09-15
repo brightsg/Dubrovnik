@@ -190,7 +190,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         }
     }
     
-    // create inistance
+    // create instance
     self = [super init];
 	if (self) {
 		self.monoObject = monoObject;
@@ -205,9 +205,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	
     // cache instance
     if (self && addNewInstanceToCache) {
-        [self lockInstanceCache];
-        [[self instanceCache] addPointer:(__bridge void *)self];
-        [self unlockInstanceCache];
+        [[self class] lockInstanceCache];
+        [[[self class] instanceCache] addPointer:(__bridge void *)self];
+        [[self class] unlockInstanceCache];
     }
     
 	return self;
@@ -233,23 +233,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     
     m_deallocCount++;
     if (m_deallocCount >= 100) {
-        
-        [self lockInstanceCache];
-        
-        // NSPointerArray -compact is broken
-        NSPointerArray *instanceCache = [self instanceCache];
-        for (NSUInteger idx = instanceCache.count - 1; idx > 0; idx--) {
-            if ([instanceCache pointerAtIndex:idx] == NULL) {
-                [instanceCache removePointerAtIndex:idx];
-            }
-        }
+        [[self class] compactInstanceCache];
         m_deallocCount = 0;
-        
-        [self unlockInstanceCache];
     }
     
-    
-	if(_mono_gchandle != 0) {
+	if (_mono_gchandle != 0) {
 		mono_gchandle_free(_mono_gchandle);
 	}
 }
@@ -263,7 +251,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark Instance cache
 
-- (void)lockInstanceCache
++ (void)lockInstanceCache
 {
     if (m_instanceCacheLock == nil) {
         m_instanceCacheLock = [[NSLock alloc] init];
@@ -271,13 +259,22 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     
     [m_instanceCacheLock lock];
 }
+- (void)lockInstanceCache
+{
+    [self.class lockInstanceCache];
+}
+
++ (void)unlockInstanceCache
+{
+    [m_instanceCacheLock unlock];
+}
 
 - (void)unlockInstanceCache
 {
     [m_instanceCacheLock unlock];
 }
 
-- (NSPointerArray *)instanceCache
++ (NSPointerArray *)instanceCache
 {
     static NSPointerArray *m_instanceCache;
     if (!m_instanceCache) {
@@ -288,6 +285,10 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return m_instanceCache;
 }
 
+- (NSPointerArray *)instanceCache
+{
+    return [self.class instanceCache];
+}
 
 - (id)cachedInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
 {
@@ -350,6 +351,26 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return NSNotFound;
 }
 
++ (void)compactInstanceCache
+{
+    [self lockInstanceCache];
+    
+    // NSPointerArray -compact is broken
+    NSPointerArray *instanceCache = [self instanceCache];
+    for (NSInteger idx = (NSInteger)instanceCache.count - 1; idx >= 0; idx--) {
+        if ([instanceCache pointerAtIndex:idx] == NULL) {
+            [instanceCache removePointerAtIndex:idx];
+        }
+    }
+    [self unlockInstanceCache];
+
+}
+
+- (void)compactInstanceCache
+{
+    [self.class compactInstanceCache];
+}
+
 #pragma mark -
 #pragma mark type handling
 
@@ -404,6 +425,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)setupReferenceTypeInstance:(DBManagedInstanceInfo)info
 {
+    
     // register unmanaged handlers for managed events.
     // we don't do this in +initialize as it raises.
     static bool m_eventHandlersRegistered;

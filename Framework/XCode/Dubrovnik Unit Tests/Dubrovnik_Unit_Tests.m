@@ -303,7 +303,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
 #if DB_RUN_MANUAL_CODE_TEST == 1
     
-     m_runningAutoGenCodeTest = NO;
+    m_runningAutoGenCodeTest = NO;
+    NSUInteger initialInstanceCount = 0;
+    NSUInteger finialInstanceCount = 0;
     
     // When adding support for new features it is best to
     // ensure that the manually coded reference class passes its tests first.
@@ -315,7 +317,32 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"==============================================");
     NSLog(@"Testing manually generated reference object");
     NSLog(@"==============================================");
-    [self doTestReferenceClass:[DBUReferenceObject class]];
+    
+    [DBManagedObject compactInstanceCache];
+    initialInstanceCount = [DBManagedObject instanceCache].count;
+    @autoreleasepool {
+        
+        // test reference class
+        [self doTestReferenceClass:[DBUReferenceObject class]];
+        
+        // managed object allocation
+        id managedObject = [[DBUReferenceObject alloc] init];
+        (void)managedObject;
+        
+        // unmanaged object allocation
+        NSString *unmanagedObject = [NSString stringWithFormat:@"%@", @"TEST"];
+        (void)unmanagedObject;
+    }
+    
+    // all managed objects instantiated withing the autorelease block above should have been dealloced
+    [DBManagedObject compactInstanceCache];
+    finialInstanceCount = [DBManagedObject instanceCache].count;
+
+    // the following test currently fails - we need it to pass!
+    if (NO) {
+        STAssertTrue(finialInstanceCount == initialInstanceCount, DBUEqualityTestFailed);
+    }
+    
 #endif
     
 #if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
@@ -325,7 +352,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"==============================================");
     NSLog(@"Testing auto generated reference object");
     NSLog(@"==============================================");
-    [self doTestReferenceClass:[DUReferenceObject_ class]];
+    @autoreleasepool {
+        [self doTestReferenceClass:[DUReferenceObject_ class]];
+    }
     
     //
     // enumerations
@@ -340,6 +369,35 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     STAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
     STAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
 #endif
+    
+    // instance tests
+    NSUInteger itemCount = 100;
+    NSMutableArray *itemArray  = [NSMutableArray arrayWithCapacity:itemCount];
+    
+    [DBManagedObject compactInstanceCache];
+    initialInstanceCount = [DBManagedObject instanceCache].count;
+    
+    @autoreleasepool {
+
+        // allocate objects
+        for (NSUInteger i = 0; i < itemCount; i++) {
+            DBManagedObject *managedObject = [DBManagedObject objectWithMonoObject:(MonoObject *)[DBUTestString monoString]];
+            [itemArray addObject:managedObject];
+        }
+        [DBManagedObject compactInstanceCache];
+        NSUInteger instanceCount = [DBManagedObject instanceCache].count;
+
+        STAssertTrue(instanceCount - initialInstanceCount == itemCount, DBUEqualityTestFailed);
+        
+        [itemArray removeAllObjects];
+        
+        // drain the pool. all managed instances allocated in this autorelease bloack should have been released.
+    }
+    
+    // instance count should be restored to initial value
+    [DBManagedObject compactInstanceCache];
+    finialInstanceCount = [DBManagedObject instanceCache].count;
+    STAssertTrue(finialInstanceCount == initialInstanceCount, DBUEqualityTestFailed);
     
 }
 
@@ -1512,11 +1570,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)doTestReferenceClass:(Class)testClass
 {
+
+    
     //===================================
     // constructors
     //===================================
     id refObject = [self doTestConstructorsWithclass:testClass];
-
+    
     [self doTestGenericConstructors:testClass];
 
     //===================================
