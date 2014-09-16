@@ -89,6 +89,4 @@ do { \
 + (NSPointerArray *)eventTargetsForSender:(DBManagedObject *)sender
                                 eventName:(NSString *)eventName;
 
-+ (NSMutableArray *)sendersForSender:(DBManagedObject *)sender
-                           eventName:(NSString *)eventName;
 @end

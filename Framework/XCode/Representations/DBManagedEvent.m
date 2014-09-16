@@ -12,21 +12,9 @@
 #import "DBTypeManager.h"
 #import "NSPointerArray+Dubrovnik.h"
 
-static NSMutableDictionary *m_senderMap;
+#define DB_TRACE
 
 @implementation DBManagedEvent
-
-#pragma mark -
-#pragma mark Event map
-
-+ (NSMutableDictionary *)senderMap
-{
-    if (!m_senderMap) {
-        m_senderMap = [NSMutableDictionary  dictionaryWithCapacity:5];
-    }
-    
-    return m_senderMap;
-}
 
 #pragma mark -
 #pragma mark Event handler configuration and registration
@@ -105,7 +93,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     }
 
 #ifdef DB_TRACE
-    NSLog(@"MonoObject %p", [managedObject monoObject]);
+    //NSLog(@"MonoObject %p", [managedObject monoObject]);
 #endif
     
     [[helperClass class] configureStaticEventHandler_withObj:(id)managedObject objEventName:eventName handlerMethodName:handlerMethodName attach:attach];
@@ -124,12 +112,12 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // compared to searching the collection of all managed objects.
     
     
-    NSMutableArray *senders = [self sendersForSender:sender eventName:eventName];
+    //NSMutableArray *senders = [self sendersForSender:sender eventName:eventName];
     
     // test for unmanaged object membership - containsObject: is not appropriate here
-    if ([senders indexOfObjectIdenticalTo:sender] == NSNotFound) {
-        [senders addObject:sender];
-    }
+    //if ([senders indexOfObjectIdenticalTo:sender] == NSNotFound) {
+     //   [senders addObject:sender];
+    //}
     
     
     // add new target
@@ -162,22 +150,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     return eventTargets;
 }
 
-+ (NSMutableArray *)sendersForSender:(DBManagedObject *)sender
-                           eventName:(NSString *)eventName
-{
-    NSMutableDictionary *senderMap = [self senderMap];
-    
-    // get entry for type and eventname
-    NSString *key = [NSString stringWithFormat:@"%s:%@", [sender monoTypeName], eventName];
-    NSMutableArray *senders = senderMap[key];
-    if (!senders ) {
-        senders = [NSMutableArray arrayWithCapacity:5];
-        senderMap[key] = senders;
-    }
-
-    return senders;
-}
-
 + (void)removeHandlerForObject:(DBManagedObject *)sender
                        eventName:(NSString *)eventName
                handlerMethodName:(NSString *)handlerMethodName
@@ -196,20 +168,8 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         NSLog(@"Target: %@ not registered with sender : %@ for event : %@", target, sender, eventName);
     }
     
-    
-    // remove sender and event handler when all targets removed
-    NSMutableArray *senders = [self sendersForSender:sender eventName:eventName];
-    
-    // test for unmanaged object membership - containsObject: is not appropriate here
-    NSUInteger senderIndex = [senders indexOfObjectIdenticalTo:sender];
-    if (senderIndex != NSNotFound) {
-        
-        if (eventTargets.count == 0) {
-            [self configureHandlerForObject:sender eventName:eventName handlerMethodName:handlerMethodName attach:NO];
-            [senders removeObjectAtIndex:senderIndex];
-        }
-    } else {
-        NSLog(@"Cannot remove event handler for object : %@ for event : %@", sender, eventName);
+    if (eventTargets.count == 0) {
+        [self configureHandlerForObject:sender eventName:eventName handlerMethodName:handlerMethodName attach:NO];
     }
 }
 
@@ -232,17 +192,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
                             eventName:eventName
                    targetSelectorName:targetSelectorName
                               options:nil];
-}
-
-+ (NSString *)senderMapKeyForMonoObject:(MonoObject *)monoObject eventName:(NSString *)eventName
-{
-    MonoClass *monoClass = mono_object_get_class(monoObject);
-    MonoType *monoType = mono_class_get_type(monoClass);
-    char *monoTypeName = mono_type_get_name(monoType);
-    
-    NSString *key = [NSString stringWithFormat:@"%s:%@", monoTypeName, eventName];
-
-    return key;
 }
 
 + (void)dispatchEventFromMonoSender:(MonoObject *)monoSender
@@ -293,37 +242,26 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 
 {
 #pragma unused(options)
-    
-    // get registered senders for className:EventName key
-    NSMutableDictionary *senderMap = [self senderMap];
-    NSString *key = [self senderMapKeyForMonoObject:monoSender eventName:eventName];
-    NSMutableArray *senders = senderMap[key];
-    if (!senders ) {
-        NSLog(@"No sender mapping for key : %@", key);
-        return;
-    }
+    id managedObject = [[DBTypeManager sharedManager] objectWithMonoObject:monoSender];
+    NSArray *senders = @[managedObject];
     
     // get the object that represents the sender.
     // this linear search looks primitive but the fact is that we have no reliable unique value
     // to use as a key. keying as down above with className:EventName is the best that can be done IMHO
     // -monoObject is only constant while an object is on the stack.
     //
-    // Note: a given MonoObject may be refernced by more than one instance of DBManagedObject
+    // Note: a given MonoObject may be referenced by more than one instance of DBManagedObject
     // hence the need to check every object!
     DBManagedObject *sender = nil;
     for (DBManagedObject *object in senders) {
         if (object.monoObject == monoSender) {
             
             sender = object;
-            if (!sender) {
-                NSLog(@"No sender for key : %@", key);
-                return;
-            }
             
             // get the event targets registered with the sender
             NSPointerArray *eventTargets = sender.managedEventMap[eventName];
             if (!eventTargets) {
-                NSLog(@"No event targets for key : %@ event name: %@", key, eventName);
+                NSLog(@"No event targets for object : %@ event name: %@", sender, eventName);
                 return;
             }
             

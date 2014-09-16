@@ -30,6 +30,13 @@ typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
     DBCacheHasInstance = 0x01 << 1,
 };
 
+typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
+{
+    DBLogInstanceCacheCount = 0x00 << 0,
+    DBLogInstanceCacheItems = 0x01 << 0,
+    DBLogInstanceCacheNonNullCount = 0x01 << 1,
+};
+
 @class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
 
 @interface DBManagedObject : NSObject <NSCopying>
@@ -60,10 +67,11 @@ typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
 + (id)subclassObjectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
-+ (void)compactInstanceCache;
-+ (NSPointerArray *)instanceCache;
-- (void)compactInstanceCache;
-- (NSPointerArray *)instanceCache;
++ (NSMapTable *)instanceCache;
+- (NSMapTable *)instanceCache;
+- (void)logInstanceCache:(DBLogInstanceCacheOptions)options;
++ (void)logInstanceCache:(DBLogInstanceCacheOptions)options;
++ (NSUInteger)cachedInstanceCount;
 
 // Initialisation methods
 
