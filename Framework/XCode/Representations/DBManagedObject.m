@@ -2,8 +2,8 @@
 //  DBManagedObject.m
 //  Dubrovnik
 //
-//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
+//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -36,7 +36,7 @@
 #define DB_TRACE_KVO
 #define DB_TRACE_MONO_OBJECT_ADDRESS
 
-static NSLock *m_instanceCacheLock = nil;
+static NSLock *m_primaryInstanceCacheLock = nil;
 
 static NSMutableArray *m_boundKeys;
 
@@ -83,6 +83,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property NSUInteger genericParameterCount;
 @property (strong) NSArray *genericParameterMonoArgumentTypeNames;
 @property (strong) NSMutableArray *activePropertyNames;
+@property (assign, readwrite) BOOL isPrimaryInstance;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
 @property (assign) NSUInteger monoObjectTrace;
@@ -180,17 +181,32 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // *************************************
     
     // establish behaviour defaults
-    BOOL useCachedInstance = YES;
-    BOOL addNewInstanceToCache = YES;
+    BOOL searchPrimaryCache = YES;
     DBManagedInstanceInfo info = 0;
     
-    if (useCachedInstance) {
-        // get cached instance.
+    if (searchPrimaryCache) {
+        
+        // get cached primary instance.
         // this is essential to avoid generating multiple unmanaged wrappers
         // for a given managed object when say receiving a MonoObject pointer from an event.
-        id object = [self cachedInstanceForMonoObject:monoObject info:&info];
-        if (object) {
-            self = object;
+        DBManagedObject *cachedInstance = [self cachedPrimaryInstanceForMonoObject:monoObject info:&info];
+        
+        if (!cachedInstance) {
+            
+            // this instance is primary
+            self.isPrimaryInstance = YES;
+            
+        } else if ([cachedInstance class] != [self class]) {
+            
+            // if cached instance is not of the current class
+            // then we are creating a non primary instance ie:
+            // another ObjC wrapper for a MonoObject that already has a primary instance
+            
+            cachedInstance = nil;
+        }
+
+        if (cachedInstance) {
+            self = cachedInstance;
             return self;
         }
     }
@@ -208,14 +224,29 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 		}
 	}
 	
-    // cache instance
-    if (self && addNewInstanceToCache) {
-        [[self class] lockInstanceCache];
+    // add primary instance to cache
+    if (self.isPrimaryInstance) {
         
-        NSUInteger key = (NSUInteger)mono_object_hash(monoObject);
-        [[self instanceCache] setObject:self forKey:[NSNumber numberWithUnsignedInteger:key]];
+#ifdef DB_TRACE_OBJECT_CACHE
+        [self logPrimaryInstanceCache:DBLogInstanceCacheCount];
+#endif
+
+        [[self class] lockPrimaryInstanceCache];
         
-        [[self class] unlockInstanceCache];
+        // key
+        NSUInteger intKey = (NSUInteger)mono_object_hash(monoObject);
+        NSNumber *key = [NSNumber numberWithUnsignedInteger:intKey];
+        
+        // existing cache object
+        DBManagedObject *cacheObject = [[self primaryInstanceCache] objectForKey:key];
+        
+        // contract
+        NSAssert(!cacheObject, @"Primary cache object already exists. We need to add suporrt for this!");
+        
+        // cache it
+        [[self primaryInstanceCache] setObject:self forKey:key];
+        
+        [[self class] unlockPrimaryInstanceCache];
     }
     
 	return self;
@@ -241,7 +272,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
     // remove key, weak value will be null
     NSUInteger key = (NSUInteger)mono_object_hash(self.monoObject);
-    [[self instanceCache] removeObjectForKey:[NSNumber numberWithUnsignedInteger:key]];
+    [[self primaryInstanceCache] removeObjectForKey:[NSNumber numberWithUnsignedInteger:key]];
     
 	if (_mono_gchandle != 0) {
 		mono_gchandle_free(_mono_gchandle);
@@ -255,35 +286,35 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
-#pragma mark Instance cache
+#pragma mark Primary instance cache
 
-+ (void)lockInstanceCache
++ (void)lockPrimaryInstanceCache
 {
-    if (m_instanceCacheLock == nil) {
-        m_instanceCacheLock = [[NSLock alloc] init];
+    if (m_primaryInstanceCacheLock == nil) {
+        m_primaryInstanceCacheLock = [[NSLock alloc] init];
     }
     
-    [m_instanceCacheLock lock];
+    [m_primaryInstanceCacheLock lock];
 }
-- (void)lockInstanceCache
+- (void)lockPrimaryInstanceCache
 {
-    [self.class lockInstanceCache];
-}
-
-+ (void)unlockInstanceCache
-{
-    [m_instanceCacheLock unlock];
+    [self.class lockPrimaryInstanceCache];
 }
 
-- (void)unlockInstanceCache
++ (void)unlockPrimaryInstanceCache
 {
-    [m_instanceCacheLock unlock];
+    [m_primaryInstanceCacheLock unlock];
 }
 
-+ (NSMapTable *)instanceCache
+- (void)unlockPrimaryInstanceCache
 {
-    static NSMapTable *m_instanceCache;
-    if (!m_instanceCache) {
+    [m_primaryInstanceCacheLock unlock];
+}
+
++ (NSMapTable *)primaryInstanceCache
+{
+    static NSMapTable *m_primaryInstanceCache;
+    if (!m_primaryInstanceCache) {
         
         // note that we could also use the raw integer as the key rather than an NSNumber representation
         // http://stackoverflow.com/questions/1434107/is-there-anything-like-an-nsset-that-allows-retrieving-by-hash-value
@@ -292,82 +323,82 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         //                  capacity:100];
         
         // NSMapTable with strong keys to weak objects
-        m_instanceCache = [NSMapTable strongToWeakObjectsMapTable];
+        m_primaryInstanceCache = [NSMapTable strongToWeakObjectsMapTable];
     }
 
-    return m_instanceCache;
+    return m_primaryInstanceCache;
 }
 
-- (NSMapTable *)instanceCache
+- (NSMapTable *)primaryInstanceCache
 {
-    return [self.class instanceCache];
+    return [self.class primaryInstanceCache];
 }
 
-- (void)logInstanceCache:(DBLogInstanceCacheOptions)options
+- (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options
 {
-    [[self class] logInstanceCache:options];
+    [[self class] logPrimaryInstanceCache:options];
 }
 
-+ (void)logInstanceCache:(DBLogInstanceCacheOptions)options
++ (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options
 {
     // [self instanceCache].count includes items with NULL value
-    NSLog(@"DBCache size: %lu", [self instanceCache].count);
+    NSLog(@"Primary instance size: %lu", [self primaryInstanceCache].count);
 
     // log number of non null items
     // [self instanceCache].count includes items with NULL value
     // in practice it should be the case that [self instanceCache].count == [self cachedInstanceCount]
     
     if (DBLogInstanceCacheNonNullCount & options) {
-        NSLog(@"DBCache non null objects: %lu", [self cachedInstanceCount]);
+        NSLog(@"Primary instance non null objects: %lu", [self primaryInstanceCacheCount]);
     }
     
     // log items
     if (DBLogInstanceCacheItems & options) {
         
         // keys for zeroed objects will not be returned
-        NSEnumerator *enumerator = [[self instanceCache] keyEnumerator];
+        NSEnumerator *enumerator = [[self primaryInstanceCache] keyEnumerator];
         id key;
         
         while ((key = [enumerator nextObject])) {
-             NSLog(@"DBCache instance : key %@ value : %@", key, [[self instanceCache] objectForKey:key]);
+             NSLog(@"DBCache instance : key %@ value : %@", key, [[self primaryInstanceCache] objectForKey:key]);
         }
     }
 }
 
-+ (NSUInteger)cachedInstanceCount
++ (NSUInteger)primaryInstanceCacheCount
 {
     // NSMapTable -count also reports values that nave dealloced
-    return NSAllMapTableValues([self instanceCache]).count;
+    return NSAllMapTableValues([self primaryInstanceCache]).count;
 }
 
-- (id)cachedInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
+- (id)cachedPrimaryInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
 {
-    [self lockInstanceCache];
-    
-#ifdef DB_TRACE_OBJECT_CACHE
-    [self logInstanceCache:DBLogInstanceCacheCount];
-#endif
+    [self lockPrimaryInstanceCache];
     
     // key is mono hash based on initial address
     NSUInteger key = (NSUInteger)mono_object_hash(monoObject);
-    id cachedInstance =  [[self instanceCache] objectForKey:[NSNumber numberWithUnsignedInteger:key]];
+    DBManagedObject *cachedInstance =  [[self primaryInstanceCache] objectForKey:[NSNumber numberWithUnsignedInteger:key]];
     
-    // if we don't have monoObject equality then we have two managed objects with
-    // the same hash, presumably as a result of memory moving
-    if (cachedInstance && [cachedInstance monoObject] != monoObject) {
+    if (cachedInstance) {
         
-#warning add collection to track mono_object_hash collisions
-        [NSException raise:@"mono_object_hash collision" format:@"We need to deal with this!"];
-        cachedInstance = nil;
-    }
+        // contract
+        NSAssert(cachedInstance.isPrimaryInstance, @"non primary instance in cache");
 
-    // test for class equality as we may choose to wrap MonoObject instance in
-    // more than object wrapper for example when using managed interfaces
-    if (cachedInstance && [cachedInstance class] != [self class]) {
-        cachedInstance = nil;
+        // flag that primary instance exists in cache
+        *info |= DBPrimaryInstanceExistsForMonoObject;
+        
+        // if we don't have monoObject equality then we have two managed objects with
+        // the same hash, presumably as a result of memory moving
+        if ([cachedInstance monoObject] != monoObject) {
+            
+#warning add collection to track mono_object_hash collisions
+            [NSException raise:@"mono_object_hash collision" format:@"We need to deal with this!"];
+            cachedInstance = nil;
+        }
+
     }
     
-    [self unlockInstanceCache];
+    [self unlockPrimaryInstanceCache];
 
     return cachedInstance;
 }
@@ -438,11 +469,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         m_eventHandlersRegistered = YES;
     }
     
-    // Note that we we need to remain aware of what happens when more than one instance of
-    // this class references a given MonoObject
-    BOOL automaticallyNotifyObservers = (info & DBCacheHasMonoObject) == 0;
-    
-    if (automaticallyNotifyObservers) {
+    // we only want to auto configure observers for primary instances
+    if (self.isPrimaryInstance) {
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
     }
 }
@@ -461,6 +489,12 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)setAutomaticallyNotifiesObserversOfManagedPropertyChanges:(BOOL)value
 {
+    // contract
+    if (!self.isPrimaryInstance) {
+        [NSException raise:@"Cannot automatically notify observers of managed property changes."
+                format:@"Instance must be primary in order to raise managed events."];
+    }
+    
     if (_automaticallyNotifiesObserversOfManagedPropertyChanges == value) {
         return;
     }
@@ -635,7 +669,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         _mono_gchandle = 0;
     }
     
-    // we don't want to persist the monoObject in an ivar as it would
+    // we don't want to persist the monoObject in an ivar or on the heap in general as it would
     // require pinning the pointed to MonoObject
     if (monoObject) {
         _mono_gchandle = mono_gchandle_new(monoObject, FALSE);
@@ -649,9 +683,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)monoObject
 {
-    #warning Memory allocation unit test required
-    
-    // This pointer should be valid while it is visible on the stack
+    // This pointer should be valid while it is visible on the unmanaged stack.
+    // Dont save it into the heap as it may become invalid if the MonoObject is not pinned
+    // and the manged instance gets moved in memory.
     MonoObject *monoObject = mono_gchandle_get_target(_mono_gchandle);
     
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -1111,7 +1145,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     if (![self.activePropertyNames containsObject:key]) {
         
 #ifdef DB_TRACE_KVO
-        NSLog(@"%@ -%@ key: %@ observation info: %@", self, NSStringFromSelector(_cmd), key, [self observationInfo]);
+        NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
 #endif
         
         [super willChangeValueForKey:key];
@@ -1124,13 +1158,21 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     if (![self.activePropertyNames containsObject:key]) {
         
 #ifdef DB_TRACE_KVO
-        NSLog(@"%@ -%@ key: %@ observation info: %@", self, NSStringFromSelector(_cmd), key, [self observationInfo]);
+        NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
 #endif
         
         [super didChangeValueForKey:key];
     }
 }
 
+- (void)setObservationInfo:(void *)observationInfo
+{
+    if (!self.isPrimaryInstance) {
+        [NSException raise:@"Non primary instance" format:@"Only primary instances support the raising of managed events. Observing the properties of a managed objects requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead."];
+    }
+    
+    [super setObservationInfo:observationInfo];
+}
 
 #pragma mark -
 #pragma mark Mono info

@@ -234,7 +234,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     }
 }
 
-+ (void)_dispatchEventFromMonoSender:(MonoObject *)monoSender
++ (void)_dispatchEventFromMonoSender:(MonoObject *)monoObject
                           eventArgs:(MonoObject *)monoEventArgs
                           eventName:(NSString *)eventName
                  targetSelectorName:(NSString *)targetSelectorName
@@ -242,77 +242,70 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 
 {
 #pragma unused(options)
-    id managedObject = [[DBTypeManager sharedManager] objectWithMonoObject:monoSender];
-    NSArray *senders = @[managedObject];
     
-    // get the object that represents the sender.
-    // this linear search looks primitive but the fact is that we have no reliable unique value
-    // to use as a key. keying as down above with className:EventName is the best that can be done IMHO
-    // -monoObject is only constant while an object is on the stack.
-    //
-    // Note: a given MonoObject may be referenced by more than one instance of DBManagedObject
-    // hence the need to check every object!
-    DBManagedObject *sender = nil;
-    for (DBManagedObject *object in senders) {
-        if (object.monoObject == monoSender) {
+    // get the primary instance representing the managed object
+    DBManagedObject *sender = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+    
+    // sanity checks
+    NSAssert(sender.monoObject == monoObject, @"What!");
+    NSAssert(sender.isPrimaryInstance, @"A non primary instance cannot be an event sender!");
+    
+    // get the event targets registered with the sender
+    NSPointerArray *eventTargets = sender.managedEventMap[eventName];
+    if (!eventTargets) {
+        NSLog(@"No event targets for object : %@ event name: %@", sender, eventName);
+        return;
+    }
+    
+    // selector to send to targets
+    SEL eventSelector = NSSelectorFromString(targetSelectorName);
+    BOOL eventSelectorMethodSignatureValidated = NO;
+    
+    // send event selector to targets
+    for (id eventTarget in eventTargets) {
+        
+        // NULL is valid as NSPointerArray holds zeroing weak references
+        if (!eventTarget) {
+            // TODO: can we remove item at current index?
+            continue;
+        }
+        
+        // dispatch selector event to target if it is supported
+        if ([eventTarget respondsToSelector:eventSelector]) {
             
-            sender = object;
-            
-            // get the event targets registered with the sender
-            NSPointerArray *eventTargets = sender.managedEventMap[eventName];
-            if (!eventTargets) {
-                NSLog(@"No event targets for object : %@ event name: %@", sender, eventName);
-                return;
+            // strict method signature check.
+            // this may be overkill.
+            if (!eventSelectorMethodSignatureValidated) {
+                
+                // selector must have signature matching sender:item:
+                NSMethodSignature *methodSignature = [eventTarget methodSignatureForSelector:eventSelector];
+                if ([methodSignature numberOfArguments] - 2 != 2) {
+                    [NSException raise:@"Invalid selector" format:@"selector %@ must accept two arguments", targetSelectorName];
+                }
+                eventSelectorMethodSignatureValidated = YES;
             }
             
-            bool doCompact = NO;
+            // this will be a subclass of System.EventArgs
+            DBManagedObject *eventArguments = [[DBTypeManager sharedManager] objectWithMonoObject:monoEventArgs];
+            DBManagedObject *eventArgument = nil;
             
-            // get event target
-            for (id eventTarget in eventTargets) {
-                
-                // NULL is valid as NSPointerArray holds zeroing weak references
-                if (!eventTarget) {
-                    doCompact = YES;
-                    continue;
-                }
-                
-                // dispatch selector event to target
-                SEL eventSelector = NSSelectorFromString(targetSelectorName);
-                if ([eventTarget respondsToSelector:eventSelector]) {
-                    
-                    // selector must have signature matching sender:item:
-                    NSMethodSignature *methodSignature = [eventTarget methodSignatureForSelector:eventSelector];
-                    if ([methodSignature numberOfArguments] - 2 != 2) {
-                        [NSException raise:@"Invalid selector" format:@"selector %@ must accept two arguments", targetSelectorName];
-                    }
-                    
-                    // this will be a subclass of System.EventArgs
-                    DBManagedObject *eventArguments = [[DBTypeManager sharedManager] objectWithMonoObject:monoEventArgs];
-                    DBManagedObject *eventArgument = nil;
-                    
-                    // process the mono event arguments.
-                    NSString *eventArgsKey = options[@"eventArgsKey"];
-                    if (eventArgsKey) {
-                        eventArgument = [eventArguments valueForKey:eventArgsKey];
-                    } else {
-                        eventArgument = eventArguments;
-                    }
-                    
+            // process the mono event arguments.
+            NSString *eventArgsKey = options[@"eventArgsKey"];
+            if (eventArgsKey) {
+                eventArgument = [eventArguments valueForKey:eventArgsKey];
+            } else {
+                eventArgument = eventArguments;
+            }
+            
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                    [eventTarget performSelector:eventSelector withObject:sender withObject:eventArgument];
+            [eventTarget performSelector:eventSelector withObject:sender withObject:eventArgument];
 #pragma clang diagnostic pop
-                } else {
-                    
-                }
-            }
             
-            if (doCompact) {
-                [eventTargets compact];
-            }
+        } else {
             
-            // should we search on? Likely not.
-            break;
+            
+            NSLog(@"Could not dispatch -%@ to %@ in response to managed event %@ as the target method is not implemented.", NSStringFromSelector(eventSelector), eventTarget, eventName);
         }
     }
     

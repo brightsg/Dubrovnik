@@ -26,8 +26,7 @@ extern char DBCacheSuffixChar;
 
 typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
 {
-    DBCacheHasMonoObject = 0x01 << 0,
-    DBCacheHasInstance = 0x01 << 1,
+    DBPrimaryInstanceExistsForMonoObject = 0x01 << 0,
 };
 
 typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
@@ -44,6 +43,22 @@ typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
 // Mono support properties
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
+
+/*!
+ 
+ Returns YES if instance is primary.
+ 
+ The first Obj-C representation created for a given managed object acts as its primary representation
+ until it is deallocated. Any subsequent Obj-C representation created for the same MonoObject will be non
+ primary unless a primary instance does not exist.
+ 
+ A primary instance is cached. When the default Obj-C representation of a given MonoObject is required the cache
+ is consulted first to determine if an existing instance exists. If so it is used. This default represntation
+ is citical when it comes to determining, for example, what Obj-C object to associate as the source of a managed event.
+ For this reason managed events can only be raised by primary instances.
+ 
+ */
+@property (assign, readonly) BOOL isPrimaryInstance;
 
 /*!
  
@@ -67,11 +82,30 @@ typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
 + (id)subclassObjectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
-+ (NSMapTable *)instanceCache;
-- (NSMapTable *)instanceCache;
-- (void)logInstanceCache:(DBLogInstanceCacheOptions)options;
-+ (void)logInstanceCache:(DBLogInstanceCacheOptions)options;
-+ (NSUInteger)cachedInstanceCount;
+/*!
+ 
+ Get the primary instance cache.
+ 
+ All items in the cache are primary.
+ 
+ */
++ (NSMapTable *)primaryInstanceCache;
+- (NSMapTable *)primaryInstanceCache;
+
+/*!
+ 
+ Log the primary instance cache
+ 
+ */
+- (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options;
++ (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options;
+
+/*!
+ 
+ Number of primary instances in the cache
+ 
+ */
++ (NSUInteger)primaryInstanceCacheCount;
 
 // Initialisation methods
 

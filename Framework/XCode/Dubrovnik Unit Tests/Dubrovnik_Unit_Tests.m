@@ -320,7 +320,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"Testing manually generated reference object");
     NSLog(@"==============================================");
     
-    initialInstanceCount = [DBManagedObject cachedInstanceCount];
+    initialInstanceCount = [DBManagedObject primaryInstanceCacheCount];
     @autoreleasepool {
         
         // test reference class
@@ -337,8 +337,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     
     // all managed objects instantiated withing the autorelease block above should have been dealloced
-    [DBManagedObject logInstanceCache:DBLogInstanceCacheItems];
-    finalInstanceCount = [DBManagedObject cachedInstanceCount];
+    [DBManagedObject logPrimaryInstanceCache:DBLogInstanceCacheItems];
+    finalInstanceCount = [DBManagedObject primaryInstanceCacheCount];
     
     // we leak 1 due to a raised exception
     STAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
@@ -353,15 +353,15 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"Testing auto generated reference object");
     NSLog(@"==============================================");
     
-    initialInstanceCount = [DBManagedObject cachedInstanceCount];
+    initialInstanceCount = [DBManagedObject primaryInstanceCacheCount];
 
     @autoreleasepool {
         [self doTestReferenceClass:[DUReferenceObject_ class]];
     }
     
     // all managed objects instantiated within the autorelease block above should have been dealloced
-    [DBManagedObject logInstanceCache:DBLogInstanceCacheItems];
-    finalInstanceCount = [DBManagedObject cachedInstanceCount];
+    [DBManagedObject logPrimaryInstanceCache:DBLogInstanceCacheItems];
+    finalInstanceCount = [DBManagedObject primaryInstanceCacheCount];
 
     // we leak 1 due to a raised exception
     STAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
@@ -384,7 +384,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSUInteger itemCount = 100;
     NSMutableArray *itemArray  = [NSMutableArray arrayWithCapacity:itemCount];
     
-    initialInstanceCount = [DBManagedObject cachedInstanceCount];
+    initialInstanceCount = [DBManagedObject primaryInstanceCacheCount];
     
     @autoreleasepool {
 
@@ -400,7 +400,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     
     // instance count should be restored to initial value
-    finalInstanceCount = [DBManagedObject cachedInstanceCount];
+    finalInstanceCount = [DBManagedObject primaryInstanceCacheCount];
     STAssertTrue(finalInstanceCount == initialInstanceCount, DBUEqualityTestFailed);
     
 }
