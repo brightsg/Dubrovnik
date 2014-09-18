@@ -24,17 +24,7 @@ extern char DBCacheSuffixChar;
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
-{
-    DBPrimaryInstanceExistsForMonoObject = 0x01 << 0,
-};
 
-typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
-{
-    DBLogInstanceCacheCount = 0x00 << 0,
-    DBLogInstanceCacheItems = 0x01 << 0,
-    DBLogInstanceCacheNonNullCount = 0x01 << 1,
-};
 
 @class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
 
@@ -82,30 +72,6 @@ typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
 + (id)subclassObjectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
-/*!
- 
- Get the primary instance cache.
- 
- All items in the cache are primary.
- 
- */
-+ (NSMapTable *)primaryInstanceCache;
-- (NSMapTable *)primaryInstanceCache;
-
-/*!
- 
- Log the primary instance cache
- 
- */
-- (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options;
-+ (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options;
-
-/*!
- 
- Number of primary instances in the cache
- 
- */
-+ (NSUInteger)primaryInstanceCacheCount;
 
 // Initialisation methods
 
@@ -189,6 +155,7 @@ typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
 - (void)sendChangeNotificationsForRegisteredObservedKeys;
 
 // Mono info
+- (NSUInteger)monoHash;
 - (int)monoMethodCount;
 - (void)logMonoClassInfo;
 + (void)logMonoClassNameInfo:(MonoClass *)klass;

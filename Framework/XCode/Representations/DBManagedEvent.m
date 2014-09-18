@@ -12,7 +12,8 @@
 #import "DBTypeManager.h"
 #import "NSPointerArray+Dubrovnik.h"
 
-#define DB_TRACE
+//define DB_TRACE
+//#define DB_TRACE_STATIC_EVENT_HANDLER
 
 @implementation DBManagedEvent
 
@@ -92,8 +93,14 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         [NSException raise:@"Invalid event helper class" format:@"Helper class not available: %@", [self eventHelperClassName]];
     }
 
-#ifdef DB_TRACE
-    //NSLog(@"MonoObject %p", [managedObject monoObject]);
+#ifdef DB_TRACE_STATIC_EVENT_HANDLER
+
+    if (attach) {
+        NSLog(@"Attach StaticEventHandler_withObj %@ MonoObject %p %@", managedObject.className, [managedObject monoObject], eventName);
+    } else {
+        NSLog(@"Detach StaticEventHandler_withObj %@ MonoObject %p %@", managedObject.className, [managedObject monoObject], eventName);
+    }
+    
 #endif
     
     [[helperClass class] configureStaticEventHandler_withObj:(id)managedObject objEventName:eventName handlerMethodName:handlerMethodName attach:attach];
@@ -107,18 +114,8 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 {
 #pragma unused(options)
     
-    // add sender to collection of event sending objects.
-    // this improves performance when looking up the unmanaged rep of a MonoObject
-    // compared to searching the collection of all managed objects.
-    
-    
-    //NSMutableArray *senders = [self sendersForSender:sender eventName:eventName];
-    
-    // test for unmanaged object membership - containsObject: is not appropriate here
-    //if ([senders indexOfObjectIdenticalTo:sender] == NSNotFound) {
-     //   [senders addObject:sender];
-    //}
-    
+    // contract
+    NSAssert(sender.isPrimaryInstance, @"non primary instance");
     
     // add new target
     NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
@@ -136,6 +133,9 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 + (NSPointerArray *)eventTargetsForSender:(DBManagedObject *)sender
                            eventName:(NSString *)eventName
 {
+    // contract
+    NSAssert(sender.isPrimaryInstance, @"non primary instance");
+
     // get the sender's managed event map
     NSMutableDictionary *eventMap = [sender managedEventMap];
     
@@ -158,6 +158,9 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 {
 #pragma unused(options)
     
+    // contract
+    NSAssert(sender.isPrimaryInstance, @"non primary instance");
+
     // remove target for event
     NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
     NSUInteger targetIndex = [eventTargets db_indexForObjectPointer:target];
@@ -243,11 +246,10 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 {
 #pragma unused(options)
     
-    // get the primary instance representing the managed object
+    // get the instance representing the managed object
     DBManagedObject *sender = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
     
-    // sanity checks
-    NSAssert(sender.monoObject == monoObject, @"What!");
+    // contract
     NSAssert(sender.isPrimaryInstance, @"A non primary instance cannot be an event sender!");
     
     // get the event targets registered with the sender
@@ -303,7 +305,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 #pragma clang diagnostic pop
             
         } else {
-            
             
             NSLog(@"Could not dispatch -%@ to %@ in response to managed event %@ as the target method is not implemented.", NSStringFromSelector(eventSelector), eventTarget, eventName);
         }

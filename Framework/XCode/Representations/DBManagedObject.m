@@ -31,14 +31,13 @@
 #import "DBManagedEvent.h"
 #import "NSObject+DBManagedEvent.h"
 #import "DBManagedApplication.h"
+#import "DBPrimaryInstanceCache.h"
 
-#define DB_TRACE_OBJECT_CACHE
-#define DB_TRACE_KVO
-#define DB_TRACE_MONO_OBJECT_ADDRESS
-
-static NSLock *m_primaryInstanceCacheLock = nil;
 
 static NSMutableArray *m_boundKeys;
+
+//#define DB_TRACE_KVO
+#define DB_TRACE_MONO_OBJECT_ADDRESS
 
 /*
  
@@ -85,6 +84,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property (strong) NSMutableArray *activePropertyNames;
 @property (assign, readwrite) BOOL isPrimaryInstance;
 
+@property (strong, nonatomic) NSMutableArray *willChangeValueForKeyTracker;
+
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
 @property (assign) NSUInteger monoObjectTrace;
 #endif
@@ -97,6 +98,20 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 + (void)initialize
 {
     // doing stuff here can cause issues with the managed runtime
+}
+
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key
+{
+#pragma unused(key)
+    
+    /*
+     
+     Managed properties will automatically send out KVO notifications.
+     If a subclass wants to automatically send out notifications for a given unmanaged property see
+     +automaticallyNotifiesObserversOf<Key>.
+     
+     */
+    return NO;
 }
 
 #pragma mark -
@@ -189,7 +204,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         // get cached primary instance.
         // this is essential to avoid generating multiple unmanaged wrappers
         // for a given managed object when say receiving a MonoObject pointer from an event.
-        DBManagedObject *cachedInstance = [self cachedPrimaryInstanceForMonoObject:monoObject info:&info];
+        DBManagedObject *cachedInstance = [[DBPrimaryInstanceCache sharedCache] objectForMonoObject:monoObject info:&info];
         
         if (!cachedInstance) {
             
@@ -227,26 +242,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // add primary instance to cache
     if (self.isPrimaryInstance) {
         
-#ifdef DB_TRACE_OBJECT_CACHE
-        [self logPrimaryInstanceCache:DBLogInstanceCacheCount];
-#endif
-
-        [[self class] lockPrimaryInstanceCache];
+        [[DBPrimaryInstanceCache sharedCache] addObject:self];
         
-        // key
-        NSUInteger intKey = (NSUInteger)mono_object_hash(monoObject);
-        NSNumber *key = [NSNumber numberWithUnsignedInteger:intKey];
-        
-        // existing cache object
-        DBManagedObject *cacheObject = [[self primaryInstanceCache] objectForKey:key];
-        
-        // contract
-        NSAssert(!cacheObject, @"Primary cache object already exists. We need to add suporrt for this!");
-        
-        // cache it
-        [[self primaryInstanceCache] setObject:self forKey:key];
-        
-        [[self class] unlockPrimaryInstanceCache];
     }
     
 	return self;
@@ -269,11 +266,17 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)dealloc
 {
-
-    // remove key, weak value will be null
-    NSUInteger key = (NSUInteger)mono_object_hash(self.monoObject);
-    [[self primaryInstanceCache] removeObjectForKey:[NSNumber numberWithUnsignedInteger:key]];
+    // cleanup primary instance
+    if (self.isPrimaryInstance) {
+        
+        // remove property change notifications
+        self.automaticallyNotifiesObserversOfManagedPropertyChanges = NO;
+        
+        // uncache
+        [[DBPrimaryInstanceCache sharedCache] removeObject:self];
+    }
     
+    // free the gc handle
 	if (_mono_gchandle != 0) {
 		mono_gchandle_free(_mono_gchandle);
 	}
@@ -283,124 +286,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	MonoString *monoString = (MonoString *)[self invokeMonoMethod:"System.Object:ToString()" withNumArgs:0];
 	
 	return([NSString stringWithMonoString:monoString]);
-}
-
-#pragma mark -
-#pragma mark Primary instance cache
-
-+ (void)lockPrimaryInstanceCache
-{
-    if (m_primaryInstanceCacheLock == nil) {
-        m_primaryInstanceCacheLock = [[NSLock alloc] init];
-    }
-    
-    [m_primaryInstanceCacheLock lock];
-}
-- (void)lockPrimaryInstanceCache
-{
-    [self.class lockPrimaryInstanceCache];
-}
-
-+ (void)unlockPrimaryInstanceCache
-{
-    [m_primaryInstanceCacheLock unlock];
-}
-
-- (void)unlockPrimaryInstanceCache
-{
-    [m_primaryInstanceCacheLock unlock];
-}
-
-+ (NSMapTable *)primaryInstanceCache
-{
-    static NSMapTable *m_primaryInstanceCache;
-    if (!m_primaryInstanceCache) {
-        
-        // note that we could also use the raw integer as the key rather than an NSNumber representation
-        // http://stackoverflow.com/questions/1434107/is-there-anything-like-an-nsset-that-allows-retrieving-by-hash-value
-        //m_instanceCache = [[NSMapTable alloc] initWithKeyOptions: NSPointerFunctionsIntegerPersonality | NSPointerFunctionsOpaque   Memory
-        //                                      valueOptions: NSPointerFunctionsObjectPersonality | NSPointerFunctionsWeakMemory
-        //                  capacity:100];
-        
-        // NSMapTable with strong keys to weak objects
-        m_primaryInstanceCache = [NSMapTable strongToWeakObjectsMapTable];
-    }
-
-    return m_primaryInstanceCache;
-}
-
-- (NSMapTable *)primaryInstanceCache
-{
-    return [self.class primaryInstanceCache];
-}
-
-- (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options
-{
-    [[self class] logPrimaryInstanceCache:options];
-}
-
-+ (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options
-{
-    // [self instanceCache].count includes items with NULL value
-    NSLog(@"Primary instance size: %lu", [self primaryInstanceCache].count);
-
-    // log number of non null items
-    // [self instanceCache].count includes items with NULL value
-    // in practice it should be the case that [self instanceCache].count == [self cachedInstanceCount]
-    
-    if (DBLogInstanceCacheNonNullCount & options) {
-        NSLog(@"Primary instance non null objects: %lu", [self primaryInstanceCacheCount]);
-    }
-    
-    // log items
-    if (DBLogInstanceCacheItems & options) {
-        
-        // keys for zeroed objects will not be returned
-        NSEnumerator *enumerator = [[self primaryInstanceCache] keyEnumerator];
-        id key;
-        
-        while ((key = [enumerator nextObject])) {
-             NSLog(@"DBCache instance : key %@ value : %@", key, [[self primaryInstanceCache] objectForKey:key]);
-        }
-    }
-}
-
-+ (NSUInteger)primaryInstanceCacheCount
-{
-    // NSMapTable -count also reports values that nave dealloced
-    return NSAllMapTableValues([self primaryInstanceCache]).count;
-}
-
-- (id)cachedPrimaryInstanceForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
-{
-    [self lockPrimaryInstanceCache];
-    
-    // key is mono hash based on initial address
-    NSUInteger key = (NSUInteger)mono_object_hash(monoObject);
-    DBManagedObject *cachedInstance =  [[self primaryInstanceCache] objectForKey:[NSNumber numberWithUnsignedInteger:key]];
-    
-    if (cachedInstance) {
-        
-        // contract
-        NSAssert(cachedInstance.isPrimaryInstance, @"non primary instance in cache");
-
-        // flag that primary instance exists in cache
-        *info |= DBPrimaryInstanceExistsForMonoObject;
-        
-        // if we don't have monoObject equality then we have two managed objects with
-        // the same hash, presumably as a result of memory moving
-        if ([cachedInstance monoObject] != monoObject) {
-            
-#warning add collection to track mono_object_hash collisions
-            [NSException raise:@"mono_object_hash collision" format:@"We need to deal with this!"];
-            cachedInstance = nil;
-        }
-
-    }
-    
-    [self unlockPrimaryInstanceCache];
-
-    return cachedInstance;
 }
 
 #pragma mark -
@@ -517,7 +402,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
      */
     
     // add event handler for property changed event if supported
-    if ([DBManagedEvent object:self supportsEventName:@"PropertyChanged"]) {
+    // in EF6 this is sent during call to ReportPropertyChanged
+    if ([DBManagedEvent object:self supportsEventName:DBPropertyChangedEvent]) {
         
         if (value) {
             [[DBManagedApplication sharedManagedApplication] addManagedEventHandlerForObject:self
@@ -531,7 +417,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     }
 
     // add event handler for property changing event if supported
-    if ([DBManagedEvent object:self supportsEventName:@"PropertyChanging"]) {
+    // in EF6 this is sent during call to ReportPropertyChanging
+    if ([DBManagedEvent object:self supportsEventName:DBPropertyChangingEvent]) {
         
         if (value) {
             [[DBManagedApplication sharedManagedApplication] addManagedEventHandlerForObject:self
@@ -618,6 +505,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return NO;
 }
 
+#pragma mark -
+#pragma mark Hashing
+
 - (NSUInteger)hash
 {
     // if the subclass implements getHashCode then use it
@@ -627,6 +517,12 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         return [super hash];
     }
 }
+
+- (NSUInteger)monoHash
+{
+    return (NSUInteger)mono_object_hash(self.monoObject);
+}
+
 #pragma mark -
 #pragma mark NSCopying Protocol
 
@@ -670,9 +566,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     }
     
     // we don't want to persist the monoObject in an ivar or on the heap in general as it would
-    // require pinning the pointed to MonoObject
+    // require always pinning the pointed to MonoObject
     if (monoObject) {
-        _mono_gchandle = mono_gchandle_new(monoObject, FALSE);
+        _mono_gchandle = mono_gchandle_new(monoObject, self.monoEnvironment.pinGCHandles);
     }
     
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -1052,37 +948,10 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 	return(DBMonoObjectGetProperty(self.monoObject, propertyName));
 }
 
-- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
-
-    NSString *unmanagedPropertyName = nil;
-    
-    // if this object is observed then track property setting
-    // so that we can detect propertyChanging/propertyChanged events arising from the managed code
-    if (self.observationInfo) {
-        unmanagedPropertyName = [self unmanagedPropertyName:propertyName];
-        [self addActiveProperty:unmanagedPropertyName];
-    }
-
+- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject
+{
     // set the managed property
     DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
-    
-    if (unmanagedPropertyName) {
-        [self removeActiveProperty:unmanagedPropertyName];
-    }
-}
-
-- (void)addActiveProperty:(NSString *)propertyName
-{
-    if (!self.activePropertyNames) {
-        self.activePropertyNames = [NSMutableArray arrayWithCapacity:2];
-    }
-    [self.activePropertyNames addObject:propertyName];
-}
-
-- (void)removeActiveProperty:(NSString *)propertyName
-{
-    [self.activePropertyNames removeObject:propertyName];
-
 }
 
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName
@@ -1141,28 +1010,49 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)willChangeValueForKey:(NSString *)key
 {
-    // do not reissue if raising as a result of a local property call
-    if (![self.activePropertyNames containsObject:key]) {
-        
+#warning seems to be getting called twice for every change in the managed layer
+    /*
+      +automaticallyNotifiesObserversForKey: returns NO but the KVO
+     ChangeValueForKey: methods are called whenever a mangaged property is sent if
+     -automaticallyNotifiesObserversOfManagedPropertyChanges retunrs YES
+     
+     */
+    
+    // contract
+    NSAssert(self.isPrimaryInstance, @"non primary instance");
+    
+    // KVO requires the willChange/didChange notifications to be accurately paired.
+    // So the managed layer should implement both INotifyPropertyChanging and INotifyPropertyChanged.
+    // However, it is easy, especially when issuing manual notify property changes to corrupt the pairing.
+    // Thus we try to track the change notifications and log errors
+    if (![self trackWillChangeValueForKey:key]) {
+        return;
+    }
+
 #ifdef DB_TRACE_KVO
-        NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
+        //NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
+        NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
 #endif
         
-        [super willChangeValueForKey:key];
-    }
+    [super willChangeValueForKey:key];
 }
 
 - (void)didChangeValueForKey:(NSString *)key
 {
-    // do not reissue if raising as a result of a local property call
-    if (![self.activePropertyNames containsObject:key]) {
-        
+    // contract
+    NSAssert(self.isPrimaryInstance, @"non primary instance");
+    
+    // track change value
+    if (![self trackDidChangeValueForKey:key]) {
+        return;
+    }
+
 #ifdef DB_TRACE_KVO
-        NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
+        //NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
+        NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
 #endif
         
-        [super didChangeValueForKey:key];
-    }
+    [super didChangeValueForKey:key];
 }
 
 - (void)setObservationInfo:(void *)observationInfo
@@ -1172,6 +1062,40 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
     
     [super setObservationInfo:observationInfo];
+}
+
+- (BOOL)trackWillChangeValueForKey:(NSString *)key
+{
+    BOOL sequenceOkay = YES;
+    
+    if (!self.willChangeValueForKeyTracker) {
+        self.willChangeValueForKeyTracker = [NSMutableArray arrayWithCapacity:2];
+    }
+    
+    BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
+    if (isTracked) {
+        NSLog(@"Managed object KVO sequence warning: %@ -willChangeValueForKey %@. Prior -didChangeValueForKey was not received. Managed PropertyChanged(%@) event required.", [self className], key, key);
+        sequenceOkay = NO;
+    } else {
+        [self.willChangeValueForKeyTracker addObject:key];
+    }
+    
+    return sequenceOkay;
+}
+
+- (BOOL)trackDidChangeValueForKey:(NSString *)key
+{
+    BOOL sequenceOkay = YES;
+
+    BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
+    if (!isTracked) {
+        NSLog(@"Managed object KVO sequence warning: %@ -didChangeValueForKey %@. Prior -willChangeValueForKey was not received. Managed PropertyChanging(%@) event required.", [self className], key, key);
+        sequenceOkay = NO;
+    } else {
+        [self.willChangeValueForKeyTracker removeObject:key];
+    }
+    
+    return sequenceOkay;
 }
 
 #pragma mark -

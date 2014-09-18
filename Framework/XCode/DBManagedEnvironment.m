@@ -139,6 +139,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     return [self initWithDomainName:domainName version:[_monoDefaultVersion UTF8String]];
 }
 
+// designated initialiser
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version {
 	self = [super init];
 	
@@ -151,6 +152,10 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         NSAssert(_monoDomain, @"Cannot initialise application domain : %s %s", domainName, version);
 
         _loadedAssemblies = [NSMutableDictionary dictionaryWithCapacity:10];
+        
+        // In general it is best if we do not pin GC handles.
+        // More work is required before this can be allowed, especially with SGEN GC.
+        self.pinGCHandles = YES;
 	}
 	
     [[self class] setCurrentEnvironment:self];

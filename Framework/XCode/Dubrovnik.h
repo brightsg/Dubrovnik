@@ -48,6 +48,7 @@
 #import "DBManagedMethod.h"
 #import "DBManagedEvent.h"
 #import "DBManagedApplication.h"
+#import "DBPrimaryInstanceCache.h"
 
 // categories
 #import "NSCategories.h"

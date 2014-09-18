@@ -44,7 +44,7 @@
 @property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;
 @property (assign, readonly) MonoDomain *monoDomain;
-
+@property (assign) BOOL pinGCHandles;
 
 /*!
  
@@ -92,7 +92,7 @@
  @"gc"          - Carbage collector activity
  @"cfg"         - .config file parsing activity
  @"aot"         - Ahead of time compilation activity
- @"security"    - Seurity related activity
+ @"security"    - Security related activity
  
  @"all"         - All activity
  @"non"         - same as nil
