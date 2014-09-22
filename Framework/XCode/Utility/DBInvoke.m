@@ -148,7 +148,8 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     // make it so
     NSException *e = [NSException exceptionWithName:exceptionName reason:reason userInfo:userInfo];
     
-    if (NO) {
+    BOOL logException = YES;
+    if (logException) {
         NSLog(@"Dubrovnik exception:\n name: %@\n reason: %@\n exception: %@", e.name, e.reason, e);
     }
     
