@@ -84,6 +84,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property (strong) NSMutableArray *activePropertyNames;
 @property (assign, readwrite) BOOL isPrimaryInstance;
 
+// KVO support
 @property (strong, nonatomic) NSMutableArray *willChangeValueForKeyTracker;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -343,19 +344,23 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 - (void)setupReferenceTypeInstance:(DBManagedInstanceInfo)info
 {
     
-    // register unmanaged handlers for managed events.
-    // we don't do this in +initialize as it raises.
-    static bool m_eventHandlersRegistered;
-    if (!m_eventHandlersRegistered) {
+    // Register unmanaged handlers for managed property change events.
+    // We don't do this in +initialize as it raises.
+    // This effectively enables the routing of managed INotifyPropertyChanging and INotifyPropertyChanged events
+    // into the unamanaged world as KVO key change events.
+    static bool m_propertyChangEventHandlersRegistered;
+    if (!m_propertyChangEventHandlersRegistered) {
         
         [DBManagedEvent registerManagedEventHandler:DBPropertyChangedEventFunction unmanagedHandler:&ManagedEvent_ManagedObject_PropertyChanged];
         [DBManagedEvent registerManagedEventHandler:DBPropertyChangingEventFunction unmanagedHandler:&ManagedEvent_ManagedObject_PropertyChanging];
         
-        m_eventHandlersRegistered = YES;
+        m_propertyChangEventHandlersRegistered = YES;
     }
     
-    // we only want to auto configure observers for primary instances
-    if (self.isPrimaryInstance) {
+    // we only want to auto configure observers for primary instances.
+    // if this is not done now it will be done on demand when observers are installed
+    BOOL preconfigurePrimaryInstanceAutoPropertyChange = NO;    // TODO: perhaps make this a config property
+    if (self.isPrimaryInstance && preconfigurePrimaryInstanceAutoPropertyChange) {
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
     }
 }
@@ -389,15 +394,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     /* NOTE:
      
      We only want these events handlers to be assigned once for each MonoObject even if
-     the managed object is wrapped by more than one unmanaged object. Failure to do this
-     results in multiple delegates being created whenever a MonoObject instance is referenced
-     by multiple instances of this class.
+     the managed object is wrapped by more than one unmanaged object.
      
-     The calls below will only add the event handler if it is not already present.
-     It will also only delete the event if present.
-     
-     Note that deleting the event on a receiver will effectively delete it on
-     all instances that reference the same MonoObject
+     Ideally calls below will only add the event handler if it is not already present.
+     However, it doesn't seem possible to reliably ensure this.
+     Hence we enforce the isPrimaryInstance condition.
      
      */
     
@@ -1024,8 +1025,9 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // KVO requires the willChange/didChange notifications to be accurately paired.
     // So the managed layer should implement both INotifyPropertyChanging and INotifyPropertyChanged.
     // However, it is easy, especially when issuing manual notify property changes to corrupt the pairing.
-    // Thus we try to track the change notifications and log errors
-    if (![self trackWillChangeValueForKey:key]) {
+    // Thus we may choose to track the change notifications and log errors
+    BOOL trackChangeNotifications = YES;    // TODO: make this an configuration option?
+    if (trackChangeNotifications && ![self trackWillChangeValueForKey:key]) {
         return;
     }
 
@@ -1043,7 +1045,8 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     NSAssert(self.isPrimaryInstance, @"non primary instance");
     
     // track change value
-    if (![self trackDidChangeValueForKey:key]) {
+    BOOL trackChangeNotifications = YES;
+    if (trackChangeNotifications && ![self trackDidChangeValueForKey:key]) {
         return;
     }
 
@@ -1061,11 +1064,25 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         [NSException raise:@"Non primary instance" format:@"Only primary instances support the raising of managed events. Observing the properties of a managed objects requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead."];
     }
     
+    /*
+     
+     This method will be called whenever an observer or binding changes.
+     If we have not already configured this object to to respond to managed object property change events
+     then do so now.
+     */
+    if (!self.automaticallyNotifiesObserversOfManagedPropertyChanges) {
+        self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
+    }
+    
     [super setObservationInfo:observationInfo];
 }
 
 - (BOOL)trackWillChangeValueForKey:(NSString *)key
 {
+    if ([[[self class] keysToIgnoreInChangeValueForKeyMethods] containsObject:key]) {
+        return NO;
+    }
+    
     BOOL sequenceOkay = YES;
     
     if (!self.willChangeValueForKeyTracker) {
@@ -1074,7 +1091,9 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
     if (isTracked) {
+        
         NSLog(@"Managed object KVO sequence warning: %@ -willChangeValueForKey %@. Prior -didChangeValueForKey was not received. Managed PropertyChanged(%@) event required.", [self className], key, key);
+        
         sequenceOkay = NO;
     } else {
         [self.willChangeValueForKeyTracker addObject:key];
@@ -1085,17 +1104,29 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (BOOL)trackDidChangeValueForKey:(NSString *)key
 {
+    if ([[[self class] keysToIgnoreInChangeValueForKeyMethods] containsObject:key]) {
+        return NO;
+    }
+
     BOOL sequenceOkay = YES;
 
     BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
     if (!isTracked) {
+        
         NSLog(@"Managed object KVO sequence warning: %@ -didChangeValueForKey %@. Prior -willChangeValueForKey was not received. Managed PropertyChanging(%@) event required.", [self className], key, key);
+        
         sequenceOkay = NO;
     } else {
         [self.willChangeValueForKeyTracker removeObject:key];
     }
     
     return sequenceOkay;
+}
+
++ (NSArray *)keysToIgnoreInChangeValueForKeyMethods
+{    
+    // subclasses can override this method
+    return nil;
 }
 
 #pragma mark -

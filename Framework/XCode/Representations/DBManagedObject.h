@@ -154,6 +154,21 @@ extern char DBCacheSuffixChar;
 + (void)registerObservedKeys:(NSArray *)keys;
 - (void)sendChangeNotificationsForRegisteredObservedKeys;
 
+/*!
+ 
+ Returns an array of keys that will not generate KVO change notifications.
+ 
+ Managed objects may generate unmatched property change events - EF navigation properties are a case in point.
+ This method can be used to filter them out on a per key basis.
+ This will effectively disable observing/binding of the identified keys.
+ This is fine though as mismatched KVO change notifications are a source of crashes + bugs.
+ 
+ A common workaround for the mismatched notifications is to define a proxy property that wraps the offending
+ property with the correct notifications.
+ 
+ */
++ (NSArray *)keysToIgnoreInChangeValueForKeyMethods;
+
 // Mono info
 - (NSUInteger)monoHash;
 - (int)monoMethodCount;
