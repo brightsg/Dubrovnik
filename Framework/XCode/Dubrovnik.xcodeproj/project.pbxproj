@@ -29,8 +29,6 @@
 		9D88636A0974F59A00365976 /* DBWrappers.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8863680974F59A00365976 /* DBWrappers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D8BE9670886152500D019A5 /* NSCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE9660886152500D019A5 /* NSCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D8BE971088615D200D019A5 /* DBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8BE970088615D200D019A5 /* DBUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DA04A0808C8E22A00EEE149 /* DBMonoRegisteredThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA04A0608C8E22A00EEE149 /* DBMonoRegisteredThread.m */; };
 		9DF2367B0874E3CC008A199C /* NSData+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF236790874E3CC008A199C /* NSData+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DF2367C0874E3CC008A199C /* NSData+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2367A0874E3CC008A199C /* NSData+Dubrovnik.m */; };
 		AB00206417C654AC00178AFC /* Debug in Copy Managed Binaries */ = {isa = PBXBuildFile; fileRef = AB00206217C6549E00178AFC /* Debug */; };
@@ -104,6 +102,8 @@
 		ABD2F23518FB100C00C2B561 /* DBUReferenceObject__NestedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F23418FB100C00C2B561 /* DBUReferenceObject__NestedClass.m */; };
 		ABF43FB8179FF4FC00BAB99E /* DBManagedMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF43FB6179FF4FC00BAB99E /* DBManagedMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF43FB9179FF4FC00BAB99E /* DBManagedMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF43FB7179FF4FC00BAB99E /* DBManagedMethod.m */; };
+		ABF4846F19D1DCC000769746 /* DBManagedObjectThread.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF4846D19D1DCC000769746 /* DBManagedObjectThread.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF4847019D1DCC000769746 /* DBManagedObjectThread.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF4846E19D1DCC000769746 /* DBManagedObjectThread.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,8 +168,6 @@
 		9D8863680974F59A00365976 /* DBWrappers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWrappers.h; sourceTree = "<group>"; };
 		9D8BE9660886152500D019A5 /* NSCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCategories.h; sourceTree = "<group>"; };
 		9D8BE970088615D200D019A5 /* DBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUtility.h; sourceTree = "<group>"; };
-		9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMonoRegisteredThread.h; sourceTree = "<group>"; };
-		9DA04A0608C8E22A00EEE149 /* DBMonoRegisteredThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMonoRegisteredThread.m; sourceTree = "<group>"; };
 		9DF236790874E3CC008A199C /* NSData+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Dubrovnik.h"; sourceTree = "<group>"; };
 		9DF2367A0874E3CC008A199C /* NSData+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB00206217C6549E00178AFC /* Debug */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Debug; path = ../../dotNET/FrameworkHelper/Dubrovnik.FrameworkHelper/bin/Debug; sourceTree = "<group>"; };
@@ -289,6 +287,8 @@
 		ABD2F23418FB100C00C2B561 /* DBUReferenceObject__NestedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceObject__NestedClass.m; sourceTree = "<group>"; };
 		ABF43FB6179FF4FC00BAB99E /* DBManagedMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedMethod.h; sourceTree = "<group>"; };
 		ABF43FB7179FF4FC00BAB99E /* DBManagedMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedMethod.m; sourceTree = "<group>"; };
+		ABF4846D19D1DCC000769746 /* DBManagedObjectThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedObjectThread.h; sourceTree = "<group>"; };
+		ABF4846E19D1DCC000769746 /* DBManagedObjectThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedObjectThread.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,10 +365,10 @@
 		08FB77AEFE84172EC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				ABF4846C19D1DCC000769746 /* Concurrency */,
 				9DF236C70875D58E008A199C /* Categories */,
 				AB99495418B36BFD00FAC62D /* Include */,
 				9D69DC2A08B1842D008BB787 /* Mono Environment */,
-				9DA049F208C8DEAD00EEE149 /* Posing */,
 				9D69DC2B08B1844D008BB787 /* Representations */,
 				AB72C96418C74827008AE0DE /* Type handling */,
 				9D021B3108810720003E48C1 /* Utility */,
@@ -452,15 +452,6 @@
 				AB120DA418BB47F300461FA2 /* DBNumber.m */,
 			);
 			path = Wrappers;
-			sourceTree = "<group>";
-		};
-		9DA049F208C8DEAD00EEE149 /* Posing */ = {
-			isa = PBXGroup;
-			children = (
-				9DA04A0508C8E22A00EEE149 /* DBMonoRegisteredThread.h */,
-				9DA04A0608C8E22A00EEE149 /* DBMonoRegisteredThread.m */,
-			);
-			path = Posing;
 			sourceTree = "<group>";
 		};
 		9DF236C70875D58E008A199C /* Categories */ = {
@@ -690,6 +681,15 @@
 			path = "Dubrovnik Unit Tests";
 			sourceTree = "<group>";
 		};
+		ABF4846C19D1DCC000769746 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				ABF4846D19D1DCC000769746 /* DBManagedObjectThread.h */,
+				ABF4846E19D1DCC000769746 /* DBManagedObjectThread.m */,
+			);
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -697,6 +697,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF4846F19D1DCC000769746 /* DBManagedObjectThread.h in Headers */,
 				AB031D0419C9B46000C80422 /* DBPrimaryInstanceCache.h in Headers */,
 				AB6A752D19A9307000CDE475 /* NSArray+Dubrovnik.h in Headers */,
 				ABD1CC2219A905FC0072F538 /* NSPointerArray+Dubrovnik.h in Headers */,
@@ -707,7 +708,6 @@
 				AB91B69718EE03A00021B462 /* DBManagedEvent.h in Headers */,
 				AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */,
 				AB120DA518BB47F300461FA2 /* DBNumber.h in Headers */,
-				9DA04A0708C8E22A00EEE149 /* DBMonoRegisteredThread.h in Headers */,
 				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
 				ABF43FB8179FF4FC00BAB99E /* DBManagedMethod.h in Headers */,
@@ -864,7 +864,6 @@
 				AB031D0519C9B46000C80422 /* DBPrimaryInstanceCache.m in Sources */,
 				9D021BFF08811729003E48C1 /* DBInvoke.m in Sources */,
 				9D69DC4408B1851E008BB787 /* DBManagedEnvironment.m in Sources */,
-				9DA04A0808C8E22A00EEE149 /* DBMonoRegisteredThread.m in Sources */,
 				ABD1CC2319A905FC0072F538 /* NSPointerArray+Dubrovnik.m in Sources */,
 				9D68AF5508EA1569002C7AB0 /* NSDate+Dubrovnik.m in Sources */,
 				ABB8A3DF18FF0F4400213B80 /* NSString+Dubrovnik.m in Sources */,
@@ -874,6 +873,7 @@
 				9D6335AF09750DAD00FB76DF /* DBData.m in Sources */,
 				AB49E431178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m in Sources */,
 				AB49E435178ABAAE00D01244 /* NSNumber+Dubrovnik.m in Sources */,
+				ABF4847019D1DCC000769746 /* DBManagedObjectThread.m in Sources */,
 				ABF43FB9179FF4FC00BAB99E /* DBManagedMethod.m in Sources */,
 				AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */,
 				AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */,

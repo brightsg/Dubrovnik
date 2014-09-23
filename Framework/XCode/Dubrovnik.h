@@ -56,7 +56,7 @@
 // wrappers
 #import "DBWrappers.h"
 
-#import "DBMonoRegisteredThread.h"
+#import "DBManagedObjectThread.h"
 
 // utility functions
 #import "DBUtility.h"

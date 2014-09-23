@@ -1,9 +1,9 @@
 //
-//  DBMonoRegisteredThread.h
+//  DBManagedObjectThread.h
 //  Dubrovnik
 //
-//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
+//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -23,27 +23,17 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-@interface DBMonoRegisteredThread : NSThread {
-
-}
-
+@interface DBManagedObjectThread : NSThread
 @end
 
-@interface DBMonoRegisteredThreadArguments : NSObject {
-	@public
-	SEL _selector;
-	id _target;
-	id _argument;
-	MonoDomain *_monoDomain;
-}
+@interface DBManagedObjectThreadArguments : NSObject
 
-+ (DBMonoRegisteredThreadArguments *)threadArgumentsWithSelector:(SEL)selector withTarget:(id)target withObject:(id)argument withMonoDomain:(MonoDomain *)monoDomain;
+@property (assign) SEL selector;
+@property (strong) id target;
+@property (strong) id argument;
+@property (assign) MonoDomain *monoDomain;
 
++ (instancetype)threadArgumentsWithSelector:(SEL)selector withTarget:(id)target withObject:(id)argument withMonoDomain:(MonoDomain *)monoDomain;
 - (id)initWithSelector:(SEL)selector withTarget:(id)target withObject:(id)argument withMonoDomain:(MonoDomain *)monoDomain;
-
-- (SEL)selector;
-- (id)target;
-- (id)argument;
-- (MonoDomain *)monoDomain;
 
 @end
