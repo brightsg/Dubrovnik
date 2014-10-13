@@ -342,35 +342,64 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOO
     
 	pthread_mutex_lock(&methodCacheMutex);
 
-    MonoMethod *meth = GetCachedMonoMethod(monoClass, methodName);
-		
-	if(meth == NULL) {
-		MonoClass *klass = monoClass;
-		MonoMethodDesc *methodDesc = NULL;
-		
-		if (strchr(methodName, ':') != NULL) {
-			methodDesc = mono_method_desc_new(methodName, YES);
-		} else {
-			char rewrittenMethodName[strlen(methodName) + 2];
-			rewrittenMethodName[0] = ':';
-			strcpy(rewrittenMethodName + 1, methodName);
-			methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
-		}
-		
-		while(klass != NULL) {
-			meth = mono_method_desc_search_in_class(methodDesc, klass);
-						 
-			if(meth != NULL) {
-				SetCachedMonoMethod(meth, monoClass, methodName);
-				break;
-			}
-			
-			klass = mono_class_get_parent(klass);
-		}
-		
-		mono_method_desc_free(methodDesc);
-	}
-	
+    BOOL continueSearch = NO;
+    MonoMethod *meth = NULL;
+    
+    do {
+        meth = GetCachedMonoMethod(monoClass, methodName);
+            
+        if(meth == NULL) {
+            MonoClass *klass = monoClass;
+            MonoMethodDesc *methodDesc = NULL;
+            
+            if (strchr(methodName, ':') != NULL) {
+                methodDesc = mono_method_desc_new(methodName, YES);
+            } else {
+                char rewrittenMethodName[strlen(methodName) + 2];
+                rewrittenMethodName[0] = ':';
+                strcpy(rewrittenMethodName + 1, methodName);
+                methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
+            }
+            
+            while(klass != NULL) {
+                meth = mono_method_desc_search_in_class(methodDesc, klass);
+                             
+                if(meth != NULL) {
+                    SetCachedMonoMethod(meth, monoClass, methodName);
+                    break;
+                }
+                
+                klass = mono_class_get_parent(klass);
+            }
+            
+            mono_method_desc_free(methodDesc);
+        }
+        
+        /*
+         This may prove presumptuous. We shall see.
+         
+         When an explicit interface is used the method name is required in full ie: namespace.methodname.
+         If the class though implements the method implicitly then only the methodname is required.
+         When a MonoObject gets wrapped as an interface type we always call namespace.methodname.
+         This will access the explicit method name if it has been defined explicitly.
+         If the explicit method name is not found we try the implicit name.
+         
+         */
+        
+        // look for implicit implementation if explicit method name found
+        if (meth == NULL && !continueSearch) {
+            char *implicitNamePtr = strrchr(methodName, '.');
+            if (implicitNamePtr) {
+                continueSearch = YES;
+                methodName = implicitNamePtr + 1;
+            }
+            
+        } else {
+            continueSearch = NO;
+        }
+        
+    } while (continueSearch);
+    
 	pthread_mutex_unlock(&methodCacheMutex);
 
 	if(meth == NULL) {
@@ -393,41 +422,59 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, 
 	
     pthread_mutex_lock(&methodCacheMutex);
     
-	MonoMethod *meth = GetCachedMonoMethod(monoClass, methodName);
-	
-	if(meth == NULL) {
-		MonoClass *klass = monoClass;
-		MonoMethodDesc *methodDesc = NULL;
-		
-		if (strchr(methodName, ':') != NULL) {
-			methodDesc = mono_method_desc_new(methodName, YES);
-		} else {
-			char rewrittenMethodName[strlen(methodName) + 2];
-			rewrittenMethodName[0] = ':';
-			strcpy(rewrittenMethodName + 1, methodName);
-			methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
-		}
+    BOOL continueSearch = NO;
+    MonoMethod *meth = NULL;
+    
+    do {
+        meth = GetCachedMonoMethod(monoClass, methodName);
         
-		while(klass != NULL) {
-			meth = mono_method_desc_search_in_class(methodDesc, klass);
+        if(meth == NULL) {
+            MonoClass *klass = monoClass;
+            MonoMethodDesc *methodDesc = NULL;
             
-			if(meth != NULL) {
+            if (strchr(methodName, ':') != NULL) {
+                methodDesc = mono_method_desc_new(methodName, YES);
+            } else {
+                char rewrittenMethodName[strlen(methodName) + 2];
+                rewrittenMethodName[0] = ':';
+                strcpy(rewrittenMethodName + 1, methodName);
+                methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
+            }
+            
+            while(klass != NULL) {
+                meth = mono_method_desc_search_in_class(methodDesc, klass);
+                
+                if(meth != NULL) {
 
-#ifdef DB_INVOCATION_TRACE
-                char *foundMethodName = mono_method_full_name (meth, (int32_t)1);
-                NSLog(@"Method name query:%s Method name: %s", methodName, foundMethodName);
-#endif
-				meth = mono_object_get_virtual_method(monoObject, meth);
-				SetCachedMonoMethod(meth, monoClass, methodName);
-				break;
-			}
-			
-			klass = mono_class_get_parent(klass);
-		}
-		
-		mono_method_desc_free(methodDesc);
-	}
-	
+    #ifdef DB_INVOCATION_TRACE
+                    char *foundMethodName = mono_method_full_name (meth, (int32_t)1);
+                    NSLog(@"Method name query:%s Method name: %s", methodName, foundMethodName);
+    #endif
+                    meth = mono_object_get_virtual_method(monoObject, meth);
+                    SetCachedMonoMethod(meth, monoClass, methodName);
+                    break;
+                }
+                
+                klass = mono_class_get_parent(klass);
+            }
+            
+            mono_method_desc_free(methodDesc);
+        }
+        
+        // look for implicit implementation if explicit method name found
+        if (meth == NULL && !continueSearch) {
+            char *implicitNamePtr = strrchr(methodName, '.');
+            if (implicitNamePtr) {
+                continueSearch = YES;
+                methodName = implicitNamePtr + 1;
+            }
+            
+        } else {
+            continueSearch = NO;
+        }
+        
+	} while (continueSearch);
+    
 	pthread_mutex_unlock(&methodCacheMutex);
 	
 	if(meth == NULL)

@@ -1061,7 +1061,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 - (void)setObservationInfo:(void *)observationInfo
 {
     if (!self.isPrimaryInstance) {
-        [NSException raise:@"Non primary instance" format:@"Only primary instances support the raising of managed events. Observing the properties of a managed objects requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead."];
+        [NSException raise:@"Non primary instance" format:@"%@ : Only primary instances support the raising of managed events. Observing the properties of a managed object requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead.", [self className]];
     }
     
     /*
