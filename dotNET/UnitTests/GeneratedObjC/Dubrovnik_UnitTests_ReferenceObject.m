@@ -410,6 +410,23 @@
 		[self setMonoProperty:"FloatNullable" valueObject:monoObject];          
 	}
 
+	// Managed property name : ImpIntTestProperty
+	// Managed property type : System.Int32
+    @synthesize impIntTestProperty = _impIntTestProperty;
+    - (int32_t)impIntTestProperty
+    {
+		MonoObject *monoObject = [self getMonoProperty:"ImpIntTestProperty"];
+		_impIntTestProperty = DB_UNBOX_INT32(monoObject);
+
+		return _impIntTestProperty;
+	}
+    - (void)setImpIntTestProperty:(int32_t)value
+	{
+		_impIntTestProperty = value;
+		MonoObject *monoObject = DB_VALUE(value);
+		[self setMonoProperty:"ImpIntTestProperty" valueObject:monoObject];          
+	}
+
 	// Managed property name : Int16Array
 	// Managed property type : System.Int16[]
     @synthesize int16Array = _int16Array;

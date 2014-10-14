@@ -39,6 +39,10 @@
 	// Managed property name : ExIntTestProperty
 	// Managed property type : System.Int32
     @property (nonatomic) int32_t exIntTestProperty;
+
+	// Managed property name : ImpIntTestProperty
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t impIntTestProperty;
 #endif
 
 
@@ -62,6 +66,10 @@
 	// Managed property name : ExIntTestProperty
 	// Managed property type : System.Int32
     @property (nonatomic) int32_t exIntTestProperty;
+
+	// Managed property name : ImpIntTestProperty
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t impIntTestProperty;
 
 @end
 

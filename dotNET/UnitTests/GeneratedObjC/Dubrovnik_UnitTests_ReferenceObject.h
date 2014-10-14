@@ -119,6 +119,10 @@
 	// Managed property type : System.Nullable`1<System.Single>
     @property (nonatomic, strong) System_NullableA1 * floatNullable;
 
+	// Managed property name : ImpIntTestProperty
+	// Managed property type : System.Int32
+    @property (nonatomic) int32_t impIntTestProperty;
+
 	// Managed property name : Int16Array
 	// Managed property type : System.Int16[]
     @property (nonatomic, strong) DBSystem_Array * int16Array;

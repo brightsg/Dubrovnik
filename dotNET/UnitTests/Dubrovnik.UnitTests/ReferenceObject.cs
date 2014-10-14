@@ -26,6 +26,7 @@ namespace Dubrovnik.UnitTests
     public interface IReferenceObject1 : IReferenceObjectBase
     {
         int ExIntTestProperty { get; set; }
+        int ImpIntTestProperty { get; set; }
     }
     public interface IReferenceObject2 : IReferenceObjectBase
     {
@@ -191,6 +192,7 @@ namespace Dubrovnik.UnitTests
 		    ExIntTestProperty = true;
 		    (this as IReferenceObject1).ExIntTestProperty = 10101;
             (this as IReferenceObject2).ExIntTestProperty = 20202f;
+		    ImpIntTestProperty = 30303;
 
 		    //Console.WriteLine ("======= CONSTRUCTOR END ===========");
 		    //Console.WriteLine (" ");
@@ -221,6 +223,10 @@ namespace Dubrovnik.UnitTests
 
         // interface
         public ITestProperty InterfaceTestProperty { get; set; }
+
+        // implicit property defined in interface.
+        // this should be accessible on the native object and on the interface object
+        public int ImpIntTestProperty { get; set; }
 
         // explicit interface properties
         /*
