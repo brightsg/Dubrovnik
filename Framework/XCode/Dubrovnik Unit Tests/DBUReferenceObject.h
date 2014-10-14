@@ -207,6 +207,8 @@
 - (Dubrovnik_UnitTests_IReferenceObject2 *)referenceObject2;
 - (BOOL)exIntTestProperty;
 - (void)setExIntTestProperty:(BOOL)value;
+- (int32_t)impIntTestProperty;
+- (void)setImpIntTestProperty:(int32_t)value;
 
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 

@@ -405,6 +405,18 @@
     [self setMonoProperty:"ExIntTestProperty" valueObject:DB_VALUE(value)];
 }
 
+
+- (int32_t)impIntTestProperty
+{
+    MonoObject *monoObject = [self getMonoProperty:"ImpIntTestProperty"];
+    return DB_UNBOX_INT32(monoObject);
+}
+- (void)setImpIntTestProperty:(int32_t)value
+{
+    MonoObject *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"ImpIntTestProperty" valueObject:monoObject];
+}
+
 #pragma mark -
 #pragma mark Mono array list properties
 

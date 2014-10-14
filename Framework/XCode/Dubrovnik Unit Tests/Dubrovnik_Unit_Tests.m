@@ -1426,6 +1426,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // managed interface property
     //
 
+    // check that interface property can be accessed via native object and by interface object
+    int32_t impIntValue = [refObject impIntTestProperty];
+    NSAssert(impIntValue == 30303, DBUEqualityTestFailed);
+
+    Dubrovnik_UnitTests_IReferenceObject1 *refObject1Imp = [[Dubrovnik_UnitTests_IReferenceObject1 alloc] initWithMonoObject:[refObject monoObject]];
+    int32_t impIntValue2 = [refObject1Imp impIntTestProperty];
+    NSAssert(impIntValue2 == impIntValue, DBUEqualityTestFailed);
+    
     // get managed interface object
     id minimRefObject = [refObject minimalReferenceObject];
     
@@ -1445,14 +1453,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     Dubrovnik_UnitTests_IReferenceObject1 *refObject1 = [refObject referenceObject1];
     [refObject1 setExIntTestProperty:89467];
     int32_t intValue = [refObject1 exIntTestProperty];
-    
     NSAssert(intValue == 89467, DBUEqualityTestFailed);
     
     // float
     Dubrovnik_UnitTests_IReferenceObject2 *refObject2 = [refObject referenceObject2];
     [refObject2 setExIntTestProperty:20202.f];
     float floatValue = [refObject2 exIntTestProperty];
-
     NSAssert(floatValue == 20202.f, DBUEqualityTestFailed);
 }
 
