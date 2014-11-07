@@ -168,7 +168,10 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     if (targetIndex != NSUIntegerMax) {
         [eventTargets removePointerAtIndex:targetIndex];
     } else {
-        NSLog(@"Target: %@ not registered with sender : %@ for event : %@", target, sender, eventName);
+
+#ifdef DB_TRACE
+        NSLog(@"Target: %@ not found with sender : %@ for event : %@. Note: this is to be expected if the target has been deallocated and this method is called in the targets dealloc.", target, sender, eventName);
+#endif
     }
     
     if (eventTargets.count == 0) {
