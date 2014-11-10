@@ -334,16 +334,17 @@ inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass,
 	*valuePointer = (Word_t)nameToMethodsArray;
 }
 
-MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature) {
+MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, BOOL requireSignature) {
 
     if (requireSignature) {
-        DBValidateMethodSignature(methodName);
+        DBValidateMethodSignature(inMethodName);
     }
     
 	pthread_mutex_lock(&methodCacheMutex);
 
     BOOL continueSearch = NO;
     MonoMethod *meth = NULL;
+    const char *methodName = inMethodName;
     
     do {
         meth = GetCachedMonoMethod(monoClass, methodName);
@@ -403,7 +404,7 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOO
 	pthread_mutex_unlock(&methodCacheMutex);
 
 	if(meth == NULL) {
-		NSException *e = [NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", methodName] userInfo:nil];
+		NSException *e = [NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", inMethodName] userInfo:nil];
         
         [e raise];
     }
@@ -412,10 +413,10 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOO
 }
 
 
-MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature) {
+MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName, BOOL requireSignature) {
     
     if (requireSignature) {
-        DBValidateMethodSignature(methodName);
+        DBValidateMethodSignature(inMethodName);
     }
     
 	MonoClass *monoClass = mono_object_get_class(monoObject);
@@ -424,6 +425,7 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, 
     
     BOOL continueSearch = NO;
     MonoMethod *meth = NULL;
+    const char *methodName = inMethodName;
     
     do {
         meth = GetCachedMonoMethod(monoClass, methodName);
@@ -478,7 +480,7 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, 
 	pthread_mutex_unlock(&methodCacheMutex);
 	
 	if(meth == NULL)
-		@throw([NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", methodName] userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", inMethodName] userInfo:nil]);
 	
 	return(meth);	
 }
