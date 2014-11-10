@@ -269,6 +269,11 @@
 	// Managed param types : System.DateTime
     - (NSDate *)dateMethod_withD1:(NSDate *)p1;
 
+	// Managed method name : DecimalMultiplierMethod
+	// Managed return type : System.Decimal
+	// Managed param types : System.Decimal, System.Decimal
+    - (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2;
+
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32

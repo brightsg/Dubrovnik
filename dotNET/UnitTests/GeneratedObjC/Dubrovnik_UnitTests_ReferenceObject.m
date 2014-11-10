@@ -1014,6 +1014,17 @@
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
 
+	// Managed method name : DecimalMultiplierMethod
+	// Managed return type : System.Decimal
+	// Managed param types : System.Decimal, System.Decimal
+    - (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"DecimalMultiplierMethod(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		
+		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+    }
+
 	// Managed method name : DoubleIt
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32

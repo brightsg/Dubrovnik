@@ -1170,7 +1170,7 @@ namespace Dubrovnik
             AssociateTypes(manTA, objcTA);
 
             // System.Decimal
-            manTA = new ManagedTypeAssociation { ManagedType = "System.Decimal", ManagedTypeAlias = "decimal" };
+            manTA = new ManagedTypeAssociation { ManagedType = "System.Decimal", ManagedTypeAlias = "decimal", ManagedTypeInvoke = "System.Decimal" };
             objcTA = new ObjCTypeAssociation { ObjCType = "NSDecimalNumber", GetterFormat = "[NSDecimalNumber decimalNumberWithMonoDecimal:{0}]" };
             AssociateTypes(manTA, objcTA);
 

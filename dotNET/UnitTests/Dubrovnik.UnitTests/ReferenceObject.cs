@@ -411,6 +411,14 @@ namespace Dubrovnik.UnitTests
             return rstruct;
         }
 
+        //
+        // decimal parameter methods
+        //
+        public decimal DecimalMultiplierMethod(decimal d1, decimal d2)
+        {
+            return d1 * d2;
+        }
+
 		//
 		// date parameter methods
 		//
