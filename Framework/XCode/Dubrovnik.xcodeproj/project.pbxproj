@@ -40,7 +40,6 @@
 		AB17806A199B8122005DC8BC /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB178069199B8122005DC8BC /* Mono.mscorlib.framework */; };
 		AB17806C199B8161005DC8BC /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB17806B199B8161005DC8BC /* Mono.System.framework */; };
 		AB21917B17BD2F0D00F44D07 /* Dubrovnik.UnitTests.exe in Resources */ = {isa = PBXBuildFile; fileRef = AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */; };
-		AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2CD2FA178D74F20075CF6A /* Cocoa.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,6 +71,7 @@
 		AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = AB91B69918EE04570021B462 /* NSObject+DBManagedEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB91B69C18EE04570021B462 /* NSObject+DBManagedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = AB91B69A18EE04570021B462 /* NSObject+DBManagedEvent.m */; };
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
+		ABA35A4A1A10DB3700149C00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA35A491A10DB3700149C00 /* Cocoa.framework */; };
 		ABA3AFEF18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA3AFEE18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB230D8192953D1009998F9 /* Dubrovnik_UnitTests_BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB230D1192953D1009998F9 /* Dubrovnik_UnitTests_BaseObject.m */; };
@@ -228,6 +228,7 @@
 		AB97FC0617C277D600CBE585 /* TestObject.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestObject.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/TestObject.cs; sourceTree = "<group>"; };
 		AB97FC0B17C3957E00CBE585 /* DBUReferenceStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceStruct.h; sourceTree = "<group>"; };
 		AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUReferenceStruct.m; sourceTree = "<group>"; };
+		ABA35A491A10DB3700149C00 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABA3AFEC18F7F42F00D6806E /* Dubrovnik.UnitTests.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Dubrovnik.UnitTests.xml; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests.xml; sourceTree = "<group>"; };
 		ABA3AFED18F7F5A100D6806E /* DBUGenericReferenceObjectA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUGenericReferenceObjectA2.h; sourceTree = "<group>"; };
 		ABA3AFEE18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUGenericReferenceObjectA2.m; sourceTree = "<group>"; };
@@ -306,11 +307,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABA35A4A1A10DB3700149C00 /* Cocoa.framework in Frameworks */,
 				AB17806C199B8161005DC8BC /* Mono.System.framework in Frameworks */,
 				AB17806A199B8122005DC8BC /* Mono.mscorlib.framework in Frameworks */,
 				AB178068199B80DD005DC8BC /* Mono.System.Core.framework in Frameworks */,
 				ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */,
-				AB2CD2FB178D74F20075CF6A /* Cocoa.framework in Frameworks */,
 				AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */,
 				AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */,
 			);
@@ -512,6 +513,7 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABA35A491A10DB3700149C00 /* Cocoa.framework */,
 				AB17806B199B8161005DC8BC /* Mono.System.framework */,
 				AB178069199B8122005DC8BC /* Mono.mscorlib.framework */,
 				AB178067199B80DD005DC8BC /* Mono.System.Core.framework */,
@@ -771,7 +773,7 @@
 			name = "Dubrovnik Unit Tests";
 			productName = "Dumbarton Unit Tests";
 			productReference = AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -972,7 +974,7 @@
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -1002,7 +1004,7 @@
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -1015,6 +1017,7 @@
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/headers/mono-2.0";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-Wextra",
@@ -1035,6 +1038,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/headers/mono-2.0";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = (
 					"-Wextra",
 					"-Wall",
@@ -1091,7 +1095,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -1135,7 +1139,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

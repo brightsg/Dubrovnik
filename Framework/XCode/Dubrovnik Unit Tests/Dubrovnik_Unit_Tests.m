@@ -686,7 +686,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     NSDate *dateMethod = [refObject dateMethod_withD1:[NSDate date]];
     STAssertNotNil(dateMethod, DBUObjectIsNil);
-    
+
+    //
+    // decimal methods
+    //
+    NSDecimalNumber *d1 = [NSDecimalNumber decimalNumberWithMantissa:111 exponent:0 isNegative:NO];
+    NSDecimalNumber *d2 = [NSDecimalNumber decimalNumberWithMantissa:3 exponent:0 isNegative:NO];
+    NSDecimalNumber *decimalProduct = [d1 decimalNumberByMultiplyingBy:d2];
+    NSDecimalNumber *decimalMethodResult = [refObject decimalMultiplierMethod_withD1:d1 d2:d2];
+    STAssertFalse([decimalMethodResult isEqual:decimalProduct], DBUEqualityTestFailed);
+
     //
     // mixed methods
     //
