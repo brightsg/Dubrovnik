@@ -11,6 +11,10 @@
 		AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */; };
 		AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
+		AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */; };
+		AB7DF4C21A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */; };
 		ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
 		ABA3971C1906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */; };
 		ABA397271906BA6300D5CA6E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397261906BA6300D5CA6E /* XCTest.framework */; };
@@ -46,6 +50,10 @@
 		AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventArgs.m; sourceTree = "<group>"; };
 		AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangingEventArgs.h; sourceTree = "<group>"; };
 		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
+		AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanged.h; sourceTree = "<group>"; };
+		AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_INotifyPropertyChanged.m; sourceTree = "<group>"; };
+		AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanging.h; sourceTree = "<group>"; };
+		AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_INotifyPropertyChanging.m; sourceTree = "<group>"; };
 		ABA3970E1906BA6300D5CA6E /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA397111906BA6300D5CA6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABA397141906BA6300D5CA6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +207,10 @@
 				ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */,
 				ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */,
 				ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */,
+				AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */,
+				AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */,
+				AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */,
+				AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -210,6 +222,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB7DF4C21A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */,
+				AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */,
 				AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
 				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
 				ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
@@ -318,8 +332,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
 				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
 				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
+				AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
 				AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
 				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
 			);

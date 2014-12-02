@@ -13,6 +13,11 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		9D90CF0609A538C70085718C /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90CF0509A538C70085718C /* MainController.m */; };
 		AB0269FF1A2E0787002BC1A4 /* Mono.mscorlib.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB7DF4CA1A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_EventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4C61A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_EventHelper.m */; };
+		AB7DF4CB1A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4C91A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper.m */; };
+		AB7DF4CD1A2E348400C9DE72 /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7DF4CC1A2E348400C9DE72 /* Mono.System.framework */; };
+		AB7DF4CE1A2E34A000C9DE72 /* Mono.System.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB7DF4CC1A2E348400C9DE72 /* Mono.System.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB7DF4D11A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4D01A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m */; };
 		ABB719071A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */; };
 		ABB719081A2DFB0C00E1BEBC /* DBCocoaExample.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719061A2DFB0C00E1BEBC /* DBCocoaExample.m */; };
 		ABB719101A2DFCC300E1BEBC /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */; };
@@ -28,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AB7DF4CE1A2E34A000C9DE72 /* Mono.System.framework in Copy frameworks */,
 				AB0269FF1A2E0787002BC1A4 /* Mono.mscorlib.framework in Copy frameworks */,
 				ABB719131A2DFD1800E1BEBC /* Dubrovnik.framework in Copy frameworks */,
 			);
@@ -49,6 +55,15 @@
 		8D1107320486CEB800E47090 /* DBCocoaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBCocoaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D90CF0409A538C70085718C /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MainController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D90CF0509A538C70085718C /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		AB7DF4C41A2E2F1600C9DE72 /* EventHelper.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = EventHelper.cs; path = DBCocoaExample/DBCocoaExample/EventHelper.cs; sourceTree = "<group>"; };
+		AB7DF4C51A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_EventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik_ClientApplication_EventHelper.h; path = GeneratedBindings/Dubrovnik_ClientApplication_EventHelper.h; sourceTree = "<group>"; };
+		AB7DF4C61A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_EventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik_ClientApplication_EventHelper.m; path = GeneratedBindings/Dubrovnik_ClientApplication_EventHelper.m; sourceTree = "<group>"; };
+		AB7DF4C71A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik_ClientApplication_IEventHelper_Protocol.h; path = GeneratedBindings/Dubrovnik_ClientApplication_IEventHelper_Protocol.h; sourceTree = "<group>"; };
+		AB7DF4C81A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dubrovnik_ClientApplication_IEventHelper.h; path = GeneratedBindings/Dubrovnik_ClientApplication_IEventHelper.h; sourceTree = "<group>"; };
+		AB7DF4C91A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dubrovnik_ClientApplication_IEventHelper.m; path = GeneratedBindings/Dubrovnik_ClientApplication_IEventHelper.m; sourceTree = "<group>"; };
+		AB7DF4CC1A2E348400C9DE72 /* Mono.System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.System.framework"; sourceTree = "<group>"; };
+		AB7DF4CF1A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBCocoaExample_CurrencyConverter+Validation.h"; sourceTree = "<group>"; };
+		AB7DF4D01A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBCocoaExample_CurrencyConverter+Validation.m"; sourceTree = "<group>"; };
 		ABB719031A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCocoaExample_CurrencyConverter.h; path = GeneratedBindings/DBCocoaExample_CurrencyConverter.h; sourceTree = "<group>"; };
 		ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCocoaExample_CurrencyConverter.m; path = GeneratedBindings/DBCocoaExample_CurrencyConverter.m; sourceTree = "<group>"; };
 		ABB719051A2DFB0C00E1BEBC /* DBCocoaExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCocoaExample.h; path = GeneratedBindings/DBCocoaExample.h; sourceTree = "<group>"; };
@@ -56,7 +71,6 @@
 		ABB719091A2DFBA100E1BEBC /* CurrencyConverter.cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CurrencyConverter.cs; path = DBCocoaExample/DBCocoaExample/CurrencyConverter.cs; sourceTree = "<group>"; };
 		ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB719111A2DFCD200E1BEBC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/examples/DBCocoaExample/../../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
-		ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.System.Core.framework"; sourceTree = "<group>"; };
 		ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB7DF4CD1A2E348400C9DE72 /* Mono.System.framework in Frameworks */,
 				ABB719181A2E006C00E1BEBC /* Mono.mscorlib.framework in Frameworks */,
 				ABB719121A2DFCD200E1BEBC /* Mono64.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
@@ -80,6 +95,8 @@
 			children = (
 				9D90CF0409A538C70085718C /* MainController.h */,
 				9D90CF0509A538C70085718C /* MainController.m */,
+				AB7DF4CF1A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.h */,
+				AB7DF4D01A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -147,8 +164,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB7DF4CC1A2E348400C9DE72 /* Mono.System.framework */,
 				ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */,
-				ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */,
 				ABB719111A2DFCD200E1BEBC /* Mono64.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
@@ -159,6 +176,7 @@
 		9D90CEDA09A5110E0085718C /* C# files */ = {
 			isa = PBXGroup;
 			children = (
+				AB7DF4C41A2E2F1600C9DE72 /* EventHelper.cs */,
 				ABB719091A2DFBA100E1BEBC /* CurrencyConverter.cs */,
 			);
 			name = "C# files";
@@ -167,6 +185,11 @@
 		ABB719021A2DFAF100E1BEBC /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB7DF4C51A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_EventHelper.h */,
+				AB7DF4C61A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_EventHelper.m */,
+				AB7DF4C71A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper_Protocol.h */,
+				AB7DF4C81A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper.h */,
+				AB7DF4C91A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper.m */,
 				ABB719031A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.h */,
 				ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */,
 				ABB719051A2DFB0C00E1BEBC /* DBCocoaExample.h */,
@@ -247,7 +270,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -x\ncd \"$TEMP_FILES_DIR\"\n\n# build the example dll\nmcs -out:DBCocoaExample.dll -target:library \"$PROJECT_DIR/DBCocoaExample/DBCocoaExample/*.c\"\n\nmkdir -p \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Mono\"\n\ncp DBCocoaExample.dll \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Mono\"\n";
+			shellScript = "set -x\ncd \"$TEMP_FILES_DIR\"\n\n# build the example dll\nmcs -out:DBCocoaExample.dll -target:library \"$PROJECT_DIR/DBCocoaExample/DBCocoaExample/*.cs\"\n\nmkdir -p \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Mono\"\n\ncp DBCocoaExample.dll \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Mono\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -258,6 +281,9 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				ABB719081A2DFB0C00E1BEBC /* DBCocoaExample.m in Sources */,
+				AB7DF4CA1A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_EventHelper.m in Sources */,
+				AB7DF4D11A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m in Sources */,
+				AB7DF4CB1A2E2FEB00C9DE72 /* Dubrovnik_ClientApplication_IEventHelper.m in Sources */,
 				ABB719071A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m in Sources */,
 				9D90CF0609A538C70085718C /* MainController.m in Sources */,
 			);

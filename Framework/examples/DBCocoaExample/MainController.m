@@ -2,6 +2,7 @@
 //  MainController.m
 //  DBCocoaExample
 //
+//  Modified by Jonathan Mitchell on 2/Dec/2014.
 //  Created by Allan Hsu on 2/16/06.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
@@ -69,15 +70,35 @@ static MonoAssembly *_sampleAssembly = NULL;
 #pragma mark -
 #pragma mark IB Actions
 
-- (IBAction)convertButtonPressed:(id)sender {
+- (IBAction)convertButtonPressed:(id)sender
+{
     
-    // note: self.convertedValue is bound in th NIB
+    // note: self.convertedValue is bound in the NIB
+    // also note that converter.date is bound too.
+    // this is updated in the managed layer but the change is observed in the unmanaged layer!
     
-    // set up the converter
-	[self.converter setExchangeRate:(self.rate != 0 ? self.rate : 1.0)];
+    // set up the converter rate
+	self.converter.exchangeRate= (self.rate != 0 ? self.rate : 1.0);
     
     // convert it
 	self.convertedValue = [_converter convertDollars_withDollarAmount:self.dollarValue];
+}
+
+#pragma mark -
+#pragma mark KVC validation
+
+- (BOOL)validateRate:(id *)ioValue error:(NSError * __autoreleasing *)outError
+{
+    if (*ioValue == nil) return NO;
+    
+    return YES;
+}
+
+- (BOOL)validateDollarValue:(id *)ioValue error:(NSError * __autoreleasing *)outError
+{
+    if (*ioValue == nil) return NO;
+    
+    return YES;
 }
 
 @end

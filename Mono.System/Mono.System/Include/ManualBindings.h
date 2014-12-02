@@ -11,3 +11,5 @@
 #import "System_Collections_ObjectModel_ObservableCollectionA1.h"
 #import "System_ComponentModel_PropertyChangingEventArgs.h"
 #import "System_ComponentModel_PropertyChangedEventArgs.h"
+#import "System_ComponentModel_INotifyPropertyChanging.h"
+#import "System_ComponentModel_INotifyPropertyChanged.h"

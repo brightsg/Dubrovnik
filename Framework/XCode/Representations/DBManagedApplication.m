@@ -83,9 +83,7 @@
         
     } else {
         
-#ifdef DB_TRACE
         NSLog(@"PropertyChanging event sender : %@ does not respond to -propertyName. Are you linked to to Mono.System?", monoEventArgs);
-#endif
         
     }
 }
@@ -114,9 +112,8 @@
         
     } else {
         
-#ifdef DB_TRACE
+
         NSLog(@"PropertyChanged event sender : %@ does not respond to -propertyName. Are you linked to to Mono.System?", monoEventArgs);
-#endif
         
     }
 }
