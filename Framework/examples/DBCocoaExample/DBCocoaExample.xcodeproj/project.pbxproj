@@ -13,13 +13,11 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		9D90CF0609A538C70085718C /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90CF0509A538C70085718C /* MainController.m */; };
 		AB0269FF1A2E0787002BC1A4 /* Mono.mscorlib.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB026A001A2E0787002BC1A4 /* Mono.System.Core.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABB719071A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */; };
 		ABB719081A2DFB0C00E1BEBC /* DBCocoaExample.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719061A2DFB0C00E1BEBC /* DBCocoaExample.m */; };
 		ABB719101A2DFCC300E1BEBC /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */; };
 		ABB719121A2DFCD200E1BEBC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB719111A2DFCD200E1BEBC /* Mono64.framework */; };
 		ABB719131A2DFD1800E1BEBC /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ABB719161A2E006500E1BEBC /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */; };
 		ABB719181A2E006C00E1BEBC /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +29,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				AB0269FF1A2E0787002BC1A4 /* Mono.mscorlib.framework in Copy frameworks */,
-				AB026A001A2E0787002BC1A4 /* Mono.System.Core.framework in Copy frameworks */,
 				ABB719131A2DFD1800E1BEBC /* Dubrovnik.framework in Copy frameworks */,
 			);
 			name = "Copy frameworks";
@@ -69,7 +66,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB719181A2E006C00E1BEBC /* Mono.mscorlib.framework in Frameworks */,
-				ABB719161A2E006500E1BEBC /* Mono.System.Core.framework in Frameworks */,
 				ABB719121A2DFCD200E1BEBC /* Mono64.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				ABB719101A2DFCC300E1BEBC /* Dubrovnik.framework in Frameworks */,
