@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CurrencyConverter.cs" />
     <Compile Include="EventHelper.cs" />
+    <Compile Include="EventHelper.CustomEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
