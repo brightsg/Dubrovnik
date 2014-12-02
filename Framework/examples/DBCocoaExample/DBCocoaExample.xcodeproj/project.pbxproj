@@ -18,6 +18,7 @@
 		AB7DF4CD1A2E348400C9DE72 /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7DF4CC1A2E348400C9DE72 /* Mono.System.framework */; };
 		AB7DF4CE1A2E34A000C9DE72 /* Mono.System.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB7DF4CC1A2E348400C9DE72 /* Mono.System.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB7DF4D11A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4D01A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m */; };
+		AB7DF4D31A2E684A00C9DE72 /* EventHelper.CustomEvents.cs in Resources */ = {isa = PBXBuildFile; fileRef = AB7DF4D21A2E684A00C9DE72 /* EventHelper.CustomEvents.cs */; };
 		ABB719071A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */; };
 		ABB719081A2DFB0C00E1BEBC /* DBCocoaExample.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719061A2DFB0C00E1BEBC /* DBCocoaExample.m */; };
 		ABB719101A2DFCC300E1BEBC /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */; };
@@ -64,6 +65,7 @@
 		AB7DF4CC1A2E348400C9DE72 /* Mono.System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.System.framework"; sourceTree = "<group>"; };
 		AB7DF4CF1A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBCocoaExample_CurrencyConverter+Validation.h"; sourceTree = "<group>"; };
 		AB7DF4D01A2E36D900C9DE72 /* DBCocoaExample_CurrencyConverter+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBCocoaExample_CurrencyConverter+Validation.m"; sourceTree = "<group>"; };
+		AB7DF4D21A2E684A00C9DE72 /* EventHelper.CustomEvents.cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EventHelper.CustomEvents.cs; path = DBCocoaExample/DBCocoaExample/EventHelper.CustomEvents.cs; sourceTree = "<group>"; };
 		ABB719031A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCocoaExample_CurrencyConverter.h; path = GeneratedBindings/DBCocoaExample_CurrencyConverter.h; sourceTree = "<group>"; };
 		ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCocoaExample_CurrencyConverter.m; path = GeneratedBindings/DBCocoaExample_CurrencyConverter.m; sourceTree = "<group>"; };
 		ABB719051A2DFB0C00E1BEBC /* DBCocoaExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCocoaExample.h; path = GeneratedBindings/DBCocoaExample.h; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		9D90CEDA09A5110E0085718C /* C# files */ = {
 			isa = PBXGroup;
 			children = (
+				AB7DF4D21A2E684A00C9DE72 /* EventHelper.CustomEvents.cs */,
 				AB7DF4C41A2E2F1600C9DE72 /* EventHelper.cs */,
 				ABB719091A2DFBA100E1BEBC /* CurrencyConverter.cs */,
 			);
@@ -252,6 +255,7 @@
 			files = (
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				AB7DF4D31A2E684A00C9DE72 /* EventHelper.CustomEvents.cs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,7 +34,7 @@ Dubrovnik is a work in progress and the API is still very mutable.
 Provided examples
 =================
 
-**DBCocoaExample** is the classic Currency Converter application; it demonstrates a simple Cocoa front end that uses mono for its backend. It demonstrates:
+[DBCocoaExample](https://github.com/ThesaurusSoftware/Dubrovnik/tree/master/Framework/examples/DBCocoaExample) is the classic Currency Converter application; it demonstrates a simple Cocoa front end that uses mono for its backend. It demonstrates:
 
 - Calling managed code (functions, properties, fields) from native code.
 
@@ -42,9 +42,11 @@ Provided examples
 
 - Automatic native Cocoa binding for managed classes that implement INotifyPropertyChanging and INotifyPropertyChanged. 
 
+- Routing a custom managed event back to managed code.
+
 - Automatic Obj-C binding code generation using the code generator.
 
-**DBCommandLineExample** simple echoes to the console. It demonstrates:
+[DBCommandLineExample](https://github.com/ThesaurusSoftware/Dubrovnik/tree/master/Framework/examples/DBCommandLineExample) simply echoes the results of querying a managed object to the console. It demonstrates:
 
 - Calling native functions from managed code.
 
