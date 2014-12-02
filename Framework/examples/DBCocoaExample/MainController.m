@@ -21,47 +21,63 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-
 #import "MainController.h"
 
 static MonoAssembly *_sampleAssembly = NULL;
 
+@interface MainController()
+
+// properties
+@property (strong) DBCocoaExample_CurrencyConverter *converter;
+@property (assign) double rate;
+@property (assign) double dollarValue;
+@property (assign) double convertedValue;
+@end
+    
 @implementation MainController
 
 + (void)initialize {
-	if([self class] != [MainController class])
-		return;
-
-	DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
-	
-	NSString *libraryPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents/Libraries"];
-	NSString *sampleAssemblyPath = [libraryPath stringByAppendingPathComponent:@"sample.dll"];
     
+    if ([self class] != [MainController class]) {
+		return;
+    }
+    
+    // locate the managed assembly
+	NSString *libraryPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents/Mono"];
+	NSString *sampleAssemblyPath = [libraryPath stringByAppendingPathComponent:@"DBCocoaExample.dll"];
+    
+    // load the managed assembly
     // This method will open the assembly and cache it using the given name.
     // A DBMonoObjectRepresentation subclass can target this assembly by returning the assembly name from + monoAssemblyName.
     // If the target assembly has not been already loaded then the DBManagedEnvironment instance delegate will be queried for the assembly path.
-	MonoAssembly *sampleAssembly = [monoEnvironment openAssembly:@"sample" path:sampleAssemblyPath];
+    DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
+	MonoAssembly *sampleAssembly = [monoEnvironment openAssembly:@"DBCocoaExample" path:sampleAssemblyPath];
 	
-	NSLog(@"Assembly Path: %@", sampleAssemblyPath);
-	NSLog(@"sample assembly: %p", sampleAssembly);
 }
 
 #pragma mark -
+#pragma mark Lifecycle
 
 - (void)awakeFromNib {	
-	_converter = [[CurrencyConverter alloc] init];
+	self.converter = [[DBCocoaExample_CurrencyConverter alloc] init];
+    
+    self.rate = 1.0;
+    self.dollarValue = 10;
+    
 }
 
 #pragma mark -
 #pragma mark IB Actions
 
 - (IBAction)convertButtonPressed:(id)sender {
-	float rate = [_exchangeRateTextField floatValue];
-	float dollarValue = [_dollarsTextField floatValue];
-	
-	[_converter setExchangeRate:(rate != 0 ? rate : 1.0)];
-	float convertedAmount = [_converter convertDollars:dollarValue];
-	[_otherCurrencyAmountTextField setFloatValue:convertedAmount];
+    
+    // note: self.convertedValue is bound in th NIB
+    
+    // set up the converter
+	[self.converter setExchangeRate:(self.rate != 0 ? self.rate : 1.0)];
+    
+    // convert it
+	self.convertedValue = [_converter convertDollars_withDollarAmount:self.dollarValue];
 }
 
 @end

@@ -23,14 +23,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "CurrencyConverter.h"
+#import "DBCocoaExample.h"
 
 @interface MainController : NSWindowController {
-	IBOutlet NSTextField *_exchangeRateTextField;
-	IBOutlet NSTextField *_dollarsTextField;
-	IBOutlet NSTextField *_otherCurrencyAmountTextField;
+
 	
-	CurrencyConverter *_converter;
+	DBCocoaExample_CurrencyConverter *_converter;
 }
 
 - (IBAction)convertButtonPressed:(id)sender;

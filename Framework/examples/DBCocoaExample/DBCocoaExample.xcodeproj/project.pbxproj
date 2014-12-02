@@ -11,11 +11,16 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		9D90CEC609A50DFA0085718C /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D90CEC509A50DFA0085718C /* Mono.framework */; };
-		9D90CEEB09A513C20085718C /* CurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90CEEA09A513C20085718C /* CurrencyConverter.m */; };
 		9D90CF0609A538C70085718C /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90CF0509A538C70085718C /* MainController.m */; };
-		ABB8CE4A17C254D50015FFB0 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */; };
-		ABB8CE4B17C254E20015FFB0 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */; };
+		AB0269FF1A2E0787002BC1A4 /* Mono.mscorlib.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB026A001A2E0787002BC1A4 /* Mono.System.Core.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ABB719071A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */; };
+		ABB719081A2DFB0C00E1BEBC /* DBCocoaExample.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB719061A2DFB0C00E1BEBC /* DBCocoaExample.m */; };
+		ABB719101A2DFCC300E1BEBC /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */; };
+		ABB719121A2DFCD200E1BEBC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB719111A2DFCD200E1BEBC /* Mono64.framework */; };
+		ABB719131A2DFD1800E1BEBC /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ABB719161A2E006500E1BEBC /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */; };
+		ABB719181A2E006C00E1BEBC /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +30,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ABB8CE4B17C254E20015FFB0 /* Dubrovnik.framework in Copy frameworks */,
+				AB0269FF1A2E0787002BC1A4 /* Mono.mscorlib.framework in Copy frameworks */,
+				AB026A001A2E0787002BC1A4 /* Mono.System.Core.framework in Copy frameworks */,
+				ABB719131A2DFD1800E1BEBC /* Dubrovnik.framework in Copy frameworks */,
 			);
 			name = "Copy frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,13 +50,17 @@
 		32CA4F630368D1EE00C91783 /* DBCocoaExample_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCocoaExample_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* DBCocoaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBCocoaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D90CEC509A50DFA0085718C /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
-		9D90CEDB09A5118C0085718C /* CurrencyConverter.cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.csharp; path = CurrencyConverter.cs; sourceTree = "<group>"; };
-		9D90CEE909A513C20085718C /* CurrencyConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CurrencyConverter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		9D90CEEA09A513C20085718C /* CurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CurrencyConverter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		9D90CF0409A538C70085718C /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MainController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D90CF0509A538C70085718C /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
+		ABB719031A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCocoaExample_CurrencyConverter.h; path = GeneratedBindings/DBCocoaExample_CurrencyConverter.h; sourceTree = "<group>"; };
+		ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCocoaExample_CurrencyConverter.m; path = GeneratedBindings/DBCocoaExample_CurrencyConverter.m; sourceTree = "<group>"; };
+		ABB719051A2DFB0C00E1BEBC /* DBCocoaExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCocoaExample.h; path = GeneratedBindings/DBCocoaExample.h; sourceTree = "<group>"; };
+		ABB719061A2DFB0C00E1BEBC /* DBCocoaExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCocoaExample.m; path = GeneratedBindings/DBCocoaExample.m; sourceTree = "<group>"; };
+		ABB719091A2DFBA100E1BEBC /* CurrencyConverter.cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CurrencyConverter.cs; path = DBCocoaExample/DBCocoaExample/CurrencyConverter.cs; sourceTree = "<group>"; };
+		ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB719111A2DFCD200E1BEBC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/examples/DBCocoaExample/../../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
+		ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.System.Core.framework"; sourceTree = "<group>"; };
+		ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +68,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB8CE4A17C254D50015FFB0 /* Dubrovnik.framework in Frameworks */,
+				ABB719181A2E006C00E1BEBC /* Mono.mscorlib.framework in Frameworks */,
+				ABB719161A2E006500E1BEBC /* Mono.System.Core.framework in Frameworks */,
+				ABB719121A2DFCD200E1BEBC /* Mono64.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				9D90CEC609A50DFA0085718C /* Mono.framework in Frameworks */,
+				ABB719101A2DFCC300E1BEBC /* Dubrovnik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,8 +82,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9D90CEE909A513C20085718C /* CurrencyConverter.h */,
-				9D90CEEA09A513C20085718C /* CurrencyConverter.m */,
 				9D90CF0409A538C70085718C /* MainController.h */,
 				9D90CF0509A538C70085718C /* MainController.m */,
 			);
@@ -80,8 +91,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */,
-				9D90CEC509A50DFA0085718C /* Mono.framework */,
+				ABB7190D1A2DFC8C00E1BEBC /* Dubrovnik.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -108,6 +118,7 @@
 		29B97314FDCFA39411CA2CEA /* DBCocoaExample */ = {
 			isa = PBXGroup;
 			children = (
+				ABB719021A2DFAF100E1BEBC /* Generated bindings */,
 				9D90CEDA09A5110E0085718C /* C# files */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -140,6 +151,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABB719171A2E006C00E1BEBC /* Mono.mscorlib.framework */,
+				ABB719151A2E006500E1BEBC /* Mono.System.Core.framework */,
+				ABB719111A2DFCD200E1BEBC /* Mono64.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -149,9 +163,20 @@
 		9D90CEDA09A5110E0085718C /* C# files */ = {
 			isa = PBXGroup;
 			children = (
-				9D90CEDB09A5118C0085718C /* CurrencyConverter.cs */,
+				ABB719091A2DFBA100E1BEBC /* CurrencyConverter.cs */,
 			);
 			name = "C# files";
+			sourceTree = "<group>";
+		};
+		ABB719021A2DFAF100E1BEBC /* Generated bindings */ = {
+			isa = PBXGroup;
+			children = (
+				ABB719031A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.h */,
+				ABB719041A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m */,
+				ABB719051A2DFB0C00E1BEBC /* DBCocoaExample.h */,
+				ABB719061A2DFB0C00E1BEBC /* DBCocoaExample.m */,
+			);
+			name = "Generated bindings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -x\ncd \"$TEMP_FILES_DIR\"\n\nmcs -out:sample.dll -target:library \"$PROJECT_DIR\"/*.cs\n\nmkdir -p \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Libraries\"\ncp sample.dll \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Libraries\"";
+			shellScript = "set -x\ncd \"$TEMP_FILES_DIR\"\n\n# build the example dll\nmcs -out:DBCocoaExample.dll -target:library \"$PROJECT_DIR/DBCocoaExample/DBCocoaExample/*.c\"\n\nmkdir -p \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Mono\"\n\ncp DBCocoaExample.dll \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Mono\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -236,7 +261,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				9D90CEEB09A513C20085718C /* CurrencyConverter.m in Sources */,
+				ABB719081A2DFB0C00E1BEBC /* DBCocoaExample.m in Sources */,
+				ABB719071A2DFB0C00E1BEBC /* DBCocoaExample_CurrencyConverter.m in Sources */,
 				9D90CF0609A538C70085718C /* MainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,10 +294,17 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = DBCocoaExample_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = DBCocoaExample;
 				WRAPPER_EXTENSION = app;
 			};
@@ -281,9 +314,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PREFIX_HEADER = DBCocoaExample_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = DBCocoaExample;
 				WRAPPER_EXTENSION = app;
 			};

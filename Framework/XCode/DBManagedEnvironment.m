@@ -253,7 +253,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         }
         
         if (!monoAssembly) {
-            [NSException raise:@"Cannot open assembly" format:@"Cannot open assembly named : %s path: %@", name, path];
+            [NSException raise:@"Cannot open assembly" format:@"Cannot open assembly named : %s default path: %@", name, path];
         }
         
     }
