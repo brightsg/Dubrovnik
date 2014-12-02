@@ -25,11 +25,33 @@ The unit test setup function illustrates how simple it is to load up a managed a
 Status
 ======
 
-Version: 0.0.2 Alpha
+Version: 0.0.3 Alpha
 
 Production ready: No. But we are actively using and developing Dubrovnik as part of own software development process. In particular, we have had some success in generating a complete Obj-C representation of an EntityFramework 6 model.
 
 Dubrovnik is a work in progress and the API is still very mutable. 
+
+Provided examples
+=================
+
+**DBCocoaExample** is the classic Currency Converter application; it demonstrates a simple Cocoa front end that uses mono for its backend. It demonstrates:
+
+- Calling managed code (functions, properties, fields) from native code.
+
+- Building an app bundle that contains everything to run a Cocoa fronted .NET app with the exception of the Mono64.framework (which is loaded from /Library/Frameworks).
+
+- Automatic native Cocoa binding for managed classes that implement INotifyPropertyChanging and INotifyPropertyChanged. 
+
+- Automatic Obj-C binding code generation using the code generator.
+
+**DBCommandLineExample** simple echoes to the console. It demonstrates:
+
+- Calling native functions from managed code.
+
+- Writing a manual Dubrovnik wrapper for a C# class.
+
+- Exception handling.
+
 
 Accomplished Project Goals
 ==========================
@@ -373,22 +395,6 @@ Any thread that calls into managed code must pre-attach itself to the Mono envir
         });
     });
 
-
-
-Provided examples
-=================
-
-DBCommandLineExample demonstrates a number of Dubrovnik features
-
-- Calling native functions from managed code
-
-- Calling managed code (functions, properties, fields) from native code
-
-- Writing a Dubrovnik wrapper for a C# class
-
-- Exception handling
-  
-DBCocoaExample is the classic Currency Converter application; it demonstrates a simple front end that uses mono for its backend.
 
 Creating a new project
 ======================
