@@ -6,7 +6,7 @@
 //
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 @protocol EventTarget <NSObject>
 
@@ -17,7 +17,7 @@
 - (void)event2ReceivedFromSender:(DBManagedObject *)sender item:(System_EventArgs *)item;
 @end
 
-@interface Dubrovnik_Unit_Tests : SenTestCase <DBManagedEnvironmentDelegate, EventTarget>
+@interface Dubrovnik_Unit_Tests : XCTestCase <DBManagedEnvironmentDelegate, EventTarget>
 {
     BOOL _verbose;
 }

@@ -59,7 +59,6 @@
 		AB4D7BCF18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4D7BC218FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceStruct.m */; };
 		AB4D7BD018FC342900E7C2D3 /* Dubrovnik_UnitTests_TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4D7BC418FC342900E7C2D3 /* Dubrovnik_UnitTests_TestObject.m */; };
 		AB4D7BD118FC342900E7C2D3 /* Dubrovnik_UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4D7BC618FC342900E7C2D3 /* Dubrovnik_UnitTests.m */; };
-		AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; };
 		AB6A752D19A9307000CDE475 /* NSArray+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6A752B19A9307000CDE475 /* NSArray+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6A752E19A9307000CDE475 /* NSArray+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6A752C19A9307000CDE475 /* NSArray+Dubrovnik.m */; };
 		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,7 +92,6 @@
 		ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */; };
 		ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */; };
 		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
-		ABCD2F5E1A10E28E0075AE04 /* SenTestingKit.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB588DC4178308000000AAC1 /* SenTestingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABCD2F5F1A10E29B0075AE04 /* Mono.System.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB17806B199B8161005DC8BC /* Mono.System.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABCD2F601A10E29F0075AE04 /* Mono.mscorlib.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB178069199B8122005DC8BC /* Mono.mscorlib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABCD2F611A10E2A20075AE04 /* Mono.System.Core.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB178067199B80DD005DC8BC /* Mono.System.Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -138,7 +136,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ABCD2F5E1A10E28E0075AE04 /* SenTestingKit.framework in Copy frameworks */,
 				AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */,
 				ABCD2F5F1A10E29B0075AE04 /* Mono.System.framework in Copy frameworks */,
 				ABCD2F601A10E29F0075AE04 /* Mono.mscorlib.framework in Copy frameworks */,
@@ -217,8 +214,7 @@
 		AB4D7BC418FC342900E7C2D3 /* Dubrovnik_UnitTests_TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_TestObject.m; sourceTree = "<group>"; };
 		AB4D7BC518FC342900E7C2D3 /* Dubrovnik_UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests.h; sourceTree = "<group>"; };
 		AB4D7BC618FC342900E7C2D3 /* Dubrovnik_UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests.m; sourceTree = "<group>"; };
-		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB588DC4178308000000AAC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dubrovnik Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A752B19A9307000CDE475 /* NSArray+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Dubrovnik.h"; sourceTree = "<group>"; };
 		AB6A752C19A9307000CDE475 /* NSArray+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB81D5C117D7B1B6007214E1 /* DBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBType.h; path = "Mono Environment/DBType.h"; sourceTree = "<group>"; };
@@ -273,6 +269,10 @@
 		ABB375BC1986AFF800EE7517 /* Dubrovnik_UnitTests_ITestProperty_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_ITestProperty_Protocol.h; sourceTree = "<group>"; };
 		ABB375C01986B2EA00EE7517 /* Dubrovnik.UnitTests.codegen.config.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Dubrovnik.UnitTests.codegen.config.objc.xml; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests.codegen.config.objc.xml; sourceTree = "<group>"; };
 		ABB375C11986B2EA00EE7517 /* Dubrovnik.UnitTests.codegen.postflight.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Dubrovnik.UnitTests.codegen.postflight.objc.xml; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests.codegen.postflight.objc.xml; sourceTree = "<group>"; };
+		ABB718ED1A2DD90A00E1BEBC /* Mono.EntityFramework.6.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.EntityFramework.6.framework; path = ../../Mono.EntityFramework.6/build/Debug/Mono.EntityFramework.6.framework; sourceTree = "<group>"; };
+		ABB718EE1A2DD90A00E1BEBC /* Mono.System.Drawing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Drawing.framework; path = ../../Mono.System.Drawing/build/Debug/Mono.System.Drawing.framework; sourceTree = "<group>"; };
+		ABB718EF1A2DD90A00E1BEBC /* Mono.System.Net.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Net.framework; path = ../../Mono.System.Net/build/Debug/Mono.System.Net.framework; sourceTree = "<group>"; };
+		ABB718F01A2DD90A00E1BEBC /* Mono.System.Xml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Xml.framework; path = ../../Mono.System.Xml/build/Debug/Mono.System.Xml.framework; sourceTree = "<group>"; };
 		ABB8A3DC18FF0F4400213B80 /* NSString+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Dubrovnik.h"; sourceTree = "<group>"; };
 		ABB8A3DD18FF0F4400213B80 /* NSString+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Dubrovnik.m"; sourceTree = "<group>"; };
 		ABBF10A617B3D2E1006F6E93 /* DBUReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUReferenceObject.h; sourceTree = "<group>"; };
@@ -319,7 +319,6 @@
 				AB17806A199B8122005DC8BC /* Mono.mscorlib.framework in Frameworks */,
 				AB178068199B80DD005DC8BC /* Mono.System.Core.framework in Frameworks */,
 				ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */,
-				AB588DC5178308000000AAC1 /* SenTestingKit.framework in Frameworks */,
 				AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */,
-				AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */,
+				AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -520,12 +519,15 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABB718ED1A2DD90A00E1BEBC /* Mono.EntityFramework.6.framework */,
+				ABB718EE1A2DD90A00E1BEBC /* Mono.System.Drawing.framework */,
+				ABB718EF1A2DD90A00E1BEBC /* Mono.System.Net.framework */,
+				ABB718F01A2DD90A00E1BEBC /* Mono.System.Xml.framework */,
 				ABA35A491A10DB3700149C00 /* Cocoa.framework */,
 				AB17806B199B8161005DC8BC /* Mono.System.framework */,
 				AB178069199B8122005DC8BC /* Mono.mscorlib.framework */,
 				AB178067199B80DD005DC8BC /* Mono.System.Core.framework */,
 				ABD02CAE183180C400885CDC /* Mono64.framework */,
-				AB588DC4178308000000AAC1 /* SenTestingKit.framework */,
 				AB588DC8178308000000AAC1 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -778,8 +780,8 @@
 			);
 			name = "Dubrovnik Unit Tests";
 			productName = "Dumbarton Unit Tests";
-			productReference = AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = AB588DC2178308000000AAC1 /* Dubrovnik Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1070,7 +1072,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					/Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/build/Debug,
@@ -1092,18 +1093,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Library/Frameworks/Mono64.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
 				SDKROOT = macosx10.9;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1122,7 +1122,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					/Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/build/Debug,
@@ -1138,17 +1137,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Dubrovnik Unit Tests/Dubrovnik Unit Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Library/Frameworks/Mono64.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
 				SDKROOT = macosx10.9;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

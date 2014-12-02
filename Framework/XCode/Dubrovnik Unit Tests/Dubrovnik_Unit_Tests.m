@@ -49,21 +49,21 @@ static BOOL m_runningAutoGenCodeTest = NO;
 NSString *DBUTestString = @"Dubrovnik";
 
 // test failure notices
-NSString *DBUObjectNotCreated = @"Object not created";
-NSString *DBUObjectIsNil = @"Object is nil";
-NSString *DBUBooleanTestFailed = @"Boolean test failed";
-NSString *DBUEqualityTestFailed = @"Equality test failed";
-NSString *DBUInequalityTestFailed = @"Inequality test failed";
-NSString *DBULessThanTestFailed = @"Less than test failed";
-NSString *DBUGreaterThanTestFailed = @"Greater than test failed";
-NSString *DBUSubstringTestFailed = @"Substring not found";
-NSString *DBUCountTestFailed = @"Count test failed";
-NSString *DBUNotNilTestFailed = @"Not nil test failed";
-NSString *DBUExceptionTestFailed = @"An exception test failed";
-NSString *DBUObjectNotFound = @"Object not found";
-NSString *DBUNilTestFailed = @"Nil test failed";
-NSString *DBUClassTestFailed = @"Class test failed";
-NSString *DBUDesignedToFailTestPassed = @"Designed to fail test passed";
+#define DBUObjectNotCreated @"Object not created"
+#define DBUObjectIsNil @"Object is nil"
+#define DBUBooleanTestFailed @"Boolean test failed"
+#define DBUEqualityTestFailed @"Equality test failed"
+#define DBUInequalityTestFailed @"Inequality test failed"
+#define DBULessThanTestFailed @"Less than test failed"
+#define DBUGreaterThanTestFailed @"Greater than test failed"
+#define DBUSubstringTestFailed @"Substring not found"
+#define DBUCountTestFailed @"Count test failed"
+#define DBUNotNilTestFailed @"Not nil test failed"
+#define DBUExceptionTestFailed @"An exception test failed"
+#define DBUObjectNotFound @"Object not found"
+#define DBUNilTestFailed @"Nil test failed"
+#define DBUClassTestFailed @"Class test failed"
+#define DBUDesignedToFailTestPassed @"Designed to fail test passed"
 
 static BOOL _setup = NO;
 static MonoAssembly *monoAssembly;
@@ -112,7 +112,7 @@ static MonoAssembly *monoAssembly;
     
     // validate the assembly
     if (![[NSFileManager defaultManager] fileExistsAtPath:assemblyFile]) {
-        STAssertTrue(NO, @"Managed test assembly not found. Did you build it?");
+        XCTAssertTrue(NO, @"Managed test assembly not found. Did you build it?");
         abort();
     }
     
@@ -124,7 +124,7 @@ static MonoAssembly *monoAssembly;
          
     // open the assembly 
     monoAssembly = [monoEnv openAssembly:assemblyName path:assemblyFile];
-    STAssertTrue(monoAssembly, @"Cannot open assembly : %@", assemblyFile);
+    XCTAssertTrue(monoAssembly, @"Cannot open assembly : %@", assemblyFile);
     
     // invoke the assembly static main.
     // this prepares the application domain and validates that the assembly is loaded and functional.
@@ -133,7 +133,7 @@ static MonoAssembly *monoAssembly;
     int argc = 1;
     char *argv[] = {(char *)assemblyFile.UTF8String};
     int retval = [monoEnv invokeAssembly:monoAssembly prepareThreading:NO argCount:argc arguments:argv];
-    STAssertTrue(retval == 0, @"Call to assembly entry point failed");
+    XCTAssertTrue(retval == 0, @"Call to assembly entry point failed");
 }
 
 - (void)tearDown
@@ -175,7 +175,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSDate *dateFromMonoObject = [NSDate dateWithMonoDateTime:monoDateTime];
     
     // validate the NSDate representation
-    STAssertTrue(fabs([dateFromMonoObject timeIntervalSinceDate:dateNow]) < 0.1, @"bad date");  // sanity check
+    XCTAssertTrue(fabs([dateFromMonoObject timeIntervalSinceDate:dateNow]) < 0.1, @"bad date");  // sanity check
     
     // validate the Mono representatiom
     int64_t ticks = DB_UNBOX_INT64(DBMonoObjectGetProperty(monoDateTime, "Ticks"));
@@ -186,68 +186,70 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //[DBManagedObject logMonoClassInfo:mono_object_get_class(monoObject)];
 }
 
+
 - (void)testNumberRepresentation
 {
     // test
     DBNumber *n1 = [@((int)1) dbNumberFromIntValue];
-    STAssertTrue(*(int *)[n1 valuePointer] == 1, DBUEqualityTestFailed);
-    STAssertTrue([n1 valuePointer] == [n1 valuePointer], DBUEqualityTestFailed);
-    STAssertTrue(*(int *)[n1 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
+
+    XCTAssertTrue(*(int *)[n1 valuePointer] == 1, DBUEqualityTestFailed);
+    XCTAssertTrue([n1 valuePointer] == [n1 valuePointer], DBUEqualityTestFailed);
+    XCTAssertTrue(*(int *)[n1 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
     // basic equality
     DBNumber *n2 = [DBNumber numberWithInt:1];
-    STAssertTrue(*(int *)[n2 valuePointer] == 1, DBUEqualityTestFailed);
-    STAssertTrue(*(int *)[n2 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
+    XCTAssertTrue(*(int *)[n2 valuePointer] == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(*(int *)[n2 valuePointer] == *(int *)[n1 valuePointer], DBUEqualityTestFailed);
     
     // create int from MonoObject
     int intValue = 10289;
     DBNumber *nInt = [[DBTypeManager sharedManager] objectWithMonoObject:DB_BOX_INT32(intValue)];
-    STAssertTrue(strcmp([nInt objCType], @encode(int)) == 0, DBUEqualityTestFailed);
-    STAssertTrue(*(int *)[nInt valuePointer] == intValue, DBUEqualityTestFailed);
+    XCTAssertTrue(strcmp([nInt objCType], @encode(int)) == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(*(int *)[nInt valuePointer] == intValue, DBUEqualityTestFailed);
     
     // create long long from MonoObject
     long long longLongValue = LONG_LONG_MAX;
     DBNumber *nLongLong = [NSNumber objectWithMonoObject:DB_BOX_INT64(longLongValue)];
-    STAssertTrue(strcmp([nLongLong objCType], @encode(long long)) == 0, DBUEqualityTestFailed);
-    STAssertTrue(*(long long *)[nLongLong valuePointer] == longLongValue, DBUEqualityTestFailed);
+    XCTAssertTrue(strcmp([nLongLong objCType], @encode(long long)) == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(*(long long *)[nLongLong valuePointer] == longLongValue, DBUEqualityTestFailed);
 
     // create double from MonoObject
     double doubleValue = 13245456.;
     DBNumber *nDouble = [NSNumber numberWithMonoObject:DB_BOX_DOUBLE(doubleValue)];
-    STAssertTrue(strcmp([nDouble objCType], @encode(double)) == 0, DBUEqualityTestFailed);
-    STAssertTrue(*(double *)[nDouble valuePointer] == doubleValue, DBUEqualityTestFailed);
+    XCTAssertTrue(strcmp([nDouble objCType], @encode(double)) == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(*(double *)[nDouble valuePointer] == doubleValue, DBUEqualityTestFailed);
     
     // test DBNumber
     DBNumber *dn = [[DBNumber alloc] initWithInt:100];
     DBNumber *dn1 = [DBNumber numberWithInt:100];
-    STAssertTrue([[dn stringValue] isEqualToString:@"100"], DBUEqualityTestFailed);
+    XCTAssertTrue([[dn stringValue] isEqualToString:@"100"], DBUEqualityTestFailed);
     
     // test NSNumber methods
-    STAssertTrue([dn compare:@((int)100)] == NSOrderedSame, DBUEqualityTestFailed);
-    STAssertTrue([dn compare:@((float)100)] == NSOrderedSame, DBUEqualityTestFailed);
-    STAssertTrue([dn isEqualToNumber:dn1], DBUEqualityTestFailed);
-    STAssertTrue([dn isEqualToNumber:@((int)100)], DBUEqualityTestFailed);
-    STAssertNotNil([dn descriptionWithLocale:nil], DBUNotNilTestFailed);
+    XCTAssertTrue([dn compare:@((int)100)] == NSOrderedSame, DBUEqualityTestFailed);
+    XCTAssertTrue([dn compare:@((float)100)] == NSOrderedSame, DBUEqualityTestFailed);
+    XCTAssertTrue([dn isEqualToNumber:dn1], DBUEqualityTestFailed);
+    XCTAssertTrue([dn isEqualToNumber:@((int)100)], DBUEqualityTestFailed);
+    XCTAssertNotNil([dn descriptionWithLocale:nil], DBUNotNilTestFailed);
     
     // test encoding
-    STAssertTrue([@([[DBNumber numberWithBool:YES] monoObjCType]) isEqualToString:@(@encode(BOOL))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithChar:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithUnsignedChar:1] monoObjCType]) isEqualToString:@(@encode(unsigned char))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithShort:1] monoObjCType]) isEqualToString:@(@encode(short))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithUnsignedShort:1] monoObjCType]) isEqualToString:@(@encode(unsigned short))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithInt:1] monoObjCType]) isEqualToString:@(@encode(int))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithUnsignedInt:1] monoObjCType]) isEqualToString:@(@encode(unsigned int))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithBool:YES] monoObjCType]) isEqualToString:@(@encode(BOOL))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithChar:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithUnsignedChar:1] monoObjCType]) isEqualToString:@(@encode(unsigned char))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithShort:1] monoObjCType]) isEqualToString:@(@encode(short))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithUnsignedShort:1] monoObjCType]) isEqualToString:@(@encode(unsigned short))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithInt:1] monoObjCType]) isEqualToString:@(@encode(int))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithUnsignedInt:1] monoObjCType]) isEqualToString:@(@encode(unsigned int))], DBUEqualityTestFailed);
     
     // long encoding wants to default  long long - some though neede perhaps
-    STAssertTrue([@([[DBNumber numberWithLong:1] monoObjCType]) isEqualToString:@"l"], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithUnsignedLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithLongLong:1] monoObjCType]) isEqualToString:@(@encode(long long))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithUnsignedLongLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long long))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithFloat:1] monoObjCType]) isEqualToString:@(@encode(float))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithDouble:1] monoObjCType]) isEqualToString:@(@encode(double))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithInteger:1] monoObjCType]) isEqualToString:@(@encode(NSInteger))], DBUEqualityTestFailed);
-    STAssertTrue([@([[DBNumber numberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(NSUInteger))], DBUEqualityTestFailed);
-    STAssertFalse([@([[DBNumber numberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUDesignedToFailTestPassed);
+    XCTAssertTrue([@([[DBNumber numberWithLong:1] monoObjCType]) isEqualToString:@"l"], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithUnsignedLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithLongLong:1] monoObjCType]) isEqualToString:@(@encode(long long))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithUnsignedLongLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long long))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithFloat:1] monoObjCType]) isEqualToString:@(@encode(float))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithDouble:1] monoObjCType]) isEqualToString:@(@encode(double))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithInteger:1] monoObjCType]) isEqualToString:@(@encode(NSInteger))], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(NSUInteger))], DBUEqualityTestFailed);
+    XCTAssertFalse([@([[DBNumber numberWithUnsignedInteger:1] monoObjCType]) isEqualToString:@(@encode(char))], DBUDesignedToFailTestPassed);
     
     // test setCompareEnforcesTypeMatch
     DBNumber *typeMatchIntN = [@55 dbNumberFromIntValue];
@@ -257,14 +259,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     DBNumber *typeMatchDoubleN = [@55 dbNumberFromDoubleValue];
     
     // test default behaviour with NSNumber
-    STAssertTrue([typeMatchIntN isEqual:@55.], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchIntN isEqual:@55.], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
 
     // test default behaviour with DBNumber
-    STAssertTrue([typeMatchIntN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchLongN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchFloatN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchIntN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchLongN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchFloatN isEqual:typeMatchDoubleN], DBUEqualityTestFailed);
     
     // enforce comparison type match
     [typeMatchIntN setCompareEnforcesTypeMatch];
@@ -272,19 +274,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [typeMatchFloatN setCompareEnforcesTypeMatch];
     
     // NSumber behaviour should remain unchanged
-    STAssertTrue([typeMatchIntN isEqual:@55.], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchIntN isEqual:@55.], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchLongN isEqual:@55.], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchFloatN isEqual:@55.], DBUEqualityTestFailed);
     
     // DBNumber should fail to match instance initialised with another type
-    STAssertFalse([typeMatchIntN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
-    STAssertFalse([typeMatchLongN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
-    STAssertFalse([typeMatchFloatN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
+    XCTAssertFalse([typeMatchIntN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
+    XCTAssertFalse([typeMatchLongN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
+    XCTAssertFalse([typeMatchFloatN isEqual:typeMatchDoubleN], DBUInequalityTestFailed);
     
     // DBNumber should match instance initialised with matching type
-    STAssertTrue([typeMatchIntN isEqual:[@55 dbNumberFromIntValue]], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchLongN isEqual:[@55 dbNumberFromLongValue]], DBUEqualityTestFailed);
-    STAssertTrue([typeMatchFloatN isEqual:[@55 dbNumberFromFloatValue]], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchIntN isEqual:[@55 dbNumberFromIntValue]], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchLongN isEqual:[@55 dbNumberFromLongValue]], DBUEqualityTestFailed);
+    XCTAssertTrue([typeMatchFloatN isEqual:[@55 dbNumberFromFloatValue]], DBUEqualityTestFailed);
     
 }
 
@@ -292,11 +294,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
     NSString *string1 = @"I am the test string";
     DBString *string2 = [DBString objectWithMonoObject:[string1 monoString]];
-    STAssertTrue([string1 isEqualToString:string2], DBUEqualityTestFailed);
+    XCTAssertTrue([string1 isEqualToString:string2], DBUEqualityTestFailed);
     
     // create string from mono object
     NSString *string3 = [[DBTypeManager sharedManager] objectWithMonoObject:[string2 representedMonoObject]];
-    STAssertTrue([string1 isEqualToString:string3], DBUEqualityTestFailed);
+    XCTAssertTrue([string1 isEqualToString:string3], DBUEqualityTestFailed);
 }
 
 - (void)testReferenceClass
@@ -341,7 +343,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     finalInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
     
     // we leak 1 due to a raised exception
-    STAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
+    XCTAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
     
 #endif
     
@@ -364,20 +366,20 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     finalInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
 
     // we leak 1 due to a raised exception
-    STAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
+    XCTAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
 
     //
     // enumerations
     //
-    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DBUIntEnum val1], DBUEqualityTestFailed);
-    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DBUIntEnum val2], DBUEqualityTestFailed);
-    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DBUIntEnum val3], DBUEqualityTestFailed);
-    STAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DBUIntEnum val4], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DBUIntEnum val1], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DBUIntEnum val2], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DBUIntEnum val3], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DBUIntEnum val4], DBUEqualityTestFailed);
 
-    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == eDBULongEnum_Val1, DBUEqualityTestFailed);
-    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == eDBULongEnum_Val2, DBUEqualityTestFailed);
-    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
-    STAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == eDBULongEnum_Val1, DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == eDBULongEnum_Val2, DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
 #endif
     
     // instance tests
@@ -401,7 +403,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // instance count should be restored to initial value
     finalInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
-    STAssertTrue(finalInstanceCount == initialInstanceCount, DBUEqualityTestFailed);
+    XCTAssertTrue(finalInstanceCount == initialInstanceCount, DBUEqualityTestFailed);
     
 }
 
@@ -413,7 +415,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     id refObject = [testClass new];
     
-    STAssertNotNil(refObject, DBUObjectNotCreated);
+    XCTAssertNotNil(refObject, DBUObjectNotCreated);
     
     // log the class
     if (0) {
@@ -425,14 +427,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     NSString *ctorString = @"Constructor with one string argument";
     refObject = [testClass new_withValue:(id)ctorString];
-    STAssertNotNil(refObject, DBUObjectNotCreated);
-    STAssertTrue([[refObject stringProperty] isEqualToString:ctorString], DBUEqualityTestFailed);
+    XCTAssertNotNil(refObject, DBUObjectNotCreated);
+    XCTAssertTrue([[refObject stringProperty] isEqualToString:ctorString], DBUEqualityTestFailed);
     
     NSString *ctorString1 = @"Constructor with two ";
     NSString *ctorString2 = @"string arguments";
     refObject = [testClass new_withValue1:ctorString1 value2:ctorString2];
-    STAssertNotNil(refObject, DBUObjectNotCreated);
-    STAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
+    XCTAssertNotNil(refObject, DBUObjectNotCreated);
+    XCTAssertTrue([[refObject stringProperty] isEqualToString:[ctorString1 stringByAppendingString:ctorString2]], DBUEqualityTestFailed);
     
     return refObject;
 }
@@ -460,42 +462,42 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [int16List add:[DBNumShort(63) managedObject]];
     [int16List add:[DBNumShort(84) managedObject]];
     DBSystem_Collections_IList *int16IList = [int16List list];
-    STAssertTrue([int16IList int16AtIndex:2] == 63, DBUEqualityTestFailed);
-    STAssertTrue([int16IList int16AtIndex:3] == 84, DBUEqualityTestFailed);
-    STAssertTrue(int16List.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue([int16IList int16AtIndex:2] == 63, DBUEqualityTestFailed);
+    XCTAssertTrue([int16IList int16AtIndex:3] == 84, DBUEqualityTestFailed);
+    XCTAssertTrue(int16List.count == 4, DBUEqualityTestFailed);
     
     // allocate list<System.Int32> and populate
     DBSystem_Collections_Generic_ListA1 *int32List = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
     [int32List add:[DBNumInt(3) managedObject]];
     [int32List add:[DBNumInt(4) managedObject]];
-    STAssertTrue([[int32List list] int32AtIndex:2] == 3, DBUEqualityTestFailed);
-    STAssertTrue([[int32List list] int32AtIndex:3] == 4, DBUEqualityTestFailed);
-    STAssertTrue(int32List.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue([[int32List list] int32AtIndex:2] == 3, DBUEqualityTestFailed);
+    XCTAssertTrue([[int32List list] int32AtIndex:3] == 4, DBUEqualityTestFailed);
+    XCTAssertTrue(int32List.count == 4, DBUEqualityTestFailed);
     
     // allocate list<System.Int64> and populate
     DBSystem_Collections_Generic_ListA1 *int64List = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumLongLong(10), DBNumLongLong(20)]];
     [int64List add:[DBNumLongLong(30) managedObject]];
     [int64List add:[DBNumLongLong(40) managedObject]];
-    STAssertTrue([[int64List list] int64AtIndex:2] == 30, DBUEqualityTestFailed);
-    STAssertTrue([[int64List list] int64AtIndex:3] == 40, DBUEqualityTestFailed);
-    STAssertTrue(int64List.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue([[int64List list] int64AtIndex:2] == 30, DBUEqualityTestFailed);
+    XCTAssertTrue([[int64List list] int64AtIndex:3] == 40, DBUEqualityTestFailed);
+    XCTAssertTrue(int64List.count == 4, DBUEqualityTestFailed);
     
     // allocate list<System.Single> and populate
 #warning FAILING : embedded API calling type must be single not float!
     DBSystem_Collections_Generic_ListA1 *floatList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumFloat(11), DBNumFloat(12)]];
     [floatList add:[DBNumFloat(13) managedObject]];
     [floatList add:[DBNumFloat(14) managedObject]];
-    STAssertTrue([[floatList list] floatAtIndex:2] == 13, DBUEqualityTestFailed);
-    STAssertTrue([[floatList list] floatAtIndex:3] == 14, DBUEqualityTestFailed);
-    STAssertTrue(floatList.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue([[floatList list] floatAtIndex:2] == 13, DBUEqualityTestFailed);
+    XCTAssertTrue([[floatList list] floatAtIndex:3] == 14, DBUEqualityTestFailed);
+    XCTAssertTrue(floatList.count == 4, DBUEqualityTestFailed);
     
     // allocate list<System.Double> and populate
     DBSystem_Collections_Generic_ListA1 *doubleList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumDouble(21), DBNumDouble(22)]];
     [doubleList add:[DBNumDouble(23) managedObject]];
     [doubleList add:[DBNumDouble(24) managedObject]];
-    STAssertTrue([[doubleList list] doubleAtIndex:2] == 23, DBUEqualityTestFailed);
-    STAssertTrue([[doubleList list] doubleAtIndex:3] == 24, DBUEqualityTestFailed);
-    STAssertTrue(doubleList.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue([[doubleList list] doubleAtIndex:2] == 23, DBUEqualityTestFailed);
+    XCTAssertTrue([[doubleList list] doubleAtIndex:3] == 24, DBUEqualityTestFailed);
+    XCTAssertTrue(doubleList.count == 4, DBUEqualityTestFailed);
 
     
     // allocate list<string> and populate
@@ -503,31 +505,32 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     DBSystem_Collections_Generic_ListA1 *stringList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[item, @"item 1"]];
     [stringList add:[@"item 2" managedString]];
     [stringList add:[@"item 3" managedString]];
-    STAssertTrue(stringList.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue(stringList.count == 4, DBUEqualityTestFailed);
     
     // create array representation and validate
     NSArray *stringArray = [stringList array];
-    STAssertTrue(stringArray.count == 4, DBUEqualityTestFailed);
-    STAssertTrue([stringArray[0] isEqualToString:item], DBUEqualityTestFailed);
-    STAssertTrue([stringArray[3] isEqualToString:@"item 3"], DBUEqualityTestFailed);
+    XCTAssertTrue(stringArray.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue([stringArray[0] isEqualToString:item], DBUEqualityTestFailed);
+    XCTAssertTrue([stringArray[3] isEqualToString:@"item 3"], DBUEqualityTestFailed);
     
     // derive ListA1 from array
     NSArray *stringArray2 = @[@"1", @"10", @"100", @"1000",];
     DBSystem_Collections_Generic_ListA1 *numbersList = [stringArray2 dbscgListA1];
-    STAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
+    XCTAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
 
     // allocate list<testClass> and populate
     id refObject1 = [testClass new];
     id refObject2 = [testClass new];
     DBSystem_Collections_Generic_ListA1 *refObjectList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[refObject1, refObject2]];
-    STAssertTrue(refObjectList.count == 2, DBUEqualityTestFailed);
+    XCTAssertTrue(refObjectList.count == 2, DBUEqualityTestFailed);
     
     NSArray *refObjectArray = [refObjectList array];
-    STAssertTrue(refObjectArray.count == 2, DBUEqualityTestFailed);
-    STAssertTrue([refObjectArray[0] isEqual:refObject1], DBUEqualityTestFailed);
-    STAssertTrue([refObjectArray[1] isEqual:refObject2], DBUEqualityTestFailed);
+    XCTAssertTrue(refObjectArray.count == 2, DBUEqualityTestFailed);
+    XCTAssertTrue([refObjectArray[0] isEqual:refObject1], DBUEqualityTestFailed);
+    XCTAssertTrue([refObjectArray[1] isEqual:refObject2], DBUEqualityTestFailed);
     
     // test exception when add invalid type to generic collection
+    NSLog(@"\n\nThe exception report below is expected and indicates a passed test designed to exercise the managed exception catching system.\n\n");
     BOOL genericParameterExceptionRaised = NO;
     @try {
         // this will cause a leak
@@ -535,9 +538,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     @catch (NSException *exception) {
         genericParameterExceptionRaised = YES;
+        
+        NSLog(@"\n\nThe exception report above is expected and indicates a passed test .\n\n");
+
     }
     @finally {
-        STAssertTrue(genericParameterExceptionRaised, DBUExceptionTestFailed);
+        XCTAssertTrue(genericParameterExceptionRaised, DBUExceptionTestFailed);
     }
 }
 
@@ -547,34 +553,34 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // we should retrieve the same object here as we have class equality
     System_Object *object = [[testClass alloc] initWithMonoObject:[refObject monoObject]];
-    STAssertTrue(refObject == object, DBUInequalityTestFailed);
+    XCTAssertTrue(refObject == object, DBUInequalityTestFailed);
 
     // we should retrieve another object here as we have class inequality
     System_Object *object1 = [[System_Object alloc] initWithMonoObject:[refObject monoObject]];
     
-    STAssertTrue(refObject != object1, DBUInequalityTestFailed);
-    STAssertTrue([refObject monoObject] == object1.monoObject, DBUEqualityTestFailed);
-    STAssertTrue([refObject isEqual:object1], DBUEqualityTestFailed);
+    XCTAssertTrue(refObject != object1, DBUInequalityTestFailed);
+    XCTAssertTrue([refObject monoObject] == object1.monoObject, DBUEqualityTestFailed);
+    XCTAssertTrue([refObject isEqual:object1], DBUEqualityTestFailed);
     
     // compare two separate instances of the same object
     System_Object *object2 = [self doTestConstructorsWithclass:testClass];
     System_Object *object3 = [self doTestConstructorsWithclass:testClass];
-    STAssertTrue(object2 != object3, DBUInequalityTestFailed);
-    STAssertTrue(object2.monoObject != object3.monoObject, DBUInequalityTestFailed);
-    STAssertTrue([[(id)object2 stringProperty] isEqual:[(id)object3 stringProperty]], DBUEqualityTestFailed);
-    STAssertTrue([object2 hash] == [object3 hash], DBUEqualityTestFailed);
+    XCTAssertTrue(object2 != object3, DBUInequalityTestFailed);
+    XCTAssertTrue(object2.monoObject != object3.monoObject, DBUInequalityTestFailed);
+    XCTAssertTrue([[(id)object2 stringProperty] isEqual:[(id)object3 stringProperty]], DBUEqualityTestFailed);
+    XCTAssertTrue([object2 hash] == [object3 hash], DBUEqualityTestFailed);
     
     // inclusion of managed object equality testing is optional
     object2.testForManagedObjectEquality = YES;
-    STAssertTrue([object2 isEqual:object3], DBUEqualityTestFailed);
+    XCTAssertTrue([object2 isEqual:object3], DBUEqualityTestFailed);
     object2.testForManagedObjectEquality = NO;
-    STAssertTrue(![object2 isEqual:object3], DBUEqualityTestFailed);
+    XCTAssertTrue(![object2 isEqual:object3], DBUEqualityTestFailed);
     
     // object equality is determined on the basis of the stringProperty.
     NSString *eProperty = [(id)object3 stringProperty];
     [(id)object3 setStringProperty:[NSString stringWithFormat:@"+%@", eProperty]];
-    STAssertTrue([object2 hash] != [object3 hash], DBUInequalityTestFailed);
-    STAssertTrue(![object2 isEqual:object3], DBUInequalityTestFailed);
+    XCTAssertTrue([object2 hash] != [object3 hash], DBUInequalityTestFailed);
+    XCTAssertTrue(![object2 isEqual:object3], DBUInequalityTestFailed);
 }
 
 - (void)doTestFields:(id)refObject class:(Class)testClass
@@ -586,29 +592,29 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     if (YES) {
         // class string field
         NSString *classStringField = [testClass classStringField];
-        STAssertTrue([classStringField dbTestString:DBUTestString], DBUSubstringTestFailed);
+        XCTAssertTrue([classStringField dbTestString:DBUTestString], DBUSubstringTestFailed);
         
         // string setter
         classStringField = [classStringField stringByAppendingString:@" : modified"];
         [testClass setClassStringField:classStringField];
-        STAssertTrue([[testClass classStringField] isEqualToString:classStringField], DBUEqualityTestFailed);
+        XCTAssertTrue([[testClass classStringField] isEqualToString:classStringField], DBUEqualityTestFailed);
         
         // class int field
         [testClass setClassIntField:1]; // set initially otherwise test fails when called again
         int32_t classIntField = [testClass classIntField];
-        STAssertTrue(classIntField == 1, DBUEqualityTestFailed);
+        XCTAssertTrue(classIntField == 1, DBUEqualityTestFailed);
         
         // int setter
         classIntField = 10;
         [testClass setClassIntField:classIntField];
-        STAssertTrue([testClass classIntField] == classIntField, DBUEqualityTestFailed);
+        XCTAssertTrue([testClass classIntField] == classIntField, DBUEqualityTestFailed);
     }
     
     // class date field
     if (YES) {
         NSDate *classDateField = [testClass classDateField];
         NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
-        STAssertTrue([classDateField compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+        XCTAssertTrue([classDateField compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
     }
     
     //
@@ -617,26 +623,26 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // string field
     NSString *stringField = [refObject stringField];
-    STAssertNotNil(stringField, DBUObjectIsNil);
+    XCTAssertNotNil(stringField, DBUObjectIsNil);
     
     // string setter
     stringField = [stringField stringByAppendingString:@" : modified"];
     [refObject setStringField:stringField];
-    STAssertTrue([[refObject stringField] isEqualToString:stringField], DBUEqualityTestFailed);
+    XCTAssertTrue([[refObject stringField] isEqualToString:stringField], DBUEqualityTestFailed);
     
     // int field
     int32_t intField = [refObject intField];
-    STAssertTrue(intField == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(intField == 1, DBUEqualityTestFailed);
     
     // int setter
     intField = 10;
     [refObject setIntField:intField];
-    STAssertTrue([refObject intField] == intField, DBUEqualityTestFailed);
+    XCTAssertTrue([refObject intField] == intField, DBUEqualityTestFailed);
     
     // date field
     if (YES) {
         NSDate *dateField = [refObject dateField];
-        STAssertNotNil(dateField, DBUObjectIsNil);
+        XCTAssertNotNil(dateField, DBUObjectIsNil);
     }
 }
 
@@ -649,7 +655,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     if ([refObject respondsToSelector:@selector(extensionString)]) {
         NSString *extensionString = [refObject extensionString];
-        STAssertNotNil(extensionString, DBUObjectIsNil);
+        XCTAssertNotNil(extensionString, DBUObjectIsNil);
     }
 }
 
@@ -662,30 +668,30 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // string methods + overloads
     //
     NSString *stringMethod = [refObject stringMethod];
-    STAssertNotNil(stringMethod, DBUObjectIsNil);
+    XCTAssertNotNil(stringMethod, DBUObjectIsNil);
     
     NSString *stringMethod1 = [refObject stringMethod_withS1:@"1"];
-    STAssertNotNil(stringMethod1, DBUObjectIsNil);
+    XCTAssertNotNil(stringMethod1, DBUObjectIsNil);
     
     NSString *stringMethodWithInt = [refObject stringMethod_withN:100];
-    STAssertTrue([stringMethodWithInt dbTestString:@"100"], DBUSubstringTestFailed);
+    XCTAssertTrue([stringMethodWithInt dbTestString:@"100"], DBUSubstringTestFailed);
     
     // These two tests account for the overload situation where the managed method
     // parameter names match. In this case additional type information is appended to
     // the interleaved parameters to create a unique signature.
     NSString *stringMethod2 = [refObject stringMethod_withS1String:@"1" s2String:@"2"];
-    STAssertNotNil(stringMethod2, DBUObjectIsNil);
+    XCTAssertNotNil(stringMethod2, DBUObjectIsNil);
     
     MonoString *monoString = mono_string_new(mono_domain_get(), "2");
     DBManagedObject *stringObj = [DBManagedObject objectWithMonoObject:(MonoObject *)monoString];
     NSString *stringMethod3 = [refObject stringMethod_withS1String:@"1" s2Object:stringObj];
-    STAssertNotNil(stringMethod3, DBUObjectIsNil);
+    XCTAssertNotNil(stringMethod3, DBUObjectIsNil);
     
     //
     // date methods
     //
     NSDate *dateMethod = [refObject dateMethod_withD1:[NSDate date]];
-    STAssertNotNil(dateMethod, DBUObjectIsNil);
+    XCTAssertNotNil(dateMethod, DBUObjectIsNil);
 
     //
     // decimal methods
@@ -694,19 +700,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSDecimalNumber *d2 = [NSDecimalNumber decimalNumberWithMantissa:3 exponent:0 isNegative:NO];
     NSDecimalNumber *decimalProduct = [d1 decimalNumberByMultiplyingBy:d2];
     NSDecimalNumber *decimalMethodResult = [refObject decimalMultiplierMethod_withD1:d1 d2:d2];
-    STAssertFalse([decimalMethodResult isEqual:decimalProduct], DBUEqualityTestFailed);
+    XCTAssertTrue([decimalMethodResult isEqual:decimalProduct], DBUEqualityTestFailed);
 
     //
     // mixed methods
     //
     
     NSString *mixedMethod1 = [refObject mixedMethod1_withIntarg:1111 longArg:-2222 floatArg:33.33f doubleArg:-44.44 dateArg:[NSDate date] stringArg:@"GeneralTest" refObjectArg:refObject];
-    STAssertTrue([mixedMethod1 dbTestString:DBUTestString], DBUSubstringTestFailed);
-    STAssertTrue([mixedMethod1 dbTestString:@"1111"], DBUSubstringTestFailed);
-    STAssertTrue([mixedMethod1 dbTestString:@"-2222"], DBUSubstringTestFailed);
-    STAssertTrue([mixedMethod1 dbTestString:@"33.33"], DBUSubstringTestFailed);
-    STAssertTrue([mixedMethod1 dbTestString:@"-44.44"], DBUSubstringTestFailed);
-    STAssertTrue([mixedMethod1 dbTestString:@"GeneralTest"], DBUSubstringTestFailed);
+    XCTAssertTrue([mixedMethod1 dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([mixedMethod1 dbTestString:@"1111"], DBUSubstringTestFailed);
+    XCTAssertTrue([mixedMethod1 dbTestString:@"-2222"], DBUSubstringTestFailed);
+    XCTAssertTrue([mixedMethod1 dbTestString:@"33.33"], DBUSubstringTestFailed);
+    XCTAssertTrue([mixedMethod1 dbTestString:@"-44.44"], DBUSubstringTestFailed);
+    XCTAssertTrue([mixedMethod1 dbTestString:@"GeneralTest"], DBUSubstringTestFailed);
     NSLog(@"%@", mixedMethod1);
     
     // TODO: mixed methods to cover all value types
@@ -716,12 +722,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     int32_t intToDouble = 1;
     int32_t intDoubled = [refObject doubleIt_withXInt:intToDouble];
-    STAssertTrue(intDoubled == 2 * intToDouble, DBUEqualityTestFailed);
+    XCTAssertTrue(intDoubled == 2 * intToDouble, DBUEqualityTestFailed);
     
 #if DB_VALUETYPE_BY_REFERENCE_SUPPORT == 1
     // value type by ref
     [refObject doubleIt_withXIntRef:&intToDouble];
-    STAssertTrue(intDoubled == intToDouble, DBUEqualityTestFailed);
+    XCTAssertTrue(intDoubled == intToDouble, DBUEqualityTestFailed);
 #endif
     
     //
@@ -748,7 +754,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // static methods
     //
     NSString *classDescription = (NSString *)[testClass classDescription];
-    STAssertTrue([classDescription dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([classDescription dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
 - (void)doTestRefMethods:(id)refObject class:(Class)testClass
@@ -759,7 +765,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // pass string by reference
     [refObject stringMethodWithStringRef_withS1Ref:&s1];
-    STAssertTrue([s1 isEqualToString:[DBUTestString stringByAppendingString:DBUTestString]], DBUEqualityTestFailed);
+    XCTAssertTrue([s1 isEqualToString:[DBUTestString stringByAppendingString:DBUTestString]], DBUEqualityTestFailed);
     
 }
 
@@ -770,30 +776,30 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // int 32 pointer
     int32_t x = 101, y = 202;
     int32_t int32Sum = [refObject sumAndSwitch_withIntPtrX:&x intPtrY:&y];
-    STAssertTrue(int32Sum == x + y, DBUEqualityTestFailed);
-    STAssertTrue(x == 202, DBUEqualityTestFailed);
-    STAssertTrue(y == 101, DBUEqualityTestFailed);
+    XCTAssertTrue(int32Sum == x + y, DBUEqualityTestFailed);
+    XCTAssertTrue(x == 202, DBUEqualityTestFailed);
+    XCTAssertTrue(y == 101, DBUEqualityTestFailed);
     
     // int 64 pointer
     int64_t x64 = 202, y64 = 303;
     int64_t int64Sum = [refObject sumAndSwitch_withInt64PtrX:&x64 int64PtrY:&y64];
-    STAssertTrue(int64Sum == x64 + y64, DBUEqualityTestFailed);
-    STAssertTrue(x64 == 303, DBUEqualityTestFailed);
-    STAssertTrue(y64 == 202, DBUEqualityTestFailed);
+    XCTAssertTrue(int64Sum == x64 + y64, DBUEqualityTestFailed);
+    XCTAssertTrue(x64 == 303, DBUEqualityTestFailed);
+    XCTAssertTrue(y64 == 202, DBUEqualityTestFailed);
     
     // float pointer
     float xfloat = 404, yfloat = 505;
     float floatSum = [refObject sumAndSwitch_withFloatPtrX:&xfloat floatPtrY:&yfloat];
-    STAssertTrue(floatSum == xfloat + yfloat, DBUEqualityTestFailed);
-    STAssertTrue(xfloat == 505, DBUEqualityTestFailed);
-    STAssertTrue(yfloat == 404, DBUEqualityTestFailed);
+    XCTAssertTrue(floatSum == xfloat + yfloat, DBUEqualityTestFailed);
+    XCTAssertTrue(xfloat == 505, DBUEqualityTestFailed);
+    XCTAssertTrue(yfloat == 404, DBUEqualityTestFailed);
     
     // double pointer
     double xdouble = 606, ydouble = 772;
     double doubleSum = [refObject sumAndSwitch_withDoublePtrX:&xdouble doublePtrY:&ydouble];
-    STAssertTrue(doubleSum == xdouble + ydouble, DBUEqualityTestFailed);
-    STAssertTrue(xdouble == 772, DBUEqualityTestFailed);
-    STAssertTrue(ydouble == 606, DBUEqualityTestFailed);
+    XCTAssertTrue(doubleSum == xdouble + ydouble, DBUEqualityTestFailed);
+    XCTAssertTrue(xdouble == 772, DBUEqualityTestFailed);
+    XCTAssertTrue(ydouble == 606, DBUEqualityTestFailed);
 }
 
 
@@ -805,44 +811,44 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @256L];
     DBSystem_Array *int64Array = [int64NSArray dbsArrayWithTypeName:DBType_System_Int64];
     int64_t int64Total = [refObject sum_withInt64Array:int64Array];
-    STAssertTrue(int64Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    XCTAssertTrue(int64Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
     
     // int 32 array
     NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @257];
     DBSystem_Array *int32Array = [int32NSArray dbsArrayWithTypeName:DBType_System_Int32];
     int32_t int32Total = [refObject sum_withInt32Array:int32Array];
-    STAssertTrue(int32Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 257, DBUEqualityTestFailed);
+    XCTAssertTrue(int32Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 257, DBUEqualityTestFailed);
     
     // int 16 array
     NSArray *int16NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @255];
     DBSystem_Array *int16Array = [int16NSArray dbsArrayWithTypeName:DBType_System_Int16];
     int16_t int16Total = [refObject sum_withInt16Array:int16Array];
-    STAssertTrue(int16Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 255, DBUEqualityTestFailed);
+    XCTAssertTrue(int16Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 255, DBUEqualityTestFailed);
     
     // byte array
     NSArray *byteNSArray = @[@0, @1, @2, @4, @8, @16, @32, @64];
     DBSystem_Array *byteArray = [byteNSArray dbsArrayWithTypeName:DBType_System_Byte];
     int8_t byteTotal = [refObject sum_withByteArray:byteArray];
-    STAssertTrue(byteTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64, DBUEqualityTestFailed);
+    XCTAssertTrue(byteTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64, DBUEqualityTestFailed);
     
     // float array
     NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @258.0F];
     DBSystem_Array *floatArray = [floatNSArray dbsArrayWithTypeName:DBType_System_Single];
     float floatTotal = [refObject sum_withFloatArray:floatArray];
-    STAssertTrue(floatTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 258, DBUEqualityTestFailed);
+    XCTAssertTrue(floatTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 258, DBUEqualityTestFailed);
     
     // double array
     NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0F, @32.0, @64.0, @128.0, @259.0];
     DBSystem_Array *doubleArray = [doubleNSArray dbsArrayWithTypeName:DBType_System_Double];
     double doubleTotal = [refObject sum_withDoubleArray:doubleArray];
-    STAssertTrue(doubleTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 259, DBUEqualityTestFailed);
+    XCTAssertTrue(doubleTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 259, DBUEqualityTestFailed);
     
     // string array
     NSArray *stringNSArray = @[DBUTestString, @" 1", @" 2"];
     DBSystem_Array *stringArray = [stringNSArray dbsArrayWithTypeName:DBType_System_String];
     NSString *stringTotal = [refObject sum_withStringArray:stringArray];
     NSString *stringTest = [NSString stringWithFormat:@"%@ %@ %@", DBUTestString, @"1", @"2"];
-    STAssertTrue([stringTotal isEqual:stringTest], DBUEqualityTestFailed);
+    XCTAssertTrue([stringTotal isEqual:stringTest], DBUEqualityTestFailed);
 }
 
 - (void)doTestPointerProperties:(id)refObject class:(Class)testClass
@@ -853,13 +859,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *stringPointer = @"It's okay to point at me like that.";
     [refObject setPointer:(__bridge void *)(stringPointer)];
     void * voidPtr = [refObject pointer];
-    STAssertTrue(voidPtr == (__bridge void *)stringPointer, DBUEqualityTestFailed);
+    XCTAssertTrue(voidPtr == (__bridge void *)stringPointer, DBUEqualityTestFailed);
     
     // int32 pointer
     int32_t theInt = 10101;
     [refObject setInt32Pointer:&theInt];
     int32_t *int32Pointer = [refObject int32Pointer];
-    STAssertTrue(*int32Pointer == theInt, DBUEqualityTestFailed);
+    XCTAssertTrue(*int32Pointer == theInt, DBUEqualityTestFailed);
 }
 
 - (void)doTestPropertyPersistence:(id)refObject class:(Class)testClass
@@ -879,144 +885,144 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // string array
     DBSystem_Array *stringArray = [refObject stringArray];
-    STAssertTrue([stringArray count] == 3, DBUCountTestFailed);
+    XCTAssertTrue([stringArray count] == 3, DBUCountTestFailed);
     
     NSMutableString *ms = [NSMutableString new];
     for (uint32_t i = 0; i < [stringArray count]; i++) {
         NSString * s = [stringArray objectAtIndex:i];
         [ms appendFormat:@"%@ ", s];
     }
-    STAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
     
     // derive string mono array from NSArray
     NSArray *stringNSArray = @[DBUTestString, @"1", @"2"];
     stringArray = [stringNSArray dbsArrayWithTypeName:DBType_System_String];
     [refObject setStringArray:stringArray];   // set
     stringArray = [refObject stringArray];    // get
-    STAssertTrue([stringArray count] == 3, DBUCountTestFailed);
+    XCTAssertTrue([stringArray count] == 3, DBUCountTestFailed);
     ms = [NSMutableString new];
     for (uint32_t i = 0; i < [stringArray count]; i++) {
         NSString * s = [stringArray objectAtIndex:i];
         [ms appendFormat:@"%@ ", s];
     }
-    STAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
     
     // int64 array
     DBSystem_Array *int64Array = [refObject int64Array];
-    STAssertTrue([int64Array count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     
     int64_t n = 0;
     for (uint32_t i = 0; i < [int64Array count]; i++) {
         n += [int64Array int64AtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
 
     // mutate the property array
     [int64Array setInt64AtIndex:[int64Array count] - 1 value:1];
     [refObject setInt64Array:int64Array];   // set
     int64Array = [refObject int64Array];    // get
-    STAssertTrue([int64Array count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [int64Array count]; i++) {
         n += [int64Array int64AtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 1, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 1, DBUEqualityTestFailed);
     
     // derive 64 bit mono array from NSArray
     NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @128L];
     int64Array = [int64NSArray dbsArrayWithTypeName:DBType_System_Int64];
     [refObject setInt64Array:int64Array];   // set
     int64Array = [refObject int64Array];    // get
-    STAssertTrue([int64Array count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [int64Array count]; i++) {
       n += [int64Array int64AtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 128, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 128, DBUEqualityTestFailed);
 
     // int32 array
     DBSystem_Array *int32Array = [refObject int32Array];
-    STAssertTrue([int32Array count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([int32Array count] == 10, DBUCountTestFailed);
     
     n = 0;
     for (uint32_t i = 0; i < [int32Array count]; i++) {
         n += [int32Array int32AtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
 
     // derive 32 bit mono array from NSArray
     NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @120];
     int32Array = [int32NSArray dbsArrayWithTypeName:DBType_System_Int32];
     [refObject setInt32Array:int32Array];   // set
     int32Array = [refObject int32Array];    // get
-    STAssertTrue([int32Array count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([int32Array count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [int32Array count]; i++) {
         n += [int32Array int32AtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 120, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 120, DBUEqualityTestFailed);
     
     // int16 array
     DBSystem_Array *int16Array = [refObject int16Array];
-    STAssertTrue([int16Array count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([int16Array count] == 10, DBUCountTestFailed);
     
     n = 0;
     for (uint32_t i = 0; i < [int16Array count]; i++) {
         n += [int16Array int16AtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
     
     // float array
     DBSystem_Array *floatArray = [refObject floatArray];
-    STAssertTrue([floatArray count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([floatArray count] == 10, DBUCountTestFailed);
     
     float f = 0;
     for (uint32_t i = 0; i < [floatArray count]; i++) {
         f += [floatArray floatAtIndex:i];
     }
-    STAssertTrue(f == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    XCTAssertTrue(f == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
 
     // derive float mono array from NSArray
     NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @116.0F];
     floatArray = [floatNSArray dbsArrayWithTypeName:DBType_System_Single];
     [refObject setFloatArray:floatArray];   // set
     floatArray = [refObject floatArray];    // get
-    STAssertTrue([floatArray count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([floatArray count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [floatArray count]; i++) {
         n += [floatArray floatAtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 116, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 116, DBUEqualityTestFailed);
     
     // double array
     DBSystem_Array *doubleArray = [refObject doubleArray];
-    STAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
     
     double d = 0;
     for (uint32_t i = 0; i < [doubleArray count]; i++) {
         d += [doubleArray doubleAtIndex:i];
     }
-    STAssertTrue(d == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
+    XCTAssertTrue(d == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
 
     // derive double mono array from NSArray
     NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0, @32.0, @64.0, @128.0, @110.0];
     doubleArray = [doubleNSArray dbsArrayWithTypeName:DBType_System_Double];
     [refObject setDoubleArray:doubleArray];   // set
     doubleArray = [refObject doubleArray];    // get
-    STAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [doubleArray count]; i++) {
         n += [doubleArray doubleAtIndex:i];
     }
-    STAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 110, DBUEqualityTestFailed);
+    XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 110, DBUEqualityTestFailed);
     
     // bool array
     DBSystem_Array *boolArray = [refObject boolArray];
-    STAssertTrue([boolArray count] == 10, DBUCountTestFailed);
+    XCTAssertTrue([boolArray count] == 10, DBUCountTestFailed);
     
     for (uint32_t i = 0; i < [boolArray count]; i++) {
         bool b = [boolArray boolAtIndex:i];
-        STAssertTrue(b == (i % 2 == 0 ? YES : NO), DBUEqualityTestFailed);
+        XCTAssertTrue(b == (i % 2 == 0 ? YES : NO), DBUEqualityTestFailed);
     }
 }
 
@@ -1043,40 +1049,40 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // List<string>
     DBSystem_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
     NSArray *arrayOfStrings = [listOfStrings array];
-    STAssertTrue([arrayOfStrings[0] dbTestString:DBUTestString], DBUSubstringTestFailed);
-    STAssertTrue([arrayOfStrings[0] dbTestString:@" 1"], DBUSubstringTestFailed);
-    STAssertTrue([arrayOfStrings[1] dbTestString:DBUTestString], DBUSubstringTestFailed);
-    STAssertTrue([arrayOfStrings[1] dbTestString:@" 2"], DBUSubstringTestFailed);
+    XCTAssertTrue([arrayOfStrings[0] dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([arrayOfStrings[0] dbTestString:@" 1"], DBUSubstringTestFailed);
+    XCTAssertTrue([arrayOfStrings[1] dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([arrayOfStrings[1] dbTestString:@" 2"], DBUSubstringTestFailed);
     
     // List<int>
     DBSystem_Collections_Generic_ListA1 *listOfInts = [refObject intList];
     NSArray *arrayOfInts = [listOfInts array];
-    STAssertTrue([arrayOfInts count] == 3, DBUCountTestFailed);
-    STAssertTrue([arrayOfInts[0] intValue] == 1, DBUEqualityTestFailed);
-    STAssertTrue([arrayOfInts[1] intValue] == -10, DBUEqualityTestFailed);
-    STAssertTrue([arrayOfInts[2] intValue] == 100, DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfInts count] == 3, DBUCountTestFailed);
+    XCTAssertTrue([arrayOfInts[0] intValue] == 1, DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfInts[1] intValue] == -10, DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfInts[2] intValue] == 100, DBUEqualityTestFailed);
 
     // List<uint>
     DBSystem_Collections_Generic_ListA1 *listOfUInts = [refObject uIntList];
     NSArray *arrayOfUInts = [listOfUInts array];
-    STAssertTrue([arrayOfUInts count] == 2, DBUCountTestFailed);
-    STAssertTrue([arrayOfUInts[0] unsignedIntValue] == 2, DBUEqualityTestFailed);
-    STAssertTrue([arrayOfUInts[1] unsignedIntValue] == 20, DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfUInts count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([arrayOfUInts[0] unsignedIntValue] == 2, DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfUInts[1] unsignedIntValue] == 20, DBUEqualityTestFailed);
 
     // List<float>
     DBSystem_Collections_Generic_ListA1 *listOfFloats = [refObject floatList];
     NSArray *arrayOfFloats = [listOfFloats array];
-    STAssertTrue([arrayOfFloats count] == 3, DBUCountTestFailed);
-    STAssertTrue([arrayOfFloats[0] floatValue] == 1., DBUEqualityTestFailed);
-    STAssertTrue([arrayOfFloats[1] floatValue] == 2., DBUEqualityTestFailed);
-    STAssertTrue([arrayOfFloats[2] floatValue] == 3., DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfFloats count] == 3, DBUCountTestFailed);
+    XCTAssertTrue([arrayOfFloats[0] floatValue] == 1., DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfFloats[1] floatValue] == 2., DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfFloats[2] floatValue] == 3., DBUEqualityTestFailed);
     
     // List<double>
     DBSystem_Collections_Generic_ListA1 *listOfDoubles = [refObject doubleList];
     NSArray *arrayOfDoubles = [listOfDoubles array];
-    STAssertTrue([arrayOfDoubles count] == 2, DBUCountTestFailed);
-    STAssertTrue([arrayOfDoubles[0] doubleValue] == 11., DBUEqualityTestFailed);
-    STAssertTrue([arrayOfDoubles[1] doubleValue] == 22., DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfDoubles count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([arrayOfDoubles[0] doubleValue] == 11., DBUEqualityTestFailed);
+    XCTAssertTrue([arrayOfDoubles[1] doubleValue] == 22., DBUEqualityTestFailed);
     
     //============================
     // Dictionary<string,string>
@@ -1085,27 +1091,27 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test all keys
     NSArray *stringStringDictKeys = [stringStringDictA2 allKeys];
-    STAssertTrue([stringStringDictKeys count] == 2, DBUCountTestFailed);
-    STAssertTrue([stringStringDictKeys containsObject:@"keyForString1"], DBUObjectNotFound);
-    STAssertTrue([stringStringDictKeys containsObject:@"keyForString2"], DBUObjectNotFound);
+    XCTAssertTrue([stringStringDictKeys count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([stringStringDictKeys containsObject:@"keyForString1"], DBUObjectNotFound);
+    XCTAssertTrue([stringStringDictKeys containsObject:@"keyForString2"], DBUObjectNotFound);
     
     // test all values
     NSArray *stringStringDictValues = [stringStringDictA2 allValues];
-    STAssertTrue([stringStringDictValues count] == 2, DBUCountTestFailed);
-    STAssertTrue([stringStringDictValues containsObject:@"Dubrovnik.UnitTests 1"], DBUObjectNotFound);
-    STAssertTrue([stringStringDictValues containsObject:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
+    XCTAssertTrue([stringStringDictValues count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([stringStringDictValues containsObject:@"Dubrovnik.UnitTests 1"], DBUObjectNotFound);
+    XCTAssertTrue([stringStringDictValues containsObject:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
     
     // test keys and values
     id key = stringStringDictKeys[0];
     id value = [stringStringDictA2 objectForKey:key];
-    STAssertTrue([value dbTestString:@"1"], DBUSubstringTestFailed);
+    XCTAssertTrue([value dbTestString:@"1"], DBUSubstringTestFailed);
     key = stringStringDictKeys[1];
-    STAssertTrue([[stringStringDictA2 objectForKey:key] dbTestString:@"2"], DBUSubstringTestFailed);
+    XCTAssertTrue([[stringStringDictA2 objectForKey:key] dbTestString:@"2"], DBUSubstringTestFailed);
     
     // test NSDictionary representation
     NSDictionary *stringStringDict = [stringStringDictA2 dictionary];
-    STAssertTrue([stringStringDict[@"keyForString1"] dbTestString:@"Dubrovnik.UnitTests 1"], DBUSubstringTestFailed);
-    STAssertTrue([stringStringDict[@"keyForString2"] dbTestString:@"Dubrovnik.UnitTests 2"], DBUSubstringTestFailed);
+    XCTAssertTrue([stringStringDict[@"keyForString1"] dbTestString:@"Dubrovnik.UnitTests 1"], DBUSubstringTestFailed);
+    XCTAssertTrue([stringStringDict[@"keyForString2"] dbTestString:@"Dubrovnik.UnitTests 2"], DBUSubstringTestFailed);
 
     //============================
     // Dictionary<int,int>
@@ -1114,29 +1120,29 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test all keys
     NSArray *intIntDictKeys = [intIntDictA2 allKeys];
-    STAssertTrue([intIntDictKeys count] == 2, DBUCountTestFailed);
-    STAssertTrue([intIntDictKeys containsObject:@1], DBUObjectNotFound);
-    STAssertTrue([intIntDictKeys containsObject:@3], DBUObjectNotFound);
+    XCTAssertTrue([intIntDictKeys count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([intIntDictKeys containsObject:@1], DBUObjectNotFound);
+    XCTAssertTrue([intIntDictKeys containsObject:@3], DBUObjectNotFound);
 
     // test all values
     NSArray *intIntDictValues = [intIntDictA2 allValues];
-    STAssertTrue([intIntDictValues count] == 2, DBUCountTestFailed);
-    STAssertTrue([intIntDictValues containsObject:@2], DBUObjectNotFound);
-    STAssertTrue([intIntDictValues containsObject:@6], DBUObjectNotFound);
+    XCTAssertTrue([intIntDictValues count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([intIntDictValues containsObject:@2], DBUObjectNotFound);
+    XCTAssertTrue([intIntDictValues containsObject:@6], DBUObjectNotFound);
 
     // test keys and values
     key = intIntDictKeys[0];
     value = [intIntDictA2 objectForKey:key];
-    STAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
+    XCTAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
 
     // key is a DBManagedObject containing a boxed int
     int intKey = [intIntDictKeys[1] intValue];
     value = [intIntDictA2 objectForKey:[DBManagedObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
-    STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
+    XCTAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
     // key is a DBNumber representing an int
     value = [intIntDictA2 objectForKey:[DBNumber numberWithInt:intKey]];
-    STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
+    XCTAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
     // object for key requires a type that represnts a mono type
     BOOL numberTypeExceptionRaised = NO;
@@ -1147,20 +1153,20 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         numberTypeExceptionRaised = YES;
     }
     @finally {
-        STAssertTrue(numberTypeExceptionRaised, DBUExceptionTestFailed);
+        XCTAssertTrue(numberTypeExceptionRaised, DBUExceptionTestFailed);
     }
 
     // key is a literal number representing an int
     NSNumber *literalNumberKey = [@((int)intKey) dbNumberFromIntValue];
     const char *typeEncoding = [literalNumberKey objCType];
-    STAssertTrue(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
     value = [intIntDictA2 objectForKey:literalNumberKey];
-    STAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
+    XCTAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
     // test NSDictionary representation
     NSDictionary *intIntDict = [intIntDictA2 dictionary];
-    STAssertTrue([intIntDict[@(1)] intValue] == 2, DBUEqualityTestFailed);
-    STAssertTrue([intIntDict[@(3)] intValue] == 6, DBUEqualityTestFailed);
+    XCTAssertTrue([intIntDict[@(1)] intValue] == 2, DBUEqualityTestFailed);
+    XCTAssertTrue([intIntDict[@(3)] intValue] == 6, DBUEqualityTestFailed);
 
     //============================
     // Dictionary<string,object>
@@ -1169,54 +1175,54 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test all keys
     NSArray *stringObjectDictKeys = [stringObjectDictA2 allKeys];
-    STAssertTrue([stringObjectDictKeys count] == 6, DBUCountTestFailed);
-    STAssertTrue([stringObjectDictKeys containsObject:@"keyForString"], DBUObjectNotFound);
-    STAssertTrue([stringObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
-    STAssertTrue([stringObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
-    STAssertTrue([stringObjectDictKeys containsObject:@"keyForListA1"], DBUObjectNotFound);
-    STAssertTrue([stringObjectDictKeys containsObject:@"keyForDictionaryA2"], DBUObjectNotFound);
-    STAssertTrue([stringObjectDictKeys containsObject:@"keyForStringArray"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictKeys count] == 6, DBUCountTestFailed);
+    XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForString"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForListA1"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForDictionaryA2"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForStringArray"], DBUObjectNotFound);
     
     // test all values
     NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
-    STAssertTrue([stringObjectDictValues count] == 6, DBUCountTestFailed);
+    XCTAssertTrue([stringObjectDictValues count] == 6, DBUCountTestFailed);
     
-    STAssertTrue([stringObjectDictValues containsObject:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
-    STAssertTrue([stringObjectDictValues containsObject:@100], DBUObjectNotFound);
-    STAssertTrue([stringObjectDictValues containsObject:@1001.], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictValues containsObject:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictValues containsObject:@100], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictValues containsObject:@1001.], DBUObjectNotFound);
 
     // test all DictionaryA2 values for keys
     value = [stringObjectDictA2 objectForKey:@"keyForString"];
-    STAssertTrue([value dbTestString:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
+    XCTAssertTrue([value dbTestString:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
 
     value = [stringObjectDictA2 objectForKey:@"keyForInteger"];
-    STAssertTrue([value intValue] == 100, DBUObjectNotFound);
+    XCTAssertTrue([value intValue] == 100, DBUObjectNotFound);
 
     value = [stringObjectDictA2 objectForKey:@"keyForFloat"];
-    STAssertTrue([value intValue] == 1001., DBUObjectNotFound);
+    XCTAssertTrue([value intValue] == 1001., DBUObjectNotFound);
 
     // ListA1 object
     value = [stringObjectDictA2 objectForKey:@"keyForListA1"];
-    STAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUClassTestFailed);
+    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUClassTestFailed);
 
     NSArray *keyListA1Array = [(DBSystem_Collections_Generic_ListA1 *)value array];
-    STAssertTrue([keyListA1Array containsObject:@"Dubrovnik1"], DBUObjectNotFound);
-    STAssertTrue([keyListA1Array containsObject:@"Dubrovnik2"], DBUObjectNotFound);
+    XCTAssertTrue([keyListA1Array containsObject:@"Dubrovnik1"], DBUObjectNotFound);
+    XCTAssertTrue([keyListA1Array containsObject:@"Dubrovnik2"], DBUObjectNotFound);
 
     // DictionaryA2 object
     value = [stringObjectDictA2 objectForKey:@"keyForDictionaryA2"];
-    STAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUClassTestFailed);
+    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUClassTestFailed);
 
-    STAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey1"], DBUObjectNotFound);
-    STAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
-    STAssertFalse([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
+    XCTAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey1"], DBUObjectNotFound);
+    XCTAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
+    XCTAssertFalse([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
 
     //  new string[] object
     DBSystem_Array *subItemDBArray = [stringObjectDictA2 objectForKey:@"keyForStringArray"];
     NSArray *subItemArray = [subItemDBArray array];
-    STAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem1"], DBUObjectNotFound);
-    STAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem2"], DBUObjectNotFound);
-    STAssertFalse([subItemArray containsObject:@"Dubrovnik SubItem3"], DBUDesignedToFailTestPassed);
+    XCTAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem1"], DBUObjectNotFound);
+    XCTAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem2"], DBUObjectNotFound);
+    XCTAssertFalse([subItemArray containsObject:@"Dubrovnik SubItem3"], DBUDesignedToFailTestPassed);
     
     //============================
     // Dictionary<object,object>
@@ -1225,52 +1231,52 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // test all keys
     NSArray *objectObjectDictKeys = [objectObjectDictA2 allKeys];
-    STAssertTrue([objectObjectDictKeys count] == 5, DBUCountTestFailed);
+    XCTAssertTrue([objectObjectDictKeys count] == 5, DBUCountTestFailed);
 
-    STAssertTrue([objectObjectDictKeys containsObject:@"keyForString"], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictKeys containsObject:@1], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictKeys containsObject:[DBNumber numberWithFloat:1]], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictKeys containsObject:@"keyForString"], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictKeys containsObject:@1], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictKeys containsObject:[DBNumber numberWithFloat:1]], DBUObjectNotFound);
     
     // test all values
     NSArray *objectObjectDictValues = [objectObjectDictA2 allValues];
-    STAssertTrue([objectObjectDictValues count] == 5, DBUCountTestFailed);
+    XCTAssertTrue([objectObjectDictValues count] == 5, DBUCountTestFailed);
  
-    STAssertTrue([objectObjectDictValues containsObject:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictValues containsObject:@100], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictValues containsObject:@1001.F], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictValues containsObject:@8], DBUObjectNotFound);
-    STAssertTrue([objectObjectDictValues containsObject:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictValues containsObject:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictValues containsObject:@100], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictValues containsObject:@1001.F], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictValues containsObject:@8], DBUObjectNotFound);
+    XCTAssertTrue([objectObjectDictValues containsObject:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
 
     // test all DictionaryA2 values for keys
     value = [objectObjectDictA2 objectForKey:@"keyForString"];
-    STAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
     
     value = [objectObjectDictA2 objectForKey:@"keyForInteger"];
-    STAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@100], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@100], DBUObjectNotFound);
     
     value = [objectObjectDictA2 objectForKey:@"keyForFloat"];
-    STAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@1001.F], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@1001.F], DBUObjectNotFound);
     
     value = [objectObjectDictA2 objectForKey:[@1 dbNumberFromIntValue]];   // key must be a managed number
-    STAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@8], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@8], DBUObjectNotFound);
 
     value = [objectObjectDictA2 objectForKey:[@1 dbNumberFromFloatValue]]; // key must be a managed number
-    STAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
 
     // test all NSDictionary values for keys
     NSDictionary *objectObjectDict = [objectObjectDictA2 dictionary];
-    STAssertTrue([objectObjectDict count] == 5, DBUCountTestFailed);
+    XCTAssertTrue([objectObjectDict count] == 5, DBUCountTestFailed);
     
     value = [objectObjectDict objectForKey:@"keyForString"];
-    STAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
     
     value = [objectObjectDict objectForKey:@"keyForInteger"];
-    STAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@100], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@100], DBUObjectNotFound);
     
     value = [objectObjectDict objectForKey:@"keyForFloat"];
-    STAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@1001.F], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@1001.F], DBUObjectNotFound);
 
     // these are subtle tests that indicate that Dictionary<K,V> keys are type sensitive.
     // managed int 1 and float 1 are different keys.
@@ -1278,19 +1284,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // NSNumber access will fail
     value = [objectObjectDict objectForKey:@1];
-    STAssertNil(value, DBUNilTestFailed);
+    XCTAssertNil(value, DBUNilTestFailed);
 
     DBNumber *managedKey = [@1 dbNumberFromIntValue];
     [managedKey setCompareEnforcesTypeMatch];
     
     value = [objectObjectDict objectForKey:managedKey];
-    STAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@8], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSNumber class]] && [value isEqual:@8], DBUObjectNotFound);
 
     managedKey = [@1 dbNumberFromFloatValue];
     [managedKey setCompareEnforcesTypeMatch];
 
     value = [objectObjectDict objectForKey:managedKey]; // key must be a managed number
-    STAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
+    XCTAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
 
     
     //=======================================
@@ -1300,66 +1306,66 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test all keys
     NSArray *intIntStringDictDictKeys = [intIntStringDictA2 allKeys];
-    STAssertTrue([intIntStringDictDictKeys count] == 2, DBUCountTestFailed);
-    STAssertTrue([intIntStringDictDictKeys containsObject:@0], DBUObjectNotFound);
-    STAssertTrue([intIntStringDictDictKeys containsObject:@1], DBUObjectNotFound);
+    XCTAssertTrue([intIntStringDictDictKeys count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([intIntStringDictDictKeys containsObject:@0], DBUObjectNotFound);
+    XCTAssertTrue([intIntStringDictDictKeys containsObject:@1], DBUObjectNotFound);
 
     // sub dict 1
     DBSystem_Collections_Generic_DictionaryA2 *subDict1 = [intIntStringDictA2 objectForKey:[@0 dbNumberFromIntValue]];
     
     // test all keys
     NSArray *subDict1Keys = [subDict1 allKeys];
-    STAssertTrue([subDict1Keys count] == 2, DBUCountTestFailed);
-    STAssertTrue([subDict1Keys containsObject:@0], DBUObjectNotFound);
-    STAssertTrue([subDict1Keys containsObject:@1], DBUObjectNotFound);
+    XCTAssertTrue([subDict1Keys count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([subDict1Keys containsObject:@0], DBUObjectNotFound);
+    XCTAssertTrue([subDict1Keys containsObject:@1], DBUObjectNotFound);
 
     // test all values
     NSString *stringValue = [subDict1 objectForKey:[@0 dbNumberFromIntValue]];
-    STAssertTrue([stringValue isEqualToString:@"string0"], DBUEqualityTestFailed);
+    XCTAssertTrue([stringValue isEqualToString:@"string0"], DBUEqualityTestFailed);
 
     stringValue = [subDict1 objectForKey:[@1 dbNumberFromIntValue]];
-    STAssertTrue([stringValue isEqualToString:@"string1"], DBUEqualityTestFailed);
+    XCTAssertTrue([stringValue isEqualToString:@"string1"], DBUEqualityTestFailed);
     
     // sub dict 2
     DBSystem_Collections_Generic_DictionaryA2 *subDict2 = [intIntStringDictA2 objectForKey:[@1 dbNumberFromIntValue]];
     
     // test all keys
     NSArray *subDict2Keys = [subDict2 allKeys];
-    STAssertTrue([subDict2Keys count] == 2, DBUCountTestFailed);
-    STAssertTrue([subDict2Keys containsObject:@10], DBUObjectNotFound);
-    STAssertTrue([subDict2Keys containsObject:@11], DBUObjectNotFound);
+    XCTAssertTrue([subDict2Keys count] == 2, DBUCountTestFailed);
+    XCTAssertTrue([subDict2Keys containsObject:@10], DBUObjectNotFound);
+    XCTAssertTrue([subDict2Keys containsObject:@11], DBUObjectNotFound);
 
     // test all values
     stringValue = [subDict2 objectForKey:[@10 dbNumberFromIntValue]];
-    STAssertTrue([stringValue isEqualToString:@"string10"], DBUEqualityTestFailed);
+    XCTAssertTrue([stringValue isEqualToString:@"string10"], DBUEqualityTestFailed);
     
     stringValue = [subDict2 objectForKey:[@11 dbNumberFromIntValue]];
-    STAssertTrue([stringValue isEqualToString:@"string11"], DBUEqualityTestFailed);
+    XCTAssertTrue([stringValue isEqualToString:@"string11"], DBUEqualityTestFailed);
     
     //============================
     // System.Nullable<T>
     //=============================
     System_NullableA1 *intNullable = [refObject intNullable];
-    STAssertTrue(intNullable != nil, DBUNotNilTestFailed);
-    STAssertTrue([[intNullable numberValue] intValue] == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(intNullable != nil, DBUNotNilTestFailed);
+    XCTAssertTrue([[intNullable numberValue] intValue] == 1, DBUEqualityTestFailed);
     
     
     // set value to null
     System_NullableA1 *intNullable2 = [System_NullableA1 newNullableFromObject:nil withTypeArgumentName:@"int32_t"];
     [refObject setIntNullable:intNullable2];
     intNullable = [refObject intNullable];
-    STAssertTrue(intNullable == nil, DBUNilTestFailed);
+    XCTAssertTrue(intNullable == nil, DBUNilTestFailed);
     
     
     // get float null
     System_NullableA1 *floatNullable = [refObject floatNullable];
-    STAssertTrue(floatNullable == nil, DBUNilTestFailed);
+    XCTAssertTrue(floatNullable == nil, DBUNilTestFailed);
 
     System_NullableA1 *floatNullable2 = [System_NullableA1 newNullableFromObject:@((float)5) withTypeArgumentName:@"float"];
     [refObject setFloatNullable:floatNullable2];
     floatNullable = [refObject floatNullable];
-    STAssertTrue(floatNullable != nil, DBUNotNilTestFailed);
-    STAssertTrue([[floatNullable numberValue] floatValue] == 5, DBUEqualityTestFailed);
+    XCTAssertTrue(floatNullable != nil, DBUNotNilTestFailed);
+    XCTAssertTrue([[floatNullable numberValue] floatValue] == 5, DBUEqualityTestFailed);
     
     //=========================================================
     // Generic reference object
@@ -1372,19 +1378,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // properties
     id gp1 = refObjectA2.genericPropertyWithTypeParameterT;
-    STAssertTrue([gp1 isEqual:@"I am of type T == string"], DBUEqualityTestFailed);
+    XCTAssertTrue([gp1 isEqual:@"I am of type T == string"], DBUEqualityTestFailed);
     
     id gp2 = refObjectA2.genericPropertyWithTypeParameterU;
-    STAssertTrue([gp2 isEqual:@"I am of type U == string"], DBUEqualityTestFailed);
+    XCTAssertTrue([gp2 isEqual:@"I am of type U == string"], DBUEqualityTestFailed);
     
     // methods
     System_String *ms1 = [@"I am of type T == string" managedString];
     System_String *ms2 = [@"I am of type U == string" managedString];
     id gm1 = [refObjectA2 genericMethodReturningParameterTypeT_withParameterT:ms1 parameterU:ms2];
-    STAssertTrue([gm1 isEqual:@"I am of type T == string"], DBUEqualityTestFailed);
+    XCTAssertTrue([gm1 isEqual:@"I am of type T == string"], DBUEqualityTestFailed);
 
     id gm2 = [refObjectA2 genericMethodReturningParameterTypeU_withParameterT:ms1 parameterU:ms2];
-    STAssertTrue([gm2 isEqual:@"I am of type U == string"], DBUEqualityTestFailed);
+    XCTAssertTrue([gm2 isEqual:@"I am of type U == string"], DBUEqualityTestFailed);
     
 }
 
@@ -1393,14 +1399,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #pragma unused(testClass)
     // string array list
     DBSystem_Collections_ArrayList *stringArrayList = [refObject stringArrayList];
-    STAssertTrue([stringArrayList count] == 3, DBUCountTestFailed);
+    XCTAssertTrue([stringArrayList count] == 3, DBUCountTestFailed);
     
     NSMutableString *ms = [NSMutableString new];
     for (uint32_t i = 0; i < [stringArrayList count]; i++) {
         NSString * s = [stringArrayList objectAtIndex:i];
         [ms appendFormat:@"%@ ", s];
     }
-    STAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
@@ -1412,13 +1418,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // Managed struct handling
     //
     id refStruct = [refObject referenceStructMethod_withS1:@"ReferenceStruct"];
-    STAssertNotNil(refStruct, DBUObjectIsNil);
+    XCTAssertNotNil(refStruct, DBUObjectIsNil);
     
     NSString *refStructStringProperty = [refStruct stringProperty];
-    STAssertTrue([refStructStringProperty dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([refStructStringProperty dbTestString:DBUTestString], DBUSubstringTestFailed);
     
     NSString *refStructStringMethod = [refStruct stringMethod_withS1:@"ReferenceStruct"];
-    STAssertTrue([refStructStringMethod dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([refStructStringMethod dbTestString:DBUTestString], DBUSubstringTestFailed);
     
     // log the struct
     if (0) {
@@ -1448,7 +1454,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // query interface method
     NSString * minimalRefString = [minimRefObject stringMethod_withS1:@"1" n:2];
-    STAssertTrue([minimalRefString dbTestString:DBUTestString], DBUSubstringTestFailed);
+    XCTAssertTrue([minimalRefString dbTestString:DBUTestString], DBUSubstringTestFailed);
     
     // query explicit interface implementation properties.
     // we should be able to access the same property with three different return types via the
@@ -1477,63 +1483,63 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // class properties
     //
     NSString *classStringProperty = [testClass classStringProperty];
-    STAssertTrue([classStringProperty isEqualToString:@"Dubrovnik.UnitTests static property"], DBUEqualityTestFailed);
+    XCTAssertTrue([classStringProperty isEqualToString:@"Dubrovnik.UnitTests static property"], DBUEqualityTestFailed);
 
     NSDate *classDateProperty = [testClass classDateProperty];
     NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
-    STAssertTrue([classDateProperty compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+    XCTAssertTrue([classDateProperty compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
 
     //
     // string property
     //
     NSString *stringProperty = [refObject stringProperty];
-    STAssertNotNil(stringProperty, DBUObjectIsNil);
+    XCTAssertNotNil(stringProperty, DBUObjectIsNil);
     
     // setter
     stringProperty = [stringProperty stringByAppendingString:@" : modified"];
     [refObject setStringProperty:stringProperty];
-    STAssertTrue([[refObject stringProperty] isEqualToString:stringProperty], DBUEqualityTestFailed);
+    XCTAssertTrue([[refObject stringProperty] isEqualToString:stringProperty], DBUEqualityTestFailed);
     
     //
     // int32 property
     //
     int32_t int32 = [refObject int32Number];
-    STAssertTrue(int32 != 0, DBUEqualityTestFailed);
+    XCTAssertTrue(int32 != 0, DBUEqualityTestFailed);
     
     // setter
     int32 = 320;
     [refObject setInt32Number:int32];
-    STAssertTrue([refObject int32Number] == int32, DBUEqualityTestFailed);
+    XCTAssertTrue([refObject int32Number] == int32, DBUEqualityTestFailed);
     
     //
     // int64 property
     //
     int64_t int64 = [refObject int64Number];
-    STAssertTrue(int64 != 0, DBUEqualityTestFailed);
+    XCTAssertTrue(int64 != 0, DBUEqualityTestFailed);
     
     // setter
     int64 = 640;
     [refObject setInt64Number:int64];
-    STAssertTrue([refObject int64Number] == int64, DBUEqualityTestFailed);
+    XCTAssertTrue([refObject int64Number] == int64, DBUEqualityTestFailed);
     
     //
     // object property
     //
     id refObject2 = [[testClass alloc] init];
-    STAssertNotNil(refObject2, DBUObjectNotCreated);
+    XCTAssertNotNil(refObject2, DBUObjectNotCreated);
     
     NSString *refObject2StringProperty = @"This is general test 2";
     [refObject2 setStringProperty:refObject2StringProperty];
     [refObject setReferenceObjectRelative:refObject2];
-    STAssertTrue([[[refObject referenceObjectRelative] stringProperty] isEqualToString:refObject2StringProperty], DBUEqualityTestFailed);
+    XCTAssertTrue([[[refObject referenceObjectRelative] stringProperty] isEqualToString:refObject2StringProperty], DBUEqualityTestFailed);
     
     //
     // date property
     //
     
     NSDate *dateNow = [refObject date];
-    STAssertNotNil(dateNow, DBUObjectIsNil);
-    STAssertTrue([[NSDate date] timeIntervalSinceDate:dateNow] < 60, DBULessThanTestFailed);    // Why 60? In case we we trigger a breakpoint, take a peek  and then continue.
+    XCTAssertNotNil(dateNow, DBUObjectIsNil);
+    XCTAssertTrue([[NSDate date] timeIntervalSinceDate:dateNow] < 60, DBULessThanTestFailed);    // Why 60? In case we we trigger a breakpoint, take a peek  and then continue.
     
     [refObject setDate:dateNow];
     
@@ -1544,7 +1550,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSTimeInterval futureInterval = [dateFuture timeIntervalSinceReferenceDate];
     NSTimeInterval tomorrowInterval = [dateTomorrow timeIntervalSinceReferenceDate];
     NSTimeInterval interval = fabs(futureInterval - tomorrowInterval);
-    STAssertTrue(interval < 0.1, DBULessThanTestFailed);
+    XCTAssertTrue(interval < 0.1, DBULessThanTestFailed);
     
     if (_verbose) {
         NSLog(@"Now : %@", dateNow);
@@ -1556,12 +1562,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // decimal number property
     //
     NSDecimalNumber *decimalNumber = [refObject decimalNumber];
-    STAssertTrue(decimalNumber.doubleValue > 0.1, DBUGreaterThanTestFailed);
+    XCTAssertTrue(decimalNumber.doubleValue > 0.1, DBUGreaterThanTestFailed);
     
     // setter
     NSDecimalNumber *newDecimalNumber = [NSDecimalNumber decimalNumberWithString:@"500.5005"];
     [refObject setDecimalNumber:newDecimalNumber];
-    STAssertTrue([[refObject decimalNumber] isEqualTo:newDecimalNumber], DBUEqualityTestFailed);
+    XCTAssertTrue([[refObject decimalNumber] isEqualTo:newDecimalNumber], DBUEqualityTestFailed);
     
     if (_verbose) {
         NSLog(@"Decimal number : %@", decimalNumber);
@@ -1572,21 +1578,21 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // enumeration properties
     //
     eDBUIntEnum intEnumeration = [refObject intEnumeration];
-    STAssertTrue(intEnumeration == [DBUIntEnum val1], DBUEqualityTestFailed);
+    XCTAssertTrue(intEnumeration == [DBUIntEnum val1], DBUEqualityTestFailed);
     
     int64_t longEnumeration = [refObject longEnumeration];
-    STAssertTrue(longEnumeration == eDBULongEnum_Val1, DBUEqualityTestFailed);
+    XCTAssertTrue(longEnumeration == eDBULongEnum_Val1, DBUEqualityTestFailed);
     
     // setter
     [refObject setIntEnumeration:[DBUIntEnum val4]];
-    STAssertTrue([refObject intEnumeration] == [DBUIntEnum val4], DBUEqualityTestFailed);
+    XCTAssertTrue([refObject intEnumeration] == [DBUIntEnum val4], DBUEqualityTestFailed);
     
     // we can set it out of range too - so be careful!
     [refObject setIntEnumeration:[DBUIntEnum val4] * 10];
-    STAssertTrue([refObject intEnumeration] == [DBUIntEnum val4] * 10, DBUEqualityTestFailed);
+    XCTAssertTrue([refObject intEnumeration] == [DBUIntEnum val4] * 10, DBUEqualityTestFailed);
     
     [refObject setLongEnumeration:eDBULongEnum_Val4];
-    STAssertTrue([refObject longEnumeration] == eDBULongEnum_Val4, DBUEqualityTestFailed);
+    XCTAssertTrue([refObject longEnumeration] == eDBULongEnum_Val4, DBUEqualityTestFailed);
 
 }
 
@@ -1723,12 +1729,12 @@ eventTarget1.event2Fired = X
 
     // check that targets have been set
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent1"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:self] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:self] != NSUIntegerMax, DBUEqualityTestFailed);
     
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:self] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:self] != NSUIntegerMax, DBUEqualityTestFailed);
 
     //
     // define another object of the same class to check that we can have multiple event subscribers
@@ -1740,12 +1746,12 @@ eventTarget1.event2Fired = X
 
     // check that targets have been set
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent1"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:testObject] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:testObject] != NSUIntegerMax, DBUEqualityTestFailed);
     
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:testObject] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:testObject] != NSUIntegerMax, DBUEqualityTestFailed);
 
     //
     // define an event target of another class
@@ -1756,12 +1762,12 @@ eventTarget1.event2Fired = X
     
     // check that targets have been set
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent1"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:eventTarget] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:eventTarget] != NSUIntegerMax, DBUEqualityTestFailed);
     
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:eventTarget] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:eventTarget] != NSUIntegerMax, DBUEqualityTestFailed);
 
     //
     // define another event source of this class
@@ -1774,39 +1780,39 @@ eventTarget1.event2Fired = X
     
     // check that targets have been set
     targets = [DBManagedEvent eventTargetsForSender:refObject1 eventName:@"UnitTestEvent1"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:eventTarget1] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:eventTarget1] != NSUIntegerMax, DBUEqualityTestFailed);
     
     targets = [DBManagedEvent eventTargetsForSender:refObject1 eventName:@"UnitTestEvent2"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue([targets db_indexForObjectPointer:eventTarget1] != NSUIntegerMax, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue([targets db_indexForObjectPointer:eventTarget1] != NSUIntegerMax, DBUEqualityTestFailed);
 
     // raise events
     REST_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject1 raiseUnitTestEvent1];
-    STAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget1.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget1.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget1.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget1.event2Fired == 0, DBUEqualityTestFailed);
     
     REST_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent2];
     [refObject1 raiseUnitTestEvent2];
-    STAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget1.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget1.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget1.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget1.event2Fired == 1, DBUEqualityTestFailed);
     
     // remove handler 1 for self
     [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
@@ -1814,12 +1820,12 @@ eventTarget1.event2Fired = X
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
-    STAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
 
     // remove handler 1 for testObject
     [testObject removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
@@ -1827,12 +1833,12 @@ eventTarget1.event2Fired = X
 
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
-    STAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
     
     // remove handler 2 for self
     [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
@@ -1840,12 +1846,12 @@ eventTarget1.event2Fired = X
 
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
-    STAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
     
     // remove handler 2 for testObject
     [testObject removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
@@ -1853,12 +1859,12 @@ eventTarget1.event2Fired = X
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
-    STAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
 
     // remove handler 1 for eventTarget
     [eventTarget removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
@@ -1866,12 +1872,12 @@ eventTarget1.event2Fired = X
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
-    STAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
     
     // remove handler 2 for eventTarget
     [eventTarget removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
@@ -1879,21 +1885,21 @@ eventTarget1.event2Fired = X
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
-    STAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event1Fired == 0, DBUEqualityTestFailed);
-    STAssertTrue(eventTarget.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(eventTarget.event2Fired == 0, DBUEqualityTestFailed);
 
     // check that targets have been set to zero
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent1"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue(targets.count == 0, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue(targets.count == 0, DBUEqualityTestFailed);
     
     [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
-    STAssertNotNil(targets, DBUNotNilTestFailed);
-    STAssertTrue(targets.count == 0, DBUEqualityTestFailed);
+    XCTAssertNotNil(targets, DBUNotNilTestFailed);
+    XCTAssertTrue(targets.count == 0, DBUEqualityTestFailed);
 }
 
 #pragma mark -
