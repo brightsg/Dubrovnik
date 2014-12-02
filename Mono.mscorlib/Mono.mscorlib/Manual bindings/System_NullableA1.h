@@ -106,5 +106,6 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (uint16_t)uint16Value;
 - (int8_t)int8Value;
 - (uint8_t)uint8Value;
+- (BOOL)boolValue;
 
 @end

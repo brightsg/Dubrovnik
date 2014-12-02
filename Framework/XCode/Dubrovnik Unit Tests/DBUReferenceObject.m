@@ -644,6 +644,18 @@
 }
 
 #pragma mark -
+#pragma mark Decimal parameter methods
+
+- (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
+{
+    
+    MonoObject *monoObject = [self invokeMonoMethod:"DecimalMultiplierMethod(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+    
+    return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
+}
+
+
+#pragma mark -
 #pragma mark Array parameter methods
 
 - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1

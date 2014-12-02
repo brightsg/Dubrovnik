@@ -365,4 +365,9 @@
 {
     return [[self numberValue] unsignedCharValue];
 }
+
+- (BOOL)boolValue
+{
+    return [[self numberValue] boolValue];
+}
 @end

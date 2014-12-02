@@ -3,8 +3,8 @@
 //  DBCocoaExample
 //
 //  Created by Allan Hsu on 2/16/06.
-//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
+//  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -47,12 +47,6 @@ static MonoAssembly *_sampleAssembly = NULL;
 }
 
 #pragma mark -
-
-- (void)dealloc {
-	[_converter release];
-	
-	[super dealloc];
-}
 
 - (void)awakeFromNib {	
 	_converter = [[CurrencyConverter alloc] init];

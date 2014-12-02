@@ -23,6 +23,9 @@
 
 #import <Foundation/Foundation.h>
 #import <Dubrovnik/Dubrovnik.h>
+#import <Mono.mscorlib/Framework.h>
+#import <Mono.System.Core/Framework.h>
+
 // Our Objective-C wrapper for the C# SampleObject class
 // int32_t is used instead of int, so that regardless of what platform we are on
 // we are futureproofing against changes in sizeof int b/c we know C# ints are 32

@@ -18,6 +18,8 @@
 #import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 #import "SampleObject.h"
+#import <Mono.mscorlib/Framework.h>
+#import <Mono.System.Core/Framework.h>
 
 MonoAssembly* sampleAssembly;
 
@@ -27,7 +29,6 @@ static void OpenURL(MonoObject* thisObject, MonoString* monoURLString) {
 }
 
 int main (int argc, char * argv[]) {
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
 	// Initialize the mono env
 	DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
@@ -38,7 +39,7 @@ int main (int argc, char * argv[]) {
 	[monoEnvironment registerInternalCall:"DBCommandLineExample.SampleObject::OpenURL(string)" callPointer:OpenURL];
 	
 	// instantiate an object
-	SampleObject* sampleObject = [SampleObject sampleObjectWithMagicNumber:5 specialString:@"blargle BLARGLE"];
+	SampleObject* sampleObject = [SampleObject sampleObjectWithMagicNumber:5 specialString:@"I am lowercase. I AM UPPERCASE."];
 
 	// Access some properties
 	NSString* lcString = [sampleObject lowerCaseSpecialString];
@@ -70,7 +71,7 @@ int main (int argc, char * argv[]) {
 	NSLog(@"Done calling PrintMagicMultiple");
 
 	NSLog(@"Calling GetSpecialArray()...");
-	DBArrayList* arrayList = [sampleObject getSpecialArray];
+	DBSystem_Collections_ArrayList* arrayList = [sampleObject getSpecialArray];
 	int i;
 	for (i = 0; i < [arrayList count]; i++) { 
 		id item = [arrayList objectAtIndex:i];
@@ -92,10 +93,5 @@ int main (int argc, char * argv[]) {
 	}
 	NSLog(@"Done testing exception handling");
 	
-	// Executing assembly
-	// NOTE: You can't call into C# after the assembly has exited, or bad things will happen.
-	[monoEnvironment executeAssembly:sampleAssembly prepareThreading:NO argCount:argc arguments:argv];
-	
-    [pool release];
     return 0;
 }

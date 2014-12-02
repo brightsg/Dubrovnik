@@ -124,6 +124,9 @@
 // date parameter methods
 - (NSDate *)dateMethod_withD1:(NSDate *)p1;
 
+// decimal parameter methods
+- (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2;
+
 // mixed parameter methods
 - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7;
 

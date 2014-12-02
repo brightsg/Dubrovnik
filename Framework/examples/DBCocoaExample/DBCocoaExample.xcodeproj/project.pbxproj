@@ -45,10 +45,10 @@
 		8D1107320486CEB800E47090 /* DBCocoaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBCocoaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D90CEC509A50DFA0085718C /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		9D90CEDB09A5118C0085718C /* CurrencyConverter.cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.csharp; path = CurrencyConverter.cs; sourceTree = "<group>"; };
-		9D90CEE909A513C20085718C /* CurrencyConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyConverter.h; sourceTree = "<group>"; };
-		9D90CEEA09A513C20085718C /* CurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyConverter.m; sourceTree = "<group>"; };
-		9D90CF0409A538C70085718C /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
-		9D90CF0509A538C70085718C /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		9D90CEE909A513C20085718C /* CurrencyConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CurrencyConverter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9D90CEEA09A513C20085718C /* CurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CurrencyConverter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		9D90CF0409A538C70085718C /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MainController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9D90CF0509A538C70085718C /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		ABB8CE4917C254D50015FFB0 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,10 +268,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-aemsvprmjjnodresygkxregwcjcq/Build/Products/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -284,10 +281,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-aemsvprmjjnodresygkxregwcjcq/Build/Products/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = DBCocoaExample;
@@ -298,7 +292,8 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/headers/mono-2.0\"";
@@ -311,13 +306,15 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
 				OTHER_LDFLAGS = "";
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/headers/mono-2.0\"";
@@ -330,6 +327,7 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
 				OTHER_LDFLAGS = "";
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};

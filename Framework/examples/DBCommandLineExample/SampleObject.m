@@ -3,6 +3,7 @@
 //  DBCommandLineExample
 //
 //  Created by Keith Dreibelbis and Allan Hsu on 2/15/06.
+//  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or
@@ -26,6 +27,15 @@ extern MonoAssembly* sampleAssembly;
 
 @implementation SampleObject
 
+/*
+ 
+ Note:
+ 
+ This legacy code was written manually to bind to the managed layer.
+ A better solution would be to use the code generator to write this code for you!
+ 
+ */
+
 // Dubrovnik wrappers need to override this if they need to construct a managed object from native code
 + (MonoClass *)monoClass {
 	return [DBManagedEnvironment monoClassWithName:"DBCommandLineExample.SampleObject" fromAssembly:sampleAssembly];
@@ -33,7 +43,7 @@ extern MonoAssembly* sampleAssembly;
 
 + (SampleObject*)sampleObjectWithMagicNumber:(int32_t)magicNumber specialString:(NSString *)specialString {
 	SampleObject* sampleObject = [[SampleObject alloc] initWithMagicNumber:magicNumber specialString:specialString];
-	return [sampleObject autorelease];
+	return sampleObject;
 }
 
 - (id)initWithMagicNumber:(int32_t)magicNumber specialString:(NSString *)specialString {
@@ -75,7 +85,7 @@ extern MonoAssembly* sampleAssembly;
 
 - (DBSystem_Collections_ArrayList*)getSpecialArray {
 	MonoObject* monoArrayList = [self invokeMonoMethod:"GetSpecialArray()" withNumArgs:0];
-	return [DBSystem_Collections_ArrayList listWithMonoObject:monoArrayList withRepresentationClass:[DBManagedObject class]];
+	return [DBSystem_Collections_ArrayList listWithMonoObject:monoArrayList];
 }
 
 - (void)throwAwesomeException:(NSString*)message {

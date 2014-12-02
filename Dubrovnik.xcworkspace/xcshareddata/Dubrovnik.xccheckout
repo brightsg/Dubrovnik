@@ -10,41 +10,43 @@
 	<string>Dubrovnik</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>A9535CCF-FADD-4773-A3D1-0A02106A8E83</key>
+		<key>B93044F2DDFB868A158FCBABECCA5F645C430F3C</key>
+		<string>bitbucket.org:thesaurussoftware/brightpay.osx.git</string>
+		<key>EB11135F5E29352237C1D47629F18D02B1EDA94B</key>
 		<string>ssh://github.com/ThesaurusSoftware/Dubrovnik.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Dubrovnik.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>A6D23D65-2116-47BC-8CF2-3ADB86D77E50</key>
-		<string>../Framework/XCode/Judy</string>
-		<key>A9535CCF-FADD-4773-A3D1-0A02106A8E83</key>
+		<key>B93044F2DDFB868A158FCBABECCA5F645C430F3C</key>
+		<string>../..</string>
+		<key>EB11135F5E29352237C1D47629F18D02B1EDA94B</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/ThesaurusSoftware/Dubrovnik.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A9535CCF-FADD-4773-A3D1-0A02106A8E83</string>
+	<string>EB11135F5E29352237C1D47629F18D02B1EDA94B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A9535CCF-FADD-4773-A3D1-0A02106A8E83</string>
+			<string>B93044F2DDFB868A158FCBABECCA5F645C430F3C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Dubrovnik</string>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A6D23D65-2116-47BC-8CF2-3ADB86D77E50</string>
+			<string>EB11135F5E29352237C1D47629F18D02B1EDA94B</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Judy</string>
+			<string>Dubrovnik</string>
 		</dict>
 	</array>
 </dict>
