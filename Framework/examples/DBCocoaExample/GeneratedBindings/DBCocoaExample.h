@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/2/2014 1:42:47 PM
+// Date:     12/2/2014 4:44:20 PM
 //
 // Assembly: DBCocoaExample
 // Fullname: DBCocoaExample, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -23,6 +23,9 @@
 //
 // Asm Ref:  mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+//
+// Asm Ref:  System
+// Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 //
 // Manual changes to this file may cause unexpected behavior in your application.
 // Manual changes to this file will be overwritten if the code is regenerated.
@@ -45,6 +48,10 @@
 //
 #ifndef MSCORLIB_INCLUDED
 //#import "mscorlib.h"
+#endif
+
+#ifndef SYSTEM_INCLUDED
+//#import "System.h"
 #endif
 
 

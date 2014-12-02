@@ -15,30 +15,70 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace DBCocoaExample {
-	public class CurrencyConverter {
-		private float exchangeRate;
+    public class CurrencyConverter : INotifyPropertyChanged, INotifyPropertyChanging
+    {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangingEventHandler PropertyChanging;
 
 		public CurrencyConverter() {
-			this.exchangeRate = 1.0f;
+            ExchangeRate = 1.0f;
 		}		
 		
 		public CurrencyConverter(float exchangeRate) {
-			this.exchangeRate = exchangeRate;
+            ExchangeRate = exchangeRate;
 		}
-		
+
+	    private DateTime _date;
+        public DateTime Date {
+            get {
+                return (_date);
+            }
+
+            set {
+                // we implement INotifyPropertyChanged and INotifyPropertyChanging in
+                // order to make managed property changes observable by Obj-C
+                NotifyPropertyChanging();
+                _date = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+	    private float _exchangeRate;
 		public float ExchangeRate {
 			get {
-				return(this.exchangeRate);
+                return (_exchangeRate);
 			}
 			
 			set {
-				this.exchangeRate = value;
+                NotifyPropertyChanging(); 
+                _exchangeRate = value;
+                NotifyPropertyChanged();
 			}
 		}
 		
 		public float ConvertDollars(float dollarAmount) {
-			return(exchangeRate * dollarAmount);
+            return (ExchangeRate * dollarAmount);
 		}
+
+        // This method is called by the Set accessor of each property. 
+        // The CallerMemberName attribute that is applied to the optional propertyName 
+        // parameter causes the property name of the caller to be substituted as an argument. 
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") {
+            if (PropertyChanged != null) {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private void NotifyPropertyChanging([CallerMemberName] String propertyName = "") {
+            if (PropertyChanging != null) {
+                PropertyChanging(this, new PropertyChangingEventArgs(propertyName));
+            }
+        }
 	}
 }

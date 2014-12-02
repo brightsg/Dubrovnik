@@ -38,6 +38,24 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed property name : Date
+	// Managed property type : System.DateTime
+    @synthesize date = _date;
+    - (NSDate *)date
+    {
+		MonoObject *monoObject = [self getMonoProperty:"Date"];
+		if ([self object:_date isEqualToMonoObject:monoObject]) return _date;					
+		_date = [NSDate dateWithMonoDateTime:monoObject];
+
+		return _date;
+	}
+    - (void)setDate:(NSDate *)value
+	{
+		_date = value;
+		MonoObject *monoObject = [value monoValue];
+		[self setMonoProperty:"Date" valueObject:monoObject];          
+	}
+
 	// Managed property name : ExchangeRate
 	// Managed property type : System.Single
     @synthesize exchangeRate = _exchangeRate;

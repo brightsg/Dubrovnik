@@ -2,7 +2,7 @@
 //
 // Managed class : CurrencyConverter
 //
-@interface DBCocoaExample_CurrencyConverter : System_Object
+@interface DBCocoaExample_CurrencyConverter : System_Object <System_ComponentModel_INotifyPropertyChanged, System_ComponentModel_INotifyPropertyChanging>
 
 #pragma mark -
 #pragma mark Setup
@@ -21,6 +21,10 @@
 
 #pragma mark -
 #pragma mark Properties
+
+	// Managed property name : Date
+	// Managed property type : System.DateTime
+    @property (nonatomic, strong) NSDate * date;
 
 	// Managed property name : ExchangeRate
 	// Managed property type : System.Single
