@@ -39,7 +39,7 @@ int main (int argc, char * argv[]) {
 	[monoEnvironment registerInternalCall:"DBCommandLineExample.SampleObject::OpenURL(string)" callPointer:OpenURL];
 	
 	// instantiate an object
-	SampleObject* sampleObject = [SampleObject sampleObjectWithMagicNumber:5 specialString:@"blargle BLARGLE"];
+	SampleObject* sampleObject = [SampleObject sampleObjectWithMagicNumber:5 specialString:@"I am lowercase. I AM UPPERCASE."];
 
 	// Access some properties
 	NSString* lcString = [sampleObject lowerCaseSpecialString];
