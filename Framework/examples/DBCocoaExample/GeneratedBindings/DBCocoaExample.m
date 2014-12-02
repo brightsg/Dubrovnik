@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/2/2014 4:44:20 PM
+// Date:     12/2/2014 5:28:18 PM
 //
 // Assembly: DBCocoaExample
 // Fullname: DBCocoaExample, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -47,3 +47,5 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 */
 
 // Dubrovnik.CodeGenerator made DBCocoaExample_CurrencyConverter.m
+// Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_EventHelper.m
+// Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_IEventHelper.m

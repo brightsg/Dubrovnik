@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/2/2014 4:44:20 PM
+// Date:     12/2/2014 5:28:18 PM
 //
 // Assembly: DBCocoaExample
 // Fullname: DBCocoaExample, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -65,6 +65,20 @@
 #define DCurrencyConverter_ DBCocoaExample_CurrencyConverter
 #endif
 
+@class Dubrovnik_ClientApplication_EventHelper;
+#ifdef DCEventHelper_
+#warning DCEventHelper_ class name collision.
+#else
+#define DCEventHelper_ Dubrovnik_ClientApplication_EventHelper
+#endif
+
+@class Dubrovnik_ClientApplication_IEventHelper;
+#ifdef DCIEventHelper_
+#warning DCIEventHelper_ class name collision.
+#else
+#define DCIEventHelper_ Dubrovnik_ClientApplication_IEventHelper
+#endif
+
 
 /*
 
@@ -72,4 +86,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 
 */
 
+#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
 #import "DBCocoaExample_CurrencyConverter.h"
+#import "Dubrovnik_ClientApplication_EventHelper.h"
+#import "Dubrovnik_ClientApplication_IEventHelper.h"
