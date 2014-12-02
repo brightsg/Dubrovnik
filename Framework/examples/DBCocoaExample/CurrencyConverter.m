@@ -43,7 +43,7 @@
 + (CurrencyConverter *)converterWithExchangeRate:(float)rate {
 	CurrencyConverter *converter = [[CurrencyConverter alloc] initWithExchangeRate:rate];
 	
-	return([converter autorelease]);
+	return converter;
 }
 
 - (id)initWithExchangeRate:(float)rate {

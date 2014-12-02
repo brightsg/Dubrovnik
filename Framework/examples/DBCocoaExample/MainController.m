@@ -48,12 +48,6 @@ static MonoAssembly *_sampleAssembly = NULL;
 
 #pragma mark -
 
-- (void)dealloc {
-	[_converter release];
-	
-	[super dealloc];
-}
-
 - (void)awakeFromNib {	
 	_converter = [[CurrencyConverter alloc] init];
 }

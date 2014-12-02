@@ -268,10 +268,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-aemsvprmjjnodresygkxregwcjcq/Build/Products/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -284,10 +281,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-aemsvprmjjnodresygkxregwcjcq/Build/Products/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = DBCocoaExample;
@@ -298,7 +292,8 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/headers/mono-2.0\"";
@@ -311,13 +306,15 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
 				OTHER_LDFLAGS = "";
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/headers/mono-2.0\"";
@@ -330,6 +327,7 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
 				OTHER_LDFLAGS = "";
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
