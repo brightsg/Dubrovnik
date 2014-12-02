@@ -35,6 +35,14 @@
 		[self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];;
     }
 
+	// Managed method name : Converting
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.EventArgs
+    + (void)converting_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
+    {
+		[self invokeMonoClassMethod:"Converting(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+    }
+
 	// Managed method name : ManagedEvent_ManagedObject_PropertyChanged
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.EventArgs

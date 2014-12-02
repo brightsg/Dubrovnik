@@ -19,6 +19,11 @@
 	// Managed param types : System.Object, System.String, System.String, System.Boolean
     + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
 
+	// Managed method name : Converting
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.EventArgs
+    + (void)converting_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+
 	// Managed method name : ManagedEvent_ManagedObject_PropertyChanged
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.EventArgs

@@ -27,6 +27,8 @@ namespace DBCocoaExample {
         public event PropertyChangedEventHandler PropertyChanged;
         public event PropertyChangingEventHandler PropertyChanging;
 
+        public event EventHandler Converting;
+
 		public CurrencyConverter() {
             ExchangeRate = 1.0f;
 		}		
@@ -64,7 +66,14 @@ namespace DBCocoaExample {
 		}
 		
 		public float ConvertDollars(float dollarAmount) {
-            Date = DateTime.Now;    // we should be able to observer this change in Obj-C
+
+            // we should be able to observer this change in Obj-C
+            Date = DateTime.Now;   
+ 
+            // and we should be able to receive notification of this event
+            if (Converting != null) {
+                Converting(this, null);
+            }
             return (ExchangeRate * dollarAmount);
 		}
 
