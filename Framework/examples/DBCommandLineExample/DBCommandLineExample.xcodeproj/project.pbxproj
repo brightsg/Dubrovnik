@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		8DD76F9A0486AA7600D96B5E /* DBCommandLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* DBCommandLineExample.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9F0486AA7600D96B5E /* DBCommandLineExample.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* DBCommandLineExample.1 */; };
-		9DD14FD709A40A290067E4DC /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD14FD609A40A290067E4DC /* Mono.framework */; };
 		9DD1552B09A415F20067E4DC /* SampleObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DD1552909A415F20067E4DC /* SampleObject.h */; };
 		9DD1552C09A415F20067E4DC /* SampleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD1552A09A415F20067E4DC /* SampleObject.m */; };
 		9DD15C0909A4252F0067E4DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD15C0809A4252F0067E4DC /* Cocoa.framework */; };
-		AB97FC0317C270AB00CBE585 /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB97FC0217C270AB00CBE585 /* Dubrovnik.framework */; };
+		ABB718F71A2DE6BE00E1BEBC /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB718F51A2DE65600E1BEBC /* Dubrovnik.framework */; };
+		ABB718FA1A2DE70300E1BEBC /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB718F81A2DE6DF00E1BEBC /* Mono.mscorlib.framework */; };
+		ABB718FD1A2DE7FB00E1BEBC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB718FB1A2DE75400E1BEBC /* Mono64.framework */; };
+		ABB719011A2DE84400E1BEBC /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB718FE1A2DE81E00E1BEBC /* Mono.System.Core.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,13 +36,14 @@
 		08FB7796FE84155DC02AAC07 /* DBCommandLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCommandLineExample.m; sourceTree = "<group>"; };
 		32A70AAB03705E1F00C91783 /* DBCommandLineExample_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCommandLineExample_Prefix.pch; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* DBCommandLineExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DBCommandLineExample; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DD14FD609A40A290067E4DC /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
-		9DD154D809A40E450067E4DC /* Dumbarton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dumbarton.framework; path = /Library/Frameworks/Dumbarton.framework; sourceTree = "<absolute>"; };
 		9DD154FC09A40F2A0067E4DC /* SampleObject.cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.csharp; path = SampleObject.cs; sourceTree = "<group>"; };
 		9DD1552909A415F20067E4DC /* SampleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleObject.h; sourceTree = "<group>"; };
 		9DD1552A09A415F20067E4DC /* SampleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleObject.m; sourceTree = "<group>"; };
 		9DD15C0809A4252F0067E4DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		AB97FC0217C270AB00CBE585 /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
+		ABB718F51A2DE65600E1BEBC /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB718F81A2DE6DF00E1BEBC /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB718FB1A2DE75400E1BEBC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/examples/DBCommandLineExample/../../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
+		ABB718FE1A2DE81E00E1BEBC /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* DBCommandLineExample.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DBCommandLineExample.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,9 +52,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DD14FD709A40A290067E4DC /* Mono.framework in Frameworks */,
+				ABB719011A2DE84400E1BEBC /* Mono.System.Core.framework in Frameworks */,
+				ABB718FD1A2DE7FB00E1BEBC /* Mono64.framework in Frameworks */,
+				ABB718FA1A2DE70300E1BEBC /* Mono.mscorlib.framework in Frameworks */,
 				9DD15C0909A4252F0067E4DC /* Cocoa.framework in Frameworks */,
-				AB97FC0317C270AB00CBE585 /* Dubrovnik.framework in Frameworks */,
+				ABB718F71A2DE6BE00E1BEBC /* Dubrovnik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +66,6 @@
 		08FB7794FE84155DC02AAC07 /* DBCommandLineExample */ = {
 			isa = PBXGroup;
 			children = (
-				AB97FC0217C270AB00CBE585 /* Dubrovnik.framework */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
@@ -85,9 +89,11 @@
 		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				ABB718FE1A2DE81E00E1BEBC /* Mono.System.Core.framework */,
+				ABB718FB1A2DE75400E1BEBC /* Mono64.framework */,
+				ABB718F81A2DE6DF00E1BEBC /* Mono.mscorlib.framework */,
+				ABB718F51A2DE65600E1BEBC /* Dubrovnik.framework */,
 				9DD15C0809A4252F0067E4DC /* Cocoa.framework */,
-				9DD154D809A40E450067E4DC /* Dumbarton.framework */,
-				9DD14FD609A40A290067E4DC /* Mono.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -135,6 +141,8 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "DBCommandLineExample" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -188,8 +196,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/../../../../../../../../../../../Library/Frameworks",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -207,8 +217,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-bujyrfwjhboxutgabbtpbvzmikuv/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/../../../../../../../../../../../Library/Frameworks",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../../Library/Developer/Xcode/DerivedData/Dubrovnik-fnyakvlglggcetbvsveixalleayx/Build/Products/Debug\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -221,8 +233,8 @@
 		1DEB927908733DD40010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -237,15 +249,15 @@
 				);
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
 		1DEB927A08733DD40010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -260,7 +272,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
