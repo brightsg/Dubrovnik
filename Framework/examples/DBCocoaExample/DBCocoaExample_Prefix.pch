@@ -7,5 +7,4 @@
 // the core managed frameworks
 #import <Dubrovnik/Dubrovnik.h>
 #import <Mono.mscorlib/Framework.h>
-#import <Mono.System.Core/Framework.h>
 #endif
