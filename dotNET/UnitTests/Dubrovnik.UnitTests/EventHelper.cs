@@ -3,10 +3,16 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 
 /*
- * This helper class should be included in a client application assembly.
- * Event handler internal calls must be defined for all events that require routing to unmanaged code.
- *
- */
+* This helper class should be included in a client application assembly in order to support the routing
+* of managed events to unmanaged code. The automatic KVC data binding support that Dubrovnik offers depends
+* on the automatic routing of INotifyPropertyChanged and INotifyPropertyChanging events so this class is also
+* required if you want the binding support.
+* 
+* Event handler internal calls must be defined for all events that require routing to unmanaged code.
+* 
+* When adding support for custom events do not modify this file.
+* Add your static extern function declarations to the partial declaration in EventHelper.CustomEvent.cs.
+*/
 namespace Dubrovnik.ClientApplication
 {
 	public interface IEventHelper
@@ -15,7 +21,7 @@ namespace Dubrovnik.ClientApplication
         bool ObjectSupportsEvent(object obj, string objEventName);
 	}
 
-	public class EventHelper : IEventHelper
+	public partial class EventHelper : IEventHelper
 	{
 		public EventHelper ()
 		{
@@ -47,39 +53,6 @@ namespace Dubrovnik.ClientApplication
 				throw new Exception (String.Format ("Cannot get handler class type"));
 			}
 
-			// determine if required delegate exists
-			bool delegateExists = false;
-
-			// get the delegate fields for the given event.
-			// NOTE: this is unreliable and ONLY works for field-like events
-			FieldInfo eventFieldInfo = obj.GetType ().GetField (objEventName, BindingFlags.NonPublic | BindingFlags.Instance);
-			if (eventFieldInfo != null) {
-				System.MulticastDelegate eventHandler = eventFieldInfo.GetValue (obj) as System.MulticastDelegate;
-				if (eventHandler != null) {
-					foreach (Delegate dg in eventHandler.GetInvocationList()) {
-						MethodInfo delegateMethodInfo = dg.Method;
-
-						Console.WriteLine ("Method name = {0} ", delegateMethodInfo.Name);
-						Console.WriteLine ("Method declaring type = {0} ", delegateMethodInfo.DeclaringType);
-						Console.WriteLine ("Delegate target = {0} ", dg.Target);
-
-						// does the existing delegate method target the incoming method
-						if (delegateMethodInfo.Name == handlerMethodName && delegateMethodInfo.DeclaringType == handlerClassType && dg.Target == null) {
-							delegateExists = true;
-							break;
-						}
-					}
-				} 
-			}
-
-			// we only want to register events once against this object.
-			// we similarly only want to delete existing delegates
-			if (attach && delegateExists || !attach && !delegateExists) {
-				Console.WriteLine ("DELEGATE EXISTS");
-				return;
-			}
-			Console.WriteLine ("DELEGATE WILL BE ADDED");
-
 			// get info for the event
 			EventInfo evInfo = obj.GetType().GetEvent (objEventName);
 			if (evInfo == null) {
@@ -106,8 +79,14 @@ namespace Dubrovnik.ClientApplication
 		}
 
         /*
-         * Dubrovnik System Event internal callback function names
-         */
+        * Dubrovnik System Event internal callback function names
+        * 
+        * These externs are used by the client application to map the property changed and property changing events
+        * to static unmanaged functions.
+        * 
+        * To add support for other managed events simply define other static extern handlers 
+        * in EventHelper.CustomEvent.cs and have the client map them as required.
+        */
 
         [MethodImpl(MethodImplOptions.InternalCall)]
         public static extern void ManagedEvent_ManagedObject_PropertyChanged(object sender, EventArgs args);
@@ -115,14 +94,6 @@ namespace Dubrovnik.ClientApplication
         [MethodImpl(MethodImplOptions.InternalCall)]
         public static extern void ManagedEvent_ManagedObject_PropertyChanging(object sender, EventArgs args); 
 
-		/*
-		 * User Event internal callback function names
-		 */
-		[MethodImpl (MethodImplOptions.InternalCall)] 
-		public static extern void DubrovnikEventHandlerICall1(object sender, EventArgs args); 
-
-		[MethodImpl (MethodImplOptions.InternalCall)] 
-		public static extern void DubrovnikEventHandlerICall2(object sender, EventArgs args); 
 	}
 }
 
