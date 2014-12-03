@@ -62,7 +62,7 @@ DBDefineEventHandler(Converting, @"Converting", @"eventSender:converting:", nil)
     
     // Register event handler so that Converting events get sent to static handler defined above.
     // This only needs to be done once for the event regardless of how many objects or classes raise the event.
-    // In general we can call all of an apps event handler registrations in a single +initialize whenevre the app loads.
+    // In general we can call all of an apps event handler registrations in a single +initialize whenever the app loads.
     DBRegisterEventHandler(@"Converting", Converting);
 }
 
