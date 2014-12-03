@@ -26,6 +26,9 @@
 
 static MonoAssembly *_sampleAssembly = NULL;
 
+// define static managed event handler function
+DBDefineEventHandler(Converting, @"Converting", @"eventSender:converting:", nil);
+
 @interface MainController()
 
 // properties
@@ -33,8 +36,11 @@ static MonoAssembly *_sampleAssembly = NULL;
 @property (assign) double rate;
 @property (assign) double dollarValue;
 @property (assign) double convertedValue;
+@property (assign) NSInteger eventCount;
+
 @end
-    
+
+
 @implementation MainController
 
 + (void)initialize {
@@ -53,7 +59,11 @@ static MonoAssembly *_sampleAssembly = NULL;
     // If the target assembly has not been already loaded then the DBManagedEnvironment instance delegate will be queried for the assembly path.
     DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
 	MonoAssembly *sampleAssembly = [monoEnvironment openAssembly:@"DBCocoaExample" path:sampleAssemblyPath];
-	
+    
+    // Register event handler so that Converting events get sent to static handler defined above.
+    // This only needs to be done once for the event regardless of how many objects or classes raise the event.
+    // In general we can call all of an apps event handler registrations in a single +initialize whenevre the app loads.
+    DBRegisterEventHandler(@"Converting", Converting);
 }
 
 #pragma mark -
@@ -64,7 +74,19 @@ static MonoAssembly *_sampleAssembly = NULL;
     
     self.rate = 1.0;
     self.dollarValue = 10;
+    self.eventCount = 0;
     
+    // get callbacks for the Converting event on -eventSender:converting:
+    [self addManagedEventHandlerForObject:self.converter eventName:@"Converting"];
+}
+
+#pragma mark -
+#pragma mark Managed event handling
+
+- (void)eventSender:(id)sender converting:(id)item
+{
+    // managed event received
+    self.eventCount++;
 }
 
 #pragma mark -
