@@ -65,15 +65,45 @@
 
 - (NSDictionary *)dictionary
 {
+    return [self dictionaryWithRepresentation:DBDictionaryRepresentationShallow];
+}
+
+- (NSDictionary *)deepDictionary
+{
+    return [self dictionaryWithRepresentation:DBDictionaryRepresentationDeep];
+}
+
+- (NSDictionary *)dictionaryWithRepresentation:(DBDictionaryRepresentation)representation
+{
     // note that this implementation will likely change the
     // implicit ordering of the managed dictionary ie:
     // keys may be retrieved in a different order in the managed and unmanaged dictionaries.
     NSArray *allKeys = self.allKeys;
     NSArray *allValues = self.allValues;
     
-    NSDictionary *dict = [NSDictionary dictionaryWithObjects:allValues forKeys:allKeys];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjects:allValues forKeys:allKeys];
+    
+    // make the dictionary deep
+    if (representation == DBDictionaryRepresentationDeep) {
+        for (id key in allKeys) {
+            id object = dict[key];
+            
+            if ([object isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
+                dict[key] = [(DBSystem_Collections_Generic_DictionaryA2 *)object dictionary];
+            }
+            
+            else if ([object isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
+                dict[key] = [(DBSystem_Collections_Generic_ListA1 *)object mutableArray];
+                
+            } else if ([object isKindOfClass:[DBSystem_Array class]]) {
+                dict[key] = [(DBSystem_Array *)object mutableArray];
+            }
+            
+        }
+    }
     
     return dict;
+
 }
 
 @end

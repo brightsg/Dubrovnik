@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B78DF1DE-2817-423D-AE9E-CE4962F55DD4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DBCommandLineExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B93044F2DDFB868A158FCBABECCA5F645C430F3C</key>
+		<string>bitbucket.org:thesaurussoftware/brightpay.osx.git</string>
+		<key>EB11135F5E29352237C1D47629F18D02B1EDA94B</key>
+		<string>https://github.com/ThesaurusSoftware/Dubrovnik.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Framework/examples/DBCommandLineExample/DBCommandLineExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B93044F2DDFB868A158FCBABECCA5F645C430F3C</key>
+		<string>../../../../../..</string>
+		<key>EB11135F5E29352237C1D47629F18D02B1EDA94B</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ThesaurusSoftware/Dubrovnik.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EB11135F5E29352237C1D47629F18D02B1EDA94B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B93044F2DDFB868A158FCBABECCA5F645C430F3C</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EB11135F5E29352237C1D47629F18D02B1EDA94B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dubrovnik</string>
+		</dict>
+	</array>
+</dict>
+</plist>
