@@ -188,6 +188,7 @@
     
     return array;
 }
+
 - (NSArray *)array
 {
     return [self mutableArray];

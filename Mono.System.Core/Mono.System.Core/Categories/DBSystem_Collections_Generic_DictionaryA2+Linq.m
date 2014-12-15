@@ -63,28 +63,33 @@
 #pragma mark -
 #pragma mark - NSDictionary representation
 
+/*
+    note that the methods returning NSDIctionary will likely change the
+    implicit ordering of the managed dictionary ie:
+    keys may be retrieved in a different order in the managed and unmanaged dictionaries.
+    if order is import consider using -keyValuePairs or -orderedDictionary
+*/
+
 - (NSDictionary *)dictionary
 {
-    return [self dictionaryWithRepresentation:DBDictionaryRepresentationShallow];
+    return [self dictionaryWithRepresentation:DBObjectRepresentationShallow];
 }
 
 - (NSDictionary *)deepDictionary
 {
-    return [self dictionaryWithRepresentation:DBDictionaryRepresentationDeep];
+    return [self dictionaryWithRepresentation:DBObjectRepresentationDeep];
 }
 
-- (NSDictionary *)dictionaryWithRepresentation:(DBDictionaryRepresentation)representation
+- (NSDictionary *)dictionaryWithRepresentation:(DBObjectRepresentation)representation
 {
-    // note that this implementation will likely change the
-    // implicit ordering of the managed dictionary ie:
-    // keys may be retrieved in a different order in the managed and unmanaged dictionaries.
+
     NSArray *allKeys = self.allKeys;
     NSArray *allValues = self.allValues;
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjects:allValues forKeys:allKeys];
     
-    // make the dictionary deep
-    if (representation == DBDictionaryRepresentationDeep) {
+    // make the representation deep
+    if (representation == DBObjectRepresentationDeep) {
         for (id key in allKeys) {
             id object = dict[key];
             
@@ -93,17 +98,63 @@
             }
             
             else if ([object isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
-                dict[key] = [(DBSystem_Collections_Generic_ListA1 *)object mutableArray];
+                dict[key] = [(DBSystem_Collections_Generic_ListA1 *)object mutableArray]; // TODO: should go deep
                 
             } else if ([object isKindOfClass:[DBSystem_Array class]]) {
-                dict[key] = [(DBSystem_Array *)object mutableArray];
+                dict[key] = [(DBSystem_Array *)object mutableArray]; // TODO: should go deep
             }
             
         }
     }
     
     return dict;
+}
 
+#pragma mark -
+#pragma mark - Key value pairs
+
+- (NSArray *)keyValuePairs
+{
+    return [self keyValuePairsWithRepresentation:DBObjectRepresentationShallow];
+}
+
+- (NSArray *)deepKeyValuePairs
+{
+    return [self keyValuePairsWithRepresentation:DBObjectRepresentationDeep];
+}
+
+- (NSArray *)keyValuePairsWithRepresentation:(DBObjectRepresentation)representation
+{
+    NSArray *allKeys = self.allKeys;
+    NSArray *allValues = self.allValues;
+    
+    NSMutableArray *keyValuePairs = [NSMutableArray arrayWithCapacity:allKeys.count];
+    for (NSInteger i = 0; i < self.allKeys.count; i ++) {
+        id key = allKeys[i];
+        id value = allValues[i];
+        
+        // make the representation deep
+        if (representation == DBObjectRepresentationDeep) {
+            
+            if ([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
+                value = [(DBSystem_Collections_Generic_DictionaryA2 *)value keyValuePairs];
+            }
+            
+            else if ([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
+                value = [(DBSystem_Collections_Generic_ListA1 *)value mutableArray]; // TODO: should go deep
+                
+            } else if ([value isKindOfClass:[DBSystem_Array class]]) {
+                value = [(DBSystem_Array *)value mutableArray]; // TODO: should go deep
+            }
+            
+        }
+        
+        // the actual type of the pair class is not that important as long as it responds to key and value
+        id keyValuePair = @{@"key" : key, @"value" : value};
+        [keyValuePairs addObject:keyValuePair];
+    }
+    
+    return keyValuePairs;
 }
 
 @end

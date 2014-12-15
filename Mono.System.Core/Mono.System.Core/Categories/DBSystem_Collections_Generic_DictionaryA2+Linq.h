@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-typedef NS_ENUM(NSInteger, DBDictionaryRepresentation) {
-    DBDictionaryRepresentationShallow,
-    DBDictionaryRepresentationDeep
+typedef NS_ENUM(NSInteger, DBObjectRepresentation) {
+    DBObjectRepresentationShallow,
+    DBObjectRepresentationDeep
 };
 
 @interface DBSystem_Collections_Generic_DictionaryA2 (Linq)
@@ -16,4 +16,6 @@ typedef NS_ENUM(NSInteger, DBDictionaryRepresentation) {
 - (NSArray *)allValues;
 - (NSDictionary *)dictionary;
 - (NSDictionary *)deepDictionary;
+- (NSArray *)keyValuePairs;
+- (NSArray *)deepKeyValuePairs;
 @end
