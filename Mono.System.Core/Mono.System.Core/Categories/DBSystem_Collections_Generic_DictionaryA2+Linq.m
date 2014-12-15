@@ -61,13 +61,17 @@
 }
 
 #pragma mark -
-#pragma mark - NSDictionary representation
+#pragma mark - Dictionary representation
 
 /*
-    note that the methods returning NSDIctionary will likely change the
+    Note that the methods returning NSDIctionary will likely change the
     implicit ordering of the managed dictionary ie:
     keys may be retrieved in a different order in the managed and unmanaged dictionaries.
-    if order is import consider using -keyValuePairs or -orderedDictionary
+ 
+    If order is import consider using -keyValuePairs or -orderedDictionary.
+ 
+    We don't use the ordered dictionary implementation by default as its performance is likely to be
+    inferior to a non subclassed instance of NSDictionary
 */
 
 - (NSDictionary *)dictionary
@@ -111,6 +115,55 @@
 }
 
 #pragma mark -
+#pragma mark - Ordered dictionary representation
+
+- (NSDictionary *)orderedDictionary
+{
+    return [self orderedDictionaryWithRepresentation:DBObjectRepresentationShallow];
+}
+
+- (NSDictionary *)deepOrderedDictionary
+{
+    return [self orderedDictionaryWithRepresentation:DBObjectRepresentationDeep];
+}
+
+- (NSDictionary *)orderedDictionaryWithRepresentation:(DBObjectRepresentation)representation
+{
+    // DBMutableOrderedDictionary is a subclass of NSDictionary
+    DBMutableOrderedDictionary *orderedDictionary = [DBMutableOrderedDictionary dictionaryWithCapacity:10];
+    
+    NSArray *allKeys = self.allKeys;
+    NSArray *allValues = self.allValues;
+    
+    for (NSInteger i = 0; i < self.allKeys.count; i++) {
+        id key = allKeys[i];
+        id value = allValues[i];
+        
+        // make the representation deep
+        if (representation == DBObjectRepresentationDeep) {
+            
+            if ([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
+                value = [(DBSystem_Collections_Generic_DictionaryA2 *)value orderedDictionary];
+            }
+            
+            else if ([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
+                value = [(DBSystem_Collections_Generic_ListA1 *)value mutableArray]; // TODO: should go deep
+                
+            } else if ([value isKindOfClass:[DBSystem_Array class]]) {
+                value = [(DBSystem_Array *)value mutableArray]; // TODO: should go deep
+            }
+            
+        }
+        
+        // insert object for key at a given index
+        [orderedDictionary insertObject:value forKey:key atIndex:i];
+    }
+
+    return (NSDictionary *)orderedDictionary;
+}
+
+
+#pragma mark -
 #pragma mark - Key value pairs
 
 - (NSArray *)keyValuePairs
@@ -129,7 +182,7 @@
     NSArray *allValues = self.allValues;
     
     NSMutableArray *keyValuePairs = [NSMutableArray arrayWithCapacity:allKeys.count];
-    for (NSInteger i = 0; i < self.allKeys.count; i ++) {
+    for (NSInteger i = 0; i < self.allKeys.count; i++) {
         id key = allKeys[i];
         id value = allValues[i];
         

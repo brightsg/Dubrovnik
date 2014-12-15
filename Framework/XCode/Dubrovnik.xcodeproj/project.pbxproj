@@ -106,6 +106,12 @@
 		ABF43FB9179FF4FC00BAB99E /* DBManagedMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF43FB7179FF4FC00BAB99E /* DBManagedMethod.m */; };
 		ABF4846F19D1DCC000769746 /* DBManagedObjectThread.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF4846D19D1DCC000769746 /* DBManagedObjectThread.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF4847019D1DCC000769746 /* DBManagedObjectThread.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF4846E19D1DCC000769746 /* DBManagedObjectThread.m */; };
+		ABF960D81A3F0A15008AD72C /* DBMutableOrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF960D41A3F0A15008AD72C /* DBMutableOrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF960D91A3F0A15008AD72C /* DBMutableOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF960D51A3F0A15008AD72C /* DBMutableOrderedDictionary.m */; };
+		ABF960DA1A3F0A15008AD72C /* DBOrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF960D61A3F0A15008AD72C /* DBOrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF960DB1A3F0A15008AD72C /* DBOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF960D71A3F0A15008AD72C /* DBOrderedDictionary.m */; };
+		ABF960DE1A3F0B68008AD72C /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF960DC1A3F0B68008AD72C /* OrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF960DF1A3F0B68008AD72C /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF960DD1A3F0B68008AD72C /* OrderedDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +303,12 @@
 		ABF43FB7179FF4FC00BAB99E /* DBManagedMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedMethod.m; sourceTree = "<group>"; };
 		ABF4846D19D1DCC000769746 /* DBManagedObjectThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedObjectThread.h; sourceTree = "<group>"; };
 		ABF4846E19D1DCC000769746 /* DBManagedObjectThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DBManagedObjectThread.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		ABF960D41A3F0A15008AD72C /* DBMutableOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMutableOrderedDictionary.h; sourceTree = "<group>"; };
+		ABF960D51A3F0A15008AD72C /* DBMutableOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMutableOrderedDictionary.m; sourceTree = "<group>"; };
+		ABF960D61A3F0A15008AD72C /* DBOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBOrderedDictionary.h; sourceTree = "<group>"; };
+		ABF960D71A3F0A15008AD72C /* DBOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBOrderedDictionary.m; sourceTree = "<group>"; };
+		ABF960DC1A3F0B68008AD72C /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = ../../../Submodules/OrderedDictionary/OrderedDictionary/OrderedDictionary.h; sourceTree = "<group>"; };
+		ABF960DD1A3F0B68008AD72C /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDictionary.m; path = ../../../Submodules/OrderedDictionary/OrderedDictionary/OrderedDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +462,12 @@
 		9D8863370974F4D000365976 /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
+				ABF960DC1A3F0B68008AD72C /* OrderedDictionary.h */,
+				ABF960DD1A3F0B68008AD72C /* OrderedDictionary.m */,
+				ABF960D41A3F0A15008AD72C /* DBMutableOrderedDictionary.h */,
+				ABF960D51A3F0A15008AD72C /* DBMutableOrderedDictionary.m */,
+				ABF960D61A3F0A15008AD72C /* DBOrderedDictionary.h */,
+				ABF960D71A3F0A15008AD72C /* DBOrderedDictionary.m */,
 				9D8863680974F59A00365976 /* DBWrappers.h */,
 				9D8863470974F55500365976 /* DBString.h */,
 				9D8863480974F55500365976 /* DBString.m */,
@@ -707,6 +725,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF960DE1A3F0B68008AD72C /* OrderedDictionary.h in Headers */,
+				ABF960D81A3F0A15008AD72C /* DBMutableOrderedDictionary.h in Headers */,
+				ABF960DA1A3F0A15008AD72C /* DBOrderedDictionary.h in Headers */,
 				ABF4846F19D1DCC000769746 /* DBManagedObjectThread.h in Headers */,
 				AB031D0419C9B46000C80422 /* DBPrimaryInstanceCache.h in Headers */,
 				AB6A752D19A9307000CDE475 /* NSArray+Dubrovnik.h in Headers */,
@@ -865,8 +886,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF960DB1A3F0A15008AD72C /* DBOrderedDictionary.m in Sources */,
 				AB6A752E19A9307000CDE475 /* NSArray+Dubrovnik.m in Sources */,
 				AB120DA618BB47F300461FA2 /* DBNumber.m in Sources */,
+				ABF960D91A3F0A15008AD72C /* DBMutableOrderedDictionary.m in Sources */,
 				AB91B69818EE03A00021B462 /* DBManagedEvent.m in Sources */,
 				93365A8E0872370700EC726F /* DBManagedClass.m in Sources */,
 				93365A900872370700EC726F /* DBManagedObject.m in Sources */,
@@ -886,6 +909,7 @@
 				ABF4847019D1DCC000769746 /* DBManagedObjectThread.m in Sources */,
 				ABF43FB9179FF4FC00BAB99E /* DBManagedMethod.m in Sources */,
 				AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */,
+				ABF960DF1A3F0B68008AD72C /* OrderedDictionary.m in Sources */,
 				AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */,
 				AB91B69C18EE04570021B462 /* NSObject+DBManagedEvent.m in Sources */,
 			);

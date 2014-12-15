@@ -1,0 +1,3 @@
+[submodule "Submodules/OrderedDictionary"]
+	path = Submodules/OrderedDictionary
+	url = https://github.com/nicklockwood/OrderedDictionary

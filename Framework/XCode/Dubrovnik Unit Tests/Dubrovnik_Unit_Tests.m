@@ -1045,6 +1045,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #pragma unused(testClass)
     
 #warning TODO: add tests for all possible List<T> types
+#warning TODO: add tests for -orderedDictionary
+#warning TODO: add tests for -deepDictionary
     
     // List<string>
     DBSystem_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
