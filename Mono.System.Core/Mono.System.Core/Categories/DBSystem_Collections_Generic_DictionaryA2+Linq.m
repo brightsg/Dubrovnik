@@ -98,7 +98,7 @@
             id object = dict[key];
             
             if ([object isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
-                dict[key] = [(DBSystem_Collections_Generic_DictionaryA2 *)object dictionary];
+                dict[key] = [(DBSystem_Collections_Generic_DictionaryA2 *)object dictionary]; // TODO: should go deep
             }
             
             else if ([object isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
@@ -143,7 +143,7 @@
         if (representation == DBObjectRepresentationDeep) {
             
             if ([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
-                value = [(DBSystem_Collections_Generic_DictionaryA2 *)value orderedDictionary];
+                value = [(DBSystem_Collections_Generic_DictionaryA2 *)value orderedDictionary]; // TODO: should go deep
             }
             
             else if ([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
