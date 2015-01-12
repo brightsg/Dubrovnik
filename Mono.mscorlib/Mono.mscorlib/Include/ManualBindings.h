@@ -28,6 +28,7 @@
 #import "System_Globalization_CultureInfo.h"
 
 #import "System_Text_Encoding.h"
+#import "System_Text_StringBuilder.h"
 #import "System_TimeSpan.h"
 
 #import "System_Reflection.h"

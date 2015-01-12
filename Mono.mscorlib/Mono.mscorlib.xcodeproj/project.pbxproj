@@ -112,6 +112,8 @@
 		ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43218FF1F6300213B80 /* Interface_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A43B18FF232000213B80 /* Mono64.framework */; };
+		ABC627911A60794600F89877 /* System_Text_StringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABC627921A60794600F89877 /* System_Text_StringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC627901A60794600F89877 /* System_Text_StringBuilder.m */; };
 		ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */; };
 		ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -241,6 +243,8 @@
 		ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
 		ABB8A43218FF1F6300213B80 /* Interface_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
 		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_StringBuilder.h; sourceTree = "<group>"; };
+		ABC627901A60794600F89877 /* System_Text_StringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_StringBuilder.m; sourceTree = "<group>"; };
 		ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDecimalTransformer.h; sourceTree = "<group>"; };
 		ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDecimalTransformer.m; sourceTree = "<group>"; };
 		ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt64Transformer.h; sourceTree = "<group>"; };
@@ -447,6 +451,8 @@
 				ABB8A3FA18FF110000213B80 /* System_Object.m */,
 				ABB8A3FB18FF110000213B80 /* System_String.h */,
 				ABB8A3FC18FF110000213B80 /* System_String.m */,
+				ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */,
+				ABC627901A60794600F89877 /* System_Text_StringBuilder.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 				ABB8A39A18FF09F900213B80 /* DBSystem_Enum.h in Headers */,
 				ABB8A40E18FF110000213B80 /* System_IO_FileInfo.h in Headers */,
 				ABB8A38018FF092400213B80 /* DBSystem_IO_FileInfo.h in Headers */,
+				ABC627911A60794600F89877 /* System_Text_StringBuilder.h in Headers */,
 				ABB8A37B18FF086200213B80 /* NSString+mscorlib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,6 +706,7 @@
 				AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */,
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
 				AB2E746218FFCD8F0061C63E /* System_FuncA2.m in Sources */,
+				ABC627921A60794600F89877 /* System_Text_StringBuilder.m in Sources */,
 				ABB8A40B18FF110000213B80 /* System_EventArgs.m in Sources */,
 				AB2E745418FFCD420061C63E /* System_IO_StringWriter.m in Sources */,
 				AB2E744018FFCD0A0061C63E /* System_Reflection.m in Sources */,
