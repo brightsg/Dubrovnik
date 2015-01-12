@@ -280,6 +280,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // free the gc handle
 	if (_mono_gchandle != 0) {
 		mono_gchandle_free(_mono_gchandle);
+        _mono_gchandle = 0;
 	}
 }
 
@@ -582,7 +583,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 {
     // This pointer should be valid while it is visible on the unmanaged stack.
     // Dont save it into the heap as it may become invalid if the MonoObject is not pinned
-    // and the manged instance gets moved in memory.
+    // and the managed instance gets moved in memory.
     MonoObject *monoObject = mono_gchandle_get_target(_mono_gchandle);
     
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -596,10 +597,12 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)monoValue {
     
+    MonoObject *monoObject = self.monoObject;
+    
     // pointer to an object that can be used as a property value or invocation argument.
     // this is a hot method so use ivar access
-    MonoClass *klass = mono_object_get_class(self.monoObject);
-    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(self.monoObject) : self.monoObject;
+    MonoClass *klass = mono_object_get_class(monoObject);
+    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
     return valueObject;
 }
 
@@ -729,9 +732,10 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         monoMethod = GetMonoClassMethod(monoClass, methodRepresentation.methodName, YES);
           
     } else {
+        MonoObject *monoObject = self.monoObject;
         monoClass = self.monoClass;
-        monoMethod = GetMonoObjectMethod(self.monoObject, methodRepresentation.methodName, YES);
-        invokeObj = mono_class_is_valuetype(monoClass) ? mono_object_unbox(self.monoObject) : self.monoObject;
+        monoMethod = GetMonoObjectMethod(monoObject, methodRepresentation.methodName, YES);
+        invokeObj = mono_class_is_valuetype(monoClass) ? mono_object_unbox(monoObject) : monoObject;
     }
     
     if (!monoMethod) {
