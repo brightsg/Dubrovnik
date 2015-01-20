@@ -114,6 +114,8 @@
 		ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A43B18FF232000213B80 /* Mono64.framework */; };
 		ABC627911A60794600F89877 /* System_Text_StringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABC627921A60794600F89877 /* System_Text_StringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC627901A60794600F89877 /* System_Text_StringBuilder.m */; };
+		ABD5F7CF1A6E57660070C02B /* System_DateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD5F7CD1A6E57660070C02B /* System_DateTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABD5F7D01A6E57660070C02B /* System_DateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD5F7CE1A6E57660070C02B /* System_DateTime.m */; };
 		ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */; };
 		ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -245,6 +247,8 @@
 		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
 		ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_StringBuilder.h; sourceTree = "<group>"; };
 		ABC627901A60794600F89877 /* System_Text_StringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_StringBuilder.m; sourceTree = "<group>"; };
+		ABD5F7CD1A6E57660070C02B /* System_DateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTime.h; sourceTree = "<group>"; };
+		ABD5F7CE1A6E57660070C02B /* System_DateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_DateTime.m; sourceTree = "<group>"; };
 		ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDecimalTransformer.h; sourceTree = "<group>"; };
 		ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDecimalTransformer.m; sourceTree = "<group>"; };
 		ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt64Transformer.h; sourceTree = "<group>"; };
@@ -453,6 +457,8 @@
 				ABB8A3FC18FF110000213B80 /* System_String.m */,
 				ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */,
 				ABC627901A60794600F89877 /* System_Text_StringBuilder.m */,
+				ABD5F7CD1A6E57660070C02B /* System_DateTime.h */,
+				ABD5F7CE1A6E57660070C02B /* System_DateTime.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD5F7CF1A6E57660070C02B /* System_DateTime.h in Headers */,
 				ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */,
 				ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */,
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
@@ -710,6 +717,7 @@
 				ABB8A40B18FF110000213B80 /* System_EventArgs.m in Sources */,
 				AB2E745418FFCD420061C63E /* System_IO_StringWriter.m in Sources */,
 				AB2E744018FFCD0A0061C63E /* System_Reflection.m in Sources */,
+				ABD5F7D01A6E57660070C02B /* System_DateTime.m in Sources */,
 				AB2E744618FFCD0A0061C63E /* System_Text_Encoding.m in Sources */,
 				AB2E742618FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m in Sources */,
 			);
