@@ -121,9 +121,14 @@
     return nullable;
 }
 
-+ (id)newNullableFromDate:(NSDate *)date
++ (id)newNullableFromDate:(NSDate *)dateValue
 {
-    return [self newNullableFromObject:date withTypeArgumentName:@"NSDate"];
+    return [self newNullableFromObject:dateValue withTypeArgumentName:@"NSDate"];
+}
+
++ (id)newNullableFromBool:(BOOL)boolValue
+{
+    return [self newNullableFromObject:@(boolValue) withTypeArgumentName:@"BOOL"];
 }
 
 #pragma mark -
@@ -238,7 +243,7 @@
 
                     case DBSystemNullableBool:
                     {
-                        BOOL value = [number boolValue];
+                        NSUInteger value = [number unsignedIntegerValue];
                         monoObject = DB_BOX_BOOLEAN(value);
                         break;
                     }
