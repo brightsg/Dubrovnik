@@ -159,6 +159,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 #pragma unused(options)
     
     // contract
+    NSAssert(sender, @"object cannot be nil");
     NSAssert(sender.isPrimaryInstance, @"non primary instance");
 
     // remove target for event
