@@ -131,6 +131,11 @@
     return [self newNullableFromObject:@(boolValue) withTypeArgumentName:@"BOOL"];
 }
 
++ (id)newNullableFromInt32:(int32_t)value
+{
+    return [self newNullableFromObject:[NSNumber numberWithInt:value] withTypeArgumentName:@"int32_t"];
+}
+
 #pragma mark -
 #pragma mark MonoObject representation methods
 

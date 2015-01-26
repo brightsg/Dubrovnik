@@ -98,6 +98,14 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
  */
 + (id)newNullableFromBool:(BOOL)boolValue;
 
+
+/*!
+ 
+ Create a new nullable int32 instance
+ 
+ */
++ (id)newNullableFromInt32:(int32_t)value;
+
 /*!
  
  Create a new MonoObject from the given object and type name
