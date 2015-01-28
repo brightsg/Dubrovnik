@@ -117,17 +117,27 @@
 #pragma mark -
 #pragma mark - Ordered dictionary representation
 
-- (NSDictionary *)orderedDictionary
+- (DBOrderedDictionary *)orderedDictionary
+{
+    return [self mutableOrderedDictionary];
+}
+
+- (DBOrderedDictionary *)deepOrderedDictionary
+{
+    return [self deepMutableOrderedDictionary];
+}
+
+- (DBMutableOrderedDictionary *)mutableOrderedDictionary
 {
     return [self orderedDictionaryWithRepresentation:DBObjectRepresentationShallow];
 }
 
-- (NSDictionary *)deepOrderedDictionary
+- (DBMutableOrderedDictionary *)deepMutableOrderedDictionary
 {
     return [self orderedDictionaryWithRepresentation:DBObjectRepresentationDeep];
 }
 
-- (NSDictionary *)orderedDictionaryWithRepresentation:(DBObjectRepresentation)representation
+- (DBMutableOrderedDictionary *)orderedDictionaryWithRepresentation:(DBObjectRepresentation)representation
 {
     // DBMutableOrderedDictionary is a subclass of NSDictionary
     DBMutableOrderedDictionary *orderedDictionary = [DBMutableOrderedDictionary dictionaryWithCapacity:10];
@@ -159,7 +169,7 @@
         [orderedDictionary insertObject:value forKey:key atIndex:i];
     }
 
-    return (NSDictionary *)orderedDictionary;
+    return orderedDictionary;
 }
 
 

@@ -11,6 +11,7 @@ typedef NS_ENUM(NSInteger, DBObjectRepresentation) {
     DBObjectRepresentationDeep
 };
 
+@class DBMutableOrderedDictionary;
 @class DBOrderedDictionary;
 
 @interface DBSystem_Collections_Generic_DictionaryA2 (Linq)
@@ -22,4 +23,6 @@ typedef NS_ENUM(NSInteger, DBObjectRepresentation) {
 - (NSArray *)deepKeyValuePairs;
 - (DBOrderedDictionary *)orderedDictionary;
 - (DBOrderedDictionary *)deepOrderedDictionary;
+- (DBMutableOrderedDictionary *)mutableOrderedDictionary;
+- (DBMutableOrderedDictionary *)deepMutableOrderedDictionary;
 @end
