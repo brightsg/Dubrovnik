@@ -261,7 +261,12 @@
 }
 
 #pragma mark -
-#pragma mark NSArray representation
+#pragma mark NSData representation
+
+- (NSData *)data
+{
+    return [NSData dataWithMonoArray:self.monoArray];
+}
 
 #pragma mark -
 #pragma mark - Array representations

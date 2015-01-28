@@ -88,4 +88,6 @@
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;
 
+- (NSData *)data;
+
 @end
