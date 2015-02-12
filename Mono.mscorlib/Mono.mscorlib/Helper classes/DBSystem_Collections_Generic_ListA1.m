@@ -38,6 +38,10 @@
 
 + (instancetype)listWithObjects:(NSArray *)objects
 {
+    if (!objects || objects.count == 0) {
+        return nil;
+    }
+    
     // the list generic type parameter will match the type of itemObject
     id itemObject = objects[0];
     id list = [[self class] newGenericObjectForItemObject:itemObject];
