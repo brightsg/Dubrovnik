@@ -78,13 +78,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property (strong, readwrite) DBManagedEnvironment *monoEnvironment;
 @property (assign, readwrite) MonoObject *monoObject;
 @property (assign) uint32_t mono_gchandle;
-@property BOOL isGenericType;
-@property NSUInteger genericParameterCount;
-@property (strong) NSArray *genericParameterMonoArgumentTypeNames;
-@property (strong) NSMutableArray *activePropertyNames;
+@property BOOL genericType;
+@property (strong, nonatomic) NSArray *genericParameterMonoArgumentTypeNames;
 @property (assign, readwrite) BOOL isPrimaryInstance;
-
-// KVO support
 @property (strong, nonatomic) NSMutableArray *willChangeValueForKeyTracker;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -291,6 +287,34 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (NSArray *)genericParameterMonoArgumentTypeNames
+{
+    if (!_genericParameterMonoArgumentTypeNames) {
+        
+        NSInteger genericParameterCount = [self getMonoGenericTypeCount];
+        NSMutableArray *typeNames = [NSMutableArray arrayWithCapacity:genericParameterCount];
+        
+        if (genericParameterCount > 0) {
+            
+            for (NSInteger i = 0; i < genericParameterCount; i++) {
+                
+                // TODO: this is inefficient for genericParameterCount > 1, see implementation of -getMonoGenericTypeAtIndex:
+                MonoType *genericType = [self getMonoGenericTypeAtIndex:i];
+                
+                NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:genericType];
+                [typeNames addObject:monoArgumentTypeName];
+            }
+            
+            _genericParameterMonoArgumentTypeNames = typeNames;
+        }
+    }
+    
+    return _genericParameterMonoArgumentTypeNames;
+}
+
+#pragma mark -
 #pragma mark type handling
 
 - (BOOL)isValueType
@@ -303,37 +327,17 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return ![self isValueType];
 }
 
-- (BOOL)isGenericInstance
+- (MonoTypeEnum)monoTypeEnumeration
 {
     MonoType *monoType = mono_class_get_type([self monoClass]);
-    int typeInt = mono_type_get_type(monoType);
-    return typeInt == MONO_TYPE_GENERICINST;
+
+    MonoTypeEnum typeInt = mono_type_get_type(monoType);
+    return typeInt;
 }
 
 - (void)setupTypeInstance:(DBManagedInstanceInfo)info
 {
-    // TODO: test the managed type to determine if type is a generic.
-    // try testing - isGenericInstance.
-    BOOL isGenericType = YES;
-    
-    // TODO: make this lazy
-    if (isGenericType) {
-        self.genericParameterCount = [self getMonoGenericTypeCount];
-        
-        if (self.genericParameterCount > 0) {
-            self.isGenericType = YES;
-            NSMutableArray *typeNames = [NSMutableArray arrayWithCapacity:self.genericParameterCount];
-            
-            for (NSUInteger i = 0; i < self.genericParameterCount; i++) {
-                MonoType *genericType = [self getMonoGenericTypeAtIndex:i];
-                NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:genericType];
-                [typeNames addObject:monoArgumentTypeName];
-            }
-            
-            self.genericParameterMonoArgumentTypeNames = typeNames;
-        }
-    }
-
+    self.genericType = [self monoTypeEnumeration] == MONO_TYPE_GENERICINST;
     self.testForManagedObjectEquality = YES;
     
     if ([self isValueType]) {
@@ -650,7 +654,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
     
-    if (self.isGenericType) {
+    if (self.genericType) {
         methodName = [self inflateMethodName:methodName];
     }
     
@@ -659,7 +663,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
    
-    if (self.isGenericType) {
+    if (self.genericType) {
         methodName = [self inflateMethodName:methodName];
     }
     
@@ -677,10 +681,10 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 {
     /* 
      
-     search the method signature for generic type keys and replace with actual types
+     Search the method signature for generic type keys and replace with actual types
      
      */
-    if (self.isGenericType && strstr(methodName, "<_T_")) {
+    if (self.genericType && strstr(methodName, "<_T_")) {
         NSMutableString *method = [[NSMutableString alloc] initWithUTF8String:methodName];;
         NSUInteger i = 0;
         
@@ -688,6 +692,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
             NSString *key = [NSString stringWithFormat:@"<_T_%lu>", (unsigned long)i++];
             [method replaceOccurrencesOfString:key withString:typeName options:0 range:NSMakeRange(0, [method length])];
         }
+        
+        // methodName should be valid until the NSAutoreleasePool state changes
+        // see http://clang.llvm.org/docs/AutomaticReferenceCounting.html#interior-pointers
         methodName = [method UTF8String];
     }
     
