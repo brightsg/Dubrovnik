@@ -1080,6 +1080,17 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
+	// Managed method name : NullableBoolMethod1
+	// Managed return type : System.Nullable`1<System.Boolean>
+	// Managed param types : System.Nullable`1<System.Boolean>
+    - (System_NullableA1 *)nullableBoolMethod1_withP1:(System_NullableA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod1(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoValue]];
+		
+		return [System_NullableA1 objectWithMonoObject:monoObject];
+    }
+
 	// Managed method name : RaiseUnitTestEvent1
 	// Managed return type : System.Void
 	// Managed param types : 

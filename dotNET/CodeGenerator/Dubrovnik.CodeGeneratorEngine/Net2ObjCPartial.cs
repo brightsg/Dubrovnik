@@ -1268,12 +1268,21 @@ namespace Dubrovnik
         {
             string[] parts = managedIdentifier.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder s = new StringBuilder();
-            foreach (string part in parts)
-            {
-                s.Append(part.ToUpper().First());   // first letter only
-            }
-            string acronym = ObjCIdentifierFromManagedIdentifier(s.ToString());
+				foreach (string part in parts)
+				{
+					// do we want to contract the namespace component?
+					if (part[0] == '_')
+					{
+						s.Append(part);
+					}
+					else
+					{
+						s.Append(part.ToUpper().First()); // first letter only
+					}
+				}
 
+            string acronym = ObjCIdentifierFromManagedIdentifier(s.ToString());
+				
             return acronym;
         }
 
