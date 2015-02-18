@@ -30,7 +30,7 @@ static BOOL m_runningAutoGenCodeTest = NO;
  
  */
 #define DB_RUN_MANUAL_CODE_TEST 1
-#define DB_RUN_AUTO_GENERATED_CODE_TEST 1
+#define DB_RUN_AUTO_GENERATED_CODE_TEST 0
 
 #define DB_VALUETYPE_BY_REFERENCE_SUPPORT 1
 
@@ -703,7 +703,30 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([decimalMethodResult isEqual:decimalProduct], DBUEqualityTestFailed);
 
     //
-    // mixed methods
+    // nullable parameter methods
+    //
+    System_NullableA1 *nullableBool = [System_NullableA1 newNullableFromBool:YES];
+    System_NullableA1 *nullableBoolResult = [refObject nullableBoolMethod_withP1:nullableBool];
+    XCTAssertTrue([nullableBoolResult boolValue] == YES, DBUEqualityTestFailed);
+
+    System_NullableA1 *nullableInt32 = [System_NullableA1 newNullableFromInt32:10995123];
+    System_NullableA1 *nullableInt32Result = [refObject nullableInt32Method_withP1:nullableInt32];
+    XCTAssertTrue([nullableInt32Result int32Value] == 10995123, DBUEqualityTestFailed);
+
+    System_NullableA1 *nullableDouble = [System_NullableA1 newNullableFromDouble:33452.65672];
+    System_NullableA1 *nullableDoubleResult = [refObject nullableDoubleMethod_withP1:nullableDouble];
+    XCTAssertTrue([nullableDoubleResult doubleValue] == 33452.65672, DBUEqualityTestFailed);
+
+    System_NullableA1 *nullableDecimal = [System_NullableA1 newNullableFromDecimal:[NSDecimalNumber decimalNumberWithString:@"16782567776545.1278129"]];
+    System_NullableA1 *nullableDecimalResult = [refObject nullableDecimalMethod_withP1:nullableDecimal];
+    XCTAssertTrue([[nullableDecimalResult decimalNumberValue] isEqualToNumber:[nullableDecimal decimalNumberValue]], DBUEqualityTestFailed);
+    
+    System_NullableA1 *nullableDate = [System_NullableA1 newNullableFromDate:[NSDate date]];
+    System_NullableA1 *nullableDateResult = [refObject nullableDateMethod_withP1:nullableDate];
+    XCTAssertTrue([[nullableDateResult dateValue] isEqual:[nullableDate dateValue]], DBUEqualityTestFailed);
+
+    //
+    // mixed parameter methods
     //
     
     NSString *mixedMethod1 = [refObject mixedMethod1_withIntarg:1111 longArg:-2222 floatArg:33.33f doubleArg:-44.44 dateArg:[NSDate date] stringArg:@"GeneralTest" refObjectArg:refObject];

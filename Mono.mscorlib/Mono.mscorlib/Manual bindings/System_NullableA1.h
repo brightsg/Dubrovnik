@@ -98,6 +98,12 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
  */
 + (id)newNullableFromBool:(BOOL)boolValue;
 
+/*!
+ 
+ Create a new nullable double instance
+ 
+ */
++ (id)newNullableFromDouble:(double)value;
 
 /*!
  
@@ -105,6 +111,13 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
  
  */
 + (id)newNullableFromInt32:(int32_t)value;
+
+/*!
+ 
+ Create a new nullable decimal instance
+ 
+ */
++ (id)newNullableFromDecimal:(NSDecimalNumber *)value;
 
 /*!
  
@@ -122,5 +135,8 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (int8_t)int8Value;
 - (uint8_t)uint8Value;
 - (BOOL)boolValue;
+- (float)floatValue;
+- (double)doubleValue;
+
 
 @end

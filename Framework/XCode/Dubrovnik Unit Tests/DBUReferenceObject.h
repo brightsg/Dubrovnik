@@ -127,6 +127,13 @@
 // decimal parameter methods
 - (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2;
 
+// nullable parameter methods
+- (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1;
+- (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1;
+- (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1;
+- (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1;
+- (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1;
+
 // mixed parameter methods
 - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7;
 

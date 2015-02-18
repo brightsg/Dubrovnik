@@ -136,6 +136,16 @@
     return [self newNullableFromObject:[NSNumber numberWithInt:value] withTypeArgumentName:@"int32_t"];
 }
 
++ (id)newNullableFromDouble:(double)value
+{
+    return [self newNullableFromObject:[NSNumber numberWithDouble:value] withTypeArgumentName:@"double"];
+}
+
++ (id)newNullableFromDecimal:(NSDecimalNumber *)value
+{
+    return [self newNullableFromObject:value withTypeArgumentName:@"NSDecimalNumber"];
+}
+
 #pragma mark -
 #pragma mark MonoObject representation methods
 
@@ -334,6 +344,16 @@
 {
     NSObject * object = [[DBTypeManager sharedManager]  objectWithMonoObject:self.monoObject];
     return object;
+}
+
+- (float)floatValue
+{
+    return [[self numberValue] doubleValue];
+}
+
+- (double)doubleValue
+{
+    return [[self numberValue] doubleValue];
 }
 
 - (int64_t)int64Value
