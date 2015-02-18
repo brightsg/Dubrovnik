@@ -136,7 +136,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 + (const char *)monoClassName
 {
-    @throw([NSException exceptionWithName:@"No monoClassName override" reason:@"This class must provide a value for +[DBManagedObject monoClassName]" userInfo:nil]);
+    return "";
 }
 
 #pragma mark -
@@ -303,9 +303,17 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return ![self isValueType];
 }
 
+- (BOOL)isGenericInstance
+{
+    MonoType *monoType = mono_class_get_type([self monoClass]);
+    int typeInt = mono_type_get_type(monoType);
+    return typeInt == MONO_TYPE_GENERICINST;
+}
+
 - (void)setupTypeInstance:(DBManagedInstanceInfo)info
 {
-    // TODO: test the managed type to determine if type is a generic
+    // TODO: test the managed type to determine if type is a generic.
+    // try testing - isGenericInstance.
     BOOL isGenericType = YES;
     
     // TODO: make this lazy
@@ -599,10 +607,21 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     
     MonoObject *monoObject = self.monoObject;
     
-    // pointer to an object that can be used as a property value or invocation argument.
-    // this is a hot method so use ivar access
+    // returns a pointer to an object that can be used as a property value or method invocation argument.
+    
     MonoClass *klass = mono_object_get_class(monoObject);
-    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
+    MonoObject *valueObject = monoObject;
+    
+    // value types must be unboxed
+    if (mono_class_is_valuetype(klass)) {
+        
+        const char *monoClassName = [self.class monoClassName];
+        
+        // nullable value types do not require unboxing
+        if (strcmp(monoClassName, "System.Nullable`1") != 0) {
+            valueObject = mono_object_unbox(monoObject);
+        }
+    }
     return valueObject;
 }
 
@@ -816,6 +835,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark -
 #pragma mark Generic type info
 
+/*
+ 
+ For some brief documentation on generics see
+ 
+ see http://www.mono-project.com/docs/advanced/runtime/docs/generics/
+ 
+ */
 - (MonoType *)getFirstMonoGenericType
 {
     return [[self class] getMonoGenericType:[self monoClass] atIndex:0];

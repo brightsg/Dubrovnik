@@ -611,31 +611,31 @@
 
 - (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoObject]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoValue]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoObject]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoValue]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoObject]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoValue]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoObject]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoValue]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoObject]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoValue]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
