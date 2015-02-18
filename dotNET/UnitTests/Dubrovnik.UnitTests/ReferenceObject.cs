@@ -431,6 +431,14 @@ namespace Dubrovnik.UnitTests
 			return d1;
 		}
 
+		//
+		// nullable parameter methods
+		//
+		public Nullable<bool> NullableBoolMethod1(Nullable<bool> p1)
+		{
+			return p1;
+		}
+
         //
         // mixed parameter method
         //

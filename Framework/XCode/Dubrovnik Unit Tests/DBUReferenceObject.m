@@ -591,17 +591,6 @@
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-//
-// mixed parameter methods
-//
-- (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7
-{
-    // note tha mono float is an alias for System.Single, hence the use of single in the signature below
-    MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
-    NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
-    
-    return value;
-}
 
 // Managed method name : StringMethodWithStringRef
 // Managed return type : System.String
@@ -615,6 +604,23 @@
     *p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
     
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+#pragma mark -
+#pragma mark Mono mixed nullable methods
+
+
+
+#pragma mark -
+#pragma mark Mono mixed parameter methods
+
+- (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7
+{
+    // note tha mono float is an alias for System.Single, hence the use of single in the signature below
+    MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+    NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
+    
+    return value;
 }
 
 #pragma mark -
