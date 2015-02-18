@@ -1080,13 +1080,57 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
-	// Managed method name : NullableBoolMethod1
+	// Managed method name : NullableBoolMethod
 	// Managed return type : System.Nullable`1<System.Boolean>
 	// Managed param types : System.Nullable`1<System.Boolean>
-    - (System_NullableA1 *)nullableBoolMethod1_withP1:(System_NullableA1 *)p1
+    - (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod1(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoValue]];
+		
+		return [System_NullableA1 objectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : NullableDateMethod
+	// Managed return type : System.Nullable`1<System.DateTime>
+	// Managed param types : System.Nullable`1<System.DateTime>
+    - (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoValue]];
+		
+		return [System_NullableA1 objectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : NullableDecimalMethod
+	// Managed return type : System.Nullable`1<System.Decimal>
+	// Managed param types : System.Nullable`1<System.Decimal>
+    - (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoValue]];
+		
+		return [System_NullableA1 objectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : NullableDoubleMethod
+	// Managed return type : System.Nullable`1<System.Double>
+	// Managed param types : System.Nullable`1<System.Double>
+    - (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoValue]];
+		
+		return [System_NullableA1 objectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : NullableInt32Method
+	// Managed return type : System.Nullable`1<System.Int32>
+	// Managed param types : System.Nullable`1<System.Int32>
+    - (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoValue]];
 		
 		return [System_NullableA1 objectWithMonoObject:monoObject];
     }
