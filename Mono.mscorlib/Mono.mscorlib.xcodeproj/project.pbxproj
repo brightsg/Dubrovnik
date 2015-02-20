@@ -54,6 +54,8 @@
 		AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */; };
 		AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB5CC2A1A9678E20089891A /* System_Collections_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB5CC281A9678E20089891A /* System_Collections_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5CC291A9678E20089891A /* System_Collections_IList.m */; };
 		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
 		ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A29018FEFB0700213B80 /* InfoPlist.strings */; };
 		ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A29C18FEFB0700213B80 /* XCTest.framework */; };
@@ -181,6 +183,8 @@
 		AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDateTransformer.h; sourceTree = "<group>"; };
 		AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDateTransformer.m; sourceTree = "<group>"; };
 		AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTransformers.h; sourceTree = "<group>"; };
+		ABB5CC281A9678E20089891A /* System_Collections_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_IList.h; sourceTree = "<group>"; };
+		ABB5CC291A9678E20089891A /* System_Collections_IList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_IList.m; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A28718FEFB0700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A28A18FEFB0700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -459,6 +463,8 @@
 				ABC627901A60794600F89877 /* System_Text_StringBuilder.m */,
 				ABD5F7CD1A6E57660070C02B /* System_DateTime.h */,
 				ABD5F7CE1A6E57660070C02B /* System_DateTime.m */,
+				ABB5CC281A9678E20089891A /* System_Collections_IList.h */,
+				ABB5CC291A9678E20089891A /* System_Collections_IList.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				ABB8A42C18FF15B300213B80 /* DBSystem_Collections_IList.h in Headers */,
 				ABB8A40818FF110000213B80 /* System_Enum.h in Headers */,
 				ABB8A40A18FF110000213B80 /* System_EventArgs.h in Headers */,
+				ABB5CC2A1A9678E20089891A /* System_Collections_IList.h in Headers */,
 				ABB8A42618FF15B300213B80 /* DBSystem_Collections_ArrayList.h in Headers */,
 				ABB8A42A18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.h in Headers */,
 				ABB8A40C18FF110000213B80 /* System_IAsyncResult.h in Headers */,
@@ -677,6 +684,7 @@
 				ABB8A41318FF110000213B80 /* System_Object.m in Sources */,
 				ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */,
 				AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */,
+				ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */,
 				AB2E744418FFCD0A0061C63E /* System_Reflection_PropertyInfo.m in Sources */,
 				ABB8A40518FF110000213B80 /* System_Collections_Generic_ListA1.m in Sources */,
 				AB2E746818FFCE2B0061C63E /* IEnumerableA1.m in Sources */,
