@@ -25,6 +25,8 @@
 
 #import <pthread.h>
 #import "DBBoxing.h"
+#import "DBType.h"
+#import "DBTypeManager.h"
 
 // The 32 and 64 bit libs differ as the more modern 64 bit source
 // won't build in 64 bit
@@ -95,9 +97,12 @@ void NSRaiseExceptionFromMonoException(MonoObject *monoException)
 
 NSException *NSExceptionFromMonoException(MonoObject *monoException)
 {
+    System_Object *managedException = [[DBTypeManager sharedManager] objectWithMonoObject:monoException];
+    
     //
     // deconstruct the mono exception
     //
+    NSString *exceptionType = [DBType monoFullyQualifiedClassNameForMonoClass:mono_object_get_class(monoException)];
     
     // source
     NSString *source = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Source")];
@@ -134,9 +139,18 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     [reason appendFormat:@"%@", stringRep];
     
     // user info
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:5];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:6];
+    if (managedException) {
+        [userInfo setObject:managedException forKey:@"ManagedException"];
+    }
+    if (exceptionType) {
+        [userInfo setObject:exceptionType forKey:@"Type"];
+    }
     if (source) {
         [userInfo setObject:source forKey:@"Source"];
+    }
+    if (message) {
+        [userInfo setObject:message forKey:@"Message"];
     }
     if (innerException) {
         [userInfo setObject:innerException forKey:@"InnerException"];
