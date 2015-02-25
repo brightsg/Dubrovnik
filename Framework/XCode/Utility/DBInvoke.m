@@ -97,7 +97,7 @@ void NSRaiseExceptionFromMonoException(MonoObject *monoException)
 
 NSException *NSExceptionFromMonoException(MonoObject *monoException)
 {
-    System_Object *managedException = [[DBTypeManager sharedManager] objectWithMonoObject:monoException];
+    id managedException = [[DBTypeManager sharedManager] objectWithNonValueTypeMonoObject:monoException];
     
     //
     // deconstruct the mono exception
@@ -121,12 +121,12 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     // inner exception
     NSException *innerException = nil;
     MonoObject *innerExceptionMonoObject = DBMonoObjectGetProperty(monoException, "InnerException");
-    if (innerExceptionMonoObject) {
+    if (innerExceptionMonoObject && innerExceptionMonoObject != monoException) {
         innerException = NSExceptionFromMonoException(innerExceptionMonoObject);
     }
     
     //
-    // contsruct the NSException
+    // construct the NSException
     //
     
     // name
@@ -865,7 +865,7 @@ void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject
     
     // Much like mono_runtime_object_init, mono_runtime_class_init must have been called prior
     // to accessing a static field.
-#warning perhaps this should be moved into a class initialise method.
+// TODO: perhaps this should be moved into a class initialise method.
 	mono_runtime_class_init(vtable);
     
 	mono_field_static_set_value(vtable, field, valueObject);

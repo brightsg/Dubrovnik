@@ -13,3 +13,5 @@
 #import "System_ComponentModel_PropertyChangedEventArgs.h"
 #import "System_ComponentModel_INotifyPropertyChanging.h"
 #import "System_ComponentModel_INotifyPropertyChanged.h"
+#import "System_ComponentModel_AsyncCompletedEventArgs.h"
+#import "System_ComponentModel_RunWorkerCompletedEventArgs.h"

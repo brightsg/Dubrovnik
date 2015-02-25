@@ -321,7 +321,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (id)objectWithMonoObject:(MonoObject *)monoObject
 {
-#warning This method requires a unit test
+// TODO: This method requires a unit test
     
     // this method will get called when iterating over managed collections.
     // those collections may well contain NULL elements.
@@ -351,7 +351,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
             case DBTypeID_System_Object:
             {
-                object = [self managedObjectWithMonoObject:monoObject];
+                object = [self objectWithNonValueTypeMonoObject:monoObject];
                 break;
             }
             
@@ -495,7 +495,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return object;
 }
 
-- (id)managedObjectWithMonoObject:(MonoObject *)monoObject
+- (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject
 {
     // contract
     NSAssert(![DBType monoObjectContainsValueType:monoObject],
@@ -513,10 +513,6 @@ NSString * DBType_System_Exception =  @"System.Exception";
             break;
         }
 
-        if (0) {
-            [DBManagedObject logMonoClassNestedTypesInfo:monoClass];
-        }
-        
         // get ObjC class name from mono class name
         NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoClass:monoClass];
         NSString *managedClassName = [DBType managedClassNameFromMonoClassName:monoClassName];

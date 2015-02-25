@@ -15,7 +15,6 @@ self = [super init]; \
 if (self) { self.monoObjCType = encoding; self.number = @(value);}\
 return self;
 
-
 typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     DBNumberTypeBool = 0,
     DBNumberTypeChar = 1,
@@ -41,6 +40,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 @property (strong) DBManagedObject *forwardingTarget;
 @property (assign, readwrite) BOOL compareEnforcesTypeMatch;
 @end
+
 
 @implementation DBNumber
 
@@ -262,7 +262,10 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 
 - (id)initWithChar:(char)value
 {
-   DB_INIT_INSTANCE("c")
+    
+    self = [super init];
+    if (self) { self.monoObjCType = "c"; self.number = @(value);}\
+    return self;
 }
 
 - (id)initWithUnsignedChar:(unsigned char)value

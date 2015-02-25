@@ -129,6 +129,14 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 
 /**
  
+ An object representing a managed object.
+ The argument must represent a non value type.
+ 
+ */
+- (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject;
+
+/**
+ 
  A type name suitable for use in a mono method signature.
  A type alias will be returned if available.
  

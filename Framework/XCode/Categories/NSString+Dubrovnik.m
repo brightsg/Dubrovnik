@@ -31,7 +31,7 @@
 }
 
 - (id)initWithMonoString:(MonoString *)monoString {
-	if(self) {
+	if (self) {
 		self = [[DBString alloc] initWithMonoString:monoString];
 	}
 	

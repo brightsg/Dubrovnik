@@ -58,7 +58,6 @@
 		ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5CC291A9678E20089891A /* System_Collections_IList.m */; };
 		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
 		ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A29018FEFB0700213B80 /* InfoPlist.strings */; };
-		ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A29C18FEFB0700213B80 /* XCTest.framework */; };
 		ABB8A29E18FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
 		ABB8A2A118FEFB0700213B80 /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */; };
 		ABB8A2A718FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A2A518FEFB0700213B80 /* InfoPlist.strings */; };
@@ -194,7 +193,6 @@
 		ABB8A29118FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A29318FEFB0700213B80 /* Mono.mscorlib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.mscorlib-Prefix.pch"; sourceTree = "<group>"; };
 		ABB8A29B18FEFB0700213B80 /* Mono.mscorlibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.mscorlibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABB8A29C18FEFB0700213B80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ABB8A2A418FEFB0700213B80 /* Mono.mscorlibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlibTests-Info.plist"; sourceTree = "<group>"; };
 		ABB8A2A618FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A2A818FEFB0700213B80 /* Mono_mscorlibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_mscorlibTests.m; sourceTree = "<group>"; };
@@ -248,7 +246,7 @@
 		ABB8A42518FF15B300213B80 /* DBSystem_Collections_IList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_IList.m; sourceTree = "<group>"; };
 		ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
 		ABB8A43218FF1F6300213B80 /* Interface_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
-		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_StringBuilder.h; sourceTree = "<group>"; };
 		ABC627901A60794600F89877 /* System_Text_StringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_StringBuilder.m; sourceTree = "<group>"; };
 		ABD5F7CD1A6E57660070C02B /* System_DateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTime.h; sourceTree = "<group>"; };
@@ -277,7 +275,6 @@
 			files = (
 				ABB8A2A118FEFB0700213B80 /* Mono.mscorlib.framework in Frameworks */,
 				ABB8A29E18FEFB0700213B80 /* Cocoa.framework in Frameworks */,
-				ABB8A29D18FEFB0700213B80 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +332,6 @@
 				ABF5D271190C570000E9CFBD /* Dubrovnik.framework */,
 				ABB8A43B18FF232000213B80 /* Mono64.framework */,
 				ABB8A28718FEFB0700213B80 /* Cocoa.framework */,
-				ABB8A29C18FEFB0700213B80 /* XCTest.framework */,
 				ABB8A28918FEFB0700213B80 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -857,9 +853,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -879,9 +873,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

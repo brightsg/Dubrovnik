@@ -105,7 +105,7 @@
                     break;
 
                 case DBTypeID_System_UInt32:
-                    [dbsArray setUint32AtIndex:i value:[item unsignedLongValue]];
+                    [dbsArray setUint32AtIndex:i value:[item unsignedIntValue]];
                     break;
 
                 case DBTypeID_System_Int64:

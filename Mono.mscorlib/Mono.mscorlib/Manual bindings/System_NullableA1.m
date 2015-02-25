@@ -153,7 +153,6 @@
 {
     MonoObject *monoObject = NULL;
     
-#warning Refactor this. Will likely mean changing the type names to be compatible with DBTypeManager
     // TODO: there is likely some type info duplication here with DBTypeManager
     // it would be best to defer this method to DBTypeManager
     

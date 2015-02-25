@@ -356,6 +356,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)setupReferenceTypeInstance:(DBManagedInstanceInfo)info
 {
+#pragma unused(info)
     
     // Register unmanaged handlers for managed property change events.
     // We don't do this in +initialize as it raises.
@@ -550,7 +551,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     
     id copy = self;
     
-#warning Thought required!
+// TODO:  Thought required!
     bool generateLocalCopy = NO;
     
     if (generateLocalCopy) {
@@ -1048,7 +1049,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)willChangeValueForKey:(NSString *)key
 {
-#warning seems to be getting called twice for every change in the managed layer
+// TODO:  seems to be getting called twice for every change in the managed layer
     /*
       +automaticallyNotifiesObserversForKey: returns NO but the KVO
      ChangeValueForKey: methods are called whenever a mangaged property is sent if
@@ -1063,7 +1064,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // So the managed layer should implement both INotifyPropertyChanging and INotifyPropertyChanged.
     // However, it is easy, especially when issuing manual notify property changes to corrupt the pairing.
     // Thus we may choose to track the change notifications and log errors
-    BOOL trackChangeNotifications = YES;    // TODO: make this an configuration option?
+    BOOL trackChangeNotifications = YES;    // TODO: make this a configuration option?
     if (trackChangeNotifications && ![self trackWillChangeValueForKey:key]) {
         return;
     }

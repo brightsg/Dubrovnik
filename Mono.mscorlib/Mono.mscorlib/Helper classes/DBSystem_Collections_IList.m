@@ -169,8 +169,6 @@
 - (char)charAtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
     
-    NSString *name = [DBType monoClassNameForMonoObject:monoObject];
-    
 	if(mono_object_get_class(monoObject) != mono_get_char_class())
         @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not char" userInfo:nil]);
 	return(DB_UNBOX_INT8(monoObject));

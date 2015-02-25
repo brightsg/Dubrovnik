@@ -119,12 +119,12 @@
 
 - (DBOrderedDictionary *)orderedDictionary
 {
-    return [self mutableOrderedDictionary];
+    return [DBOrderedDictionary dictionaryWithDictionary:[self mutableOrderedDictionary]];
 }
 
 - (DBOrderedDictionary *)deepOrderedDictionary
 {
-    return [self deepMutableOrderedDictionary];
+    return [DBOrderedDictionary dictionaryWithDictionary:[self deepMutableOrderedDictionary]];
 }
 
 - (DBMutableOrderedDictionary *)mutableOrderedDictionary

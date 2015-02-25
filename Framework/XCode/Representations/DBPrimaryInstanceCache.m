@@ -95,7 +95,7 @@ static NSLock *m_primaryInstanceCacheLock = nil;
         // the same hash, presumably as a result of memory moving
         if ([cachedInstance monoObject] != monoObject) {
             
-#warning add collection to track mono_object_hash collisions
+// TODO: add collection to track mono_object_hash collisions
             [NSException raise:@"mono_object_hash collision" format:@"We need to deal with this!"];
             cachedInstance = nil;
         }

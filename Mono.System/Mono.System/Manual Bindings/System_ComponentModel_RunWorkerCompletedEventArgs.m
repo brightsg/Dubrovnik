@@ -1,4 +1,4 @@
-﻿#import "System.h"
+﻿#import "System_ComponentModel_RunWorkerCompletedEventArgs.h"
 //++Dubrovnik.CodeGenerator System_ComponentModel_RunWorkerCompletedEventArgs.m
 //
 // Managed class : RunWorkerCompletedEventArgs

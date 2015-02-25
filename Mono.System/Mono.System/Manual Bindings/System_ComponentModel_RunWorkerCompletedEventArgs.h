@@ -2,6 +2,8 @@
 //
 // Managed class : RunWorkerCompletedEventArgs
 //
+#import "System_ComponentModel_AsyncCompletedEventArgs.h"
+
 @interface System_ComponentModel_RunWorkerCompletedEventArgs : System_ComponentModel_AsyncCompletedEventArgs
 
 #pragma mark -

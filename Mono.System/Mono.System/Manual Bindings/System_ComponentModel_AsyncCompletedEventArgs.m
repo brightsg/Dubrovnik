@@ -1,4 +1,4 @@
-﻿#import "System.h"
+﻿
 //++Dubrovnik.CodeGenerator System_ComponentModel_AsyncCompletedEventArgs.m
 //
 // Managed class : AsyncCompletedEventArgs
@@ -8,6 +8,8 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+#import "System_ComponentModel_AsyncCompletedEventArgs.h"
 
 @implementation System_ComponentModel_AsyncCompletedEventArgs
 
