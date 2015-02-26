@@ -84,6 +84,14 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
  */
 + (id)sharedManager;
 
+/**
+ 
+ The class cache speeds object generation but may need to be disabled or reset if
+ unmanged types are loaded dynamically from a bundle during program execution.
+ 
+ */
+- (BOOL)useClassLookupCache;
+- (void)setUseClassLookupCache:(BOOL)value;
 
 /**
  

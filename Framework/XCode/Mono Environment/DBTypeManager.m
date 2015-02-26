@@ -67,10 +67,15 @@ NSString * DBType_System_Array =  @"System.Array";
 NSString * DBType_System_Thread =  @"System.Thread";
 NSString * DBType_System_Exception =  @"System.Exception";
 
+static BOOL m_useClassLookupCache = YES;
+
 @interface DBTypeManager()
 
-@property (strong) NSMutableDictionary *monoTypes;
-- (void)add:(DBType *)monoType;
+@property (strong) NSMutableDictionary *dbTypesByName;
+@property (strong) NSMutableDictionary *dbTypesByMonoType;
+@property (strong) NSMutableDictionary *classesByMonoClass;
+
+- (DBType *)add:(DBType *)dbType;
 
 @end
 
@@ -89,27 +94,52 @@ NSString * DBType_System_Exception =  @"System.Exception";
     return sharedInstance;
 }
 
+#pragma mark -
+#pragma mark Cache
+
+- (BOOL)useClassLookupCache
+{
+    return m_useClassLookupCache;
+}
+
+- (void)setUseClassLookupCache:(BOOL)value
+{
+    m_useClassLookupCache = value;
+    self.classesByMonoClass = m_useClassLookupCache ? [NSMutableDictionary dictionaryWithCapacity:100] : nil;
+}
 
 #pragma mark -
-#pragma mark Setup
+#pragma mark Lifecycle
 
 - (id)init
 {
+    __weak id weakself = self;
+    
     self = [super init];
     if (self) {
-        self.monoTypes = [NSMutableDictionary dictionaryWithCapacity:22];
+        if (m_useClassLookupCache) {
+            self.classesByMonoClass = [NSMutableDictionary dictionaryWithCapacity:100];
+        }
+        self.dbTypesByName = [NSMutableDictionary dictionaryWithCapacity:22];
+        self.dbTypesByMonoType = [NSMutableDictionary dictionaryWithCapacity:22];
         
         [self add:[DBType typeWithName:DBType_System_Object
                                  alias:DBAlias_System_Object
                                     id:DBTypeID_System_Object
                              monoClass:mono_get_object_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [weakself objectWithNonValueTypeMonoObject:monoObject];
+                             }
                    ]
          ];
-
+        
         [self add:[DBType typeWithName:DBType_System_String
                                  alias:DBAlias_System_String
                                     id:DBTypeID_System_String
                              monoClass:mono_get_string_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [NSString stringWithMonoString:DB_STRING(monoObject)];
+                             }
                    ]
          ];
         
@@ -117,19 +147,30 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_Byte
                                     id:DBTypeID_System_Byte
                              monoClass:mono_get_byte_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
+                             }
                    ]
          ];
         
-        [self add:[DBType typeWithName:DBType_System_Void
+         [self add:[DBType typeWithName:DBType_System_Void
                                     id:DBTypeID_System_Void
                              monoClass:mono_get_void_class()
+                             generator:^id(MonoObject *monoObject) {
+#pragma unused(monoObject)
+                                 return [NSNull null];
+                             }
                    ]
          ];
+    
         
         [self add:[DBType typeWithName:DBType_System_Boolean
                                  alias:DBAlias_System_Boolean
                                     id:DBTypeID_System_Boolean
                              monoClass:mono_get_boolean_class()
+                           generator:^id(MonoObject *monoObject) {
+                               return [DBNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
+                           }
                    ]
          ];
         
@@ -137,6 +178,8 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_SByte
                                     id:DBTypeID_System_SByte
                              monoClass:mono_get_sbyte_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithChar:DB_UNBOX_INT8(monoObject)];}
                    ]
          ];
         
@@ -145,6 +188,8 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                 invoke:DBInvoke_System_Int16
                                     id:DBTypeID_System_Int16
                              monoClass:mono_get_int16_class()
+                             generator:^id(MonoObject *monoObject) {return [DBNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
+                             }
                    ]
          ];
         
@@ -153,6 +198,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                 invoke:DBInvoke_System_UInt16
                                     id:DBTypeID_System_UInt16
                              monoClass:mono_get_uint16_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
+                             }
                    ]
          ];
         
@@ -160,6 +208,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_Int32
                                     id:DBTypeID_System_Int32
                              monoClass:mono_get_int32_class()
+                             generator:^id(MonoObject *monoObject) {return [DBNumber numberWithInt:DB_UNBOX_INT32(monoObject)];}
                    ]
          ];
         
@@ -167,6 +216,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_UInt32
                                     id:DBTypeID_System_UInt32
                              monoClass:mono_get_uint32_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
+                             }
                    ]
          ];
         
@@ -174,6 +226,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_Int64
                                     id:DBTypeID_System_Int64
                              monoClass:mono_get_int64_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
+                             }
                    ]
          ];
         
@@ -181,6 +236,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_UInt64
                                    id:DBTypeID_System_UInt64
                              monoClass:mono_get_uint64_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
+                             }
                    ]
          ];
         
@@ -189,6 +247,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                 invoke:DBInvoke_System_Single
                                     id:DBTypeID_System_Single
                              monoClass:mono_get_single_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
+                             }
                    ]
          ];
         
@@ -196,6 +257,9 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_Double
                                     id:DBTypeID_System_Double
                              monoClass:mono_get_double_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
+                             }
                    ]
          ];
 
@@ -203,13 +267,16 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                     alias:DBAlias_System_Decimal
                                     id:DBTypeID_System_Decimal
                              monoClass:mono_class_from_name(mono_get_corlib(), "System", "Decimal")
+                             generator:^id(MonoObject *monoObject) {return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];}
                    ]
          ];
-
 
         [self add:[DBType typeWithName:DBType_System_DateTime
                                     id:DBTypeID_System_DateTime
                              monoClass:mono_class_from_name(mono_get_corlib(), "System", "DateTime")
+                             generator:^id(MonoObject *monoObject) {
+                                 return [NSDate dateWithMonoDateTime:monoObject];
+                             }
                    ]
          ];
 
@@ -217,42 +284,69 @@ NSString * DBType_System_Exception =  @"System.Exception";
                                  alias:DBAlias_System_Char
                                     id:DBTypeID_System_Char
                              monoClass:mono_get_char_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [DBNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
+                             }
                    ]
          ];
         
         [self add:[DBType typeWithName:DBType_System_Enum
                                     id:DBTypeID_System_Enum
                              monoClass:mono_get_enum_class()
+                             generator:^id(MonoObject *monoObject) {
+#pragma unused(monoObject)
+                                 [NSException raise:@"Feature not yet implemented" format:@"object for System.Enum"];
+                                 return nil;
+                             }
                    ]
          ];
         
         [self add:[DBType typeWithName:DBType_System_Array
                                     id:DBTypeID_System_Array
                              monoClass:mono_get_array_class()
+                             generator:^id(MonoObject *monoObject) {
+#pragma unused(monoObject)
+                                 [NSException raise:@"Feature not yet implemented" format:@"object for System.Array"];
+                                 return nil;
+                             }
                    ]
          ];
 
         [self add:[DBType typeWithName:DBType_System_IntPtr
                                     id:DBTypeID_System_IntPtr
                              monoClass:mono_get_intptr_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [NSValue valueWithPointer:DB_UNBOX_PTR(monoObject)];
+                             }
                    ]
          ];
         
         [self add:[DBType typeWithName:DBType_System_UIntPtr
                                     id:DBTypeID_System_UIntPtr
                              monoClass:mono_get_uintptr_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return [NSValue valueWithPointer:DB_UNBOX_UPTR(monoObject)];
+                             }
                    ]
          ];
 
         [self add:[DBType typeWithName:DBType_System_Thread
                                     id:DBTypeID_System_Thread
                              monoClass:mono_get_thread_class()
+                             generator:^id(MonoObject *monoObject) {
+#pragma unused(monoObject)
+                                 [NSException raise:@"Feature not yet implemented" format:@"object for System.Thread"];
+                                  return nil;
+                                  }
                    ]
          ];
         
         [self add:[DBType typeWithName:DBType_System_Exception
                                     id:DBTypeID_System_Exception
                              monoClass:mono_get_exception_class()
+                             generator:^id(MonoObject *monoObject) {
+                                 return NSExceptionFromMonoException(monoObject);
+                             }
                    ]
          ];
     }
@@ -265,25 +359,25 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (NSString *)invokeForName:(NSString *)name
 {
-    DBType *type = (self.monoTypes)[name];
+    DBType *type = (self.dbTypesByName)[name];
     
     return type.invoke != nil ? type.invoke : type.alias;
 }
 
 - (NSString *)aliasForName:(NSString *)name
 {
-    DBType *type = (self.monoTypes)[name];
+    DBType *type = (self.dbTypesByName)[name];
     
     return type.alias;
 }
 
 - (DBType *)typeForName:(NSString *)name
 {
-    DBType *type = self.monoTypes[name];
+    DBType *type = self.dbTypesByName[name];
     
     // if no type match found then default to System.Object
     if (!type) {
-        type = self.monoTypes[DBType_System_Object];
+        type = self.dbTypesByName[DBType_System_Object];
     }
     
     return type;
@@ -292,7 +386,7 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (MonoClass *)monoClassWithName:(NSString *)name
 {
-    DBType *type =  (self.monoTypes)[name];
+    DBType *type =  (self.dbTypesByName)[name];
     MonoClass *klass = (type ? type.monoClass : nil);
     
     return klass;
@@ -321,175 +415,54 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (id)objectWithMonoObject:(MonoObject *)monoObject
 {
-// TODO: This method requires a unit test
-    
     // this method will get called when iterating over managed collections.
     // those collections may well contain NULL elements.
     if (monoObject == NULL) {
         return [NSNull null];
     }
     
-    /*
-     
-     Note: this method is hot so any optimisation is welcome
-     
-     */
-    
     id object = nil;
-    NSString *typeName = [DBType monoTypeNameForMonoObject:monoObject];
+    MonoClass *monoClass = mono_object_get_class(monoObject);
+    MonoType* monoType = mono_class_get_type(monoClass);
+    BOOL isValueType = mono_class_is_valuetype(monoClass);
 
-    DBType *type = [self typeForName:typeName];
+    // for certain value types it is necessary (looking at you System.Enum) to use the underlying type.
+    // if there is no underlying type mono_type_get_underlying_type just returns its argument.
+    if (isValueType) {
+        monoType = mono_type_get_underlying_type(monoType);
+    }
     
-    if (type) {
-        switch ([type typeID]) {
-                
-            case DBTypeID_System_Void:
-            {
-                object = [NSNull null];
-                break;
-            }
-
-            case DBTypeID_System_Object:
-            {
-                object = [self objectWithNonValueTypeMonoObject:monoObject];
-                break;
-            }
-            
-            case DBTypeID_System_Boolean:
-            {
-                object = [DBNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_Byte:
-            case DBTypeID_System_Char:
-            {
-                object = [DBNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_SByte:
-            {
-                object = [DBNumber numberWithChar:DB_UNBOX_INT8(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_Int16:
-            {
-                object = [DBNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_UInt16:
-            {
-                object = [DBNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_Int32:
-            {
-                object = [DBNumber numberWithInt:DB_UNBOX_INT32(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_UInt32:
-            {
-                object = [DBNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_Int64:
-            {
-                object = [DBNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
-                break;
-            }
-                
-            case DBTypeID_System_UInt64:
-            {
-                object = [DBNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_Single:
-            {
-                object = [DBNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_Double:
-            {
-                object = [DBNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
-                break;
-            }
-
-            case DBTypeID_System_Decimal:
-            {
-                object = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
-                break;
-            }
-
-            case DBTypeID_System_DateTime:
-            {
-                object = [NSDate dateWithMonoDateTime:monoObject];
-                break;
-            }
-
-                
-            case DBTypeID_System_String:
-            {
-                object = [NSString stringWithMonoString:DB_STRING(monoObject)];
-                break;
-            }
-                
-            case DBTypeID_System_Enum:
-            {
-                MonoType *underlyingMonoType = [DBType monoUnderlyingTypeForMonoObject:monoObject];
-                NSString *underlyingTypeName = [DBType monoTypeNameForMonoType:underlyingMonoType];
-
-                (void)underlyingTypeName;
-                
-                [NSException raise:@"Feature not yet implemented" format:@"object for System.Enum"];
-
-                break;
-            }
-                
-            case DBTypeID_System_Array:
-            {
-                [NSException raise:@"Feature not yet implemented" format:@"object for System.Array"];
-
-                 break;
-            }
-                
-            case DBTypeID_System_Thread:
-            {
-                [NSException raise:@"Feature not yet implemented" format:@"object for System.Thread"];
-
-                break;
-            }
-                
-            case DBTypeID_System_Exception:
-            {
-                object = NSExceptionFromMonoException(monoObject);
-                break;
-            }
-            
-            case DBTypeID_System_IntPtr:
-            {
-                object = [NSValue valueWithPointer:DB_UNBOX_PTR(monoObject)];
-                break;
-            }
-                
-            case DBTypeID_System_UIntPtr:
-            {
-                object = [NSValue valueWithPointer:DB_UNBOX_UPTR(monoObject)];
-                break;
-            }
-
-            default:
-            {
-                [NSException exceptionWithName:@"Mono object representation exception" reason:@"Invalid type ID" userInfo:nil];
-            }
+    // get a DBType object that knows how to generate aninstance to represent monoObject
+    DBType *dbType = nil;
+    if (0) {
+        
+        // legacy key by name
+        const char *monoTypeName = mono_type_get_name(monoType);
+        NSString *typeName = nil;
+        if (monoTypeName) {
+            typeName = @(monoTypeName);
         }
+        dbType = self.dbTypesByName[typeName];
+
+    } else {
+        
+        // key by type
+        id key = @((NSUInteger)monoType); // TODO: key using integer directly rather than NSNumber
+        dbType = self.dbTypesByMonoType[key];
+
+    }
+    
+    // default to System.Object
+    if (!dbType) {
+        dbType = self.dbTypesByName[DBType_System_Object];
+    }
+    
+    // the generator will create an object to representmonoObject.
+    // this may be a new object or cached object.
+    object = dbType.generator(monoObject);
+    
+    if (!object) {
+        [NSException exceptionWithName:@"Mono object representation exception" reason:@"Invalid type ID" userInfo:nil];
     }
     
     return object;
@@ -497,51 +470,63 @@ NSString * DBType_System_Exception =  @"System.Exception";
 
 - (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject
 {
-    // contract
-    NSAssert(![DBType monoObjectContainsValueType:monoObject],
-             @"MonoObject must represent a non value type : %@ class: %@",
-             [DBType monoTypeNameForMonoObject:monoObject],
-             [DBType monoClassNameForMonoObject:monoObject]);
-   
     Class managedClass = nil;
- 
-    MonoClass *monoClass = [DBType monoClassForMonoObject:monoObject];
+    MonoClass *monoClass = mono_object_get_class(monoObject);
+    BOOL isValueType = mono_class_is_valuetype(monoClass);
     
-    // search up the class hierarchy for an object that can be instantiated
-    do {
-        if (monoClass == NULL) {
-            break;
-        }
-
-        // get ObjC class name from mono class name
-        NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoClass:monoClass];
-        NSString *managedClassName = [DBType managedClassNameFromMonoClassName:monoClassName];
-        
-        // look for DB prefixed class
-        managedClass = NSClassFromString([@"DB" stringByAppendingString:managedClassName]);
-        
-        // look for exact class name match.
-        // classes 
-        if (!managedClass) {
-            managedClass = NSClassFromString(managedClassName);
-        }
-        
-        if (managedClass) {
-            break;
-        }
-    
-        // get the super class.
-        // if we cannot represent the class precisely then the next best thing is to represent with a super class.
-        // note that arrays will present like so System.String[]
-        // the super class will be System.Array
-        monoClass = [DBType monoSuperClassForMonoClass:monoClass];
-    } while (YES);
-
-    // default to system object
-    if (!managedClass) {
-        managedClass = NSClassFromString(@"System_Object");
+    if (isValueType) {
+        [NSException exceptionWithName:@"Mono object representation exception" reason:@"Value type found where not anticipated" userInfo:nil];
     }
+   
+    // query the cache
+    id key = @((NSUInteger)monoClass);  // TODO: key using integer directly rather than NSNumber
+    if (m_useClassLookupCache) {
+        managedClass = self.classesByMonoClass[key];
+    }
+    
+    // cache miss
+    if (!managedClass) {
+        
+        // search up the class hierarchy for an object that can be instantiated
+        do {
+            if (monoClass == NULL) {
+                break;
+            }
 
+            // get ObjC class name from mono class name
+            NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoClass:monoClass];
+            NSString *managedClassName = [DBType managedClassNameFromMonoClassName:monoClassName];
+            
+            // look for DB prefixed class
+            managedClass = NSClassFromString([@"DB" stringByAppendingString:managedClassName]);
+            
+            // look for exact class name match.
+            // classes 
+            if (!managedClass) {
+                managedClass = NSClassFromString(managedClassName);
+            }
+            
+            if (managedClass) {
+                break;
+            }
+        
+            // get the super class.
+            // if we cannot represent the class precisely then the next best thing is to represent with a super class.
+            // note that arrays will present like so System.String[] - the super class will be System.Array
+            monoClass = mono_class_get_parent(monoClass);
+        } while (YES);
+
+        // default to system object
+        if (!managedClass) {
+            managedClass = NSClassFromString(@"System_Object");
+        }
+        
+        // cache the class
+        if (m_useClassLookupCache) {
+            self.classesByMonoClass[key] = managedClass;
+        }
+    }
+    
     // instantiate an instance of the managed class
     id object = [[managedClass alloc] initWithMonoObject:monoObject];
     
@@ -551,9 +536,17 @@ NSString * DBType_System_Exception =  @"System.Exception";
 #pragma mark -
 #pragma mark Collection methods
 
-- (void)add:(DBType *)monoType
+- (DBType *)add:(DBType *)dbType
 {
-    (self.monoTypes)[monoType.name] = monoType;
+    // index by name
+    (self.dbTypesByName)[dbType.name] = dbType;
+    
+    // index by monoType
+    MonoType* monoType = mono_class_get_type(dbType.monoClass);
+    id key = @((NSUInteger)monoType);
+    (self.dbTypesByMonoType)[key] = dbType;
+    
+    return dbType;
 }
 
 @end

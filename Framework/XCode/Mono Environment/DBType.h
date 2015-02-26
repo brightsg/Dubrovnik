@@ -15,14 +15,19 @@
 @property (strong) NSString *invoke;
 @property (assign) MonoClass *monoClass;
 @property (assign) NSUInteger typeID;
+@property (nonatomic,copy) id(^generator)(MonoObject *);
 
 + (instancetype)typeWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
++ (instancetype)typeWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass generator:(id)generator;
 + (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass;
++ (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass generator:(id)generator;
 + (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass;
++ (instancetype)typeWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass generator:(id)generator;
 
 - (id)initWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
 - (id)initWithName:(NSString *)name alias:(NSString *)alias id:(int)typeID monoClass:(MonoClass *)monoClass;
 - (id)initWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass;
+- (id)initWithName:(NSString *)name alias:(NSString *)alias invoke:(NSString *)invoke id:(int)typeID monoClass:(MonoClass *)monoClass generator:(id)generator;
 
 // MonoType methods
 + (NSString *)monoTypeNameForMonoType:(MonoType *)monoType;
