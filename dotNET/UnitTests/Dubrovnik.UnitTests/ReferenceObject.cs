@@ -159,6 +159,7 @@ namespace Dubrovnik.UnitTests
 				{ "keyForString", "Dubrovnik.UnitTests" },
 				{ "keyForInteger", 100 },
 				{ "keyForFloat", 1001F },
+				{ "keyForIntEnum", IntEnum.val1 },
 				{ "keyForListA1", new List<string>{"Dubrovnik1", "Dubrovnik2"}},
 				{ "keyForDictionaryA2", new Dictionary <string, object> { {"subKey1", "subValue1"}, {"subKey2", "subValue2"} }},
 				{ "keyForStringArray", new string[] {"Dubrovnik SubItem1", "Dubrovnik SubItem2"}},
