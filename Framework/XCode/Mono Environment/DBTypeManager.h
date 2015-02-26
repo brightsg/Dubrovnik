@@ -92,6 +92,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
  */
 - (BOOL)useClassLookupCache;
 - (void)setUseClassLookupCache:(BOOL)value;
+- (void)resetClassLookupCache;
 
 /**
  

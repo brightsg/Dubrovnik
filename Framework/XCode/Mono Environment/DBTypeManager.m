@@ -72,8 +72,8 @@ static BOOL m_useClassLookupCache = YES;
 @interface DBTypeManager()
 
 @property (strong) NSMutableDictionary *dbTypesByName;
-@property (strong) NSMutableDictionary *dbTypesByMonoType;
-@property (strong) NSMutableDictionary *classesByMonoClass;
+@property (strong) NSMapTable *dbTypesByMonoType;
+@property (strong) NSMapTable *classesByMonoClass;
 
 - (DBType *)add:(DBType *)dbType;
 
@@ -105,7 +105,18 @@ static BOOL m_useClassLookupCache = YES;
 - (void)setUseClassLookupCache:(BOOL)value
 {
     m_useClassLookupCache = value;
-    self.classesByMonoClass = m_useClassLookupCache ? [NSMutableDictionary dictionaryWithCapacity:100] : nil;
+    if (!m_useClassLookupCache) {
+        self.classesByMonoClass = nil;
+    } else {
+        [self resetClassLookupCache];
+    }
+}
+
+- (void)resetClassLookupCache
+{
+    self.classesByMonoClass = [[NSMapTable alloc] initWithKeyOptions: NSPointerFunctionsIntegerPersonality | NSPointerFunctionsOpaqueMemory
+                                                        valueOptions: NSPointerFunctionsObjectPersonality | NSPointerFunctionsWeakMemory
+                                                            capacity:100];
 }
 
 #pragma mark -
@@ -118,10 +129,15 @@ static BOOL m_useClassLookupCache = YES;
     self = [super init];
     if (self) {
         if (m_useClassLookupCache) {
-            self.classesByMonoClass = [NSMutableDictionary dictionaryWithCapacity:100];
+            [self resetClassLookupCache];
         }
         self.dbTypesByName = [NSMutableDictionary dictionaryWithCapacity:22];
-        self.dbTypesByMonoType = [NSMutableDictionary dictionaryWithCapacity:22];
+        
+        // NSMapTable with pointer
+        // http://stackoverflow.com/questions/1434107/is-there-anything-like-an-nsset-that-allows-retrieving-by-hash-value
+        self.dbTypesByMonoType = [[NSMapTable alloc] initWithKeyOptions: NSPointerFunctionsIntegerPersonality | NSPointerFunctionsOpaqueMemory
+                                                           valueOptions: NSPointerFunctionsObjectPersonality | NSPointerFunctionsWeakMemory
+                                                               capacity:22];
         
         [self add:[DBType typeWithName:DBType_System_Object
                                  alias:DBAlias_System_Object
@@ -432,7 +448,7 @@ static BOOL m_useClassLookupCache = YES;
         monoType = mono_type_get_underlying_type(monoType);
     }
     
-    // get a DBType object that knows how to generate aninstance to represent monoObject
+    // get a DBType object that knows how to generate an instance to represent monoObject
     DBType *dbType = nil;
     if (0) {
         
@@ -446,9 +462,8 @@ static BOOL m_useClassLookupCache = YES;
 
     } else {
         
-        // key by type
-        id key = @((NSUInteger)monoType); // TODO: key using integer directly rather than NSNumber
-        dbType = self.dbTypesByMonoType[key];
+        // key by monoType
+        dbType = [self.dbTypesByMonoType objectForKey:(__bridge id)monoType];
 
     }
     
@@ -479,9 +494,8 @@ static BOOL m_useClassLookupCache = YES;
     }
    
     // query the cache
-    id key = @((NSUInteger)monoClass);  // TODO: key using integer directly rather than NSNumber
     if (m_useClassLookupCache) {
-        managedClass = self.classesByMonoClass[key];
+        managedClass = [self.classesByMonoClass objectForKey:(__bridge id)monoClass];
     }
     
     // cache miss
@@ -523,8 +537,15 @@ static BOOL m_useClassLookupCache = YES;
         
         // cache the class
         if (m_useClassLookupCache) {
-            self.classesByMonoClass[key] = managedClass;
+            [self.classesByMonoClass setObject:managedClass forKey:(__bridge id)monoClass];
         }
+    } else {
+        
+        // cache hit
+#ifdef DB_TRACE_THIS
+        NSLog(@"Dubrovnik: object generator class cache hit : %@", managedClass);
+#endif
+        
     }
     
     // instantiate an instance of the managed class
@@ -543,9 +564,8 @@ static BOOL m_useClassLookupCache = YES;
     
     // index by monoType
     MonoType* monoType = mono_class_get_type(dbType.monoClass);
-    id key = @((NSUInteger)monoType);
-    (self.dbTypesByMonoType)[key] = dbType;
     
+    [self.dbTypesByMonoType setObject:dbType forKey:(__bridge id)monoType];
     return dbType;
 }
 
