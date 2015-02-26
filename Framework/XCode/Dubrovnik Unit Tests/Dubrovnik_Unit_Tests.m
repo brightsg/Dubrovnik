@@ -1932,6 +1932,19 @@ eventTarget1.event2Fired = X
 }
 
 #pragma mark -
+#pragma mark Object generation tests
+
+- (void)testMultiStringGeneration
+{
+   MonoObject *monoObject = [@"test" monoObject];
+    
+    for (NSUInteger i = 0; i < 1e5; i++) {
+        id object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+        (void)object;
+    }
+}
+
+#pragma mark -
 #pragma mark DBManagedEnvironmentDelegate methods
 
 - (NSString *)managedEnvironment:(DBManagedEnvironment *)monoEnv pathToAssemblyName:(const char *)name
