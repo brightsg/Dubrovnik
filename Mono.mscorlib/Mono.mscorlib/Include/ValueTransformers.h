@@ -9,3 +9,4 @@
 #import "DBNullableDateTransformer.h"
 #import "DBNullableDecimalTransformer.h"
 #import "DBNullableInt64Transformer.h"
+#import "DBNullableBoolTransformer.h"
