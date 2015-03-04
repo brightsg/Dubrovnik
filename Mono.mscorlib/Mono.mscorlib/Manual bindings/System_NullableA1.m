@@ -136,6 +136,11 @@
     return [self newNullableFromObject:[NSNumber numberWithInt:value] withTypeArgumentName:@"int32_t"];
 }
 
++ (id)newNullableFromInt64:(int64_t)value
+{
+    return [self newNullableFromObject:[NSNumber numberWithInteger:value] withTypeArgumentName:@"int64_t"];
+}
+
 + (id)newNullableFromDouble:(double)value
 {
     return [self newNullableFromObject:[NSNumber numberWithDouble:value] withTypeArgumentName:@"double"];
