@@ -117,6 +117,20 @@
 		ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A43B18FF232000213B80 /* Mono64.framework */; };
 		ABC627911A60794600F89877 /* System_Text_StringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABC627921A60794600F89877 /* System_Text_StringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC627901A60794600F89877 /* System_Text_StringBuilder.m */; };
+		ABCAE54A1AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE5481AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABCAE54B1AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAE5491AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m */; };
+		ABCAE54E1AA909710006453A /* System_Reflection_MemberFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE54C1AA909710006453A /* System_Reflection_MemberFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABCAE54F1AA909710006453A /* System_Reflection_MemberFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAE54D1AA909710006453A /* System_Reflection_MemberFilter.m */; };
+		ABCAE5521AA90A280006453A /* System_Reflection_Assembly.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE5501AA90A280006453A /* System_Reflection_Assembly.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABCAE5531AA90A280006453A /* System_Reflection_Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAE5511AA90A280006453A /* System_Reflection_Assembly.m */; };
+		ABCAE5561AA90AC90006453A /* System_Reflection_TypeAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE5541AA90AC90006453A /* System_Reflection_TypeAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABCAE55A1AA90C8A0006453A /* System_Reflection_MethodBase.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE5581AA90C8A0006453A /* System_Reflection_MethodBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABCAE55B1AA90C8A0006453A /* System_Reflection_MethodBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAE5591AA90C8A0006453A /* System_Reflection_MethodBase.m */; };
+		ABCAE55E1AA90CC50006453A /* System_Reflection_Binder.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE55C1AA90CC50006453A /* System_Reflection_Binder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABCAE55F1AA90CC50006453A /* System_Reflection_Binder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAE55D1AA90CC50006453A /* System_Reflection_Binder.m */; };
+		ABCAE5631AA90E180006453A /* System_Guid.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE5611AA90E180006453A /* System_Guid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABCAE5641AA90E180006453A /* System_Guid.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAE5621AA90E180006453A /* System_Guid.m */; };
+		ABCAE5651AA910DA0006453A /* System_Reflection_GenericParameterAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE5601AA90D0D0006453A /* System_Reflection_GenericParameterAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABD5F7CF1A6E57660070C02B /* System_DateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD5F7CD1A6E57660070C02B /* System_DateTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABD5F7D01A6E57660070C02B /* System_DateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD5F7CE1A6E57660070C02B /* System_DateTime.m */; };
 		ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -253,6 +267,20 @@
 		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_StringBuilder.h; sourceTree = "<group>"; };
 		ABC627901A60794600F89877 /* System_Text_StringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_StringBuilder.m; sourceTree = "<group>"; };
+		ABCAE5481AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_Generic_IEnumerableA1.h; sourceTree = "<group>"; };
+		ABCAE5491AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_Generic_IEnumerableA1.m; sourceTree = "<group>"; };
+		ABCAE54C1AA909710006453A /* System_Reflection_MemberFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_MemberFilter.h; sourceTree = "<group>"; };
+		ABCAE54D1AA909710006453A /* System_Reflection_MemberFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_MemberFilter.m; sourceTree = "<group>"; };
+		ABCAE5501AA90A280006453A /* System_Reflection_Assembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_Assembly.h; sourceTree = "<group>"; };
+		ABCAE5511AA90A280006453A /* System_Reflection_Assembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_Assembly.m; sourceTree = "<group>"; };
+		ABCAE5541AA90AC90006453A /* System_Reflection_TypeAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_TypeAttributes.h; sourceTree = "<group>"; };
+		ABCAE5581AA90C8A0006453A /* System_Reflection_MethodBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_MethodBase.h; sourceTree = "<group>"; };
+		ABCAE5591AA90C8A0006453A /* System_Reflection_MethodBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_MethodBase.m; sourceTree = "<group>"; };
+		ABCAE55C1AA90CC50006453A /* System_Reflection_Binder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_Binder.h; sourceTree = "<group>"; };
+		ABCAE55D1AA90CC50006453A /* System_Reflection_Binder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_Binder.m; sourceTree = "<group>"; };
+		ABCAE5601AA90D0D0006453A /* System_Reflection_GenericParameterAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Reflection_GenericParameterAttributes.h; sourceTree = "<group>"; };
+		ABCAE5611AA90E180006453A /* System_Guid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Guid.h; sourceTree = "<group>"; };
+		ABCAE5621AA90E180006453A /* System_Guid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Guid.m; sourceTree = "<group>"; };
 		ABD5F7CD1A6E57660070C02B /* System_DateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTime.h; sourceTree = "<group>"; };
 		ABD5F7CE1A6E57660070C02B /* System_DateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_DateTime.m; sourceTree = "<group>"; };
 		ABE1354B192AAEED000689BC /* DBNullableDecimalTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDecimalTransformer.h; sourceTree = "<group>"; };
@@ -398,75 +426,87 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
-				AB8306B1191CFD5B009FF174 /* System_Type.h */,
-				AB8306B2191CFD5B009FF174 /* System_Type.m */,
-				AB2E746D18FFCF980061C63E /* System_Collections_IEnumerable.h */,
-				AB2E746E18FFCF980061C63E /* System_Collections_IEnumerable.m */,
 				AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */,
 				AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */,
-				AB2E745718FFCD8F0061C63E /* System_DayOfWeek.h */,
-				AB2E745818FFCD8F0061C63E /* System_Exception.h */,
-				AB2E745918FFCD8F0061C63E /* System_Exception.m */,
-				AB2E745A18FFCD8F0061C63E /* System_FuncA2.h */,
-				AB2E745B18FFCD8F0061C63E /* System_FuncA2.m */,
-				AB2E745C18FFCD8F0061C63E /* System_Globalization_CultureInfo.h */,
-				AB2E745D18FFCD8F0061C63E /* System_Globalization_CultureInfo.m */,
-				AB2E744B18FFCD420061C63E /* System_IO_Stream.h */,
-				AB2E744C18FFCD420061C63E /* System_IO_Stream.m */,
-				AB2E744D18FFCD420061C63E /* System_IO_StringWriter.h */,
-				AB2E744E18FFCD420061C63E /* System_IO_StringWriter.m */,
-				AB2E744F18FFCD420061C63E /* System_IO_TextReader.h */,
-				AB2E745018FFCD420061C63E /* System_IO_TextReader.m */,
-				AB2E743318FFCD0A0061C63E /* System_Reflection.h */,
-				AB2E743418FFCD0A0061C63E /* System_Reflection.m */,
-				AB2E743518FFCD0A0061C63E /* System_Reflection_MethodInfo.h */,
-				AB2E743618FFCD0A0061C63E /* System_Reflection_MethodInfo.m */,
-				AB2E743718FFCD0A0061C63E /* System_Reflection_PropertyInfo.h */,
-				AB2E743818FFCD0A0061C63E /* System_Reflection_PropertyInfo.m */,
-				AB2E743918FFCD0A0061C63E /* System_Text_Encoding.h */,
-				AB2E743A18FFCD0A0061C63E /* System_Text_Encoding.m */,
-				AB2E743B18FFCD0A0061C63E /* System_TimeSpan.h */,
-				AB2E743C18FFCD0A0061C63E /* System_TimeSpan.m */,
-				AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */,
-				AB2E742818FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.m */,
-				AB2E742918FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.h */,
-				AB2E742A18FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.m */,
-				AB2E742B18FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.h */,
-				AB2E742C18FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.m */,
-				AB2E742318FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h */,
-				AB2E742418FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m */,
-				ABB8A41A18FF155F00213B80 /* System_NullableA1.h */,
-				ABB8A41B18FF155F00213B80 /* System_NullableA1.m */,
 				ABB8A3E418FF110000213B80 /* System_Array.h */,
 				ABB8A3E518FF110000213B80 /* System_Array.m */,
 				ABB8A3E718FF110000213B80 /* System_Collections_ArrayList.h */,
 				ABB8A3E818FF110000213B80 /* System_Collections_ArrayList.m */,
 				ABB8A3E918FF110000213B80 /* System_Collections_Generic_DictionaryA2.h */,
 				ABB8A3EA18FF110000213B80 /* System_Collections_Generic_DictionaryA2.m */,
+				AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */,
+				AB2E742818FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.m */,
+				AB2E742918FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.h */,
+				AB2E742A18FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.m */,
+				AB2E742B18FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.h */,
+				AB2E742C18FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.m */,
 				ABB8A3EB18FF110000213B80 /* System_Collections_Generic_ListA1.h */,
 				ABB8A3EC18FF110000213B80 /* System_Collections_Generic_ListA1.m */,
+				AB2E746D18FFCF980061C63E /* System_Collections_IEnumerable.h */,
+				AB2E746E18FFCF980061C63E /* System_Collections_IEnumerable.m */,
+				ABB5CC281A9678E20089891A /* System_Collections_IList.h */,
+				ABB5CC291A9678E20089891A /* System_Collections_IList.m */,
 				ABB8A3ED18FF110000213B80 /* System_Convert.h */,
 				ABB8A3EE18FF110000213B80 /* System_Convert.m */,
+				ABD5F7CD1A6E57660070C02B /* System_DateTime.h */,
+				ABD5F7CE1A6E57660070C02B /* System_DateTime.m */,
+				AB2E745718FFCD8F0061C63E /* System_DayOfWeek.h */,
 				ABB8A3EF18FF110000213B80 /* System_Enum.h */,
 				ABB8A3F018FF110000213B80 /* System_Enum.m */,
 				ABB8A3F118FF110000213B80 /* System_EventArgs.h */,
 				ABB8A3F218FF110000213B80 /* System_EventArgs.m */,
+				AB2E745818FFCD8F0061C63E /* System_Exception.h */,
+				AB2E745918FFCD8F0061C63E /* System_Exception.m */,
+				AB2E745A18FFCD8F0061C63E /* System_FuncA2.h */,
+				AB2E745B18FFCD8F0061C63E /* System_FuncA2.m */,
+				AB2E745C18FFCD8F0061C63E /* System_Globalization_CultureInfo.h */,
+				AB2E745D18FFCD8F0061C63E /* System_Globalization_CultureInfo.m */,
 				ABB8A3F318FF110000213B80 /* System_IAsyncResult.h */,
 				ABB8A3F418FF110000213B80 /* System_IAsyncResult.m */,
 				ABB8A3F518FF110000213B80 /* System_IO_FileInfo.h */,
 				ABB8A3F618FF110000213B80 /* System_IO_FileInfo.m */,
+				AB2E744B18FFCD420061C63E /* System_IO_Stream.h */,
+				AB2E744C18FFCD420061C63E /* System_IO_Stream.m */,
+				AB2E744D18FFCD420061C63E /* System_IO_StringWriter.h */,
+				AB2E744E18FFCD420061C63E /* System_IO_StringWriter.m */,
+				AB2E744F18FFCD420061C63E /* System_IO_TextReader.h */,
+				AB2E745018FFCD420061C63E /* System_IO_TextReader.m */,
 				ABB8A3F718FF110000213B80 /* System_MulticastDelegate.h */,
 				ABB8A3F818FF110000213B80 /* System_MulticastDelegate.m */,
+				ABB8A41A18FF155F00213B80 /* System_NullableA1.h */,
+				ABB8A41B18FF155F00213B80 /* System_NullableA1.m */,
 				ABB8A3F918FF110000213B80 /* System_Object.h */,
 				ABB8A3FA18FF110000213B80 /* System_Object.m */,
+				AB2E742318FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h */,
+				AB2E742418FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m */,
+				AB2E743518FFCD0A0061C63E /* System_Reflection_MethodInfo.h */,
+				AB2E743618FFCD0A0061C63E /* System_Reflection_MethodInfo.m */,
+				AB2E743718FFCD0A0061C63E /* System_Reflection_PropertyInfo.h */,
+				AB2E743818FFCD0A0061C63E /* System_Reflection_PropertyInfo.m */,
+				AB2E743318FFCD0A0061C63E /* System_Reflection.h */,
+				AB2E743418FFCD0A0061C63E /* System_Reflection.m */,
 				ABB8A3FB18FF110000213B80 /* System_String.h */,
 				ABB8A3FC18FF110000213B80 /* System_String.m */,
+				AB2E743918FFCD0A0061C63E /* System_Text_Encoding.h */,
+				AB2E743A18FFCD0A0061C63E /* System_Text_Encoding.m */,
 				ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */,
 				ABC627901A60794600F89877 /* System_Text_StringBuilder.m */,
-				ABD5F7CD1A6E57660070C02B /* System_DateTime.h */,
-				ABD5F7CE1A6E57660070C02B /* System_DateTime.m */,
-				ABB5CC281A9678E20089891A /* System_Collections_IList.h */,
-				ABB5CC291A9678E20089891A /* System_Collections_IList.m */,
+				AB2E743B18FFCD0A0061C63E /* System_TimeSpan.h */,
+				AB2E743C18FFCD0A0061C63E /* System_TimeSpan.m */,
+				AB8306B1191CFD5B009FF174 /* System_Type.h */,
+				AB8306B2191CFD5B009FF174 /* System_Type.m */,
+				ABCAE54C1AA909710006453A /* System_Reflection_MemberFilter.h */,
+				ABCAE54D1AA909710006453A /* System_Reflection_MemberFilter.m */,
+				ABCAE5501AA90A280006453A /* System_Reflection_Assembly.h */,
+				ABCAE5511AA90A280006453A /* System_Reflection_Assembly.m */,
+				ABCAE5541AA90AC90006453A /* System_Reflection_TypeAttributes.h */,
+				ABCAE5581AA90C8A0006453A /* System_Reflection_MethodBase.h */,
+				ABCAE5591AA90C8A0006453A /* System_Reflection_MethodBase.m */,
+				ABCAE55C1AA90CC50006453A /* System_Reflection_Binder.h */,
+				ABCAE55D1AA90CC50006453A /* System_Reflection_Binder.m */,
+				ABCAE5601AA90D0D0006453A /* System_Reflection_GenericParameterAttributes.h */,
+				ABCAE5611AA90E180006453A /* System_Guid.h */,
+				ABCAE5621AA90E180006453A /* System_Guid.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -505,6 +545,8 @@
 				ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */,
 				AB8306B5191D1231009FF174 /* DBSystem_Object.h */,
 				AB8306B6191D1231009FF174 /* DBSystem_Object.m */,
+				ABCAE5481AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h */,
+				ABCAE5491AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -525,6 +567,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABCAE5651AA910DA0006453A /* System_Reflection_GenericParameterAttributes.h in Headers */,
+				ABCAE5631AA90E180006453A /* System_Guid.h in Headers */,
+				ABCAE5521AA90A280006453A /* System_Reflection_Assembly.h in Headers */,
+				ABCAE55A1AA90C8A0006453A /* System_Reflection_MethodBase.h in Headers */,
+				ABCAE55E1AA90CC50006453A /* System_Reflection_Binder.h in Headers */,
+				ABCAE5561AA90AC90006453A /* System_Reflection_TypeAttributes.h in Headers */,
+				ABCAE54E1AA909710006453A /* System_Reflection_MemberFilter.h in Headers */,
+				ABCAE54A1AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h in Headers */,
 				AB92F2DE1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h in Headers */,
 				ABD5F7CF1A6E57660070C02B /* System_DateTime.h in Headers */,
 				ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */,
@@ -698,16 +748,19 @@
 				ABB8A39918FF09F900213B80 /* DBSystem_Convert.m in Sources */,
 				AB2E746418FFCD8F0061C63E /* System_Globalization_CultureInfo.m in Sources */,
 				ABB8A38118FF092400213B80 /* DBSystem_IO_FileInfo.m in Sources */,
+				ABCAE55F1AA90CC50006453A /* System_Reflection_Binder.m in Sources */,
 				AB2E745618FFCD420061C63E /* System_IO_TextReader.m in Sources */,
 				ABB8A40F18FF110000213B80 /* System_IO_FileInfo.m in Sources */,
 				ABB8A3FE18FF110000213B80 /* System_Array.m in Sources */,
 				AB2E742E18FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.m in Sources */,
 				ABB8A37C18FF086200213B80 /* NSString+mscorlib.m in Sources */,
+				ABCAE5531AA90A280006453A /* System_Reflection_Assembly.m in Sources */,
 				ABB8A41518FF110000213B80 /* System_String.m in Sources */,
 				AB92F2DF1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m in Sources */,
 				AB2E743218FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.m in Sources */,
 				ABB8A40718FF110000213B80 /* System_Convert.m in Sources */,
 				ABB8A41118FF110000213B80 /* System_MulticastDelegate.m in Sources */,
+				ABCAE54F1AA909710006453A /* System_Reflection_MemberFilter.m in Sources */,
 				ABB8A40118FF110000213B80 /* System_Collections_ArrayList.m in Sources */,
 				ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */,
 				ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */,
@@ -719,9 +772,12 @@
 				ABB8A40D18FF110000213B80 /* System_IAsyncResult.m in Sources */,
 				ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */,
 				AB2E745218FFCD420061C63E /* System_IO_Stream.m in Sources */,
+				ABCAE55B1AA90C8A0006453A /* System_Reflection_MethodBase.m in Sources */,
 				ABB8A40918FF110000213B80 /* System_Enum.m in Sources */,
+				ABCAE54B1AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m in Sources */,
 				ABE13552192AB0C5000689BC /* DBNullableInt64Transformer.m in Sources */,
 				AB2E746018FFCD8F0061C63E /* System_Exception.m in Sources */,
+				ABCAE5641AA90E180006453A /* System_Guid.m in Sources */,
 				AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */,
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
 				AB2E746218FFCD8F0061C63E /* System_FuncA2.m in Sources */,

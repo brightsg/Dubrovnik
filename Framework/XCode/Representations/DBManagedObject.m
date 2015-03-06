@@ -138,8 +138,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark class methods
 
-+ (MonoClass *)monoClass {
++ (MonoClass *)monoClass
+{
     return [[DBManagedEnvironment currentEnvironment] monoClassWithName:(char *)[self monoClassName] fromAssemblyName:(char *)[self monoAssemblyName]];
+}
+
++ (MonoType *)monoType
+{
+    return mono_class_get_type([self monoClass]);
 }
 
 + (DBManagedClass *)dbClass
@@ -915,7 +921,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 {
     // Get the generic types of an object
     // eg: for list<employee> the type employee is returned.
-    //     for dictionary<string,employee> the string employee types are returned
+    //     for dictionary<string,employee> the string and employee types are returned
     
     // get helper method to retrieve generic argument types
     MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GenericTypeArguments" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:1];
@@ -927,7 +933,9 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     hargs [1] = NULL;
     MonoObject *monoException = NULL;
     MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
-    if (monoException) NSRaiseExceptionFromMonoException(monoException);
+    if (monoException) {
+        NSRaiseExceptionFromMonoException(monoException);
+    }
     
     return genericArgArray;
 }

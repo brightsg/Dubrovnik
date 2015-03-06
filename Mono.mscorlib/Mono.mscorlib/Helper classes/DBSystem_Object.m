@@ -29,7 +29,7 @@
     MonoReflectionType *monoReflectionType = mono_type_get_object([DBManagedEnvironment currentDomain], monoType);
     
     // build a System.Array of item types
-    DBManagedObject *argType = [[DBManagedObject alloc] initWithMonoObject:(MonoObject *)monoReflectionType];
+    DBManagedObject *argType = [[System_Object alloc] initWithMonoObject:(MonoObject *)monoReflectionType];
     NSArray *argTypes = @[argType];
     DBSystem_Array *dbsAargTypes = [argTypes dbsArrayWithTypeName:@"System.Type"];
 

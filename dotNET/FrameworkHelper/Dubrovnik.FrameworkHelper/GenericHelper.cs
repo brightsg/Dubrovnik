@@ -41,6 +41,8 @@ namespace Dubrovnik.FrameworkHelper
 
 		public static IntPtr[] GenericTypeArguments(Type t)
 		{
+			//Console.WriteLine("GenericTypeArguments for {0}", t);
+
 			/* FIXME: check that "type" is a closed generic type */
 			// see http://msdn.microsoft.com/en-us/library/system.type.getgenericarguments.aspx
 			Type[] types = t.GetGenericArguments();

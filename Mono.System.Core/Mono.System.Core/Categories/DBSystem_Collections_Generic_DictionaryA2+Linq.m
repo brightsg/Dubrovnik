@@ -19,10 +19,10 @@
 - (NSArray *)allKeys
 {
     MonoObject *monoObject = [self getMonoProperty:"Keys"];
-    DBManagedObject *object = [[DBManagedObject alloc] initWithMonoObject:monoObject];
+    DBManagedObject *object = [[System_Object alloc] initWithMonoObject:monoObject];
     
     // toList defaults to using the first generic type
-    NSArray *keys = [[DBSystem_Linq toList:(DBManagedObject <Interface_IEnumerable_T> *)object] array];
+    NSArray *keys = [[DBSystem_Linq toList:(System_Object <Interface_IEnumerable_T> *)object] array];
     
     for (id key in keys) {
         if ([key respondsToSelector:@selector(setCompareEnforcesTypeMatch)]) {
@@ -52,10 +52,10 @@
     
     // Returns object of type System.Collections.Generic.Dictionary<TKey, TValue>.ValueCollection.
     // In order to obtain the values for this we need to request Values(TValue)
-    DBManagedObject *object = [[DBManagedObject alloc] initWithMonoObject:monoObject];
+    DBManagedObject *object = [[System_Object alloc] initWithMonoObject:monoObject];
     
     // obtain a list of objects of the 2nd generic type
-    NSArray *values = [[DBSystem_Linq toList:(DBManagedObject <Interface_IEnumerable_T> *)object genericTypeIndex:1] array];
+    NSArray *values = [[DBSystem_Linq toList:(System_Object <Interface_IEnumerable_T> *)object genericTypeIndex:1] array];
     
     return values;
 }
