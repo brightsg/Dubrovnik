@@ -21,6 +21,10 @@
 
 + (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject genericTypeIndex:(NSUInteger)typeIndex
 {
+    if (!managedObject) {
+        return nil;
+    }
+    
     // TODO System.Array can implement IList<T> in some cases
     // see https://msdn.microsoft.com/en-us/library/ms228502.aspx
     // for now we raise
