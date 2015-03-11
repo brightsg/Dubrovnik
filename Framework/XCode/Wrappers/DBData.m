@@ -101,7 +101,7 @@
 
 - (MonoArray *)representedMonoArray
 {
-    #warning Memory allocation unit test required
+// TODO: Memory allocation unit test required
     return (MonoArray *)mono_gchandle_get_target(_gcHandle);
 }
 @end

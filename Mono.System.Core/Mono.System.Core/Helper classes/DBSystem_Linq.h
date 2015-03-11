@@ -15,9 +15,10 @@
 
 @interface DBSystem_Linq : System_Linq
 
-+ (DBSystem_Collections_IList *)toList:(DBManagedObject <Interface_IEnumerable_T> *)managedObject;
-+ (DBSystem_Collections_IList *)toList:(DBManagedObject <Interface_IEnumerable_T> *)managedObject genericTypeIndex:(NSUInteger)typeIndex;
++ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject;
++ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject genericTypeIndex:(NSUInteger)typeIndex;
++ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject monoType:(MonoType *)monoType;
 
-+ (NSMutableArray *)toMutableArray:(DBManagedObject <Interface_IEnumerable_T> *)managedObject;
-+ (NSArray *)toArray:(DBManagedObject <Interface_IEnumerable_T> *)managedObject;
++ (NSMutableArray *)toMutableArray:(System_Object <Interface_IEnumerable_T> *)managedObject;
++ (NSArray *)toArray:(System_Object <Interface_IEnumerable_T> *)managedObject;
 @end

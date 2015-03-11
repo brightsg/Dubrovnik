@@ -138,8 +138,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark class methods
 
-+ (MonoClass *)monoClass {
++ (MonoClass *)monoClass
+{
     return [[DBManagedEnvironment currentEnvironment] monoClassWithName:(char *)[self monoClassName] fromAssemblyName:(char *)[self monoAssemblyName]];
+}
+
++ (MonoType *)monoType
+{
+    return mono_class_get_type([self monoClass]);
 }
 
 + (DBManagedClass *)dbClass
@@ -356,6 +362,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)setupReferenceTypeInstance:(DBManagedInstanceInfo)info
 {
+#pragma unused(info)
     
     // Register unmanaged handlers for managed property change events.
     // We don't do this in +initialize as it raises.
@@ -550,7 +557,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     
     id copy = self;
     
-#warning Thought required!
+// TODO:  Thought required!
     bool generateLocalCopy = NO;
     
     if (generateLocalCopy) {
@@ -914,7 +921,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 {
     // Get the generic types of an object
     // eg: for list<employee> the type employee is returned.
-    //     for dictionary<string,employee> the string employee types are returned
+    //     for dictionary<string,employee> the string and employee types are returned
     
     // get helper method to retrieve generic argument types
     MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GenericTypeArguments" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:1];
@@ -926,7 +933,9 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     hargs [1] = NULL;
     MonoObject *monoException = NULL;
     MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
-    if (monoException) NSRaiseExceptionFromMonoException(monoException);
+    if (monoException) {
+        NSRaiseExceptionFromMonoException(monoException);
+    }
     
     return genericArgArray;
 }
@@ -1048,7 +1057,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)willChangeValueForKey:(NSString *)key
 {
-#warning seems to be getting called twice for every change in the managed layer
+// TODO:  seems to be getting called twice for every change in the managed layer
     /*
       +automaticallyNotifiesObserversForKey: returns NO but the KVO
      ChangeValueForKey: methods are called whenever a mangaged property is sent if
@@ -1063,7 +1072,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // So the managed layer should implement both INotifyPropertyChanging and INotifyPropertyChanged.
     // However, it is easy, especially when issuing manual notify property changes to corrupt the pairing.
     // Thus we may choose to track the change notifications and log errors
-    BOOL trackChangeNotifications = YES;    // TODO: make this an configuration option?
+    BOOL trackChangeNotifications = YES;    // TODO: make this a configuration option?
     if (trackChangeNotifications && ![self trackWillChangeValueForKey:key]) {
         return;
     }

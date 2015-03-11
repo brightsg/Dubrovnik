@@ -5,6 +5,7 @@
 //  Created by Jonathan Mitchell on 20/02/2014.
 //
 //
+@class System_Type;
 
 @interface System_Object : DBManagedObject
 
@@ -31,12 +32,12 @@
 // Managed method name : GetHashCode
 // Managed return type : System.Int32
 // Managed param types :
-- (int32_t)getHashCode;
+- (int32_t)db_getHashCode;
 
 // Managed method name : GetType
 // Managed return type : System.Type
 // Managed param types :
-//- (System_Type *)getType;
+- (System_Type *)db_getType;
 
 // Managed method name : ReferenceEquals
 // Managed return type : System.Boolean

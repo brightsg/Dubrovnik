@@ -10,6 +10,7 @@
 #import "DBSystem_Collections_Generic_DictionaryA2.h"
 #import "DBSystem_Collections_Generic_ListA1.h"
 #import "DBSystem_Collections_IList.h"
+#import "DBSystem_Collections_Generic_IEnumerableA1.h"
 #import "DBSystem_Array.h"
 #import "DBSystem_Convert.h"
 #import "DBSystem_Enum.h"

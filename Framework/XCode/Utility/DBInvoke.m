@@ -25,6 +25,8 @@
 
 #import <pthread.h>
 #import "DBBoxing.h"
+#import "DBType.h"
+#import "DBTypeManager.h"
 
 // The 32 and 64 bit libs differ as the more modern 64 bit source
 // won't build in 64 bit
@@ -95,9 +97,12 @@ void NSRaiseExceptionFromMonoException(MonoObject *monoException)
 
 NSException *NSExceptionFromMonoException(MonoObject *monoException)
 {
+    id managedException = [[DBTypeManager sharedManager] objectWithNonValueTypeMonoObject:monoException];
+    
     //
     // deconstruct the mono exception
     //
+    NSString *exceptionType = [DBType monoFullyQualifiedClassNameForMonoClass:mono_object_get_class(monoException)];
     
     // source
     NSString *source = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Source")];
@@ -116,12 +121,12 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     // inner exception
     NSException *innerException = nil;
     MonoObject *innerExceptionMonoObject = DBMonoObjectGetProperty(monoException, "InnerException");
-    if (innerExceptionMonoObject) {
+    if (innerExceptionMonoObject && innerExceptionMonoObject != monoException) {
         innerException = NSExceptionFromMonoException(innerExceptionMonoObject);
     }
     
     //
-    // contsruct the NSException
+    // construct the NSException
     //
     
     // name
@@ -134,9 +139,18 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     [reason appendFormat:@"%@", stringRep];
     
     // user info
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:5];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:6];
+    if (managedException) {
+        [userInfo setObject:managedException forKey:@"ManagedException"];
+    }
+    if (exceptionType) {
+        [userInfo setObject:exceptionType forKey:@"Type"];
+    }
     if (source) {
         [userInfo setObject:source forKey:@"Source"];
+    }
+    if (message) {
+        [userInfo setObject:message forKey:@"Message"];
     }
     if (innerException) {
         [userInfo setObject:innerException forKey:@"InnerException"];
@@ -851,7 +865,7 @@ void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject
     
     // Much like mono_runtime_object_init, mono_runtime_class_init must have been called prior
     // to accessing a static field.
-#warning perhaps this should be moved into a class initialise method.
+// TODO: perhaps this should be moved into a class initialise method.
 	mono_runtime_class_init(vtable);
     
 	mono_field_static_set_value(vtable, field, valueObject);

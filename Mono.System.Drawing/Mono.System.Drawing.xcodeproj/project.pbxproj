@@ -14,7 +14,6 @@
 		AB2E74B518FFD6C90061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B018FFD6C90061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A3AA18FF0B4900213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3A918FF0B4900213B80 /* Cocoa.framework */; };
 		ABB8A3B418FF0B4A00213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A3B218FF0B4A00213B80 /* InfoPlist.strings */; };
-		ABB8A3BF18FF0B4A00213B80 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3BE18FF0B4A00213B80 /* XCTest.framework */; };
 		ABB8A3C018FF0B4A00213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3A918FF0B4900213B80 /* Cocoa.framework */; };
 		ABB8A3C318FF0B4A00213B80 /* Mono.System.Drawing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3A618FF0B4900213B80 /* Mono.System.Drawing.framework */; };
 		ABB8A3C918FF0B4A00213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A3C718FF0B4A00213B80 /* InfoPlist.strings */; };
@@ -53,7 +52,6 @@
 		ABB8A3B318FF0B4A00213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A3B518FF0B4A00213B80 /* Mono.System.Drawing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Drawing-Prefix.pch"; sourceTree = "<group>"; };
 		ABB8A3BD18FF0B4A00213B80 /* Mono.System.DrawingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.System.DrawingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABB8A3BE18FF0B4A00213B80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ABB8A3C618FF0B4A00213B80 /* Mono.System.DrawingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.DrawingTests-Info.plist"; sourceTree = "<group>"; };
 		ABB8A3C818FF0B4A00213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A3CA18FF0B4A00213B80 /* Mono_System_DrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_DrawingTests.m; sourceTree = "<group>"; };
@@ -62,7 +60,7 @@
 		ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Drawing_Size.m; sourceTree = "<group>"; };
 		ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Drawing_Size.h; sourceTree = "<group>"; };
 		ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Drawing_Size.m; sourceTree = "<group>"; };
-		ABB8A46718FF297700213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		ABB8A46718FF297700213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Drawing/../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,7 +82,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB8A3C018FF0B4A00213B80 /* Cocoa.framework in Frameworks */,
-				ABB8A3BF18FF0B4A00213B80 /* XCTest.framework in Frameworks */,
 				ABB8A3C318FF0B4A00213B80 /* Mono.System.Drawing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +127,6 @@
 				ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */,
 				ABB8A46718FF297700213B80 /* Mono64.framework */,
 				ABB8A3A918FF0B4900213B80 /* Cocoa.framework */,
-				ABB8A3BE18FF0B4A00213B80 /* XCTest.framework */,
 				ABB8A3AB18FF0B4900213B80 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -455,9 +451,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -477,9 +471,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ABBD3BC51900141000DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC41900141000DB59AF /* Cocoa.framework */; };
 		ABBD3BCF1900141000DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BCD1900141000DB59AF /* InfoPlist.strings */; };
-		ABBD3BDA1900141000DB59AF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BD91900141000DB59AF /* XCTest.framework */; };
 		ABBD3BDB1900141000DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC41900141000DB59AF /* Cocoa.framework */; };
 		ABBD3BDE1900141000DB59AF /* Mono.System.Xml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC11900141000DB59AF /* Mono.System.Xml.framework */; };
 		ABBD3BE41900141000DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BE21900141000DB59AF /* InfoPlist.strings */; };
@@ -45,7 +44,6 @@
 		ABBD3BCE1900141000DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3BD01900141000DB59AF /* Mono.System.Xml-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Xml-Prefix.pch"; sourceTree = "<group>"; };
 		ABBD3BD81900141000DB59AF /* Mono.System.XmlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.System.XmlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABBD3BD91900141000DB59AF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ABBD3BE11900141000DB59AF /* Mono.System.XmlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.XmlTests-Info.plist"; sourceTree = "<group>"; };
 		ABBD3BE31900141000DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3BE51900141000DB59AF /* Mono_System_XmlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_XmlTests.m; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 			files = (
 				ABBD3BDE1900141000DB59AF /* Mono.System.Xml.framework in Frameworks */,
 				ABBD3BDB1900141000DB59AF /* Cocoa.framework in Frameworks */,
-				ABBD3BDA1900141000DB59AF /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +106,6 @@
 				ABF5D281190C584C00E9CFBD /* Dubrovnik.framework */,
 				ABF5D282190C584C00E9CFBD /* Mono.mscorlib.framework */,
 				ABBD3BC41900141000DB59AF /* Cocoa.framework */,
-				ABBD3BD91900141000DB59AF /* XCTest.framework */,
 				ABBD3BC61900141000DB59AF /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -439,11 +435,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Xml/Mono.System.Xml-Prefix.pch";
@@ -460,11 +452,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Xml/Mono.System.Xml-Prefix.pch";

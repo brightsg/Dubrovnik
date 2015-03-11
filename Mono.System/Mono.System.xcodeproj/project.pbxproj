@@ -17,7 +17,6 @@
 		AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */; };
 		ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
 		ABA3971C1906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */; };
-		ABA397271906BA6300D5CA6E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397261906BA6300D5CA6E /* XCTest.framework */; };
 		ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
 		ABA397311906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3972F1906BA6300D5CA6E /* InfoPlist.strings */; };
 		ABA397331906BA6300D5CA6E /* Mono_SystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397321906BA6300D5CA6E /* Mono_SystemTests.m */; };
@@ -29,6 +28,11 @@
 		ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */; };
+		ABDA50E41A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */; };
+		ABDA50E61A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDA50E71A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */; };
+		ABDA50E91A9D1E26009926B1 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDA50E81A9D1E26009926B1 /* Mono64.framework */; };
 		ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */; };
 		ABF5D28D190C58A900E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */; };
@@ -63,7 +67,6 @@
 		ABA3971B1906BA6300D5CA6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABA3971D1906BA6300D5CA6E /* Mono.System-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System-Prefix.pch"; sourceTree = "<group>"; };
 		ABA397251906BA6300D5CA6E /* Mono.SystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.SystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABA397261906BA6300D5CA6E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ABA3972E1906BA6300D5CA6E /* Mono.SystemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.SystemTests-Info.plist"; sourceTree = "<group>"; };
 		ABA397301906BA6300D5CA6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABA397321906BA6300D5CA6E /* Mono_SystemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_SystemTests.m; sourceTree = "<group>"; };
@@ -75,10 +78,15 @@
 		ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_RegexOptions.h; sourceTree = "<group>"; };
 		ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_Regex.h; sourceTree = "<group>"; };
 		ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_RegularExpressions_Regex.m; sourceTree = "<group>"; };
+		ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_AsyncCompletedEventArgs.h; sourceTree = "<group>"; };
+		ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_AsyncCompletedEventArgs.m; sourceTree = "<group>"; };
+		ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_RunWorkerCompletedEventArgs.h; sourceTree = "<group>"; };
+		ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_RunWorkerCompletedEventArgs.m; sourceTree = "<group>"; };
+		ABDA50E81A9D1E26009926B1 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System/../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_ObjectModel_ObservableCollectionA1.h; sourceTree = "<group>"; };
 		ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_ObjectModel_ObservableCollectionA1.m; sourceTree = "<group>"; };
-		ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
-		ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
+		ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Dubrovnik.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDA50E91A9D1E26009926B1 /* Mono64.framework in Frameworks */,
 				ABF5D28D190C58A900E9CFBD /* Dubrovnik.framework in Frameworks */,
 				ABF5D28E190C58A900E9CFBD /* Mono.mscorlib.framework in Frameworks */,
 				ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */,
@@ -97,7 +106,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */,
-				ABA397271906BA6300D5CA6E /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,10 +134,10 @@
 		ABA397101906BA6300D5CA6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABDA50E81A9D1E26009926B1 /* Mono64.framework */,
 				ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */,
 				ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */,
 				ABA397111906BA6300D5CA6E /* Cocoa.framework */,
-				ABA397261906BA6300D5CA6E /* XCTest.framework */,
 				ABA397131906BA6300D5CA6E /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -198,6 +206,10 @@
 		ABA3975C1906BFA700D5CA6E /* Manual Bindings */ = {
 			isa = PBXGroup;
 			children = (
+				ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */,
+				ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */,
+				ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */,
+				ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */,
 				AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */,
 				AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */,
 				AB17805D199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h */,
@@ -230,6 +242,8 @@
 				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
 				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,
 				ABA397451906BAE600D5CA6E /* Categories.h in Headers */,
+				ABDA50E41A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */,
+				ABDA50E61A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */,
 				ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */,
 				ABA397461906BAE600D5CA6E /* Framework.h in Headers */,
 				ABA397471906BAE600D5CA6E /* GeneratedBindings.h in Headers */,
@@ -332,12 +346,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDA50E71A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */,
 				AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
 				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
 				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
 				AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
 				AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
 				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
+				ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,8 +483,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-bgxncshakzeeylefrqmhdpslkbmr/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -488,8 +503,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-bgxncshakzeeylefrqmhdpslkbmr/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

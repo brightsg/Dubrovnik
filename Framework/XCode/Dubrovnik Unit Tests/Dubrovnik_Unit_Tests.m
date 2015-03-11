@@ -1200,17 +1200,18 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // test all keys
     NSArray *stringObjectDictKeys = [stringObjectDictA2 allKeys];
-    XCTAssertTrue([stringObjectDictKeys count] == 6, DBUCountTestFailed);
+    XCTAssertTrue([stringObjectDictKeys count] == 7, DBUCountTestFailed);
     XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForString"], DBUObjectNotFound);
     XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForInteger"], DBUObjectNotFound);
     XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForFloat"], DBUObjectNotFound);
+    XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForIntEnum"], DBUObjectNotFound);
     XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForListA1"], DBUObjectNotFound);
     XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForDictionaryA2"], DBUObjectNotFound);
     XCTAssertTrue([stringObjectDictKeys containsObject:@"keyForStringArray"], DBUObjectNotFound);
     
     // test all values
     NSArray *stringObjectDictValues = [stringObjectDictA2 allValues];
-    XCTAssertTrue([stringObjectDictValues count] == 6, DBUCountTestFailed);
+    XCTAssertTrue([stringObjectDictValues count] == 7, DBUCountTestFailed);
     
     XCTAssertTrue([stringObjectDictValues containsObject:@"Dubrovnik.UnitTests"], DBUObjectNotFound);
     XCTAssertTrue([stringObjectDictValues containsObject:@100], DBUObjectNotFound);
@@ -1225,6 +1226,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     value = [stringObjectDictA2 objectForKey:@"keyForFloat"];
     XCTAssertTrue([value intValue] == 1001., DBUObjectNotFound);
+
+    value = [stringObjectDictA2 objectForKey:@"keyForIntEnum"];
+    XCTAssertTrue([value intValue] == 1, DBUObjectNotFound);
 
     // ListA1 object
     value = [stringObjectDictA2 objectForKey:@"keyForListA1"];
@@ -1925,6 +1929,19 @@ eventTarget1.event2Fired = X
     [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
     XCTAssertTrue(targets.count == 0, DBUEqualityTestFailed);
+}
+
+#pragma mark -
+#pragma mark Object generation tests
+
+- (void)testMultiStringGeneration
+{
+   MonoObject *monoObject = [@"test" monoObject];
+    
+    for (NSUInteger i = 0; i < 1e5; i++) {
+        id object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+        (void)object;
+    }
 }
 
 #pragma mark -

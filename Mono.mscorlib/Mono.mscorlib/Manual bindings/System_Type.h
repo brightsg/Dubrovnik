@@ -1,9 +1,12 @@
-﻿//++Dubrovnik.CodeGenerator System_Type.h
-//
-// Managed class : Type
-//
-
+﻿
 #import "DBSystem_Array.h"
+#import "System_Reflection_MemberFilter.h"
+#import "System_Reflection_Assembly.h"
+#import "System_Reflection_TypeAttributes.h"
+#import "System_Reflection_MethodBase.h"
+#import "System_Reflection_Binder.h"
+#import "System_Reflection_GenericParameterAttributes.h"
+#import "System_Guid.h"
 
 @interface System_Type : System_Object
 
@@ -17,7 +20,7 @@
 #pragma mark -
 #pragma mark Fields
 
-/*
+
 	// Managed field name : Delimiter
 	// Managed field type : System.Char
     + (uint16_t)delimiter;
@@ -52,11 +55,9 @@
 	// Managed property name : AssemblyQualifiedName
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * assemblyQualifiedName;
-
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.TypeAttributes
     @property (nonatomic, readonly) System_Reflection_TypeAttributes attributes;
-
 	// Managed property name : BaseType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * baseType;
@@ -64,7 +65,6 @@
 	// Managed property name : ContainsGenericParameters
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL containsGenericParameters;
-
 	// Managed property name : DeclaringMethod
 	// Managed property type : System.Reflection.MethodBase
     @property (nonatomic, strong, readonly) System_Reflection_MethodBase * declaringMethod;
@@ -257,6 +257,7 @@
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isVisible;
 
+ /*
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
     @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
@@ -264,7 +265,7 @@
 	// Managed property name : Module
 	// Managed property type : System.Reflection.Module
     @property (nonatomic, strong, readonly) System_Reflection_Module * module;
-
+*/
 	// Managed property name : Namespace
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * namespace;
@@ -272,7 +273,7 @@
 	// Managed property name : ReflectedType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * reflectedType;
-
+/*
 	// Managed property name : StructLayoutAttribute
 	// Managed property type : System.Runtime.InteropServices.StructLayoutAttribute
     @property (nonatomic, strong, readonly) System_Runtime_InteropServices_StructLayoutAttribute * structLayoutAttribute;
@@ -284,7 +285,7 @@
 	// Managed property name : TypeInitializer
 	// Managed property type : System.Reflection.ConstructorInfo
     @property (nonatomic, strong, readonly) System_Reflection_ConstructorInfo * typeInitializer;
-
+*/
 	// Managed property name : UnderlyingSystemType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * underlyingSystemType;
@@ -301,7 +302,7 @@
 	// Managed return type : System.Boolean
 	// Managed param types : System.Type
     - (BOOL)equals_withOSType:(System_Type *)p1;
-
+/*
 	// Managed method name : FindInterfaces
 	// Managed return type : System.Type[]
 	// Managed param types : System.Reflection.TypeFilter, System.Object
@@ -346,11 +347,11 @@
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : 
     - (DBSystem_Array *)getDefaultMembers;
-
+*/
 	// Managed method name : GetElementType
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getElementType;
+    - (System_Type *)db_getElementType;
 
 	// Managed method name : GetEnumName
 	// Managed return type : System.String
@@ -360,18 +361,18 @@
 	// Managed method name : GetEnumNames
 	// Managed return type : System.String[]
 	// Managed param types : 
-    - (DBSystem_Array *)getEnumNames;
+    - (DBSystem_Array *)db_getEnumNames;
 
 	// Managed method name : GetEnumUnderlyingType
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getEnumUnderlyingType;
+    - (System_Type *)db_getEnumUnderlyingType;
 
 	// Managed method name : GetEnumValues
 	// Managed return type : System.Array
 	// Managed param types : 
-    - (DBSystem_Array *)getEnumValues;
-
+    - (DBSystem_Array *)db_getEnumValues;
+/*
 	// Managed method name : GetEvent
 	// Managed return type : System.Reflection.EventInfo
 	// Managed param types : System.String
@@ -411,26 +412,26 @@
 	// Managed return type : System.Reflection.FieldInfo[]
 	// Managed param types : System.Reflection.BindingFlags
     - (DBSystem_Array *)getFields_withBindingAttr:(System_Reflection_BindingFlags)p1;
-
+*/
 	// Managed method name : GetGenericArguments
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)getGenericArguments;
+    - (DBSystem_Array *)db_getGenericArguments;
 
 	// Managed method name : GetGenericParameterConstraints
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)getGenericParameterConstraints;
+    - (DBSystem_Array *)db_getGenericParameterConstraints;
 
 	// Managed method name : GetGenericTypeDefinition
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getGenericTypeDefinition;
+    - (System_Type *)db_getGenericTypeDefinition;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : 
-    - (int32_t)getHashCode;
+    - (int32_t)db_getHashCode;
 
 	// Managed method name : GetInterface
 	// Managed return type : System.Type
@@ -441,7 +442,7 @@
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean
     - (System_Type *)getInterface_withName:(NSString *)p1 ignoreCase:(BOOL)p2;
-
+/*
 	// Managed method name : GetInterfaceMap
 	// Managed return type : System.Reflection.InterfaceMapping
 	// Managed param types : System.Type
@@ -581,11 +582,11 @@
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.String
     - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1;
-
+*/
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getType;
+    - (System_Type *)db_getType;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type
@@ -602,6 +603,7 @@
 	// Managed param types : System.String
     + (System_Type *)getType_withTypeName:(NSString *)p1;
 
+/*
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
@@ -756,11 +758,11 @@
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Boolean, System.Boolean
     + (System_Type *)reflectionOnlyGetType_withTypeName:(NSString *)p1 throwIfNotFound:(BOOL)p2 ignoreCase:(BOOL)p3;
-
+*/
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : 
     - (NSString *)toString;
-*/
+
 @end
 //--Dubrovnik.CodeGenerator

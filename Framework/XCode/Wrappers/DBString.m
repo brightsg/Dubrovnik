@@ -61,7 +61,7 @@
      NSString+Dubrovnik -monoString
      
      */
-#warning Memory allocation unit test required
+// TODO: Memory allocation unit test required
 	MonoObject *monoObject = mono_gchandle_get_target(_gcHandle);
     
     return (MonoString *)monoObject;

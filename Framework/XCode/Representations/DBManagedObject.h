@@ -67,6 +67,7 @@ extern char DBCacheSuffixChar;
 
 // Class methods
 + (MonoClass *)monoClass;
++ (MonoType *)monoType;
 + (DBManagedClass *)dbClass;
 + (instancetype)objectWithMonoObject:(MonoObject *)obj;
 + (id)subclassObjectWithMonoObject:(MonoObject *)obj;

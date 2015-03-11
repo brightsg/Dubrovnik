@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ABBD3B8D190013E800DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B8C190013E800DB59AF /* Cocoa.framework */; };
 		ABBD3B97190013E800DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3B95190013E800DB59AF /* InfoPlist.strings */; };
-		ABBD3BA2190013E900DB59AF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BA1190013E900DB59AF /* XCTest.framework */; };
 		ABBD3BA3190013E900DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B8C190013E800DB59AF /* Cocoa.framework */; };
 		ABBD3BA6190013E900DB59AF /* Mono.System.Net.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */; };
 		ABBD3BAC190013E900DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BAA190013E900DB59AF /* InfoPlist.strings */; };
@@ -46,7 +45,6 @@
 		ABBD3B96190013E800DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3B98190013E800DB59AF /* Mono.System.Net-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Net-Prefix.pch"; sourceTree = "<group>"; };
 		ABBD3BA0190013E900DB59AF /* Mono.System.NetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.System.NetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABBD3BA1190013E900DB59AF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ABBD3BA9190013E900DB59AF /* Mono.System.NetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.NetTests-Info.plist"; sourceTree = "<group>"; };
 		ABBD3BAB190013E900DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3BAD190013E900DB59AF /* Mono_System_NetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_NetTests.m; sourceTree = "<group>"; };
@@ -58,9 +56,9 @@
 		ABBD3C03190015B800DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		ABBD3C04190015B800DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABBD3C05190015B800DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
-		ABF5D285190C589700E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Dubrovnik.framework"; sourceTree = "<group>"; };
-		ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = "<group>"; };
-		ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.System.Core.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Mono.System.Core.framework"; sourceTree = "<group>"; };
+		ABF5D285190C589700E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABBD3BA3190013E900DB59AF /* Cocoa.framework in Frameworks */,
-				ABBD3BA2190013E900DB59AF /* XCTest.framework in Frameworks */,
 				ABBD3BA6190013E900DB59AF /* Mono.System.Net.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,7 +111,6 @@
 				ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */,
 				ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */,
 				ABBD3B8C190013E800DB59AF /* Cocoa.framework */,
-				ABBD3BA1190013E900DB59AF /* XCTest.framework */,
 				ABBD3B8E190013E800DB59AF /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -445,11 +441,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Net/Mono.System.Net-Prefix.pch";
@@ -466,11 +458,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Dubrovnik-cuubqgllbcxaupgdudzutlqkgljz/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Net/Mono.System.Net-Prefix.pch";

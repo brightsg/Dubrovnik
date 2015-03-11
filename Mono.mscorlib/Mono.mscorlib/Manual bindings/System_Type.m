@@ -27,7 +27,7 @@
 #pragma mark -
 #pragma mark Fields
 
-/*
+
 	// Managed field name : Delimiter
 	// Managed field type : System.Char
     static uint16_t m_delimiter;
@@ -693,7 +693,7 @@
 
 		return _isVisible;
 	}
-
+/*
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
     @synthesize memberType = _memberType;
@@ -716,7 +716,7 @@
 
 		return _module;
 	}
-
+*/
 	// Managed property name : Namespace
 	// Managed property type : System.String
     @synthesize namespace = _namespace;
@@ -740,7 +740,7 @@
 
 		return _reflectedType;
 	}
-
+/*
 	// Managed property name : StructLayoutAttribute
 	// Managed property type : System.Runtime.InteropServices.StructLayoutAttribute
     @synthesize structLayoutAttribute = _structLayoutAttribute;
@@ -776,7 +776,7 @@
 
 		return _typeInitializer;
 	}
-
+*/
 	// Managed property name : UnderlyingSystemType
 	// Managed property type : System.Type
     @synthesize underlyingSystemType = _underlyingSystemType;
@@ -813,7 +813,7 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
+/*
 	// Managed method name : FindInterfaces
 	// Managed return type : System.Type[]
 	// Managed param types : System.Reflection.TypeFilter, System.Object
@@ -912,11 +912,11 @@
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-
+*/
 	// Managed method name : GetElementType
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getElementType
+    - (System_Type *)db_getElementType
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetElementType()" withNumArgs:0];
@@ -938,7 +938,7 @@
 	// Managed method name : GetEnumNames
 	// Managed return type : System.String[]
 	// Managed param types : 
-    - (DBSystem_Array *)getEnumNames
+    - (DBSystem_Array *)db_getEnumNames
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumNames()" withNumArgs:0];
@@ -949,7 +949,7 @@
 	// Managed method name : GetEnumUnderlyingType
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getEnumUnderlyingType
+    - (System_Type *)db_getEnumUnderlyingType
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumUnderlyingType()" withNumArgs:0];
@@ -960,14 +960,14 @@
 	// Managed method name : GetEnumValues
 	// Managed return type : System.Array
 	// Managed param types : 
-    - (DBSystem_Array *)getEnumValues
+    - (DBSystem_Array *)db_getEnumValues
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumValues()" withNumArgs:0];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-
+/*
 	// Managed method name : GetEvent
 	// Managed return type : System.Reflection.EventInfo
 	// Managed param types : System.String
@@ -1055,11 +1055,11 @@
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-
+*/
 	// Managed method name : GetGenericArguments
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)getGenericArguments
+    - (DBSystem_Array *)db_getGenericArguments
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
@@ -1070,7 +1070,7 @@
 	// Managed method name : GetGenericParameterConstraints
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)getGenericParameterConstraints
+    - (DBSystem_Array *)db_getGenericParameterConstraints
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericParameterConstraints()" withNumArgs:0];
@@ -1081,7 +1081,7 @@
 	// Managed method name : GetGenericTypeDefinition
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getGenericTypeDefinition
+    - (System_Type *)db_getGenericTypeDefinition
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericTypeDefinition()" withNumArgs:0];
@@ -1092,7 +1092,7 @@
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : 
-    - (int32_t)getHashCode
+    - (int32_t)db_getHashCode
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
@@ -1121,7 +1121,7 @@
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }
-
+/*
 	// Managed method name : GetInterfaceMap
 	// Managed return type : System.Reflection.InterfaceMapping
 	// Managed param types : System.Type
@@ -1429,11 +1429,11 @@
 		
 		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
     }
-
+*/
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : 
-    - (System_Type *)getType
+    - (System_Type *)db_getType
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
@@ -1474,6 +1474,7 @@
 		return [System_Type objectWithMonoObject:monoObject];
     }
 
+/*
 	// Managed method name : GetType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
@@ -1814,7 +1815,7 @@
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }
-
+*/
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : 
@@ -1825,20 +1826,18 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-*/
+
 
 #pragma mark -
 #pragma mark Teardown
 	- (void)dealloc
 	{
-        /*
 		m_emptyTypes = nil;
 		m_filterAttribute = nil;
 		m_filterName = nil;
 		m_filterNameIgnoreCase = nil;
 		m_missing = nil;
 		m_defaultBinder = nil;
-         */
 	}
 @end
 //--Dubrovnik.CodeGenerator

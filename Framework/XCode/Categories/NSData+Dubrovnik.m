@@ -53,7 +53,7 @@
         uintptr_t byteLength = [self length];
         monoArray = mono_array_new(mono_domain_get(), mono_get_byte_class(), byteLength);
 
-        #warning TODO: memory management needs to be resolved
+// TODO: memory management needs to be resolved
         
         // copy the NSData bytes  to the Mono array
         int32_t elementSize = mono_array_element_size(mono_object_get_class((MonoObject *)monoArray));

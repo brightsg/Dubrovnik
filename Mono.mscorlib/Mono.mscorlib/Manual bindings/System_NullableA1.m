@@ -136,6 +136,11 @@
     return [self newNullableFromObject:[NSNumber numberWithInt:value] withTypeArgumentName:@"int32_t"];
 }
 
++ (id)newNullableFromInt64:(int64_t)value
+{
+    return [self newNullableFromObject:[NSNumber numberWithInteger:value] withTypeArgumentName:@"int64_t"];
+}
+
 + (id)newNullableFromDouble:(double)value
 {
     return [self newNullableFromObject:[NSNumber numberWithDouble:value] withTypeArgumentName:@"double"];
@@ -153,7 +158,6 @@
 {
     MonoObject *monoObject = NULL;
     
-#warning Refactor this. Will likely mean changing the type names to be compatible with DBTypeManager
     // TODO: there is likely some type info duplication here with DBTypeManager
     // it would be best to defer this method to DBTypeManager
     

@@ -6,6 +6,7 @@
 //
 //
 #import "System_Object.h"
+#import "System_Type.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 #import "Dubrovnik/DBBoxing.h"
 #import "Dubrovnik/NSString+Dubrovnik.h"
@@ -51,7 +52,7 @@
 // Managed method name : GetHashCode
 // Managed return type : System.Int32
 // Managed param types :
-- (int32_t)getHashCode
+- (int32_t)db_getHashCode
 {
     MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
     return DB_UNBOX_INT32(monoObject);
@@ -60,13 +61,11 @@
 // Managed method name : GetType
 // Managed return type : System.Type
 // Managed param types :
-/*
-- (System_Type *)getType
+- (System_Type *)db_getType
 {
     MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
     return [System_Type objectWithMonoObject:monoObject];
 }
-*/
 
 // Managed method name : ReferenceEquals
 // Managed return type : System.Boolean

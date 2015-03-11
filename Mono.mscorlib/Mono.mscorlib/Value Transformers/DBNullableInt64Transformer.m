@@ -28,6 +28,9 @@
 
 - (id)reverseTransformedValue:(id)value
 {
+    if (!value) {
+        value = [NSNumber numberWithInteger:0];
+    }
     System_NullableA1 *nullableA1 = [System_NullableA1 newNullableFromObject:value withTypeArgumentName:@"int64_t"];
     
     return nullableA1;

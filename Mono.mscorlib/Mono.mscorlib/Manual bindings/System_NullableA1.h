@@ -137,6 +137,6 @@ NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (BOOL)boolValue;
 - (float)floatValue;
 - (double)doubleValue;
-
++ (id)newNullableFromInt64:(int64_t)value;
 
 @end
