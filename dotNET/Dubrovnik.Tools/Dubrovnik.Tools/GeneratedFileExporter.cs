@@ -71,7 +71,13 @@ namespace Dubrovnik.Tools
                     }
 
                     // export it
-                    File.WriteAllText(outputFilePath, output, encoding);
+						  StreamWriter sw = new StreamWriter(outputFilePath, false, encoding);
+	                 sw.NewLine = "\n";
+						  sw.Write(output);
+	                 sw.Close();
+
+						  // Legacy
+                    //File.WriteAllText(outputFilePath, output, encoding);
 
                     // move the cursor
                     idxStart = idxEnd;
@@ -104,7 +110,13 @@ namespace Dubrovnik.Tools
             // output the remaining content
             if (content != null)
             {
-                File.WriteAllText(contentFile, sb.ToString(), encoding);
+					StreamWriter sw = new StreamWriter(contentFile, false, encoding);
+					sw.NewLine = "\n";
+					sw.Write(sb.ToString());
+					sw.Close();
+
+					// Legacy
+               //File.WriteAllText(contentFile, sb.ToString(), encoding);
             }
         }
 
