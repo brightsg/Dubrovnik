@@ -111,11 +111,11 @@ Project Map
 
 * [dotNET](dotNET) : Managed code sources
 
-    * CodeGenerator : a runtime t4 template powered Obj-C code generator.
+    * Dubrovnik.Tools : Reflector : generates the reflection XML that is parsed by the code generator 
+
+    * Dubrovnik.Tools : CodeGenerator : a runtime t4 template powered Obj-C code generator.
 
     * FrameworkHelper : the Dubrovnik framework helper
-
-    * Reflector : generates the reflection XML that is parsed by the code generator 
 
     * UnitTests : unit test target assembly
 
@@ -231,13 +231,11 @@ To generate bindings automatically:
 
 * Fire up (typically) a Windows VM
 
-* With Visual Studio build solution `dotNet/Reflector/Dubrovnik.Reflector`
+* With Visual Studio build solution `dotNet/Dubrovnik.Tools/Dubrovnik.Tools.sln`
 
-* With Visual Studio build solution `dotNet/CodeGenerator/Dubrovnik.CodeGenerator`
+* Using `Dubrovnik.Reflector.UI` select a target .NET assembly and export it to XML. Or use the Dubrovnik.Reflector command line version.
 
-* Using `Dubrovnik.Reflector` select a target .NET assembly and export it to XML.
-
-* Using `Dubrovnik.CodeGenerator` select the exported XML and generate Obj-C bindings.
+* Using `Dubrovnik.Generator.UI` select the exported XML and generate Obj-C bindings. Or use the Dubrovnik.Generator command line version.
 
 The code generator will generate Obj-C declarations for all managed objects defined within the target assembly. References to managed objects not defined within the target assembly must have valid Obj-C declarations defined either by the Dubrovnik framework itself or in other linked files. Dependencies between multiple assemblies established using references can be resolved by auto generating bindings for each assembly and linking the resultant Obj-C representations.
 
