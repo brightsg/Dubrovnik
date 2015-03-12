@@ -11,7 +11,7 @@ namespace Dubrovnik.Generator
 {
 	class Program {
 
-		static void Main(string[] args) {
+		static int Main(string[] args) {
 
 			// parse the command line
 			// https://github.com/gsscoder/commandline
@@ -28,12 +28,27 @@ namespace Dubrovnik.Generator
 			}
 			else
 			{
-				Console.WriteLine("Command line arguments failed to parse");
-				return;
+				Console.WriteLine("ERROR: Command line arguments failed to parse");
+				return -1;
 			}
 
 			try {
-					
+				
+				// input file must exist
+				if (!File.Exists(options.InputFile))
+				{
+					Console.WriteLine("ERROR: Input file does not exist.");
+					return -1;
+				}
+
+				// output path must exist
+				if (!Directory.Exists(options.OutputPath))
+				{
+
+					Console.WriteLine("ERROR: Output path does not exist.");
+					return -1;
+				}
+
 				// instantiate code generator
 				CodeGenerator codeGen = new CodeGenerator(options.InputFile);
 
@@ -45,8 +60,11 @@ namespace Dubrovnik.Generator
 			}
 			catch (Exception e)
 			{
-					Console.WriteLine("An Exception Occurred : {0}", e.GetType().ToString());
+				Console.WriteLine("ERROR: An Exception Occurred : {0}", e.ToString());
+				return -1;
 			}
+
+			return 0;
 		}
 	}
 }
