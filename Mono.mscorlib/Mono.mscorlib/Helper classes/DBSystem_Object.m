@@ -31,7 +31,7 @@
     // build a System.Array of item types
     DBManagedObject *argType = [[System_Object alloc] initWithMonoObject:(MonoObject *)monoReflectionType];
     NSArray *argTypes = @[argType];
-    DBSystem_Array *dbsAargTypes = [argTypes dbsArrayWithTypeName:@"System.Type"];
+    DBSystem_Array *dbsAargTypes = [argTypes managedArrayWithTypeName:@"System.Type"];
 
     // get the generic type definition
     //

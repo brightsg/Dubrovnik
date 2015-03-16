@@ -26,14 +26,14 @@
 
 @implementation NSArray (mscorlib)
 
-- (DBSystem_Collections_Generic_ListA1 *)dbscgListA1
+- (DBSystem_Collections_Generic_ListA1 *)managedListA1
 {
     DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:self];
     
     return list;
 }
 
-- (DBSystem_Collections_ArrayList *)dbscArrayList
+- (DBSystem_Collections_ArrayList *)managedArrayList
 {
 	DBSystem_Collections_ArrayList *monoArrayList = [[DBSystem_Collections_ArrayList alloc] init];
 	NSEnumerator *enumerator = [self objectEnumerator];
@@ -53,7 +53,7 @@
 	return(monoArrayList);
 }
 
-- (DBSystem_Array *)dbsArrayWithTypeName:(NSString *)name
+- (DBSystem_Array *)managedArrayWithTypeName:(NSString *)name
 {
     // get the type
     DBType *type = [[DBTypeManager sharedManager] typeForName:name];

@@ -515,7 +515,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // derive ListA1 from array
     NSArray *stringArray2 = @[@"1", @"10", @"100", @"1000",];
-    DBSystem_Collections_Generic_ListA1 *numbersList = [stringArray2 dbscgListA1];
+    DBSystem_Collections_Generic_ListA1 *numbersList = [stringArray2 managedListA1];
     XCTAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
 
     // allocate list<testClass> and populate
@@ -832,43 +832,43 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // int 64 array
     NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @256L];
-    DBSystem_Array *int64Array = [int64NSArray dbsArrayWithTypeName:DBType_System_Int64];
+    DBSystem_Array *int64Array = [int64NSArray managedArrayWithTypeName:DBType_System_Int64];
     int64_t int64Total = [refObject sum_withInt64Array:int64Array];
     XCTAssertTrue(int64Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
     
     // int 32 array
     NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @257];
-    DBSystem_Array *int32Array = [int32NSArray dbsArrayWithTypeName:DBType_System_Int32];
+    DBSystem_Array *int32Array = [int32NSArray managedArrayWithTypeName:DBType_System_Int32];
     int32_t int32Total = [refObject sum_withInt32Array:int32Array];
     XCTAssertTrue(int32Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 257, DBUEqualityTestFailed);
     
     // int 16 array
     NSArray *int16NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @255];
-    DBSystem_Array *int16Array = [int16NSArray dbsArrayWithTypeName:DBType_System_Int16];
+    DBSystem_Array *int16Array = [int16NSArray managedArrayWithTypeName:DBType_System_Int16];
     int16_t int16Total = [refObject sum_withInt16Array:int16Array];
     XCTAssertTrue(int16Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 255, DBUEqualityTestFailed);
     
     // byte array
     NSArray *byteNSArray = @[@0, @1, @2, @4, @8, @16, @32, @64];
-    DBSystem_Array *byteArray = [byteNSArray dbsArrayWithTypeName:DBType_System_Byte];
+    DBSystem_Array *byteArray = [byteNSArray managedArrayWithTypeName:DBType_System_Byte];
     int8_t byteTotal = [refObject sum_withByteArray:byteArray];
     XCTAssertTrue(byteTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64, DBUEqualityTestFailed);
     
     // float array
     NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @258.0F];
-    DBSystem_Array *floatArray = [floatNSArray dbsArrayWithTypeName:DBType_System_Single];
+    DBSystem_Array *floatArray = [floatNSArray managedArrayWithTypeName:DBType_System_Single];
     float floatTotal = [refObject sum_withFloatArray:floatArray];
     XCTAssertTrue(floatTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 258, DBUEqualityTestFailed);
     
     // double array
     NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0F, @32.0, @64.0, @128.0, @259.0];
-    DBSystem_Array *doubleArray = [doubleNSArray dbsArrayWithTypeName:DBType_System_Double];
+    DBSystem_Array *doubleArray = [doubleNSArray managedArrayWithTypeName:DBType_System_Double];
     double doubleTotal = [refObject sum_withDoubleArray:doubleArray];
     XCTAssertTrue(doubleTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 259, DBUEqualityTestFailed);
     
     // string array
     NSArray *stringNSArray = @[DBUTestString, @" 1", @" 2"];
-    DBSystem_Array *stringArray = [stringNSArray dbsArrayWithTypeName:DBType_System_String];
+    DBSystem_Array *stringArray = [stringNSArray managedArrayWithTypeName:DBType_System_String];
     NSString *stringTotal = [refObject sum_withStringArray:stringArray];
     NSString *stringTest = [NSString stringWithFormat:@"%@ %@ %@", DBUTestString, @"1", @"2"];
     XCTAssertTrue([stringTotal isEqual:stringTest], DBUEqualityTestFailed);
@@ -919,7 +919,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // derive string mono array from NSArray
     NSArray *stringNSArray = @[DBUTestString, @"1", @"2"];
-    stringArray = [stringNSArray dbsArrayWithTypeName:DBType_System_String];
+    stringArray = [stringNSArray managedArrayWithTypeName:DBType_System_String];
     [refObject setStringArray:stringArray];   // set
     stringArray = [refObject stringArray];    // get
     XCTAssertTrue([stringArray count] == 3, DBUCountTestFailed);
@@ -953,7 +953,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // derive 64 bit mono array from NSArray
     NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @128L];
-    int64Array = [int64NSArray dbsArrayWithTypeName:DBType_System_Int64];
+    int64Array = [int64NSArray managedArrayWithTypeName:DBType_System_Int64];
     [refObject setInt64Array:int64Array];   // set
     int64Array = [refObject int64Array];    // get
     XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
@@ -975,7 +975,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // derive 32 bit mono array from NSArray
     NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @120];
-    int32Array = [int32NSArray dbsArrayWithTypeName:DBType_System_Int32];
+    int32Array = [int32NSArray managedArrayWithTypeName:DBType_System_Int32];
     [refObject setInt32Array:int32Array];   // set
     int32Array = [refObject int32Array];    // get
     XCTAssertTrue([int32Array count] == 10, DBUCountTestFailed);
@@ -1007,7 +1007,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // derive float mono array from NSArray
     NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @116.0F];
-    floatArray = [floatNSArray dbsArrayWithTypeName:DBType_System_Single];
+    floatArray = [floatNSArray managedArrayWithTypeName:DBType_System_Single];
     [refObject setFloatArray:floatArray];   // set
     floatArray = [refObject floatArray];    // get
     XCTAssertTrue([floatArray count] == 10, DBUCountTestFailed);
@@ -1029,7 +1029,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // derive double mono array from NSArray
     NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0, @32.0, @64.0, @128.0, @110.0];
-    doubleArray = [doubleNSArray dbsArrayWithTypeName:DBType_System_Double];
+    doubleArray = [doubleNSArray managedArrayWithTypeName:DBType_System_Double];
     [refObject setDoubleArray:doubleArray];   // set
     doubleArray = [refObject doubleArray];    // get
     XCTAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
