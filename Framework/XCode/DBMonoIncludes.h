@@ -30,6 +30,7 @@
 #import <mono/jit/jit.h>
 #import <mono/metadata/metadata.h>
 #import <mono/metadata/debug-helpers.h>
+#import <mono/metadata/mono-debug.h>
 #import <mono/metadata/object.h>
 #import <mono/metadata/threads.h>
 #import <mono/metadata/appdomain.h>

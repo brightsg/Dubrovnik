@@ -163,6 +163,28 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	return(self);
 }
 
+- (void)monoDebugInit
+{
+    mono_debug_init(MONO_DEBUG_FORMAT_MONO);
+    mono_debug_domain_create(_monoDomain);
+}
+
+- (void)setRuntimeOptions:(NSDictionary *)options
+{
+
+    NSString *address = options[@"debugger-address"]?:@"127.0.0.1";
+    NSString *port = options[@"debugger-port"]?:@"10000";
+    
+    NSString *agent = [NSString stringWithFormat:@"--debugger-agent=transport=dt_socket,address=%@:%@", address, port];
+    const char* jit_options[] = {
+        // unsupported? "--debug",
+        "--soft-breakpoints",
+        [agent UTF8String]
+    };
+    
+    mono_jit_parse_options(2, (char**)jit_options);
+}
+
 + (MonoClass *)monoClassWithName:(char *)className fromAssemblyName:(const char *)name
 {
     return [[self currentEnvironment] monoClassWithName:className fromAssemblyName:name];

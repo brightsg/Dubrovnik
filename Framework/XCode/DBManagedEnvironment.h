@@ -109,6 +109,16 @@
 
 /*!
  
+ This method must be called after loading corlib,
+ but before opening the application's main assembly because we need to set some
+ 
+ */
+- (void)monoDebugInit;
+
+- (void)setRuntimeOptions:(NSDictionary *)options;
+
+/*!
+ 
  Designated intialiser
  
  */
