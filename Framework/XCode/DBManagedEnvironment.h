@@ -109,13 +109,10 @@
 
 /*!
  
- This method must be called after loading corlib,
- but before opening the application's main assembly because we need to set some
+ Be sure to call this before -initWithDomainName
  
  */
-- (void)monoDebugInit;
-
-- (void)setRuntimeOptions:(NSDictionary *)options;
++ (void)setRuntimeOptions:(NSDictionary *)options;
 
 /*!
  

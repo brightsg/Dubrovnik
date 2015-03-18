@@ -144,6 +144,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	self = [super init];
 	
 	if (self) {
+        
         if (version != NULL) {
             _monoDomain = mono_jit_init_version(domainName, version);
         } else {
@@ -163,26 +164,28 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	return(self);
 }
 
-- (void)monoDebugInit
++ (void)setRuntimeOptions:(NSDictionary *)options
 {
-    mono_debug_init(MONO_DEBUG_FORMAT_MONO);
-    mono_debug_domain_create(_monoDomain);
-}
-
-- (void)setRuntimeOptions:(NSDictionary *)options
-{
-
-    NSString *address = options[@"debugger-address"]?:@"127.0.0.1";
-    NSString *port = options[@"debugger-port"]?:@"10000";
+    // NOTE: be sure to call this before -initWithDomainName
     
-    NSString *agent = [NSString stringWithFormat:@"--debugger-agent=transport=dt_socket,address=%@:%@", address, port];
+    // for info on these options see man mono
+    // the debugger can be configured either as a client or a server
+    NSString *address = options[@"address"]?:@"127.0.0.1";
+    NSString *port = options[@"port"]?:@"10000";
+    NSString *server = options[@"server"]?:@"n";
+    NSString *suspend = options[@"suspend"]?:@"y";
+    NSString *loglevel = options[@"loglevel"]?:@"1";
+    NSString *timeout = options[@"timeout"]?:@"10";
+    
+    NSString *agent = [NSString stringWithFormat:@"--debugger-agent=transport=dt_socket,address=%@:%@,server=%@,suspend=%@,loglevel=%@,timeout=%@", address, port, server, suspend, loglevel,timeout];
     const char* jit_options[] = {
-        // unsupported? "--debug",
         "--soft-breakpoints",
         [agent UTF8String]
     };
     
     mono_jit_parse_options(2, (char**)jit_options);
+    
+    mono_debug_init(MONO_DEBUG_FORMAT_MONO);
 }
 
 + (MonoClass *)monoClassWithName:(char *)className fromAssemblyName:(const char *)name
