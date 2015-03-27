@@ -1,4 +1,5 @@
-﻿#import "mscorlib.h"
+﻿#import "System_Version.h"
+
 //++Dubrovnik.CodeGenerator System_Version.m
 //
 // Managed class : Version

@@ -1,4 +1,5 @@
-﻿#import "mscorlib.h"
+﻿#import "System_Reflection_AssemblyName.h"
+
 //++Dubrovnik.CodeGenerator System_Reflection_AssemblyName.m
 //
 // Managed class : AssemblyName
@@ -56,41 +57,6 @@
 		[self setMonoProperty:"CodeBase" valueObject:monoObject];          
 	}
 
-	// Managed property name : ContentType
-	// Managed property type : System.Reflection.AssemblyContentType
-    @synthesize contentType = _contentType;
-    - (System_Reflection_AssemblyContentType)contentType
-    {
-		MonoObject *monoObject = [self getMonoProperty:"ContentType"];
-		_contentType = DB_UNBOX_INT32(monoObject);
-
-		return _contentType;
-	}
-    - (void)setContentType:(System_Reflection_AssemblyContentType)value
-	{
-		_contentType = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ContentType" valueObject:monoObject];          
-	}
-
-	// Managed property name : CultureInfo
-	// Managed property type : System.Globalization.CultureInfo
-    @synthesize cultureInfo = _cultureInfo;
-    - (System_Globalization_CultureInfo *)cultureInfo
-    {
-		MonoObject *monoObject = [self getMonoProperty:"CultureInfo"];
-		if ([self object:_cultureInfo isEqualToMonoObject:monoObject]) return _cultureInfo;					
-		_cultureInfo = [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
-
-		return _cultureInfo;
-	}
-    - (void)setCultureInfo:(System_Globalization_CultureInfo *)value
-	{
-		_cultureInfo = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"CultureInfo" valueObject:monoObject];          
-	}
-
 	// Managed property name : CultureName
 	// Managed property type : System.String
     @synthesize cultureName = _cultureName;
@@ -115,23 +81,6 @@
 		return _escapedCodeBase;
 	}
 
-	// Managed property name : Flags
-	// Managed property type : System.Reflection.AssemblyNameFlags
-    @synthesize flags = _flags;
-    - (System_Reflection_AssemblyNameFlags)flags
-    {
-		MonoObject *monoObject = [self getMonoProperty:"Flags"];
-		_flags = DB_UNBOX_INT32(monoObject);
-
-		return _flags;
-	}
-    - (void)setFlags:(System_Reflection_AssemblyNameFlags)value
-	{
-		_flags = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Flags" valueObject:monoObject];          
-	}
-
 	// Managed property name : FullName
 	// Managed property type : System.String
     @synthesize fullName = _fullName;
@@ -142,41 +91,6 @@
 		_fullName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
 		return _fullName;
-	}
-
-	// Managed property name : HashAlgorithm
-	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
-    @synthesize hashAlgorithm = _hashAlgorithm;
-    - (System_Configuration_Assemblies_AssemblyHashAlgorithm)hashAlgorithm
-    {
-		MonoObject *monoObject = [self getMonoProperty:"HashAlgorithm"];
-		_hashAlgorithm = DB_UNBOX_INT32(monoObject);
-
-		return _hashAlgorithm;
-	}
-    - (void)setHashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)value
-	{
-		_hashAlgorithm = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"HashAlgorithm" valueObject:monoObject];          
-	}
-
-	// Managed property name : KeyPair
-	// Managed property type : System.Reflection.StrongNameKeyPair
-    @synthesize keyPair = _keyPair;
-    - (System_Reflection_StrongNameKeyPair *)keyPair
-    {
-		MonoObject *monoObject = [self getMonoProperty:"KeyPair"];
-		if ([self object:_keyPair isEqualToMonoObject:monoObject]) return _keyPair;					
-		_keyPair = [System_Reflection_StrongNameKeyPair objectWithMonoObject:monoObject];
-
-		return _keyPair;
-	}
-    - (void)setKeyPair:(System_Reflection_StrongNameKeyPair *)value
-	{
-		_keyPair = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"KeyPair" valueObject:monoObject];          
 	}
 
 	// Managed property name : Name
@@ -197,23 +111,6 @@
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
-	// Managed property name : ProcessorArchitecture
-	// Managed property type : System.Reflection.ProcessorArchitecture
-    @synthesize processorArchitecture = _processorArchitecture;
-    - (System_Reflection_ProcessorArchitecture)processorArchitecture
-    {
-		MonoObject *monoObject = [self getMonoProperty:"ProcessorArchitecture"];
-		_processorArchitecture = DB_UNBOX_INT32(monoObject);
-
-		return _processorArchitecture;
-	}
-    - (void)setProcessorArchitecture:(System_Reflection_ProcessorArchitecture)value
-	{
-		_processorArchitecture = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ProcessorArchitecture" valueObject:monoObject];          
-	}
-
 	// Managed property name : Version
 	// Managed property type : System.Version
     @synthesize version = _version;
@@ -230,23 +127,6 @@
 		_version = value;
 		MonoObject *monoObject = [value monoObject];
 		[self setMonoProperty:"Version" valueObject:monoObject];          
-	}
-
-	// Managed property name : VersionCompatibility
-	// Managed property type : System.Configuration.Assemblies.AssemblyVersionCompatibility
-    @synthesize versionCompatibility = _versionCompatibility;
-    - (System_Configuration_Assemblies_AssemblyVersionCompatibility)versionCompatibility
-    {
-		MonoObject *monoObject = [self getMonoProperty:"VersionCompatibility"];
-		_versionCompatibility = DB_UNBOX_INT32(monoObject);
-
-		return _versionCompatibility;
-	}
-    - (void)setVersionCompatibility:(System_Configuration_Assemblies_AssemblyVersionCompatibility)value
-	{
-		_versionCompatibility = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"VersionCompatibility" valueObject:monoObject];          
 	}
 
 #pragma mark -
@@ -272,14 +152,6 @@
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
 		
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : GetObjectData
-	// Managed return type : System.Void
-	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
-    - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
-    {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
     }
 
 	// Managed method name : GetPublicKey

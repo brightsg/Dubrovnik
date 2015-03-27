@@ -19,6 +19,8 @@
 #import "System_DateTime.h"
 #import "System_ActionA1.h"
 
+
+
 #import "System_Convert.h"
 #import "System_Enum.h"
 #import "System_EventArgs.h"
@@ -32,11 +34,15 @@
 #import "System_Text_Encoding.h"
 #import "System_Text_StringBuilder.h"
 #import "System_TimeSpan.h"
+#import "System_Version.h"
 
 #import "System_Reflection.h"
+#import "System_Reflection_Assembly.h"
 #import "System_Reflection_MethodInfo.h"
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_ConstructorInfo.h"
+#import "System_Reflection_AssemblyName.h"
+
 
 #import "System_IO_FileInfo.h"
 #import "System_IO_Stream.h"

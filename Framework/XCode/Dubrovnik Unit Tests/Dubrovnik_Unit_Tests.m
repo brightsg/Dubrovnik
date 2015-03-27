@@ -126,6 +126,17 @@ static MonoAssembly *monoAssembly;
     monoAssembly = [monoEnv openAssembly:assemblyName path:assemblyFile];
     XCTAssertTrue(monoAssembly, @"Cannot open assembly : %@", assemblyFile);
     
+    // Note:
+    // MonoReflectionType represents System.Type
+    // MonoReflectionAssembly represents System.Reflection.Assembly
+    MonoReflectionAssembly *monoReflectionAssembly = mono_assembly_get_object(mono_domain_get(), monoAssembly);
+    
+    // get the version via reflection
+    System_Reflection_Assembly *managedAssembly = [[System_Reflection_Assembly alloc] initWithMonoObject:(MonoObject *)monoReflectionAssembly];
+    NSString *assemblyVersion = managedAssembly.getName.version.toString;
+    
+    XCTAssertTrue(assemblyVersion, @"Assembly version not found");
+                  
     // invoke the assembly static main.
     // this prepares the application domain and validates that the assembly is loaded and functional.
     // the assembly will remain loaded and accessible once the assmbly invocation completes.

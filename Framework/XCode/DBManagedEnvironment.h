@@ -178,5 +178,4 @@
  */
 - (void)collectAndWaitForPendingFinalizers;
 
-
 @end
