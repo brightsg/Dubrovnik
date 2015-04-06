@@ -8,5 +8,9 @@
 
 @interface System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1 : System_Object
 
+// Managed property name : Count
+// Managed property type : System.Int32
+@property (nonatomic) int32_t count;
+
 @end
 
