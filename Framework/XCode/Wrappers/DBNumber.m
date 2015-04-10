@@ -10,6 +10,14 @@
 #import "DBBoxing.h"
 #import "DBManagedObject.h"
 
+/*
+ 
+ I think we really do want to ignore -Wobjc-designated-initializers on a permanent basis.
+ We need to take over the way that our subclass handles the representation.
+ 
+ */
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
+
 #define DB_INIT_INSTANCE(encoding) \
 self = [super init]; \
 if (self) { self.monoObjCType = encoding; self.number = @(value);}\
@@ -657,7 +665,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     
     // This object will not be moved while it is on the stack.
     // If saved into a non stack location it must be pinned.
-    #warning Memory allocation unit test required
+    // TODO Memory allocation unit test required
     MonoObject *monoObject = mono_gchandle_get_target(self.gcHandle);
     
     return monoObject;

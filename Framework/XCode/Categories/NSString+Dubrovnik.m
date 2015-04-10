@@ -30,6 +30,9 @@
 	return(wrappedString);
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
+
 - (id)initWithMonoString:(MonoString *)monoString {
 	if (self) {
 		self = [[DBString alloc] initWithMonoString:monoString];
@@ -37,6 +40,7 @@
 	
 	return(self);
 }
+#pragma clang diagnostic pop
 
 #pragma mark -
 
