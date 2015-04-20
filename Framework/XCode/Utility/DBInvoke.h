@@ -68,5 +68,5 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOO
 MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature);
 
 // Exception handling
-void NSRaiseExceptionFromMonoException(MonoObject *monoException);
-NSException *NSExceptionFromMonoException(MonoObject *monoException);
+void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info);
+NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionary *callerInfo);

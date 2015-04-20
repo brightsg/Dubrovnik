@@ -86,16 +86,16 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark -
 #pragma mark Exception handling
 
-void NSRaiseExceptionFromMonoException(MonoObject *monoException)
+void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
-    NSException *e = NSExceptionFromMonoException(monoException);
+    NSException *e = NSExceptionFromMonoException(monoException, info);
     
-    // raise the exceptionon the current thread.
+    // raise the exception on the current thread.
     // it is up to the caller to catch this and raise it on the main thread if required.
     [e raise];
 }
 
-NSException *NSExceptionFromMonoException(MonoObject *monoException)
+NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
     id managedException = [[DBTypeManager sharedManager] objectWithNonValueTypeMonoObject:monoException];
     
@@ -122,7 +122,7 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     NSException *innerException = nil;
     MonoObject *innerExceptionMonoObject = DBMonoObjectGetProperty(monoException, "InnerException");
     if (innerExceptionMonoObject && innerExceptionMonoObject != monoException) {
-        innerException = NSExceptionFromMonoException(innerExceptionMonoObject);
+        innerException = NSExceptionFromMonoException(innerExceptionMonoObject, nil);
     }
     
     //
@@ -133,11 +133,6 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     NSMutableString *exceptionName = [NSMutableString stringWithString:@"Dubrovnik Framework : Managed Code Exception : "];
     [exceptionName appendFormat:@"%@", message];
 
-    // reason
-    // the string rep includes inner exception info
-    NSMutableString *reason = [NSMutableString stringWithString:@""];
-    [reason appendFormat:@"%@", stringRep];
-    
     // user info
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:6];
     if (managedException) {
@@ -158,6 +153,14 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException)
     if (stackTrace) {
         [userInfo setObject:stackTrace forKey:@"StackTrace"];
     }
+    if (info) {
+        [userInfo setObject:info forKey:@"CallSiteInfo"];
+    }
+    
+    // reason.
+    // embedding the userinfo ensures that all info gets propagated into the crash report.
+    NSMutableString *reason = [NSMutableString stringWithString:@""];
+    [reason appendFormat:@"%@\n userInfo : %@", stringRep, [userInfo description]];
     
     // make it so
     NSException *e = [NSException exceptionWithName:exceptionName reason:reason userInfo:userInfo];
@@ -418,7 +421,7 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
 	pthread_mutex_unlock(&methodCacheMutex);
 
 	if(meth == NULL) {
-		NSException *e = [NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", inMethodName] userInfo:nil];
+		NSException *e = [NSException exceptionWithName:@"DBManagedClassMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the class method %s", inMethodName] userInfo:nil];
         
         [e raise];
     }
@@ -493,9 +496,10 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
     
 	pthread_mutex_unlock(&methodCacheMutex);
 	
-	if(meth == NULL)
-		@throw([NSException exceptionWithName:@"DBManagedMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s", inMethodName] userInfo:nil]);
-	
+    if(meth == NULL) {
+		@throw([NSException exceptionWithName:@"DBManagedObjectMethodNotFound" reason:[NSString stringWithFormat:@"Dubrovnik could not find the object method %s", inMethodName] userInfo:nil]);
+    }
+    
 	return(meth);	
 }
 
@@ -645,8 +649,10 @@ MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int 
 		retval = mono_runtime_invoke(meth, NULL, monoArgs, &monoException);
 	}
 	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
-	
+    if(monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException, @{@"ClassInvoke" : @(methodName)}));
+    }
+    
 	return(retval);	
 }
 
@@ -664,8 +670,10 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, i
 		retval = mono_runtime_invoke(meth, invokeObj, monoArgs, &monoException);
 	}
 	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
-	
+    if(monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException, @{@"ObjectInvoke" : @(methodName)}));
+    }
+    
 	return(retval);	
 }
 
@@ -692,7 +700,7 @@ MonoObject *DBMonoObjectGetProperty(MonoObject *monoObject, const char *property
 	}
 	
 	if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException));
+        @throw(NSExceptionFromMonoException(monoException, @{@"ObjectProperty" : @(propertyName)}));
     }
 	
 	return(retval);
@@ -707,8 +715,10 @@ MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyNam
         retval = mono_runtime_invoke(monoMethod, NULL, NULL, &monoException);
     }
 	
-	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
-	
+    if (monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException, @{@"ClassProperty" : @(propertyName)}));
+    }
+    
 	return(retval);
 }
 
@@ -740,7 +750,7 @@ void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, M
 	}
 	
 	if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException));
+        @throw(NSExceptionFromMonoException(monoException, @{@"ObjectProperty" : @(propertyName)}));
     }
 }
 
@@ -753,7 +763,7 @@ void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, Mono
 	mono_runtime_invoke(monoMethod, NULL, args, &monoException);
 	
 	if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException));
+        @throw(NSExceptionFromMonoException(monoException, @{@"ClassProperty" : @(propertyName)}));
     }
 }
 
@@ -887,8 +897,10 @@ MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObje
 		retval = mono_runtime_invoke(monoMethod, invokeObj, args, &monoException);
 	}
 	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
-	
+    if(monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException, @{}));
+    }
+    
 	return(retval);
 }
 
@@ -905,7 +917,9 @@ void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, Mon
 		mono_runtime_invoke(monoMethod, invokeObj, args, &monoException);
 	}
 	
-	if(monoException != NULL) @throw(NSExceptionFromMonoException(monoException));
+    if(monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException, @{}));
+    }
 }
 
 #pragma mark -

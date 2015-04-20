@@ -805,7 +805,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     MonoObject *retVal = mono_runtime_invoke(monoMethod, invokeObj, monoArgs, &monoException);
     
     if(monoException != NULL) {
-        NSRaiseExceptionFromMonoException(monoException);
+        NSRaiseExceptionFromMonoException(monoException, @{});
     }
     
 #ifdef TRACE
@@ -832,7 +832,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     hargs [1] = mono_type_get_object([DBManagedEnvironment currentDomain], genericParameterType);
     MonoObject *monoException = NULL;
     MonoObject *boxedGenericMethod = mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
-    if (monoException) NSRaiseExceptionFromMonoException(monoException);
+    if (monoException) NSRaiseExceptionFromMonoException(monoException, @{});
     
     /*
      mono_runtime_invoke always returns a MonoObject *. Un-boxing gives us a pointer to the value, a MonoMethod*.
@@ -934,7 +934,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     MonoObject *monoException = NULL;
     MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
     if (monoException) {
-        NSRaiseExceptionFromMonoException(monoException);
+        NSRaiseExceptionFromMonoException(monoException, @{});
     }
     
     return genericArgArray;

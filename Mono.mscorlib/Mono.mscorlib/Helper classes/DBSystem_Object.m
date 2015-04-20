@@ -49,7 +49,7 @@
     
     MonoObject *monoException = NULL;
     MonoObject *monoObject = mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
-    if (monoException) NSRaiseExceptionFromMonoException(monoException);
+    if (monoException) NSRaiseExceptionFromMonoException(monoException, @{});
     
     id object = [System_Object subclassObjectWithMonoObject:monoObject];
     
