@@ -28,7 +28,9 @@
     // TODO System.Array can implement IList<T> in some cases
     // see https://msdn.microsoft.com/en-us/library/ms228502.aspx
     // for now we raise
-    if (!managedObject.db_getType.isGenericType) {
+    System_Type *sysType = managedObject.db_getType;
+    
+    if (!sysType.isGenericType) {
         NSException *e = [NSException exceptionWithName:@"DBSystemLinqToList" reason:[NSString stringWithFormat:@"This method requires a generic type : %@. This exception may be encountered when accessing arrays via an IEnumerableT interface", [managedObject.db_getType toString]] userInfo:nil];
         
         [e raise];
