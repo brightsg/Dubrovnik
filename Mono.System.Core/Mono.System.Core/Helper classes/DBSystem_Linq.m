@@ -31,7 +31,12 @@
     System_Type *sysType = managedObject.db_getType;
     
     if (!sysType.isGenericType) {
-        NSException *e = [NSException exceptionWithName:@"DBSystemLinqToList" reason:[NSString stringWithFormat:@"This method requires a generic type : %@. This exception may be encountered when accessing arrays via an IEnumerableT interface", [managedObject.db_getType toString]] userInfo:nil];
+        
+        if (sysType.isArray) {
+            // TODO : detect array
+        }
+        
+        NSException *e = [NSException exceptionWithName:@"DBSystemLinqToList" reason:[NSString stringWithFormat:@"This method requires a generic type : %@. This exception may be encountered when accessing arrays via an IEnumerableT interface. Call -array instead. See see https://msdn.microsoft.com/en-us/library/ms228502.aspx.", [managedObject.db_getType toString]] userInfo:nil];
         
         [e raise];
     }
@@ -71,11 +76,21 @@
 
 + (NSMutableArray *)toMutableArray:(System_Object <Interface_IEnumerable_T> *)managedObject
 {
+    // we may see a managed array here - https://msdn.microsoft.com/en-us/library/ms228502.aspx
+    if (managedObject.db_getType.isArray) {
+        return [[DBSystem_Array arrayWithMonoArray:(MonoArray *)managedObject.monoObject] mutableArray];
+    }
+
     return [[self toList:managedObject] mutableArray];
 }
 
 + (NSArray *)toArray:(System_Object <Interface_IEnumerable_T> *)managedObject
 {
+    // we may see a managed array here - https://msdn.microsoft.com/en-us/library/ms228502.aspx
+    if (managedObject.db_getType.isArray) {
+        return [[DBSystem_Array arrayWithMonoArray:(MonoArray *)managedObject.monoObject] array];
+    }
+    
     return [[self toList:managedObject] array];
 }
 
