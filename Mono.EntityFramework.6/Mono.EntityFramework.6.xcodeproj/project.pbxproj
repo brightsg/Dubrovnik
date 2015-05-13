@@ -24,6 +24,8 @@
 		AB2E74A818FFD49A0061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74A318FFD49A0061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74A918FFD49A0061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74A418FFD49A0061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74AA18FFD49A0061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74A518FFD49A0061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB009971B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB009951B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB009981B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB009961B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m */; };
 		ABB8A33E18FEFFD000213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A33D18FEFFD000213B80 /* Cocoa.framework */; };
 		ABB8A34818FEFFD000213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A34618FEFFD000213B80 /* InfoPlist.strings */; };
 		ABB8A35418FEFFD100213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A33D18FEFFD000213B80 /* Cocoa.framework */; };
@@ -75,6 +77,8 @@
 		AB2E74A318FFD49A0061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74A418FFD49A0061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74A518FFD49A0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		ABB009951B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h"; sourceTree = "<group>"; };
+		ABB009961B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m"; sourceTree = "<group>"; };
 		ABB8A33A18FEFFD000213B80 /* Mono.EntityFramework.6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.EntityFramework.6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A33D18FEFFD000213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A34018FEFFD000213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,6 +146,15 @@
 			path = Include;
 			sourceTree = "<group>";
 		};
+		ABB009941B00E0A500EF538F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ABB009951B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h */,
+				ABB009961B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		ABB8A33018FEFFD000213B80 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +200,7 @@
 		ABB8A34318FEFFD000213B80 /* Mono.EntityFramework.6 */ = {
 			isa = PBXGroup;
 			children = (
+				ABB009941B00E0A500EF538F /* Categories */,
 				AB2E74A018FFD49A0061C63E /* Include */,
 				ABB8A36918FF03F300213B80 /* Generated bindings */,
 				ABB8A38318FF098B00213B80 /* Helper classes */,
@@ -268,6 +282,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB009971B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h in Headers */,
 				ABBAF84019223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h in Headers */,
 				AB2E748B18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h in Headers */,
 				AB2E74A818FFD49A0061C63E /* GeneratedBindings.h in Headers */,
@@ -394,6 +409,7 @@
 				ABB8A38F18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m in Sources */,
 				ABB8A38D18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */,
 				AB2E748E18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityObject.m in Sources */,
+				ABB009981B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

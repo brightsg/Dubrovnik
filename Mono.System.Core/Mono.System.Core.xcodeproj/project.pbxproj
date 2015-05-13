@@ -20,6 +20,8 @@
 		AB2E74BE18FFD8630061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B918FFD8630061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74BF18FFD8630061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74BA18FFD8630061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74C018FFD8630061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74BB18FFD8630061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB009A21B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB009A01B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB009A31B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB009A11B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m */; };
 		ABB8A2FD18FEFED700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2FC18FEFED700213B80 /* Cocoa.framework */; };
 		ABB8A30718FEFED700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A30518FEFED700213B80 /* InfoPlist.strings */; };
 		ABB8A31318FEFED700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2FC18FEFED700213B80 /* Cocoa.framework */; };
@@ -60,6 +62,8 @@
 		AB2E74B918FFD8630061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74BA18FFD8630061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74BB18FFD8630061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		ABB009A01B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_IEnumerableA1+Linq.h"; sourceTree = "<group>"; };
+		ABB009A11B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_IEnumerableA1+Linq.m"; sourceTree = "<group>"; };
 		ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A2FC18FEFED700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A2FF18FEFED700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -221,6 +225,8 @@
 			children = (
 				ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */,
 				ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */,
+				ABB009A01B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h */,
+				ABB009A11B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB009A21B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h in Headers */,
 				AB2E74BC18FFD8630061C63E /* Categories.h in Headers */,
 				AB2E74BF18FFD8630061C63E /* HelperClasses.h in Headers */,
 				AB2E74C018FFD8630061C63E /* ManualBindings.h in Headers */,
@@ -353,6 +360,7 @@
 			files = (
 				ABB8A37118FF061200213B80 /* System_Linq.m in Sources */,
 				ABB8A43A18FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m in Sources */,
+				ABB009A31B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m in Sources */,
 				AB2E747A18FFCFCB0061C63E /* IQueryableA1.m in Sources */,
 				ABB8A44018FF246000213B80 /* DBSystem_Linq.m in Sources */,
 				AB2E747C18FFCFCB0061C63E /* System_Linq_IQueryableA1.m in Sources */,
