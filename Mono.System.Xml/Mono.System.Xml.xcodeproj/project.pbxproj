@@ -459,6 +459,7 @@
 				INFOPLIST_FILE = "Mono.System.Xml/Mono.System.Xml-Info.plist";
 				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;

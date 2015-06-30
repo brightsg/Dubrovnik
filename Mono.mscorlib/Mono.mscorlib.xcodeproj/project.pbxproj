@@ -969,6 +969,7 @@
 				INFOPLIST_FILE = "Mono.mscorlib/Mono.mscorlib-Info.plist";
 				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = Mono.mscorlib;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
