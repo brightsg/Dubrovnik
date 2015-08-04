@@ -86,7 +86,7 @@ namespace Dubrovnik.UnitTests
 		static ReferenceObject()
 		{
 			ClassStringProperty = "Dubrovnik.UnitTests static property";
-			ClassDateProperty = new DateTime (2014, 4, 6);
+			ClassDateProperty = new DateTime (2014, 4, 6, 0, 0, 0, DateTimeKind.Utc);
 		}
 
 		// static fields
@@ -94,7 +94,7 @@ namespace Dubrovnik.UnitTests
 		public static int ClassIntField = 1;
 		public const string ClassConstStringField = "Dubrovnik.UnitTests const field";
 		public readonly string ClassReadonlyStringField = "Dubrovnik.UnitTests readonly field";
-		public static DateTime ClassDateField = new DateTime (2014, 4, 6);
+		public static DateTime ClassDateField = new DateTime (2014, 4, 6, 0, 0, 0, DateTimeKind.Utc);
 
 		//==============================
 		// constructors

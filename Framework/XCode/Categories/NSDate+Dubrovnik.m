@@ -25,6 +25,17 @@
 #import "DBBoxing.h"
 #import "DBManagedEnvironment.h"
 
+//++Dubrovnik.CodeGenerator System_DateTimeKind.h
+//
+// Managed enumeration : DateTimeKind
+//
+typedef NS_ENUM(int32_t, System_DateTimeKind) {
+    System_DateTimeKind_Local = 2,
+    System_DateTimeKind_Unspecified = 0,
+    System_DateTimeKind_Utc = 1,
+};
+//--Dubrovnik.CodeGenerator
+
 //the number of .NET-equivalent ticks between 01-01-0001 and 01-01-2001
 #define EPOCH_START_DIFFERENCE 631139040000000000LL
 //there are 10^7 .NET datetime ticks per second.
@@ -60,6 +71,9 @@ static const char hasValueKey = '0';
     int64_t ticks = 0;
     BOOL hasValue = DBMonoNullableObjectHasValue(monoDateTime);
     if (hasValue) {
+        va_list va_args;
+        monoDateTime = DBMonoObjectInvoke(monoDateTime, "ToUniversalTime()", 0, va_args);
+
         MonoObject *monoValue = DBMonoObjectGetProperty(monoDateTime, "Ticks");
         ticks = DB_UNBOX_INT64(monoValue);
     }
@@ -68,6 +82,9 @@ static const char hasValueKey = '0';
 }
 
 - (id)initWithMonoDateTime:(MonoObject *)monoDateTime {
+    va_list va_args;
+    monoDateTime = DBMonoObjectInvoke(monoDateTime, "ToUniversalTime()", 0, va_args);
+    
 	MonoObject *boxedTicks = DBMonoObjectGetProperty(monoDateTime, "Ticks");	
 	int64_t ticks = DB_UNBOX_INT64(boxedTicks);
 	NSTimeInterval interval = (NSTimeInterval)(ticks - EPOCH_START_DIFFERENCE) / NET_TICKS_PER_SECOND;
@@ -91,7 +108,8 @@ static const char hasValueKey = '0';
 		_dateTimeMonoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.DateTime"];
 	}
 	int64_t ticks = ([self timeIntervalSinceReferenceDate] * NET_TICKS_PER_SECOND) + EPOCH_START_DIFFERENCE;
-	MonoObject *monoDateTime = DBMonoObjectSignatureConstruct(_dateTimeMonoClass, "long", 1, &ticks);
+    int32_t dateTimeKind = System_DateTimeKind_Utc;
+	MonoObject *monoDateTime = DBMonoObjectSignatureConstruct(_dateTimeMonoClass, "long,System.DateTimeKind", 2, &ticks, &dateTimeKind);
 	return(monoDateTime);
 }
 

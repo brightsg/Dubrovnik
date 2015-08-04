@@ -223,7 +223,7 @@ Generating Binding Code
 
 The binding generator code will attempt to generate Obj-C bindings from a .NET managed exe or dll. The XML generator and code generator are both .NET apps and run under Windows. Remember to install the Microsoft Visual Studio 2012 (or later) SDK.
 
-Note that these tools are GUI based at present. A command line based workflow sounds appealing and it should be possible to derive these from the existing tools fairly quickly.
+Both GUI and command line versions of the Reflector and Generator tools are included. The UI versions of the tools have a UI suffix.
 
 Windows Explorer may obfuscate browsing of the .NET assembly caches. If so, [help is at hand](http://geekswithblogs.net/pavelka/archive/2006/05/05/WindowsExplorerAndTheGlobalAssemblyCache.aspx).
 
@@ -369,6 +369,11 @@ Managed Event Handling
 Managed events can be routed to any Objective-C object via a defined selector. An example of this can be seen in the unit test module.
 
 By default, if a managed object supports the PropertyChanging or PropertyChanged events then corresponding -willChangeValueForKey: and -didChangeValueForKey: KVO notifications will be sent. This means that managed objects can be observed or bound to in a more or less transparent fashion.
+
+DateTime Handling
+=================
+
+The DateTime structure can represent a local or UTC date and time. A Cocoa NSDate object can only represent a single UTC point in time. Hence when DateTime objects are passed over the bridge they are always converted to UTC.
 
 Threading Support
 =============

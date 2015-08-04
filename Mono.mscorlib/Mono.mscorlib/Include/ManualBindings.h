@@ -16,6 +16,7 @@
 #import "System_NullableA1.h"
 #import "System_Array.h"
 #import "System_DayOfWeek.h"
+#import "System_DateTimeKind.h"
 #import "System_DateTime.h"
 #import "System_ActionA1.h"
 

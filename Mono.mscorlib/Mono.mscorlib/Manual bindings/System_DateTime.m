@@ -50,4 +50,25 @@ static NSDate * m_minValue;
     return m_minValue;
 }
 
+// Managed method name : ToUniversalTime
+// Managed return type : System.DateTime
+// Managed param types :
+- (NSDate *)toUniversalTime
+{
+    
+    MonoObject *monoObject = [self invokeMonoMethod:"ToUniversalTime()" withNumArgs:0];
+    
+    return [NSDate dateWithMonoDateTime:monoObject];
+}
+
+// Managed property name : Ticks
+// Managed property type : System.Int64
+@synthesize ticks = _ticks;
+- (int64_t)ticks
+{
+    MonoObject *monoObject = [self getMonoProperty:"Ticks"];
+    _ticks = DB_UNBOX_INT64(monoObject);
+    
+    return _ticks;
+}
 @end

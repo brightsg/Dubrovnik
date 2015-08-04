@@ -26,4 +26,13 @@
 // Managed field type : System.DateTime
 + (NSDate *)minValue;
 
+// Managed method name : ToUniversalTime
+// Managed return type : System.DateTime
+// Managed param types :
+- (NSDate *)toUniversalTime;
+
+// Managed property name : Ticks
+// Managed property type : System.Int64
+@property (nonatomic, readonly) int64_t ticks;
+
 @end
