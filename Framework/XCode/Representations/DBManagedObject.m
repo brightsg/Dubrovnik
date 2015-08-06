@@ -783,6 +783,8 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // For insight into various properties used in this statement see the remarks here
     // http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
     //
+    // Perhaps checkout https://gist.github.com/gedim21/8d86ba8e59ac5d8ed0ee for more insight here.
+    //
     BOOL isGenericMethod = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
     if (isGenericMethod) {
 
