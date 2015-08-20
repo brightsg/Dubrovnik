@@ -7,7 +7,7 @@
 //
 #import "System_Object.h"
 
-NS_ENUM(NSInteger, DBSystemNullableTypes) {
+extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
     DBSystemNullableInt8,
     DBSystemNullableUint8,
     DBSystemNullableInt16,
