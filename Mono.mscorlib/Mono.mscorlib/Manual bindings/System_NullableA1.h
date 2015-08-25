@@ -114,6 +114,13 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 
 /*!
  
+ Create a new nullable int64 instance
+ 
+ */
++ (id)newNullableFromInt64:(int64_t)value;
+
+/*!
+ 
  Create a new nullable decimal instance
  
  */
@@ -137,6 +144,6 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (BOOL)boolValue;
 - (float)floatValue;
 - (double)doubleValue;
-+ (id)newNullableFromInt64:(int64_t)value;
+
 
 @end
