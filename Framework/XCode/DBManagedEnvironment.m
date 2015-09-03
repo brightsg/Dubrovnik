@@ -85,7 +85,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     if (!_monoConfigFolder) {
         _monoConfigFolder = [[_monoFrameworkPathVersionCurrent stringByAppendingPathComponent:@"etc"] stringByResolvingSymlinksInPath];
     }
-    return _monoAssemblyRootFolder;
+    return _monoConfigFolder;
 }
 
 + (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
