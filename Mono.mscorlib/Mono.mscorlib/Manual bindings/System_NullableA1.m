@@ -111,14 +111,18 @@
     
 + (id)newNullableFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName
 {
+    if (!object) {
+        return nil;
+    }
+    
     // Creating a new Nullable<T> cannot be done directly:
     // http://stackoverflow.com/questions/8691601/creating-a-nullable-object-via-activator-createinstance-returns-null
     // System.Nullable<T> needs to set the underlying type directly.
     MonoObject *monoObject = [self monoObjectFromObject:object withTypeArgumentName:typeArgumentName];
     
-    System_NullableA1 *nullable = [[[self class] alloc] initWithMonoObject:monoObject];
+    System_NullableA1 *nullableA1 = [[[self class] alloc] initWithMonoObject:monoObject];
     
-    return nullable;
+    return nullableA1;
 }
 
 + (id)newNullableFromDate:(NSDate *)dateValue
