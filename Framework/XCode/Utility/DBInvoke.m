@@ -405,6 +405,7 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
          */
         
         // look for implicit implementation if explicit method name found
+        #warning TODO: fails for MonoObject *monoObject = [selfinvokeMonoMethod:"EyeClassifier.EyeClassifierApplication.PerformDocumentOperation(string,EyeClassifier.OPERATION_TYPE)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)]; // restrict strrchr to pre (
         if (meth == NULL && !continueSearch) {
             char *implicitNamePtr = strrchr(methodName, '.');
             if (implicitNamePtr) {
@@ -481,6 +482,7 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
         }
         
         // look for implicit implementation if explicit method name found
+#warning TODO: fails for MonoObject *monoObject = [selfinvokeMonoMethod:"EyeClassifier.EyeClassifierApplication.PerformDocumentOperation(string,EyeClassifier.OPERATION_TYPE)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)]; // restrict strrchr to pre (
         if (meth == NULL && !continueSearch) {
             char *implicitNamePtr = strrchr(methodName, '.');
             if (implicitNamePtr) {
