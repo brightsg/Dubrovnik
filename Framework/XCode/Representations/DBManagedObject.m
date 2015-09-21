@@ -157,17 +157,25 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return classRep;
 }
 
-+ (instancetype)objectWithMonoObject:(MonoObject *)obj {
++ (instancetype)objectWithManagedObject:(DBManagedObject *)obj
+{
+    DBManagedObject *rep = [[[self class] alloc] initWithMonoObject:obj.monoObject];
+    return(rep);
+}
+
++ (instancetype)objectWithMonoObject:(MonoObject *)obj
+{
 	DBManagedObject *rep = [[[self class] alloc] initWithMonoObject:obj];
 	return(rep);
 }
 
-+ (id)subclassObjectWithMonoObject:(MonoObject *)obj {
-
++ (id)subclassObjectWithMonoObject:(MonoObject *)obj
+{
     return [[DBTypeManager sharedManager] objectWithMonoObject:obj];
 }
  
-+ (instancetype)objectWithNumArgs:(int)numArgs, ... {
++ (instancetype)objectWithNumArgs:(int)numArgs, ...
+{
 	Class class = [self class];
 	MonoClass *monoClass = [class monoClass];
 	if(monoClass == NULL) return(nil);
