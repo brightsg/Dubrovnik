@@ -20,6 +20,7 @@
 		ABBD3C08190015B800DB59AF /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C03190015B800DB59AF /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C04190015B800DB59AF /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C0A190015B800DB59AF /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C05190015B800DB59AF /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDDCC4F1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF5D288190C589700E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D285190C589700E9CFBD /* Dubrovnik.framework */; };
 		ABF5D289190C589700E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */; };
 		ABF5D28A190C589700E9CFBD /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */; };
@@ -56,6 +57,7 @@
 		ABBD3C03190015B800DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		ABBD3C04190015B800DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABBD3C05190015B800DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpStatusCode.h; sourceTree = "<group>"; };
 		ABF5D285190C589700E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 			children = (
 				ABBD3BF91900157B00DB59AF /* System_Net_WebRequest.h */,
 				ABBD3BFA1900157B00DB59AF /* System_Net_WebRequest.m */,
+				ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				ABBD3C06190015B800DB59AF /* Categories.h in Headers */,
 				ABBD3C08190015B800DB59AF /* GeneratedBindings.h in Headers */,
 				ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */,
+				ABDDCC4F1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h in Headers */,
 				ABBD3BFB1900157B00DB59AF /* System_Net_WebRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
