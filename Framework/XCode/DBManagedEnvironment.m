@@ -170,9 +170,9 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     
     // for info on these options see man mono
     // the debugger can be configured either as a client or a server
-    NSString *address = options[@"address"]?:@"127.0.0.1";
+    NSString *address = options[@"address"]?:@"127.0.0.1"; // server must listen on this address
     NSString *port = options[@"port"]?:@"10000";
-    NSString *server = options[@"server"]?:@"n";
+    NSString *server = options[@"server"]?:@"n"; // we are a client
     NSString *suspend = options[@"suspend"]?:@"y";
     NSString *loglevel = options[@"loglevel"]?:@"1";
     NSString *timeout = options[@"timeout"]?:@"10";
