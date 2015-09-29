@@ -23,8 +23,15 @@
 
 - (id)transformedValue:(id)value
 {
-    return [value dateValue];
+    id tvalue = value;
+    
+    if ([value isKindOfClass:[System_NullableA1 class]]) {
+        tvalue = [value dateValue];
+    }
+    
+    return tvalue;
 }
+
 
 - (id)reverseTransformedValue:(id)value
 {
