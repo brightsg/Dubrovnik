@@ -130,8 +130,7 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
     //
     
     // name
-    NSMutableString *exceptionName = [NSMutableString stringWithString:@"Dubrovnik Framework : Managed Code Exception : "];
-    [exceptionName appendFormat:@"%@", message];
+    NSMutableString *exceptionName = [NSMutableString stringWithString:@"Dubrovnik Framework : Managed Code Exception,"];
 
     // user info
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:6];
@@ -158,16 +157,19 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
     }
     
     // reason.
+    NSMutableString *reason = [NSMutableString stringWithFormat:@"%@", message];
+    
     // embedding the userinfo ensures that all info gets propagated into the crash report.
-    NSMutableString *reason = [NSMutableString stringWithString:@""];
-    [reason appendFormat:@"%@\n userInfo : %@", stringRep, [userInfo description]];
+    // the line below generates repeated excletion info that makes the log
+    // very hard to decipher. may be better with out it.
+    // [reason appendFormat:@"%@\n userInfo : %@", stringRep, [userInfo description]];
     
     // make it so
     NSException *e = [NSException exceptionWithName:exceptionName reason:reason userInfo:userInfo];
     
     BOOL logException = YES;
     if (logException) {
-        NSLog(@"Dubrovnik exception:\n name: %@\n reason: %@\n exception: %@", e.name, e.reason, e);
+        NSLog(@"%@\n\nException reason: %@\n\nException info: %@\n\n", e.name, e.reason, e.userInfo);
     }
     
 	return(e);
