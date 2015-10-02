@@ -93,8 +93,8 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     _monoAssemblyRootFolder = [monoAssemblyRootFolder stringByResolvingSymlinksInPath];
     _monoConfigFolder = [monoConfigFolder stringByResolvingSymlinksInPath];
     
-    const char *rootFolder = [monoAssemblyRootFolder fileSystemRepresentation];
-    const char *configFolder = [monoConfigFolder fileSystemRepresentation];
+    const char *rootFolder = [_monoAssemblyRootFolder fileSystemRepresentation];
+    const char *configFolder = [_monoConfigFolder fileSystemRepresentation];
     
     mono_set_dirs(rootFolder, configFolder);
     mono_config_parse(NULL);
