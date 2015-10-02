@@ -131,41 +131,42 @@ At present Mono ships as 32 only on OS X. Hence it is necessary to build a 64 bi
 Building 64 Bit Mono Framework
 =============================
 
-To build 64 bit see http://www.mono-project.com/Compiling_Mono_on_OSX
+To build 64 bit see http://www.mono-project.com/Compiling_Mono_on_OSX.
 
-The build does not produce a framework bundle, rather it produces the content of a framework/Versions folder.
+Note:
+
+1. Use homebrew to install the GNU autoconf tools as described
+2. Clone the Mono Git repo from https://github.com/mono/mono and chekout the desired branch.
+3. Build the 64 bit target using ./autogen.sh
+4. Set the build PREFIX var to point to framework version folder.
+5. If the build fails make sure there isn't a space anywhere in the path leading to the repo.
+6. Once built use the make-mono64-bundle-links.sh script to add symlinks to the build.
+
+So to build say version 4.0.0 of our Mono64 framework bundler we have: 
+
+    VERSION=4.0.0
+    PREFIX=/Library/Frameworks/Mono64.framework/Versions/$VERSION
+    PATH=$PREFIX/bin:$PATH
+    cd mono
+    ./autogen.sh --prefix=$PREFIX --disable-nls
+    make
+    make install
+
+    cd $DUBROVNIK/scripts
+    ./make-mono64-bundle-links.sh $VERSION
+
+`make` will do the build, `make install` will copy it into `PATH`.
+
+The above build does not produce a framework bundle, rather it produces the content of a framework/Versions folder.
 We want to build a `/Library/Frameworks/Mono64.framework` bundle that mimics `/Library/Frameworks/Mono.framework`.
 Note that we cannot simply update `/Library/Frameworks/Mono` to 64bit as this will kill, among other things, the MonoDevelop IDE which requires the 32 bit build
 
-In order to build a 64 bit version of mono 3.2.3:
-
-- Duplicate /Library/Frameworks/Mono as /Library/Frameworks/Mono64
-- Delete and recreate the soft links within the Mono bundle to point to /Library/Frameworks/Mono64 as follows:
-
-Soft links:
-
-	Commands -> /Library/Frameworks/Mono64.framework/Versions/Current/bin
-	Headers -> /Library/Frameworks/Mono64.framework/Versions/Current/include
-	Home -> /Library/Frameworks/Mono64.framework/Versions/Current/
-	Libraries -> /Library/Frameworks/Mono64.framework/Versions/Current/lib
-	Mono64 -> /Library/Frameworks/Mono64.framework/Versions/Current/lib/libmono-2.0.dylib
-
-NOTE: The main library link is Mono64 not Mono.
-
-- Delete /Library/Frameworks/Mono64.framework/Versions/Current/3.2.3
-
-- Download the mono source and build. The following should install Mono into /Library/Frameworks/Mono64.framework/Versions/Current/3.2.3
-
-Build:
-
-    ./configure --prefix=/Library/Frameworks/Mono64.framework/Versions/3.2.3 --enable-nls=no
-    make
-	sudo make install
-
+So we need to update /Library/Frameworks/Mono64.framework with suitable links to make it act like a framework bundle.
+make-mono64-bundle-links.sh does this.
 
 Prerequisites
 =============
-- [Mono Framework](http://www.mono-project.com/Downloads) MDK v3.2.3 and above. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`. A 64 bit build of Mono will be required in order to support the modern Obj-C runtime.
+- [Mono Framework](http://www.mono-project.com/Downloads) MDK. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`. A 64 bit build of Mono will be required in order to support the modern Obj-C runtime.
 
 - The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK.
 
@@ -185,7 +186,7 @@ Judy 32/64 can be rebuilt on demand using the supplied Xcode projects and shell 
 Linking to It
 =============
 
-In order to use the framework you need to link to it. Running `otool -L` against the framework reveals:
+In order to use the framework you need to link to it. Running `otool -L` against the framework reveals something like:
 
 	otool -L Dubrovnik.framework/Versions/A/Dubrovnik 
 
@@ -204,7 +205,13 @@ Note that the Dubrovnik install name makes use of `@rpath` so the linking app wi
 Testing it
 ==========
 
-To run the unit tests simply build and test the Dubrovnik target. The unit tests target the pre built managed binary Dubrovnik.UnitTests.exe.
+To run the unit tests simply build and test the Dubrovnik target. 
+
+1. Make sure that the Dubrovnik framework scheme is selected.
+2. Select Xcode menu Product/Test
+3. Or run individual tests from within the Test Navigator.
+
+The unit tests target the pre built managed binary Dubrovnik.UnitTests.exe.
 
 Two sets of bindings are referenced by the tests and both should pass:
 
