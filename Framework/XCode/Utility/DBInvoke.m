@@ -407,9 +407,22 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
          */
         
         // look for implicit implementation if explicit method name found
-        #warning TODO: fails for MonoObject *monoObject = [selfinvokeMonoMethod:"EyeClassifier.EyeClassifierApplication.PerformDocumentOperation(string,EyeClassifier.OPERATION_TYPE)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)]; // restrict strrchr to pre (
+        // look for implicit implementation if explicit method name found
         if (meth == NULL && !continueSearch) {
-            char *implicitNamePtr = strrchr(methodName, '.');
+            char *implicitNamePtr = NULL;
+            char *bracketry = strchr(methodName, '(');
+            if (bracketry) {
+                while (bracketry != methodName){
+                    if (*bracketry == '.'){
+                        implicitNamePtr = bracketry;
+                        break;
+                    }
+                    bracketry--;
+                }
+            }
+            if (implicitNamePtr == NULL)
+                implicitNamePtr = strrchr(methodName, '.');
+            
             if (implicitNamePtr) {
                 continueSearch = YES;
                 methodName = implicitNamePtr + 1;
@@ -484,9 +497,21 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
         }
         
         // look for implicit implementation if explicit method name found
-#warning TODO: fails for MonoObject *monoObject = [selfinvokeMonoMethod:"EyeClassifier.EyeClassifierApplication.PerformDocumentOperation(string,EyeClassifier.OPERATION_TYPE)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)]; // restrict strrchr to pre (
         if (meth == NULL && !continueSearch) {
-            char *implicitNamePtr = strrchr(methodName, '.');
+            char *implicitNamePtr = NULL;
+            char *bracketry = strchr(methodName, '(');
+            if (bracketry) {
+                while (bracketry != methodName){
+                    if (*bracketry == '.'){
+                        implicitNamePtr = bracketry;
+                        break;
+                    }
+                    bracketry--;
+                }
+            }
+            if (implicitNamePtr == NULL)
+                implicitNamePtr = strrchr(methodName, '.');
+            
             if (implicitNamePtr) {
                 continueSearch = YES;
                 methodName = implicitNamePtr + 1;
