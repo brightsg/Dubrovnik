@@ -93,6 +93,16 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     _monoAssemblyRootFolder = [monoAssemblyRootFolder stringByResolvingSymlinksInPath];
     _monoConfigFolder = [monoConfigFolder stringByResolvingSymlinksInPath];
     
+    // check root folders exist
+    BOOL isDir;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_monoAssemblyRootFolder isDirectory:&isDir] || isDir == NO) {
+        [NSException raise:@"Invalid mono root folder" format:@"Mono root folder does not exist: %@", _monoAssemblyRootFolder];
+    }
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_monoConfigFolder isDirectory:&isDir] || isDir == NO) {
+        [NSException raise:@"Invalid mono config folder" format:@"Mono config folder does not exist: %@", _monoConfigFolder];
+    }
+    
+    // check config folder exists
     const char *rootFolder = [_monoAssemblyRootFolder fileSystemRepresentation];
     const char *configFolder = [_monoConfigFolder fileSystemRepresentation];
     
