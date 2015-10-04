@@ -11,9 +11,6 @@
       location = "group:Framework/examples/DBCommandLineExample/DBCommandLineExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Mono.mscorlib/Mono.mscorlib.xcodeproj">
    </FileRef>
    <FileRef
@@ -34,4 +31,11 @@
    <FileRef
       location = "group:Mono.System/Mono.System.xcodeproj">
    </FileRef>
+   <Group
+      location = "container:"
+      name = "Work in progress">
+      <FileRef
+         location = "group:/Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/mscorlib.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>
