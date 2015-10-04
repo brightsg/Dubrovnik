@@ -1,6 +1,6 @@
 [submodule "Submodules/OrderedDictionary"]
 	path = Submodules/OrderedDictionary
-	url = https://github.com/nicklockwood/OrderedDictionary
+	url = https://github.com/ThesaurusSoftware/OrderedDictionary
 [submodule "Submodules/Mono"]
 	path = Submodules/Mono
 	url = https://github.com/mono/mono
