@@ -114,9 +114,13 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
     NSString *stackTrace = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "StackTrace")];
     
     // string representation
+    // this is legacy but it might prove useful in the future
+    /*
 	va_list va_args;
 	MonoObject *stringRepMonoObject = DBMonoObjectInvoke(monoException, "ToString()", 0, va_args);
     NSString *stringRep = [NSString stringWithMonoString:DB_STRING(stringRepMonoObject)];
+    (void)stringRep;
+    */
     
     // inner exception
     NSException *innerException = nil;
