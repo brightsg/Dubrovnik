@@ -77,6 +77,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 @property (strong, readwrite) DBManagedEnvironment *monoEnvironment;
 @property (assign, readwrite) MonoObject *monoObject;
+@property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
 @property BOOL genericType;
 @property (strong, nonatomic) NSArray *genericParameterMonoArgumentTypeNames;
@@ -121,7 +122,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 //
 + (const char *)monoAssemblyName
 {
-        @throw([NSException exceptionWithName:@"No monoAssemblyName override" reason:@"This class must provide a value for +[DBManagedObject monoAssemblyName]" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"DBMissingOverrideException"
+                                       reason:[NSString stringWithFormat:@"This class must provide a value for +[%@ %@]", self.className, NSStringFromSelector(_cmd)]
+                                     userInfo:nil]);
 }
 
 //
@@ -132,7 +135,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 + (const char *)monoClassName
 {
-    return "";
+    return "System.Object";
 }
 
 #pragma mark -
@@ -277,7 +280,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)dealloc
 {
-    // cleanup primary instance
+    // cleanup primary instance.
+    // hmm. need to be careful here that we don't inadvertently make an inappropriate call during the dealloc.
     if (self.isPrimaryInstance) {
         
         // remove property change notifications
@@ -407,9 +411,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)setAutomaticallyNotifiesObserversOfManagedPropertyChanges:(BOOL)value
 {
+    // this method gets called as part of dealloc so remain aware of this!
+    
     // contract
     if (!self.isPrimaryInstance) {
-        [NSException raise:@"Cannot automatically notify observers of managed property changes."
+        [NSException raise:@"DBObservationException"
                 format:@"Instance must be primary in order to raise managed events."];
     }
     
@@ -547,11 +553,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     }
 }
 
-- (NSUInteger)monoHash
-{
-    return (NSUInteger)mono_object_hash(self.monoObject);
-}
-
 #pragma mark -
 #pragma mark NSCopying Protocol
 
@@ -588,16 +589,19 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)setMonoObject:(MonoObject *)monoObject
 {
+    // I cannot currently think of a situation where allowing -monoObject to change can be justified
     if (_mono_gchandle) {
-        NSLog(@"calling mono_gchandle_free!");
-        mono_gchandle_free(_mono_gchandle);
-        _mono_gchandle = 0;
+        [NSException raise:@"MonoObjectAlreadySetException" format:@"MonoObject property is already set for : %@", self];
     }
     
-    // we don't want to persist the monoObject in an ivar or on the heap in general as it would
+    // We don't want to persist the monoObject in an ivar or on the heap in general as it would
     // require always pinning the pointed to MonoObject
     if (monoObject) {
         _mono_gchandle = mono_gchandle_new(monoObject, self.monoEnvironment.pinGCHandles);
+        
+        // monoHash is constant for the lifetime of the managed object.
+        // We use this as our main cache key so it makes sense to persist it locally.
+        self.monoHash = (NSUInteger)mono_object_hash(monoObject);
     }
     
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -614,8 +618,9 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     MonoObject *monoObject = mono_gchandle_get_target(_mono_gchandle);
     
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
-    if (self.monoObjectTrace != (NSUInteger)monoObject) {
-        [NSException raise:@"Managed object has moved" format:@"Support for moved managed objects is pending."];
+    NSUInteger trace = (NSUInteger)monoObject;
+    if (self.monoObjectTrace != trace) {
+        [NSException raise:@"DBManagedObjectMovedException" format:@"Support for moved managed objects is pending."];
     }
 #endif
     
@@ -756,13 +761,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
         // method signature and the argument count at the call site.
         if (monoArgs[0] != [self monoObject]) {
-            [NSException raise:@"InvokeMonoMethodException" format: @"Invalid first argument to extension method implementation."];
+            [NSException raise:@"DBInvokeMonoMethodException" format: @"Invalid first argument to extension method implementation."];
         }
         
         // get the extension assembly
         MonoAssembly *monoAssembly = [monoEnv openAssemblyWithName:methodRepresentation.assemblyName];
         if (!monoAssembly) {
-            [NSException raise:@"InvokeMonoMethodException" format: @"Assembly %s not found for extension method : %s.", methodRepresentation.assemblyName, methodRepresentation.methodName];
+            [NSException raise:@"DBInvokeMonoMethodException" format: @"Assembly %s not found for extension method : %s.", methodRepresentation.assemblyName, methodRepresentation.methodName];
         }
         
         // get the extension mono class
@@ -780,7 +785,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
     
     if (!monoMethod) {
-        [NSException raise:@"InvokeMonoMethodException" format: @"Method not found : %s.", methodRepresentation.methodName];
+        [NSException raise:@"DBInvokeMonoMethodException" format: @"Method not found : %s.", methodRepresentation.methodName];
     }
     
     // Get object representing C# MethodInfo class
@@ -850,7 +855,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
      */
     MonoMethod *genericMethod =  *(MonoMethod**) mono_object_unbox (boxedGenericMethod);
     if (!genericMethod) {
-        [NSException raise:@"MakeGenericMethodException" format: @"Generic method not found."];
+        [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
     }
     
     return genericMethod;
@@ -920,7 +925,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         if (idx < genericArgumentCount) {
             genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), idx);
         } else {
-            [NSException raise:@"GetGenericTypeException" format: @"Invalid index: %ld. Number of generic type arguments: %ld", (long)idx, genericArgumentCount];
+            [NSException raise:@"DBGetGenericTypeException" format: @"Invalid index: %ld. Number of generic type arguments: %ld", (long)idx, genericArgumentCount];
         }
     }
             
@@ -1117,7 +1122,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 - (void)setObservationInfo:(void *)observationInfo
 {
     if (!self.isPrimaryInstance) {
-        [NSException raise:@"Non primary instance" format:@"%@ : Only primary instances support the raising of managed events. Observing the properties of a managed object requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead.", [self className]];
+        [NSException raise:@"DBObservationException" format:@"%@ : Only primary instances support the raising of managed events. Observing the properties of a managed object requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead.", [self className]];
     }
     
     /*

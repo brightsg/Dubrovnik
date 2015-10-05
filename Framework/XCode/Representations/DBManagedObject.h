@@ -33,6 +33,7 @@ extern char DBCacheSuffixChar;
 // Mono support properties
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
+@property (assign, readonly) NSUInteger monoHash;
 
 /*!
  
@@ -172,7 +173,6 @@ extern char DBCacheSuffixChar;
 + (NSArray *)keysToIgnoreInChangeValueForKeyMethods;
 
 // Mono info
-- (NSUInteger)monoHash;
 - (int)monoMethodCount;
 - (void)logMonoClassInfo;
 + (void)logMonoClassNameInfo:(MonoClass *)klass;
