@@ -14,18 +14,21 @@
 # ./autogen.sh --prefix=$PREFIX --disable-nls
 #
 
+USAGE="usage is make-mono64-bundle-links mono-version"
+
 # arg 1 is existing version to make current eg:4.0.4.4
 if [ -z "$1" ]
 then
-echo "Missing Mono version string"
+echo "Missing Mono version string; $USAGE "
 exit 1
 fi
 VERSION="$1"
 
-# the target framework path
-FRAMEWORKPATH=/Library/Frameworks/Mono64.framework
+# the target framework name and path
+FRAMEWORKNAME=Mono64
+FRAMEWORKPATH=/Library/Frameworks/$FRAMEWORKNAME.framework
 
-# the target dylibs
+# the target dylibs decide the GC collector used by the runtime
 DYLIB_BOEHM=libmonoboehm-2.0.dylib
 DYLIB_SGEN=libmonosgen-2.0.dylib
 
@@ -46,14 +49,15 @@ rm -f Home
 rm -f Commands
 rm -f Headers
 rm -f Libraries
-rm -f Mono64
+rm -f $FRAMEWORKNAME
 rm -f Versions/Current
 
-# make new links
-ln -sv $FRAMEWORKPATH/Versions/$VERSION $FRAMEWORKPATH/Versions/Current
-ln -sv $FRAMEWORKPATH/Versions/Current $FRAMEWORKPATH/Home
-ln -sv $FRAMEWORKPATH/Home/bin $FRAMEWORKPATH/Commands
-ln -sv $FRAMEWORKPATH/Home/include $FRAMEWORKPATH/Headers
-ln -sv $FRAMEWORKPATH/Home/lib $FRAMEWORKPATH/Libraries
-ln -sv $FRAMEWORKPATH/Libraries/$DYLIB $FRAMEWORKPATH/Mono64
-
+# make new relative symlinks
+cd Versions
+ln -sv ./$VERSION ./Current
+cd ..
+ln -sv ./Versions/Current ./Home
+ln -sv ./Home/bin ./Commands
+ln -sv ./Home/include ./Headers
+ln -sv ./Home/lib ./Libraries
+ln -sv ./Libraries/$DYLIB ./$FRAMEWORKNAME
