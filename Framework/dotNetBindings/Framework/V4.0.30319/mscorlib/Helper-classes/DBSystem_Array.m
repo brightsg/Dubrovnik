@@ -98,14 +98,14 @@
 
 - (MonoObject *)monoObjectAtIndex:(uint32_t)index {
 	if(index >= _arrayLength)
-		@throw([NSException exceptionWithName:@"DBArrayIndexOutOfBounds" reason:@"Array Index Out of Bounds" userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBArrayIndexOutOfBoundsException" reason:@"Array Index Out of Bounds" userInfo:nil]);
 		
 	return(mono_array_get([self monoArray], MonoObject *, index));
 }
 
 - (void)setMonoObject:(MonoObject *)monoObject forIndex:(uint32_t)index {
 	if(index >= _arrayLength)
-		@throw([NSException exceptionWithName:@"DBArrayIndexOutOfBounds" reason:@"Array Index Out of Bounds" userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBArrayIndexOutOfBoundsException" reason:@"Array Index Out of Bounds" userInfo:nil]);
 
 	mono_array_set([self monoArray], MonoObject *, index, monoObject);
 }

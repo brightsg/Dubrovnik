@@ -311,7 +311,7 @@ static BOOL m_useClassLookupCache = YES;
                              monoClass:mono_get_enum_class()
                              generator:^id(MonoObject *monoObject) {
 #pragma unused(monoObject)
-                                 [NSException raise:@"Feature not yet implemented" format:@"object for System.Enum"];
+                                 [NSException raise:@"DBFeatureNotImplementedException" format:@"object for System.Enum"];
                                  return nil;
                              }
                    ]
@@ -322,7 +322,7 @@ static BOOL m_useClassLookupCache = YES;
                              monoClass:mono_get_array_class()
                              generator:^id(MonoObject *monoObject) {
 #pragma unused(monoObject)
-                                 [NSException raise:@"Feature not yet implemented" format:@"object for System.Array"];
+                                 [NSException raise:@"DBFeatureNotImplementedException" format:@"object for System.Array"];
                                  return nil;
                              }
                    ]
@@ -351,7 +351,7 @@ static BOOL m_useClassLookupCache = YES;
                              monoClass:mono_get_thread_class()
                              generator:^id(MonoObject *monoObject) {
 #pragma unused(monoObject)
-                                 [NSException raise:@"Feature not yet implemented" format:@"object for System.Thread"];
+                                 [NSException raise:@"DBFeatureNotImplementedException" format:@"object for System.Thread"];
                                   return nil;
                                   }
                    ]
@@ -477,7 +477,7 @@ static BOOL m_useClassLookupCache = YES;
     object = dbType.generator(monoObject);
     
     if (!object) {
-        [NSException exceptionWithName:@"Mono object representation exception" reason:@"Invalid type ID" userInfo:nil];
+        [NSException exceptionWithName:@"DBManagedTypeException" reason:@"Invalid type ID" userInfo:nil];
     }
     
     return object;
@@ -490,7 +490,7 @@ static BOOL m_useClassLookupCache = YES;
     BOOL isValueType = mono_class_is_valuetype(monoClass);
     
     if (isValueType) {
-        [NSException exceptionWithName:@"Mono object representation exception" reason:@"Value type found where not anticipated" userInfo:nil];
+        [NSException exceptionWithName:@"DBManagedTypeException" reason:@"Value type found where not anticipated" userInfo:nil];
     }
    
     // query the cache

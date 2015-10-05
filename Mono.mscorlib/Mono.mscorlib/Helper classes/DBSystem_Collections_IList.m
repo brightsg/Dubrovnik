@@ -117,7 +117,7 @@
 - (int64_t)int64AtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_int64_class())
-		@throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not int64" userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not int64" userInfo:nil]);
 	return(DB_UNBOX_INT64(monoObject));
 }
 
@@ -129,7 +129,7 @@
 - (int32_t)int32AtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_int32_class())
-	   @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not int32" userInfo:nil]);
+	   @throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not int32" userInfo:nil]);
 	return(DB_UNBOX_INT32(monoObject));
 }
 
@@ -141,28 +141,28 @@
 - (float)floatAtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_single_class())
-        @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not float" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not float" userInfo:nil]);
 	return(DB_UNBOX_FLOAT(monoObject));
 }
 
 - (double)doubleAtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_double_class())
-        @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not double" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not double" userInfo:nil]);
 	return(DB_UNBOX_DOUBLE(monoObject));
 }
 
 - (int16_t)int16AtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_int16_class())
-        @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not int16" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not int16" userInfo:nil]);
 	return(DB_UNBOX_INT32(monoObject));
 }
 
 - (int8_t)int8AtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_byte_class())
-        @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not int8" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not int8" userInfo:nil]);
 	return(DB_UNBOX_INT8(monoObject));
 }
 
@@ -170,7 +170,7 @@
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
     
 	if(mono_object_get_class(monoObject) != mono_get_char_class())
-        @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not char" userInfo:nil]);
+        @throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not char" userInfo:nil]);
 	return(DB_UNBOX_INT8(monoObject));
 }
 

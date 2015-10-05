@@ -47,7 +47,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 {
     Class helperClass = NSClassFromString([self eventHelperClassName]);
     if (!helperClass) {
-        [NSException raise:@"Invalid event helper class" format:@"Helper class not available: %@", [self eventHelperClassName]];
+        [NSException raise:@"DBInvalidEventHelperClassException" format:@"Helper class not available: %@", [self eventHelperClassName]];
     }
     return [[helperClass class] objectSupportsEvent_withObj:managedObject objEventName:eventName];
 }
@@ -90,7 +90,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // when fired the event will call back into unmanaged code.
     Class helperClass = NSClassFromString([self eventHelperClassName]);
     if (!helperClass) {
-        [NSException raise:@"Invalid event helper class" format:@"Helper class not available: %@", [self eventHelperClassName]];
+        [NSException raise:@"DBInvalidEventHelperClassException" format:@"Helper class not available: %@", [self eventHelperClassName]];
     }
 
 #ifdef DB_TRACE_STATIC_EVENT_HANDLER
@@ -286,7 +286,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
                 // selector must have signature matching sender:item:
                 NSMethodSignature *methodSignature = [eventTarget methodSignatureForSelector:eventSelector];
                 if ([methodSignature numberOfArguments] - 2 != 2) {
-                    [NSException raise:@"Invalid selector" format:@"selector %@ must accept two arguments", targetSelectorName];
+                    [NSException raise:@"DBInvalidEventSelectorException" format:@"selector %@ must accept two arguments", targetSelectorName];
                 }
                 eventSelectorMethodSignatureValidated = YES;
             }

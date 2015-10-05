@@ -96,10 +96,10 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     // check root folders exist
     BOOL isDir;
     if (![[NSFileManager defaultManager] fileExistsAtPath:_monoAssemblyRootFolder isDirectory:&isDir] || isDir == NO) {
-        [NSException raise:@"Invalid mono root folder" format:@"Mono root folder does not exist: %@", _monoAssemblyRootFolder];
+        [NSException raise:@"DBInvalidMonoRootFolderException" format:@"Mono root folder does not exist: %@", _monoAssemblyRootFolder];
     }
     if (![[NSFileManager defaultManager] fileExistsAtPath:_monoConfigFolder isDirectory:&isDir] || isDir == NO) {
-        [NSException raise:@"Invalid mono config folder" format:@"Mono config folder does not exist: %@", _monoConfigFolder];
+        [NSException raise:@"DBInvalidMonoConfigFolderException" format:@"Mono config folder does not exist: %@", _monoConfigFolder];
     }
     
     // check config folder exists
@@ -247,13 +247,13 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     // get helper class
     MonoClass *monoClass = [self dubrovnikMonoClassWithName:className];
     if (!monoClass) {
-        [NSException raise:@"DubrovnikHelperException" format: @"%s helper class not found.", className];
+        [NSException raise:@"DBHelperException" format: @"%s helper class not found.", className];
     }
     
     // get helper method
     MonoMethod *monoMethod = mono_class_get_method_from_name(monoClass, methodName, argCount);
     if (!monoMethod) {
-        [NSException raise:@"DubrovnikHelperException" format: @"%s helper method %s not found.", className, methodName];
+        [NSException raise:@"DBHelperException" format: @"%s helper method %s not found.", className, methodName];
     }
     
     return monoMethod;
@@ -288,7 +288,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         }
         
         if (!monoAssembly) {
-            [NSException raise:@"Cannot open assembly" format:@"Cannot open assembly named : %s default path: %@", name, path];
+            [NSException raise:@"DBAssemblyOpenException" format:@"Cannot open assembly named : %s default path: %@", name, path];
         }
         
     }

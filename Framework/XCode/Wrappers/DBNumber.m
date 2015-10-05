@@ -169,7 +169,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
 {
     NSNumber *typeID = [self typeIndexDictionary][typeName];
     if (!typeID) {
-        [NSException raise:@"Type exception" format:@"Invalid type name encoding: %@", typeName];
+        [NSException raise:@"DBManagedTypeException" format:@"Invalid type name encoding: %@", typeName];
     }
     
     return [typeID unsignedIntegerValue];
@@ -510,7 +510,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 
             default:
             {
-                [NSException raise:@"Type exception" format:@"Cannot create MonoObject for type name: %@", self.typeName];
+                [NSException raise:@"DBManagedTypeException" format:@"Cannot create MonoObject for type name: %@", self.typeName];
             }
                 
         }
@@ -656,7 +656,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
                 
             default:
             {
-                [NSException raise:@"Type exception" format:@"Cannot create MonoObject for type encoding: %@", self.typeName];
+                [NSException raise:@"DBManagedTypeException" format:@"Cannot create MonoObject for type encoding: %@", self.typeName];
             }
                 
         }

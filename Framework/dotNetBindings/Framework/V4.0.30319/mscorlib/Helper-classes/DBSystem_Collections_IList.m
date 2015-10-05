@@ -117,7 +117,7 @@
 - (int64_t)int64AtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_int64_class())
-		@throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not int64" userInfo:nil]);
+		@throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not int64" userInfo:nil]);
 	return(DB_UNBOX_INT64(monoObject));
 }
 
@@ -129,7 +129,7 @@
 - (int32_t)int32AtIndex:(int)index {
 	MonoObject *monoObject = [self monoObjectForIndexObject:&index];
 	if(mono_object_get_class(monoObject) != mono_get_int32_class())
-	   @throw([NSException exceptionWithName:@"Type Mismatch" reason:@"MonoObject is not int32" userInfo:nil]);
+	   @throw([NSException exceptionWithName:@"DBManagedTypeException" reason:@"MonoObject is not int32" userInfo:nil]);
 	return(DB_UNBOX_INT32(monoObject));
 }
 
