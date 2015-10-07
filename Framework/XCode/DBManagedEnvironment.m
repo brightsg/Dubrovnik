@@ -164,9 +164,9 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 
         _loadedAssemblies = [NSMutableDictionary dictionaryWithCapacity:10];
         
-        // In general it is best if we do not pin GC handles.
-        // More work is required before this can be allowed, especially with SGEN GC.
-        self.pinGCHandles = YES;
+        // In general we don't want to pin objects as this affects performance.
+        // The GC will not able to manage memory efficiently.
+        self.pinObjects = NO;
 	}
 	
     [[self class] setCurrentEnvironment:self];

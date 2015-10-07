@@ -159,10 +159,7 @@ So to build say version 4.0.0 of our Mono64 framework bundler we have:
 
 The above build does not produce a framework bundle, rather it produces the content of a framework/Versions folder.
 We want to build a `/Library/Frameworks/Mono64.framework` bundle that mimics `/Library/Frameworks/Mono.framework`.
-Note that we cannot simply update `/Library/Frameworks/Mono` to 64bit as this will kill, among other things, the MonoDevelop IDE which requires the 32 bit build
-
-So we need to update /Library/Frameworks/Mono64.framework with suitable links to make it act like a framework bundle.
-make-mono64-bundle-links.sh does this.
+Note that we cannot simply update `/Library/Frameworks/Mono` to 64bit as this will kill, among other things, the MonoDevelop IDE which requires the 32 bit build.
 
 Prerequisites
 =============

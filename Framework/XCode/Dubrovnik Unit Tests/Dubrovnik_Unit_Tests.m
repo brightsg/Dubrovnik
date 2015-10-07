@@ -332,8 +332,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"==============================================");
     NSLog(@"Testing manually generated reference object");
     NSLog(@"==============================================");
-    
-    initialInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
+
     @autoreleasepool {
         
         // test reference class
@@ -349,13 +348,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         
     }
     
-    // all managed objects instantiated withing the autorelease block above should have been dealloced
-    [[DBPrimaryInstanceCache sharedCache] logPrimaryInstanceCache:DBLogInstanceCacheItems];
-    finalInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
-    
-    // we leak 1 due to a raised exception
-    XCTAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
-    
 #endif
     
 #if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
@@ -365,19 +357,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSLog(@"==============================================");
     NSLog(@"Testing auto generated reference object");
     NSLog(@"==============================================");
-    
-    initialInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
 
     @autoreleasepool {
         [self doTestReferenceClass:[DUReferenceObject_ class]];
     }
-    
-    // all managed objects instantiated within the autorelease block above should have been dealloced
-    [[DBPrimaryInstanceCache sharedCache] logPrimaryInstanceCache:DBLogInstanceCacheItems];
-    finalInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
-
-    // we leak 1 due to a raised exception
-    XCTAssertTrue(finalInstanceCount == initialInstanceCount + 1, DBUEqualityTestFailed);
 
     //
     // enumerations
@@ -393,29 +376,81 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
 #endif
     
-    // instance tests
-    NSUInteger itemCount = 100;
-    NSMutableArray *itemArray  = [NSMutableArray arrayWithCapacity:itemCount];
-    
-    initialInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
-    
-    @autoreleasepool {
+   
+}
 
-        // allocate objects
-        for (NSUInteger i = 0; i < itemCount; i++) {
-            DBManagedObject *managedObject = [DBManagedObject objectWithMonoObject:(MonoObject *)[DBUTestString monoString]];
-            [itemArray addObject:managedObject];
+- (void)testInstanceCache
+{
+    // load tests
+    // for details of SGEN memory usage see http://www.mono-project.com/docs/advanced/garbage-collector/sgen/working-with-sgen/
+    /*
+     
+     The instance cache should fill up as objects are allocated and then discard them automatically when the objects are deallocated
+     as the enclosing autorelease pool drains.
+     
+     */
+    NSInteger loopCount = 0;
+    NSInteger loopMax = 10;
+    NSUInteger allocationCount = 0;
+    NSUInteger cacheCount = [DBPrimaryInstanceCache sharedCache].count;
+    NSArray *loadSizes = @[@(10), @(22), @(55), @(100), @(189), @(213), @(334), @(478), @(505), @(1003), @(2002), @(3000), @(4001), @(5005), @(6000), @(7234)];
+
+    do {
+        // when the pool is drained all managed instances allocated in this autorelease block should have been released.
+        @autoreleasepool {
+            
+            NSUInteger itemCount = 100;
+            NSMutableArray *itemArray  = [NSMutableArray arrayWithCapacity:itemCount];
+            
+            NSLog(@"Memory load test %lu of %lu...", loopCount, loopMax);
+            
+            // allocate objects
+            for (NSUInteger i = 0; i < itemCount; i++) {
+                
+                // objects < 8000b are allocated to the nursery under SGEN.
+                NSData *loadData = nil;
+                DBManagedObject *managedObject = nil;
+                for (NSNumber *loadSize in loadSizes) {
+                    loadData = [self createNSData:loadSize.integerValue];
+                    managedObject = [DBManagedObject objectWithMonoObject:(MonoObject *)[loadData monoArray]];
+                    [itemArray addObject:managedObject];
+                    allocationCount++;
+                }
+                
+                // larger objects are allocated to the separate large object space
+                for (NSNumber *loadSize in loadSizes) {
+                    loadData = [self createNSData:20*loadSize.integerValue];
+                    managedObject = [DBManagedObject objectWithMonoObject:(MonoObject *)[loadData monoArray]];
+                    [itemArray addObject:managedObject];
+                    allocationCount++;
+                }
+            }
+            
+            [itemArray removeAllObjects];
         }
-        
-        [itemArray removeAllObjects];
-        
-        // drain the pool. all managed instances allocated in this autorelease bloack should have been released.
+    } while (++loopCount < loopMax);
+    
+    // number of cache objects should be preserved
+    XCTAssertTrue(cacheCount == [DBPrimaryInstanceCache sharedCache].count, DBUEqualityTestFailed);
+    
+    NSLog(@"Total : %lu allocations", allocationCount);
+    
+    // a test compaction
+    [[DBPrimaryInstanceCache sharedCache] compact];
+    
+    // log the cache
+    [[DBPrimaryInstanceCache sharedCache] logPrimaryInstanceCache:DBLogInstanceCacheAll];
+}
+
+- (NSData *)createNSData:(NSUInteger)dataSize
+{
+    NSMutableData *theData = [NSMutableData dataWithCapacity:dataSize];
+    for (unsigned int i = 0 ; i < dataSize/8 ; ++i )
+    {
+        u_int64_t bits = 256;
+        [theData appendBytes:(void*)&bits length:8];
     }
-    
-    // instance count should be restored to initial value
-    finalInstanceCount = [[DBPrimaryInstanceCache sharedCache] count];
-    XCTAssertTrue(finalInstanceCount == initialInstanceCount, DBUEqualityTestFailed);
-    
+    return theData;
 }
 
 - (id)doTestConstructorsWithclass:(Class)testClass

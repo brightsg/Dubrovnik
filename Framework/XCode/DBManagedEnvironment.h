@@ -44,7 +44,7 @@
 @property (assign, readonly, nonatomic) MonoAssembly *DubrovnikAssembly;
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;
 @property (assign, readonly) MonoDomain *monoDomain;
-@property (assign) BOOL pinGCHandles;
+@property (assign) BOOL pinObjects;
 
 /*!
  

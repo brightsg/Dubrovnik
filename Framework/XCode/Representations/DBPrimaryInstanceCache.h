@@ -16,8 +16,9 @@ typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
 typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
 {
     DBLogInstanceCacheCount = 0x00 << 0,
-    DBLogInstanceCacheItems = 0x01 << 0,
-    DBLogInstanceCacheNonNullCount = 0x01 << 1,
+    DBLogInstanceCacheObjects = 0x01 << 0,
+    DBLogInstanceCacheKeyValuePairCount = 0x01 << 1,
+    DBLogInstanceCacheAll = (DBLogInstanceCacheCount | DBLogInstanceCacheObjects | DBLogInstanceCacheKeyValuePairCount)
 };
 
 @interface DBPrimaryInstanceCache : NSObject
@@ -36,13 +37,6 @@ typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
  
  */
 - (void)addObject:(DBManagedObject *)object;
-
-/*!
- 
- Remove object from the cache.
- 
- */
-- (void)removeObject:(DBManagedObject *)object;
 
 /*!
  
@@ -65,5 +59,19 @@ typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
  
  */
 - (NSUInteger)count;
+
+/*!
+ 
+ Compact the cache
+ 
+ */
+- (void)compact;
+
+/*!
+ 
+ All objects in cache
+ 
+ */
+- (NSArray *)allObjects;
 
 @end

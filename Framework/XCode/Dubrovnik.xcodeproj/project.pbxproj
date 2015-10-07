@@ -186,7 +186,7 @@
 		AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DBMonoIncludes.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AB3451DD190A96F500A6F47B /* Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.h; sourceTree = SOURCE_ROOT; };
 		AB3D373E1BBEE1D400622D9C /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Readme.md; path = ../../Readme.md; sourceTree = "<group>"; };
-		AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle-links.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "make-mono64-bundle-links.sh"; path = "../../Scripts/make-mono64-bundle-links.sh"; sourceTree = "<group>"; };
+		AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "make-mono64-bundle.sh"; path = "../../Scripts/make-mono64-bundle.sh"; sourceTree = "<group>"; };
 		AB3FB5C417F08B3D003E5304 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libJudy.README.txt; sourceTree = "<group>"; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 		AB3D37401BBF0FBB00622D9C /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle-links.sh */,
+				AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle.sh */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";

@@ -287,8 +287,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         // remove property change notifications
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = NO;
         
-        // uncache
-        [[DBPrimaryInstanceCache sharedCache] removeObject:self];
+        // Clear instance cache?
+        // The instance cache uses zeroing weak refs so uncaching should happen by default
     }
     
     // free the gc handle
@@ -597,7 +597,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // We don't want to persist the monoObject in an ivar or on the heap in general as it would
     // require always pinning the pointed to MonoObject
     if (monoObject) {
-        _mono_gchandle = mono_gchandle_new(monoObject, self.monoEnvironment.pinGCHandles);
+        _mono_gchandle = mono_gchandle_new(monoObject, self.monoEnvironment.pinObjects);
         
         // monoHash is constant for the lifetime of the managed object.
         // We use this as our main cache key so it makes sense to persist it locally.
@@ -620,7 +620,12 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
     NSUInteger trace = (NSUInteger)monoObject;
     if (self.monoObjectTrace != trace) {
-        [NSException raise:@"DBManagedObjectMovedException" format:@"Support for moved managed objects is pending."];
+        if (self.monoEnvironment.pinObjects) {
+            [NSException raise:@"DBManagedObjectMovedException" format:@"Managed object has moved when pinning enabled."];
+        } else {
+            //NSLog(@"DBManagedObject has moved: %@ traced from %lu to %lu", self, self.monoObjectTrace, trace);
+            self.monoObjectTrace = trace;
+        }
     }
 #endif
     
