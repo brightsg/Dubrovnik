@@ -391,8 +391,13 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	return(retVal);
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 - (void)setDomainConfigPath:(NSString *)path
 {
+    _domainConfigPath = path;
+    
     path = [path stringByResolvingSymlinksInPath];
     NSString *dir = [path stringByDeletingLastPathComponent];
     NSString *filename = path.lastPathComponent;
