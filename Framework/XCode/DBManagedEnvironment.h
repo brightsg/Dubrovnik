@@ -149,6 +149,7 @@
 + (void)setConfigDir:(NSString *)configDir;
 - (void)mapDLL:(const char *)dllName dllPath:(NSString *)dllPath;
 - (void)registerInternalCall:(const char *)callName callPointer:(const void *)callPointer;
+- (void)setDomainConfigPath:(NSString *)path;
 
 - (int)executeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args;
 - (int)invokeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args;

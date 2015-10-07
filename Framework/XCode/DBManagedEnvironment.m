@@ -391,6 +391,14 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	return(retVal);
 }
 
+- (void)setDomainConfigPath:(NSString *)path
+{
+    path = [path stringByResolvingSymlinksInPath];
+    NSString *dir = [path stringByDeletingLastPathComponent];
+    NSString *filename = path.lastPathComponent;
+    mono_domain_set_config(self.monoDomain, dir.fileSystemRepresentation, filename.fileSystemRepresentation);
+}
+
 #pragma mark -
 #pragma mark Termination
 
