@@ -124,23 +124,38 @@ Project Map
 64 Bit Operation
 ================
 
-Dubrovnik defaults to building as a 64 bit framework in order to enable linking with the modern runtime.
+Dubrovnik defaults to building as a 64 bit framework in order to enable linking with the modern Obj-C runtime.
 
-At present Mono ships as 32 only on OS X. Hence it is necessary to build a 64 bit version of Mono from source.
+At present Mono ships as 32 bit only on OS X. Hence it is necessary to build a 64 bit version of Mono from source.
 
 Building 64 Bit Mono Framework
 =============================
 
 To build 64 bit see http://www.mono-project.com/Compiling_Mono_on_OSX.
+Use homebrew to install the GNU autoconf tools as described.
 
-Note:
+The `scripts/make-mono64-bundle.sh` script is used to automate building a Mono framework bundle suitable for use with Dubrovnik.
 
-1. Use homebrew to install the GNU autoconf tools as described
-2. Clone the Mono Git repo from https://github.com/mono/mono and chekout the desired branch.
-3. Build the 64 bit target using ./autogen.sh
-4. Set the build PREFIX var to point to framework version folder.
-5. If the build fails make sure there isn't a space anywhere in the path leading to the repo.
-6. Once built use the make-mono64-bundle-links.sh script to add symlinks to the build.
+Prior to building be sure to check the required Mono branch out in `Submodules/Mono`.
+A typical invocation of this script would be:
+
+    # build /Library/Frameworks/Mono64.framework
+    # arg 1: Mono - name of bundle to build
+    # arg 2: Version - a version name, normally the Git branch version
+    # arg 3: GC identifier - sgen or boehm
+    sudo ./make-mono64-bundle.sh Mono64 4.0.4.4 sgen
+
+
+Building 64 Bit Mono Dylib
+=============================
+
+These notes describe the manual Mono dylib build process automated by `make-mono64-bundle.sh`.
+
+1. Clone the Mono Git repo from https://github.com/mono/mono and chekout the desired branch.
+2. Build the 64 bit target using ./autogen.sh
+3. Set the build PREFIX var to point to framework version folder.
+4. If the build fails make sure there isn't a space anywhere in the path leading to the repo.
+5. Once built use the make-mono64-bundle-links.sh script to add symlinks to the build.
 
 So to build say version 4.0.0 of our Mono64 framework bundler we have: 
 
@@ -152,14 +167,13 @@ So to build say version 4.0.0 of our Mono64 framework bundler we have:
     make
     make install
 
-    cd $DUBROVNIK/scripts
-    ./make-mono64-bundle-links.sh $VERSION
-
 `make` will do the build, `make install` will copy it into `PATH`.
 
 The above build does not produce a framework bundle, rather it produces the content of a framework/Versions folder.
 We want to build a `/Library/Frameworks/Mono64.framework` bundle that mimics `/Library/Frameworks/Mono.framework`.
 Note that we cannot simply update `/Library/Frameworks/Mono` to 64bit as this will kill, among other things, the MonoDevelop IDE which requires the 32 bit build.
+
+This bundling is performed by the `make-mono64-bundle.sh` script.
 
 Prerequisites
 =============
