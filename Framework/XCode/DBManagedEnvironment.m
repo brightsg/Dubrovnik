@@ -22,11 +22,11 @@
 #import <Cocoa/Cocoa.h>
 #import "DBManagedEnvironment.h"
 
-static NSString *_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
-static NSString *_monoAssemblyDefaultSearchPath = @"mono/4.5";
-static NSString *_monoDefaultVersion = @"v4.0.30319";
-static NSString *_monoAssemblyRootFolder = nil;
-static NSString *_monoConfigFolder = nil;
+static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
+static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
+static NSString *m_monoDefaultVersion = @"v4.0.30319";
+static NSString *m_monoAssemblyRootFolder = nil;
+static NSString *m_monoConfigFolder = nil;
 static DBManagedEnvironment *_defaultEnvironment = nil;
 static DBManagedEnvironment *_currentEnvironment = nil;
 
@@ -37,6 +37,9 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 @end
 
 @implementation DBManagedEnvironment
+
+#pragma mark -
+#pragma mark Detection and tracing
 
 + (BOOL)monoIsAvailable
 {
@@ -72,43 +75,98 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     mono_trace_set_mask_string ([traceMask UTF8String]);
 }
 
+#pragma mark -
+#pragma mark Runtime config
+
++ (void)setRuntimeOptions:(NSDictionary *)options
+{
+    // NOTE: be sure to call this before -initWithDomainName
+    
+    // for info on these options see man mono
+    // the debugger can be configured either as a client or a server
+    NSString *address = options[@"address"]?:@"127.0.0.1"; // server must listen on this address
+    NSString *port = options[@"port"]?:@"10000";
+    NSString *server = options[@"server"]?:@"n"; // we are a client
+    NSString *suspend = options[@"suspend"]?:@"y";
+    NSString *loglevel = options[@"loglevel"]?:@"1";
+    NSString *timeout = options[@"timeout"]?:@"10";
+    
+    NSString *agent = [NSString stringWithFormat:@"--debugger-agent=transport=dt_socket,address=%@:%@,server=%@,suspend=%@,loglevel=%@,timeout=%@", address, port, server, suspend, loglevel,timeout];
+    const char* jit_options[] = {
+        "--soft-breakpoints",
+        [agent UTF8String]
+    };
+    
+    mono_jit_parse_options(2, (char**)jit_options);
+    
+    mono_debug_init(MONO_DEBUG_FORMAT_MONO);
+}
+
++ (void)mapDLL:(const char *)dllName dllPath:(NSString *)dllPath {
+    mono_dllmap_insert(NULL, dllName, NULL, [dllPath fileSystemRepresentation], NULL);
+}
+
++ (void)registerInternalCall:(const char *)callName callPointer:(const void *)callPointer {
+    mono_add_internal_call(callName, callPointer);
+}
+
+#pragma mark -
+#pragma mark Folder locations
+
 + (NSString *)monoAssemblyRootFolder
 {
-    if (!_monoAssemblyRootFolder) {
-        _monoAssemblyRootFolder = [[_monoFrameworkPathVersionCurrent stringByAppendingPathComponent:@"lib"] stringByResolvingSymlinksInPath];
+    // use default if no value defined
+    if (!m_monoAssemblyRootFolder) {
+        m_monoAssemblyRootFolder = [[m_monoFrameworkPathVersionCurrent stringByAppendingPathComponent:@"lib"] stringByResolvingSymlinksInPath];
     }
-    return _monoAssemblyRootFolder;
+    return m_monoAssemblyRootFolder;
 }
 
 + (NSString *)monoConfigFolder
 {
-    if (!_monoConfigFolder) {
-        _monoConfigFolder = [[_monoFrameworkPathVersionCurrent stringByAppendingPathComponent:@"etc"] stringByResolvingSymlinksInPath];
+    // use default if no value defined
+    if (!m_monoConfigFolder) {
+        m_monoConfigFolder = [[m_monoFrameworkPathVersionCurrent stringByAppendingPathComponent:@"etc"] stringByResolvingSymlinksInPath];
     }
-    return _monoConfigFolder;
+    return m_monoConfigFolder;
 }
 
 + (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
 {
-    _monoAssemblyRootFolder = [monoAssemblyRootFolder stringByResolvingSymlinksInPath];
-    _monoConfigFolder = [monoConfigFolder stringByResolvingSymlinksInPath];
+    m_monoAssemblyRootFolder = [monoAssemblyRootFolder stringByResolvingSymlinksInPath];
+    m_monoConfigFolder = [monoConfigFolder stringByResolvingSymlinksInPath];
     
     // check root folders exist
     BOOL isDir;
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_monoAssemblyRootFolder isDirectory:&isDir] || isDir == NO) {
-        [NSException raise:@"DBInvalidMonoRootFolderException" format:@"Mono root folder does not exist: %@", _monoAssemblyRootFolder];
-    }
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_monoConfigFolder isDirectory:&isDir] || isDir == NO) {
-        [NSException raise:@"DBInvalidMonoConfigFolderException" format:@"Mono config folder does not exist: %@", _monoConfigFolder];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:m_monoAssemblyRootFolder isDirectory:&isDir] || isDir == NO) {
+        [NSException raise:@"DBInvalidMonoRootFolderException" format:@"Mono root folder does not exist: %@", m_monoAssemblyRootFolder];
     }
     
     // check config folder exists
-    const char *rootFolder = [_monoAssemblyRootFolder fileSystemRepresentation];
-    const char *configFolder = [_monoConfigFolder fileSystemRepresentation];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:m_monoConfigFolder isDirectory:&isDir] || isDir == NO) {
+        [NSException raise:@"DBInvalidMonoConfigFolderException" format:@"Mono config folder does not exist: %@", m_monoConfigFolder];
+    }
     
+    // setup mono
+    const char *rootFolder = [m_monoAssemblyRootFolder fileSystemRepresentation];
+    const char *configFolder = [m_monoConfigFolder fileSystemRepresentation];
+    
+    // mono_set_dirs calls mono_assembly_setrootdir() and mono_set_config_dir()
     mono_set_dirs(rootFolder, configFolder);
     mono_config_parse(NULL);
 }
+
++ (void)setAssemblyRoot:(NSString *)assemblyRoot {
+    const char *rootDir = [assemblyRoot fileSystemRepresentation];
+    mono_assembly_setrootdir(rootDir);
+}
+
++ (void)setConfigDir:(NSString *)configDir {
+    mono_set_config_dir([configDir fileSystemRepresentation]);
+}
+
+#pragma mark -
+#pragma mark Environment
 
 + (DBManagedEnvironment *)defaultEnvironment {
 	if(!_defaultEnvironment) {
@@ -140,13 +198,26 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     _currentEnvironment = environment;
 }
 
+#pragma mark -
+#pragma mark Domain
+
 + (MonoDomain *)currentDomain
 {
     return [self currentEnvironment].monoDomain;
 }
 
+- (void)setDomainBaseDir:(NSString *)baseDir configFilePath:(NSString *)configFilePath
+{
+    baseDir = [baseDir stringByResolvingSymlinksInPath];
+    configFilePath = [configFilePath stringByResolvingSymlinksInPath];
+    mono_domain_set_config(self.monoDomain, baseDir.fileSystemRepresentation, configFilePath.fileSystemRepresentation);
+}
+
+#pragma mark -
+#pragma mark Life cycle
+
 - (id)initWithDomainName:(const char *)domainName {
-    return [self initWithDomainName:domainName version:[_monoDefaultVersion UTF8String]];
+    return [self initWithDomainName:domainName version:[m_monoDefaultVersion UTF8String]];
 }
 
 // designated initialiser
@@ -174,29 +245,8 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	return(self);
 }
 
-+ (void)setRuntimeOptions:(NSDictionary *)options
-{
-    // NOTE: be sure to call this before -initWithDomainName
-    
-    // for info on these options see man mono
-    // the debugger can be configured either as a client or a server
-    NSString *address = options[@"address"]?:@"127.0.0.1"; // server must listen on this address
-    NSString *port = options[@"port"]?:@"10000";
-    NSString *server = options[@"server"]?:@"n"; // we are a client
-    NSString *suspend = options[@"suspend"]?:@"y";
-    NSString *loglevel = options[@"loglevel"]?:@"1";
-    NSString *timeout = options[@"timeout"]?:@"10";
-    
-    NSString *agent = [NSString stringWithFormat:@"--debugger-agent=transport=dt_socket,address=%@:%@,server=%@,suspend=%@,loglevel=%@,timeout=%@", address, port, server, suspend, loglevel,timeout];
-    const char* jit_options[] = {
-        "--soft-breakpoints",
-        [agent UTF8String]
-    };
-    
-    mono_jit_parse_options(2, (char**)jit_options);
-    
-    mono_debug_init(MONO_DEBUG_FORMAT_MONO);
-}
+#pragma mark -
+#pragma mark Mono class and method
 
 + (MonoClass *)monoClassWithName:(char *)className fromAssemblyName:(const char *)name
 {
@@ -259,6 +309,9 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     return monoMethod;
 }
 
+#pragma mark -
+#pragma mark Assembly management
+
 - (MonoAssembly *)openAssemblyWithName:(const char *)name
 {
     // check assembly cache
@@ -276,7 +329,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         if (!path) {
             
             // delegate has no path suggestion hence try and load dll from default location
-            NSString *monoPath = [[DBManagedEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:_monoAssemblyDefaultSearchPath];
+            NSString *monoPath = [[DBManagedEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:m_monoAssemblyDefaultSearchPath];
             
             path = [monoPath stringByResolvingSymlinksInPath];
             path = [path stringByAppendingPathComponent:@(name)];
@@ -346,132 +399,32 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	return assembly;
 }
 
-+ (void)setAssemblyRoot:(NSString *)assemblyRoot {
-    const char *rootDir = [assemblyRoot fileSystemRepresentation];
-	mono_assembly_setrootdir(rootDir);
-}
-
-+ (void)setConfigDir:(NSString *)configDir {
-	mono_set_config_dir([configDir fileSystemRepresentation]);
-}
-
-- (void)mapDLL:(const char *)dllName dllPath:(NSString *)dllPath {
-	mono_dllmap_insert(NULL, dllName, NULL, [dllPath fileSystemRepresentation], NULL);
-}
-
-- (void)registerInternalCall:(const char *)callName callPointer:(const void *)callPointer {
-	mono_add_internal_call(callName, callPointer);
-}
-
 - (int)executeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args {
-	if(prepareThreading) {
-		[self prepareThreading];
-	}
-		
-	mono_jit_exec(self.monoDomain, assembly, argCount, args);
-	int retVal = mono_environment_exitcode_get();
+    if(prepareThreading) {
+        [self prepareThreading];
+    }
+    
+    mono_jit_exec(self.monoDomain, assembly, argCount, args);
+    int retVal = mono_environment_exitcode_get();
     
     // once cleanup is called the runtime cannot be loaded into the same process again.
-	mono_jit_cleanup(self.monoDomain);
-	
-	return(retVal);
+    mono_jit_cleanup(self.monoDomain);
+    
+    return(retVal);
 }
 
 - (int)invokeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args {
-	if(prepareThreading) {
-		[self prepareThreading];
-	}
+    if(prepareThreading) {
+        [self prepareThreading];
+    }
     
     // Make sure you always provide a Main() method and execute it with mono_jit_exec() at startup:
     // this sets up some additional information in the application domain, like the main assembly and the base loading path.
     // You will be able to execute other methods even after Main() returns.
-	mono_jit_exec(_monoDomain, assembly, argCount, args);
-	int retVal = mono_environment_exitcode_get();
-	
-	return(retVal);
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setDomainConfigPath:(NSString *)path
-{
-    _domainConfigPath = path;
+    mono_jit_exec(_monoDomain, assembly, argCount, args);
+    int retVal = mono_environment_exitcode_get();
     
-    path = [path stringByResolvingSymlinksInPath];
-    NSString *dir = [path stringByDeletingLastPathComponent];
-    NSString *filename = path.lastPathComponent;
-    mono_domain_set_config(self.monoDomain, dir.fileSystemRepresentation, filename.fileSystemRepresentation);
-}
-
-#pragma mark -
-#pragma mark Termination
-
-- (void)terminate
-{
-    // mono_jit_cleanup crashes on occasion as per:
-    // http://mono.1490590.n4.nabble.com/mono-jit-cleanup-gets-EXC-BAD-ACCESS-td4659226.html
-    //
-    // For workaround see:
-    // http://mono.1490590.n4.nabble.com/crash-in-mono-jit-cleanup-td4661326.html
-    //
-    BOOL terminateJIT = NO;
-    
-    if (terminateJIT) {
-        mono_jit_cleanup([self monoDomain]);
-    } else {
-        // This is the suggested workaround
-        [self collectAndWaitForPendingFinalizers];
-    }
-}
-
-- (void)collectAndWaitForPendingFinalizers
-{
-    MonoObject *monoException = NULL;
-    MonoMethod *helperMethod = [[self class] dubrovnikMonoMethodWithName:"CollectAndWaitForPendingFinalizers" className:"Dubrovnik.FrameworkHelper.GCHelper" argCount:0];
-    mono_runtime_invoke(helperMethod, NULL, NULL, &monoException);
-}
-
-#pragma mark -
-#pragma mark Thread management
-
-- (void)prepareThreading {
-	//this thread is launched just to force cocoa into multithreaded mode.
-	[NSThread detachNewThreadSelector:@selector(nothingThread:) toTarget:self withObject:nil];
-    
-	// get DBMonoRegisteredThread to pose as NSThread.
-    // Note that -poseAsClass: is deprecated and not available in the 64bit API.
-#ifdef __LP64__
-    NSAssert(NO, @"-poseAsClass not available in 64bit API");
-#else
-	[DBMonoRegisteredThread poseAsClass:[NSThread class]];
-#endif
-}
-
-- (MonoThread *)attachCurrentThread
-{
-    return [[self class] attachCurrentThreadForMonoDomain:[self monoDomain]];
-}
-
-+ (MonoThread *)attachCurrentThreadForMonoDomain:(MonoDomain *)monoDomain
-{
-    return mono_thread_attach(monoDomain);
-}
-
-- (void)detachMonoThread:(MonoThread *)monoThread
-{
-    [[self class] detachMonoThread:monoThread];
-}
-
-+ (void)detachMonoThread:(MonoThread *)monoThread
-{
-    mono_thread_detach(monoThread);
-}
-
-//this thread is launched just to force cocoa into multithreaded mode.
-- (void)nothingThread:(id)arg {
-#pragma unused(arg)    
-	//nothing actually goes on here.
+    return(retVal);
 }
 
 - (MonoAssembly *)DubrovnikAssembly
@@ -509,6 +462,68 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     MonoAssembly *assembly = [self loadedAssembly:assemblyString];
     
     return (assembly == NULL ? NO : YES);
+}
+
+#pragma mark -
+#pragma mark Termination
+
+- (void)terminate
+{
+    // mono_jit_cleanup crashes on occasion as per:
+    // http://mono.1490590.n4.nabble.com/mono-jit-cleanup-gets-EXC-BAD-ACCESS-td4659226.html
+    //
+    // For workaround see:
+    // http://mono.1490590.n4.nabble.com/crash-in-mono-jit-cleanup-td4661326.html
+    //
+    BOOL terminateJIT = NO;
+    
+    if (terminateJIT) {
+        mono_jit_cleanup([self monoDomain]);
+    } else {
+        // This is the suggested workaround
+        [self collectAndWaitForPendingFinalizers];
+    }
+}
+
+- (void)collectAndWaitForPendingFinalizers
+{
+    MonoObject *monoException = NULL;
+    MonoMethod *helperMethod = [[self class] dubrovnikMonoMethodWithName:"CollectAndWaitForPendingFinalizers" className:"Dubrovnik.FrameworkHelper.GCHelper" argCount:0];
+    mono_runtime_invoke(helperMethod, NULL, NULL, &monoException);
+}
+
+#pragma mark -
+#pragma mark Thread management
+
+- (void)prepareThreading {
+	//this thread is launched just to force Cocoa into multithreaded mode.
+	[NSThread detachNewThreadSelector:@selector(nothingThread:) toTarget:self withObject:nil];
+}
+
+- (MonoThread *)attachCurrentThread
+{
+    return [[self class] attachCurrentThreadForMonoDomain:[self monoDomain]];
+}
+
++ (MonoThread *)attachCurrentThreadForMonoDomain:(MonoDomain *)monoDomain
+{
+    return mono_thread_attach(monoDomain);
+}
+
+- (void)detachMonoThread:(MonoThread *)monoThread
+{
+    [[self class] detachMonoThread:monoThread];
+}
+
++ (void)detachMonoThread:(MonoThread *)monoThread
+{
+    mono_thread_detach(monoThread);
+}
+
+//this thread is launched just to force cocoa into multithreaded mode.
+- (void)nothingThread:(id)arg {
+#pragma unused(arg)    
+	// no-op
 }
 
 @end

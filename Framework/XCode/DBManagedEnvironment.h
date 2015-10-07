@@ -45,7 +45,6 @@
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;
 @property (assign, readonly) MonoDomain *monoDomain;
 @property (assign) BOOL pinObjects;
-@property (strong, nonatomic) NSString *domainConfigPath;
 
 /*!
  
@@ -136,6 +135,10 @@
 + (MonoMethod *)dubrovnikMonoMethodWithName:(char *)methodName className:(char *)className argCount:(int)argCount;
 + (NSString *)monoAssemblyRootFolder;
 + (NSString *)monoConfigFolder;
++ (void)setAssemblyRoot:(NSString *)assemblyRoot;
++ (void)setConfigDir:(NSString *)configDir;
++ (void)mapDLL:(const char *)dllName dllPath:(NSString *)dllPath;
++ (void)registerInternalCall:(const char *)callName callPointer:(const void *)callPointer;
 
 - (MonoDomain *)monoDomain;
 - (MonoAssembly *)loadedAssemblyWithName:(const char *)name;
@@ -146,16 +149,12 @@
 - (MonoAssembly *)openAssembly:(NSString *)name path:(NSString *)assemblyPath;
 - (MonoAssembly *)openAssemblyWithName:(const char *)name path:(NSString *)path;
 
-+ (void)setAssemblyRoot:(NSString *)assemblyRoot;
-+ (void)setConfigDir:(NSString *)configDir;
-- (void)mapDLL:(const char *)dllName dllPath:(NSString *)dllPath;
-- (void)registerInternalCall:(const char *)callName callPointer:(const void *)callPointer;
-
 - (int)executeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args;
 - (int)invokeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args;
 
-
 - (BOOL)isAssemblyLoaded:(NSString *)assemblyString;
+
+- (void)setDomainBaseDir:(NSString *)baseDir configFilePath:(NSString *)configFilePath;
 
 // threading
 - (void)prepareThreading;
