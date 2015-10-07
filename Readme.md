@@ -167,7 +167,7 @@ So to build say version 4.0.0 of our Mono64 framework bundler we have:
     make
     make install
 
-`make` will do the build, `make install` will copy it into `PATH`.
+`make` will do the build, `make install` will copy it into `PREFIX`.
 
 The above build does not produce a framework bundle, rather it produces the content of a framework/Versions folder.
 We want to build a `/Library/Frameworks/Mono64.framework` bundle that mimics `/Library/Frameworks/Mono.framework`.
