@@ -66,12 +66,14 @@ Accomplished Project Goals
 1. Automatic KVO notifications for managed objects that implement PropertyChanging and PropertyChanged events.
 1. Managed interface representation.
 1. Explicit interface property and method invocation.
+1. Support for SGEN and moveable memory.
 
 Outstanding Project Goals
 =============
 
 The following project goals are outstanding:
 
+1. Automatic support for indexers.
 1. Generate automatic bindings for all types in mscorlib.dll. This is pretty well advanced. Some fixes to the core codegen are required. Some issues will be resolved by the postflight processor.
 1. Automatic generic method support in generated code.
 
