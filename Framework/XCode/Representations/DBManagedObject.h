@@ -39,14 +39,34 @@ extern char DBCacheSuffixChar;
  
  Returns YES if instance is primary.
  
- The first Obj-C representation created for a given managed object acts as its primary representation
- until it is deallocated. Any subsequent Obj-C representation created for the same MonoObject will be non
- primary unless a primary instance does not exist.
+ The first Obj-C representation created for a given managed object (aka MonoObject *) acts as its primary representation (aka PI)
+ until it is deallocated. If a subsequent Obj-C representation of the same MonoObject * is requested with a different
+ Obj-C class (say a superclass or interface representation) then a non primary (aka secondary instance, SI) representation will be returned.
+ The PI can be a top level class, a superclass representation or a managed interface representation.
  
- A primary instance is cached. When the default Obj-C representation of a given MonoObject is required the cache
- is consulted first to determine if an existing instance exists. If so it is used. This default represntation
+ A PI is cached, an SI is not. When the default Obj-C representation of a given MonoObject is required the cache
+ is consulted first to determine if an existing PI exists. If so it is used. This default representation
  is citical when it comes to determining, for example, what Obj-C object to associate as the source of a managed event.
  For this reason managed events can only be raised by primary instances.
+ 
+ This represents a fundamental property of the bridge when it comes to working with bindings and managed events.
+ If, for example, you bind to an interface representation (which will become the PI) of an object and then try and bind to the actual object
+ an exception will be raised.
+ 
+ Therefore, in general, do not attempt to bind to or subscribe to managed events for an object that you do not consider as a suitable 
+ candidate PI object. 
+ 
+ Remember that the first unmanaged representation of a given MonoObject * becomes the PI.
+ So depending on the application's execution history different object representations of the same MonoObject * may become
+ the PI depending on which classes, superclasses and interfaces actually get instantiated.
+
+ Note:
+ It would be possible to build a tracking system that would enable the PI to maintain a collection of all the SI objects
+ representing the same MonoObject *. When the PI was deallocated a SI would have to be promoted to PI. When a managed event
+ occurred this could be routed to the PI and SI instances. I am not certain if trying to send KVO key changing/changed messages for
+ properties not implemented in a superclass/interface would be problematic - I imagine that in some situations it could be!
+ To overcome that problem it would be necessary for each PI and SI to individually track whether they were registered for a particular event.
+ All of which sounds rather onerous.
  
  */
 @property (assign, readonly) BOOL isPrimaryInstance;

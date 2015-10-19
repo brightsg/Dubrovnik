@@ -408,7 +408,6 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
          */
         
         // look for implicit implementation if explicit method name found
-        // look for implicit implementation if explicit method name found
         if (meth == NULL && !continueSearch) {
             char *implicitNamePtr = NULL;
             char *bracketry = strchr(methodName, '(');
