@@ -39,6 +39,15 @@ static BOOL m_runningAutoGenCodeTest = NO;
 #endif
 
 
+#define REST_EVENT_VARS(X)    self.event1Fired = X; \
+self.event2Fired = X; \
+testObject.event1Fired = X; \
+testObject.event2Fired = X; \
+eventTarget.event1Fired = X; \
+eventTarget.event2Fired = X; \
+eventTarget1.event1Fired = X; \
+eventTarget1.event2Fired = X
+
 @implementation NSObject (Dubrovnik_UnitTests)
 - (BOOL)dbTestString:(NSString *)string
 {
@@ -94,6 +103,9 @@ static MonoAssembly *monoAssembly;
 #warning NSData implementation is not tested
 
 @implementation Dubrovnik_Unit_Tests
+
+#pragma mark -
+#pragma mark Test lifecycle
 
 - (void)setUp
 {
@@ -155,29 +167,8 @@ static MonoAssembly *monoAssembly;
     [super tearDown];
 }
 
-// mono_object_to_string is buggy
-// https://github.com/mono/mono/pull/708/files
-MonoString *
-mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
-{
-	static MonoMethod *to_string = NULL;
-	MonoMethod *method;
-    void *target = obj;
-    
-	//g_assert (obj);
-    
-	if (!to_string)
-		to_string = mono_class_get_method_from_name_flags (mono_get_object_class (), "ToString", 0, 0x0040 | 0x0006);
-    
-	method = mono_object_get_virtual_method (obj, to_string);
-    
-    // Unbox value type if needed
-    if (mono_class_is_valuetype (mono_method_get_class (method))) {
-        target = mono_object_unbox (obj);
-    }
-    
-    return (MonoString *) mono_runtime_invoke (method, target, NULL, exc);
-}
+#pragma mark -
+#pragma mark Top level tests
 
 - (void)testDateRepresentation
 {
@@ -196,7 +187,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     //[DBManagedObject logMonoClassInfo:mono_object_get_class(monoObject)];
 }
-
 
 - (void)testNumberRepresentation
 {
@@ -314,9 +304,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)testReferenceClass
 {
-    NSUInteger initialInstanceCount = 0;
-    NSUInteger finalInstanceCount = 0;
-
     
 #if DB_RUN_MANUAL_CODE_TEST == 1
     
@@ -442,6 +429,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [[DBPrimaryInstanceCache sharedCache] logPrimaryInstanceCache:DBLogInstanceCacheAll];
 }
 
+- (void)testMultiStringGeneration
+{
+    MonoObject *monoObject = [@"test" monoObject];
+    
+    for (NSUInteger i = 0; i < 1e5; i++) {
+        id object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+        (void)object;
+    }
+}
+
+#pragma mark -
+#pragma mark Helper methods
+
 - (NSData *)createNSData:(NSUInteger)dataSize
 {
     NSMutableData *theData = [NSMutableData dataWithCapacity:dataSize];
@@ -452,6 +452,34 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     return theData;
 }
+
+// mono_object_to_string is buggy
+// https://github.com/mono/mono/pull/708/files
+MonoString *
+mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
+{
+    static MonoMethod *to_string = NULL;
+    MonoMethod *method;
+    void *target = obj;
+    
+    //g_assert (obj);
+    
+    if (!to_string)
+        to_string = mono_class_get_method_from_name_flags (mono_get_object_class (), "ToString", 0, 0x0040 | 0x0006);
+    
+    method = mono_object_get_virtual_method (obj, to_string);
+    
+    // Unbox value type if needed
+    if (mono_class_is_valuetype (mono_method_get_class (method))) {
+        target = mono_object_unbox (obj);
+    }
+    
+    return (MonoString *) mono_runtime_invoke (method, target, NULL, exc);
+}
+
+
+#pragma mark -
+#pragma mark Subcomponent tests
 
 - (id)doTestConstructorsWithclass:(Class)testClass
 {
@@ -1521,6 +1549,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSAssert(impIntValue == 30303, DBUEqualityTestFailed);
 
     Dubrovnik_UnitTests_IReferenceObject1 *refObject1Imp = [[Dubrovnik_UnitTests_IReferenceObject1 alloc] initWithMonoObject:[refObject monoObject]];
+    [refObject logMonoClassInfo];
+    [refObject1Imp logMonoClassInfo];
     int32_t impIntValue2 = [refObject1Imp impIntTestProperty];
     NSAssert(impIntValue2 == impIntValue, DBUEqualityTestFailed);
     
@@ -1730,45 +1760,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestArrayListRepresentation:refObject class:testClass];
 }
 
-// managed event callbacks that route events back to registered event target
-static void DubrovnikEventHandlerICall1(MonoObject* monoSender, MonoObject* monoEventArgs)
-{
-    
-    [DBManagedEvent dispatchEventFromMonoSender:monoSender
-                                      eventArgs:monoEventArgs
-                                      eventName:@"UnitTestEvent1"
-                             targetSelectorName:@"event1ReceivedFromSender:item:"];
-}
-
-- (void)event1ReceivedFromSender:(DBManagedObject *)sender item:(System_EventArgs *)item
-{
-#pragma unused(sender, item)
-    self.event1Fired++;
-}
-
-static void DubrovnikEventHandlerICall2(MonoObject* monoSender, MonoObject* monoEventArgs)
-{
-    [DBManagedEvent dispatchEventFromMonoSender:monoSender
-                                      eventArgs:monoEventArgs
-                                      eventName:@"UnitTestEvent2"
-                             targetSelectorName:@"event2ReceivedFromSender:item:"];
-}
-
-- (void)event2ReceivedFromSender:(id)sender item:(System_EventArgs *)item
-{
-#pragma unused(sender, item)
-    self.event2Fired++;
-}
-
-#define REST_EVENT_VARS(X)    self.event1Fired = X; \
-self.event2Fired = X; \
-testObject.event1Fired = X; \
-testObject.event2Fired = X; \
-eventTarget.event1Fired = X; \
-eventTarget.event2Fired = X; \
-eventTarget1.event1Fired = X; \
-eventTarget1.event2Fired = X
-
 - (void)doTestEvents:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
@@ -1792,7 +1783,7 @@ eventTarget1.event2Fired = X
         m_eventHandlersRegistered = YES;
     }
     
-
+    
     //
     // add managed event handlers
     // this associates a managed event with a particular static managed event handler as registered above.
@@ -1801,7 +1792,7 @@ eventTarget1.event2Fired = X
     //
     [self addManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
     [self addManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-
+    
     // check that targets have been set
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent1"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
@@ -1810,7 +1801,7 @@ eventTarget1.event2Fired = X
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
     XCTAssertTrue([targets db_indexForObjectPointer:self] != NSUIntegerMax, DBUEqualityTestFailed);
-
+    
     //
     // define another object of the same class to check that we can have multiple event subscribers
     // with the same class
@@ -1818,7 +1809,7 @@ eventTarget1.event2Fired = X
     Dubrovnik_Unit_Tests * testObject = [[self class] new];
     [testObject addManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
     [testObject addManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-
+    
     // check that targets have been set
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent1"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
@@ -1827,7 +1818,7 @@ eventTarget1.event2Fired = X
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
     XCTAssertTrue([targets db_indexForObjectPointer:testObject] != NSUIntegerMax, DBUEqualityTestFailed);
-
+    
     //
     // define an event target of another class
     //
@@ -1843,7 +1834,7 @@ eventTarget1.event2Fired = X
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
     XCTAssertTrue([targets db_indexForObjectPointer:eventTarget] != NSUIntegerMax, DBUEqualityTestFailed);
-
+    
     //
     // define another event source of this class
     //
@@ -1861,7 +1852,7 @@ eventTarget1.event2Fired = X
     targets = [DBManagedEvent eventTargetsForSender:refObject1 eventName:@"UnitTestEvent2"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
     XCTAssertTrue([targets db_indexForObjectPointer:eventTarget1] != NSUIntegerMax, DBUEqualityTestFailed);
-
+    
     // raise events
     REST_EVENT_VARS(0);
     
@@ -1901,11 +1892,11 @@ eventTarget1.event2Fired = X
     XCTAssertTrue(testObject.event2Fired == 1, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
-
+    
     // remove handler 1 for testObject
     [testObject removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
     REST_EVENT_VARS(0);
-
+    
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
     XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
@@ -1918,7 +1909,7 @@ eventTarget1.event2Fired = X
     // remove handler 2 for self
     [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
     REST_EVENT_VARS(0);
-
+    
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
     XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
@@ -1940,7 +1931,7 @@ eventTarget1.event2Fired = X
     XCTAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget.event1Fired == 1, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget.event2Fired == 1, DBUEqualityTestFailed);
-
+    
     // remove handler 1 for eventTarget
     [eventTarget removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
     REST_EVENT_VARS(0);
@@ -1966,7 +1957,7 @@ eventTarget1.event2Fired = X
     XCTAssertTrue(testObject.event2Fired == 0, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget.event1Fired == 0, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget.event2Fired == 0, DBUEqualityTestFailed);
-
+    
     // check that targets have been set to zero
     targets = [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent1"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
@@ -1978,16 +1969,36 @@ eventTarget1.event2Fired = X
 }
 
 #pragma mark -
-#pragma mark Object generation tests
+#pragma mark Event handler support
 
-- (void)testMultiStringGeneration
+// managed event callbacks that route events back to registered event target
+static void DubrovnikEventHandlerICall1(MonoObject* monoSender, MonoObject* monoEventArgs)
 {
-   MonoObject *monoObject = [@"test" monoObject];
     
-    for (NSUInteger i = 0; i < 1e5; i++) {
-        id object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
-        (void)object;
-    }
+    [DBManagedEvent dispatchEventFromMonoSender:monoSender
+                                      eventArgs:monoEventArgs
+                                      eventName:@"UnitTestEvent1"
+                             targetSelectorName:@"event1ReceivedFromSender:item:"];
+}
+
+- (void)event1ReceivedFromSender:(DBManagedObject *)sender item:(System_EventArgs *)item
+{
+#pragma unused(sender, item)
+    self.event1Fired++;
+}
+
+static void DubrovnikEventHandlerICall2(MonoObject* monoSender, MonoObject* monoEventArgs)
+{
+    [DBManagedEvent dispatchEventFromMonoSender:monoSender
+                                      eventArgs:monoEventArgs
+                                      eventName:@"UnitTestEvent2"
+                             targetSelectorName:@"event2ReceivedFromSender:item:"];
+}
+
+- (void)event2ReceivedFromSender:(id)sender item:(System_EventArgs *)item
+{
+#pragma unused(sender, item)
+    self.event2Fired++;
 }
 
 #pragma mark -
