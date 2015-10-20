@@ -2440,7 +2440,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			referencePreProcessBuilder.Append(preProcess);
 
 			// create new object subclass for reference 
-			string postProcess = string.Format("*p{0} = [System_Object subclassObjectWithMonoObject:refPtr{0}];{1}", idx + 1, Environment.NewLine);
+			string postProcess = string.Format("*p{0} = [System_Object bestObjectWithMonoObject:refPtr{0}];{1}", idx + 1, Environment.NewLine);
 			referencePostProcessBuilder.Append(postProcess);
         }
 

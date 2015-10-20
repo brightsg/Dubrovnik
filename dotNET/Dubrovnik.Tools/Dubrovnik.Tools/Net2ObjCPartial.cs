@@ -796,7 +796,7 @@ namespace Dubrovnik.Tools
                 }
 
                 // create DBManagedObject subclass
-                exp = string.Format("[{0} objectWithMonoObject:{1}]", objCType, managedVarName);
+                exp = string.Format("[{0} bestObjectWithMonoObject:{1}]", objCType, managedVarName);
             }
 
             return exp;
@@ -1035,7 +1035,7 @@ namespace Dubrovnik.Tools
 
             // generic parameter
             manTA = new ManagedTypeAssociation { ManagedType = GenericTypePlaceholder };
-            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object subclassObjectWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object bestObjectWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
 
             // System.Object
