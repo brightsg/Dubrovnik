@@ -129,6 +129,18 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
 
 /**
  
+ An object representing the MonoObject.
+ The most representative available subclass of DBManagedObject
+ will be chosen to represent the MonoObject.
+ If a suitable subclass cannot be found then an object of the defaultClass will be returned.
+ 
+ This is the designated initialiser for object creation.
+ 
+ */
+- (id)objectWithMonoObject:(MonoObject *)monoObject defaultClass:(Class)defaultClass;
+
+/**
+ 
  An object representing a managed object.
  This may be called when a managed object subclass is required 
  to be generated from a DBManagedObject instance.

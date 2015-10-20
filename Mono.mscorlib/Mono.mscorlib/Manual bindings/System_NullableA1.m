@@ -108,7 +108,12 @@
 
 #pragma mark -
 #pragma mark Factory methods
-    
+
++ (id)bestObjectWithMonoObject:(MonoObject *)obj
+{
+    return [self objectWithMonoObject:obj];
+}
+
 + (id)newNullableFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName
 {
     if (!object) {

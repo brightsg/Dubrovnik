@@ -139,7 +139,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
-#pragma mark class methods
+#pragma mark Type and Class
 
 + (MonoClass *)monoClass
 {
@@ -160,21 +160,18 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return classRep;
 }
 
+#pragma mark -
+#pragma mark Factory
+
 + (instancetype)objectWithManagedObject:(DBManagedObject *)obj
 {
-    DBManagedObject *rep = [[[self class] alloc] initWithMonoObject:obj.monoObject];
-    return(rep);
+    return [self objectWithMonoObject:obj.monoObject];
 }
 
 + (instancetype)objectWithMonoObject:(MonoObject *)obj
 {
-	DBManagedObject *rep = [[[self class] alloc] initWithMonoObject:obj];
-	return(rep);
-}
-
-+ (id)subclassObjectWithMonoObject:(MonoObject *)obj
-{
-    return [[DBTypeManager sharedManager] objectWithMonoObject:obj];
+	DBManagedObject *object = [[[self class] alloc] initWithMonoObject:obj];
+	return object;
 }
  
 + (instancetype)objectWithNumArgs:(int)numArgs, ...
@@ -187,16 +184,21 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	va_start(va_args, numArgs);
 	
 	MonoObject *newObject = DBMonoObjectVarArgsConstruct(monoClass, numArgs, va_args);
-	DBManagedObject *rep = [class objectWithMonoObject:newObject];
+	DBManagedObject *object = [class objectWithMonoObject:newObject];
 	
 	va_end(va_args);
 	
-	return(rep);
+	return object;
+}
+
++ (id)bestObjectWithMonoObject:(MonoObject *)obj
+{
+    return [[DBTypeManager sharedManager] objectWithMonoObject:obj defaultClass:self];
 }
 
 #pragma mark -
 #pragma mark Lifecycle
-
+    
 - (id)init
 {
     // Passing an empty signature equates to calling the default constructor

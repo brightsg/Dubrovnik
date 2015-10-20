@@ -42,7 +42,19 @@ extern char DBCacheSuffixChar;
  The first Obj-C representation created for a given managed object (aka MonoObject *) acts as its primary representation (aka PI)
  until it is deallocated. If a subsequent Obj-C representation of the same MonoObject * is requested with a different
  Obj-C class (say a superclass or interface representation) then a non primary (aka secondary instance, SI) representation will be returned.
- The PI can be a top level class, a superclass representation or a managed interface representation.
+ The PI can be a top level subclass, a superclass representation or a managed interface representation.
+ Best practice is to ensure that the PI is a top level subclass.
+ 
+ The prefered method of creating objects is via +bestObjectWithMonoObject:
+ This will return a suitable subclass of the receiver class or an instance of the receiver class.
+ Calling +bestObjectWithMonoObject: on a managed interface type returns a top level subclass object that responds to the interface properties and methods.
+ This approach enables bindings and managed events to be used both on the object and managed interface representations of a given MonoObject * as
+ both the object and interface representations are the same Obj-C object.
+ 
+ Calling +objectWithMonoObject: always returns an instance of the receiver, never a subclass.
+ So you are much more likely to generate a SI using this method.
+ In general it should only be ncessary to use +objectWithMonoObject: when access to an explicit interface is equired.
+ The explicit interface should be created and disposed off as quickly as possible.
  
  A PI is cached, an SI is not. When the default Obj-C representation of a given MonoObject is required the cache
  is consulted first to determine if an existing PI exists. If so it is used. This default representation
@@ -50,7 +62,7 @@ extern char DBCacheSuffixChar;
  For this reason managed events can only be raised by primary instances.
  
  This represents a fundamental property of the bridge when it comes to working with bindings and managed events.
- If, for example, you bind to an interface representation (which will become the PI) of an object and then try and bind to the actual object
+ If, for example, you bind to an explicit interface representation of an object and then try and bind to the actual object
  an exception will be raised.
  
  Therefore, in general, do not attempt to bind to or subscribe to managed events for an object that you do not consider as a suitable 
@@ -59,7 +71,8 @@ extern char DBCacheSuffixChar;
  Remember that the first unmanaged representation of a given MonoObject * becomes the PI.
  So depending on the application's execution history different object representations of the same MonoObject * may become
  the PI depending on which classes, superclasses and interfaces actually get instantiated.
-
+ Some defensive programming may be required in some circumstances.
+ 
  Note:
  It would be possible to build a tracking system that would enable the PI to maintain a collection of all the SI objects
  representing the same MonoObject *. When the PI was deallocated a SI would have to be promoted to PI. When a managed event
@@ -90,10 +103,36 @@ extern char DBCacheSuffixChar;
 + (MonoClass *)monoClass;
 + (MonoType *)monoType;
 + (DBManagedClass *)dbClass;
+
+/*!
+ 
+ Returns an instance of the receiver class representing the MonoObject * parameter.
+ 
+ This method consults the primary instance cache and may return a previously cached object.
+ If no cache copy exists this method returns a new object.
+ 
+ If the cache contains an Obj-C representation of the MonoObject * parameter with the same class as the receiver the cache
+ copy is used. If not a new non primary object will be created.
+ 
+ */
 + (instancetype)objectWithMonoObject:(MonoObject *)obj;
+
 + (instancetype)objectWithManagedObject:(DBManagedObject *)obj;
-+ (id)subclassObjectWithMonoObject:(MonoObject *)obj;
 + (instancetype)objectWithNumArgs:(int)numArgs, ...;
+
+/*!
+ 
+ Returns the best object representing the MonoObject * parameter.
+ 
+ The best object will generally be a subclass of the receiver or an instance of the receiver class.
+ Calling this method on a managed interface will generally return a subclass that responds to the managed interface implicit methods.
+ This method consults the primary instance cache and may return a previously cached object.
+ 
+ If no cache copy exists this method returns a new object.
+ 
+ */
++ (id)bestObjectWithMonoObject:(MonoObject *)obj;
+
 
 
 // Initialisation methods
@@ -107,7 +146,7 @@ extern char DBCacheSuffixChar;
  */
 - (id)initWithMonoObject:(MonoObject *)obj;
 
-/*
+/*!
  
  Initialise the object representation with a signature indicating the argument types to be passed to the Mono constructor.
  

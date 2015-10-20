@@ -181,6 +181,9 @@
     
     for (uint32_t i = 0; i < [self count]; i++) {
         id object = [self objectAtIndex:i];
+        if (!object) {
+            object = [NSNull null];
+        }
         [array addObject:object];
     }
     

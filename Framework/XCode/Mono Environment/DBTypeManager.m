@@ -431,40 +431,45 @@ static BOOL m_useClassLookupCache = YES;
 
 - (id)objectWithMonoObject:(MonoObject *)monoObject
 {
+    return [self objectWithMonoObject:monoObject defaultClass:nil];
+}
+
+- (id)objectWithMonoObject:(MonoObject *)monoObject defaultClass:(Class)defaultClass
+{
     // this method will get called when iterating over managed collections.
     // those collections may well contain NULL elements.
     if (monoObject == NULL) {
-        return [NSNull null];
+        return nil;
     }
     
     id object = nil;
     MonoClass *monoClass = mono_object_get_class(monoObject);
     MonoType* monoType = mono_class_get_type(monoClass);
-    BOOL isValueType = mono_class_is_valuetype(monoClass);
 
     // for certain value types it is necessary (looking at you System.Enum) to use the underlying type.
     // if there is no underlying type mono_type_get_underlying_type just returns its argument.
-    if (isValueType) {
+    if (mono_class_is_valuetype(monoClass)) {
         monoType = mono_type_get_underlying_type(monoType);
     }
     
     // get a DBType object that knows how to generate an instance to represent monoObject
-    DBType *dbType = nil;
-    if (0) {
+    DBType *dbType = [self.dbTypesByMonoType objectForKey:(__bridge id)monoType];
+    
+    //
+    if (!dbType && defaultClass) {
         
-        // legacy key by name
-        const char *monoTypeName = mono_type_get_name(monoType);
-        NSString *typeName = nil;
-        if (monoTypeName) {
-            typeName = @(monoTypeName);
+        object = [[defaultClass alloc] initWithMonoObject:monoObject];
+        
+        return object;
+        
+        /*
+        monoClass = [defaultClass monoClass];
+        monoType = mono_class_get_type(monoClass);
+        if (mono_class_is_valuetype(monoClass)) {
+            monoType = mono_type_get_underlying_type(monoType);
         }
-        dbType = self.dbTypesByName[typeName];
-
-    } else {
-        
-        // key by monoType
         dbType = [self.dbTypesByMonoType objectForKey:(__bridge id)monoType];
-
+         */
     }
     
     // default to System.Object
@@ -472,8 +477,8 @@ static BOOL m_useClassLookupCache = YES;
         dbType = self.dbTypesByName[DBType_System_Object];
     }
     
-    // the generator will create an object to representmonoObject.
-    // this may be a new object or cached object.
+    // the generator will create an object to represent monoObject.
+    // this may be a new object or a cached object.
     object = dbType.generator(monoObject);
     
     if (!object) {
@@ -548,7 +553,8 @@ static BOOL m_useClassLookupCache = YES;
         
     }
     
-    // instantiate an instance of the managed class
+    // instantiate an instance of the managed class.
+    // if a suitable cached object exists then that object will be returned.
     id object = [[managedClass alloc] initWithMonoObject:monoObject];
     
     return(object);

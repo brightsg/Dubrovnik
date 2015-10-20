@@ -10,7 +10,34 @@
 
 @interface System_Object (mscorlib)
 
-+ (id)newGenericObjectForItemObject:(id)itemObject;;
+/**
+
+ Create an instance of the receiver's class with a generic type matching itemObject -class.
+ 
+ */
+
++ (id)newGenericObjectForItemObject:(id)itemObject;
+
+/**
+ 
+ Create an instance of a generic type definition (eg: System.Collections.Generic.List`1).
+ If the type name is not an assembly qualified name then the type will be loaded from the supplied monoImage
+ or mscorlib if the supplied image cannot be loaded.
+ 
+ The type of itemObject is used to determine the required generic parameter type.
+ 
+ */
++ (id)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage itemObject:(id)itemObject;
+
+/**
+ 
+ Create an instance of a core generic type definition.
+ If the type name is not an assembly qualified name then the type will be loaded from mscorlib.
+ 
+ The type of itemObject is used to determine the required generic parameter type.
+ 
+ */
++ (id)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName itemObject:(id)itemObject;
 
 //System.IConvertible convenience
 - (int8_t)int8Value;

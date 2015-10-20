@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterT"];
 		if ([self object:_genericPropertyWithTypeParameterT isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterT;					
-		_genericPropertyWithTypeParameterT = [System_Object subclassObjectWithMonoObject:monoObject];
+		_genericPropertyWithTypeParameterT = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _genericPropertyWithTypeParameterT;
 	}
@@ -52,7 +52,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterU"];
 		if ([self object:_genericPropertyWithTypeParameterU isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterU;					
-		_genericPropertyWithTypeParameterU = [System_Object subclassObjectWithMonoObject:monoObject];
+		_genericPropertyWithTypeParameterU = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _genericPropertyWithTypeParameterU;
 	}
@@ -128,7 +128,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenericMethodReturningParameterTypeU
@@ -139,7 +139,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

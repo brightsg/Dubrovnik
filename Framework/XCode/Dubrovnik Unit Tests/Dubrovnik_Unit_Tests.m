@@ -10,7 +10,6 @@
 #import "DBUReferenceObject.h"
 #import "DBUIReferenceObject.h"
 #import "DBUGenericReferenceObjectA2.h"
-#import <mono.mscorlib/DBSystem_Object.h>
 
 static BOOL m_runningAutoGenCodeTest = NO;
 
@@ -184,8 +183,6 @@ static MonoAssembly *monoAssembly;
     MonoString *monoString = mono_object_to_string_ex(monoDateTime, NULL);
     NSString *dateString = [NSString stringWithMonoString:monoString];
     NSLog(@"NSDate date = %@ Mono DateTime = %@ ticks = %lld", dateNow, dateString, ticks);
-    
-    //[DBManagedObject logMonoClassInfo:mono_object_get_class(monoObject)];
 }
 
 - (void)testNumberRepresentation
@@ -1547,10 +1544,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // check that interface property can be accessed via native object and by interface object
     int32_t impIntValue = [refObject impIntTestProperty];
     NSAssert(impIntValue == 30303, DBUEqualityTestFailed);
-
+    
     Dubrovnik_UnitTests_IReferenceObject1 *refObject1Imp = [[Dubrovnik_UnitTests_IReferenceObject1 alloc] initWithMonoObject:[refObject monoObject]];
-    [refObject logMonoClassInfo];
-    [refObject1Imp logMonoClassInfo];
     int32_t impIntValue2 = [refObject1Imp impIntTestProperty];
     NSAssert(impIntValue2 == impIntValue, DBUEqualityTestFailed);
     

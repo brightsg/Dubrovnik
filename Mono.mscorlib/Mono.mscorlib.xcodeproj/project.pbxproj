@@ -56,8 +56,6 @@
 		AB5D13E21B71059D0028B42B /* System_DateTimeKind.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B1191CFD5B009FF174 /* System_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B2191CFD5B009FF174 /* System_Type.m */; };
-		AB8306B7191D1231009FF174 /* DBSystem_Object.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B5191D1231009FF174 /* DBSystem_Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB8306B8191D1231009FF174 /* DBSystem_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B6191D1231009FF174 /* DBSystem_Object.m */; };
 		AB92F2DE1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB92F2DF1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92F2DD1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m */; };
 		AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -207,8 +205,6 @@
 		AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeKind.h; sourceTree = "<group>"; };
 		AB8306B1191CFD5B009FF174 /* System_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Type.h; sourceTree = "<group>"; };
 		AB8306B2191CFD5B009FF174 /* System_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Type.m; sourceTree = "<group>"; };
-		AB8306B5191D1231009FF174 /* DBSystem_Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Object.h; sourceTree = "<group>"; };
-		AB8306B6191D1231009FF174 /* DBSystem_Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Object.m; sourceTree = "<group>"; };
 		AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableBoolTransformer.h; sourceTree = "<group>"; };
 		AB92F2DD1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableBoolTransformer.m; sourceTree = "<group>"; };
 		AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDateTransformer.h; sourceTree = "<group>"; };
@@ -564,8 +560,6 @@
 				ABB8A39518FF09F900213B80 /* DBSystem_Enum.m */,
 				ABB8A37E18FF092400213B80 /* DBSystem_IO_FileInfo.h */,
 				ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */,
-				AB8306B5191D1231009FF174 /* DBSystem_Object.h */,
-				AB8306B6191D1231009FF174 /* DBSystem_Object.m */,
 				ABCAE5481AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h */,
 				ABCAE5491AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m */,
 			);
@@ -605,7 +599,6 @@
 				ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */,
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
 				AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */,
-				AB8306B7191D1231009FF174 /* DBSystem_Object.h in Headers */,
 				AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */,
 				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
 				AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */,
@@ -757,7 +750,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB8306B8191D1231009FF174 /* DBSystem_Object.m in Sources */,
 				ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */,
 				ABB8A41318FF110000213B80 /* System_Object.m in Sources */,
 				ABB8A3E318FF0FE800213B80 /* NSArray+mscorlib.m in Sources */,
