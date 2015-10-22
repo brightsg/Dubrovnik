@@ -32,12 +32,13 @@ int main (int argc, char * argv[]) {
 
 	// Initialize the mono env
 	DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
+
 	// This assumes current working path contains SampleObject.dll
 	sampleAssembly = [monoEnvironment openAssemblyWithPath:@"SampleObject.dll"];
 
 	// Register openURL as an internal call
-	[monoEnvironment registerInternalCall:"DBCommandLineExample.SampleObject::OpenURL(string)" callPointer:OpenURL];
-	
+	[DBManagedEnvironment registerInternalCall:"DBCommandLineExample.SampleObject::OpenURL(string)" callPointer:OpenURL];
+
 	// instantiate an object
 	SampleObject* sampleObject = [SampleObject sampleObjectWithMagicNumber:5 specialString:@"I am lowercase. I AM UPPERCASE."];
 

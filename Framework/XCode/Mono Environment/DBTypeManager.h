@@ -155,6 +155,7 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
  
  */
 - (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject;
+- (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject defaultClass:(Class)defaultClass;
 
 /**
  

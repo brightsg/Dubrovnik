@@ -15,7 +15,7 @@
 @property (strong) NSString *invoke;
 @property (assign) MonoClass *monoClass;
 @property (assign) NSUInteger typeID;
-@property (nonatomic,copy) id(^generator)(MonoObject *);
+@property (nonatomic,copy) id(^generator)(MonoObject *monoObject, Class defaultClass);
 
 + (instancetype)typeWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass;
 + (instancetype)typeWithName:(NSString *)name id:(int)typeID monoClass:(MonoClass *)monoClass generator:(id)generator;

@@ -163,6 +163,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark Factory
 
++ (id)bestObjectWithMonoObject:(MonoObject *)obj
+{
+    // *************************************
+    // this is the preferred factory method
+    // *************************************
+    return [[DBTypeManager sharedManager] objectWithMonoObject:obj defaultClass:self];
+}
+
 + (instancetype)objectWithManagedObject:(DBManagedObject *)obj
 {
     return [self objectWithMonoObject:obj.monoObject];
@@ -191,11 +199,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	return object;
 }
 
-+ (id)bestObjectWithMonoObject:(MonoObject *)obj
-{
-    return [[DBTypeManager sharedManager] objectWithMonoObject:obj defaultClass:self];
-}
-
 #pragma mark -
 #pragma mark Lifecycle
     
@@ -211,38 +214,33 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // this is the designated initialiser
     // *************************************
     
-    // establish behaviour defaults
-    BOOL searchPrimaryCache = YES;
+    // Search the primary instance cache.
+    // This is essential to avoid generating multiple unmanaged wrappers
+    // for a given managed object when say receiving a MonoObject pointer from an event.
     DBManagedInstanceInfo info = 0;
+    DBManagedObject *cachedInstance = [[DBPrimaryInstanceCache sharedCache] objectForMonoObject:monoObject info:&info];
     
-    if (searchPrimaryCache) {
+    if (!cachedInstance) {
         
-        // get cached primary instance.
-        // this is essential to avoid generating multiple unmanaged wrappers
-        // for a given managed object when say receiving a MonoObject pointer from an event.
-        DBManagedObject *cachedInstance = [[DBPrimaryInstanceCache sharedCache] objectForMonoObject:monoObject info:&info];
+        // this instance will be primary
+        self.isPrimaryInstance = YES;
         
-        if (!cachedInstance) {
-            
-            // this instance is primary
-            self.isPrimaryInstance = YES;
-            
-        } else if ([cachedInstance class] != [self class]) {
-            
-            // if cached instance is not of the current class
-            // then we are creating a non primary instance ie:
-            // another ObjC wrapper for a MonoObject that already has a primary instance
-            
-            cachedInstance = nil;
-        }
-
-        if (cachedInstance) {
-            self = cachedInstance;
-            return self;
-        }
+    } else if ([cachedInstance class] != [self class]) {
+        
+        // if cached instance is not of the current class
+        // then we are creating a non primary instance ie:
+        // another ObjC wrapper for a MonoObject that already has a primary instance
+        
+        cachedInstance = nil;
+        
+    } else {
+        
+        // return the cached instance as self
+        self = cachedInstance;
+        return self;
     }
     
-    // create instance
+    // create new instance
     self = [super init];
 	if (self) {
 		self.monoObject = monoObject;
@@ -634,16 +632,15 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return monoObject;
 }
 
-- (MonoObject *)monoValue {
-    
-    MonoObject *monoObject = self.monoObject;
-    
+- (MonoObject *)monoValue
+{
     // returns a pointer to an object that can be used as a property value or method invocation argument.
-    
-    MonoClass *klass = mono_object_get_class(monoObject);
+
+    MonoObject *monoObject = self.monoObject;
     MonoObject *valueObject = monoObject;
     
     // value types must be unboxed
+    MonoClass *klass = mono_object_get_class(monoObject);
     if (mono_class_is_valuetype(klass)) {
         
         const char *monoClassName = [self.class monoClassName];

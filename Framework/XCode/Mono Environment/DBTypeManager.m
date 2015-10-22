@@ -74,6 +74,7 @@ static BOOL m_useClassLookupCache = YES;
 @property (strong) NSMutableDictionary *dbTypesByName;
 @property (strong) NSMapTable *dbTypesByMonoType;
 @property (strong) NSMapTable *classesByMonoClass;
+@property (strong) Class rootClass;
 
 - (DBType *)add:(DBType *)dbType;
 
@@ -132,19 +133,24 @@ static BOOL m_useClassLookupCache = YES;
             [self resetClassLookupCache];
         }
         self.dbTypesByName = [NSMutableDictionary dictionaryWithCapacity:22];
-        
+        self.rootClass = NSClassFromString(@"System_Object");
+
         // NSMapTable with pointer
         // http://stackoverflow.com/questions/1434107/is-there-anything-like-an-nsset-that-allows-retrieving-by-hash-value
         self.dbTypesByMonoType = [[NSMapTable alloc] initWithKeyOptions: NSPointerFunctionsIntegerPersonality | NSPointerFunctionsOpaqueMemory
                                                            valueOptions: NSPointerFunctionsObjectPersonality | NSPointerFunctionsWeakMemory
                                                                capacity:22];
         
+        // define a collection of DBType objects repesenting the supported managed types
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+        
         [self add:[DBType typeWithName:DBType_System_Object
                                  alias:DBAlias_System_Object
                                     id:DBTypeID_System_Object
                              monoClass:mono_get_object_class()
-                             generator:^id(MonoObject *monoObject) {
-                                 return [weakself objectWithNonValueTypeMonoObject:monoObject];
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
+                                 return [weakself objectWithNonValueTypeMonoObject:monoObject defaultClass:defaultClass];
                              }
                    ]
          ];
@@ -153,7 +159,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_String
                                     id:DBTypeID_System_String
                              monoClass:mono_get_string_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [NSString stringWithMonoString:DB_STRING(monoObject)];
                              }
                    ]
@@ -163,7 +169,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_Byte
                                     id:DBTypeID_System_Byte
                              monoClass:mono_get_byte_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
                              }
                    ]
@@ -172,8 +178,7 @@ static BOOL m_useClassLookupCache = YES;
          [self add:[DBType typeWithName:DBType_System_Void
                                     id:DBTypeID_System_Void
                              monoClass:mono_get_void_class()
-                             generator:^id(MonoObject *monoObject) {
-#pragma unused(monoObject)
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [NSNull null];
                              }
                    ]
@@ -184,7 +189,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_Boolean
                                     id:DBTypeID_System_Boolean
                              monoClass:mono_get_boolean_class()
-                           generator:^id(MonoObject *monoObject) {
+                           generator:^id(MonoObject *monoObject, Class defaultClass) {
                                return [DBNumber numberWithBool:DB_UNBOX_BOOLEAN(monoObject)];
                            }
                    ]
@@ -194,7 +199,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_SByte
                                     id:DBTypeID_System_SByte
                              monoClass:mono_get_sbyte_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithChar:DB_UNBOX_INT8(monoObject)];}
                    ]
          ];
@@ -204,7 +209,8 @@ static BOOL m_useClassLookupCache = YES;
                                 invoke:DBInvoke_System_Int16
                                     id:DBTypeID_System_Int16
                              monoClass:mono_get_int16_class()
-                             generator:^id(MonoObject *monoObject) {return [DBNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
+                                 return [DBNumber numberWithShort:DB_UNBOX_INT16(monoObject)];
                              }
                    ]
          ];
@@ -214,7 +220,7 @@ static BOOL m_useClassLookupCache = YES;
                                 invoke:DBInvoke_System_UInt16
                                     id:DBTypeID_System_UInt16
                              monoClass:mono_get_uint16_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithUnsignedShort:DB_UNBOX_UINT16(monoObject)];
                              }
                    ]
@@ -224,7 +230,8 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_Int32
                                     id:DBTypeID_System_Int32
                              monoClass:mono_get_int32_class()
-                             generator:^id(MonoObject *monoObject) {return [DBNumber numberWithInt:DB_UNBOX_INT32(monoObject)];}
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
+                                 return [DBNumber numberWithInt:DB_UNBOX_INT32(monoObject)];}
                    ]
          ];
         
@@ -232,7 +239,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_UInt32
                                     id:DBTypeID_System_UInt32
                              monoClass:mono_get_uint32_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithUnsignedInt:DB_UNBOX_UINT32(monoObject)];
                              }
                    ]
@@ -242,7 +249,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_Int64
                                     id:DBTypeID_System_Int64
                              monoClass:mono_get_int64_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithLongLong:DB_UNBOX_INT64(monoObject)];
                              }
                    ]
@@ -252,7 +259,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_UInt64
                                    id:DBTypeID_System_UInt64
                              monoClass:mono_get_uint64_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithUnsignedLongLong:DB_UNBOX_UINT64(monoObject)];
                              }
                    ]
@@ -263,7 +270,7 @@ static BOOL m_useClassLookupCache = YES;
                                 invoke:DBInvoke_System_Single
                                     id:DBTypeID_System_Single
                              monoClass:mono_get_single_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithFloat:DB_UNBOX_FLOAT(monoObject)];
                              }
                    ]
@@ -273,7 +280,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_Double
                                     id:DBTypeID_System_Double
                              monoClass:mono_get_double_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithDouble:DB_UNBOX_DOUBLE(monoObject)];
                              }
                    ]
@@ -283,14 +290,15 @@ static BOOL m_useClassLookupCache = YES;
                                     alias:DBAlias_System_Decimal
                                     id:DBTypeID_System_Decimal
                              monoClass:mono_class_from_name(mono_get_corlib(), "System", "Decimal")
-                             generator:^id(MonoObject *monoObject) {return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];}
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
+                                 return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];}
                    ]
          ];
 
         [self add:[DBType typeWithName:DBType_System_DateTime
                                     id:DBTypeID_System_DateTime
                              monoClass:mono_class_from_name(mono_get_corlib(), "System", "DateTime")
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [NSDate dateWithMonoDateTime:monoObject];
                              }
                    ]
@@ -300,7 +308,7 @@ static BOOL m_useClassLookupCache = YES;
                                  alias:DBAlias_System_Char
                                     id:DBTypeID_System_Char
                              monoClass:mono_get_char_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [DBNumber numberWithUnsignedChar:DB_UNBOX_UINT8(monoObject)];
                              }
                    ]
@@ -309,8 +317,7 @@ static BOOL m_useClassLookupCache = YES;
         [self add:[DBType typeWithName:DBType_System_Enum
                                     id:DBTypeID_System_Enum
                              monoClass:mono_get_enum_class()
-                             generator:^id(MonoObject *monoObject) {
-#pragma unused(monoObject)
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  [NSException raise:@"DBFeatureNotImplementedException" format:@"object for System.Enum"];
                                  return nil;
                              }
@@ -320,8 +327,7 @@ static BOOL m_useClassLookupCache = YES;
         [self add:[DBType typeWithName:DBType_System_Array
                                     id:DBTypeID_System_Array
                              monoClass:mono_get_array_class()
-                             generator:^id(MonoObject *monoObject) {
-#pragma unused(monoObject)
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  [NSException raise:@"DBFeatureNotImplementedException" format:@"object for System.Array"];
                                  return nil;
                              }
@@ -331,7 +337,7 @@ static BOOL m_useClassLookupCache = YES;
         [self add:[DBType typeWithName:DBType_System_IntPtr
                                     id:DBTypeID_System_IntPtr
                              monoClass:mono_get_intptr_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [NSValue valueWithPointer:DB_UNBOX_PTR(monoObject)];
                              }
                    ]
@@ -340,7 +346,7 @@ static BOOL m_useClassLookupCache = YES;
         [self add:[DBType typeWithName:DBType_System_UIntPtr
                                     id:DBTypeID_System_UIntPtr
                              monoClass:mono_get_uintptr_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return [NSValue valueWithPointer:DB_UNBOX_UPTR(monoObject)];
                              }
                    ]
@@ -349,8 +355,7 @@ static BOOL m_useClassLookupCache = YES;
         [self add:[DBType typeWithName:DBType_System_Thread
                                     id:DBTypeID_System_Thread
                              monoClass:mono_get_thread_class()
-                             generator:^id(MonoObject *monoObject) {
-#pragma unused(monoObject)
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  [NSException raise:@"DBFeatureNotImplementedException" format:@"object for System.Thread"];
                                   return nil;
                                   }
@@ -360,11 +365,14 @@ static BOOL m_useClassLookupCache = YES;
         [self add:[DBType typeWithName:DBType_System_Exception
                                     id:DBTypeID_System_Exception
                              monoClass:mono_get_exception_class()
-                             generator:^id(MonoObject *monoObject) {
+                             generator:^id(MonoObject *monoObject, Class defaultClass) {
                                  return NSExceptionFromMonoException(monoObject, @{});
                              }
                    ]
          ];
+        
+#pragma clang diagnostic pop
+        
     }
     
     return self;
@@ -446,40 +454,27 @@ static BOOL m_useClassLookupCache = YES;
     MonoClass *monoClass = mono_object_get_class(monoObject);
     MonoType* monoType = mono_class_get_type(monoClass);
 
-    // for certain value types it is necessary (looking at you System.Enum) to use the underlying type.
-    // if there is no underlying type mono_type_get_underlying_type just returns its argument.
     if (mono_class_is_valuetype(monoClass)) {
+        
+        // for certain value types it is necessary (looking at you System.Enum) to use the underlying type.
+        // if there is no underlying type mono_type_get_underlying_type just returns its argument.
         monoType = mono_type_get_underlying_type(monoType);
+        
     }
     
     // get a DBType object that knows how to generate an instance to represent monoObject
     DBType *dbType = [self.dbTypesByMonoType objectForKey:(__bridge id)monoType];
     
-    //
-    if (!dbType && defaultClass) {
-        
-        object = [[defaultClass alloc] initWithMonoObject:monoObject];
-        
-        return object;
-        
-        /*
-        monoClass = [defaultClass monoClass];
-        monoType = mono_class_get_type(monoClass);
-        if (mono_class_is_valuetype(monoClass)) {
-            monoType = mono_type_get_underlying_type(monoType);
-        }
-        dbType = [self.dbTypesByMonoType objectForKey:(__bridge id)monoType];
-         */
-    }
-    
-    // default to System.Object
+    // no type match found
     if (!dbType) {
+    
+        // default to System.Object
         dbType = self.dbTypesByName[DBType_System_Object];
     }
     
     // the generator will create an object to represent monoObject.
     // this may be a new object or a cached object.
-    object = dbType.generator(monoObject);
+    object = dbType.generator(monoObject, defaultClass);
     
     if (!object) {
         [NSException exceptionWithName:@"DBManagedTypeException" reason:@"Invalid type ID" userInfo:nil];
@@ -489,6 +484,11 @@ static BOOL m_useClassLookupCache = YES;
 }
 
 - (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject
+{
+    return [self objectWithNonValueTypeMonoObject:monoObject defaultClass:nil];
+}
+
+- (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject defaultClass:(Class)defaultClass
 {
     Class managedClass = nil;
     MonoClass *monoClass = mono_object_get_class(monoObject);
@@ -520,11 +520,9 @@ static BOOL m_useClassLookupCache = YES;
             managedClass = NSClassFromString([@"DB" stringByAppendingString:managedClassName]);
             
             // look for exact class name match.
-            // classes 
             if (!managedClass) {
                 managedClass = NSClassFromString(managedClassName);
             }
-            
             if (managedClass) {
                 break;
             }
@@ -534,11 +532,18 @@ static BOOL m_useClassLookupCache = YES;
             // note that arrays will present like so System.String[] - the super class will be System.Array
             monoClass = mono_class_get_parent(monoClass);
         } while (YES);
-
-        // default to system object
+        
+        // default to root class
         if (!managedClass) {
-            managedClass = NSClassFromString(@"System_Object");
+            managedClass = self.rootClass;
         }
+        
+        // use the default class in place of root class
+        if (defaultClass && managedClass == self.rootClass) {
+            managedClass = defaultClass;
+        }
+        
+        NSAssert(managedClass, @"No managed class found for : %s", mono_class_get_name(mono_object_get_class(monoObject)));
         
         // cache the class
         if (m_useClassLookupCache) {
@@ -570,8 +575,8 @@ static BOOL m_useClassLookupCache = YES;
     
     // index by monoType
     MonoType* monoType = mono_class_get_type(dbType.monoClass);
-    
     [self.dbTypesByMonoType setObject:dbType forKey:(__bridge id)monoType];
+    
     return dbType;
 }
 

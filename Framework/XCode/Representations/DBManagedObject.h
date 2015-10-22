@@ -45,7 +45,7 @@ extern char DBCacheSuffixChar;
  The PI can be a top level subclass, a superclass representation or a managed interface representation.
  Best practice is to ensure that the PI is a top level subclass.
  
- The prefered method of creating objects is via +bestObjectWithMonoObject:
+ The preferred method of creating objects is via +bestObjectWithMonoObject:
  This will return a suitable subclass of the receiver class or an instance of the receiver class.
  Calling +bestObjectWithMonoObject: on a managed interface type returns a top level subclass object that responds to the interface properties and methods.
  This approach enables bindings and managed events to be used both on the object and managed interface representations of a given MonoObject * as
@@ -72,6 +72,7 @@ extern char DBCacheSuffixChar;
  So depending on the application's execution history different object representations of the same MonoObject * may become
  the PI depending on which classes, superclasses and interfaces actually get instantiated.
  Some defensive programming may be required in some circumstances.
+ In general using +bestObjectWithMonoObject: provides the best overall strategy.
  
  Note:
  It would be possible to build a tracking system that would enable the PI to maintain a collection of all the SI objects
@@ -106,7 +107,25 @@ extern char DBCacheSuffixChar;
 
 /*!
  
+ Returns the best object representing the MonoObject * parameter.
+ This is the prefered method of obtaining a managed object representation.
+ 
+ The best object will generally be a subclass of the receiver or an instance of the receiver class.
+ Calling this method on a managed interface will generally return a subclass that responds to the managed interface implicit methods.
+ This method consults the primary instance cache and may return a previously cached object.
+ 
+ If no cache copy exists this method returns a new object.
+ 
+ See the header notes for isPrimaryInstance for more detail.
+ 
+ */
++ (id)bestObjectWithMonoObject:(MonoObject *)obj;
+
+/*!
+ 
  Returns an instance of the receiver class representing the MonoObject * parameter.
+ Use this method if an actual instance of the receiver class is required.
+ If not, use the prefered +bestObjectWithMonoObject: method.
  
  This method consults the primary instance cache and may return a previously cached object.
  If no cache copy exists this method returns a new object.
@@ -117,25 +136,19 @@ extern char DBCacheSuffixChar;
  */
 + (instancetype)objectWithMonoObject:(MonoObject *)obj;
 
+/*!
+ 
+ Returns an instance of the receiver class representing the monoObject * refrence returned by the parameter.
+ 
+ */
 + (instancetype)objectWithManagedObject:(DBManagedObject *)obj;
-+ (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
 /*!
  
- Returns the best object representing the MonoObject * parameter.
- 
- The best object will generally be a subclass of the receiver or an instance of the receiver class.
- Calling this method on a managed interface will generally return a subclass that responds to the managed interface implicit methods.
- This method consults the primary instance cache and may return a previously cached object.
- 
- If no cache copy exists this method returns a new object.
+ Returns an instance of the receiver class using the passed arguments.
  
  */
-+ (id)bestObjectWithMonoObject:(MonoObject *)obj;
-
-
-
-// Initialisation methods
++ (instancetype)objectWithNumArgs:(int)numArgs, ...;
 
 /*!
  

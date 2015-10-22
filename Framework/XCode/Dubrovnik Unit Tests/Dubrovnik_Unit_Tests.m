@@ -70,8 +70,10 @@ NSString *DBUTestString = @"Dubrovnik";
 #define DBUExceptionTestFailed @"An exception test failed"
 #define DBUObjectNotFound @"Object not found"
 #define DBUNilTestFailed @"Nil test failed"
-#define DBUClassTestFailed @"Class test failed"
+#define DBUClassEqualityTestFailed @"Class equality test failed"
 #define DBUDesignedToFailTestPassed @"Designed to fail test passed"
+#define DBUPointerEqualityTestFailed @"Pointer equality test failed"
+#define DBUPointerInequalityTestFailed @"Pointer inequality test failed"
 
 static BOOL _setup = NO;
 static MonoAssembly *monoAssembly;
@@ -91,7 +93,7 @@ static MonoAssembly *monoAssembly;
 - (void)doTestMethods:(id)refObject class:(Class)testClass;
 - (void)doTestProperties:(id)refObject class:(Class)testClass;
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass;
-- (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass;
+- (void)doTestObjectRepresentation:(id)refObject class:(Class)testClass;
 - (void)doTestArrayProperties:(id)refObject class:(Class)testClass;
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass;
 - (void)doTestArrayMethods:(id)refObject class:(Class)testClass;
@@ -358,6 +360,8 @@ static MonoAssembly *monoAssembly;
     XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == eDBULongEnum_Val2, DBUEqualityTestFailed);
     XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
     XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
+    
+    
 #endif
     
    
@@ -1303,7 +1307,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // ListA1 object
     value = [stringObjectDictA2 objectForKey:@"keyForListA1"];
-    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUClassTestFailed);
+    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUClassEqualityTestFailed);
 
     NSArray *keyListA1Array = [(DBSystem_Collections_Generic_ListA1 *)value array];
     XCTAssertTrue([keyListA1Array containsObject:@"Dubrovnik1"], DBUObjectNotFound);
@@ -1311,7 +1315,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // DictionaryA2 object
     value = [stringObjectDictA2 objectForKey:@"keyForDictionaryA2"];
-    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUClassTestFailed);
+    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUClassEqualityTestFailed);
 
     XCTAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey1"], DBUObjectNotFound);
     XCTAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
@@ -1532,7 +1536,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
 }
 
-- (void)doTestInterfaceRepresentation:(id)refObject class:(Class)testClass
+- (void)doTestObjectRepresentation:(id)refObject class:(Class)testClass
 {
 
     #pragma unused(testClass)
@@ -1545,9 +1549,38 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     int32_t impIntValue = [refObject impIntTestProperty];
     NSAssert(impIntValue == 30303, DBUEqualityTestFailed);
     
-    Dubrovnik_UnitTests_IReferenceObject1 *refObject1Imp = [[Dubrovnik_UnitTests_IReferenceObject1 alloc] initWithMonoObject:[refObject monoObject]];
+    // note that we used the generated interface here
+    Dubrovnik_UnitTests_IReferenceObject1 *refObject1Imp = [Dubrovnik_UnitTests_IReferenceObject1 objectWithMonoObject:[refObject monoObject]];
     int32_t impIntValue2 = [refObject1Imp impIntTestProperty];
     NSAssert(impIntValue2 == impIntValue, DBUEqualityTestFailed);
+    
+    if (m_runningAutoGenCodeTest) {
+        
+        // +objectWithMonoObject: should return instance of receiver
+        Dubrovnik_UnitTests_IReferenceObject1 *refObject1Imp3 = [Dubrovnik_UnitTests_IReferenceObject1 objectWithMonoObject:[refObject monoObject]];
+        NSAssert([refObject1Imp3 isKindOfClass:[Dubrovnik_UnitTests_IReferenceObject1 class]], DBUClassEqualityTestFailed);
+        int32_t impIntValue3 = [refObject1Imp3 impIntTestProperty];
+        NSAssert(impIntValue3 == impIntValue, DBUEqualityTestFailed);
+        
+        // +bestObjectWithMonoObject: should return subclass
+        Dubrovnik_UnitTests_IReferenceObject1 *refObject1Imp4 = [System_Object bestObjectWithMonoObject:[refObject monoObject]];
+        NSAssert([refObject1Imp4 isKindOfClass:[DUReferenceObject_ class]], DBUClassEqualityTestFailed);
+        NSAssert(refObject1Imp4 == refObject, DBUPointerEqualityTestFailed);
+        int32_t impIntValue4 = [refObject1Imp4 impIntTestProperty];
+        NSAssert(impIntValue4 == impIntValue, DBUEqualityTestFailed);
+        
+        /* TODO:
+         
+         +bestObjectWithMonoObject: will return the best object it can find.
+         If no equivalent Obj-C class equivalent can be found for the managed class (which can occur, say, with EntityFrame LINQ queries that
+         return IEnumerable`1<T>) then an Obj-C instance of the reciver is returned.
+         We don't have a test for this behaviour at the moment as I am not sure at the moment how to implement it.
+         Perhaps a dynamically created class that implements IEnumerable`1<T> would do the trick?
+         http://stackoverflow.com/questions/3862226/dynamically-create-a-class-in-c-sharp
+         We could provide the dynamic class via a string representation.
+         
+         */
+    }
     
     // get managed interface object
     id minimRefObject = [refObject minimalReferenceObject];
@@ -1751,7 +1784,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // representations
     //===================================
     [self doTestStructRepresentation:refObject class:testClass];
-    [self doTestInterfaceRepresentation:refObject class:testClass];
+    [self doTestObjectRepresentation:refObject class:testClass];
     [self doTestArrayListRepresentation:refObject class:testClass];
 }
 
