@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8DD76F9A0486AA7600D96B5E /* DBCommandLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* DBCommandLineExample.m */; settings = {ATTRIBUTES = (); }; };
-		8DD76F9F0486AA7600D96B5E /* DBCommandLineExample.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* DBCommandLineExample.1 */; };
 		9DD1552B09A415F20067E4DC /* SampleObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DD1552909A415F20067E4DC /* SampleObject.h */; };
 		9DD1552C09A415F20067E4DC /* SampleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD1552A09A415F20067E4DC /* SampleObject.m */; };
 		9DD15C0909A4252F0067E4DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD15C0809A4252F0067E4DC /* Cocoa.framework */; };
@@ -25,7 +24,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				8DD76F9F0486AA7600D96B5E /* DBCommandLineExample.1 in CopyFiles */,
 				9DD1552B09A415F20067E4DC /* SampleObject.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
@@ -44,7 +42,6 @@
 		ABB718F81A2DE6DF00E1BEBC /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB718FB1A2DE75400E1BEBC /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/examples/DBCommandLineExample/../../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		ABB718FE1A2DE81E00E1BEBC /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6859EA3029092ED04C91782 /* DBCommandLineExample.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DBCommandLineExample.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				08FB7795FE84155DC02AAC07 /* Source */,
-				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
@@ -104,14 +100,6 @@
 				8DD76FA10486AA7600D96B5E /* DBCommandLineExample */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C6859EA2029092E104C91782 /* Documentation */ = {
-			isa = PBXGroup;
-			children = (
-				C6859EA3029092ED04C91782 /* DBCommandLineExample.1 */,
-			);
-			name = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +195,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = DBCommandLineExample_Prefix.pch;
 				INSTALL_PATH = "$(HOME)/bin";
+				LD_RUNPATH_SEARCH_PATHS = .;
 				PRODUCT_NAME = DBCommandLineExample;
 			};
 			name = Debug;
@@ -226,6 +215,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = DBCommandLineExample_Prefix.pch;
 				INSTALL_PATH = "$(HOME)/bin";
+				LD_RUNPATH_SEARCH_PATHS = .;
 				PRODUCT_NAME = DBCommandLineExample;
 			};
 			name = Release;
@@ -239,7 +229,8 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Headers/Mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/Headers/Mono-2.0";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = (
 					"-D_THREAD_SAFE",
 					"-pthreads",
@@ -249,7 +240,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -262,7 +253,8 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Headers/Mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/Headers/Mono-2.0";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = (
 					"-D_THREAD_SAFE",
 					"-pthreads",
@@ -272,7 +264,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Release;
 		};

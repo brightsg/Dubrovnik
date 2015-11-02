@@ -10,7 +10,8 @@ build/
  
 *.mode1v3
 *.mode2v3
- 
+*.xcscmblueprint
+
 Documentation/Generated
 doxygenWarnings.txt
 xcuserdata

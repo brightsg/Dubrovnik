@@ -790,7 +790,6 @@
 				AB588DBE178308000000AAC1 /* Frameworks */,
 				AB588DBF178308000000AAC1 /* Resources */,
 				AB2CD2F8178D6EDA0075CF6A /* Copy frameworks */,
-				AB588DC0178308000000AAC1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -863,19 +862,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# cd $BUILT_PRODUCTS_DIR/Dubrovnik.framework\n# install_name_tool -change /usr/local/lib/libJudy.1.dylib @executable_path/../Frameworks/Dubrovnik.framework/Libraries/libJudy.dylib Dubrovnik\n";
-		};
-		AB588DC0178308000000AAC1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1003,7 +989,7 @@
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
-				SDKROOT = macosx;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -1032,7 +1018,7 @@
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Dubrovnik;
-				SDKROOT = macosx;
+				SDKROOT = "";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1120,7 +1106,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -1159,7 +1145,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Release;
 		};

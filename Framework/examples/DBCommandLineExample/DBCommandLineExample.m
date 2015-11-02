@@ -35,7 +35,18 @@ int main (int argc, char * argv[]) {
 
 	// This assumes current working path contains SampleObject.dll
 	sampleAssembly = [monoEnvironment openAssemblyWithPath:@"SampleObject.dll"];
-
+    
+    // Note:
+    // MonoReflectionType represents System.Type
+    // MonoReflectionAssembly represents System.Reflection.Assembly
+    MonoReflectionAssembly *monoReflectionAssembly = mono_assembly_get_object(mono_domain_get(), sampleAssembly);
+    
+    // get the version via reflection
+    System_Reflection_Assembly *managedAssembly = [[System_Reflection_Assembly alloc] initWithMonoObject:(MonoObject *)monoReflectionAssembly];
+    System_Version *systemVersion = managedAssembly.getName.version;
+    NSString *assemblyVersion = [systemVersion toString];
+    NSLog(@"assemblyVersion: %@", assemblyVersion);
+    
 	// Register openURL as an internal call
 	[DBManagedEnvironment registerInternalCall:"DBCommandLineExample.SampleObject::OpenURL(string)" callPointer:OpenURL];
 

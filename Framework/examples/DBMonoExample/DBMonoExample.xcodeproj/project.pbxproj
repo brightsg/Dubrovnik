@@ -1,0 +1,263 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB2D24E81BE76DE200ED0544 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AB2D24E71BE76DE200ED0544 /* main.c */; };
+		AB2D24EF1BE770B600ED0544 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2D24EE1BE770B600ED0544 /* Mono64.framework */; };
+		AB2D24F11BE7713B00ED0544 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2D24F01BE7713B00ED0544 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB2D24E21BE76DE200ED0544 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AB2D24E41BE76DE200ED0544 /* DBMonoExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DBMonoExample; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB2D24E71BE76DE200ED0544 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		AB2D24EE1BE770B600ED0544 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
+		AB2D24F01BE7713B00ED0544 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB2D24E11BE76DE200ED0544 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB2D24F11BE7713B00ED0544 /* CoreFoundation.framework in Frameworks */,
+				AB2D24EF1BE770B600ED0544 /* Mono64.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB2D24DB1BE76DE200ED0544 = {
+			isa = PBXGroup;
+			children = (
+				AB2D24F01BE7713B00ED0544 /* CoreFoundation.framework */,
+				AB2D24EE1BE770B600ED0544 /* Mono64.framework */,
+				AB2D24E61BE76DE200ED0544 /* DBMonoExample */,
+				AB2D24E51BE76DE200ED0544 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB2D24E51BE76DE200ED0544 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB2D24E41BE76DE200ED0544 /* DBMonoExample */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB2D24E61BE76DE200ED0544 /* DBMonoExample */ = {
+			isa = PBXGroup;
+			children = (
+				AB2D24E71BE76DE200ED0544 /* main.c */,
+			);
+			path = DBMonoExample;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB2D24E31BE76DE200ED0544 /* DBMonoExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB2D24EB1BE76DE200ED0544 /* Build configuration list for PBXNativeTarget "DBMonoExample" */;
+			buildPhases = (
+				AB2D24E01BE76DE200ED0544 /* Sources */,
+				AB2D24E11BE76DE200ED0544 /* Frameworks */,
+				AB2D24E21BE76DE200ED0544 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DBMonoExample;
+			productName = DBMonoExample;
+			productReference = AB2D24E41BE76DE200ED0544 /* DBMonoExample */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB2D24DC1BE76DE200ED0544 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Jonathan Mitchell";
+				TargetAttributes = {
+					AB2D24E31BE76DE200ED0544 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = AB2D24DF1BE76DE200ED0544 /* Build configuration list for PBXProject "DBMonoExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AB2D24DB1BE76DE200ED0544;
+			productRefGroup = AB2D24E51BE76DE200ED0544 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB2D24E31BE76DE200ED0544 /* DBMonoExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB2D24E01BE76DE200ED0544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB2D24E81BE76DE200ED0544 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AB2D24E91BE76DE200ED0544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/Headers/Mono-2.0";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AB2D24EA1BE76DE200ED0544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/Headers/Mono-2.0";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AB2D24EC1BE76DE200ED0544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AB2D24ED1BE76DE200ED0544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB2D24DF1BE76DE200ED0544 /* Build configuration list for PBXProject "DBMonoExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB2D24E91BE76DE200ED0544 /* Debug */,
+				AB2D24EA1BE76DE200ED0544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB2D24EB1BE76DE200ED0544 /* Build configuration list for PBXNativeTarget "DBMonoExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB2D24EC1BE76DE200ED0544 /* Debug */,
+				AB2D24ED1BE76DE200ED0544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB2D24DC1BE76DE200ED0544 /* Project object */;
+}

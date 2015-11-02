@@ -11,6 +11,9 @@
       location = "group:Framework/examples/DBCommandLineExample/DBCommandLineExample.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Framework/examples/DBMonoExample/DBMonoExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Mono.mscorlib/Mono.mscorlib.xcodeproj">
    </FileRef>
    <FileRef

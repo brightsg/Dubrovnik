@@ -368,6 +368,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/headers/mono-2.0\"";
 				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = (
 					"-D_THREAD_SAFE",
 					"-pthreads",
@@ -376,7 +377,7 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
 				OTHER_LDFLAGS = "";
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -389,6 +390,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				HEADER_SEARCH_PATHS = "\"/Library/Frameworks/Mono.framework/headers/mono-2.0\"";
 				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = (
 					"-D_THREAD_SAFE",
 					"-pthreads",
@@ -397,7 +399,7 @@
 					"-I/Library/Frameworks/Mono.framework/Versions/Current/lib/glib-2.0/include",
 				);
 				OTHER_LDFLAGS = "";
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Release;
 		};
