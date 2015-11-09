@@ -21,6 +21,12 @@
 		ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C04190015B800DB59AF /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C0A190015B800DB59AF /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C05190015B800DB59AF /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABDDCC4F1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDF3CAA1BF0BD800039C3A8 /* System_Net_HttpWebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDF3CA81BF0BD800039C3A8 /* System_Net_HttpWebRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDF3CAB1BF0BD800039C3A8 /* System_Net_HttpWebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDF3CA91BF0BD800039C3A8 /* System_Net_HttpWebRequest.m */; };
+		ABDF3CAE1BF0BE710039C3A8 /* System_Net_WebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDF3CAC1BF0BE710039C3A8 /* System_Net_WebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDF3CAF1BF0BE710039C3A8 /* System_Net_WebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDF3CAD1BF0BE710039C3A8 /* System_Net_WebResponse.m */; };
+		ABDF3CB21BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDF3CB01BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABDF3CB31BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDF3CB11BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m */; };
 		ABF5D288190C589700E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D285190C589700E9CFBD /* Dubrovnik.framework */; };
 		ABF5D289190C589700E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */; };
 		ABF5D28A190C589700E9CFBD /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */; };
@@ -58,6 +64,12 @@
 		ABBD3C04190015B800DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABBD3C05190015B800DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
 		ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpStatusCode.h; sourceTree = "<group>"; };
+		ABDF3CA81BF0BD800039C3A8 /* System_Net_HttpWebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebRequest.h; sourceTree = "<group>"; };
+		ABDF3CA91BF0BD800039C3A8 /* System_Net_HttpWebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebRequest.m; sourceTree = "<group>"; };
+		ABDF3CAC1BF0BE710039C3A8 /* System_Net_WebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_WebResponse.h; sourceTree = "<group>"; };
+		ABDF3CAD1BF0BE710039C3A8 /* System_Net_WebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_WebResponse.m; sourceTree = "<group>"; };
+		ABDF3CB01BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.h; sourceTree = "<group>"; };
+		ABDF3CB11BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebResponse.m; sourceTree = "<group>"; };
 		ABF5D285190C589700E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,8 +211,14 @@
 			isa = PBXGroup;
 			children = (
 				ABBD3BF91900157B00DB59AF /* System_Net_WebRequest.h */,
+				ABDF3CB01BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h */,
+				ABDF3CB11BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m */,
 				ABBD3BFA1900157B00DB59AF /* System_Net_WebRequest.m */,
 				ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */,
+				ABDF3CA81BF0BD800039C3A8 /* System_Net_HttpWebRequest.h */,
+				ABDF3CA91BF0BD800039C3A8 /* System_Net_HttpWebRequest.m */,
+				ABDF3CAC1BF0BE710039C3A8 /* System_Net_WebResponse.h */,
+				ABDF3CAD1BF0BE710039C3A8 /* System_Net_WebResponse.m */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -217,6 +235,9 @@
 				ABBD3C06190015B800DB59AF /* Categories.h in Headers */,
 				ABBD3C08190015B800DB59AF /* GeneratedBindings.h in Headers */,
 				ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */,
+				ABDF3CAA1BF0BD800039C3A8 /* System_Net_HttpWebRequest.h in Headers */,
+				ABDF3CAE1BF0BE710039C3A8 /* System_Net_WebResponse.h in Headers */,
+				ABDF3CB21BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h in Headers */,
 				ABDDCC4F1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h in Headers */,
 				ABBD3BFB1900157B00DB59AF /* System_Net_WebRequest.h in Headers */,
 			);
@@ -318,6 +339,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABBD3BFC1900157B00DB59AF /* System_Net_WebRequest.m in Sources */,
+				ABDF3CAB1BF0BD800039C3A8 /* System_Net_HttpWebRequest.m in Sources */,
+				ABDF3CB31BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m in Sources */,
+				ABDF3CAF1BF0BE710039C3A8 /* System_Net_WebResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
