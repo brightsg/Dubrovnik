@@ -56,7 +56,7 @@ static NSMutableArray *m_cacheBuckets;
     if (self) {
         
         // allocate cache NSMapTable with strong keys to weak objects
-        // bucket must hold weak object refernces - if not objects will never get deallocated
+        // bucket must hold weak object references - if not objects will never get deallocated
 #ifdef USE_INTEGER_CACHE_KEY
         
         // use the raw integer as key - this should produce the best possible performance
@@ -213,7 +213,7 @@ static NSMutableArray *m_cacheBuckets;
          */
         if ([cachedObject isKindOfClass:[DBManagedObject class]]) {
             
-            // Bucket holds weak refernces - if not objects will never get deallocated.
+            // Bucket holds weak references - if not objects will never get deallocated.
             // When an object gets deallocated the bucket item will be set to NULL.
             // Null items can be scaveneged by calling -compact
             NSPointerArray *bucket = [NSPointerArray weakObjectsPointerArray];
