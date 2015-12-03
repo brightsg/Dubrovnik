@@ -21,6 +21,7 @@
 //
 #import <Cocoa/Cocoa.h>
 #import "DBManagedEnvironment.h"
+#include <pthread.h>
 
 static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
 static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
@@ -225,7 +226,43 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 	self = [super init];
 	
 	if (self) {
+
+        // This is lifted verbatim from mono/mini/mini-amd64.c/mono_amd64_have_tls_get ().
+        // failure in this code leads to failure when running Xcode.
+        // see this thread http://prod.lists.apple.com/archives/xcode-users/2015/Nov/msg00000.html
+        uint8 *ins = (uint8 *)pthread_getspecific;
         
+        BOOL have_tls_get = ins [0] == 0x65 &&
+        ins [1] == 0x48 &&
+        ins [2] == 0x8b &&
+        ins [3] == 0x04 &&
+        ins [4] == 0xfd &&
+        ins [6] == 0x00 &&
+        ins [7] == 0x00 &&
+        ins [8] == 0x00 &&
+        ins [9] == 0xc3;
+        
+        if (!have_tls_get) {
+            have_tls_get = ins [0] == 0x55 &&
+            ins [1] == 0x48 &&
+            ins [2] == 0x89 &&
+            ins [3] == 0xe5 &&
+            ins [4] == 0x65 &&
+            ins [5] == 0x48 &&
+            ins [6] == 0x8b &&
+            ins [7] == 0x04 &&
+            ins [8] == 0xfd &&
+            ins [10] == 0x00 &&
+            ins [11] == 0x00 &&
+            ins [12] == 0x00 &&
+            ins [13] == 0x5d &&
+            ins [14] == 0xc3;
+        }
+        
+        if (!have_tls_get) {
+            NSLog(@"Thread local storage detection failed. This indiates a potentially serious issue. Code may fail when debugged in Xcode based on past experience.");
+        }
+
         if (version != NULL) {
             _monoDomain = mono_jit_init_version(domainName, version);
         } else {
@@ -404,6 +441,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         [self prepareThreading];
     }
     
+    
     mono_jit_exec(self.monoDomain, assembly, argCount, args);
     int retVal = mono_environment_exitcode_get();
     
@@ -417,7 +455,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     if(prepareThreading) {
         [self prepareThreading];
     }
-    
+        
     // Make sure you always provide a Main() method and execute it with mono_jit_exec() at startup:
     // this sets up some additional information in the application domain, like the main assembly and the base loading path.
     // You will be able to execute other methods even after Main() returns.
