@@ -500,6 +500,9 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	string objCTypeDecl = ObjCTypeDeclFromManagedFacet(facet);
 	bool isObjectProperty = ObjCRepresentationIsObject(facet);
 	string monoObjectPtr = "MonoObject *";
+	
+	// some NSObject properties need a bit of TLC
+	List<string> baseProperties = new List<string> {"description"};
 
 	// property storage and evaluation
 	string propertyAttributes = "";
@@ -580,7 +583,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	else 
 	{
 		throw new Exception("Cannot write facet as accessor");
-    }
+   }
 
 	// form mono method invocation name.
 	// a prefix may be required, for instance when calling explicit interface properties.
@@ -604,12 +607,17 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	// Interface 
 	if (OutputFileType == OutputType.Interface) 
 	{
-
 		// instance property
 		if (!facet.IsStatic) 
 		{
+			// avoid overriding NSObject properties as we may generate an attribute mismmatch and
+			// trigger a storm of warnings
+			string prefix = "";
+			if (baseProperties.Contains(getterName)) {
+				prefix = "// Avoid NSObject property override //";
+			}
 #>
-    @property <#=propertyAttributes#><#=objCTypeDecl#> <#=getterName#>;
+    <#=prefix#>@property <#=propertyAttributes#><#=objCTypeDecl#> <#=getterName#>;
 <#+	  
 			return;
         }    
@@ -669,8 +677,15 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	//
 	if (facet.IsWritable) 
 	{
+
+		// avoid attribute clash with read only property 
+		string suffix = "";
+		if (baseProperties.Contains(getterName)) {
+			suffix = "_";
+		}
+
 #>
-    <#=objCMethodType#> (void)<#=setterName#>:(<#=objCTypeDecl#>)<#=ObjCVariableName#><#=LT#>
+    <#=objCMethodType#> (void)<#=setterName#><#=suffix#>:(<#=objCTypeDecl#>)<#=ObjCVariableName#><#=LT#>
 <#+
 		if (OutputFileType == OutputType.Implementation) 
 		{
