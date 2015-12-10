@@ -1643,7 +1643,7 @@ this.Write("\r\n");
 			// trigger a storm of warnings
 			string prefix = "";
 			if (baseProperties.Contains(getterName)) {
-				prefix = "// Avoid NSObject property override //";
+				prefix = "// Avoid potential property attribute clash // ";
 			}
 
         
@@ -2025,95 +2025,82 @@ this.Write(";\r\n\t}\r\n");
 	if (facet.IsWritable) 
 	{
 
-		// avoid attribute clash with read only property 
-		string suffix = "";
-		if (baseProperties.Contains(getterName)) {
-			suffix = "_";
-		}
-
 
         
         #line default
         #line hidden
         
-        #line 687 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 681 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("    ");
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" (void)");
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(setterName));
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(suffix));
-
-        
-        #line default
-        #line hidden
-        
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(":(");
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ObjCVariableName));
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 682 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 689 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 683 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 		if (OutputFileType == OutputType.Implementation) 
 		{
@@ -2122,91 +2109,91 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 692 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 686 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 694 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(propertyStorage));
 
         
         #line default
         #line hidden
         
-        #line 694 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 694 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ObjCVariableName));
 
         
         #line default
         #line hidden
         
-        #line 694 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 688 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 695 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 689 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(monoObjectPtr));
 
         
         #line default
         #line hidden
         
-        #line 695 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 689 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
         #line hidden
         
-        #line 695 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 689 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 695 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 689 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCValueToMono));
 
         
         #line default
         #line hidden
         
-        #line 695 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 689 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 696 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 690 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(setExpression));
 
         
         #line default
         #line hidden
         
-        #line 696 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 690 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(";          \r\n\t}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 698 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 692 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
         }  // if Implementation
     } // if IsWritable
@@ -2521,112 +2508,112 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
         #line default
         #line hidden
         
-        #line 1007 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1001 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t// Managed method name : ");
 
         
         #line default
         #line hidden
         
-        #line 1009 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1003 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(isConstructorMethod ? ".ctor" : monoMethodName));
 
         
         #line default
         #line hidden
         
-        #line 1009 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1003 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t// Managed return type : ");
 
         
         #line default
         #line hidden
         
-        #line 1010 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1004 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet)));
 
         
         #line default
         #line hidden
         
-        #line 1010 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1004 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t// Managed param types : ");
 
         
         #line default
         #line hidden
         
-        #line 1011 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1005 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet.Parameters)));
 
         
         #line default
         #line hidden
         
-        #line 1011 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1005 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n    ");
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" (");
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodName));
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodParameters));
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 1012 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1006 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1013 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1007 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 		
 	if (OutputFileType == OutputType.Implementation) 
 	{
@@ -2638,14 +2625,14 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 1019 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1013 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("    {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1021 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1015 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 		if (objCTypeDecl == "void") 
 		{
@@ -2654,8 +2641,39 @@ this.Write("    {\r\n");
         #line default
         #line hidden
         
-        #line 1024 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1018 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\t\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 1019 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
+
+        
+        #line default
+        #line hidden
+        
+        #line 1019 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(";\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 1020 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+
+		} 
+		else if (isConstructorMethod) 
+		{
+
+        
+        #line default
+        #line hidden
+        
+        #line 1024 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write("\t\treturn ");
 
         
         #line default
@@ -2678,37 +2696,6 @@ this.Write(";\r\n");
         #line 1026 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 		} 
-		else if (isConstructorMethod) 
-		{
-
-        
-        #line default
-        #line hidden
-        
-        #line 1030 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write("\t\treturn ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 1031 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
-
-        
-        #line default
-        #line hidden
-        
-        #line 1031 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(";\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 1032 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-
-		} 
 		else 
 		{
 			if (String.IsNullOrEmpty(managedValueToObjC)) throw new Exception("Mono value to ObjC expression is empty"); 
@@ -2717,84 +2704,84 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 1037 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1031 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 1038 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1032 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(referencePreProcessBuilder.ToString()));
 
         
         #line default
         #line hidden
         
-        #line 1038 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1032 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t\tMonoObject *");
 
         
         #line default
         #line hidden
         
-        #line 1039 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1033 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
         #line hidden
         
-        #line 1039 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1033 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 1039 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1033 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 1039 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1033 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 1040 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1034 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(referencePostProcessBuilder.ToString()));
 
         
         #line default
         #line hidden
         
-        #line 1040 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1034 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 1041 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1035 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(managedValueToObjC));
 
         
         #line default
         #line hidden
         
-        #line 1041 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1035 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1042 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1036 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 	
 		}// if objCTypeDecl
 
@@ -2802,14 +2789,14 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 1044 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1038 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("    }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1046 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1040 "C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 	} // if Implementation
 }

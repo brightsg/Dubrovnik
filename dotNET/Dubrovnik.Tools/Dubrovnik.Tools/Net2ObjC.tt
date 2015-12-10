@@ -614,7 +614,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 			// trigger a storm of warnings
 			string prefix = "";
 			if (baseProperties.Contains(getterName)) {
-				prefix = "// Avoid NSObject property override //";
+				prefix = "// Avoid potential property attribute clash // ";
 			}
 #>
     <#=prefix#>@property <#=propertyAttributes#><#=objCTypeDecl#> <#=getterName#>;
@@ -678,14 +678,8 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	if (facet.IsWritable) 
 	{
 
-		// avoid attribute clash with read only property 
-		string suffix = "";
-		if (baseProperties.Contains(getterName)) {
-			suffix = "_";
-		}
-
 #>
-    <#=objCMethodType#> (void)<#=setterName#><#=suffix#>:(<#=objCTypeDecl#>)<#=ObjCVariableName#><#=LT#>
+    <#=objCMethodType#> (void)<#=setterName#>:(<#=objCTypeDecl#>)<#=ObjCVariableName#><#=LT#>
 <#+
 		if (OutputFileType == OutputType.Implementation) 
 		{
