@@ -644,7 +644,7 @@ __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * pr
         
         // get prefix
         int nPrefix = delim - propertyName + 1;
-        prefix = malloc(nPrefix);
+        prefix = malloc(nPrefix + 1);
         strncpy(prefix, propertyName, nPrefix);
         prefix[nPrefix] = '\0';
         
