@@ -1076,14 +1076,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)willChangeValueForKey:(NSString *)key
 {
-// TODO:  seems to be getting called twice for every change in the managed layer
-    /*
-      +automaticallyNotifiesObserversForKey: returns NO but the KVO
-     ChangeValueForKey: methods are called whenever a mangaged property is sent if
-     -automaticallyNotifiesObserversOfManagedPropertyChanges retunrs YES
-     
-     */
-    
     // contract
     NSAssert(self.isPrimaryInstance, @"non primary instance");
     
@@ -1100,7 +1092,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         //NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
         NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
 #endif
-        
+    
     [super willChangeValueForKey:key];
 }
 
@@ -1119,7 +1111,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         //NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
         NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
 #endif
-        
+    
     [super didChangeValueForKey:key];
 }
 
@@ -1195,6 +1187,18 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // subclasses can override this method
     return nil;
 }
+
+// debug only
+
+#ifdef TRACE_KVO
+- (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
+{
+
+    NSLog(@"%@ %@ is observed by %@", self, keyPath, observer);
+    
+    [super addObserver:observer forKeyPath:keyPath options:options context:context];
+}
+#endif
 
 #pragma mark -
 #pragma mark Mono info
