@@ -31,12 +31,12 @@
 #import "DBManagedEvent.h"
 #import "NSObject+DBManagedEvent.h"
 #import "DBManagedApplication.h"
-#import "DBPrimaryInstanceCache.h"
+#import "DBPrimaryInstanceCache.h
 
 
 static NSMutableArray *m_boundKeys;
 
-#define DB_TRACE_KVO
+//#define DB_TRACE_KVO
 #define DB_TRACE_MONO_OBJECT_ADDRESS
 
 /*
