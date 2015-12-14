@@ -36,7 +36,7 @@
 
 static NSMutableArray *m_boundKeys;
 
-//#define DB_TRACE_KVO
+#define DB_TRACE_KVO
 #define DB_TRACE_MONO_OBJECT_ADDRESS
 
 /*
@@ -1188,16 +1188,25 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return nil;
 }
 
-// debug only
+#pragma mark -
+#pragma mark KVO
 
 #ifdef TRACE_KVO
 - (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
 {
-
+    
     NSLog(@"%@ %@ is observed by %@", self, keyPath, observer);
     
     [super addObserver:observer forKeyPath:keyPath options:options context:context];
 }
+
+- (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context
+{
+    NSLog(@"%@ %@ is no longer observed by %@", self, keyPath, observer);
+    
+    [super removeObserver:observer forKeyPath:keyPath context:context];
+}
+
 #endif
 
 #pragma mark -
