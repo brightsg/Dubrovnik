@@ -1191,23 +1191,43 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark -
 #pragma mark KVO
 
-#ifdef TRACE_KVO
-- (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
+- (void)bind:(NSString *)binding toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary<NSString *,id> *)options
 {
     
+#ifdef DB_TRACE_KVO
+    NSLog(@"%@ %@ binding: %@ to object: %@", self, keyPath, binding, observableController);
+#endif
+    
+    [super bind:binding toObject:observableController withKeyPath:keyPath options:options];
+}
+
+- (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
+{
+    // make a noise if we inadvertently observe a method that we are flagging as non KVC compliant.
+    // in these cases we generally supply an alternate KVC compliant object that we can observe.
+    // failure to heed this warning and fix offenders can lead to hard to diagnose crashes, often in and around -will/didChangeValueForKey:
+    NSString *key = [keyPath componentsSeparatedByString:@"."].firstObject;
+    if ([self.class.keysToIgnoreInChangeValueForKeyMethods containsObject:key]) {
+        NSLog(@"%@ -%@ is being observed but +keysToIgnoreInChangeValueForKeyMethods indicates that KVO notifications for that path will be ignored", self, keyPath);
+    }
+    
+#ifdef DB_TRACE_KVO
     NSLog(@"%@ %@ is observed by %@", self, keyPath, observer);
+#endif
     
     [super addObserver:observer forKeyPath:keyPath options:options context:context];
 }
 
 - (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context
 {
+    
+#ifdef DB_TRACE_KVO
     NSLog(@"%@ %@ is no longer observed by %@", self, keyPath, observer);
+#endif
     
     [super removeObserver:observer forKeyPath:keyPath context:context];
 }
 
-#endif
 
 #pragma mark -
 #pragma mark Mono info
