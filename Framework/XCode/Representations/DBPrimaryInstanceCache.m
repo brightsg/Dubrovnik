@@ -256,16 +256,18 @@ static NSMutableArray *m_cacheBuckets;
 
 - (void)compact
 {
+    [self lockCache];
+    
     NSMapEnumerator enumerator = NSEnumerateMapTable([self cacheMap]);
     NSUInteger *key;
     void *value;
 
-    // we wnat to report all non NULL values in all buckets
+    // we want to report all non NULL values in all buckets
     while (NSNextMapEnumeratorPair(&enumerator, (void **)&key, &value)) {
         id object = (__bridge NSObject *)value;
         
         // compact buckets and remove empty buckets.
-        // note that NSPointerArry -compact appears to do nothing.
+        // note that NSPointerArray -compact appears to do nothing.
         if ([object isKindOfClass:[NSPointerArray class]]) {
             NSPointerArray *bucket = object;
             for (NSInteger i = bucket.count - 1; i >= 0; i--) {
@@ -280,6 +282,8 @@ static NSMutableArray *m_cacheBuckets;
         }
     }
     NSEndMapTableEnumeration(&enumerator);
+    
+    [self unlockCache];
 }
 
 - (NSArray *)allObjects
