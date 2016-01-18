@@ -259,7 +259,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // get the event targets registered with the sender
     NSPointerArray *eventTargets = sender.managedEventMap[eventName];
     if (!eventTargets) {
-        NSLog(@"No event targets for object : %@ event name: %@", sender, eventName);
+        NSLog(@"No event targets for object : %@ (%p) event name: %@", sender, sender, eventName);
         return;
     }
     
