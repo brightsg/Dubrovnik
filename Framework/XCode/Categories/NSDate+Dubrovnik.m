@@ -25,6 +25,9 @@
 #import "DBBoxing.h"
 #import "DBManagedEnvironment.h"
 
+//#define DB_TRACE_DATE
+#define LOG_NEAREST_START_OF_DAY NO
+
 //++Dubrovnik.CodeGenerator System_DateTimeKind.h
 //
 // Managed enumeration : DateTimeKind
@@ -71,26 +74,49 @@ static const char hasValueKey = '0';
     int64_t ticks = 0;
     BOOL hasValue = DBMonoNullableObjectHasValue(monoDateTime);
     if (hasValue) {
-        va_list va_args;
-        monoDateTime = DBMonoObjectInvoke(monoDateTime, "ToUniversalTime()", 0, va_args);
-
+        
+        // calling ToUniversalTime on a local time takes one hour off the tick count
+        if (NO) {
+            va_list va_args;
+            monoDateTime = DBMonoObjectInvoke(monoDateTime, "ToUniversalTime()", 0, va_args);
+        }
+        
         MonoObject *monoValue = DBMonoObjectGetProperty(monoDateTime, "Ticks");
         ticks = DB_UNBOX_INT64(monoValue);
     }
     NSDate *date = [self dateWithMonoTicks:ticks hasValue:hasValue];
+    
+#warning this is temporary - remove for BPUKM-16/17
+    date = [date nearestStartOfDayWithLoggedWarning:LOG_NEAREST_START_OF_DAY];
+    
+#ifdef DB_TRACE_DATE
+    [self logDate:date];
+#endif
+    
     return date;
 }
 
 - (id)initWithMonoDateTime:(MonoObject *)monoDateTime {
-    va_list va_args;
-    monoDateTime = DBMonoObjectInvoke(monoDateTime, "ToUniversalTime()", 0, va_args);
+    
+    // calling ToUniversalTime on a local time takes one hour off the tick count
+    if (NO) {
+        va_list va_args;
+        monoDateTime = DBMonoObjectInvoke(monoDateTime, "ToUniversalTime()", 0, va_args);
+    }
     
 	MonoObject *boxedTicks = DBMonoObjectGetProperty(monoDateTime, "Ticks");	
 	int64_t ticks = DB_UNBOX_INT64(boxedTicks);
 	NSTimeInterval interval = (NSTimeInterval)(ticks - EPOCH_START_DIFFERENCE) / NET_TICKS_PER_SECOND;
 	self = [self initWithTimeIntervalSinceReferenceDate:interval];
 
-	return(self);
+#warning this is temporary - remove for BPUKM-16/17
+    self = [self nearestStartOfDayWithLoggedWarning:LOG_NEAREST_START_OF_DAY];
+
+#ifdef DB_TRACE_DATE
+    [self.class logDate:self];
+#endif
+    
+	return self;
 }
 
 - (id)initWithMonoTicks:(int64_t)monoTicks {
@@ -131,6 +157,7 @@ static const char hasValueKey = '0';
 
 #pragma mark -
 #pragma mark Nullable implementation methods
+
 - (void)setHasValue:(BOOL)hasValue
 {
     objc_setAssociatedObject(self, &hasValueKey, @(hasValue), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -148,4 +175,134 @@ static const char hasValueKey = '0';
     return result;
 }
 
+#pragma mark -
+#pragma mark Utilities
+
+static NSDateFormatter *m_date_formatter;
++ (NSDateFormatter *)defaultDateFormatter
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSCalendar *calendar = [self defaultCalendar];
+    
+    formatter.calendar = calendar;
+    formatter.locale = [self defaultLocale];
+    formatter.timeZone = [self defaultTimeZone];
+    
+    formatter.dateFormat = [self defaultDateFormat];
+    return formatter;
+}
+
++ (void)logDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [self defaultDateFormatter];
+    NSLog(@"Date : %@", [dateFormatter stringFromDate:date]);
+}
+
+static NSCalendar *m_defaultCalendar;
++ (NSCalendar *)defaultCalendar
+{
+    if (!m_defaultCalendar) {
+        m_defaultCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        [m_defaultCalendar setLocale:[self defaultLocale]];
+        [m_defaultCalendar setTimeZone:[self defaultTimeZone]];
+    }
+    return m_defaultCalendar;
+}
++ (void)setDefaultCalendar:(NSCalendar *)calendar
+{
+    m_defaultCalendar = calendar;
+    
+}
+
+static NSTimeZone *m_defaultTimeZone;
++ (NSTimeZone *)defaultTimeZone
+{
+    if (!m_defaultTimeZone) {
+        m_defaultTimeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    }
+    return m_defaultTimeZone;
+}
++ (void)setDefaultTimeZone:(NSTimeZone *)timezone
+{
+    m_defaultTimeZone = timezone;
+}
+
+static NSLocale *m_defaultLocale;
++ (NSLocale *)defaultLocale
+{
+    if (!m_defaultLocale) {
+        m_defaultLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
+    }
+    return m_defaultLocale;
+}
++ (void)setDefaultLocale:(NSLocale *)locale
+{
+    m_defaultLocale = locale;
+}
+
+static NSString *m_defaultDateFormat;
++ (NSString *)defaultDateFormat
+{
+    if (!m_defaultDateFormat) {
+        m_defaultDateFormat = @"dd/MMM/yyyy HH:mm:ss 'UTC'";
+    }
+    return m_defaultDateFormat;
+}
++ (void)setDefaultDateFormat:(NSString *)dateFormat
+{
+    m_defaultDateFormat = dateFormat;
+}
+- (NSDate *)nearestStartOfDay
+{
+    return [self nearestStartOfDayWithLoggedWarning:NO];
+}
+
+#warning this is temporary - remove all below for BPUKM-16/17
+- (NSDate *)nearestStartOfDayWithLoggedWarning:(BOOL)logWarning
+{
+    NSDate *normalisedDate = self;
+    NSDateComponents *components = [[self.class defaultCalendar] components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:self];
+    if (components.hour > 0 || components.minute > 0 || components.second > 0) {
+        
+        // in order to be able to accurately perform date based arithmetic and use dates as keys
+        // we usually want dates to conform to dd-mm-yy-00:00.00 ie: 12 am - start of day
+        if (logWarning) {
+            NSLog(@"Date time component is non zero : %@", self.defaultDescription);
+        }
+        
+        if (components.hour <= 12) {
+            normalisedDate = [self startOfDay];
+        } else {
+            normalisedDate = [[self addHours:12] startOfDay];
+        }
+    }
+    
+    return normalisedDate;
+}
+
+- (NSString *)defaultDescription
+{
+    return [self descriptionWithCalendarFormat:nil timeZone:[self.class defaultTimeZone] locale:nil];
+}
+
+- (NSDate *)startOfDay
+{
+    NSCalendar *calendar = [self.class defaultCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
+    
+    // normalise to midnight UTC - the same as GMT
+    components.hour = 0;
+    components.minute = 0;
+    components.second = 0;
+    
+    return [calendar dateFromComponents:components];
+}
+
+- (NSDate *)addHours:(NSInteger)value
+{
+    NSCalendar *calendar = [self.class defaultCalendar];
+    return [calendar dateByAddingUnit:NSCalendarUnitHour value:value toDate:self options:0];
+}
+
+#warning this is temporary - remove all above for BPUKM-16/17
 @end

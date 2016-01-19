@@ -39,4 +39,15 @@
 
 - (void)setHasValue:(BOOL)hasValue;
 - (BOOL)hasValue;
+
++ (NSDateFormatter *)defaultDateFormatter;
++ (void)logDate:(NSDate *)date;
++ (NSCalendar *)defaultCalendar;
++ (void)setDefaultCalendar:(NSCalendar *)calendar;
++ (NSTimeZone *)defaultTimeZone;
++ (void)setDefaultTimeZone:(NSTimeZone *)timezone;
++ (NSLocale *)defaultLocale;
++ (void)setDefaultLocale:(NSLocale *)locale;
++ (NSString *)defaultDateFormat;
++ (void)setDefaultDateFormat:(NSString *)dateFormat;
 @end
