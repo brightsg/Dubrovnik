@@ -24,7 +24,10 @@ extern char DBCacheSuffixChar;
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-
+@protocol DBManagedObjectOptionalCategoryMethods <NSObject>
+@optional
++ (NSArray *)db_keysToIgnoreInChangeValueForKeyMethods;
+@end
 
 @class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
 
@@ -240,6 +243,9 @@ extern char DBCacheSuffixChar;
  
  A common workaround for the mismatched notifications is to define a proxy property that wraps the offending
  property with the correct notifications.
+ 
+ Note that the receiver or System_Object category can also alternatively implement db_keysToIgnoreInChangeValueForKeyMethods
+ which is called by this method.
  
  */
 + (NSArray *)keysToIgnoreInChangeValueForKeyMethods;

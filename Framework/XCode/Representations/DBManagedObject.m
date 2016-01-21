@@ -1183,9 +1183,16 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 }
 
 + (NSArray *)keysToIgnoreInChangeValueForKeyMethods
-{    
-    // subclasses can override this method
-    return nil;
+{
+    NSArray *keys = nil;
+    
+    // subclasses can override this method to provide keys on an individual class basis
+    // or the receiver or a superclass can implement support for the following in a category
+    if ([self respondsToSelector:@selector(db_keysToIgnoreInChangeValueForKeyMethods)]) {
+        keys = [self performSelector:@selector(db_keysToIgnoreInChangeValueForKeyMethods)];
+    }
+    
+    return keys;
 }
 
 #pragma mark -
@@ -1208,7 +1215,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // failure to heed this warning and fix offenders can lead to hard to diagnose crashes, often in and around -will/didChangeValueForKey:
     NSString *key = [keyPath componentsSeparatedByString:@"."].firstObject;
     if ([self.class.keysToIgnoreInChangeValueForKeyMethods containsObject:key]) {
-        NSLog(@"%@ -%@ is being observed but +keysToIgnoreInChangeValueForKeyMethods indicates that KVO notifications for that path will be ignored", self, keyPath);
+        NSLog(@"%@ -%@ is being observed by %@ but +keysToIgnoreInChangeValueForKeyMethods indicates that KVO notifications for that path will be ignored", self, keyPath, observer);
     }
     
 #ifdef DB_TRACE_KVO
