@@ -158,8 +158,12 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 {
 #pragma unused(options)
     
+    if (!sender) {
+        NSLog(@"%@ cannot remove handler for event %@ because the managed object is nil", self, eventName);
+        return;
+    }
+    
     // contract
-    NSAssert(sender, @"object cannot be nil");
     NSAssert(sender.isPrimaryInstance, @"non primary instance");
 
     // remove target for event
