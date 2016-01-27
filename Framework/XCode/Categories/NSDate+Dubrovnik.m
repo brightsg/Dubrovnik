@@ -270,10 +270,14 @@ static NSString *m_defaultDateFormat;
             NSLog(@"Date time component is non zero : %@", self.defaultDescription);
         }
         
-        if (components.hour <= 12) {
+        if (components.hour <= 2) {
             normalisedDate = [self startOfDay];
-        } else {
-            normalisedDate = [[self addHours:12] startOfDay];
+        } else if (components.hour >= 22) {
+            normalisedDate = [[self addHours:3] startOfDay];
+        }
+        
+        if (logWarning) {
+            NSLog(@"normalisedDate : %@", normalisedDate.defaultDescription);
         }
     }
     
