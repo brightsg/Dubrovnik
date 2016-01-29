@@ -58,8 +58,9 @@
 #import "System_Collections_Generic_IDictionaryA2.h"
 #import "System_Collections_Generic_IEnumerableA1.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"
-
+#import "System_Collections_Generic_ICollectionA1.h"
 
 #import "Interface_IEnumerable_T.h"
 #import "Interface_IList.h"
 #import "IEnumerableA1.h"
+
