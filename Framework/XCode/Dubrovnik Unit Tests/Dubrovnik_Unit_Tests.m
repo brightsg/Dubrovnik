@@ -149,7 +149,14 @@ static MonoAssembly *monoAssembly;
     NSString *assemblyVersion = managedAssembly.getName.version.toString;
     
     XCTAssertTrue(assemblyVersion, @"Assembly version not found");
-                  
+    
+    // initialise the time zone
+    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    
+    // initialise managed date time conversion options.
+    [NSDate setMonoDateTimeOptions: (DBMonoDateTimeOptionAssertOnUTCViolation |
+                                     DBMonoDateTimeOptionLogWarnings)];
+    
     // invoke the assembly static main.
     // this prepares the application domain and validates that the assembly is loaded and functional.
     // the assembly will remain loaded and accessible once the assmbly invocation completes.
