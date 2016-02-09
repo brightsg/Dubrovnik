@@ -104,7 +104,7 @@ namespace Dubrovnik.UnitTests
 			//Console.WriteLine (" ");
 			//Console.WriteLine ("======= CONSTRUCTOR START ===========");
 
-			Date = DateTime.Now;
+			Date = DateTime.UtcNow; // UTC is expected and client may assert if non UTC date encountered
 			DecimalNumber = 10.5005m;
 			StringProperty = "Dubrovnik.UnitTests property";
             Name = "Dubrovnik.UnitTests ReferenceObject";
@@ -214,7 +214,7 @@ namespace Dubrovnik.UnitTests
 		//==============================
 		public string StringField = "Dubrovnik.UnitTests public string StringField";
 		public int IntField = 1;
-		public DateTime DateField = DateTime.Now;
+		public DateTime DateField = DateTime.UtcNow;
 		public IntEnum IntEnumField = IntEnum.val1;
 		public LongEnum LongEnumField = LongEnum.val1;
 
