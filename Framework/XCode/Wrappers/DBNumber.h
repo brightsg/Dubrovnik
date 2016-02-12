@@ -17,11 +17,19 @@
 #define DBNumFloat(X) [DBNumber numberWithFloat:(X)]
 #define DBNumDouble(X) [DBNumber numberWithDouble:(X)]
 
+#define DBNumChar_(X,Y) [DBNumber numberWithChar:(X) monoClass:(Y)]
+#define DBNumShort_(X,Y) [DBNumber numberWithShort:(X) monoClass:(Y)]
+#define DBNumInt_(X,Y) [DBNumber numberWithInt:(X) monoClass:(Y)]
+#define DBNumLong_(X,Y) [DBNumber numberWithLong:(X) monoClass:(Y)]
+#define DBNumLongLong_(X,Y) [DBNumber numberWithLongLong:(X) monoClass:(Y)]
+#define DBNumFloat_(X,Y) [DBNumber numberWithFloat:(X) monoClass:(Y)]
+#define DBNumDouble_(X,Y) [DBNumber numberWithDouble:(X) monoClass:(Y)]
+
 @interface DBNumber : NSNumber
 
 /*!
  
- Factory methods
+ Factory methods. These methods use the appropriate managed type in each case.
  
  */
 + (instancetype)numberWithChar:(char)value;
@@ -40,6 +48,27 @@
 + (instancetype)numberWithInteger:(NSInteger)value;
 + (instancetype)numberWithUnsignedInteger:(NSUInteger)value;
 
+/*!
+ 
+ Factory methods. These methods use the specified mono class in each case.
+ This is useful in operations involving managed enumerations where the enumeration type must be retained.
+ 
+ */
++ (instancetype)numberWithChar:(char)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithUnsignedChar:(unsigned char)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithShort:(short)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithUnsignedShort:(unsigned short)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithInt:(int)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithUnsignedInt:(unsigned int)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithLong:(long)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithUnsignedLong:(unsigned long)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithLongLong:(long long)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithUnsignedLongLong:(unsigned long long)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithFloat:(float)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithDouble:(double)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithBool:(BOOL)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithInteger:(NSInteger)value monoClass:(MonoClass *)monoClass;
++ (instancetype)numberWithUnsignedInteger:(NSUInteger)value monoClass:(MonoClass *)monoClass;
 
 /*!
  
@@ -47,22 +76,12 @@
  The pointed to value will be of encoded type -monoObjCType
  
  */
-- (const void *)valuePointer NS_RETURNS_INNER_POINTER;
-
-/*!
- 
- TODO: these mono access methods should be defined in a protocol!
- 
- */
-- (void *)monoValue;
-- (MonoObject *)monoObject;
-
-- (id)managedObject;
-
-@property (assign, nonatomic, readonly) MonoObject *representedMonoObject;
+@property (assign, nonatomic, readonly) const void *valuePointer NS_RETURNS_INNER_POINTER;
+@property (strong, nonatomic, readonly) id managedObject;
+@property (assign, nonatomic, readonly) void *monoValue;
+@property (assign, nonatomic, readonly) MonoObject *monoObject;
 @property (assign, nonatomic, readonly) const char *monoObjCType;
 @property (assign, readonly) BOOL compareEnforcesTypeMatch;
-
 
 - (void)setCompareEnforcesTypeMatch;
 @end
