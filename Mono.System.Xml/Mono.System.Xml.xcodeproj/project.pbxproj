@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB3E67D61C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3E67D41C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB3E67D71C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3E67D51C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m */; };
 		ABBD3BC51900141000DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC41900141000DB59AF /* Cocoa.framework */; };
 		ABBD3BCF1900141000DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BCD1900141000DB59AF /* InfoPlist.strings */; };
 		ABBD3BDB1900141000DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC41900141000DB59AF /* Cocoa.framework */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB3E67D41C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Xsl_XsltArgumentList.h; sourceTree = "<group>"; };
+		AB3E67D51C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_Xsl_XsltArgumentList.m; sourceTree = "<group>"; };
 		ABBD3BC11900141000DB59AF /* Mono.System.Xml.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Xml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBD3BC41900141000DB59AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABBD3BC71900141000DB59AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -192,6 +196,8 @@
 			children = (
 				ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */,
 				ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */,
+				AB3E67D41C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h */,
+				AB3E67D51C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3E67D61C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h in Headers */,
 				ABBD3C14190015C000DB59AF /* ManualBindings.h in Headers */,
 				ABBD3C11190015C000DB59AF /* Framework.h in Headers */,
 				ABBD3C10190015C000DB59AF /* Categories.h in Headers */,
@@ -307,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3E67D71C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m in Sources */,
 				ABBD3C001900158B00DB59AF /* System_Xml_XmlTextWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
