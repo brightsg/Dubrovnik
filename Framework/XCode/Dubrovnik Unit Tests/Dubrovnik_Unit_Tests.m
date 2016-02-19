@@ -1578,7 +1578,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
          
          +bestObjectWithMonoObject: will return the best object it can find.
          If no equivalent Obj-C class equivalent can be found for the managed class (which can occur, say, with EntityFrame LINQ queries that
-         return IEnumerable`1<T>) then an Obj-C instance of the reciver is returned.
+         return IEnumerable`1<T>) then an Obj-C instance of the receiver is returned.
          We don't have a test for this behaviour at the moment as I am not sure at the moment how to implement it.
          Perhaps a dynamically created class that implements IEnumerable`1<T> would do the trick?
          http://stackoverflow.com/questions/3862226/dynamically-create-a-class-in-c-sharp
@@ -1603,13 +1603,15 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSAssert(boolValue == YES, DBUEqualityTestFailed);
     
     // int
-    Dubrovnik_UnitTests_IReferenceObject1 *refObject1 = [refObject referenceObject1];
+    // note that this is slightly complicated by the fact that the code generator defaults to using +bestObjectWithMonoObject which prefers to
+    // return a class rather than interface; hence we explictly create interface based instances below.
+    Dubrovnik_UnitTests_IReferenceObject1 *refObject1 = [Dubrovnik_UnitTests_IReferenceObject1 objectWithMonoObject:[refObject monoObject]];
     [refObject1 setExIntTestProperty:89467];
     int32_t intValue = [refObject1 exIntTestProperty];
     NSAssert(intValue == 89467, DBUEqualityTestFailed);
     
     // float
-    Dubrovnik_UnitTests_IReferenceObject2 *refObject2 = [refObject referenceObject2];
+    Dubrovnik_UnitTests_IReferenceObject2 *refObject2 = [Dubrovnik_UnitTests_IReferenceObject2 objectWithMonoObject:[refObject monoObject]];
     [refObject2 setExIntTestProperty:20202.f];
     float floatValue = [refObject2 exIntTestProperty];
     NSAssert(floatValue == 20202.f, DBUEqualityTestFailed);
