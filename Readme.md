@@ -181,7 +181,7 @@ Prerequisites
 =============
 - [Mono Framework](http://www.mono-project.com/Downloads) MDK. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`. A 64 bit build of Mono will be required in order to support the modern Obj-C runtime.
 
-- The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK.
+- The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK. The correct SDK must be installed for the version of Visual Studio being used. The version of the TextTemplating assembly may change with the SDK version so it may be necessary to adjust the TextTemplating assembly reference. For Visual Studio 2013 (Version 12) the required text templating assemblies can be found in C:\Program Files (x86)\Microsoft Visual Studio 12.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0. Note that references to Interface assemblies for previous TextTemplating versions will likely be required.
 
 Building It
 ===========
@@ -266,7 +266,7 @@ Generated Code Output
 
 The code generator will output the following for each target assembly, in this case say `Work.Data.dll`:
 
-1. Work.Data.h. The assembly header. This provides type class name collision detection (see below), class aliases and header imports. The header imports are ordered to support inter header dependencies. Extra headers may be included via #defines if required to aid type resolution.
+1. Work.Data.h. The assembly header. This provides type class name collision detection (see below), class aliases and header imports. The header imports are ordered to support inter header dependencies. Optional extra headers may be included using the Clang __has_include() include file cheking macro.
 
 2. Work.Data.m. The assembly class file. This provides no actual type definitions but lists the assembles referenced by the target assembly and the .m and .h files that were generated.
  

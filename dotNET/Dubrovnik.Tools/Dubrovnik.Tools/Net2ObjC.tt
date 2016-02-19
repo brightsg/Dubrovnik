@@ -118,7 +118,7 @@ public void WriteModuleFooter()
 public void WriteInterfaceFilePreliminaries()
 {
 	string objCAssemblyHeaderName = ObjCIdentifierFromManagedIdentifier(AssemblyFacet.Name);
-	string defineName = ("Include_" + objCAssemblyHeaderName + "_Extra").ToUpper();
+	string objCAssemblyExtraHeader = objCAssemblyHeaderName + ".__Extra__.h";
 	
 #>
 #import <Cocoa/Cocoa.h>
@@ -127,8 +127,8 @@ public void WriteInterfaceFilePreliminaries()
 //
 // Extra include
 //
-#ifdef <#=defineName#>
-#import "<#=objCAssemblyHeaderName#>.__Extra__.h"	// Not auto generated. Add manually to project.
+#if __has_include("<#=objCAssemblyExtraHeader#>")
+#import "<#=objCAssemblyExtraHeader#>"	// Not auto generated. Add manually to project.
 #endif
 
 <#+
@@ -145,7 +145,7 @@ public void WriteInterfaceFilePreliminaries()
 	foreach (CodeFacet reference in AssemblyFacet.References)
 	{
 		string includeFile = reference.Name;
-		defineName = (ObjCIdentifierFromManagedIdentifier(includeFile) + "_Included").ToUpper();
+		string defineName = (ObjCIdentifierFromManagedIdentifier(includeFile) + "_Included").ToUpper();
 #>
 #ifndef <#=defineName#>
 //#import "<#=includeFile#>.h"
@@ -1016,13 +1016,18 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (objCTypeDecl == "void") 
 		{
 #>
+		<#=referencePreProcessBuilder.ToString()#>
 		<#=getExpression#>;
+        <#=referencePostProcessBuilder.ToString()#>
 <#+
 		} 
 		else if (isConstructorMethod) 
 		{
 #>
-		return <#=getExpression#>;
+		<#=referencePreProcessBuilder.ToString()#>
+		<#=objCTypeDecl#> object = <#=getExpression#>;
+        <#=referencePostProcessBuilder.ToString()#>
+        return object;
 <#+
 		} 
 		else 
