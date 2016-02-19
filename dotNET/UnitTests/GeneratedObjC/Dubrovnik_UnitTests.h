@@ -9,17 +9,17 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     2/18/2015 4:16:11 PM
+// Date:     19/02/2016 11:53:22
 //
 // Assembly: Dubrovnik.UnitTests
 // Fullname: Dubrovnik.UnitTests, Version=1.0.5527.28221, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
-// Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
+// Platform: Microsoft Windows NT 6.2.9200.0
 // OS Arch:  64 bit
 // Process:  32 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-// Runtime:  4.0.30319.34209
+// Runtime:  4.0.30319.42000
 //
 // Asm Ref:  mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -38,7 +38,7 @@
 //
 // Extra include
 //
-#ifdef INCLUDE_DUBROVNIK_UNITTESTS_EXTRA
+#if __has_include("Dubrovnik_UnitTests.__Extra__.h")
 #import "Dubrovnik_UnitTests.__Extra__.h"	// Not auto generated. Add manually to project.
 #endif
 

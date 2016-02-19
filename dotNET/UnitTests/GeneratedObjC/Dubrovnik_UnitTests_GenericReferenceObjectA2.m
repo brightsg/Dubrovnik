@@ -70,7 +70,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"ListOfTypeT"];
 		if ([self object:_listOfTypeT isEqualToMonoObject:monoObject]) return _listOfTypeT;					
-		_listOfTypeT = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_listOfTypeT = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _listOfTypeT;
 	}
@@ -88,7 +88,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"ListOfTypeU"];
 		if ([self object:_listOfTypeU isEqualToMonoObject:monoObject]) return _listOfTypeU;					
-		_listOfTypeU = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_listOfTypeU = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _listOfTypeU;
 	}
@@ -106,7 +106,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Nested"];
 		if ([self object:_nested isEqualToMonoObject:monoObject]) return _nested;					
-		_nested = [Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass objectWithMonoObject:monoObject];
+		_nested = [Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass bestObjectWithMonoObject:monoObject];
 
 		return _nested;
 	}

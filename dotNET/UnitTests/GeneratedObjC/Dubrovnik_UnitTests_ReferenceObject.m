@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		
+		Dubrovnik_UnitTests_ReferenceObject * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.String
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1:(NSString *)p1 value2:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		
+		Dubrovnik_UnitTests_ReferenceObject * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+        
+        return object;
     }
 
 #pragma mark -
@@ -328,7 +334,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"DoubleList"];
 		if ([self object:_doubleList isEqualToMonoObject:monoObject]) return _doubleList;					
-		_doubleList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_doubleList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _doubleList;
 	}
@@ -381,7 +387,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"FloatList"];
 		if ([self object:_floatList isEqualToMonoObject:monoObject]) return _floatList;					
-		_floatList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_floatList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _floatList;
 	}
@@ -399,7 +405,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"FloatNullable"];
 		if ([self object:_floatNullable isEqualToMonoObject:monoObject]) return _floatNullable;					
-		_floatNullable = [System_NullableA1 objectWithMonoObject:monoObject];
+		_floatNullable = [System_NullableA1 bestObjectWithMonoObject:monoObject];
 
 		return _floatNullable;
 	}
@@ -556,7 +562,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"InterfaceTestProperty"];
 		if ([self object:_interfaceTestProperty isEqualToMonoObject:monoObject]) return _interfaceTestProperty;					
-		_interfaceTestProperty = [Dubrovnik_UnitTests_ITestProperty objectWithMonoObject:monoObject];
+		_interfaceTestProperty = [Dubrovnik_UnitTests_ITestProperty bestObjectWithMonoObject:monoObject];
 
 		return _interfaceTestProperty;
 	}
@@ -574,7 +580,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntIntDictionary"];
 		if ([self object:_intIntDictionary isEqualToMonoObject:monoObject]) return _intIntDictionary;					
-		_intIntDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_intIntDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _intIntDictionary;
 	}
@@ -592,7 +598,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntIntStringDictionaryDictionary"];
 		if ([self object:_intIntStringDictionaryDictionary isEqualToMonoObject:monoObject]) return _intIntStringDictionaryDictionary;					
-		_intIntStringDictionaryDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_intIntStringDictionaryDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _intIntStringDictionaryDictionary;
 	}
@@ -610,7 +616,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntList"];
 		if ([self object:_intList isEqualToMonoObject:monoObject]) return _intList;					
-		_intList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_intList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _intList;
 	}
@@ -628,7 +634,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"IntNullable"];
 		if ([self object:_intNullable isEqualToMonoObject:monoObject]) return _intNullable;					
-		_intNullable = [System_NullableA1 objectWithMonoObject:monoObject];
+		_intNullable = [System_NullableA1 bestObjectWithMonoObject:monoObject];
 
 		return _intNullable;
 	}
@@ -680,7 +686,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"MinimalReferenceObject"];
 		if ([self object:_minimalReferenceObject isEqualToMonoObject:monoObject]) return _minimalReferenceObject;					
-		_minimalReferenceObject = [Dubrovnik_UnitTests_IMinimalReferenceObject objectWithMonoObject:monoObject];
+		_minimalReferenceObject = [Dubrovnik_UnitTests_IMinimalReferenceObject bestObjectWithMonoObject:monoObject];
 
 		return _minimalReferenceObject;
 	}
@@ -746,7 +752,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
 		if ([self object:_objectObjectDictionary isEqualToMonoObject:monoObject]) return _objectObjectDictionary;					
-		_objectObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_objectObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _objectObjectDictionary;
 	}
@@ -781,7 +787,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObject1"];
 		if ([self object:_referenceObject1 isEqualToMonoObject:monoObject]) return _referenceObject1;					
-		_referenceObject1 = [Dubrovnik_UnitTests_IReferenceObject1 objectWithMonoObject:monoObject];
+		_referenceObject1 = [Dubrovnik_UnitTests_IReferenceObject1 bestObjectWithMonoObject:monoObject];
 
 		return _referenceObject1;
 	}
@@ -793,7 +799,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObject2"];
 		if ([self object:_referenceObject2 isEqualToMonoObject:monoObject]) return _referenceObject2;					
-		_referenceObject2 = [Dubrovnik_UnitTests_IReferenceObject2 objectWithMonoObject:monoObject];
+		_referenceObject2 = [Dubrovnik_UnitTests_IReferenceObject2 bestObjectWithMonoObject:monoObject];
 
 		return _referenceObject2;
 	}
@@ -805,7 +811,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectList"];
 		if ([self object:_referenceObjectList isEqualToMonoObject:monoObject]) return _referenceObjectList;					
-		_referenceObjectList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_referenceObjectList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _referenceObjectList;
 	}
@@ -823,7 +829,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
 		if ([self object:_referenceObjectRelative isEqualToMonoObject:monoObject]) return _referenceObjectRelative;					
-		_referenceObjectRelative = [Dubrovnik_UnitTests_ReferenceObject objectWithMonoObject:monoObject];
+		_referenceObjectRelative = [Dubrovnik_UnitTests_ReferenceObject bestObjectWithMonoObject:monoObject];
 
 		return _referenceObjectRelative;
 	}
@@ -877,7 +883,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringList"];
 		if ([self object:_stringList isEqualToMonoObject:monoObject]) return _stringList;					
-		_stringList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_stringList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _stringList;
 	}
@@ -895,7 +901,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringObjectDictionary"];
 		if ([self object:_stringObjectDictionary isEqualToMonoObject:monoObject]) return _stringObjectDictionary;					
-		_stringObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_stringObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _stringObjectDictionary;
 	}
@@ -931,7 +937,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringStringDictionary"];
 		if ([self object:_stringStringDictionary isEqualToMonoObject:monoObject]) return _stringStringDictionary;					
-		_stringStringDictionary = [DBSystem_Collections_Generic_DictionaryA2 objectWithMonoObject:monoObject];
+		_stringStringDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _stringStringDictionary;
 	}
@@ -949,7 +955,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"StringStringGenericReferenceObject"];
 		if ([self object:_stringStringGenericReferenceObject isEqualToMonoObject:monoObject]) return _stringStringGenericReferenceObject;					
-		_stringStringGenericReferenceObject = [Dubrovnik_UnitTests_GenericReferenceObjectA2 objectWithMonoObject:monoObject];
+		_stringStringGenericReferenceObject = [Dubrovnik_UnitTests_GenericReferenceObjectA2 bestObjectWithMonoObject:monoObject];
 
 		return _stringStringGenericReferenceObject;
 	}
@@ -967,7 +973,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"UIntList"];
 		if ([self object:_uIntList isEqualToMonoObject:monoObject]) return _uIntList;					
-		_uIntList = [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		_uIntList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _uIntList;
 	}
@@ -1088,7 +1094,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoValue]];
 		
-		return [System_NullableA1 objectWithMonoObject:monoObject];
+		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : NullableDateMethod
@@ -1099,7 +1105,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoValue]];
 		
-		return [System_NullableA1 objectWithMonoObject:monoObject];
+		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : NullableDecimalMethod
@@ -1110,7 +1116,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoValue]];
 		
-		return [System_NullableA1 objectWithMonoObject:monoObject];
+		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : NullableDoubleMethod
@@ -1121,7 +1127,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoValue]];
 		
-		return [System_NullableA1 objectWithMonoObject:monoObject];
+		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : NullableInt32Method
@@ -1132,7 +1138,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoValue]];
 		
-		return [System_NullableA1 objectWithMonoObject:monoObject];
+		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RaiseUnitTestEvent1
@@ -1140,7 +1146,9 @@
 	// Managed param types : 
     - (void)raiseUnitTestEvent1
     {
+		
 		[self invokeMonoMethod:"RaiseUnitTestEvent1()" withNumArgs:0];;
+        
     }
 
 	// Managed method name : RaiseUnitTestEvent2
@@ -1148,7 +1156,9 @@
 	// Managed param types : 
     - (void)raiseUnitTestEvent2
     {
+		
 		[self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];;
+        
     }
 
 	// Managed method name : ReferenceStructMethod
@@ -1159,7 +1169,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
 		
-		return [Dubrovnik_UnitTests_ReferenceStruct objectWithMonoObject:monoObject];
+		return [Dubrovnik_UnitTests_ReferenceStruct bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReverseList

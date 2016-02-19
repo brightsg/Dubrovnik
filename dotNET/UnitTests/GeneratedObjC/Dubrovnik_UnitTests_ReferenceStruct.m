@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		
+		Dubrovnik_UnitTests_ReferenceStruct * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+        
+        return object;
     }
 
 #pragma mark -

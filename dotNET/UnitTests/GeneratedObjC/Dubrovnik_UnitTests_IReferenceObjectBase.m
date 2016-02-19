@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [self getMonoProperty:"Dubrovnik.UnitTests.IReferenceObjectBase.InterfaceTestProperty"];
 		if ([self object:_interfaceTestProperty isEqualToMonoObject:monoObject]) return _interfaceTestProperty;					
-		_interfaceTestProperty = [Dubrovnik_UnitTests_ITestProperty objectWithMonoObject:monoObject];
+		_interfaceTestProperty = [Dubrovnik_UnitTests_ITestProperty bestObjectWithMonoObject:monoObject];
 
 		return _interfaceTestProperty;
 	}
