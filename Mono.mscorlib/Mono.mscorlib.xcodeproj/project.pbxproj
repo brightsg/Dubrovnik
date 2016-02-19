@@ -51,6 +51,10 @@
 		AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C518FFDB0D0061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74CB18FFDB0D0061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C618FFDB0D0061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB3FD4F61C76098B0037899F /* System_IDisposable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4F41C76098B0037899F /* System_IDisposable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB3FD4F71C76098B0037899F /* System_IDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD4F51C76098B0037899F /* System_IDisposable.m */; };
+		AB3FD4FA1C7609A80037899F /* System_ICloneable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4F81C7609A80037899F /* System_ICloneable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB3FD4FB1C7609A80037899F /* System_ICloneable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD4F91C7609A80037899F /* System_ICloneable.m */; };
 		AB50B5E41AC599360030429C /* System_Reflection_AssemblyName.h in Headers */ = {isa = PBXBuildFile; fileRef = AB50B5E01AC599360030429C /* System_Reflection_AssemblyName.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */ = {isa = PBXBuildFile; fileRef = AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */; };
 		AB50B5E61AC599360030429C /* System_Version.h in Headers */ = {isa = PBXBuildFile; fileRef = AB50B5E21AC599360030429C /* System_Version.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -145,7 +149,16 @@
 		ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */; };
 		ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE13552192AB0C5000689BC /* DBNullableInt64Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */; };
+		ABE824311C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8242E1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE824331C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */; };
 		ABF5D272190C570000E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D271190C570000E9CFBD /* Dubrovnik.framework */; };
+		ABFDAB981C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB961C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABFDAB991C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB971C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m */; };
+		ABFDAB9C1C763CA3005230C0 /* System_AsyncCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB9A1C763CA3005230C0 /* System_AsyncCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABFDAB9D1C763CA3005230C0 /* System_AsyncCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB9B1C763CA3005230C0 /* System_AsyncCallback.m */; };
+		ABFDABA01C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB9E1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABFDABA11C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB9F1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +216,10 @@
 		AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74C518FFDB0D0061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74C618FFDB0D0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		AB3FD4F41C76098B0037899F /* System_IDisposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IDisposable.h; sourceTree = "<group>"; };
+		AB3FD4F51C76098B0037899F /* System_IDisposable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IDisposable.m; sourceTree = "<group>"; };
+		AB3FD4F81C7609A80037899F /* System_ICloneable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ICloneable.h; sourceTree = "<group>"; };
+		AB3FD4F91C7609A80037899F /* System_ICloneable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ICloneable.m; sourceTree = "<group>"; };
 		AB50B5E01AC599360030429C /* System_Reflection_AssemblyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_AssemblyName.h; sourceTree = "<group>"; };
 		AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_AssemblyName.m; sourceTree = "<group>"; };
 		AB50B5E21AC599360030429C /* System_Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Version.h; sourceTree = "<group>"; };
@@ -303,7 +320,16 @@
 		ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDecimalTransformer.m; sourceTree = "<group>"; };
 		ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt64Transformer.h; sourceTree = "<group>"; };
 		ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt64Transformer.m; sourceTree = "<group>"; };
+		ABE8242E1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IComparerA1_Protocol.h; sourceTree = "<group>"; };
+		ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IComparerA1.h; sourceTree = "<group>"; };
+		ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_IComparerA1.m; sourceTree = "<group>"; };
 		ABF5D271190C570000E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABFDAB961C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Serialization_ISerializable.h; sourceTree = "<group>"; };
+		ABFDAB971C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Serialization_ISerializable.m; sourceTree = "<group>"; };
+		ABFDAB9A1C763CA3005230C0 /* System_AsyncCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_AsyncCallback.h; sourceTree = "<group>"; };
+		ABFDAB9B1C763CA3005230C0 /* System_AsyncCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_AsyncCallback.m; sourceTree = "<group>"; };
+		ABFDAB9E1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_InteropServices__Exception.h; sourceTree = "<group>"; };
+		ABFDAB9F1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_InteropServices__Exception.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +468,9 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				ABE8242E1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h */,
+				ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */,
+				ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */,
 				AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */,
 				AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */,
 				AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */,
@@ -533,6 +562,16 @@
 				AB8306B2191CFD5B009FF174 /* System_Type.m */,
 				AB50B5E21AC599360030429C /* System_Version.h */,
 				AB50B5E31AC599360030429C /* System_Version.m */,
+				AB3FD4F41C76098B0037899F /* System_IDisposable.h */,
+				AB3FD4F51C76098B0037899F /* System_IDisposable.m */,
+				AB3FD4F81C7609A80037899F /* System_ICloneable.h */,
+				AB3FD4F91C7609A80037899F /* System_ICloneable.m */,
+				ABFDAB961C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h */,
+				ABFDAB971C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m */,
+				ABFDAB9A1C763CA3005230C0 /* System_AsyncCallback.h */,
+				ABFDAB9B1C763CA3005230C0 /* System_AsyncCallback.m */,
+				ABFDAB9E1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h */,
+				ABFDAB9F1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -591,6 +630,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFDABA01C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h in Headers */,
+				ABFDAB9C1C763CA3005230C0 /* System_AsyncCallback.h in Headers */,
+				ABFDAB981C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h in Headers */,
+				AB3FD4F61C76098B0037899F /* System_IDisposable.h in Headers */,
+				AB3FD4FA1C7609A80037899F /* System_ICloneable.h in Headers */,
+				ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */,
+				ABE824311C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h in Headers */,
 				AB11F3761C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h in Headers */,
 				AB50B5E61AC599360030429C /* System_Version.h in Headers */,
 				AB50B5E41AC599360030429C /* System_Reflection_AssemblyName.h in Headers */,
@@ -761,6 +807,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFDAB991C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m in Sources */,
 				AB11F3771C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.m in Sources */,
 				ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */,
 				ABB8A41318FF110000213B80 /* System_Object.m in Sources */,
@@ -771,6 +818,7 @@
 				ABB8A40518FF110000213B80 /* System_Collections_Generic_ListA1.m in Sources */,
 				AB2E746818FFCE2B0061C63E /* IEnumerableA1.m in Sources */,
 				AB2E747018FFCF980061C63E /* System_Collections_IEnumerable.m in Sources */,
+				ABFDABA11C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m in Sources */,
 				AB2E743018FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.m in Sources */,
 				ABB8A41D18FF155F00213B80 /* System_NullableA1.m in Sources */,
 				AB0BD3CF1AC18A10009F4FEE /* System_ActionA1.m in Sources */,
@@ -790,7 +838,9 @@
 				AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */,
 				AB2E743218FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.m in Sources */,
 				ABB8A40718FF110000213B80 /* System_Convert.m in Sources */,
+				AB3FD4F71C76098B0037899F /* System_IDisposable.m in Sources */,
 				ABB8A41118FF110000213B80 /* System_MulticastDelegate.m in Sources */,
+				ABFDAB9D1C763CA3005230C0 /* System_AsyncCallback.m in Sources */,
 				ABCAE54F1AA909710006453A /* System_Reflection_MemberFilter.m in Sources */,
 				ABB8A40118FF110000213B80 /* System_Collections_ArrayList.m in Sources */,
 				ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */,
@@ -802,6 +852,7 @@
 				AB2E744218FFCD0A0061C63E /* System_Reflection_MethodInfo.m in Sources */,
 				AB2E744818FFCD0A0061C63E /* System_TimeSpan.m in Sources */,
 				ABB8A40D18FF110000213B80 /* System_IAsyncResult.m in Sources */,
+				AB3FD4FB1C7609A80037899F /* System_ICloneable.m in Sources */,
 				ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */,
 				AB2E745218FFCD420061C63E /* System_IO_Stream.m in Sources */,
 				ABCAE55B1AA90C8A0006453A /* System_Reflection_MethodBase.m in Sources */,
@@ -814,6 +865,7 @@
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
 				AB2E746218FFCD8F0061C63E /* System_FuncA2.m in Sources */,
 				ABC627921A60794600F89877 /* System_Text_StringBuilder.m in Sources */,
+				ABE824331C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m in Sources */,
 				ABB8A40B18FF110000213B80 /* System_EventArgs.m in Sources */,
 				AB2E745418FFCD420061C63E /* System_IO_StringWriter.m in Sources */,
 				AB2E744018FFCD0A0061C63E /* System_Reflection.m in Sources */,

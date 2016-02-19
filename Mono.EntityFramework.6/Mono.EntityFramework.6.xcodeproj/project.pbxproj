@@ -47,6 +47,12 @@
 		ABF5D27E190C57E300E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */; };
 		ABF5D27F190C57E300E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */; };
 		ABF5D280190C57E300E9CFBD /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */; };
+		ABFDABA41C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDABA21C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABFDABA51C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDABA31C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.m */; };
+		ABFDABA81C764070005230C0 /* System_Data_Entity_DbContext.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDABA61C764070005230C0 /* System_Data_Entity_DbContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABFDABA91C764070005230C0 /* System_Data_Entity_DbContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDABA71C764070005230C0 /* System_Data_Entity_DbContext.m */; };
+		ABFDABAC1C764203005230C0 /* System_Data_Entity_DbSetA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDABAA1C764202005230C0 /* System_Data_Entity_DbSetA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABFDABAD1C764203005230C0 /* System_Data_Entity_DbSetA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDABAB1C764202005230C0 /* System_Data_Entity_DbSetA1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +113,12 @@
 		ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABFDABA21C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Infrastructure_IObjectContextAdapter.h; sourceTree = "<group>"; };
+		ABFDABA31C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Infrastructure_IObjectContextAdapter.m; sourceTree = "<group>"; };
+		ABFDABA61C764070005230C0 /* System_Data_Entity_DbContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_DbContext.h; sourceTree = "<group>"; };
+		ABFDABA71C764070005230C0 /* System_Data_Entity_DbContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_DbContext.m; sourceTree = "<group>"; };
+		ABFDABAA1C764202005230C0 /* System_Data_Entity_DbSetA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_DbSetA1.h; sourceTree = "<group>"; };
+		ABFDABAB1C764202005230C0 /* System_Data_Entity_DbSetA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_DbSetA1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +283,12 @@
 				ABB8A44E18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m */,
 				ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */,
 				ABB8A45018FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m */,
+				ABFDABA21C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.h */,
+				ABFDABA31C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.m */,
+				ABFDABA61C764070005230C0 /* System_Data_Entity_DbContext.h */,
+				ABFDABA71C764070005230C0 /* System_Data_Entity_DbContext.m */,
+				ABFDABAA1C764202005230C0 /* System_Data_Entity_DbSetA1.h */,
+				ABFDABAB1C764202005230C0 /* System_Data_Entity_DbSetA1.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -282,6 +300,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFDABAC1C764203005230C0 /* System_Data_Entity_DbSetA1.h in Headers */,
+				ABFDABA81C764070005230C0 /* System_Data_Entity_DbContext.h in Headers */,
+				ABFDABA41C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.h in Headers */,
 				ABB009971B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h in Headers */,
 				ABBAF84019223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h in Headers */,
 				AB2E748B18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h in Headers */,
@@ -399,6 +420,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFDABAD1C764203005230C0 /* System_Data_Entity_DbSetA1.m in Sources */,
+				ABFDABA91C764070005230C0 /* System_Data_Entity_DbContext.m in Sources */,
 				AB2E748C18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m in Sources */,
 				ABB8A45418FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */,
 				AB2E749218FFD2160061C63E /* System_Data_Entity_Core_EntityClient_EntityConnection.m in Sources */,
@@ -410,6 +433,7 @@
 				ABB8A38D18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */,
 				AB2E748E18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityObject.m in Sources */,
 				ABB009981B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m in Sources */,
+				ABFDABA51C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

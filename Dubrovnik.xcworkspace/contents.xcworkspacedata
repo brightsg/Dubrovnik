@@ -23,6 +23,9 @@
       location = "group:Mono.System.Core/Mono.System.Core.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Mono.System.Data/Mono.System.Data.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Mono.System.Drawing/Mono.System.Drawing.xcodeproj">
    </FileRef>
    <FileRef

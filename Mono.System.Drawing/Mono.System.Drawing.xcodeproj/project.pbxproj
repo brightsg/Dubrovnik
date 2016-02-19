@@ -55,7 +55,6 @@
 		ABB8A3C618FF0B4A00213B80 /* Mono.System.DrawingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.DrawingTests-Info.plist"; sourceTree = "<group>"; };
 		ABB8A3C818FF0B4A00213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A3CA18FF0B4A00213B80 /* Mono_System_DrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_DrawingTests.m; sourceTree = "<group>"; };
-		ABB8A3D718FF0BF100213B80 /* Generated Bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated Bindings"; sourceTree = "<group>"; };
 		ABB8A3D818FF0C4100213B80 /* DBSystem_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Drawing_Size.h; sourceTree = "<group>"; };
 		ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Drawing_Size.m; sourceTree = "<group>"; };
 		ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Drawing_Size.h; sourceTree = "<group>"; };
@@ -146,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				ABB8A3D418FF0BDB00213B80 /* Categories */,
-				ABB8A3D718FF0BF100213B80 /* Generated Bindings */,
 				ABB8A3D618FF0BE900213B80 /* Helper classes */,
 				AB2E74AB18FFD6C90061C63E /* Include */,
 				ABB8A3D518FF0BE300213B80 /* Manual Bindings */,

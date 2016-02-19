@@ -59,8 +59,15 @@
 #import "System_Collections_Generic_IEnumerableA1.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ICollectionA1.h"
+#import "System_Collections_Generic_IComparerA1.h"
+#import "System_Collections_Generic_IComparerA1_Protocol.h"
 
 #import "Interface_IEnumerable_T.h"
 #import "Interface_IList.h"
 #import "IEnumerableA1.h"
+#import "System_ICloneable.h"
+#import "System_IDisposable.h"
 
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_AsyncCallback.h"
+#import "System_Runtime_InteropServices__Exception.h"

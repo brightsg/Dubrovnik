@@ -17,3 +17,6 @@
 #import "System_Data_Entity_Core_Objects_DataClasses_EntityReferenceA1.h"
 #import "System_Data_Entity_Core_Objects_ObjectContext.h"
 #import "System_Data_Entity_Core_Objects_ObjectQueryA1.h"
+#import "System_Data_Entity_Infrastructure_IObjectContextAdapter.h"
+#import "System_Data_Entity_DbContext.h"
+#import "System_Data_Entity_DbSetA1.h"

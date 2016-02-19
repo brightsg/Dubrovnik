@@ -1,0 +1,14 @@
+//
+//  Mono.System.Data-Prefix.pch
+//  Mono.System.Data
+//
+//  Created by Jonathan Mitchell on 18/02/2016.
+//  Copyright © 2016 Thesaurus Software Limited. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+#import <Mono.mscorlib/Framework.h>
+#endif
+
