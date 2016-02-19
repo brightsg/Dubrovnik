@@ -149,7 +149,14 @@ static MonoAssembly *monoAssembly;
     NSString *assemblyVersion = managedAssembly.getName.version.toString;
     
     XCTAssertTrue(assemblyVersion, @"Assembly version not found");
-                  
+    
+    // initialise the time zone
+    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    
+    // initialise managed date time conversion options.
+    [NSDate setMonoDateTimeOptions: (DBMonoDateTimeOptionAssertOnUTCViolation |
+                                     DBMonoDateTimeOptionLogWarnings)];
+    
     // invoke the assembly static main.
     // this prepares the application domain and validates that the assembly is loaded and functional.
     // the assembly will remain loaded and accessible once the assmbly invocation completes.
@@ -239,9 +246,7 @@ static MonoAssembly *monoAssembly;
     XCTAssertTrue([@([[DBNumber numberWithUnsignedShort:1] monoObjCType]) isEqualToString:@(@encode(unsigned short))], DBUEqualityTestFailed);
     XCTAssertTrue([@([[DBNumber numberWithInt:1] monoObjCType]) isEqualToString:@(@encode(int))], DBUEqualityTestFailed);
     XCTAssertTrue([@([[DBNumber numberWithUnsignedInt:1] monoObjCType]) isEqualToString:@(@encode(unsigned int))], DBUEqualityTestFailed);
-    
-    // long encoding wants to default  long long - some though neede perhaps
-    XCTAssertTrue([@([[DBNumber numberWithLong:1] monoObjCType]) isEqualToString:@"l"], DBUEqualityTestFailed);
+    XCTAssertTrue([@([[DBNumber numberWithLong:1] monoObjCType]) isEqualToString:@(@encode(long))], DBUEqualityTestFailed);
     XCTAssertTrue([@([[DBNumber numberWithUnsignedLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long))], DBUEqualityTestFailed);
     XCTAssertTrue([@([[DBNumber numberWithLongLong:1] monoObjCType]) isEqualToString:@(@encode(long long))], DBUEqualityTestFailed);
     XCTAssertTrue([@([[DBNumber numberWithUnsignedLongLong:1] monoObjCType]) isEqualToString:@(@encode(unsigned long long))], DBUEqualityTestFailed);

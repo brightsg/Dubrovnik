@@ -808,7 +808,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 			};
 			buildConfigurationList = 93A417D9087230B000352242 /* Build configuration list for PBXProject "Dubrovnik" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -988,6 +988,7 @@
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Dubrovnik;
 				PRODUCT_NAME = Dubrovnik;
 				SDKROOT = "";
 				WRAPPER_EXTENSION = framework;
@@ -1017,6 +1018,7 @@
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Dubrovnik;
 				PRODUCT_NAME = Dubrovnik;
 				SDKROOT = "";
 				SKIP_INSTALL = YES;
@@ -1029,6 +1031,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/headers/mono-2.0";
@@ -1105,6 +1108,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dubrovnik.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
 				SDKROOT = "";
 			};
@@ -1144,6 +1148,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dubrovnik.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Dubrovnik Unit Tests";
 				SDKROOT = "";
 			};
