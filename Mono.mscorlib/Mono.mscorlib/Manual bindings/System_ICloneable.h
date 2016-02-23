@@ -6,10 +6,18 @@
 //  Copyright © 2016 Thesaurus Software. All rights reserved.
 //
 
-@protocol System_ICloneable <NSObject>
-
+//
+// Adoption protocol
+//
+@protocol System_ICloneable_ <System_Object_>
 @end
 
-@interface System_ICloneable : System_Object
+//
+// Implementation protocol
+//
+@protocol System_ICloneable <System_ICloneable_, System_Object>
+@end
+
+@interface System_ICloneable : System_Object <System_ICloneable_>
 
 @end

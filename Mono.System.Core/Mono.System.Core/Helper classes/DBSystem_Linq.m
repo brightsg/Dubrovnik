@@ -14,12 +14,12 @@
 
 @implementation DBSystem_Linq
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject
 {
     return [self toList:managedObject genericTypeIndex:0];
 }
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject genericTypeIndex:(NSUInteger)typeIndex
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject genericTypeIndex:(NSUInteger)typeIndex
 {
     if (!managedObject) {
         return nil;
@@ -48,7 +48,7 @@
     return [self toList:managedObject monoType:genericMonoType];
 }
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject monoType:(MonoType *)monoType
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject monoType:(MonoType *)monoType
 {
     // NOTE: perhaps a C# helper method could achieve this more simply.
     
@@ -74,7 +74,7 @@
     return list;
 }
 
-+ (NSMutableArray *)toMutableArray:(System_Object <Interface_IEnumerable_T> *)managedObject
++ (NSMutableArray *)toMutableArray:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject
 {
     // we may see a managed array here - https://msdn.microsoft.com/en-us/library/ms228502.aspx
     if (managedObject.db_getType.isArray) {
@@ -84,7 +84,7 @@
     return [[self toList:managedObject] mutableArray];
 }
 
-+ (NSArray *)toArray:(System_Object <Interface_IEnumerable_T> *)managedObject
++ (NSArray *)toArray:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject
 {
     // we may see a managed array here - https://msdn.microsoft.com/en-us/library/ms228502.aspx
     if (managedObject.db_getType.isArray) {

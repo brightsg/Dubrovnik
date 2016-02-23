@@ -5,10 +5,19 @@
 //  Created by Jonathan Mitchell on 18/02/2016.
 //  Copyright © 2016 Thesaurus Software. All rights reserved.
 //
-@protocol System_Data_Entity_Infrastructure_IObjectContextAdapter <NSObject>
 
+//
+// Adoption protocol
+//
+@protocol System_Data_Entity_Infrastructure_IObjectContextAdapter_ <NSObject>
 @end
 
-@interface System_Data_Entity_Infrastructure_IObjectContextAdapter : System_Object
+//
+// Implementation protocol
+//
+@protocol System_Data_Entity_Infrastructure_IObjectContextAdapter <System_Data_Entity_Infrastructure_IObjectContextAdapter_, System_Object>
+@end
+
+@interface System_Data_Entity_Infrastructure_IObjectContextAdapter : System_Object <System_Data_Entity_Infrastructure_IObjectContextAdapter_>
 
 @end

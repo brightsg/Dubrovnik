@@ -6,6 +6,18 @@
 //
 //
 
-@interface System_Collections_Generic_IEnumerableA1 : System_Object
+//
+// Adoption protocol
+//
+@protocol System_Collections_Generic_IEnumerableA1_ <System_Object_>
+@end
+
+//
+// Implementation protocol
+//
+@protocol System_Collections_Generic_IEnumerableA1 <System_Collections_Generic_IEnumerableA1_, System_Object>
+@end
+
+@interface System_Collections_Generic_IEnumerableA1 : System_Object <System_Collections_Generic_IEnumerableA1_>
 
 @end

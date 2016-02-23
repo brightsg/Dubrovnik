@@ -11,14 +11,14 @@
 @class DBManagedObject;
 @class DBSystem_Collections_IList;
 
-@protocol Interface_IEnumerable_T;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 @interface DBSystem_Linq : System_Linq
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject;
-+ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject genericTypeIndex:(NSUInteger)typeIndex;
-+ (DBSystem_Collections_IList *)toList:(System_Object <Interface_IEnumerable_T> *)managedObject monoType:(MonoType *)monoType;
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject genericTypeIndex:(NSUInteger)typeIndex;
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject monoType:(MonoType *)monoType;
 
-+ (NSMutableArray *)toMutableArray:(System_Object <Interface_IEnumerable_T> *)managedObject;
-+ (NSArray *)toArray:(System_Object <Interface_IEnumerable_T> *)managedObject;
++ (NSMutableArray *)toMutableArray:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;
++ (NSArray *)toArray:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;
 @end

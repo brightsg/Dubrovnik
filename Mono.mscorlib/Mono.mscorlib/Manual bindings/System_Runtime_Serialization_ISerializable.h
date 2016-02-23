@@ -6,10 +6,20 @@
 //  Copyright © 2016 Thesaurus Software. All rights reserved.
 //
 
-@protocol System_Runtime_Serialization_ISerializable <NSObject>
+//
+// Adoption protocol
+//
+@protocol System_Runtime_Serialization_ISerializable_ <System_Object_>
 
 @end
 
-@interface System_Runtime_Serialization_ISerializable : System_Object
+//
+// Adoption protocol
+//
+@protocol System_Runtime_Serialization_ISerializable <System_Runtime_Serialization_ISerializable_, System_Object>
+
+@end
+
+@interface System_Runtime_Serialization_ISerializable : System_Object <System_Runtime_Serialization_ISerializable_>
 
 @end

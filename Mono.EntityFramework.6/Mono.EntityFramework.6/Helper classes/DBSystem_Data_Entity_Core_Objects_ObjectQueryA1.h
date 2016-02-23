@@ -10,7 +10,7 @@
 @class DBSystem_Collections_IList;
 
 #define SDECOObjectQueryA1_ DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
-@interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : System_Data_Entity_Core_Objects_ObjectQueryA1 <Interface_IEnumerable_T>
+@interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : System_Data_Entity_Core_Objects_ObjectQueryA1 <System_Collections_Generic_IEnumerableA1_>
 
 + (instancetype)objectQueryWithMonoObject:(MonoObject *)monoObject;
 

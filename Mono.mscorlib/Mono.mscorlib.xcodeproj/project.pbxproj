@@ -42,8 +42,6 @@
 		AB2E746218FFCD8F0061C63E /* System_FuncA2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E745B18FFCD8F0061C63E /* System_FuncA2.m */; };
 		AB2E746318FFCD8F0061C63E /* System_Globalization_CultureInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E745C18FFCD8F0061C63E /* System_Globalization_CultureInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E746418FFCD8F0061C63E /* System_Globalization_CultureInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E745D18FFCD8F0061C63E /* System_Globalization_CultureInfo.m */; };
-		AB2E746718FFCE2B0061C63E /* IEnumerableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E746818FFCE2B0061C63E /* IEnumerableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */; };
 		AB2E746F18FFCF980061C63E /* System_Collections_IEnumerable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E746D18FFCF980061C63E /* System_Collections_IEnumerable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E747018FFCF980061C63E /* System_Collections_IEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E746E18FFCF980061C63E /* System_Collections_IEnumerable.m */; };
 		AB2E74C718FFDB0D0061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C218FFDB0D0061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -123,8 +121,6 @@
 		ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A42318FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m */; };
 		ABB8A42C18FF15B300213B80 /* DBSystem_Collections_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A42418FF15B300213B80 /* DBSystem_Collections_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A42D18FF15B300213B80 /* DBSystem_Collections_IList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A42518FF15B300213B80 /* DBSystem_Collections_IList.m */; };
-		ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43218FF1F6300213B80 /* Interface_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43C18FF232000213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A43B18FF232000213B80 /* Mono64.framework */; };
 		ABC627911A60794600F89877 /* System_Text_StringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABC627921A60794600F89877 /* System_Text_StringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC627901A60794600F89877 /* System_Text_StringBuilder.m */; };
@@ -149,7 +145,6 @@
 		ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */; };
 		ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE13552192AB0C5000689BC /* DBNullableInt64Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */; };
-		ABE824311C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8242E1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE824331C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */; };
 		ABF5D272190C570000E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D271190C570000E9CFBD /* Dubrovnik.framework */; };
@@ -207,8 +202,6 @@
 		AB2E745B18FFCD8F0061C63E /* System_FuncA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_FuncA2.m; sourceTree = "<group>"; };
 		AB2E745C18FFCD8F0061C63E /* System_Globalization_CultureInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Globalization_CultureInfo.h; sourceTree = "<group>"; };
 		AB2E745D18FFCD8F0061C63E /* System_Globalization_CultureInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Globalization_CultureInfo.m; sourceTree = "<group>"; };
-		AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEnumerableA1.h; sourceTree = "<group>"; };
-		AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEnumerableA1.m; sourceTree = "<group>"; };
 		AB2E746D18FFCF980061C63E /* System_Collections_IEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_IEnumerable.h; sourceTree = "<group>"; };
 		AB2E746E18FFCF980061C63E /* System_Collections_IEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_IEnumerable.m; sourceTree = "<group>"; };
 		AB2E74C218FFDB0D0061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
@@ -294,8 +287,6 @@
 		ABB8A42318FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_Generic_ListA1.m; sourceTree = "<group>"; };
 		ABB8A42418FF15B300213B80 /* DBSystem_Collections_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_IList.h; sourceTree = "<group>"; };
 		ABB8A42518FF15B300213B80 /* DBSystem_Collections_IList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Collections_IList.m; sourceTree = "<group>"; };
-		ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IEnumerable_T.h; sourceTree = "<group>"; };
-		ABB8A43218FF1F6300213B80 /* Interface_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_IList.h; sourceTree = "<group>"; };
 		ABB8A43B18FF232000213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		ABC6278F1A60794600F89877 /* System_Text_StringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_StringBuilder.h; sourceTree = "<group>"; };
 		ABC627901A60794600F89877 /* System_Text_StringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_StringBuilder.m; sourceTree = "<group>"; };
@@ -320,7 +311,6 @@
 		ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDecimalTransformer.m; sourceTree = "<group>"; };
 		ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt64Transformer.h; sourceTree = "<group>"; };
 		ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt64Transformer.m; sourceTree = "<group>"; };
-		ABE8242E1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IComparerA1_Protocol.h; sourceTree = "<group>"; };
 		ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IComparerA1.h; sourceTree = "<group>"; };
 		ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_IComparerA1.m; sourceTree = "<group>"; };
 		ABF5D271190C570000E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -468,11 +458,8 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
-				ABE8242E1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h */,
 				ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */,
 				ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */,
-				AB2E746518FFCE2B0061C63E /* IEnumerableA1.h */,
-				AB2E746618FFCE2B0061C63E /* IEnumerableA1.m */,
 				AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */,
 				AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */,
 				ABB8A3E418FF110000213B80 /* System_Array.h */,
@@ -617,8 +604,6 @@
 		ABB8A43018FF1F6300213B80 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A43118FF1F6300213B80 /* Interface_IEnumerable_T.h */,
-				ABB8A43218FF1F6300213B80 /* Interface_IList.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -636,7 +621,6 @@
 				AB3FD4F61C76098B0037899F /* System_IDisposable.h in Headers */,
 				AB3FD4FA1C7609A80037899F /* System_ICloneable.h in Headers */,
 				ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */,
-				ABE824311C75DC1600E73D7A /* System_Collections_Generic_IComparerA1_Protocol.h in Headers */,
 				AB11F3761C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h in Headers */,
 				AB50B5E61AC599360030429C /* System_Version.h in Headers */,
 				AB50B5E41AC599360030429C /* System_Reflection_AssemblyName.h in Headers */,
@@ -668,7 +652,6 @@
 				AB2E746318FFCD8F0061C63E /* System_Globalization_CultureInfo.h in Headers */,
 				AB2E746118FFCD8F0061C63E /* System_FuncA2.h in Headers */,
 				AB2E745118FFCD420061C63E /* System_IO_Stream.h in Headers */,
-				AB2E746718FFCE2B0061C63E /* IEnumerableA1.h in Headers */,
 				AB2E745E18FFCD8F0061C63E /* System_DayOfWeek.h in Headers */,
 				AB2E744118FFCD0A0061C63E /* System_Reflection_MethodInfo.h in Headers */,
 				AB2E743F18FFCD0A0061C63E /* System_Reflection.h in Headers */,
@@ -680,8 +663,6 @@
 				AB2E745F18FFCD8F0061C63E /* System_Exception.h in Headers */,
 				AB2E742518FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h in Headers */,
 				AB2E744718FFCD0A0061C63E /* System_TimeSpan.h in Headers */,
-				ABB8A43418FF1F6300213B80 /* Interface_IList.h in Headers */,
-				ABB8A43318FF1F6300213B80 /* Interface_IEnumerable_T.h in Headers */,
 				ABB8A41418FF110000213B80 /* System_String.h in Headers */,
 				ABB8A40418FF110000213B80 /* System_Collections_Generic_ListA1.h in Headers */,
 				ABB8A41018FF110000213B80 /* System_MulticastDelegate.h in Headers */,
@@ -816,7 +797,6 @@
 				ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */,
 				AB2E744418FFCD0A0061C63E /* System_Reflection_PropertyInfo.m in Sources */,
 				ABB8A40518FF110000213B80 /* System_Collections_Generic_ListA1.m in Sources */,
-				AB2E746818FFCE2B0061C63E /* IEnumerableA1.m in Sources */,
 				AB2E747018FFCF980061C63E /* System_Collections_IEnumerable.m in Sources */,
 				ABFDABA11C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m in Sources */,
 				AB2E743018FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.m in Sources */,

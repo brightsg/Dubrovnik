@@ -43,7 +43,6 @@
 #import "System_Reflection_ConstructorInfo.h"
 #import "System_Reflection_AssemblyName.h"
 
-
 #import "System_IO_FileInfo.h"
 #import "System_IO_Stream.h"
 #import "System_IO_StringWriter.h"
@@ -60,11 +59,7 @@
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ICollectionA1.h"
 #import "System_Collections_Generic_IComparerA1.h"
-#import "System_Collections_Generic_IComparerA1_Protocol.h"
 
-#import "Interface_IEnumerable_T.h"
-#import "Interface_IList.h"
-#import "IEnumerableA1.h"
 #import "System_ICloneable.h"
 #import "System_IDisposable.h"
 

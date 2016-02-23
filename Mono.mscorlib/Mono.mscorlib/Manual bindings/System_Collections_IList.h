@@ -6,6 +6,18 @@
 //  Copyright (c) 2015 Thesaurus Software. All rights reserved.
 //
 
-@interface System_Collections_IList : System_Object
+//
+// Adoption protocol
+//
+@protocol System_Collections_IList_ <System_Object_>
+@end
+
+//
+// Implementation protocol
+//
+@protocol System_Collections_IList <System_Collections_IList_, System_Object>
+@end
+
+@interface System_Collections_IList : System_Object <System_Collections_IList_>
 
 @end

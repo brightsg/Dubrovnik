@@ -22,7 +22,7 @@
     DBManagedObject *object = [[System_Object alloc] initWithMonoObject:monoObject];
     
     // toList defaults to using the first generic type
-    NSArray *keys = [[DBSystem_Linq toList:(System_Object <Interface_IEnumerable_T> *)object] array];
+    NSArray *keys = [[DBSystem_Linq toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)object] array];
     
     for (id key in keys) {
         if ([key respondsToSelector:@selector(setCompareEnforcesTypeMatch)]) {
@@ -55,7 +55,7 @@
     DBManagedObject *object = [[System_Object alloc] initWithMonoObject:monoObject];
     
     // obtain a list of objects of the 2nd generic type
-    NSArray *values = [[DBSystem_Linq toList:(System_Object <Interface_IEnumerable_T> *)object genericTypeIndex:1] array];
+    NSArray *values = [[DBSystem_Linq toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)object genericTypeIndex:1] array];
     
     return values;
 }

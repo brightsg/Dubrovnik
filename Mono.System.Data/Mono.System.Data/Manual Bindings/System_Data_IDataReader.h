@@ -6,6 +6,20 @@
 //  Copyright © 2016 Thesaurus Software Limited. All rights reserved.
 //
 
-@interface System_Data_IDataReader : System_Object
+//
+// Adoption protocol
+//
+@protocol System_Data_IDataReader_ <System_Object_>
+
+@end
+
+//
+// Implementation protocol
+//
+@protocol System_Data_IDataReader <System_Data_IDataReader_, System_Object>
+
+@end
+
+@interface System_Data_IDataReader : System_Object <System_Data_IDataReader_>
 
 @end

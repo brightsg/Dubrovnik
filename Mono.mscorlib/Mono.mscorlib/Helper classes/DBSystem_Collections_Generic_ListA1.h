@@ -7,12 +7,11 @@
 //
 
 #import "System_Collections_Generic_ListA1.h"
-#import "Interface_IList.h"
-#import "Interface_IEnumerable_T.h"
+#import "System_Collections_Generic_IEnumerableA1.h"
 
 @class DBSystem_Collections_IList;
 
-@interface DBSystem_Collections_Generic_ListA1 : System_Collections_Generic_ListA1 <Interface_IList, Interface_IEnumerable_T>
+@interface DBSystem_Collections_Generic_ListA1 : System_Collections_Generic_ListA1 <System_Collections_IList_, System_Collections_Generic_IEnumerableA1_>
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject;
 + (instancetype)listWithObjects:(id)object;

@@ -6,10 +6,20 @@
 //  Copyright © 2016 Thesaurus Software. All rights reserved.
 //
 
-@protocol System_IDisposable <NSObject>
+//
+// Adoption protocol
+//
+@protocol System_IDisposable_ <System_Object_>
 
 @end
 
-@interface System_IDisposable : System_Object
+//
+// Implementation protocol
+//
+@protocol System_IDisposable <System_IDisposable_, System_Object>
+
+@end
+
+@interface System_IDisposable : System_Object <System_IDisposable_>
 
 @end

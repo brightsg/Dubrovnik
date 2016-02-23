@@ -24,14 +24,22 @@ extern char DBCacheSuffixChar;
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
+@class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
+
+@protocol DBManagedObject <NSObject>
+
+@property (strong, readonly) DBManagedEnvironment *monoEnvironment;
+@property (assign, readonly) MonoObject *monoObject;
+@property (assign, readonly) NSUInteger monoHash;
+- (MonoObject *)monoValue;
+@end
+
 @protocol DBManagedObjectOptionalCategoryMethods <NSObject>
 @optional
 + (NSArray *)db_keysToIgnoreInChangeValueForKeyMethods;
 @end
 
-@class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
-
-@interface DBManagedObject : NSObject <NSCopying>
+@interface DBManagedObject : NSObject <DBManagedObject, NSCopying>
 
 // Mono support properties
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;

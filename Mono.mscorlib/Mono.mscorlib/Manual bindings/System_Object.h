@@ -7,7 +7,29 @@
 //
 @class System_Type;
 
-@interface System_Object : DBManagedObject
+//
+// Adoption protocol
+//
+@protocol System_Object_ <NSObject, DBManagedObject>
+@end
+
+
+//
+// Implementation protocol
+//
+@protocol System_Object <System_Object_>
+
+@required
+- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObjA:(System_Object *)p1 objB:(System_Object *)p2;
+- (int32_t)db_getHashCode;
+- (System_Type *)db_getType;
+- (BOOL)referenceEquals_withObjA:(System_Object *)p1 objB:(System_Object *)p2;
+- (NSString *)toString;
+
+@end
+
+@interface System_Object : DBManagedObject <System_Object_>
 
 #pragma mark -
 #pragma mark Setup

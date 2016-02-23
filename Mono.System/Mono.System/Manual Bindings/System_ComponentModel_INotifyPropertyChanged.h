@@ -8,9 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol System_ComponentModel_INotifyPropertyChanged <NSObject>
+//
+// Adoption protocol
+//
+@protocol System_ComponentModel_INotifyPropertyChanged_ <System_Object_>
+
 @end
 
-@interface System_ComponentModel_INotifyPropertyChanged : System_Object
+//
+// Implementation protocol
+//
+@protocol System_ComponentModel_INotifyPropertyChanged <System_ComponentModel_INotifyPropertyChanged_, System_Object>
+
+@end
+
+@interface System_ComponentModel_INotifyPropertyChanged : System_Object <System_ComponentModel_INotifyPropertyChanged_>
 
 @end
