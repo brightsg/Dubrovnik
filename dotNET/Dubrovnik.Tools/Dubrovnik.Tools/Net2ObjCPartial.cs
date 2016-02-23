@@ -176,18 +176,18 @@ namespace Dubrovnik.Tools
                 // Class -conformsToProtocol while still permitting
                 // the expression of explicit managed interfaces.
                 // accessor foward declarations are omitted from the protocol by default.
-                WriteInterfaceStart(@interface, "interface");
+                WriteProtocolStart(@interface, "interface");
                 WriteProperties(@interface.Properties);
-                WriteMethods(@interface.Methods); 
-                WriteInterfaceEnd(@interface);
+                WriteMethods(@interface.Methods);
+					 WriteProtocolEnd(@interface);
 
                 // write interface as auxiliary protocol
                 // this can be used in expressions such as id <protocol>
                 // where it is helpful if the accessors are predeclared in the protocol
-                WriteInterfaceStart(@interface, "interface", true);
+					 WriteProtocolStart(@interface, "interface", true);
                 WriteProperties(@interface.Properties);
                 WriteMethods(@interface.Methods);
-                WriteInterfaceEnd(@interface, true);
+					 WriteProtocolEnd(@interface, true);
 
             }
            
@@ -526,7 +526,32 @@ namespace Dubrovnik.Tools
             return decl;
         }
 
-        //
+			//
+		  // ObjCConformingTypeDeclFromObjCTypeDecl
+			//
+		  string ObjCConformingTypeFromObjCTypeDecl(string objCTypeDecl, bool writeImplementation) 
+		  {
+			  string objCType = ObjCTypeFromObjCTypeDecl(objCTypeDecl);
+			  string result = ObjCConformingTypeFromObjCType(objCType, writeImplementation);
+
+			  return result;
+		  }
+		  string ObjCConformingTypeFromObjCType(string objCType, bool writeImplementation)
+		  {
+			  string suffix = writeImplementation ? "" : "_";
+
+			  string result = "id <" + objCType + suffix + ">";
+
+			  return result;
+		  }
+		  string ObjCTypeFromObjCTypeDecl(string objCTypeDecl) 
+		  {
+			  string objCType = objCTypeDecl.Replace("*", "");
+			  objCType = objCType.Replace(" ", "");
+
+			  return objCType;
+		  }
+		  //
         // ObjCGenericArgumentTypeNamesStringFromManagedFacet
         //
         public string ObjCGenericArgumentTypeNamesStringFromManagedFacet(CodeFacet managedFacet)
@@ -678,7 +703,7 @@ namespace Dubrovnik.Tools
                             foreach (CodeFacet codeFacet in codeFacets)
                             {
                                 if (i++ > 0) value += ", ";
-                                value += ObjCIdentifierFromManagedIdentifier(codeFacet.Type);
+                                value += (ObjCIdentifierFromManagedIdentifier(codeFacet.Type) +"_");
                             }
 
  
