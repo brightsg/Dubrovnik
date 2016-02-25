@@ -102,7 +102,7 @@ static DBMonoDateTimeOptions m_monoDateTimeOptions = DBMonoDateTimeOptionNone;
         MonoObject *boxedKind = DBMonoObjectGetProperty(monoDateTime, "Kind");
         System_DateTimeKind kind = DB_UNBOX_INT32(boxedKind);
         if (kind != System_DateTimeKind_Utc) {
-            NSString *warning = [NSString stringWithFormat:@"Non UTC date violation : %@", [self.class.defaultDateFormatter stringFromDate:self]];
+            NSString *warning = [NSString stringWithFormat:@"Non UTC date violation (kind = %u) : %@", kind, [self.class.defaultDateFormatter stringFromDate:self]];
             if (self.class.monoDateTimeOptions & DBMonoDateTimeOptionAssertOnUTCViolation) {
                 NSAssert(NO, @"%@", warning);
             } else {
