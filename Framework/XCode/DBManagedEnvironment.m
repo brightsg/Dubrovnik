@@ -23,7 +23,10 @@
 #import "DBManagedEnvironment.h"
 #include <pthread.h>
 
+NSString *const DBMachineConfigVersion = @"machineConfigVersion";
+
 static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
+static NSString *m_monoDefaultMachineConfigVersion = @"4.5";
 static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
 static NSString *m_monoDefaultVersion = @"v4.0.30319";
 static NSString *m_monoAssemblyRootFolder = nil;
@@ -82,6 +85,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 + (void)setRuntimeOptions:(NSDictionary *)options
 {
     // NOTE: be sure to call this before -initWithDomainName
+    // this simulates passing of command line arguments to Mono
     
     // for info on these options see man mono
     // the debugger can be configured either as a client or a server
@@ -209,6 +213,12 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 
 - (void)setDomainBaseDir:(NSString *)baseDir configFilePath:(NSString *)configFilePath
 {
+    /* Used to set the system configuration for an appdomain
+     *
+     * Without using this, embedded builds will get 'System.Configuration.ConfigurationErrorsException:
+     * Error Initializing the configuration system. ---> System.ArgumentException:
+    */
+    
     baseDir = [baseDir stringByResolvingSymlinksInPath];
     configFilePath = [configFilePath stringByResolvingSymlinksInPath];
     mono_domain_set_config(self.monoDomain, baseDir.fileSystemRepresentation, configFilePath.fileSystemRepresentation);
@@ -221,8 +231,18 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     return [self initWithDomainName:domainName version:[m_monoDefaultVersion UTF8String]];
 }
 
+//
 // designated initialiser
+//
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version {
+    
+    NSDictionary <NSString *, id> *options = @{DBMachineConfigVersion : m_monoDefaultMachineConfigVersion};
+    
+    return [self initWithDomainName:domainName version:version options:options];
+}
+
+- (id)initWithDomainName:(const char *)domainName version:(const char *)version options:(NSDictionary <NSString *, id> *)options
+{
 	self = [super init];
 	
 	if (self) {
@@ -275,6 +295,14 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         // In general we don't want to pin objects as this affects performance.
         // The GC will not able to manage memory efficiently.
         self.pinObjects = NO;
+        
+        // Without using this, embedded builds will get 'System.Configuration.ConfigurationErrorsException:
+        // Error Initializing the configuration system. ---> System.ArgumentException:
+        NSString *machineConfigVersion = options[DBMachineConfigVersion] ?: m_monoDefaultMachineConfigVersion;
+        NSString* defaultMonoConfigDir = [DBManagedEnvironment monoConfigFolder];
+        NSString* monoConfigFile = [NSString pathWithComponents:@[defaultMonoConfigDir, @"mono", machineConfigVersion, @"machine.config"]];
+        NSAssert([[NSFileManager defaultManager] fileExistsAtPath:monoConfigFile], @"Cannot locate machine config file : %@", monoConfigFile);
+        [self setDomainBaseDir:defaultMonoConfigDir configFilePath:monoConfigFile];
 	}
 	
     [[self class] setCurrentEnvironment:self];
@@ -437,10 +465,12 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 }
 
 - (int)executeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args {
+    
+    // note that we load the exe rather than the dll in order to process the app.config file.
+    // the engine dll can be loaded directly if the configuration options are specified in code.
     if(prepareThreading) {
         [self prepareThreading];
     }
-    
     
     mono_jit_exec(self.monoDomain, assembly, argCount, args);
     int retVal = mono_environment_exitcode_get();
@@ -452,6 +482,9 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 }
 
 - (int)invokeAssembly:(MonoAssembly *)assembly prepareThreading:(BOOL)prepareThreading argCount:(int)argCount arguments:(char *[])args {
+    
+    // note that we load the exe rather than the dll in order to process the app.config file.
+    // the engine dll can be loaded directly if the configuration options are specified in code.
     if(prepareThreading) {
         [self prepareThreading];
     }
