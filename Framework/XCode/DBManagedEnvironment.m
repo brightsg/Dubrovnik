@@ -23,8 +23,6 @@
 #import "DBManagedEnvironment.h"
 #include <pthread.h>
 
-NSString *const DBMachineConfigVersion = @"machineConfigVersion";
-
 static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
 static NSString *m_monoDefaultMachineConfigVersion = @"4.5";
 static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
@@ -215,8 +213,13 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 {
     /* Used to set the system configuration for an appdomain
      *
-     * Without using this, embedded builds will get 'System.Configuration.ConfigurationErrorsException:
+     * Without using this, embedded builds may(!) get 'System.Configuration.ConfigurationErrorsException:
      * Error Initializing the configuration system. ---> System.ArgumentException:
+     *
+     * The parameters here correspond to System.AppDomainSetup.ApplicationBase and System.AppDomainSetup.ConfigurationFile.
+     * A managed AppDomain can specify the base dir and config file in the constructor via System.AppDomainSetup.
+     * Via the mebedded API this does not seem to be possible.
+     * Calling this method in my experience may cause the app.config values to get discarded.
     */
     
     baseDir = [baseDir stringByResolvingSymlinksInPath];
@@ -236,13 +239,14 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 //
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version {
     
-    NSDictionary <NSString *, id> *options = @{DBMachineConfigVersion : m_monoDefaultMachineConfigVersion};
+    NSDictionary <NSString *, id> *options = @{};
     
     return [self initWithDomainName:domainName version:version options:options];
 }
 
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version options:(NSDictionary <NSString *, id> *)options
 {
+#pragma unused(options)
 	self = [super init];
 	
 	if (self) {
@@ -295,14 +299,6 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         // In general we don't want to pin objects as this affects performance.
         // The GC will not able to manage memory efficiently.
         self.pinObjects = NO;
-        
-        // Without using this, embedded builds will get 'System.Configuration.ConfigurationErrorsException:
-        // Error Initializing the configuration system. ---> System.ArgumentException:
-        NSString *machineConfigVersion = options[DBMachineConfigVersion] ?: m_monoDefaultMachineConfigVersion;
-        NSString* defaultMonoConfigDir = [DBManagedEnvironment monoConfigFolder];
-        NSString* monoConfigFile = [NSString pathWithComponents:@[defaultMonoConfigDir, @"mono", machineConfigVersion, @"machine.config"]];
-        NSAssert([[NSFileManager defaultManager] fileExistsAtPath:monoConfigFile], @"Cannot locate machine config file : %@", monoConfigFile);
-        [self setDomainBaseDir:defaultMonoConfigDir configFilePath:monoConfigFile];
 	}
 	
     [[self class] setCurrentEnvironment:self];
