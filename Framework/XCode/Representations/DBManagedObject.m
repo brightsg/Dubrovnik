@@ -161,6 +161,15 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
+#pragma mark Internal method registration
+
++ (void)registerInternalCall:(NSString *)methodName callPointer:(void *)callPointer
+{
+    [DBManagedEnvironment registerInternalCall:[NSString stringWithFormat:@"%s::%@", [self monoClassName], methodName].UTF8String
+                                   callPointer:callPointer];
+}
+
+#pragma mark -
 #pragma mark Factory
 
 + (id)bestObjectWithMonoObject:(MonoObject *)obj
@@ -1234,7 +1243,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     [super removeObserver:observer forKeyPath:keyPath context:context];
 }
-
 
 #pragma mark -
 #pragma mark Mono info

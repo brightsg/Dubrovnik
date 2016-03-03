@@ -273,4 +273,6 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassTypeName:(MonoClass *)klass;
 + (void)logMonoClassNestedTypesInfo:(MonoClass *)klass;
 
++ (void)registerInternalCall:(NSString *)methodName callPointer:(void *)callPointer;
+
 @end
