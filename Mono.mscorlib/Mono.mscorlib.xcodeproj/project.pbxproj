@@ -154,6 +154,8 @@
 		ABFDAB9D1C763CA3005230C0 /* System_AsyncCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB9B1C763CA3005230C0 /* System_AsyncCallback.m */; };
 		ABFDABA01C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB9E1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABFDABA11C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB9F1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m */; };
+		ABFEED041C89BB3D0060F305 /* System_FuncA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFEED021C89BB3D0060F305 /* System_FuncA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABFEED051C89BB3D0060F305 /* System_FuncA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFEED031C89BB3D0060F305 /* System_FuncA1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,6 +322,8 @@
 		ABFDAB9B1C763CA3005230C0 /* System_AsyncCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_AsyncCallback.m; sourceTree = "<group>"; };
 		ABFDAB9E1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_InteropServices__Exception.h; sourceTree = "<group>"; };
 		ABFDAB9F1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_InteropServices__Exception.m; sourceTree = "<group>"; };
+		ABFEED021C89BB3D0060F305 /* System_FuncA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_FuncA1.h; sourceTree = "<group>"; };
+		ABFEED031C89BB3D0060F305 /* System_FuncA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_FuncA1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,18 +462,20 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
-				ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */,
-				ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */,
 				AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */,
 				AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */,
 				ABB8A3E418FF110000213B80 /* System_Array.h */,
 				ABB8A3E518FF110000213B80 /* System_Array.m */,
+				ABFDAB9A1C763CA3005230C0 /* System_AsyncCallback.h */,
+				ABFDAB9B1C763CA3005230C0 /* System_AsyncCallback.m */,
 				ABB8A3E718FF110000213B80 /* System_Collections_ArrayList.h */,
 				ABB8A3E818FF110000213B80 /* System_Collections_ArrayList.m */,
 				ABB8A3E918FF110000213B80 /* System_Collections_Generic_DictionaryA2.h */,
 				ABB8A3EA18FF110000213B80 /* System_Collections_Generic_DictionaryA2.m */,
 				AB11F3741C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h */,
 				AB11F3751C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.m */,
+				ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */,
+				ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */,
 				AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */,
 				AB2E742818FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.m */,
 				AB2E742918FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.h */,
@@ -494,6 +500,8 @@
 				ABB8A3F218FF110000213B80 /* System_EventArgs.m */,
 				AB2E745818FFCD8F0061C63E /* System_Exception.h */,
 				AB2E745918FFCD8F0061C63E /* System_Exception.m */,
+				ABFEED021C89BB3D0060F305 /* System_FuncA1.h */,
+				ABFEED031C89BB3D0060F305 /* System_FuncA1.m */,
 				AB2E745A18FFCD8F0061C63E /* System_FuncA2.h */,
 				AB2E745B18FFCD8F0061C63E /* System_FuncA2.m */,
 				AB2E745C18FFCD8F0061C63E /* System_Globalization_CultureInfo.h */,
@@ -502,6 +510,10 @@
 				ABCAE5621AA90E180006453A /* System_Guid.m */,
 				ABB8A3F318FF110000213B80 /* System_IAsyncResult.h */,
 				ABB8A3F418FF110000213B80 /* System_IAsyncResult.m */,
+				AB3FD4F81C7609A80037899F /* System_ICloneable.h */,
+				AB3FD4F91C7609A80037899F /* System_ICloneable.m */,
+				AB3FD4F41C76098B0037899F /* System_IDisposable.h */,
+				AB3FD4F51C76098B0037899F /* System_IDisposable.m */,
 				ABB8A3F518FF110000213B80 /* System_IO_FileInfo.h */,
 				ABB8A3F618FF110000213B80 /* System_IO_FileInfo.m */,
 				AB2E744B18FFCD420061C63E /* System_IO_Stream.h */,
@@ -536,6 +548,10 @@
 				ABCAE5541AA90AC90006453A /* System_Reflection_TypeAttributes.h */,
 				AB2E743318FFCD0A0061C63E /* System_Reflection.h */,
 				AB2E743418FFCD0A0061C63E /* System_Reflection.m */,
+				ABFDAB9E1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h */,
+				ABFDAB9F1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m */,
+				ABFDAB961C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h */,
+				ABFDAB971C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m */,
 				ABB8A3FB18FF110000213B80 /* System_String.h */,
 				ABB8A3FC18FF110000213B80 /* System_String.m */,
 				ABDF3CA61BF0BC380039C3A8 /* System_StringComparison.h */,
@@ -549,16 +565,6 @@
 				AB8306B2191CFD5B009FF174 /* System_Type.m */,
 				AB50B5E21AC599360030429C /* System_Version.h */,
 				AB50B5E31AC599360030429C /* System_Version.m */,
-				AB3FD4F41C76098B0037899F /* System_IDisposable.h */,
-				AB3FD4F51C76098B0037899F /* System_IDisposable.m */,
-				AB3FD4F81C7609A80037899F /* System_ICloneable.h */,
-				AB3FD4F91C7609A80037899F /* System_ICloneable.m */,
-				ABFDAB961C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h */,
-				ABFDAB971C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m */,
-				ABFDAB9A1C763CA3005230C0 /* System_AsyncCallback.h */,
-				ABFDAB9B1C763CA3005230C0 /* System_AsyncCallback.m */,
-				ABFDAB9E1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h */,
-				ABFDAB9F1C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -690,6 +696,7 @@
 				ABDF3CA71BF0BC380039C3A8 /* System_StringComparison.h in Headers */,
 				ABC627911A60794600F89877 /* System_Text_StringBuilder.h in Headers */,
 				ABB8A37B18FF086200213B80 /* NSString+mscorlib.h in Headers */,
+				ABFEED041C89BB3D0060F305 /* System_FuncA1.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +839,7 @@
 				AB2E744218FFCD0A0061C63E /* System_Reflection_MethodInfo.m in Sources */,
 				AB2E744818FFCD0A0061C63E /* System_TimeSpan.m in Sources */,
 				ABB8A40D18FF110000213B80 /* System_IAsyncResult.m in Sources */,
+				ABFEED051C89BB3D0060F305 /* System_FuncA1.m in Sources */,
 				AB3FD4FB1C7609A80037899F /* System_ICloneable.m in Sources */,
 				ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */,
 				AB2E745218FFCD420061C63E /* System_IO_Stream.m in Sources */,
