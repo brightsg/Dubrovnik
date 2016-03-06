@@ -103,9 +103,8 @@ static DBMonoDateTimeOptions m_monoDateTimeOptions = DBMonoDateTimeOptionNone;
         System_DateTimeKind kind = DB_UNBOX_INT32(boxedKind);
         
         // We could be tempted to say kind != System_DateTimeKind_UTC but it turns out that the likes of System.DateTime.MinValue
-        // (which is stated to be  is equivalent to 00:00:00.0000000 UTC, January 1, 0001)
-        // has kind System_DateTimeKind_Unspecified.
-        // Hencewe test for an explicit localtime kind.
+        // (which is stated to be equivalent to 00:00:00.0000000 UTC, January 1, 0001) has kind System_DateTimeKind_Unspecified.
+        // Hence we test for an explicit localtime kind.
         if (kind == System_DateTimeKind_Local) {
             NSString *warning = [NSString stringWithFormat:@"Non UTC date violation (kind = %u) : %@", kind, [self.class.defaultDateFormatter stringFromDate:self]];
             if (self.class.monoDateTimeOptions & DBMonoDateTimeOptionAssertOnUTCViolation) {
