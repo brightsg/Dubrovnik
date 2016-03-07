@@ -121,7 +121,14 @@ Project Map
 
     * UnitTests : unit test target assembly
 
+Mono Documentation
+==================
 
+THe following links provide acces to the some of the most helpful Mono Documentation. The API docs are essential when trying to comprehend the embedded API.
+
+* [Mono API Documentation] (http://docs.go-mono.com)
+* [Mono Runtime Documentation](http://www.mono-project.com/docs/advanced/runtime/docs/)
+* [Embedding Mono] (http://www.mono-project.com/docs/advanced/embedding)
 
 64 Bit Operation
 ================
