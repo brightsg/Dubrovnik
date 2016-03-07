@@ -35,6 +35,9 @@
 // Friendly face to convert interface name to NSString *
 #define DB_INTERFACE_TO_NSSTR(tok) DB_NSSTR(tok)
 
+// get explicit interface of type klass for obj
+#define DB_INTERFACE(obj, klass) [klass objectWithConformingManagedObject:obj]
+
 // Environment
 #import "DBManagedEnvironment.h"
 

@@ -156,6 +156,15 @@ extern char DBCacheSuffixChar;
 
 /*!
  
+ Returns an instance of the receiver class representing the monoObject * refrence returned by the parameter.
+ The parameter must conform to a protocol representing a managed explcit interface derived from the reciver's classname.
+ This is method is used to obtain exlpicit interfaces of obj.
+ 
+ */
++ (instancetype)objectWithConformingManagedObject:(DBManagedObject *)obj;
+
+/*!
+ 
  Returns an instance of the receiver class using the passed arguments.
  
  */

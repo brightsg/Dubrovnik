@@ -172,21 +172,35 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark Factory
 
-+ (id)bestObjectWithMonoObject:(MonoObject *)obj
-{
-    // *************************************
-    // this is the preferred factory method
-    // *************************************
-    return [[DBTypeManager sharedManager] objectWithMonoObject:obj defaultClass:self];
-}
-
 + (instancetype)objectWithManagedObject:(DBManagedObject *)obj
 {
     return [self objectWithMonoObject:obj.monoObject];
 }
 
++ (instancetype)objectWithConformingManagedObject:(DBManagedObject *)obj
+{
+    // we use this method to access explicit interfaces.
+    // this method is called by the DB_INTERFACE(obj, klass) convenience macro
+    NSString *protocolName = [NSString stringWithFormat:@"%@_", self.className];
+    if (![obj conformsToProtocol:NSProtocolFromString(protocolName)]) {
+        [NSException raise:@"DBNonConformingObjectException" format:@"%@ does not coform to %@", obj.className, protocolName];
+    }
+    return [self objectWithMonoObject:obj.monoObject];
+}
+
++ (id)bestObjectWithMonoObject:(MonoObject *)obj
+{
+    // ************************************************************
+    // This is the preferred factory method
+    // It will produce the best NSObject instance for the argument.
+    // It may or may not return an instance of the receiver.
+    // ************************************************************
+    return [[DBTypeManager sharedManager] objectWithMonoObject:obj defaultClass:self];
+}
+
 + (instancetype)objectWithMonoObject:(MonoObject *)obj
 {
+    // this method will return an instance of the receiver
 	DBManagedObject *object = [[[self class] alloc] initWithMonoObject:obj];
 	return object;
 }
@@ -221,6 +235,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 {
     // *************************************
     // this is the designated initialiser
+    // this method will return an instance of the receiver
     // *************************************
     
     // Search the primary instance cache.
