@@ -141,7 +141,7 @@ static BOOL m_useClassLookupCache = YES;
                                                            valueOptions: NSPointerFunctionsObjectPersonality | NSPointerFunctionsWeakMemory
                                                                capacity:22];
         
-        // define a collection of DBType objects repesenting the supported managed types
+        // define a collection of DBType objects representing the supported managed types
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
         
