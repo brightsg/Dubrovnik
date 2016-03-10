@@ -180,7 +180,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 + (instancetype)objectWithConformingManagedObject:(DBManagedObject *)obj
 {
     // we use this method to access explicit interfaces.
-    // this method is called by the DB_INTERFACE(obj, klass) convenience macro
+    // this method is called by the DB_INTERFACE(klass, obj) convenience macro
     NSString *protocolName = [NSString stringWithFormat:@"%@_", self.className]; // conformance protocol has a trailing _
     if (![obj conformsToProtocol:NSProtocolFromString(protocolName)]) {
         [NSException raise:@"DBNonConformingObjectException" format:@"%@ does not conform to %@", obj.className, protocolName];
