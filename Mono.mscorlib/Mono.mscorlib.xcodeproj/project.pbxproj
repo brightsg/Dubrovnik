@@ -57,6 +57,8 @@
 		AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */ = {isa = PBXBuildFile; fileRef = AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */; };
 		AB50B5E61AC599360030429C /* System_Version.h in Headers */ = {isa = PBXBuildFile; fileRef = AB50B5E21AC599360030429C /* System_Version.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB50B5E71AC599360030429C /* System_Version.m in Sources */ = {isa = PBXBuildFile; fileRef = AB50B5E31AC599360030429C /* System_Version.m */; };
+		AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */; };
 		AB5D13E21B71059D0028B42B /* System_DateTimeKind.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B1191CFD5B009FF174 /* System_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B2191CFD5B009FF174 /* System_Type.m */; };
@@ -219,6 +221,8 @@
 		AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_AssemblyName.m; sourceTree = "<group>"; };
 		AB50B5E21AC599360030429C /* System_Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Version.h; sourceTree = "<group>"; };
 		AB50B5E31AC599360030429C /* System_Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Version.m; sourceTree = "<group>"; };
+		AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt32Transformer.h; sourceTree = "<group>"; };
+		AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt32Transformer.m; sourceTree = "<group>"; };
 		AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeKind.h; sourceTree = "<group>"; };
 		AB8306B1191CFD5B009FF174 /* System_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Type.h; sourceTree = "<group>"; };
 		AB8306B2191CFD5B009FF174 /* System_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Type.m; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 				ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */,
 				AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */,
 				AB92F2DD1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m */,
+				AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */,
+				AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */,
 			);
 			path = "Value Transformers";
 			sourceTree = "<group>";
@@ -621,6 +627,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */,
 				ABFDABA01C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h in Headers */,
 				ABFDAB9C1C763CA3005230C0 /* System_AsyncCallback.h in Headers */,
 				ABFDAB981C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h in Headers */,
@@ -850,6 +857,7 @@
 				AB2E746018FFCD8F0061C63E /* System_Exception.m in Sources */,
 				ABCAE5641AA90E180006453A /* System_Guid.m in Sources */,
 				AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */,
+				AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */,
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
 				AB2E746218FFCD8F0061C63E /* System_FuncA2.m in Sources */,
 				ABC627921A60794600F89877 /* System_Text_StringBuilder.m in Sources */,
