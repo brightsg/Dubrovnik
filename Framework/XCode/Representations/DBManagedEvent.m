@@ -267,6 +267,8 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         return;
     }
     
+    //NSLog(@"Managed object : %@ (%p) generated event : %@ with target selector : %@", sender, sender, eventName, targetSelectorName);
+
     // selector to send to targets
     SEL eventSelector = NSSelectorFromString(targetSelectorName);
     BOOL eventSelectorMethodSignatureValidated = NO;
