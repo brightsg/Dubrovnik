@@ -1175,7 +1175,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
     if (isTracked) {
         
-        NSLog(@"Managed object KVO sequence warning: %@ -willChangeValueForKey %@. Prior -didChangeValueForKey was not received. Managed PropertyChanged(%@) event required.", [self className], key, key);
+        NSLog(@"Managed object KVO sequence warning: %@ -willChangeValueForKey: %@. Prior -didChangeValueForKey: was not received. Managed PropertyChanged(%@) event required.", [self className], key, key);
         
         sequenceOkay = NO;
     } else {
@@ -1196,7 +1196,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
     if (!isTracked) {
         
-        NSLog(@"Managed object KVO sequence warning: %@ -didChangeValueForKey %@. Prior -willChangeValueForKey was not received. Managed PropertyChanging(%@) event required.", [self className], key, key);
+        NSLog(@"Managed object KVO sequence warning: %@ -didChangeValueForKey: %@. Prior -willChangeValueForKey: was not received. Managed PropertyChanging(%@) event required.", [self className], key, key);
         
         sequenceOkay = NO;
     } else {
