@@ -36,7 +36,7 @@
             // TODO : detect array
         }
         
-        NSException *e = [NSException exceptionWithName:@"DBSystemLinqToListException" reason:[NSString stringWithFormat:@"This method requires a generic type : %@. This exception may be encountered when accessing arrays via an IEnumerableT interface. Call -array instead. See see https://msdn.microsoft.com/en-us/library/ms228502.aspx.", [managedObject.db_getType toString]] userInfo:nil];
+        NSException *e = [NSException exceptionWithName:@"DBSystemLinqToListException" reason:[NSString stringWithFormat:@"This method requires a generic type : %@. This exception may be encountered when accessing arrays via an IEnumerableT interface. Call -array instead. See  https://msdn.microsoft.com/en-us/library/ms228502.aspx.", [managedObject.db_getType toString]] userInfo:nil];
         
         [e raise];
     }
