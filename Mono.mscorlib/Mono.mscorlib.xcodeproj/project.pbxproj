@@ -11,6 +11,8 @@
 		AB0BD3CF1AC18A10009F4FEE /* System_ActionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */; };
 		AB11F3761C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB11F3741C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB11F3771C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB11F3751C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.m */; };
+		AB223CE61C9DFF2F0017DA8A /* System_TimeZoneInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB223CE41C9DFF2F0017DA8A /* System_TimeZoneInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB223CE71C9DFF2F0017DA8A /* System_TimeZoneInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB223CE51C9DFF2F0017DA8A /* System_TimeZoneInfo.m */; };
 		AB2E742518FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742318FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E742618FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E742418FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m */; };
 		AB2E742D18FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -175,6 +177,8 @@
 		AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ActionA1.m; sourceTree = "<group>"; };
 		AB11F3741C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_ICollectionA1.h; sourceTree = "<group>"; };
 		AB11F3751C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_ICollectionA1.m; sourceTree = "<group>"; };
+		AB223CE41C9DFF2F0017DA8A /* System_TimeZoneInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_TimeZoneInfo.h; sourceTree = "<group>"; };
+		AB223CE51C9DFF2F0017DA8A /* System_TimeZoneInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_TimeZoneInfo.m; sourceTree = "<group>"; };
 		AB2E742318FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_ConstructorInfo.h; sourceTree = "<group>"; };
 		AB2E742418FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_ConstructorInfo.m; sourceTree = "<group>"; };
 		AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IDictionaryA2.h; sourceTree = "<group>"; };
@@ -571,6 +575,8 @@
 				AB8306B2191CFD5B009FF174 /* System_Type.m */,
 				AB50B5E21AC599360030429C /* System_Version.h */,
 				AB50B5E31AC599360030429C /* System_Version.m */,
+				AB223CE41C9DFF2F0017DA8A /* System_TimeZoneInfo.h */,
+				AB223CE51C9DFF2F0017DA8A /* System_TimeZoneInfo.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -627,6 +633,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB223CE61C9DFF2F0017DA8A /* System_TimeZoneInfo.h in Headers */,
 				AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */,
 				ABFDABA01C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h in Headers */,
 				ABFDAB9C1C763CA3005230C0 /* System_AsyncCallback.h in Headers */,
@@ -827,6 +834,7 @@
 				AB2E742E18FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.m in Sources */,
 				ABB8A37C18FF086200213B80 /* NSString+mscorlib.m in Sources */,
 				ABCAE5531AA90A280006453A /* System_Reflection_Assembly.m in Sources */,
+				AB223CE71C9DFF2F0017DA8A /* System_TimeZoneInfo.m in Sources */,
 				ABB8A41518FF110000213B80 /* System_String.m in Sources */,
 				AB92F2DF1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m in Sources */,
 				AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */,
