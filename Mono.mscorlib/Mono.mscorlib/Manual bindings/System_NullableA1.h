@@ -77,6 +77,8 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 
 - (NSDecimalNumber *)decimalNumberValue;
 
+- (NSComparisonResult)compare:(System_NullableA1 *)object;
+
 /*!
  
  Create a new nullable instance from the given object and type name

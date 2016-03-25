@@ -60,6 +60,18 @@
 #pragma mark -
 #pragma mark Methods
 
+- (NSComparisonResult)compare:(System_NullableA1 *)object
+{
+    id obj1 = [self objectValue];
+    id obj2 = [object objectValue];
+    
+    if ([obj2 isKindOfClass:[obj1 class]]) {
+        return [obj1 compare:obj2];
+    }
+    
+    return NSOrderedDescending;
+}
+
 // Managed method name : Equals
 // Managed return type : System.Boolean
 // Managed param types : System.Object
