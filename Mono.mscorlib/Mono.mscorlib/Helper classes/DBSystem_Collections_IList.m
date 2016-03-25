@@ -182,6 +182,9 @@
     for (uint32_t i = 0; i < [self count]; i++) {
         id object = [self objectAtIndex:i];
         if (!object) {
+            // hmm. managed collections can contain a nil.
+            // the question is do we want to want to propagate that nil representation or discard it?
+            // by default we maintain it.
             object = [NSNull null];
         }
         [array addObject:object];
@@ -190,8 +193,22 @@
     return array;
 }
 
+- (NSMutableArray *)mutableArrayExcludingNulls
+{
+    NSMutableArray *array = [self mutableArray];
+    [array removeObject:[NSNull null]];
+    
+    return array;
+}
+
 - (NSArray *)array
 {
     return [self mutableArray];
 }
+
+- (NSArray *)arrayExcludingNulls
+{
+    return [self mutableArrayExcludingNulls];
+}
+
 @end

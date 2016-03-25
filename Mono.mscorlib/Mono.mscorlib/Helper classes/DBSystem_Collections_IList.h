@@ -62,6 +62,7 @@
 - (char)charAtIndex:(int)index;
 
 - (NSMutableArray *)mutableArray;
+- (NSMutableArray *)mutableArrayExcludingNulls;
 - (NSArray *)array;
-
+- (NSArray *)arrayExcludingNulls;
 @end

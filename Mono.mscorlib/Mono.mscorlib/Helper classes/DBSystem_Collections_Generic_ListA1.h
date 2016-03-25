@@ -18,7 +18,10 @@
 
 - (DBSystem_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;
+- (NSMutableArray *)mutableArrayExcludingNulls;
+
 - (NSArray *)array;
+- (NSArray *)arrayExcludingNulls;
 - (void)add:(System_Object *)object;
 
 @property (nonatomic, readonly) int32_t count;

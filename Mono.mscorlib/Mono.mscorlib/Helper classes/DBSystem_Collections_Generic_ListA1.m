@@ -90,9 +90,19 @@
     return [[self list] mutableArray];
 }
 
+- (NSMutableArray *)mutableArrayExcludingNulls
+{
+        return [[self list] mutableArrayExcludingNulls];
+}
+
 - (NSArray *)array
 {
     return [[self list] array];
+}
+
+- (NSArray *)arrayExcludingNulls
+{
+    return [[self list] arrayExcludingNulls];
 }
 
 #pragma mark -

@@ -9,6 +9,7 @@
 
 - (DBSystem_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;
+- (NSMutableArray *)mutableArrayExcludingNulls;
 - (NSArray *)array;
-
+- (NSArray *)arrayExcludingNulls;
 @end
