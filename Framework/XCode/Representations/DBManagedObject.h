@@ -235,13 +235,13 @@ extern char DBCacheSuffixChar;
 + (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;
 
 // Mono type info
-- (uintptr_t *)getMonoGenericTypeCount;
+- (NSUInteger)getMonoGenericTypeCount;
 - (MonoType *)getFirstMonoGenericType;
 - (MonoType *)getLastMonoGenericType;
 - (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx;
 - (MonoArray *)getMonoGenericTypes;
 
-+ (uintptr_t *)getMonoGenericTypeCount:(MonoClass *)monoClass;
++ (NSUInteger)getMonoGenericTypeCount:(MonoClass *)monoClass;
 + (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx;
 + (MonoArray *)getMonoGenericTypes:(MonoClass *)monoClass;
 

@@ -921,22 +921,22 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return [[self class] getMonoGenericTypes:[self monoClass]];
 }
 
-- (uintptr_t *)getMonoGenericTypeCount
+- (NSUInteger)getMonoGenericTypeCount
 {
     MonoArray *array = [self getMonoGenericTypes];
     
     uintptr_t count = mono_array_length(array);
     
-    return count;
+    return (NSUInteger)count;
 }
 
-+ (uintptr_t *)getMonoGenericTypeCount:(MonoClass *)monoClass
++ (NSUInteger)getMonoGenericTypeCount:(MonoClass *)monoClass
 {
     MonoArray *array = [self getMonoGenericTypes:monoClass];
     
     uintptr_t count = mono_array_length(array);
     
-    return count;
+    return (NSUInteger)count;
 }
 
 + (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx
