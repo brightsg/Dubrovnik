@@ -15,6 +15,7 @@
 
 @interface DBSystem_Linq : System_Linq
 
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(Class)typeClass;
 + (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;
 + (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject genericTypeIndex:(NSUInteger)typeIndex;
 + (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject monoType:(MonoType *)monoType;

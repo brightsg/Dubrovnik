@@ -14,8 +14,21 @@
 
 @implementation DBSystem_Linq
 
++ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(Class)typeClass
+{
+    MonoType *genericMonoType = [typeClass monoType];
+    
+    return [self toList:managedObject monoType:genericMonoType];
+}
+
 + (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject
 {
+    /*
+     Note: this method wil use the managedObject's first generic parameter as the generic parameter for the list.
+     In many cases this will work out fine but not always!
+     eg: System.Linq.Enumerable+<CreateSelectIterator>c__Iterator10`2[Subcontractor,ISubcontractorPayslipDelegate].
+     The above object implements IEnumerableA1 but the required type paramter is NOT the first one.
+     */
     return [self toList:managedObject genericTypeIndex:0];
 }
 
