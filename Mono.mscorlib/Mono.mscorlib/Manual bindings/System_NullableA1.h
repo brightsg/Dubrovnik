@@ -135,6 +135,9 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
  */
 + (MonoObject *)monoObjectFromObject:(id)object withTypeArgumentName:(NSString *)typeArgumentName;
 
+#pragma mark -
+#pragma mark Explicit width integer accessors
+
 - (int64_t)int64Value;
 - (uint64_t)uint64Value;
 - (int32_t)int32Value;
@@ -143,9 +146,20 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (uint16_t)uint16Value;
 - (int8_t)int8Value;
 - (uint8_t)uint8Value;
+
+/*!
+ 
+ NSNumber content convenience accessors
+ 
+ */
 - (BOOL)boolValue;
+- (char)charValue;
 - (float)floatValue;
 - (double)doubleValue;
-
+- (int)intValue;
+- (NSInteger)integerValue;
+- (unsigned char)unsignedCharValue;
+- (unsigned int)unsignedIntValue;
+- (NSUInteger)unsignedIntegerValue;
 
 @end

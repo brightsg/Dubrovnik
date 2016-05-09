@@ -371,15 +371,56 @@
     return object;
 }
 
+#pragma mark -
+#pragma mark NSNumber content convenience accessors
+
+- (BOOL)boolValue
+{
+    return [[self numberValue] boolValue];
+}
+
+- (char)charValue
+{
+    return [[self numberValue] charValue];
+}
+
 - (float)floatValue
 {
-    return [[self numberValue] doubleValue];
+    return [[self numberValue] floatValue];
 }
 
 - (double)doubleValue
 {
     return [[self numberValue] doubleValue];
 }
+
+- (int)intValue
+{
+    return [[self numberValue] intValue];
+}
+
+- (NSInteger)integerValue
+{
+    return [[self numberValue] integerValue];
+}
+
+- (unsigned char)unsignedCharValue
+{
+    return [[self numberValue] unsignedCharValue];
+}
+
+- (unsigned int)unsignedIntValue
+{
+    return [[self numberValue] unsignedIntValue];
+}
+
+- (NSUInteger)unsignedIntegerValue
+{
+    return [[self numberValue] unsignedIntegerValue];
+}
+
+#pragma mark -
+#pragma mark Explicit width integer accessors
 
 - (int64_t)int64Value
 {
@@ -421,8 +462,4 @@
     return [[self numberValue] unsignedCharValue];
 }
 
-- (BOOL)boolValue
-{
-    return [[self numberValue] boolValue];
-}
 @end
