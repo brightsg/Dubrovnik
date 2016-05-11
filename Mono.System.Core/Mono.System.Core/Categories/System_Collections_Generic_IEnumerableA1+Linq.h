@@ -8,16 +8,16 @@
 @interface System_Collections_Generic_IEnumerableA1 (Linq)
 
 // list representation
-- (DBSystem_Collections_IList *)listWithTypeParameter:(Class)typeClass;
+- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter;
 - (DBSystem_Collections_IList *)list;
 
 // array representation
-- (NSArray *)arrayWithTypeParameter:(Class)typeClass;
+- (NSArray *)arrayWithTypeParameter:(id)typeParameter;
 - (NSArray *)array;
 - (NSArray *)arrayExcludingNulls;
 
 // mutable array representation
-- (NSMutableArray *)mutableArrayWithTypeParameter:(Class)typeClass;
+- (NSMutableArray *)mutableArrayWithTypeParameter:(id)typeParameter;
 - (NSMutableArray *)mutableArray;
 - (NSMutableArray *)mutableArrayExcludingNulls;
 
@@ -34,11 +34,11 @@
 @interface NSObject (Linq_IEnumerableA1_conformation)
 
 // list representation
-- (DBSystem_Collections_IList *)listWithTypeParameter:(Class)typeClass;
+- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter;
 
 // array representation
-- (NSMutableArray *)mutableArrayWithTypeParameter:(Class)typeClass;
+- (NSMutableArray *)mutableArrayWithTypeParameter:(id)typeParameter;
 
 // mutable array representation
-- (NSArray *)arrayWithTypeParameter:(Class)typeClass;
+- (NSArray *)arrayWithTypeParameter:(id)typeParameter;
 @end

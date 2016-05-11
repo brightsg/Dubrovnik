@@ -13,9 +13,9 @@
 #pragma mark -
 #pragma mark - List representations
 
-- (DBSystem_Collections_IList *)listWithTypeParameter:(Class)typeClass
+- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter
 {
-    return [DBSystem_Linq toList:(id)self typeParameter:typeClass];
+    return [DBSystem_Linq toList:(id)self typeParameter:typeParameter];
 }
 
 - (DBSystem_Collections_IList *)list
@@ -37,9 +37,9 @@
     return [[self list] mutableArray];
 }
 
-- (NSMutableArray *)mutableArrayWithTypeParameter:(Class)typeClass
+- (NSMutableArray *)mutableArrayWithTypeParameter:(id)typeParameter
 {
-    return [[self listWithTypeParameter:typeClass] mutableArray];
+    return [[self listWithTypeParameter:typeParameter] mutableArray];
 }
 
 - (NSMutableArray *)mutableArrayExcludingNulls
@@ -55,9 +55,9 @@
     return [[self list] array];
 }
 
-- (NSArray *)arrayWithTypeParameter:(Class)typeClass
+- (NSArray *)arrayWithTypeParameter:(id)typeParameter
 {
-    return [[self listWithTypeParameter:typeClass] array];
+    return [[self listWithTypeParameter:typeParameter] array];
 }
 
 - (NSArray *)arrayExcludingNulls
@@ -71,15 +71,15 @@
 #pragma mark -
 #pragma mark - List representations
 
-- (DBSystem_Collections_IList *)listWithTypeParameter:(Class)typeClass
+- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter
 {
     if ([self conformsToProtocol:@protocol(System_Collections_Generic_IEnumerableA1_)]) {
-        return [DBSystem_Linq toList:(id)self typeParameter:typeClass];
+        return [DBSystem_Linq toList:(id)self typeParameter:typeParameter];
     }
     return nil;
 }
 
-- (NSMutableArray *)mutableArrayWithTypeParameter:(Class)typeClass
+- (NSMutableArray *)mutableArrayWithTypeParameter:(id)typeParameter
 {
     /*
      We can send this message to any object but we are only interested in those that implement IEnumerableA1.
@@ -87,15 +87,15 @@
      seems like the only way to do so.
      */
     if ([self conformsToProtocol:@protocol(System_Collections_Generic_IEnumerableA1_)]) {
-        return [[self listWithTypeParameter:typeClass] mutableArray];
+        return [[self listWithTypeParameter:typeParameter] mutableArray];
     }
     return nil;
 }
 
-- (NSArray *)arrayWithTypeParameter:(Class)typeClass
+- (NSArray *)arrayWithTypeParameter:(id)typeParameter
 {
     if ([self conformsToProtocol:@protocol(System_Collections_Generic_IEnumerableA1_)]) {
-        return [[self listWithTypeParameter:typeClass] array];
+        return [[self listWithTypeParameter:typeParameter] array];
     }
     return nil;
 }

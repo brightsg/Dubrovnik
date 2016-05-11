@@ -33,18 +33,16 @@
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject
 {
 	DBSystem_Collections_Generic_ListA1 *list = [[[self class] alloc] initWithMonoObject:monoObject];
-	return(list);
+	return list;
 }
 
-+ (instancetype)listWithObjects:(NSArray *)objects
++ (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter
 {
     if (!objects || objects.count == 0) {
         return nil;
     }
     
-    // the list generic type parameter will match the type of itemObject
-    id itemObject = objects[0];
-    id list = [[self class] newGenericObjectForItemObject:itemObject];
+    DBSystem_Collections_Generic_ListA1 *list = [[self class] newCoreGenericObjectWithTypeParameters:@[typeParameter]];
     
     // add objects
     for (id object in objects) {
@@ -59,6 +57,20 @@
         
         [list add:managedObject];
     }
+    
+    return list;
+
+}
+
++ (instancetype)listWithObjects:(NSArray *)objects
+{
+    if (!objects || objects.count == 0) {
+        return nil;
+    }
+    
+    // the list generic type parameter will match the type of itemObject
+    id itemObject = objects[0];
+    DBSystem_Collections_Generic_ListA1 *list = [[self class] listWithObjects:objects typeParameter:itemObject];
     
     return list;
 }
@@ -92,7 +104,7 @@
 
 - (NSMutableArray *)mutableArrayExcludingNulls
 {
-        return [[self list] mutableArrayExcludingNulls];
+    return [[self list] mutableArrayExcludingNulls];
 }
 
 - (NSArray *)array

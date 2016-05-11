@@ -25,6 +25,7 @@
 
 @interface NSArray (mscorlib)
 
+- (DBSystem_Collections_Generic_ListA1 *)managedListA1WithTypeParameter:(id)typeParameter;
 - (DBSystem_Collections_Generic_ListA1 *)managedListA1;
 - (DBSystem_Collections_ArrayList *)managedArrayList;
 - (DBSystem_Array *)managedArrayWithTypeName:(NSString *)name;

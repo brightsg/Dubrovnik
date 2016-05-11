@@ -34,7 +34,6 @@
 #pragma mark -
 #pragma mark Keys and values
 
-
 - (id)objectForKey:(id)key
 {
     id object = nil;
@@ -104,6 +103,14 @@
 - (id)valueForKey:(id)key
 {
     return [self objectForKey:key];
+}
+
+#pragma mark -
+#pragma mark - Collection management
+
+- (void)addKey:(System_Object *)key value:(System_Object *)value
+{
+    [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [key monoValue], [value monoValue]];
 }
 
 @end

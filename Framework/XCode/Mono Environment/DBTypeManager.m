@@ -580,4 +580,5 @@ static BOOL m_useClassLookupCache = YES;
     return dbType;
 }
 
+
 @end

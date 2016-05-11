@@ -33,7 +33,6 @@
 #import "DBManagedApplication.h"
 #import "DBPrimaryInstanceCache.h"
 
-
 static NSMutableArray *m_boundKeys;
 
 //#define DB_TRACE_KVO
@@ -161,6 +160,19 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
+#pragma mark Identification
+
++ (const char *)monoTypeName
+{
+    return self.monoClassName;
+}
+
++ (NSString *)managedTypeName
+{
+    return @(self.monoClassName);
+}
+
+#pragma mark -
 #pragma mark Internal method registration
 
 + (void)registerInternalCall:(NSString *)methodName callPointer:(void *)callPointer
@@ -275,6 +287,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         } else {
 			self = nil;
 		}
+        
+        self.autoUnboxValueType = YES;
 	}
 	
     // add primary instance to cache
@@ -658,14 +672,15 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)monoValue
 {
-    // returns a pointer to an object that can be used as a property value or method invocation argument.
+    // returns a pointer to an object that can be used as a property value or method invocation argument
+    // where value types are required to be passed unboxed.
 
     MonoObject *monoObject = self.monoObject;
     MonoObject *valueObject = monoObject;
     
     // value types must be unboxed
     MonoClass *klass = mono_object_get_class(monoObject);
-    if (mono_class_is_valuetype(klass)) {
+    if (mono_class_is_valuetype(klass) && self.autoUnboxValueType) { // autoUnboxValueType temp workaround
         
         const char *monoClassName = [self.class monoClassName];
         
@@ -881,7 +896,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
      mono_runtime_invoke always returns a MonoObject *. Un-boxing gives us a pointer to the value, a MonoMethod*.
      De-referencing this gives the method pointer.
      */
-    MonoMethod *genericMethod =  *(MonoMethod**) mono_object_unbox (boxedGenericMethod);
+    MonoMethod *genericMethod = *(MonoMethod**) mono_object_unbox (boxedGenericMethod);
     if (!genericMethod) {
         [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
     }

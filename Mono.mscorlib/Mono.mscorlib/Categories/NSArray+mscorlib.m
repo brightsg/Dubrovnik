@@ -26,6 +26,13 @@
 
 @implementation NSArray (mscorlib)
 
+- (DBSystem_Collections_Generic_ListA1 *)managedListA1WithTypeParameter:(id)typeParameter
+{
+    DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:self typeParameter:typeParameter];
+    
+    return list;
+}
+
 - (DBSystem_Collections_Generic_ListA1 *)managedListA1
 {
     DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:self];

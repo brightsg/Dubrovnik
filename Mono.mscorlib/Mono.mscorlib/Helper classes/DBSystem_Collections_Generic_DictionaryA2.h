@@ -12,4 +12,6 @@
 + (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject;
 - (id)objectForKey:(id)key;
 - (id)valueForKey:(id)key;
+
+- (void)addKey:(System_Object *)key value:(System_Object *)value;
 @end

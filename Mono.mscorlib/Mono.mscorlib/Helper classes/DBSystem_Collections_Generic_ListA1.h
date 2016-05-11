@@ -15,6 +15,7 @@
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject;
 + (instancetype)listWithObjects:(id)object;
++ (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter;
 
 - (DBSystem_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;

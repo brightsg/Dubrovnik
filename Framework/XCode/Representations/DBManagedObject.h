@@ -46,6 +46,20 @@ extern char DBCacheSuffixChar;
 @property (assign, readonly) MonoObject *monoObject;
 @property (assign, readonly) NSUInteger monoHash;
 
+/**
+ 
+ When adding value types to a collection which expects reference types we must not unbox any value types.
+ 
+ TODO: generic collection objects know their type parameters. If a given parameter is a reference type then
+ value types added for that parameter must not be unboxed and vice versa.
+ This is equivalen to passing arguments as -monoValue (auto unboxes value types) or -monoObject (passes ref type).
+ 
+ The above is not implemented so as a temporary workaround we explicity disable auto box behaviour of value types instances.
+ This is far from ideal but it will serve for now.
+ 
+ */
+@property (assign) BOOL autoUnboxValueType;
+
 /*!
  
  Returns YES if instance is primary.
@@ -115,6 +129,8 @@ extern char DBCacheSuffixChar;
 + (MonoClass *)monoClass;
 + (MonoType *)monoType;
 + (DBManagedClass *)dbClass;
++ (NSString *)managedTypeName;
++ (const char *)monoTypeName;
 
 /*!
  
@@ -192,6 +208,13 @@ extern char DBCacheSuffixChar;
 - (MonoClass *)monoClass;
 - (MonoType *)monoType;
 - (char *)monoTypeName;
+
+/**
+ 
+ For reference types returns -monoObject. For value types returns a pointer to the unboxed value.
+ This method is generally used when passing arguments to managed methods.
+ 
+ */
 - (MonoObject *)monoValue;
 - (MonoAssembly *)monoAssembly;
 

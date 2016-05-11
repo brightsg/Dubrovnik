@@ -62,6 +62,8 @@
 		AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */; };
 		AB5D13E21B71059D0028B42B /* System_DateTimeKind.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5F417D1CE280FB00026E36 /* DBGenericManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5F417B1CE280FB00026E36 /* DBGenericManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5F417E1CE280FB00026E36 /* DBGenericManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F417C1CE280FB00026E36 /* DBGenericManager.m */; };
 		AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B1191CFD5B009FF174 /* System_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B2191CFD5B009FF174 /* System_Type.m */; };
 		AB92F2DE1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -228,6 +230,8 @@
 		AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt32Transformer.h; sourceTree = "<group>"; };
 		AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt32Transformer.m; sourceTree = "<group>"; };
 		AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeKind.h; sourceTree = "<group>"; };
+		AB5F417B1CE280FB00026E36 /* DBGenericManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGenericManager.h; sourceTree = "<group>"; };
+		AB5F417C1CE280FB00026E36 /* DBGenericManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGenericManager.m; sourceTree = "<group>"; };
 		AB8306B1191CFD5B009FF174 /* System_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Type.h; sourceTree = "<group>"; };
 		AB8306B2191CFD5B009FF174 /* System_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Type.m; sourceTree = "<group>"; };
 		AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableBoolTransformer.h; sourceTree = "<group>"; };
@@ -615,6 +619,8 @@
 				ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */,
 				ABCAE5481AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h */,
 				ABCAE5491AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m */,
+				AB5F417B1CE280FB00026E36 /* DBGenericManager.h */,
+				AB5F417C1CE280FB00026E36 /* DBGenericManager.m */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
 				AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */,
 				AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */,
+				AB5F417D1CE280FB00026E36 /* DBGenericManager.h in Headers */,
 				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
 				AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */,
 				AB5D13E21B71059D0028B42B /* System_DateTimeKind.h in Headers */,
@@ -828,6 +835,7 @@
 				AB2E746418FFCD8F0061C63E /* System_Globalization_CultureInfo.m in Sources */,
 				ABB8A38118FF092400213B80 /* DBSystem_IO_FileInfo.m in Sources */,
 				ABCAE55F1AA90CC50006453A /* System_Reflection_Binder.m in Sources */,
+				AB5F417E1CE280FB00026E36 /* DBGenericManager.m in Sources */,
 				AB2E745618FFCD420061C63E /* System_IO_TextReader.m in Sources */,
 				ABB8A40F18FF110000213B80 /* System_IO_FileInfo.m in Sources */,
 				ABB8A3FE18FF110000213B80 /* System_Array.m in Sources */,

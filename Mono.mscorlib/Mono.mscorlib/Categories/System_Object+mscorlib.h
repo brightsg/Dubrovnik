@@ -7,16 +7,30 @@
 //
 
 #import "System_Object.h"
+#import "System_Type.h"
 
 @interface System_Object (mscorlib)
 
 /**
-
- Create an instance of the receiver's class with a generic type matching itemObject -class.
+ 
+ Get the System_Type for the receiver. The name of this method mirrors the equivalent instance method.
  
  */
++ (System_Type *)db_getType;
 
-+ (id)newGenericObjectForItemObject:(id)itemObject;
+/**
+
+ Create an instance of the receiver's core class with a generic type parameters.
+ 
+ */
++ (id)newCoreGenericObjectWithTypeParameters:(NSArray <id> *)typeParameters;
+
+/**
+ 
+ Create an instance of the receiver's class from the mono image with a generic type parameters.
+ 
+ */
++ (id)newGenericObjectFrommMonoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters;
 
 /**
  
@@ -24,20 +38,20 @@
  If the type name is not an assembly qualified name then the type will be loaded from the supplied monoImage
  or mscorlib if the supplied image cannot be loaded.
  
- The type of itemObject is used to determine the required generic parameter type.
+ typeParameters is used to determine the required generic parameter types.
  
  */
-+ (id)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage itemObject:(id)itemObject;
++ (id)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters;
 
 /**
  
  Create an instance of a core generic type definition.
  If the type name is not an assembly qualified name then the type will be loaded from mscorlib.
  
- The type of itemObject is used to determine the required generic parameter type.
+ typeParameters is used to determine the required generic parameter types.
  
  */
-+ (id)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName itemObject:(id)itemObject;
++ (id)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters;
 
 //System.IConvertible convenience
 - (int8_t)int8Value;

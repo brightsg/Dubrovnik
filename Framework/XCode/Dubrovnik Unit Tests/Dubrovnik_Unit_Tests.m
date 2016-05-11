@@ -10,6 +10,7 @@
 #import "DBUReferenceObject.h"
 #import "DBUIReferenceObject.h"
 #import "DBUGenericReferenceObjectA2.h"
+#import <Mono.mscorlib/Framework.h>
 
 static BOOL m_runningAutoGenCodeTest = NO;
 
@@ -521,9 +522,90 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)doTestGenericConstructors:(Class)testClass
 {
+    // allocate core generic types from class
+    DBSystem_Collections_Generic_ListA1 *listA1 = [DBSystem_Collections_Generic_ListA1 newCoreGenericObjectWithTypeParameters:@[[System_Object class]]];
+    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2 = [DBSystem_Collections_Generic_DictionaryA2 newCoreGenericObjectWithTypeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newCoreGenericObjectWithTypeParameters:@[[System_String class], [System_Object class]]];
+    
+    // allocate core generic types from type name
+    DBSystem_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
+    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2_1 = (id)[[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.Dictionary`2" typeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2_1 = (id)[[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.KeyValuePair`2" typeParameters:@[[System_String class], [System_Object class]]];
+    
+    // System_Object -description calls .ToString which returns a description including the generic parameter types, hence the string comparisons
+    XCTAssertTrue([listA1.description isEqualToString:listA1_1.description], DBUEqualityTestFailed);
+    XCTAssertTrue([dictionaryA2.description isEqualToString:dictionaryA2_1.description], DBUEqualityTestFailed);
+    XCTAssertTrue([keyValuePairA2.description isEqualToString:keyValuePairA2_1.description], DBUEqualityTestFailed);
+    
+    //
+    // Dictionary<TKey,TValue> tests
+    //
+    
+    /*
+     
+     When adding value types to a collection which expects reference types we must not unbox any value types.
+     
+     TODO: generic collection objects know their type parameters. If a given parameter is a reference type then 
+     value types added for that parameter must not be unboxed and vice versa.
+     This is equivalen to passing arguments as -monoValue (auto unboxes value types) or -monoObject (passes ref type).
+     
+     The above is not implemented so as a temporary workaround we explicity disable auto box behaviour of value types instances.
+     This is far from ideal but it will serve for now.
+     
+     */
+    System_Object *numInt = DBNumInt(51).managedObject;
+    numInt.autoUnboxValueType = NO;
+    System_Object *numLongLong = DBNumLongLong(510).managedObject;
+    numLongLong.autoUnboxValueType = NO;
+    System_Object *numFloat = DBNumFloat(5100).managedObject;
+    numFloat.autoUnboxValueType = NO;
+    System_Object *numDouble = DBNumFloat(51000).managedObject;
+    numDouble.autoUnboxValueType = NO;
+    
+    // populate dictionary
+    [dictionaryA2 addKey:[@"name" managedObject] value:[@"bob" managedObject]];
+    [dictionaryA2 addKey:[@"address" managedObject] value:[@"over here" managedObject]];
+    [dictionaryA2 addKey:[@"int" managedObject] value:numInt];
+    [dictionaryA2 addKey:[@"longLong" managedObject] value:numLongLong];
+    [dictionaryA2 addKey:[@"float" managedObject] value:numFloat];
+    [dictionaryA2 addKey:[@"double" managedObject] value:numDouble];
+    
+    XCTAssertTrue([[dictionaryA2 objectForKey:@"name"] isEqualToString:@"bob"], DBUEqualityTestFailed);
+    XCTAssertTrue([[dictionaryA2 objectForKey:@"address"] isEqualToString:@"over here"], DBUEqualityTestFailed);
+    XCTAssertTrue([[dictionaryA2 objectForKey:@"int"] isEqual:DBNumInt(51)], DBUEqualityTestFailed);
+    XCTAssertTrue([[dictionaryA2 objectForKey:@"longLong"] isEqual:DBNumLongLong(510)], DBUEqualityTestFailed);
+    XCTAssertTrue([[dictionaryA2 objectForKey:@"float"] floatValue] == 5100, DBUEqualityTestFailed);
+    XCTAssertTrue([[dictionaryA2 objectForKey:@"double"] doubleValue] == 51000, DBUEqualityTestFailed);
+    
+    // convert to NSDictionary
+    NSDictionary <NSString *, NSObject *> *dictionary = [dictionaryA2 dictionary];
+    XCTAssertTrue([(NSString *)dictionary[@"name"] isEqualToString:@"bob"], DBUEqualityTestFailed);
+    XCTAssertTrue([(NSString *)dictionary[@"address"] isEqualToString:@"over here"], DBUEqualityTestFailed);
+    XCTAssertTrue([(NSNumber *)dictionary[@"int"] intValue] == 51, DBUEqualityTestFailed);
+    XCTAssertTrue([(NSNumber *)dictionary[@"longLong"] intValue] == 510, DBUEqualityTestFailed);
+    XCTAssertTrue([(NSNumber *)dictionary[@"float"] intValue] == 5100, DBUEqualityTestFailed);
+    XCTAssertTrue([(NSNumber *)dictionary[@"double"] intValue] == 51000, DBUEqualityTestFailed);
+
+    //
+    // List<T> tests
+    //
+    [listA1 add:@"bob".managedObject];
+    [listA1 add:@"over here".managedString];
+    [listA1 add:numInt];
+    
+    DBSystem_Collections_IList *iList = [listA1 list];
+    XCTAssertTrue([[iList objectAtIndex:0] isEqualToString:@"bob"], DBUEqualityTestFailed);
+    XCTAssertTrue([[iList objectAtIndex:1] isEqualToString:@"over here"], DBUEqualityTestFailed);
+    XCTAssertTrue([[iList objectAtIndex:2] intValue] == 51, DBUEqualityTestFailed);
+    XCTAssertTrue([iList int32AtIndex:2] == 51, DBUEqualityTestFailed);
+    
+    // convert to NSArray
+    NSArray <NSString *> *list = [listA1 array];
+    XCTAssertTrue([(NSString *)list[0] isEqualToString:@"bob"], DBUEqualityTestFailed);
+    XCTAssertTrue([(NSString *)list[1] isEqualToString:@"over here"], DBUEqualityTestFailed);
+    
     // allocate list<System.Char> and populate
     /* TODO
-    
     Test fails
      
     8 bit type name encoding collisions at work here
@@ -555,15 +637,31 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(int32List.count == 4, DBUEqualityTestFailed);
     
     // allocate list<System.Int64> and populate
-    DBSystem_Collections_Generic_ListA1 *int64List = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumLongLong(10), DBNumLongLong(20)]];
+    NSArray *int64Array = @[DBNumLongLong(10), DBNumLongLong(20)];
+    DBSystem_Collections_Generic_ListA1 *int64List = [DBSystem_Collections_Generic_ListA1 listWithObjects:int64Array];
     [int64List add:[DBNumLongLong(30) managedObject]];
     [int64List add:[DBNumLongLong(40) managedObject]];
     XCTAssertTrue([[int64List list] int64AtIndex:2] == 30, DBUEqualityTestFailed);
     XCTAssertTrue([[int64List list] int64AtIndex:3] == 40, DBUEqualityTestFailed);
     XCTAssertTrue(int64List.count == 4, DBUEqualityTestFailed);
     
+    // derive ListA1 from array with explicit generic type parameter class derived from object instance.
+    // we can also use a [System_Object class] pointer but as yet we dont have a generated System_Int64 class
+    int64List = [int64Array managedListA1WithTypeParameter:int64Array[0]];
+    XCTAssertTrue([[int64List list] int64AtIndex:0] == 10, DBUEqualityTestFailed);
+    XCTAssertTrue([[int64List list] int64AtIndex:1] == 20, DBUEqualityTestFailed);
+    XCTAssertTrue(int64List.count == 2, DBUEqualityTestFailed);
+
+    // derive ListA1 from array with explicit generic type parameter monoType
+    MonoObject *monoObject = [int64Array[0] monoObject];
+    MonoType *monoType = [DBType monoTypeForMonoObject:monoObject];
+    NSValue *typeValue = [NSValue valueWithPointer:monoType];
+    int64List = [int64Array managedListA1WithTypeParameter:typeValue];
+    XCTAssertTrue([[int64List list] int64AtIndex:0] == 10, DBUEqualityTestFailed);
+    XCTAssertTrue([[int64List list] int64AtIndex:1] == 20, DBUEqualityTestFailed);
+    XCTAssertTrue(int64List.count == 2, DBUEqualityTestFailed);
+    
     // allocate list<System.Single> and populate
-#warning FAILING : embedded API calling type must be single not float!
     DBSystem_Collections_Generic_ListA1 *floatList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumFloat(11), DBNumFloat(12)]];
     [floatList add:[DBNumFloat(13) managedObject]];
     [floatList add:[DBNumFloat(14) managedObject]];
@@ -579,7 +677,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([[doubleList list] doubleAtIndex:3] == 24, DBUEqualityTestFailed);
     XCTAssertTrue(doubleList.count == 4, DBUEqualityTestFailed);
 
-    
     // allocate list<string> and populate
     NSString *item = @"item 0";
     DBSystem_Collections_Generic_ListA1 *stringList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[item, @"item 1"]];
@@ -593,11 +690,26 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([stringArray[0] isEqualToString:item], DBUEqualityTestFailed);
     XCTAssertTrue([stringArray[3] isEqualToString:@"item 3"], DBUEqualityTestFailed);
     
-    // derive ListA1 from array
+    // derive ListA1 from array - the generic type parameter is derived from the first object in the array
     NSArray *stringArray2 = @[@"1", @"10", @"100", @"1000",];
     DBSystem_Collections_Generic_ListA1 *numbersList = [stringArray2 managedListA1];
     XCTAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
 
+    // derive ListA1 from array with explicit generic type parameter class
+    numbersList = [stringArray2 managedListA1WithTypeParameter:[System_String class]];
+    XCTAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
+
+    // derive ListA1 from array with explicit generic type parameter from object
+    numbersList = [stringArray2 managedListA1WithTypeParameter:@"get type from me"];
+    XCTAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
+    
+    // derive ListA1 from array with explicit generic type parameter from monoType
+    monoObject = [@"get type from me" monoObject];
+    monoType = [DBType monoTypeForMonoObject:monoObject];
+    typeValue = [NSValue valueWithPointer:monoType];
+    numbersList = [stringArray2 managedListA1WithTypeParameter:typeValue];
+    XCTAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
+    
     // allocate list<testClass> and populate
     id refObject1 = [testClass new];
     id refObject2 = [testClass new];
