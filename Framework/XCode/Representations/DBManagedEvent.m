@@ -7,12 +7,15 @@
 //
 
 #import "DBManagedEvent.h"
-#import "NSObject+DBManagedEvent.h"
 #import "DBManagedObject.h"
 #import "DBTypeManager.h"
-#import "NSPointerArray+Dubrovnik.h"
 
-//define DB_TRACE
+// categories
+#import "NSObject+DBManagedEvent.h"
+#import "NSPointerArray+Dubrovnik.h"
+#import "NSThread+Dubrovnik.h"
+
+#define DB_TRACE
 //#define DB_TRACE_STATIC_EVENT_HANDLER
 
 @implementation DBManagedEvent
@@ -221,6 +224,10 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 #endif
         isBackgroundThreadEvent = YES;
     } 
+
+#ifdef DB_TRACE
+    NSLog(@"Managed event: %@ selector:%@", eventName, targetSelectorName);
+#endif
     
     // the block
     dispatch_block_t dispatchEventBlk = ^{
@@ -239,7 +246,13 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         // note that thread calls should be avoided!
         // https://developer.apple.com/library/ios/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1
         // if this becomes a problem use a category to explicitly execute the block on the main thread.
-        dispatch_sync(dispatch_get_main_queue(), dispatchEventBlk);
+        BOOL useQueue = NO;
+        if (useQueue) {
+            dispatch_sync(dispatch_get_main_queue(), dispatchEventBlk);
+        }
+        else {
+            [[NSThread currentThread] db_performBlockOnMainThread:dispatchEventBlk waitUntilDone:YES];
+        }
     } else {
         dispatchEventBlk();
     }
@@ -254,6 +267,9 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 {
 #pragma unused(options)
     
+    // contract
+    NSAssert([NSThread currentThread] == [NSThread mainThread], @"Dispatch event not on main thread");
+              
     // get the instance representing the managed object
     DBManagedObject *sender = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
     

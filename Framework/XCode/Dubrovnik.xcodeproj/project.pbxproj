@@ -42,6 +42,8 @@
 		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB4919251CF9DA6800B4A411 /* NSThread+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */; };
+		AB4919261CF9DA6800B4A411 /* NSThread+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4919241CF9DA6800B4A411 /* NSThread+Dubrovnik.m */; };
 		AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E431178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E42F178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m */; };
 		AB49E434178ABAAE00D01244 /* NSNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E432178ABAAD00D01244 /* NSNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -190,6 +192,8 @@
 		AB3FB5C417F08B3D003E5304 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libJudy.README.txt; sourceTree = "<group>"; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
+		AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+Dubrovnik.h"; sourceTree = "<group>"; };
+		AB4919241CF9DA6800B4A411 /* NSThread+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+Dubrovnik.h"; sourceTree = "<group>"; };
 		AB49E42F178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB49E432178ABAAD00D01244 /* NSNumber+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Dubrovnik.h"; sourceTree = "<group>"; };
@@ -496,6 +500,8 @@
 				ABD1CC2119A905FC0072F538 /* NSPointerArray+Dubrovnik.m */,
 				AB6A752B19A9307000CDE475 /* NSArray+Dubrovnik.h */,
 				AB6A752C19A9307000CDE475 /* NSArray+Dubrovnik.m */,
+				AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */,
+				AB4919241CF9DA6800B4A411 /* NSThread+Dubrovnik.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -746,6 +752,7 @@
 				93365A8F0872370700EC726F /* DBManagedObject.h in Headers */,
 				9DF2367B0874E3CC008A199C /* NSData+Dubrovnik.h in Headers */,
 				9D021BFE08811729003E48C1 /* DBInvoke.h in Headers */,
+				AB4919251CF9DA6800B4A411 /* NSThread+Dubrovnik.h in Headers */,
 				9D13A6EE08833E74008ACA37 /* DBBoxing.h in Headers */,
 				9D8BE9670886152500D019A5 /* NSCategories.h in Headers */,
 				9D8BE971088615D200D019A5 /* DBUtility.h in Headers */,
@@ -882,6 +889,7 @@
 				9D021BFF08811729003E48C1 /* DBInvoke.m in Sources */,
 				9D69DC4408B1851E008BB787 /* DBManagedEnvironment.m in Sources */,
 				ABD1CC2319A905FC0072F538 /* NSPointerArray+Dubrovnik.m in Sources */,
+				AB4919261CF9DA6800B4A411 /* NSThread+Dubrovnik.m in Sources */,
 				9D68AF5508EA1569002C7AB0 /* NSDate+Dubrovnik.m in Sources */,
 				ABB8A3DF18FF0F4400213B80 /* NSString+Dubrovnik.m in Sources */,
 				9D496B3009082F6700CD26AF /* NSImage+Dubrovnik.m in Sources */,
