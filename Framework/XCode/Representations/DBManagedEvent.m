@@ -15,7 +15,7 @@
 #import "NSPointerArray+Dubrovnik.h"
 #import "NSThread+Dubrovnik.h"
 
-#define DB_TRACE
+//#define DB_TRACE
 //#define DB_TRACE_STATIC_EVENT_HANDLER
 
 @implementation DBManagedEvent
