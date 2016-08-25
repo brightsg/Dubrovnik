@@ -64,6 +64,7 @@
 
 #import "System_ICloneable.h"
 #import "System_IDisposable.h"
+#import "System_IEquatableA1.h"
 
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_AsyncCallback.h"

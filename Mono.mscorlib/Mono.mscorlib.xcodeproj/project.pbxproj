@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5351D4BE1D6F590F00D34EFF /* System_IEquatableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = 5351D4BD1D6F590F00D34EFF /* System_IEquatableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5351D4C01D6F596B00D34EFF /* System_IEquatableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5351D4BF1D6F596B00D34EFF /* System_IEquatableA1.m */; };
 		AB0BD3CE1AC18A10009F4FEE /* System_ActionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB0BD3CF1AC18A10009F4FEE /* System_ActionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */; };
 		AB11F3761C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB11F3741C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -175,6 +177,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5351D4BD1D6F590F00D34EFF /* System_IEquatableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IEquatableA1.h; sourceTree = "<group>"; };
+		5351D4BF1D6F596B00D34EFF /* System_IEquatableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IEquatableA1.m; sourceTree = "<group>"; };
 		AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ActionA1.h; sourceTree = "<group>"; };
 		AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ActionA1.m; sourceTree = "<group>"; };
 		AB11F3741C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_ICollectionA1.h; sourceTree = "<group>"; };
@@ -528,6 +532,8 @@
 				AB3FD4F91C7609A80037899F /* System_ICloneable.m */,
 				AB3FD4F41C76098B0037899F /* System_IDisposable.h */,
 				AB3FD4F51C76098B0037899F /* System_IDisposable.m */,
+				5351D4BD1D6F590F00D34EFF /* System_IEquatableA1.h */,
+				5351D4BF1D6F596B00D34EFF /* System_IEquatableA1.m */,
 				ABB8A3F518FF110000213B80 /* System_IO_FileInfo.h */,
 				ABB8A3F618FF110000213B80 /* System_IO_FileInfo.m */,
 				AB2E744B18FFCD420061C63E /* System_IO_Stream.h */,
@@ -669,6 +675,7 @@
 				AB5F417D1CE280FB00026E36 /* DBGenericManager.h in Headers */,
 				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
 				AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */,
+				5351D4BE1D6F590F00D34EFF /* System_IEquatableA1.h in Headers */,
 				AB5D13E21B71059D0028B42B /* System_DateTimeKind.h in Headers */,
 				AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */,
 				AB2E74C718FFDB0D0061C63E /* Categories.h in Headers */,
@@ -864,6 +871,7 @@
 				ABB8A40D18FF110000213B80 /* System_IAsyncResult.m in Sources */,
 				ABFEED051C89BB3D0060F305 /* System_FuncA1.m in Sources */,
 				AB3FD4FB1C7609A80037899F /* System_ICloneable.m in Sources */,
+				5351D4C01D6F596B00D34EFF /* System_IEquatableA1.m in Sources */,
 				ABB8A41918FF113800213B80 /* System_Object+mscorlib.m in Sources */,
 				AB2E745218FFCD420061C63E /* System_IO_Stream.m in Sources */,
 				ABCAE55B1AA90C8A0006453A /* System_Reflection_MethodBase.m in Sources */,
