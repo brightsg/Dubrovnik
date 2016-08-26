@@ -3,4 +3,4 @@
 	url = https://github.com/ThesaurusSoftware/OrderedDictionary
 [submodule "Submodules/Mono"]
 	path = Submodules/Mono
-	url = https://github.com/mono/mono
+	url = https://github.com/ThesaurusSoftware/mono
