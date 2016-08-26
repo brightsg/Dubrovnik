@@ -4,3 +4,6 @@
 [submodule "Submodules/Mono"]
 	path = Submodules/Mono
 	url = https://github.com/ThesaurusSoftware/mono
+[submodule "Submodules/Mono.Embedding"]
+	path = Submodules/Mono.Embedding
+	url = https://github.com/ThesaurusSoftware/Mono.Embedding
