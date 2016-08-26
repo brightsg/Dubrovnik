@@ -32,9 +32,33 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Submodules\Mono.Embedding\Mono.Embedding\ActionWrappers.cs">
+      <Link>Mono.Embedding\ActionWrappers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Submodules\Mono.Embedding\Mono.Embedding\EntryPoint.cs">
+      <Link>Mono.Embedding\EntryPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Submodules\Mono.Embedding\Mono.Embedding\FuncWrappers.cs">
+      <Link>Mono.Embedding\FuncWrappers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Submodules\Mono.Embedding\Mono.Embedding\GenericServices.cs">
+      <Link>Mono.Embedding\GenericServices.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Submodules\Mono.Embedding\Mono.Embedding\NativeDelegateServices.cs">
+      <Link>Mono.Embedding\NativeDelegateServices.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Submodules\Mono.Embedding\Mono.Embedding\ThunkAttribute.cs">
+      <Link>Mono.Embedding\ThunkAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Submodules\Mono.Embedding\Mono.Embedding\UniversalDelegateServices.cs">
+      <Link>Mono.Embedding\UniversalDelegateServices.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GenericHelper.cs" />
     <Compile Include="GCHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mono.Embedding\Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
