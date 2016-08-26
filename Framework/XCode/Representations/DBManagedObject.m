@@ -138,7 +138,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
-#pragma mark Type and Class
+#pragma mark Mono type, class and method info
 
 + (MonoClass *)monoClass
 {
@@ -157,6 +157,32 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         classRep =  [DBManagedClass classWithMonoClass:[self monoClass]];
     }
     return classRep;
+}
+
++ (int)monoMethodCount:(MonoClass *)klass
+{
+    int methodCount = mono_class_num_methods(klass);
+    return methodCount;
+}
+
++ (const char *)monoClassTypeName:(MonoClass *)klass
+{
+    MonoType *monoType = mono_class_get_type(klass);
+    const char *value = mono_type_get_name(monoType);
+    
+    return value;
+}
+
++ (const char *)monoClassName:(MonoClass *)klass
+{
+    const char *value = mono_class_get_name(klass);
+    return value;
+}
+
++ (const char *)monoClassNamespace:(MonoClass *)klass
+{
+    const char *value = mono_class_get_namespace(klass);
+    return value;
 }
 
 #pragma mark -
@@ -356,7 +382,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
             
             for (NSInteger i = 0; i < genericParameterCount; i++) {
                 
-                // TODO: this is inefficient for genericParameterCount > 1, see implementation of -getMonoGenericTypeAtIndex:
+                // NOTE: this is inefficient for genericParameterCount > 1, see implementation of -getMonoGenericTypeAtIndex:
                 MonoType *genericType = [self getMonoGenericTypeAtIndex:i];
                 
                 NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:genericType];
@@ -429,7 +455,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     
     // we only want to auto configure observers for primary instances.
     // if this is not done now it will be done on demand when observers are installed
-    BOOL preconfigurePrimaryInstanceAutoPropertyChange = NO;    // TODO: perhaps make this a config property
+    BOOL preconfigurePrimaryInstanceAutoPropertyChange = NO;    // NOTE: perhaps make this a config property
     if (self.isPrimaryInstance && preconfigurePrimaryInstanceAutoPropertyChange) {
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
     }
@@ -615,6 +641,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
+#pragma mark Mono
 
 - (MonoClass *)monoClass {
 	return mono_object_get_class(self.monoObject);
@@ -697,6 +724,29 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return [self.monoEnvironment loadedAssemblyWithName:[[self class] monoAssemblyName]];
 }
 
+- (int)monoMethodCount
+{
+    int methodCount = [[self class] monoMethodCount:[self monoClass]];
+    return methodCount;
+}
+
+- (const char *)monoClassName
+{
+    const char *value = [[self class] monoClassName:[self monoClass]];
+    return value;
+}
+
+- (char *)monoTypeName
+{
+    return mono_type_get_name([self monoType]);
+}
+
+- (const char *)monoClassNamespace
+{
+    const char *value = [[self class] monoClassNamespace:[self monoClass]];
+    return value;
+}
+
 #pragma mark -
 #pragma mark Method Invocation
 
@@ -772,7 +822,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 		}
 	}
 }
-
 
 - (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs, ... {
     va_list va_args;
@@ -878,7 +927,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 - (MonoMethod *)makeGenericMethod:(MonoReflectionMethod*)methodInfo genericParameterType:(MonoType *)genericParameterType
 {
     
-    // TODO: Allow calling of methods with multiple generic arguments.
+    // Note: Allow calling of methods with multiple generic arguments.
     
     // get the generic method helper method
     MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod_1" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
@@ -1122,7 +1171,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // So the managed layer should implement both INotifyPropertyChanging and INotifyPropertyChanged.
     // However, it is easy, especially when issuing manual notify property changes to corrupt the pairing.
     // Thus we may choose to track the change notifications and log errors
-    BOOL trackChangeNotifications = YES;    // TODO: make this a configuration option?
+    BOOL trackChangeNotifications = YES;    // make this a configuration option?
     if (trackChangeNotifications && ![self trackWillChangeValueForKey:key]) {
         return;
     }
@@ -1234,9 +1283,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return keys;
 }
 
-#pragma mark -
-#pragma mark KVO
-
 - (void)bind:(NSString *)binding toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary<NSString *,id> *)options
 {
     
@@ -1272,133 +1318,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #endif
     
     [super removeObserver:observer forKeyPath:keyPath context:context];
-}
-
-#pragma mark -
-#pragma mark Mono info
-
-- (void)logMonoClassInfo
-{
-    [[self class] logMonoClassInfo];
-}
-
-- (int)monoMethodCount
-{
-    int methodCount = [[self class] monoMethodCount:[self monoClass]];
-    return methodCount;
-}
-
-
-- (const char *)monoClassName
-{
-    const char *value = [[self class] monoClassName:[self monoClass]];
-    return value;
-}
-
-- (char *)monoTypeName
-{
-    return mono_type_get_name([self monoType]);
-}
-
-- (const char *)monoClassNamespace
-{
-    const char *value = [[self class] monoClassNamespace:[self monoClass]];
-    return value;
-}
-
-// TODO: there is duplication bettwen these convenience methods and those supplied by DBType.
-// DBType should be canoncial.
-
-
-// TODO: all accessor that operate on char * should include UTF8 string in their selector name.
-//
-
-+ (int)monoMethodCount:(MonoClass *)klass
-{
-    int methodCount = mono_class_num_methods(klass);
-    return methodCount;
-}
-
-+ (const char *)monoClassTypeName:(MonoClass *)klass
-{
-    MonoType *monoType = mono_class_get_type(klass);
-    const char *value = mono_type_get_name(monoType);
-    
-    return value;
-}
-
-+ (const char *)monoClassName:(MonoClass *)klass
-{
-    const char *value = mono_class_get_name(klass);
-    return value;
-}
-
-+ (const char *)monoClassNamespace:(MonoClass *)klass
-{
-    const char *value = mono_class_get_namespace(klass);
-    return value;
-}
-
-+ (void)logMonoClassInfo
-{
-    [self logMonoClassInfo:[self monoClass]];
-}
-
-+ (void)logMonoClassNameInfo:(MonoClass *)klass
-{
-    NSLog(@"Class namespace : %s", [self monoClassNamespace:klass]);
-    NSLog(@"Class name : %s", [self monoClassName:klass]);
-    NSLog(@"Class type name : %s", [self monoClassTypeName:klass]);
-}
-
-+ (void)logMonoClassMethodInfo:(MonoClass *)klass
-{
-    // methods
-    NSLog(@"Method count : %d", [self monoMethodCount:klass]);
-    
-    while (klass != NULL) {
-        void *iter = NULL;
-        
-        while (YES) {
-            MonoMethod *availableMethod = mono_class_get_methods (klass, &iter);
-            if (iter == NULL || availableMethod == NULL) break;
-            char *methodName = mono_method_full_name(availableMethod, YES);
-            NSLog(@"Method name: %s", methodName);
-        }
-        
-        // interfaces
-        iter = NULL;
-        while (YES) {
-            MonoClass *interface = mono_class_get_interfaces (klass, &iter);
-            if (iter == NULL || interface == NULL) break;
-            const char *interfaceName = mono_class_get_name(interface);
-            NSLog(@"Interface name: %s", interfaceName);
-        }
-        
-        klass = mono_class_get_parent(klass);
-    }
-}
-
-+ (void)logMonoClassNestedTypesInfo:(MonoClass *)klass
-{
-    void *iter = NULL;
-    
-    while (YES) {
-        MonoClass *nestedClass = mono_class_get_nested_types (klass, &iter);
-        if (iter == NULL || nestedClass == NULL) break;
-
-        NSString *nestedClassName = [DBType monoFullyQualifiedClassNameForMonoClass:nestedClass];
-        NSLog(@"Nested class name: %@", nestedClassName);
-    }
-}
-
-+ (void)logMonoClassInfo:(MonoClass *)klass
-{
-    NSLog(@"\n\n============== Mono Class Info ========================\n\n");
-    // derived from https://github.com/mono/mono/blob/master/samples/embed/test-metadata.c
-    
-    [self logMonoClassNameInfo:klass];
-    [self logMonoClassMethodInfo:klass];
 }
 
 @end
