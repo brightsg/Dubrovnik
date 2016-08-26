@@ -292,19 +292,12 @@ extern char DBCacheSuffixChar;
 
 // Mono info
 - (int)monoMethodCount;
-- (void)logMonoClassInfo;
-+ (void)logMonoClassNameInfo:(MonoClass *)klass;
-+ (void)logMonoClassMethodInfo:(MonoClass *)klass;
 - (const char *)monoClassName;
 - (const char *)monoClassNamespace;
-+ (void)logMonoClassInfo;
-+ (void)logMonoClassInfo:(MonoClass *)klass;
 + (int)monoMethodCount:(MonoClass *)klass;
 + (const char *)monoClassName:(MonoClass *)klass;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
 + (const char *)monoClassTypeName:(MonoClass *)klass;
-+ (void)logMonoClassNestedTypesInfo:(MonoClass *)klass;
-
 + (void)registerInternalCall:(NSString *)methodName callPointer:(void *)callPointer;
 
 @end

@@ -41,6 +41,8 @@
 		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */; };
+		AB4759761D7083D100C3319C /* DBManagedObject+Logging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB4759771D7083D100C3319C /* DBManagedObject+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AB4919251CF9DA6800B4A411 /* NSThread+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */; };
 		AB4919261CF9DA6800B4A411 /* NSThread+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4919241CF9DA6800B4A411 /* NSThread+Dubrovnik.m */; };
@@ -191,6 +193,8 @@
 		AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "make-mono64-bundle.sh"; path = "../../Scripts/make-mono64-bundle.sh"; sourceTree = "<group>"; };
 		AB3FB5C417F08B3D003E5304 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libJudy.README.txt; sourceTree = "<group>"; };
+		AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBManagedObject+Logging.h"; sourceTree = "<group>"; };
+		AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBManagedObject+Logging.m"; sourceTree = "<group>"; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
 		AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+Dubrovnik.h"; sourceTree = "<group>"; };
 		AB4919241CF9DA6800B4A411 /* NSThread+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Dubrovnik.m"; sourceTree = "<group>"; };
@@ -454,6 +458,8 @@
 				ABCF4AB7199ABD44009BE714 /* DBManagedApplication.m */,
 				AB031D0219C9B46000C80422 /* DBPrimaryInstanceCache.h */,
 				AB031D0319C9B46000C80422 /* DBPrimaryInstanceCache.m */,
+				AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */,
+				AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */,
 			);
 			path = Representations;
 			sourceTree = "<group>";
@@ -730,6 +736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF960DE1A3F0B68008AD72C /* OrderedDictionary.h in Headers */,
+				AB4759761D7083D100C3319C /* DBManagedObject+Logging.h in Headers */,
 				ABF960D81A3F0A15008AD72C /* DBMutableOrderedDictionary.h in Headers */,
 				ABF960DA1A3F0A15008AD72C /* DBOrderedDictionary.h in Headers */,
 				ABF4846F19D1DCC000769746 /* DBManagedObjectThread.h in Headers */,
@@ -901,6 +908,7 @@
 				ABF4847019D1DCC000769746 /* DBManagedObjectThread.m in Sources */,
 				ABF43FB9179FF4FC00BAB99E /* DBManagedMethod.m in Sources */,
 				AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */,
+				AB4759771D7083D100C3319C /* DBManagedObject+Logging.m in Sources */,
 				ABF960DF1A3F0B68008AD72C /* OrderedDictionary.m in Sources */,
 				AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */,
 				AB91B69C18EE04570021B462 /* NSObject+DBManagedEvent.m in Sources */,
