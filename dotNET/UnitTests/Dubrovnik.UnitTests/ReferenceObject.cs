@@ -66,7 +66,15 @@ namespace Dubrovnik.UnitTests
 		public event EventHandler UnitTestEvent1;
 		public event EventHandler UnitTestEvent2;
 		public event PropertyChangedEventHandler PropertyChanged;
-        public event PropertyChangingEventHandler PropertyChanging;
+		public event PropertyChangingEventHandler PropertyChanging;
+
+		//==============================
+		// delegates
+		//==============================
+		public delegate void SimpleDelegate();
+		public delegate void ActionDelegate(string message);
+		public delegate int FunctionDelegate1(System.Object @object);
+		public delegate int FunctionDelegate2(IntPtr nativeObject, string message);
 
 		//==============================
 		// statics

@@ -2,7 +2,7 @@
 //
 // Managed interface : IReferenceObject1
 //
-@interface Dubrovnik_UnitTests_IReferenceObject1 : System_Object <Dubrovnik_UnitTests_IReferenceObject1, Dubrovnik_UnitTests_IReferenceObjectBase>
+@interface Dubrovnik_UnitTests_IReferenceObject1 : System_Object <Dubrovnik_UnitTests_IReferenceObject1_, Dubrovnik_UnitTests_IReferenceObjectBase_>
 
 #pragma mark -
 #pragma mark Setup

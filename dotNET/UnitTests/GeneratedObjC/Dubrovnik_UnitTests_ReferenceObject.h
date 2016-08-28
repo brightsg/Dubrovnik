@@ -2,7 +2,7 @@
 //
 // Managed class : ReferenceObject
 //
-@interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject, Dubrovnik_UnitTests_IReferenceObject1, Dubrovnik_UnitTests_IReferenceObjectBase, Dubrovnik_UnitTests_IReferenceObject2>
+@interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject_, Dubrovnik_UnitTests_IReferenceObject1_, Dubrovnik_UnitTests_IReferenceObjectBase_, Dubrovnik_UnitTests_IReferenceObject2_>
 
 #pragma mark -
 #pragma mark Setup
@@ -257,7 +257,7 @@
 	// Managed method name : AddIEnumerable
 	// Managed return type : System.String
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-    - (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1;
+    - (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : ClassDescription
 	// Managed return type : System.String

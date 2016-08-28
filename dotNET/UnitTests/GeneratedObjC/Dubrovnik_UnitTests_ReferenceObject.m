@@ -990,7 +990,7 @@
 	// Managed method name : AddIEnumerable
 	// Managed return type : System.String
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-    - (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1
+    - (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoValue]];

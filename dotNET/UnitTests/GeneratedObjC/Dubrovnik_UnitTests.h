@@ -9,11 +9,11 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     19/02/2016 11:53:22
+// Date:     28/08/2016 18:51:28
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.5527.28221, Culture=neutral, PublicKeyToken=null
-// Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6084.31939, Culture=neutral, PublicKeyToken=null
+// Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
 // OS Arch:  64 bit
@@ -121,11 +121,39 @@
 #define DUReferenceObject_ Dubrovnik_UnitTests_ReferenceObject
 #endif
 
+@class Dubrovnik_UnitTests_ReferenceObject__ActionDelegate;
+#ifdef DUReferenceObject_ActionDelegate_
+#warning DUReferenceObject_ActionDelegate_ class name collision.
+#else
+#define DUReferenceObject_ActionDelegate_ Dubrovnik_UnitTests_ReferenceObject__ActionDelegate
+#endif
+
+@class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1;
+#ifdef DUReferenceObject_FunctionDelegate1_
+#warning DUReferenceObject_FunctionDelegate1_ class name collision.
+#else
+#define DUReferenceObject_FunctionDelegate1_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1
+#endif
+
+@class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2;
+#ifdef DUReferenceObject_FunctionDelegate2_
+#warning DUReferenceObject_FunctionDelegate2_ class name collision.
+#else
+#define DUReferenceObject_FunctionDelegate2_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2
+#endif
+
 @class Dubrovnik_UnitTests_ReferenceObject__NestedClass;
 #ifdef DUReferenceObject_NestedClass_
 #warning DUReferenceObject_NestedClass_ class name collision.
 #else
 #define DUReferenceObject_NestedClass_ Dubrovnik_UnitTests_ReferenceObject__NestedClass
+#endif
+
+@class Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate;
+#ifdef DUReferenceObject_SimpleDelegate_
+#warning DUReferenceObject_SimpleDelegate_ class name collision.
+#else
+#define DUReferenceObject_SimpleDelegate_ Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate
 #endif
 
 @class Dubrovnik_UnitTests_TestObject;
@@ -224,7 +252,11 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "Dubrovnik_UnitTests_GenericReferenceObjectA2.h"
 #import "Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.h"
 #import "Dubrovnik_UnitTests_ReferenceObject.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__NestedClass.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h"
 #import "Dubrovnik_UnitTests_TestObject.h"
 #import "Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.h"
 #import "Dubrovnik_ClientApplication_IEventHelper.h"
