@@ -48,4 +48,36 @@
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo Auto generate Objective-C bindings. Note that the reflector and generator debug .exe components will be required.
+
+cd "$(ProjectDir)"
+set "OUT_PATH=$(ProjectDir).."
+
+REM Reflection paths
+set "REF_INPUT_FILE=$(TargetDir)Dubrovnik.UnitTests.exe"
+set "REF_OUTPUT_PATH=%25OUT_PATH%25"
+
+REM Generator paths
+set "GEN_INPUT_FILE=%25REF_OUTPUT_PATH%25\Dubrovnik.UnitTests.xml"
+set "GEN_OUTPUT_PATH=%25OUT_PATH%25\GeneratedObjC"
+
+REM delete xml file
+REM del "%25GEN_INPUT_FILE%25" /q
+
+REM delete previously generated bindings
+del "%25GEN_OUTPUT_PATH%25\*.*" /q
+
+REM Set Dubrovnik tool exe paths. Failure will occur if these have not been pre-built.
+set "REFLECTOR_EXE=$(SolutionDir)..\Dubrovnik.Tools\Dubrovnik.Reflector\bin\Debug\Dubrovnik.Reflector.exe"
+set "GENERATOR_EXE=$(SolutionDir)..\Dubrovnik.Tools\Dubrovnik.Generator\bin\Debug\Dubrovnik.Generator.exe"
+
+echo.
+echo Generating reflection XML file
+"%25REFLECTOR_EXE%25" -i "%25REF_INPUT_FILE%25" -o "%25REF_OUTPUT_PATH%25" -v true
+  
+echo.
+echo Generating Obj-C binding code
+ "%25GENERATOR_EXE%25"  -i "%25GEN_INPUT_FILE%25" -o "%25GEN_OUTPUT_PATH%25" -v true</PostBuildEvent>
+  </PropertyGroup>
 </Project>
