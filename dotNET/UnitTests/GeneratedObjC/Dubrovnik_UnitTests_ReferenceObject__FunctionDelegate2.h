@@ -24,8 +24,8 @@
 
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
-	// Managed param types : System.IntPtr, System.String, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginInvoke_withNativeObject:(void *)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
+	// Managed param types : System.Int32, System.String, System.AsyncCallback, System.Object
+    - (id <System_IAsyncResult>)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
 
 	// Managed method name : EndInvoke
 	// Managed return type : System.Int32
@@ -34,7 +34,7 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Int32
-	// Managed param types : System.IntPtr, System.String
-    - (int32_t)invoke_withNativeObject:(void *)p1 message:(NSString *)p2;
+	// Managed param types : System.Int32, System.String
+    - (int32_t)invoke_withValue:(int32_t)p1 message:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator

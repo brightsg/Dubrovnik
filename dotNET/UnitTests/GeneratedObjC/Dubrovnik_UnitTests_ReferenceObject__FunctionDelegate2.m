@@ -43,11 +43,11 @@
 
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
-	// Managed param types : System.IntPtr, System.String, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginInvoke_withNativeObject:(void *)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
+	// Managed param types : System.Int32, System.String, System.AsyncCallback, System.Object
+    - (id <System_IAsyncResult>)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(intptr,string,System.AsyncCallback,object)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(int,string,System.AsyncCallback,object)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -65,11 +65,11 @@
 
 	// Managed method name : Invoke
 	// Managed return type : System.Int32
-	// Managed param types : System.IntPtr, System.String
-    - (int32_t)invoke_withNativeObject:(void *)p1 message:(NSString *)p2
+	// Managed param types : System.Int32, System.String
+    - (int32_t)invoke_withValue:(int32_t)p1 message:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(intptr,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(int,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

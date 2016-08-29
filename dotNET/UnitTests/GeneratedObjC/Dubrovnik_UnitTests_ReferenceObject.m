@@ -1075,6 +1075,46 @@
 		return DB_UNBOX_INT32(monoObject);
     }
 
+	// Managed method name : InvokeActionDelegate
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate
+    - (void)invokeActionDelegate_withAction:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1
+    {
+		
+		[self invokeMonoMethod:"InvokeActionDelegate(Dubrovnik.UnitTests.ReferenceObject+ActionDelegate)" withNumArgs:1, [p1 monoValue]];;
+        
+    }
+
+	// Managed method name : InvokeFunctionDelegate1
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1
+    - (void)invokeFunctionDelegate1_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)p1
+    {
+		
+		[self invokeMonoMethod:"InvokeFunctionDelegate1(Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1)" withNumArgs:1, [p1 monoValue]];;
+        
+    }
+
+	// Managed method name : InvokeFunctionDelegate2
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
+    - (void)invokeFunctionDelegate2_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)p1
+    {
+		
+		[self invokeMonoMethod:"InvokeFunctionDelegate2(Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2)" withNumArgs:1, [p1 monoValue]];;
+        
+    }
+
+	// Managed method name : InvokeSimpleDelegate
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate
+    - (void)invokeSimpleDelegate_withDelg:(Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate *)p1
+    {
+		
+		[self invokeMonoMethod:"InvokeSimpleDelegate(Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate)" withNumArgs:1, [p1 monoValue]];;
+        
+    }
+
 	// Managed method name : MixedMethod1
 	// Managed return type : System.String
 	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject

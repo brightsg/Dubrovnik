@@ -67,14 +67,14 @@ namespace Dubrovnik.UnitTests
 		public event EventHandler UnitTestEvent2;
 		public event PropertyChangedEventHandler PropertyChanged;
 		public event PropertyChangingEventHandler PropertyChanging;
-
+		 
 		//==============================
 		// delegates
 		//==============================
 		public delegate void SimpleDelegate();
 		public delegate void ActionDelegate(string message);
 		public delegate int FunctionDelegate1(System.Object @object);
-		public delegate int FunctionDelegate2(IntPtr nativeObject, string message);
+		public delegate int FunctionDelegate2(int value, string message);
 
 		//==============================
 		// statics
@@ -657,6 +657,25 @@ namespace Dubrovnik.UnitTests
                 PropertyChanging(this, new PropertyChangingEventArgs(propertyName));
             }
         }
+
+		 //
+		 // Delegate methods
+		 //
+		  public void InvokeSimpleDelegate(SimpleDelegate delg) {
+			  delg();
+		  }
+
+		  public void InvokeActionDelegate(ActionDelegate action) {
+			  action("Bingo");
+		  }
+
+		  public void InvokeFunctionDelegate1(FunctionDelegate1 func) {
+			  int result = func("Bingo");
+		  }
+
+		  public void InvokeFunctionDelegate2(FunctionDelegate2 func) {
+			  int result = func(101, "Birdshot");
+		  }
 
 		//=========================
 		// Event generation
