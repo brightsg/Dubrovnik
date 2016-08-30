@@ -843,7 +843,15 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (parameter.IsByRef || parameter.IsPointer) 
 		{
 			monoParameterType = parameter.ElementType;
-        }
+      }
+
+		// The mono_method_desc * APIs prefix nested classes with a '/' rather than a '+'
+		// The approach used here is trivial and is likely fragile.
+		// We probably need a separate mono param type builder like that found in debug-helpers.c append_class_name().
+		// Note that Delegates will present as nested classes.
+		if (parameter.IsNested) {
+			monoParameterType = monoParameterType.Replace("+", "/");
+		}
 
 		//
 		// build the ObjC method interleaved parameter representation
@@ -904,26 +912,26 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (idx > 0) monoSigBuilder.Append(",");
 		string monoParameterTypeInvoke = null;
  
-		// if type is a a GenericParameter
+		// if type is a GenericParameter
 		if (parameter.IsGenericParameter) {
 
 			// generic parameters must have an associate
 			if (managedTypeAssociate == null) {
-				 throw new Exception("Missing managed type association for generic parameter."); 
-            }
+				throw new Exception("Missing managed type association for generic parameter."); 
+			}
 
 			monoParameterTypeInvoke = managedTypeAssociate.ManagedTypeInvoke;
 			if (parameter.IsArray)  
 			{
 				monoParameterTypeInvoke += "[]";
-            }
+         }
 			
 			// in order for the C api to substitute the correct type at run time
 			// the generic parameter position needs to be indicated.
 			monoParameterTypeInvoke = string.Format(monoParameterTypeInvoke, parameter.GenericParameterPosition);
-        } else {
+		} else {
 			monoParameterTypeInvoke = ManagedTypeInvokeFromManagedType(monoParameterType);
-        }
+		}
 
 		monoSigBuilder.Append(monoParameterTypeInvoke);
 		if (parameter.IsPointer) 

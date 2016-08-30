@@ -63,6 +63,12 @@ namespace Dubrovnik.Tools
 			// Interface
 			if (type.IsInterface) xtw.WriteAttributeString("IsInterface", Boolean.TrueString);
 
+			// Delegate
+			if (type.IsAssignableFrom(typeof(Delegate))) xtw.WriteAttributeString("IsDelegate", Boolean.TrueString);
+
+			// Nested
+			if (type.IsNested) xtw.WriteAttributeString("IsNested", Boolean.TrueString);
+
 			// Element types
 			//
 			// Array[], pointer* and by ref types

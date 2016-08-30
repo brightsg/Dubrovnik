@@ -39,6 +39,8 @@ namespace Dubrovnik.Tools
             IsValueType = XElementAttributeBool(xelement, "IsValueType");
             IsByRef = XElementAttributeBool(xelement, "IsByRef");
             IsInterface = XElementAttributeBool(xelement, "IsInterface");
+				IsDelegate = XElementAttributeBool(xelement, "IsDelegate");
+				IsNested = XElementAttributeBool(xelement, "IsNested");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
             IsPointer = XElementAttributeBool(xelement, "IsPointer");
             IsArray = XElementAttributeBool(xelement, "IsArray");
@@ -90,6 +92,8 @@ namespace Dubrovnik.Tools
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }
         public bool IsInterface { get; private set; }
+		  public bool IsDelegate { get; private set; }
+		  public bool IsNested { get; private set; }
         public string BaseName { get; private set; }
         public string BaseType { get; private set; }
         public string UnderlyingType { get; private set; }
