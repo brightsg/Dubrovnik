@@ -2330,7 +2330,15 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (parameter.IsByRef || parameter.IsPointer) 
 		{
 			monoParameterType = parameter.ElementType;
-        }
+      }
+
+		// The mono_method_desc * APIs prefix nested classes with a '/' rather than a '+'
+		// The approach used here is trivial and is likely fragile.
+		// We probably need a separate mono param type builder like that found in debug-helpers.c append_class_name().
+		// Note that Delegates will present as nested classes.
+		if (parameter.IsNested) {
+			monoParameterType = monoParameterType.Replace("+", "/");
+		}
 
 		//
 		// build the ObjC method interleaved parameter representation
@@ -2391,26 +2399,26 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (idx > 0) monoSigBuilder.Append(",");
 		string monoParameterTypeInvoke = null;
  
-		// if type is a a GenericParameter
+		// if type is a GenericParameter
 		if (parameter.IsGenericParameter) {
 
 			// generic parameters must have an associate
 			if (managedTypeAssociate == null) {
-				 throw new Exception("Missing managed type association for generic parameter."); 
-            }
+				throw new Exception("Missing managed type association for generic parameter."); 
+			}
 
 			monoParameterTypeInvoke = managedTypeAssociate.ManagedTypeInvoke;
 			if (parameter.IsArray)  
 			{
 				monoParameterTypeInvoke += "[]";
-            }
+         }
 			
 			// in order for the C api to substitute the correct type at run time
 			// the generic parameter position needs to be indicated.
 			monoParameterTypeInvoke = string.Format(monoParameterTypeInvoke, parameter.GenericParameterPosition);
-        } else {
+		} else {
 			monoParameterTypeInvoke = ManagedTypeInvokeFromManagedType(monoParameterType);
-        }
+		}
 
 		monoSigBuilder.Append(monoParameterTypeInvoke);
 		if (parameter.IsPointer) 
@@ -2556,112 +2564,112 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
         #line default
         #line hidden
         
-        #line 1067 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1075 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t// Managed method name : ");
 
         
         #line default
         #line hidden
         
-        #line 1069 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1077 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(isConstructorMethod ? ".ctor" : monoMethodName));
 
         
         #line default
         #line hidden
         
-        #line 1069 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1077 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t// Managed return type : ");
 
         
         #line default
         #line hidden
         
-        #line 1070 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1078 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet)));
 
         
         #line default
         #line hidden
         
-        #line 1070 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1078 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t// Managed param types : ");
 
         
         #line default
         #line hidden
         
-        #line 1071 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1079 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(WriteFacetTypeInfo(facet.Parameters)));
 
         
         #line default
         #line hidden
         
-        #line 1071 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1079 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n    ");
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodType));
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" (");
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(")");
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodName));
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(objCMethodParameters));
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(LT));
 
         
         #line default
         #line hidden
         
-        #line 1072 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1080 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1073 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1081 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 		
 	if (OutputFileType == OutputType.Implementation) 
 	{
@@ -2673,75 +2681,16 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 1079 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1087 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("    {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1081 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1089 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 		if (objCTypeDecl == "void") 
-		{
-
-        
-        #line default
-        #line hidden
-        
-        #line 1084 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write("\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 1085 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(referencePreProcessBuilder.ToString()));
-
-        
-        #line default
-        #line hidden
-        
-        #line 1085 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write("\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 1086 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
-
-        
-        #line default
-        #line hidden
-        
-        #line 1086 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(";\r\n        ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 1087 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(referencePostProcessBuilder.ToString()));
-
-        
-        #line default
-        #line hidden
-        
-        #line 1087 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write("\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 1088 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-
-		} 
-		else if (isConstructorMethod) 
 		{
 
         
@@ -2770,20 +2719,6 @@ this.Write("\r\n\t\t");
         #line hidden
         
         #line 1094 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
-
-        
-        #line default
-        #line hidden
-        
-        #line 1094 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(" object = ");
-
-        
-        #line default
-        #line hidden
-        
-        #line 1094 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
@@ -2805,13 +2740,86 @@ this.Write(this.ToStringHelper.ToStringWithCulture(referencePostProcessBuilder.T
         #line hidden
         
         #line 1095 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write("\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 1096 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+
+		} 
+		else if (isConstructorMethod) 
+		{
+
+        
+        #line default
+        #line hidden
+        
+        #line 1100 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write("\t\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 1101 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(referencePreProcessBuilder.ToString()));
+
+        
+        #line default
+        #line hidden
+        
+        #line 1101 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write("\r\n\t\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 1102 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(objCTypeDecl));
+
+        
+        #line default
+        #line hidden
+        
+        #line 1102 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(" object = ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 1102 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
+
+        
+        #line default
+        #line hidden
+        
+        #line 1102 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(";\r\n        ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 1103 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(referencePostProcessBuilder.ToString()));
+
+        
+        #line default
+        #line hidden
+        
+        #line 1103 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n        return object;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1097 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1105 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 		} 
 		else 
@@ -2822,84 +2830,84 @@ this.Write("\r\n        return object;\r\n");
         #line default
         #line hidden
         
-        #line 1102 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1110 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 1103 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1111 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(referencePreProcessBuilder.ToString()));
 
         
         #line default
         #line hidden
         
-        #line 1103 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1111 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t\tMonoObject *");
 
         
         #line default
         #line hidden
         
-        #line 1104 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1112 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ManagedVariableName));
 
         
         #line default
         #line hidden
         
-        #line 1104 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1112 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 1104 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1112 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
 
         
         #line default
         #line hidden
         
-        #line 1104 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1112 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 1105 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1113 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(referencePostProcessBuilder.ToString()));
 
         
         #line default
         #line hidden
         
-        #line 1105 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1113 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n\t\treturn ");
 
         
         #line default
         #line hidden
         
-        #line 1106 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1114 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(managedValueToObjC));
 
         
         #line default
         #line hidden
         
-        #line 1106 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1114 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(";\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1107 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1115 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 	
 		}// if objCTypeDecl
 
@@ -2907,14 +2915,14 @@ this.Write(";\r\n");
         #line default
         #line hidden
         
-        #line 1109 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1117 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("    }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 1111 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 1119 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 	} // if Implementation
 }
