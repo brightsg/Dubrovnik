@@ -22,6 +22,8 @@
 #import "System_StringComparison.h"
 #import "System_TimeZoneInfo.h"
 
+#include "System_IntPtr.h"
+
 #import "System_Convert.h"
 #import "System_Enum.h"
 #import "System_EventArgs.h"

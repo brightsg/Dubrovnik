@@ -57,6 +57,8 @@
 		AB3FD4F71C76098B0037899F /* System_IDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD4F51C76098B0037899F /* System_IDisposable.m */; };
 		AB3FD4FA1C7609A80037899F /* System_ICloneable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4F81C7609A80037899F /* System_ICloneable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FD4FB1C7609A80037899F /* System_ICloneable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD4F91C7609A80037899F /* System_ICloneable.m */; };
+		AB4279881D75B8350042D68A /* System_IntPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4279861D75B8350042D68A /* System_IntPtr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB4279891D75B8350042D68A /* System_IntPtr.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4279871D75B8350042D68A /* System_IntPtr.m */; };
 		AB50B5E41AC599360030429C /* System_Reflection_AssemblyName.h in Headers */ = {isa = PBXBuildFile; fileRef = AB50B5E01AC599360030429C /* System_Reflection_AssemblyName.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */ = {isa = PBXBuildFile; fileRef = AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */; };
 		AB50B5E61AC599360030429C /* System_Version.h in Headers */ = {isa = PBXBuildFile; fileRef = AB50B5E21AC599360030429C /* System_Version.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -231,6 +233,8 @@
 		AB3FD4F51C76098B0037899F /* System_IDisposable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IDisposable.m; sourceTree = "<group>"; };
 		AB3FD4F81C7609A80037899F /* System_ICloneable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ICloneable.h; sourceTree = "<group>"; };
 		AB3FD4F91C7609A80037899F /* System_ICloneable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ICloneable.m; sourceTree = "<group>"; };
+		AB4279861D75B8350042D68A /* System_IntPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IntPtr.h; sourceTree = "<group>"; };
+		AB4279871D75B8350042D68A /* System_IntPtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IntPtr.m; sourceTree = "<group>"; };
 		AB50B5E01AC599360030429C /* System_Reflection_AssemblyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_AssemblyName.h; sourceTree = "<group>"; };
 		AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_AssemblyName.m; sourceTree = "<group>"; };
 		AB50B5E21AC599360030429C /* System_Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Version.h; sourceTree = "<group>"; };
@@ -489,6 +493,8 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB4279861D75B8350042D68A /* System_IntPtr.h */,
+				AB4279871D75B8350042D68A /* System_IntPtr.m */,
 				AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */,
 				AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */,
 				ABB8A3E418FF110000213B80 /* System_Array.h */,
@@ -717,6 +723,7 @@
 				AB2E743118FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.h in Headers */,
 				AB2E745518FFCD420061C63E /* System_IO_TextReader.h in Headers */,
 				AB2E745F18FFCD8F0061C63E /* System_Exception.h in Headers */,
+				AB4279881D75B8350042D68A /* System_IntPtr.h in Headers */,
 				AB2E742518FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h in Headers */,
 				AB2E744718FFCD0A0061C63E /* System_TimeSpan.h in Headers */,
 				ABB8A41418FF110000213B80 /* System_String.h in Headers */,
@@ -917,6 +924,7 @@
 				ABD5F7D01A6E57660070C02B /* System_DateTime.m in Sources */,
 				AB2E744618FFCD0A0061C63E /* System_Text_Encoding.m in Sources */,
 				AB2E742618FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m in Sources */,
+				AB4279891D75B8350042D68A /* System_IntPtr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

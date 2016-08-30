@@ -2125,28 +2125,33 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)doTestDelegates:(id)refObject class:(Class)testClass
 {
     #pragma unused(testClass)
-    
-    // configure the universal delegate to call back to the static native handler
+
+    // configure the managed universal delegate to call back to the given static native handler.
+    // the univseral manged delegate is designed in such a way that all universal callbacks
+    // use the same internal call. the delegate context passed during the callback is used to
+    // determine the onward routing.
     [System_Delegate registerUniversalDelegate:&UniversalDelegateServices_NativeHandler];
-    
-    [refObject logMonoClassInfo];
     
     // create and invoke universal delegates
     void *context = (__bridge void *)(self);
+    NSLog(@"Native context : %lu", context);
     DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ universalDelegateWithContext:context];
     [simpleDelegate invoke]; // direct invoke
-    //[refObject invokeSimpleDelegate_withDelg:simpleDelegate]; // failing as yet
+    [refObject invokeSimpleDelegate_withDelg:simpleDelegate];
     
     DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ universalDelegateWithContext:context];
     [actionDelegate invoke_withMessage:@"Bingo"]; // direct invoke
+    [refObject invokeActionDelegate_withAction:actionDelegate];
     
     DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ universalDelegateWithContext:context];
     int32_t intResult1 = [functionDelegate1 invoke_withObject:[@"Bullseye" managedString]];
     XCTAssertTrue(intResult1 == 0, DBUEqualityTestFailed); // direct invoke
+    [refObject invokeFunctionDelegate1_withFunc:functionDelegate1];
     
     DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ universalDelegateWithContext:context];
     int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
     XCTAssertTrue(intResult2 == 0, DBUEqualityTestFailed);
+    [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
 }
 
 #pragma mark -
@@ -2154,9 +2159,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 MonoObject *UniversalDelegateServices_NativeHandler(void *context, MonoArray *params)
 {
-    id contextObject = (__bridge id)context;
+    //id contextObject = [[DBTypeManager sharedManager] objectWithMonoObject:context];
+    
+    //MonoObject *boxedTicks = DBMonoObjectGetProperty(context, "Size");
+    //int32_t size = DB_UNBOX_INT32(boxedTicks);
+    int64_t address = *(int64_t *)context;
+    
     NSArray *parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
-    NSLog(@"UniversalDelegateServices_NativeHandler invoked with context : Parameters : %@", parameters);
+    NSLog(@"UniversalDelegateServices_NativeHandler invoked with context : %@ Parameters : %@", context, parameters);
     return NULL;
 } 
 
