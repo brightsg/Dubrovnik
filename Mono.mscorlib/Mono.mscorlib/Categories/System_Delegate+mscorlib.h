@@ -8,6 +8,8 @@
 
 #import "System_Delegate.h"
 
+typedef System_Object *(^DBUniversalDelegateBlock)(NSArray *parameters);
+
 @interface System_Delegate (mscorlib)
 
 /*!
@@ -16,6 +18,13 @@
  
  */
 typedef MonoObject *(*DBUniversalDelegateInternalCallFunc)(void * context, MonoArray *params);
+
+/*!
+ 
+ Registers the default internal call handler (block based).
+ 
+ */
++ (void)registerUniversalDelegate;
 
 /*!
  
@@ -29,5 +38,6 @@ typedef MonoObject *(*DBUniversalDelegateInternalCallFunc)(void * context, MonoA
  Create a universal delegate of the receiver type using the given context.
  
  */
++ (instancetype)universalDelegateWithBlock:(DBUniversalDelegateBlock)block;
 + (instancetype)universalDelegateWithContext:(void *)context;
 @end

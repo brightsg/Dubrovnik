@@ -2130,46 +2130,51 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // the univseral manged delegate is designed in such a way that all universal callbacks
     // use the same internal call. the delegate context passed during the callback is used to
     // determine the onward routing.
-    [System_Delegate registerUniversalDelegate:&UniversalDelegateServices_NativeHandler];
+    [System_Delegate registerUniversalDelegate];
+    
+    // we define a delegate context block to be invoked when delegate called
+    DBUniversalDelegateBlock delegateBlock = nil;
     
     // create and invoke universal delegates
-    void *context = (__bridge void *)(self);
-    NSLog(@"Native context : %lu", context);
-    DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ universalDelegateWithContext:context];
+    
+    // simple
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 0, @"invalid paramaters");
+        return NULL;
+    };
+    DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ universalDelegateWithBlock:delegateBlock];
     [simpleDelegate invoke]; // direct invoke
     [refObject invokeSimpleDelegate_withDelg:simpleDelegate];
     
-    DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ universalDelegateWithContext:context];
+    // action
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bingo"], @"invalid paramaters");
+        return NULL;
+    };
+    DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ universalDelegateWithBlock:delegateBlock];
     [actionDelegate invoke_withMessage:@"Bingo"]; // direct invoke
     [refObject invokeActionDelegate_withAction:actionDelegate];
     
-    DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ universalDelegateWithContext:context];
+    // func 1
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bullseye"], @"invalid paramaters");
+        return [DBNumber numberWithInt:10245].managedObject;
+    };
+    DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ universalDelegateWithBlock:delegateBlock];
     int32_t intResult1 = [functionDelegate1 invoke_withObject:[@"Bullseye" managedString]];
-    XCTAssertTrue(intResult1 == 0, DBUEqualityTestFailed); // direct invoke
+    XCTAssertTrue(intResult1 == 10245, DBUEqualityTestFailed); // direct invoke
     [refObject invokeFunctionDelegate1_withFunc:functionDelegate1];
     
-    DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ universalDelegateWithContext:context];
+    // func 2
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 2 && [parameters[0] isEqual:@(101)] && [parameters[1] isEqualToString:@"Birdshot"], @"invalid paramaters");
+        return [DBNumber numberWithInt:17654].managedObject;
+    };
+    DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ universalDelegateWithBlock:delegateBlock];
     int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
-    XCTAssertTrue(intResult2 == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(intResult2 == 17654, DBUEqualityTestFailed);
     [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
 }
-
-#pragma mark -
-#pragma mark Universal delegate services support
-
-MonoObject *UniversalDelegateServices_NativeHandler(void *context, MonoArray *params)
-{
-    //id contextObject = [[DBTypeManager sharedManager] objectWithMonoObject:context];
-    
-    //MonoObject *boxedTicks = DBMonoObjectGetProperty(context, "Size");
-    //int32_t size = DB_UNBOX_INT32(boxedTicks);
-    int64_t address = *(int64_t *)context;
-    
-    NSArray *parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
-    NSLog(@"UniversalDelegateServices_NativeHandler invoked with context : %@ Parameters : %@", context, parameters);
-    return NULL;
-} 
-
 
 #pragma mark -
 #pragma mark Event handler support

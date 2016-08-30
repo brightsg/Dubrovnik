@@ -10,10 +10,30 @@
 #import "System_Type.h"
 #import "System_IntPtr.h"
 
+// block based universal delegate callback handler
+static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *context, MonoArray *params)
+{
+    // get parameters array
+    NSArray *parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
+    
+    // get context block
+    DBUniversalDelegateBlock contextBlock = (__bridge typeof(contextBlock)) context;
+    
+    // execute block
+    System_Object *object = contextBlock(parameters);
+    
+    return object.monoObject;
+}
+
 @implementation System_Delegate (mscorlib)
 
 #pragma mark -
 #pragma mark Managed delegate services
+
++ (void)registerUniversalDelegate
+{
+    [System_Delegate registerUniversalDelegate:&UniversalDelegateServices_NativeHandler_BlockContext];
+}
 
 // see:
 // http://mono.1490590.n4.nabble.com/Embedded-API-delegate-type-building-td4667556.html
@@ -30,10 +50,13 @@
     mono_add_internal_call(callName.UTF8String, iCallFuncPtr);
 }
 
++ (instancetype)universalDelegateWithBlock:(DBUniversalDelegateBlock)block
+{
+    return [self universalDelegateWithContext:(__bridge void *)(block)];
+}
+
 + (instancetype)universalDelegateWithContext:(void *)context
 {
-    context;
-    
     // get delegate type
     System_Type *delegateType= [self.class db_getType];
     
