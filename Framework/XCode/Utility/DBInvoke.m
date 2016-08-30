@@ -666,6 +666,28 @@ __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * pr
 #pragma mark -
 #pragma mark Method Invocation
 
+MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, int numArgs, ...) {
+    MonoObject *monoException = NULL;
+    MonoObject *monoResult = NULL;
+
+    va_list va_args;
+    va_start(va_args, numArgs);
+    
+    if (method != NULL) {
+        void *monoArgs[numArgs];
+        DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);    // this assumes that all args are void *
+        monoResult = mono_runtime_invoke(method, NULL, monoArgs, &monoException);
+    }
+    
+    va_end(va_args);
+    
+    if (monoException != NULL) {
+        @throw(NSExceptionFromMonoException(monoException, @{}));
+    }
+    
+    return monoResult;
+}
+
 MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int numArgs, va_list va_args) {
 	MonoObject *monoException = NULL;
 	MonoObject *retval = NULL;
@@ -678,7 +700,7 @@ MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int 
 		retval = mono_runtime_invoke(meth, NULL, monoArgs, &monoException);
 	}
 	
-    if(monoException != NULL) {
+    if (monoException != NULL) {
         @throw(NSExceptionFromMonoException(monoException, @{@"DBClassInvokeException" : @(methodName)}));
     }
     
@@ -699,7 +721,7 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, i
 		retval = mono_runtime_invoke(meth, invokeObj, monoArgs, &monoException);
 	}
 	
-    if(monoException != NULL) {
+    if (monoException != NULL) {
         @throw(NSExceptionFromMonoException(monoException, @{@"DBObjectInvokeException" : @(methodName)}));
     }
     

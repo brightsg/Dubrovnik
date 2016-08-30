@@ -114,6 +114,10 @@
 		ABF960DB1A3F0A15008AD72C /* DBOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF960D71A3F0A15008AD72C /* DBOrderedDictionary.m */; };
 		ABF960DE1A3F0B68008AD72C /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF960DC1A3F0B68008AD72C /* OrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF960DF1A3F0B68008AD72C /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF960DD1A3F0B68008AD72C /* OrderedDictionary.m */; };
+		ABF970771D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF970701D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m */; };
+		ABF970781D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF970721D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m */; };
+		ABF970791D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF970741D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m */; };
+		ABF9707A1D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF970761D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -311,6 +315,14 @@
 		ABF960D71A3F0A15008AD72C /* DBOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBOrderedDictionary.m; sourceTree = "<group>"; };
 		ABF960DC1A3F0B68008AD72C /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = ../../../Submodules/OrderedDictionary/OrderedDictionary/OrderedDictionary.h; sourceTree = "<group>"; };
 		ABF960DD1A3F0B68008AD72C /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDictionary.m; path = ../../../Submodules/OrderedDictionary/OrderedDictionary/OrderedDictionary.m; sourceTree = "<group>"; };
+		ABF9706F1D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h; sourceTree = "<group>"; };
+		ABF970701D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m; sourceTree = "<group>"; };
+		ABF970711D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h; sourceTree = "<group>"; };
+		ABF970721D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m; sourceTree = "<group>"; };
+		ABF970731D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h; sourceTree = "<group>"; };
+		ABF970741D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m; sourceTree = "<group>"; };
+		ABF970751D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h; sourceTree = "<group>"; };
+		ABF970761D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,6 +602,14 @@
 		AB8DDC5818EED03A00FEEA8B /* GeneratedObjC */ = {
 			isa = PBXGroup;
 			children = (
+				ABF9706F1D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h */,
+				ABF970701D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m */,
+				ABF970711D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h */,
+				ABF970721D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m */,
+				ABF970731D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h */,
+				ABF970741D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m */,
+				ABF970751D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h */,
+				ABF970761D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m */,
 				ABB375B21986AFF800EE7517 /* Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h */,
 				ABB375B31986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject1_Protocol.h */,
 				ABB375B41986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject2_Protocol.h */,
@@ -923,9 +943,11 @@
 				ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */,
 				ABB2C95D19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject2.m in Sources */,
 				AB4D7BCB18FC342900E7C2D3 /* Dubrovnik_UnitTests_GenericReferenceObjectA2.m in Sources */,
+				ABF9707A1D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m in Sources */,
 				ABB230DA192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectThree.m in Sources */,
 				ABB375BD1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3.m in Sources */,
 				AB4D7BC818FC342900E7C2D3 /* Dubrovnik_ClientApplication_IEventHelper.m in Sources */,
+				ABF970781D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m in Sources */,
 				ABB2C95E19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObjectBase.m in Sources */,
 				AB4D7BCC18FC342900E7C2D3 /* Dubrovnik_UnitTests_IMinimalReferenceObject.m in Sources */,
 				ABB375BE1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1.m in Sources */,
@@ -933,6 +955,7 @@
 				ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */,
 				AB4D7BD018FC342900E7C2D3 /* Dubrovnik_UnitTests_TestObject.m in Sources */,
 				ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */,
+				ABF970791D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m in Sources */,
 				ABB2C9611971C36E001AABA7 /* Dubrovnik_UnitTests_ITestProperty.m in Sources */,
 				AB4D7BC918FC342900E7C2D3 /* Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.m in Sources */,
 				AB4D7BD118FC342900E7C2D3 /* Dubrovnik_UnitTests.m in Sources */,
@@ -947,6 +970,7 @@
 				AB4D7BCE18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject.m in Sources */,
 				AB4D7BCD18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject__NestedClass.m in Sources */,
 				AB4D7BC718FC342900E7C2D3 /* Dubrovnik_ClientApplication_EventHelper.m in Sources */,
+				ABF970771D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m in Sources */,
 				ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

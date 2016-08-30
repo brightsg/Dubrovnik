@@ -1905,6 +1905,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestStructRepresentation:refObject class:testClass];
     [self doTestObjectRepresentation:refObject class:testClass];
     [self doTestArrayListRepresentation:refObject class:testClass];
+    
+    //===================================
+    // Delegates
+    //===================================
+    if (m_runningAutoGenCodeTest) {
+        [self doTestDelegates:refObject class:testClass];
+    }
 }
 
 - (void)doTestEvents:(id)refObject class:(Class)testClass
@@ -2114,6 +2121,45 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
     XCTAssertTrue(targets.count == 0, DBUEqualityTestFailed);
 }
+
+- (void)doTestDelegates:(id)refObject class:(Class)testClass
+{
+    #pragma unused(testClass)
+    
+    // configure the universal delegate to call back to the static native handler
+    [System_Delegate registerUniversalDelegate:&UniversalDelegateServices_NativeHandler];
+    
+    [refObject logMonoClassInfo];
+    
+    // create and invoke universal delegates
+    void *context = (__bridge void *)(self);
+    DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ universalDelegateWithContext:context];
+    [simpleDelegate invoke]; // direct invoke
+    //[refObject invokeSimpleDelegate_withDelg:simpleDelegate]; // failing as yet
+    
+    DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ universalDelegateWithContext:context];
+    [actionDelegate invoke_withMessage:@"Bingo"]; // direct invoke
+    
+    DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ universalDelegateWithContext:context];
+    int32_t intResult1 = [functionDelegate1 invoke_withObject:[@"Bullseye" managedString]];
+    XCTAssertTrue(intResult1 == 0, DBUEqualityTestFailed); // direct invoke
+    
+    DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ universalDelegateWithContext:context];
+    int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
+    XCTAssertTrue(intResult2 == 0, DBUEqualityTestFailed);
+}
+
+#pragma mark -
+#pragma mark Universal delegate services support
+
+MonoObject *UniversalDelegateServices_NativeHandler(void *context, MonoArray *params)
+{
+    id contextObject = (__bridge id)context;
+    NSArray *parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
+    NSLog(@"UniversalDelegateServices_NativeHandler invoked with context : Parameters : %@", parameters);
+    return NULL;
+} 
+
 
 #pragma mark -
 #pragma mark Event handler support

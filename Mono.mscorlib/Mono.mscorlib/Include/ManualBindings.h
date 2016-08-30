@@ -26,6 +26,8 @@
 #import "System_Enum.h"
 #import "System_EventArgs.h"
 #import "System_IAsyncResult.h"
+
+#import "System_Delegate.h"
 #import "System_MulticastDelegate.h"
 
 #import "System_Exception.h"

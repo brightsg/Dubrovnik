@@ -33,6 +33,7 @@
 void DBInvokeLogCache(BOOL freeContents);
 
 //Method Invocation
+MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, int numArgs, ...);
 MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int numArgs, va_list va_args);
 MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, int numArgs, va_list va_args);
 void *DBMonoObjectValue(MonoObject *monoObject);

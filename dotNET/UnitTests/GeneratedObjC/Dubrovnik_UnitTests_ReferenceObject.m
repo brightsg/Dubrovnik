@@ -1111,7 +1111,7 @@
     - (void)invokeSimpleDelegate_withDelg:(Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate *)p1
     {
 		
-		[self invokeMonoMethod:"InvokeSimpleDelegate(Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"InvokeSimpleDelegate(Dubrovnik.UnitTests.ReferenceObject/SimpleDelegate)" withNumArgs:1, [p1 monoValue]];;
         
     }
 

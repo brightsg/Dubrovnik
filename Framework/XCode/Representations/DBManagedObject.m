@@ -622,12 +622,8 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     // invoke the generic helper method to assign specific types to the type parameters in the generic method definition
     // see http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.makegenericmethod.aspx
-    void *hargs [2];
-    hargs [0] = methodInfo;
-    hargs [1] = mono_type_get_object([DBManagedEnvironment currentDomain], genericParameterType);
-    MonoObject *monoException = NULL;
-    MonoObject *boxedGenericMethod = mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
-    if (monoException) NSRaiseExceptionFromMonoException(monoException, @{});
+    MonoReflectionType* parameterType = mono_type_get_object([DBManagedEnvironment currentDomain], genericParameterType);
+    MonoObject *boxedGenericMethod = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, parameterType);
     
     /*
      mono_runtime_invoke always returns a MonoObject *. Un-boxing gives us a pointer to the value, a MonoMethod*.
@@ -1004,14 +1000,8 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     // get generic method parameter type info for the method argument.
     MonoType *objectType = mono_class_get_type(monoClass);
-    void *hargs [2];
-    hargs [0] = mono_type_get_object([DBManagedEnvironment currentDomain], objectType);
-    hargs [1] = NULL;
-    MonoObject *monoException = NULL;
-    MonoArray *genericArgArray = (MonoArray *) mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
-    if (monoException) {
-        NSRaiseExceptionFromMonoException(monoException, @{});
-    }
+    MonoReflectionType* parameterType = mono_type_get_object([DBManagedEnvironment currentDomain], objectType);
+    MonoArray *genericArgArray = (MonoArray *)DBMonoClassInvokeMethod(helperMethod, 2, parameterType, NULL);
     
     return genericArgArray;
 }
