@@ -670,7 +670,7 @@ namespace Dubrovnik.UnitTests
 		  }
 
 		  public void InvokeFunctionDelegate1(FunctionDelegate1 func) {
-			  int result = func("Bingo");
+			  int result = func("Bullseye");
 		  }
 
 		  public void InvokeFunctionDelegate2(FunctionDelegate2 func) {
