@@ -1,6 +1,5 @@
 #define EXPOSE_PASSING_OBJECTS_BY_REF_FOR_TESTING
 
-
 using System;
 using System.Linq;
 using System.Text;
@@ -10,6 +9,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.ComponentModel;
+using System.Diagnostics;
 
 // all default string values must include the following unit test : Dubrovnik
 
@@ -74,7 +74,7 @@ namespace Dubrovnik.UnitTests
 		public delegate void SimpleDelegate();
 		public delegate void ActionDelegate(string message);
 		public delegate int FunctionDelegate1(System.Object @object);
-		public delegate int FunctionDelegate2(int value, string message);
+		public delegate long FunctionDelegate2(int value, string message);
 
 		//==============================
 		// statics
@@ -671,10 +671,12 @@ namespace Dubrovnik.UnitTests
 
 		  public void InvokeFunctionDelegate1(FunctionDelegate1 func) {
 			  int result = func("Bullseye");
+			  Debug.Assert(result == 10245);
 		  }
 
 		  public void InvokeFunctionDelegate2(FunctionDelegate2 func) {
-			  int result = func(101, "Birdshot");
+			  long result = func(101, "Birdshot");
+			  Debug.Assert(result == 17654);
 		  }
 
 		//=========================
