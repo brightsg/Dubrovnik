@@ -28,13 +28,13 @@
     - (id <System_IAsyncResult>)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
 
 	// Managed method name : EndInvoke
-	// Managed return type : System.Int64
+	// Managed return type : System.Int32
 	// Managed param types : System.IAsyncResult
-    - (int64_t)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+    - (int32_t)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
 
 	// Managed method name : Invoke
-	// Managed return type : System.Int64
+	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.String
-    - (int64_t)invoke_withValue:(int32_t)p1 message:(NSString *)p2;
+    - (int32_t)invoke_withValue:(int32_t)p1 message:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator

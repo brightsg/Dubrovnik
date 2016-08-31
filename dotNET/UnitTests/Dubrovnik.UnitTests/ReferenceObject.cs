@@ -74,7 +74,7 @@ namespace Dubrovnik.UnitTests
 		public delegate void SimpleDelegate();
 		public delegate void ActionDelegate(string message);
 		public delegate int FunctionDelegate1(System.Object @object);
-		public delegate long FunctionDelegate2(int value, string message);
+		public delegate int FunctionDelegate2(int value, string message);
 
 		//==============================
 		// statics
@@ -675,7 +675,7 @@ namespace Dubrovnik.UnitTests
 		  }
 
 		  public void InvokeFunctionDelegate2(FunctionDelegate2 func) {
-			  long result = func(101, "Birdshot");
+			  int result = func(101, "Birdshot");
 			  Debug.Assert(result == 17654);
 		  }
 

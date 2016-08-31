@@ -53,25 +53,25 @@
     }
 
 	// Managed method name : EndInvoke
-	// Managed return type : System.Int64
+	// Managed return type : System.Int32
 	// Managed param types : System.IAsyncResult
-    - (int64_t)endInvoke_withResult:(id <System_IAsyncResult_>)p1
+    - (int32_t)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
 		
-		return DB_UNBOX_INT64(monoObject);
+		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : Invoke
-	// Managed return type : System.Int64
+	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.String
-    - (int64_t)invoke_withValue:(int32_t)p1 message:(NSString *)p2
+    - (int32_t)invoke_withValue:(int32_t)p1 message:(NSString *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(int,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
 		
-		return DB_UNBOX_INT64(monoObject);
+		return DB_UNBOX_INT32(monoObject);
     }
 
 #pragma mark -
