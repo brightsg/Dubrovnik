@@ -9,6 +9,7 @@
 #import "System_Delegate+mscorlib.h"
 #import "System_Type.h"
 #import "System_IntPtr.h"
+#import <objc/runtime.h>
 
 // block based universal delegate callback handler
 static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *context, MonoArray *params)
@@ -30,16 +31,16 @@ static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *co
 #pragma mark -
 #pragma mark Managed delegate services
 
-+ (void)registerUniversalDelegate
++ (void)db_registerUniversalDelegate
 {
-    [System_Delegate registerUniversalDelegate:&UniversalDelegateServices_NativeHandler_BlockContext];
+    [System_Delegate db_registerUniversalDelegate:&UniversalDelegateServices_NativeHandler_BlockContext];
 }
 
 // see:
 // http://mono.1490590.n4.nabble.com/Embedded-API-delegate-type-building-td4667556.html
 // https://github.com/robert-j/Mono.Embedding
 
-+ (void)registerUniversalDelegate:(DBUniversalDelegateInternalCallFunc)iCallFuncPtr
++ (void)db_registerUniversalDelegate:(DBUniversalDelegateInternalCallFunc)iCallFuncPtr
 {
     // Get internal call name - this identifies the managed static method that will call through to our iCall
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GetInternalCallName" className:"Mono.Embedding.UniversalDelegateServices" argCount:0];
@@ -50,23 +51,38 @@ static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *co
     mono_add_internal_call(callName.UTF8String, iCallFuncPtr);
 }
 
-+ (instancetype)universalDelegateWithBlock:(DBUniversalDelegateBlock)block
-{
-    return [self universalDelegateWithContext:(__bridge void *)(block)];
-}
-
-+ (instancetype)universalDelegateWithContext:(void *)context
++ (instancetype)db_universalDelegateWithBlock:(DBUniversalDelegateBlock)block
 {
     // get delegate type
     System_Type *delegateType= [self.class db_getType];
     
+    // wrap context in INtPtr
+    void *context = (__bridge void *)(block);
     System_IntPtr *contextPtr = [System_IntPtr new_withValueLong:context];
     NSAssert(context == contextPtr.toInt64, @"invalid context");
      
     // Invoke CreateWrapper
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateWrapper" className:"Mono.Embedding.UniversalDelegateServices" argCount:2];
     MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoValue]);
-    return [self objectWithMonoObject:monoResult];
+    System_Delegate *delegate = [self objectWithMonoObject:monoResult];
+    
+    // retain the block
+    delegate.db_universalDelegateBlock = block;
+    
+    return delegate;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (DBUniversalDelegateBlock)db_universalDelegateBlock
+{
+    return objc_getAssociatedObject(self, @selector(db_universalDelegateBlock));
+}
+
+- (void)setDb_universalDelegateBlock:(DBUniversalDelegateBlock)block
+{
+    objc_setAssociatedObject(self, @selector(db_universalDelegateBlock), block, OBJC_ASSOCIATION_RETAIN);
 }
 
 @end

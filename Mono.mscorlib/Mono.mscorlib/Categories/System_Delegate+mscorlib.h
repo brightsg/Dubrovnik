@@ -24,20 +24,19 @@ typedef MonoObject *(*DBUniversalDelegateInternalCallFunc)(void * context, MonoA
  Registers the default internal call handler (block based).
  
  */
-+ (void)registerUniversalDelegate;
++ (void)db_registerUniversalDelegate;
 
 /*!
  
  Register an internal call function to be used by the universal delegate.
  
  */
-+ (void)registerUniversalDelegate:(DBUniversalDelegateInternalCallFunc)iCallFuncPtr;
++ (void)db_registerUniversalDelegate:(DBUniversalDelegateInternalCallFunc)iCallFuncPtr;
 
 /*!
  
  Create a universal delegate of the receiver type using the given context.
  
  */
-+ (instancetype)universalDelegateWithBlock:(DBUniversalDelegateBlock)block;
-+ (instancetype)universalDelegateWithContext:(void *)context;
++ (instancetype)db_universalDelegateWithBlock:(DBUniversalDelegateBlock)block;
 @end

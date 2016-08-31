@@ -2130,7 +2130,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // the univseral manged delegate is designed in such a way that all universal callbacks
     // use the same internal call. the delegate context passed during the callback is used to
     // determine the onward routing.
-    [System_Delegate registerUniversalDelegate];
+    [System_Delegate db_registerUniversalDelegate];
     
     // we define a delegate context block to be invoked when delegate called
     DBUniversalDelegateBlock delegateBlock = nil;
@@ -2142,7 +2142,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 0, @"invalid paramaters");
         return NULL;
     };
-    DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ universalDelegateWithBlock:delegateBlock];
+    DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ db_universalDelegateWithBlock:delegateBlock];
+    delegateBlock = nil;
     [simpleDelegate invoke]; // direct invoke
     [refObject invokeSimpleDelegate_withDelg:simpleDelegate];
     
@@ -2151,7 +2152,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bingo"], @"invalid paramaters");
         return NULL;
     };
-    DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ universalDelegateWithBlock:delegateBlock];
+    DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ db_universalDelegateWithBlock:delegateBlock];
+    delegateBlock = nil;
     [actionDelegate invoke_withMessage:@"Bingo"]; // direct invoke
     [refObject invokeActionDelegate_withAction:actionDelegate];
     
@@ -2160,7 +2162,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bullseye"], @"invalid paramaters");
         return [DBNumber numberWithInt:10245].managedObject;
     };
-    DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ universalDelegateWithBlock:delegateBlock];
+    DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ db_universalDelegateWithBlock:delegateBlock];
+    delegateBlock = nil;
     int32_t intResult1 = [functionDelegate1 invoke_withObject:[@"Bullseye" managedString]];
     XCTAssertTrue(intResult1 == 10245, DBUEqualityTestFailed); // direct invoke
     [refObject invokeFunctionDelegate1_withFunc:functionDelegate1];
@@ -2170,7 +2173,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 2 && [parameters[0] isEqual:@(101)] && [parameters[1] isEqualToString:@"Birdshot"], @"invalid paramaters");
         return [DBNumber numberWithInt:17654].managedObject;
     };
-    DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ universalDelegateWithBlock:delegateBlock];
+    DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ db_universalDelegateWithBlock:delegateBlock];
+    delegateBlock = nil;
     int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
     XCTAssertTrue(intResult2 == 17654, DBUEqualityTestFailed);
     [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
