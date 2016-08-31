@@ -25,7 +25,7 @@ The unit test setup function illustrates how simple it is to load up a managed a
 Status
 ======
 
-Version: 0.0.3 Alpha
+Version: 0.0.4 Alpha
 
 Production ready: No. But we are actively using and developing Dubrovnik as part of own software development process. In particular, we have had some success in generating a complete Obj-C representation of an EntityFramework 6 model.
 
@@ -54,7 +54,6 @@ Provided examples
 
 - Exception handling.
 
-
 Accomplished Project Goals
 ==========================
 
@@ -63,6 +62,7 @@ Accomplished Project Goals
 1. Generic method calling.
 1. Obj-C property support in generated code.
 1. Managed event handling.
+1. Managed delegate callbacks into native code.
 1. Automatic KVO notifications for managed objects that implement PropertyChanging and PropertyChanged events.
 1. Managed interface representation.
 1. Explicit interface property and method invocation.
