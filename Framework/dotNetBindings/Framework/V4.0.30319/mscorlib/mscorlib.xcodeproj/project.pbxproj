@@ -39,13 +39,13 @@
 		AB58211B17CBD6B600599DBB = {
 			isa = PBXGroup;
 			children = (
-				AB952C3517F1B17100E604D3 /* README.md */,
 				ABB375D71986B66400EE7517 /* Code generator XML */,
-				ABB375D61986B64000EE7517 /* TODO.md */,
-				ABB375C31986B5E300EE7517 /* Helper-classes */,
 				ABB375C21986B5D300EE7517 /* Generated-bindings */,
+				ABB375C31986B5E300EE7517 /* Helper-classes */,
 				ABA3A5FD18ECA9AF006756AA /* include */,
 				AB58212617CBD71A00599DBB /* makefile */,
+				AB952C3517F1B17100E604D3 /* README.md */,
+				ABB375D61986B64000EE7517 /* TODO.md */,
 			);
 			sourceTree = "<group>";
 		};

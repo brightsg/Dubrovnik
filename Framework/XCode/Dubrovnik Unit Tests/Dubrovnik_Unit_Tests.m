@@ -1905,6 +1905,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [self doTestStructRepresentation:refObject class:testClass];
     [self doTestObjectRepresentation:refObject class:testClass];
     [self doTestArrayListRepresentation:refObject class:testClass];
+    
+    //===================================
+    // Delegates
+    //===================================
+    if (m_runningAutoGenCodeTest) {
+        [self doTestDelegates:refObject class:testClass];
+    }
 }
 
 - (void)doTestEvents:(id)refObject class:(Class)testClass
@@ -2113,6 +2120,60 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [DBManagedEvent eventTargetsForSender:refObject eventName:@"UnitTestEvent2"];
     XCTAssertNotNil(targets, DBUNotNilTestFailed);
     XCTAssertTrue(targets.count == 0, DBUEqualityTestFailed);
+}
+
+- (void)doTestDelegates:(id)refObject class:(Class)testClass
+{
+    #pragma unused(testClass)
+
+    // configure the managed universal delegate to call back to the given static native handler.
+    // the univseral manged delegate is designed in such a way that all universal callbacks
+    // use the same internal call. the delegate context passed during the callback is used to
+    // determine the onward routing.
+    [System_Delegate registerUniversalDelegate];
+    
+    // we define a delegate context block to be invoked when delegate called
+    DBUniversalDelegateBlock delegateBlock = nil;
+    
+    // create and invoke universal delegates
+    
+    // simple
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 0, @"invalid paramaters");
+        return NULL;
+    };
+    DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ universalDelegateWithBlock:delegateBlock];
+    [simpleDelegate invoke]; // direct invoke
+    [refObject invokeSimpleDelegate_withDelg:simpleDelegate];
+    
+    // action
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bingo"], @"invalid paramaters");
+        return NULL;
+    };
+    DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ universalDelegateWithBlock:delegateBlock];
+    [actionDelegate invoke_withMessage:@"Bingo"]; // direct invoke
+    [refObject invokeActionDelegate_withAction:actionDelegate];
+    
+    // func 1
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bullseye"], @"invalid paramaters");
+        return [DBNumber numberWithInt:10245].managedObject;
+    };
+    DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ universalDelegateWithBlock:delegateBlock];
+    int32_t intResult1 = [functionDelegate1 invoke_withObject:[@"Bullseye" managedString]];
+    XCTAssertTrue(intResult1 == 10245, DBUEqualityTestFailed); // direct invoke
+    [refObject invokeFunctionDelegate1_withFunc:functionDelegate1];
+    
+    // func 2
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 2 && [parameters[0] isEqual:@(101)] && [parameters[1] isEqualToString:@"Birdshot"], @"invalid paramaters");
+        return [DBNumber numberWithInt:17654].managedObject;
+    };
+    DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ universalDelegateWithBlock:delegateBlock];
+    int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
+    XCTAssertTrue(intResult2 == 17654, DBUEqualityTestFailed);
+    [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
 }
 
 #pragma mark -

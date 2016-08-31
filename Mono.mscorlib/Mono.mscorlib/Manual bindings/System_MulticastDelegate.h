@@ -6,6 +6,8 @@
 //
 //
 
-@interface System_MulticastDelegate : System_Object
+#import "System_Delegate.h"
+
+@interface System_MulticastDelegate : System_Delegate
 
 @end

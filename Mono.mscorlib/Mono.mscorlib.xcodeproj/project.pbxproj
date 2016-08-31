@@ -57,6 +57,8 @@
 		AB3FD4F71C76098B0037899F /* System_IDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD4F51C76098B0037899F /* System_IDisposable.m */; };
 		AB3FD4FA1C7609A80037899F /* System_ICloneable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4F81C7609A80037899F /* System_ICloneable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FD4FB1C7609A80037899F /* System_ICloneable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD4F91C7609A80037899F /* System_ICloneable.m */; };
+		AB4279881D75B8350042D68A /* System_IntPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4279861D75B8350042D68A /* System_IntPtr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB4279891D75B8350042D68A /* System_IntPtr.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4279871D75B8350042D68A /* System_IntPtr.m */; };
 		AB50B5E41AC599360030429C /* System_Reflection_AssemblyName.h in Headers */ = {isa = PBXBuildFile; fileRef = AB50B5E01AC599360030429C /* System_Reflection_AssemblyName.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */ = {isa = PBXBuildFile; fileRef = AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */; };
 		AB50B5E61AC599360030429C /* System_Version.h in Headers */ = {isa = PBXBuildFile; fileRef = AB50B5E21AC599360030429C /* System_Version.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -156,6 +158,10 @@
 		ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE824331C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */; };
 		ABF5D272190C570000E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D271190C570000E9CFBD /* Dubrovnik.framework */; };
+		ABF970651D7354FE00B836A0 /* System_Delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF970631D7354FE00B836A0 /* System_Delegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF970661D7354FE00B836A0 /* System_Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF970641D7354FE00B836A0 /* System_Delegate.m */; };
+		ABF9707E1D7369D400B836A0 /* System_Delegate+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF9707C1D7369D400B836A0 /* System_Delegate+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF9707F1D7369D400B836A0 /* System_Delegate+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9707D1D7369D400B836A0 /* System_Delegate+mscorlib.m */; };
 		ABFDAB981C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB961C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABFDAB991C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB971C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m */; };
 		ABFDAB9C1C763CA3005230C0 /* System_AsyncCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB9A1C763CA3005230C0 /* System_AsyncCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -227,6 +233,8 @@
 		AB3FD4F51C76098B0037899F /* System_IDisposable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IDisposable.m; sourceTree = "<group>"; };
 		AB3FD4F81C7609A80037899F /* System_ICloneable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ICloneable.h; sourceTree = "<group>"; };
 		AB3FD4F91C7609A80037899F /* System_ICloneable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ICloneable.m; sourceTree = "<group>"; };
+		AB4279861D75B8350042D68A /* System_IntPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IntPtr.h; sourceTree = "<group>"; };
+		AB4279871D75B8350042D68A /* System_IntPtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IntPtr.m; sourceTree = "<group>"; };
 		AB50B5E01AC599360030429C /* System_Reflection_AssemblyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_AssemblyName.h; sourceTree = "<group>"; };
 		AB50B5E11AC599360030429C /* System_Reflection_AssemblyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_AssemblyName.m; sourceTree = "<group>"; };
 		AB50B5E21AC599360030429C /* System_Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Version.h; sourceTree = "<group>"; };
@@ -257,8 +265,8 @@
 		ABB8A2A418FEFB0700213B80 /* Mono.mscorlibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlibTests-Info.plist"; sourceTree = "<group>"; };
 		ABB8A2A618FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A2A818FEFB0700213B80 /* Mono_mscorlibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_mscorlibTests.m; sourceTree = "<group>"; };
-		ABB8A37918FF086200213B80 /* NSString+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+mscorlib.h"; sourceTree = "<group>"; };
-		ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+mscorlib.m"; sourceTree = "<group>"; };
+		ABB8A37918FF086200213B80 /* NSString+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+mscorlib.h"; path = "Categories/NSString+mscorlib.h"; sourceTree = "<group>"; };
+		ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+mscorlib.m"; path = "Categories/NSString+mscorlib.m"; sourceTree = "<group>"; };
 		ABB8A37E18FF092400213B80 /* DBSystem_IO_FileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_IO_FileInfo.h; sourceTree = "<group>"; };
 		ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_IO_FileInfo.m; sourceTree = "<group>"; };
 		ABB8A39018FF09F900213B80 /* DBSystem_Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Array.h; sourceTree = "<group>"; };
@@ -267,8 +275,8 @@
 		ABB8A39318FF09F900213B80 /* DBSystem_Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Convert.m; sourceTree = "<group>"; };
 		ABB8A39418FF09F900213B80 /* DBSystem_Enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Enum.h; sourceTree = "<group>"; };
 		ABB8A39518FF09F900213B80 /* DBSystem_Enum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Enum.m; sourceTree = "<group>"; };
-		ABB8A3E018FF0FE800213B80 /* NSArray+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+mscorlib.h"; sourceTree = "<group>"; };
-		ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+mscorlib.m"; sourceTree = "<group>"; };
+		ABB8A3E018FF0FE800213B80 /* NSArray+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+mscorlib.h"; path = "Categories/NSArray+mscorlib.h"; sourceTree = "<group>"; };
+		ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+mscorlib.m"; path = "Categories/NSArray+mscorlib.m"; sourceTree = "<group>"; };
 		ABB8A3E418FF110000213B80 /* System_Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Array.h; sourceTree = "<group>"; };
 		ABB8A3E518FF110000213B80 /* System_Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Array.m; sourceTree = "<group>"; };
 		ABB8A3E718FF110000213B80 /* System_Collections_ArrayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_ArrayList.h; sourceTree = "<group>"; };
@@ -332,6 +340,10 @@
 		ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IComparerA1.h; sourceTree = "<group>"; };
 		ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_IComparerA1.m; sourceTree = "<group>"; };
 		ABF5D271190C570000E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF970631D7354FE00B836A0 /* System_Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Delegate.h; sourceTree = "<group>"; };
+		ABF970641D7354FE00B836A0 /* System_Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Delegate.m; sourceTree = "<group>"; };
+		ABF9707C1D7369D400B836A0 /* System_Delegate+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Delegate+mscorlib.h"; sourceTree = "<group>"; };
+		ABF9707D1D7369D400B836A0 /* System_Delegate+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Delegate+mscorlib.m"; sourceTree = "<group>"; };
 		ABFDAB961C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Serialization_ISerializable.h; sourceTree = "<group>"; };
 		ABFDAB971C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Serialization_ISerializable.m; sourceTree = "<group>"; };
 		ABFDAB9A1C763CA3005230C0 /* System_AsyncCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_AsyncCallback.h; sourceTree = "<group>"; };
@@ -438,13 +450,14 @@
 		ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */ = {
 			isa = PBXGroup;
 			children = (
-				AB950DE5192AA6720035ABC6 /* Value Transformers */,
-				AB2E74C118FFDB0D0061C63E /* Include */,
-				ABB8A43018FF1F6300213B80 /* Protocols */,
+				ABF970801D736A0100B836A0 /* Categories - Managed */,
+				ABB8A37818FF086200213B80 /* Categories - Native */,
 				ABB8A37D18FF092400213B80 /* Helper classes */,
-				ABB8A37818FF086200213B80 /* Categories */,
+				AB2E74C118FFDB0D0061C63E /* Include */,
 				ABB8A36A18FF04B700213B80 /* Manual bindings */,
+				ABB8A43018FF1F6300213B80 /* Protocols */,
 				ABB8A28E18FEFB0700213B80 /* Supporting Files */,
+				AB950DE5192AA6720035ABC6 /* Value Transformers */,
 			);
 			path = Mono.mscorlib;
 			sourceTree = "<group>";
@@ -480,6 +493,8 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB4279861D75B8350042D68A /* System_IntPtr.h */,
+				AB4279871D75B8350042D68A /* System_IntPtr.m */,
 				AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */,
 				AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */,
 				ABB8A3E418FF110000213B80 /* System_Array.h */,
@@ -587,20 +602,21 @@
 				AB50B5E31AC599360030429C /* System_Version.m */,
 				AB223CE41C9DFF2F0017DA8A /* System_TimeZoneInfo.h */,
 				AB223CE51C9DFF2F0017DA8A /* System_TimeZoneInfo.m */,
+				ABF970631D7354FE00B836A0 /* System_Delegate.h */,
+				ABF970641D7354FE00B836A0 /* System_Delegate.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
 		};
-		ABB8A37818FF086200213B80 /* Categories */ = {
+		ABB8A37818FF086200213B80 /* Categories - Native */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A3E018FF0FE800213B80 /* NSArray+mscorlib.h */,
-				ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */,
-				ABB8A37918FF086200213B80 /* NSString+mscorlib.h */,
-				ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */,
 				ABB8A41618FF113800213B80 /* System_Object+mscorlib.h */,
 				ABB8A41718FF113800213B80 /* System_Object+mscorlib.m */,
+				ABF9707C1D7369D400B836A0 /* System_Delegate+mscorlib.h */,
+				ABF9707D1D7369D400B836A0 /* System_Delegate+mscorlib.m */,
 			);
+			name = "Categories - Native";
 			path = Categories;
 			sourceTree = "<group>";
 		};
@@ -638,6 +654,17 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		ABF970801D736A0100B836A0 /* Categories - Managed */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8A3E018FF0FE800213B80 /* NSArray+mscorlib.h */,
+				ABB8A3E118FF0FE800213B80 /* NSArray+mscorlib.m */,
+				ABB8A37918FF086200213B80 /* NSString+mscorlib.h */,
+				ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */,
+			);
+			name = "Categories - Managed";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -652,6 +679,7 @@
 				ABFDAB981C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h in Headers */,
 				AB3FD4F61C76098B0037899F /* System_IDisposable.h in Headers */,
 				AB3FD4FA1C7609A80037899F /* System_ICloneable.h in Headers */,
+				ABF9707E1D7369D400B836A0 /* System_Delegate+mscorlib.h in Headers */,
 				ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */,
 				AB11F3761C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h in Headers */,
 				AB50B5E61AC599360030429C /* System_Version.h in Headers */,
@@ -695,12 +723,14 @@
 				AB2E743118FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.h in Headers */,
 				AB2E745518FFCD420061C63E /* System_IO_TextReader.h in Headers */,
 				AB2E745F18FFCD8F0061C63E /* System_Exception.h in Headers */,
+				AB4279881D75B8350042D68A /* System_IntPtr.h in Headers */,
 				AB2E742518FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h in Headers */,
 				AB2E744718FFCD0A0061C63E /* System_TimeSpan.h in Headers */,
 				ABB8A41418FF110000213B80 /* System_String.h in Headers */,
 				ABB8A40418FF110000213B80 /* System_Collections_Generic_ListA1.h in Headers */,
 				ABB8A41018FF110000213B80 /* System_MulticastDelegate.h in Headers */,
 				ABB8A39618FF09F900213B80 /* DBSystem_Array.h in Headers */,
+				ABF970651D7354FE00B836A0 /* System_Delegate.h in Headers */,
 				ABB8A42818FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.h in Headers */,
 				ABB8A40218FF110000213B80 /* System_Collections_Generic_DictionaryA2.h in Headers */,
 				ABB8A39818FF09F900213B80 /* DBSystem_Convert.h in Headers */,
@@ -850,6 +880,7 @@
 				ABB8A37C18FF086200213B80 /* NSString+mscorlib.m in Sources */,
 				ABCAE5531AA90A280006453A /* System_Reflection_Assembly.m in Sources */,
 				AB223CE71C9DFF2F0017DA8A /* System_TimeZoneInfo.m in Sources */,
+				ABF970661D7354FE00B836A0 /* System_Delegate.m in Sources */,
 				ABB8A41518FF110000213B80 /* System_String.m in Sources */,
 				AB92F2DF1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m in Sources */,
 				AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */,
@@ -859,6 +890,7 @@
 				ABB8A41118FF110000213B80 /* System_MulticastDelegate.m in Sources */,
 				ABFDAB9D1C763CA3005230C0 /* System_AsyncCallback.m in Sources */,
 				ABCAE54F1AA909710006453A /* System_Reflection_MemberFilter.m in Sources */,
+				ABF9707F1D7369D400B836A0 /* System_Delegate+mscorlib.m in Sources */,
 				ABB8A40118FF110000213B80 /* System_Collections_ArrayList.m in Sources */,
 				ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */,
 				ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */,
@@ -892,6 +924,7 @@
 				ABD5F7D01A6E57660070C02B /* System_DateTime.m in Sources */,
 				AB2E744618FFCD0A0061C63E /* System_Text_Encoding.m in Sources */,
 				AB2E742618FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m in Sources */,
+				AB4279891D75B8350042D68A /* System_IntPtr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

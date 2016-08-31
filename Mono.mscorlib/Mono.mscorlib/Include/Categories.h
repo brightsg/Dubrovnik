@@ -12,5 +12,5 @@
 #import "NSArray+mscorlib.h"
 #import "NSString+mscorlib.h"
 #import "System_Object+mscorlib.h"
-
+#import "System_Delegate+mscorlib.h"
 
