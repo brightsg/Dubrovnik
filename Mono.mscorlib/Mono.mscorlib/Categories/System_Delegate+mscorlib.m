@@ -11,19 +11,55 @@
 #import "System_IntPtr.h"
 #import <objc/runtime.h>
 
-// block based universal delegate callback handler
-static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *context, MonoArray *params)
+@interface  DBDelegateInfo : NSObject
+@property (strong) DBUniversalDelegateBlock block;
+@property (assign) BOOL executeBlockOnMainThread;
+@end
+
+@implementation DBDelegateInfo
+
+#pragma mark -
+#pragma mark Lifecycle
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _executeBlockOnMainThread = YES;
+    }
+    return self;
+}
+
+@end
+
+// DBDelegateInfo based universal delegate callback handler
+static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(void *context, MonoArray *params)
 {
-    // get parameters array
-    NSArray *parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
+    // get context as delegateInfo
+    DBDelegateInfo *delegateInfo = (__bridge DBDelegateInfo *)context;
+
+    // dispatch block
+    __block System_Object *resultObject = nil;
+    dispatch_block_t dispatchBlk = ^{
+        
+        // get parameters array
+        NSArray *parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
+        
+        // execute block
+        resultObject = delegateInfo.block(parameters);
+    };
     
-    // get context block
-    DBUniversalDelegateBlock contextBlock = (__bridge typeof(contextBlock)) context;
+    // execute dispatch block on required thread
+    if ([NSThread currentThread] == [NSThread mainThread] || !delegateInfo.executeBlockOnMainThread) {
+        dispatchBlk();
+    }
+    else {
+        // note that thread calls should be avoided!
+        // https://developer.apple.com/library/ios/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1
+        // if this becomes a problem use a category to explicitly execute the block on the main thread.
+        dispatch_sync(dispatch_get_main_queue(), dispatchBlk);
+    }
     
-    // execute block
-    System_Object *object = contextBlock(parameters);
-    
-    return object.monoObject;
+    return resultObject.monoObject;
 }
 
 @implementation System_Delegate (mscorlib)
@@ -33,7 +69,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *co
 
 + (void)db_registerUniversalDelegate
 {
-    [System_Delegate db_registerUniversalDelegate:&UniversalDelegateServices_NativeHandler_BlockContext];
+    [System_Delegate db_registerUniversalDelegate:&UniversalDelegateServices_NativeHandler_DelegateInfoContext];
 }
 
 // see:
@@ -55,9 +91,13 @@ static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *co
 {
     // get delegate type
     System_Type *delegateType= [self.class db_getType];
+
+    // create delegate info
+    DBDelegateInfo *info = [[DBDelegateInfo alloc] init];
+    info.block = block;
     
-    // wrap context in INtPtr
-    void *context = (__bridge void *)(block);
+    // wrap context in IntPtr - remember IntPtr is a value type.
+    void *context = (__bridge void *)(info);
     System_IntPtr *contextPtr = [System_IntPtr new_withValueLong:context];
     NSAssert(context == contextPtr.toInt64, @"invalid context");
      
@@ -66,8 +106,9 @@ static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *co
     MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoValue]);
     System_Delegate *delegate = [self objectWithMonoObject:monoResult];
     
-    // retain the block
-    delegate.db_universalDelegateBlock = block;
+    // retain the info.
+    // note that we could have used self as the context but a separate object seems cleaner
+    delegate.db_delegateInfo = info;
     
     return delegate;
 }
@@ -75,14 +116,14 @@ static MonoObject *UniversalDelegateServices_NativeHandler_BlockContext(void *co
 #pragma mark -
 #pragma mark Accessors
 
-- (DBUniversalDelegateBlock)db_universalDelegateBlock
+- (DBDelegateInfo *)db_delegateInfo
 {
-    return objc_getAssociatedObject(self, @selector(db_universalDelegateBlock));
+    return objc_getAssociatedObject(self, @selector(db_delegateInfo));
 }
 
-- (void)setDb_universalDelegateBlock:(DBUniversalDelegateBlock)block
+- (void)setDb_delegateInfo:(DBDelegateInfo *)info
 {
-    objc_setAssociatedObject(self, @selector(db_universalDelegateBlock), block, OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(self, @selector(db_delegateInfo), info, OBJC_ASSOCIATION_RETAIN);
 }
 
 @end
