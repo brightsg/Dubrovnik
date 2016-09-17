@@ -36,7 +36,7 @@
 static NSMutableArray *m_boundKeys;
 
 //#define DB_TRACE_KVO
-#define DB_TRACE_MONO_OBJECT_ADDRESS
+//#define DB_TRACE_MONO_OBJECT_ADDRESS
 
 /*
  
@@ -653,16 +653,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 + (BOOL)object:(id)object isEqualToMonoObject:(MonoObject *)monoObject
 {
-    BOOL equal = NO;
-    
-    if ([object respondsToSelector:@selector(monoObject)]){
-        MonoObject *mo = [object monoObject];
-        if (mo == monoObject) {
-            equal = YES;
-        }
+    // keep this optimal
+    if ([object respondsToSelector:@selector(monoObject)]) {
+        return [object monoObject] == monoObject;
     }
-    
-    return equal;
+    return NO;
 }
 
 - (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2
@@ -672,7 +667,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (BOOL)object:(id)object isEqualToMonoObject:(MonoObject *)monoObject
 {
-    return [[self class] object:object isEqualToMonoObject:monoObject];
+    // keep this optimal
+    if ([object respondsToSelector:@selector(monoObject)]) {
+        return [object monoObject] == monoObject;
+    }
+    return NO;
 }
 
 - (BOOL)isEqual:(id)other
