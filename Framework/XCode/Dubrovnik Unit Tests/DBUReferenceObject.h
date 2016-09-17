@@ -162,6 +162,10 @@
 - (NSString *)stringProperty;
 - (void)setStringProperty:(NSString *)value;
 
+// thunking
+- (NSString *)stringPropertyViaThunk;
+- (void)stringPropertyAccessTimingTest;
+
 // date property implementation
 - (NSDate *)date;
 - (void)setDate:(NSDate *)value;

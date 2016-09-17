@@ -596,7 +596,7 @@ inline static void SetPropertyGetMethod(MonoClass *monoClass, const char *proper
 	*valuePointer = (Word_t)nameToMethodArray;
 }
 
-__attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName) {
+__attribute__((always_inline)) inline MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName) {
 	Pvoid_t nameToMethodArray = NULL;
 	MonoMethod *meth = NULL;
 	Word_t *valuePointer = NULL;
@@ -608,7 +608,7 @@ __attribute__((always_inline)) inline static MonoMethod *GetPropertyGetMethod(Mo
 	
 	JSLG(valuePointer, nameToMethodArray, (uint8_t *)propertyName);
 	if(valuePointer != NULL) meth = (MonoMethod *)*valuePointer;
-	
+
 	if(meth == NULL) {
         // cache miss
         
@@ -1040,3 +1040,4 @@ MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable)
 {
     return DBMonoObjectGetProperty(monoNullable, "Value");
 }
+

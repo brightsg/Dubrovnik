@@ -1912,6 +1912,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     if (m_runningAutoGenCodeTest) {
         [self doTestDelegates:refObject class:testClass];
     }
+    
+    if (!m_runningAutoGenCodeTest) {
+        [self doTestThunks:refObject class:testClass];
+    }
 }
 
 - (void)doTestEvents:(id)refObject class:(Class)testClass
@@ -2178,6 +2182,33 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
     XCTAssertTrue(intResult2 == 17654, DBUEqualityTestFailed);
     [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
+}
+
+- (void)doTestThunks:(id)refObject class:(Class)testClass
+{
+    NSLog(@"============================================");
+    NSLog(@"Method invoke re thunk performace comparison");
+    NSLog(@"============================================");
+    
+    // raw thunk versus invoke timing test
+    [refObject stringPropertyAccessTimingTest];
+    
+    // more representative usage case scenario
+    int count = 1000000;
+    NSDate *startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringProperty];
+    }
+    NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Invoke Time: %f", invokeInterval);
+    
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringPropertyViaThunk];
+    }
+    NSTimeInterval thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Thunk Time: %f", thunkInterval);
+    NSLog(@"Invoke/Thunk: %f", invokeInterval / thunkInterval);
 }
 
 #pragma mark -
