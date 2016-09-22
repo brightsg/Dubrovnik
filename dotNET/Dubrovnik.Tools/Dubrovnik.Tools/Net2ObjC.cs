@@ -1935,9 +1935,9 @@ this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
         #line hidden
         
         #line 691 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(";\r\n#else\r\n\t\ttypedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);\r\n\t\t" +
-        "static PropertyThunk thunk;\r\n\t\tMonoObject *monoException = NULL;\r\n\t\tif (!thunk) " +
-        "{\r\n\t\t\tMonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, \"");
+this.Write(";\r\n#else\r\n\t\ttypedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);\r\n\t\tstatic T" +
+        "hunk thunk;\r\n\t\tMonoObject *monoException = NULL;\r\n\t\tif (!thunk) {\r\n\t\t\tMonoMethod" +
+        " *monoMethod = GetPropertyGetMethod(self.monoClass, \"");
 
         
         #line default
@@ -1951,10 +1951,9 @@ this.Write(this.ToStringHelper.ToStringWithCulture(monoInvocationName));
         #line hidden
         
         #line 697 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write("\");\r\n\t\t\tthunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);\r\n\t\t}\r" +
-        "\n\t\tMonoObject *monoObject = thunk(self.monoObject, &monoException);\r\n\t\tif (monoE" +
-        "xception != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));\r\n#en" +
-        "dif\r\n");
+this.Write("\");\r\n\t\t\tthunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);\r\n\t\t}\r\n\t\tMonoO" +
+        "bject *monoObject = thunk(self.monoObject, &monoException);\r\n\t\tif (monoException" +
+        " != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));\r\n#endif\r\n");
 
         
         #line default
@@ -2006,9 +2005,9 @@ this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
         #line hidden
         
         #line 710 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(";\r\n#else\r\n\t\ttypedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);\r\n\t\t" +
-        "static PropertyThunk thunk;\r\n\t\tMonoObject *monoException = NULL;\r\n\t\tif (!thunk) " +
-        "{\r\n\t\t\tMonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, \"");
+this.Write(";\r\n#else\r\n\t\ttypedef MonoObject* (*Thunk)(MonoObject**);\r\n\t\tstatic Thunk thunk;\r\n\t" +
+        "\tMonoObject *monoException = NULL;\r\n\t\tif (!thunk) {\r\n\t\t\tMonoMethod *monoMethod =" +
+        " GetPropertyGetMethod(self.monoClass, \"");
 
         
         #line default
@@ -2022,9 +2021,9 @@ this.Write(this.ToStringHelper.ToStringWithCulture(monoInvocationName));
         #line hidden
         
         #line 716 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write("\");\r\n\t\t\tthunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);\r\n\t\t}\r" +
-        "\n\t\tMonoObject *monoObject = thunk(&monoException);\r\n\t\tif (monoException != NULL)" +
-        " @throw(NSExceptionFromMonoException(monoException, @{}));\r\n#endif\r\n");
+this.Write("\");\r\n\t\t\tthunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);\r\n\t\t}\r\n\t\tMonoO" +
+        "bject *monoObject = thunk(&monoException);\r\n\t\tif (monoException != NULL) @throw(" +
+        "NSExceptionFromMonoException(monoException, @{}));\r\n#endif\r\n");
 
         
         #line default

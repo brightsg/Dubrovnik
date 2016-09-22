@@ -35,12 +35,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Name"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Name");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));

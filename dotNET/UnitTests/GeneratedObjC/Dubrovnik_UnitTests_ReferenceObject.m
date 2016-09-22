@@ -227,12 +227,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"BoolArray"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "BoolArray");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -257,12 +257,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassDateProperty"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ClassDateProperty");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(&monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -287,12 +287,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [[self class] getMonoClassProperty:"ClassStringProperty"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ClassStringProperty");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(&monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -317,12 +317,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Date"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Date");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -347,12 +347,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"DecimalNumber"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "DecimalNumber");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -377,12 +377,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"DoubleArray"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "DoubleArray");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -407,12 +407,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"DoubleList"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "DoubleList");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -437,12 +437,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"ExIntTestProperty"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ExIntTestProperty");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -466,12 +466,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"FloatArray"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "FloatArray");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -496,12 +496,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"FloatList"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "FloatList");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -526,12 +526,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"FloatNullable"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "FloatNullable");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -556,12 +556,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"ImpIntTestProperty"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ImpIntTestProperty");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -585,12 +585,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Int16Array"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int16Array");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -615,12 +615,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Int32Array"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int32Array");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -645,12 +645,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Int32Number"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int32Number");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -674,12 +674,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Int32Pointer"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int32Pointer");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -703,12 +703,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Int64Array"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int64Array");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -733,12 +733,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Int64Number"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int64Number");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -762,12 +762,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"IntEnumeration"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "IntEnumeration");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -791,12 +791,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"InterfaceTestProperty"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "InterfaceTestProperty");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -821,12 +821,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"IntIntDictionary"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "IntIntDictionary");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -851,12 +851,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"IntIntStringDictionaryDictionary"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "IntIntStringDictionaryDictionary");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -881,12 +881,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"IntList"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "IntList");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -911,12 +911,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"IntNullable"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "IntNullable");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -941,12 +941,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"IntNumber"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "IntNumber");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -970,12 +970,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"LongEnumeration"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "LongEnumeration");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -999,12 +999,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"MinimalReferenceObject"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "MinimalReferenceObject");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1023,12 +1023,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Name"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Name");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1053,12 +1053,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"NotifyingProperty1"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "NotifyingProperty1");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1083,12 +1083,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"NotifyingProperty2"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "NotifyingProperty2");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1113,12 +1113,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ObjectObjectDictionary");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1143,12 +1143,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Pointer"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Pointer");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1172,12 +1172,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObject1"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ReferenceObject1");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1196,12 +1196,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObject2"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ReferenceObject2");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1220,12 +1220,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectList"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ReferenceObjectList");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1250,12 +1250,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"ReferenceObjectRelative"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ReferenceObjectRelative");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1280,12 +1280,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"StringArray"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringArray");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1310,12 +1310,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"StringArrayList"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringArrayList");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1340,12 +1340,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"StringList"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringList");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1370,12 +1370,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"StringObjectDictionary"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringObjectDictionary");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1400,12 +1400,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringProperty");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1430,12 +1430,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"StringStringDictionary"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringStringDictionary");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1460,12 +1460,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"StringStringGenericReferenceObject"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringStringGenericReferenceObject");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -1490,12 +1490,12 @@
 #ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"UIntList"];
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "UIntList");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));

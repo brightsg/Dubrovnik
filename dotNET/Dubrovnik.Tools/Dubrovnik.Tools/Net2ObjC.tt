@@ -690,12 +690,12 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 #ifdef DB_INVOKE_METHOD
 		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
@@ -709,12 +709,12 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 #ifdef DB_INVOKE_METHOD
 		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
 #else
-		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
-		static PropertyThunk thunk;
+		typedef MonoObject* (*Thunk)(MonoObject**);
+		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
-			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoObject = thunk(&monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
