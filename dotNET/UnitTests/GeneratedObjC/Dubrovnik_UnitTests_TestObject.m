@@ -32,7 +32,19 @@
     @synthesize name = _name;
     - (NSString *)name
     {
+#ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Name"];
+#else
+		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
+		static PropertyThunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Name");
+			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+#endif
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

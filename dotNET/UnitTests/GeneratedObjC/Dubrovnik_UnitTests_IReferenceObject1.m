@@ -32,7 +32,19 @@
     @synthesize exIntTestProperty = _exIntTestProperty;
     - (int32_t)exIntTestProperty
     {
+#ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Dubrovnik.UnitTests.IReferenceObject1.ExIntTestProperty"];
+#else
+		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
+		static PropertyThunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Dubrovnik.UnitTests.IReferenceObject1.ExIntTestProperty");
+			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+#endif
 		_exIntTestProperty = DB_UNBOX_INT32(monoObject);
 
 		return _exIntTestProperty;
@@ -49,7 +61,19 @@
     @synthesize impIntTestProperty = _impIntTestProperty;
     - (int32_t)impIntTestProperty
     {
+#ifdef DB_INVOKE_METHOD
 		MonoObject *monoObject = [self getMonoProperty:"Dubrovnik.UnitTests.IReferenceObject1.ImpIntTestProperty"];
+#else
+		typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoObject**);
+		static PropertyThunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Dubrovnik.UnitTests.IReferenceObject1.ImpIntTestProperty");
+			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+#endif
 		_impIntTestProperty = DB_UNBOX_INT32(monoObject);
 
 		return _impIntTestProperty;
