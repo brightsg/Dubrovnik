@@ -46,7 +46,7 @@
 
 - (void)db_performBlockOnMainThread:(void (^)())block waitUntilDone:(BOOL)wait
 {
-    [self db_performBlock:block onThread:[NSThread mainThread] waitUntilDone:YES];
+    [self db_performBlock:block onThread:[NSThread mainThread] waitUntilDone:wait];
 }
 
 - (void)db_performBlock:(void (^)())block onThread:(NSThread *)thread waitUntilDone:(BOOL)wait
