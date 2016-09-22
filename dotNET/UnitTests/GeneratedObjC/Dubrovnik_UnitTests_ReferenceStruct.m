@@ -84,19 +84,15 @@
     @synthesize stringProperty = _stringProperty;
     - (NSString *)stringProperty
     {
-#ifdef DB_INVOKE_METHOD
-		MonoObject *monoObject = [self getMonoProperty:"StringProperty"];
-#else
-		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringProperty");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-#endif
 		if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;					
 		_stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

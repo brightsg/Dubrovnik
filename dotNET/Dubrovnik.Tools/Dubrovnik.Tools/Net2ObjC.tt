@@ -663,10 +663,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 #>
     @synthesize <#=getterName#> = <#=propertyStorage#>;
 <#+		
-		} 
-		else 
-		{
-			// declare static property storage
+		} else { // declare static property storage
 #>
     static <#=objCTypeDecl#> <#=propertyStorage#>;
 <#+      
@@ -683,58 +680,68 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 <#+		
 		if (OutputFileType == OutputType.Implementation) 
 		{
-			if (facet is PropertyFacet) {
+			// Thunking should give us faster dispatch but requires more glue.
+			bool useThunks = true;
+			if (facet is PropertyFacet && useThunks) { // thunking property 
+				string thunkTypeDecl = null;
+				// primitive value types and enumerations are returned by value.
+				// other value types, such as DateTime are retuned as boxed values
+				if (facet.IsPrimitive || facet.IsEnum || facet.IsPointer) {
+					managedValueToObjC = "monoObject";
+					thunkTypeDecl = objCTypeDecl;
+				} else {
+					thunkTypeDecl = "MonoObject *";
+				}
 				if (!facet.IsStatic) {
 #>
     {
-#ifdef DB_INVOKE_METHOD
-		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
-#else
-		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		typedef <#=thunkTypeDecl#> (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		<#=thunkTypeDecl#> monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-#endif
 <#+
-				} 
+				} // end non static property
 				else 
-				{
+				{ // static property
 #>
     {
-#ifdef DB_INVOKE_METHOD
-		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
-#else
-		typedef MonoObject* (*Thunk)(MonoObject**);
+		typedef <#=thunkTypeDecl#> (*Thunk)(MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		MonoObject *monoObject = thunk(&monoException);
+		<#=thunkTypeDecl#> monoObject = thunk(&monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-#endif
 <#+
-				}
-			}
-			else
-			{
+				} // end static property
+			} // end thunking property
+			else if (facet is PropertyFacet && !useThunks) { // method invoke property 
+#>
+	{
+		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
+<#+	
+			} // end method invoke property
+			else 
+			{  // field 
 #>
     {
 		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
 <#+	
-			}
-			if (isObjectProperty)
+			} // end field 
+
+			if (isObjectProperty) // object equality test
 			{
 #>
 		<#=doPropertyEqualityTest#>					
 <#+	
-			}
+			} // end object equality test
 #>
 		<#=propertyStorage#> = <#=managedValueToObjC#>;
 

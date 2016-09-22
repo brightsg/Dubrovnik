@@ -32,20 +32,16 @@
     @synthesize exIntTestProperty = _exIntTestProperty;
     - (float)exIntTestProperty
     {
-#ifdef DB_INVOKE_METHOD
-		MonoObject *monoObject = [self getMonoProperty:"Dubrovnik.UnitTests.IReferenceObject2.ExIntTestProperty"];
-#else
-		typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+		typedef float (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Dubrovnik.UnitTests.IReferenceObject2.ExIntTestProperty");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		float monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-#endif
-		_exIntTestProperty = DB_UNBOX_FLOAT(monoObject);
+		_exIntTestProperty = monoObject;
 
 		return _exIntTestProperty;
 	}
