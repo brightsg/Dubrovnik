@@ -204,9 +204,9 @@ extern char DBCacheSuffixChar;
  */
 - (id)initWithSignature:(const char *)constructorSignature withNumArgs:(int)numArgs, ...;
 
-// Mono types
-- (MonoClass *)monoClass;
-- (MonoType *)monoType;
+// Mono type support
+@property (assign, nonatomic, readonly) MonoClass* monoClass;
+@property (assign, nonatomic, readonly) MonoType* monoType;
 - (char *)monoTypeName;
 
 /**
