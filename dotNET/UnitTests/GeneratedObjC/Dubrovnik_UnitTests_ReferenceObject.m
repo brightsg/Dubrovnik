@@ -124,7 +124,7 @@
 	}
     + (void)setClassStringField:(NSString *)value
 	{
-		m_classStringField = value;
+        m_classStringField = value;
 		MonoObject *monoObject = [value monoValue];
 		[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];          
 	}
