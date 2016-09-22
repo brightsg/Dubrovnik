@@ -74,16 +74,23 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 @interface DBManagedObject()
 
+// objects
 @property (strong, readwrite) DBManagedEnvironment *monoEnvironment;
+
+// collections
+@property (strong, nonatomic) NSArray *genericParameterMonoArgumentTypeNames;
+@property (strong, nonatomic) NSMutableArray *willChangeValueForKeyTracker;
+
+// Mono objects
 @property (assign, readwrite) MonoObject *monoObject;
+@property (assign, nonatomic, readwrite) MonoClass* monoClass;
+@property (assign, nonatomic, readwrite) MonoType* monoType;
+
+// primitives
 @property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
 @property BOOL genericType;
-@property (strong, nonatomic) NSArray *genericParameterMonoArgumentTypeNames;
 @property (assign, readwrite) BOOL isPrimaryInstance;
-@property (strong, nonatomic) NSMutableArray *willChangeValueForKeyTracker;
-@property (assign, nonatomic, readwrite) MonoClass* monoClass;
-@property (assign, nonatomic, readwrite) MonoType* monoType;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
 @property (assign) NSUInteger monoObjectTrace;
