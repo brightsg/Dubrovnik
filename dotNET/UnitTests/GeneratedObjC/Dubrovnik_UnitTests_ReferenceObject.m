@@ -124,7 +124,7 @@
 	}
     + (void)setClassStringField:(NSString *)value
 	{
-        m_classStringField = value;
+		m_classStringField = value;
 		MonoObject *monoObject = [value monoValue];
 		[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];          
 	}
@@ -264,7 +264,7 @@
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ClassDateProperty");
 			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		MonoObject *monoObject = thunk(&monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 #endif
 		if ([self object:m_classDateProperty isEqualToMonoObject:monoObject]) return m_classDateProperty;					
@@ -294,7 +294,7 @@
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ClassStringProperty");
 			thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		MonoObject *monoObject = thunk(self.monoObject, &monoException);
+		MonoObject *monoObject = thunk(&monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 #endif
 		if ([self object:m_classStringProperty isEqualToMonoObject:monoObject]) return m_classStringProperty;					
