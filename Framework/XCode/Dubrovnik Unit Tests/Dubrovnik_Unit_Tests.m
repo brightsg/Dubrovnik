@@ -2186,6 +2186,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)doTestThunks:(id)refObject class:(Class)testClass
 {
+    #pragma unused(testClass)
+    
     NSLog(@"============================================");
     NSLog(@"Method invoke re thunk performace comparison");
     NSLog(@"============================================");
