@@ -473,7 +473,7 @@ namespace Dubrovnik.Tools
             // TODO: determine if association can be tested for in this method.
             // Logic :
             // Managed structs are value types, ObjC rep is an NSObject
-          //  return (!facet.IsValueType || facet.IsStruct);
+				//  return (!facet.IsValueType || facet.IsStructuredValueType);
         //}
 
         //
@@ -916,12 +916,8 @@ namespace Dubrovnik.Tools
 
             // Order is important here
             if (facet.IsGenericType) return false;
-            if (facet.IsStruct) return false;
-
-            if (facet.IsValueType || facet.IsPointer)
-            {
-                return true;
-            }
+				if (facet.IsStructuredValueType) return false;
+				if (facet.IsSimpleValueType) return true;
 
             return false;
         }

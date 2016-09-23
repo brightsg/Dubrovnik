@@ -49,8 +49,15 @@
     - (void)setInterfaceTestProperty:(Dubrovnik_UnitTests_ITestProperty *)value
 	{
 		_interfaceTestProperty = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Dubrovnik.UnitTests.IReferenceObjectBase.InterfaceTestProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Dubrovnik.UnitTests.IReferenceObjectBase.InterfaceTestProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

@@ -241,8 +241,15 @@
     - (void)setBoolArray:(DBSystem_Array *)value
 	{
 		_boolArray = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"BoolArray" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "BoolArray");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ClassDateProperty
@@ -267,8 +274,15 @@
     + (void)setClassDateProperty:(NSDate *)value
 	{
 		m_classDateProperty = value;
-		MonoObject *monoObject = [value monoValue];
-		[[self class] setMonoClassProperty:"ClassDateProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ClassDateProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ClassStringProperty
@@ -293,8 +307,15 @@
     + (void)setClassStringProperty:(NSString *)value
 	{
 		m_classStringProperty = value;
-		MonoObject *monoObject = [value monoValue];
-		[[self class] setMonoClassProperty:"ClassStringProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ClassStringProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Date
@@ -319,8 +340,15 @@
     - (void)setDate:(NSDate *)value
 	{
 		_date = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Date" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Date");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DecimalNumber
@@ -345,8 +373,15 @@
     - (void)setDecimalNumber:(NSDecimalNumber *)value
 	{
 		_decimalNumber = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"DecimalNumber" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "DecimalNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DoubleArray
@@ -371,8 +406,15 @@
     - (void)setDoubleArray:(DBSystem_Array *)value
 	{
 		_doubleArray = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"DoubleArray" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "DoubleArray");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DoubleList
@@ -397,8 +439,15 @@
     - (void)setDoubleList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_doubleList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"DoubleList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "DoubleList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ExIntTestProperty
@@ -422,8 +471,15 @@
     - (void)setExIntTestProperty:(BOOL)value
 	{
 		_exIntTestProperty = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ExIntTestProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ExIntTestProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FloatArray
@@ -448,8 +504,15 @@
     - (void)setFloatArray:(DBSystem_Array *)value
 	{
 		_floatArray = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"FloatArray" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "FloatArray");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FloatList
@@ -474,8 +537,15 @@
     - (void)setFloatList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_floatList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"FloatList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "FloatList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FloatNullable
@@ -500,8 +570,15 @@
     - (void)setFloatNullable:(System_NullableA1 *)value
 	{
 		_floatNullable = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"FloatNullable" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "FloatNullable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ImpIntTestProperty
@@ -525,8 +602,15 @@
     - (void)setImpIntTestProperty:(int32_t)value
 	{
 		_impIntTestProperty = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ImpIntTestProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ImpIntTestProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Int16Array
@@ -551,8 +635,15 @@
     - (void)setInt16Array:(DBSystem_Array *)value
 	{
 		_int16Array = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Int16Array" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Int16Array");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Int32Array
@@ -577,8 +668,15 @@
     - (void)setInt32Array:(DBSystem_Array *)value
 	{
 		_int32Array = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Int32Array" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Int32Array");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Int32Number
@@ -602,8 +700,15 @@
     - (void)setInt32Number:(int32_t)value
 	{
 		_int32Number = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Int32Number" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Int32Number");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Int32Pointer
@@ -611,24 +716,31 @@
     @synthesize int32Pointer = _int32Pointer;
     - (int32_t *)int32Pointer
     {
-		typedef int32_t * (*Thunk)(MonoObject *, MonoObject**);
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int32Pointer");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		int32_t * monoObject = thunk(self.monoObject, &monoException);
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_int32Pointer = monoObject;
+		_int32Pointer = DB_UNBOX_PTR(monoObject);
 
 		return _int32Pointer;
 	}
     - (void)setInt32Pointer:(int32_t *)value
 	{
 		_int32Pointer = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Int32Pointer" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Int32Pointer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Int64Array
@@ -653,8 +765,15 @@
     - (void)setInt64Array:(DBSystem_Array *)value
 	{
 		_int64Array = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Int64Array" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Int64Array");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Int64Number
@@ -678,8 +797,15 @@
     - (void)setInt64Number:(int64_t)value
 	{
 		_int64Number = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Int64Number" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Int64Number");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IntEnumeration
@@ -703,8 +829,15 @@
     - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value
 	{
 		_intEnumeration = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IntEnumeration" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, Dubrovnik_UnitTests_IntEnum, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "IntEnumeration");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : InterfaceTestProperty
@@ -729,8 +862,15 @@
     - (void)setInterfaceTestProperty:(Dubrovnik_UnitTests_ITestProperty *)value
 	{
 		_interfaceTestProperty = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"InterfaceTestProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "InterfaceTestProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IntIntDictionary
@@ -755,8 +895,15 @@
     - (void)setIntIntDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
 		_intIntDictionary = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"IntIntDictionary" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "IntIntDictionary");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IntIntStringDictionaryDictionary
@@ -781,8 +928,15 @@
     - (void)setIntIntStringDictionaryDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
 		_intIntStringDictionaryDictionary = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"IntIntStringDictionaryDictionary" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "IntIntStringDictionaryDictionary");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IntList
@@ -807,8 +961,15 @@
     - (void)setIntList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_intList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"IntList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "IntList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IntNullable
@@ -833,8 +994,15 @@
     - (void)setIntNullable:(System_NullableA1 *)value
 	{
 		_intNullable = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"IntNullable" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "IntNullable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IntNumber
@@ -858,8 +1026,15 @@
     - (void)setIntNumber:(int32_t)value
 	{
 		_intNumber = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IntNumber" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "IntNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LongEnumeration
@@ -883,8 +1058,15 @@
     - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value
 	{
 		_longEnumeration = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"LongEnumeration" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, Dubrovnik_UnitTests_LongEnum, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "LongEnumeration");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MinimalReferenceObject
@@ -929,8 +1111,15 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Name" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NotifyingProperty1
@@ -955,8 +1144,15 @@
     - (void)setNotifyingProperty1:(NSString *)value
 	{
 		_notifyingProperty1 = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"NotifyingProperty1" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "NotifyingProperty1");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NotifyingProperty2
@@ -981,8 +1177,15 @@
     - (void)setNotifyingProperty2:(NSString *)value
 	{
 		_notifyingProperty2 = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"NotifyingProperty2" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "NotifyingProperty2");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ObjectObjectDictionary
@@ -1007,8 +1210,15 @@
     - (void)setObjectObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
 		_objectObjectDictionary = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ObjectObjectDictionary" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ObjectObjectDictionary");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Pointer
@@ -1032,8 +1242,15 @@
     - (void)setPointer:(void *)value
 	{
 		_pointer = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Pointer" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, void *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Pointer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReferenceObject1
@@ -1098,8 +1315,15 @@
     - (void)setReferenceObjectList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_referenceObjectList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ReferenceObjectList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ReferenceObjectList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReferenceObjectRelative
@@ -1124,8 +1348,15 @@
     - (void)setReferenceObjectRelative:(Dubrovnik_UnitTests_ReferenceObject *)value
 	{
 		_referenceObjectRelative = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ReferenceObjectRelative" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ReferenceObjectRelative");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StringArray
@@ -1150,8 +1381,15 @@
     - (void)setStringArray:(DBSystem_Array *)value
 	{
 		_stringArray = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"StringArray" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringArray");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StringArrayList
@@ -1176,8 +1414,15 @@
     - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value
 	{
 		_stringArrayList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"StringArrayList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringArrayList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StringList
@@ -1202,8 +1447,15 @@
     - (void)setStringList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_stringList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"StringList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StringObjectDictionary
@@ -1228,8 +1480,15 @@
     - (void)setStringObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
 		_stringObjectDictionary = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"StringObjectDictionary" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringObjectDictionary");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StringProperty
@@ -1254,8 +1513,15 @@
     - (void)setStringProperty:(NSString *)value
 	{
 		_stringProperty = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StringStringDictionary
@@ -1280,8 +1546,15 @@
     - (void)setStringStringDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
 	{
 		_stringStringDictionary = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"StringStringDictionary" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringStringDictionary");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StringStringGenericReferenceObject
@@ -1306,8 +1579,15 @@
     - (void)setStringStringGenericReferenceObject:(Dubrovnik_UnitTests_GenericReferenceObjectA2 *)value
 	{
 		_stringStringGenericReferenceObject = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"StringStringGenericReferenceObject" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringStringGenericReferenceObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UIntList
@@ -1332,8 +1612,15 @@
     - (void)setUIntList:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_uIntList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"UIntList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "UIntList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
