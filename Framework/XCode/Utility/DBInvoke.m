@@ -192,7 +192,7 @@ static Pvoid_t propertySetMethodCache = NULL;
 void DBInvokeLogCache(BOOL freeContents) {
 	int itemCount = 0;
 	int memTotal = 0;
-	int freeCount = 0;
+	unsigned long freeCount = 0;
 	Word_t monoClass = 0;
 	Word_t *nameToArgCountsPointer = NULL;
 	
@@ -643,7 +643,7 @@ __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * pr
     if (delim != NULL) {
         
         // get prefix
-        int nPrefix = delim - propertyName + 1;
+        size_t nPrefix = delim - propertyName + 1;
         prefix = malloc(nPrefix + 1);
         strncpy(prefix, propertyName, nPrefix);
         prefix[nPrefix] = '\0';
@@ -653,7 +653,7 @@ __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * pr
     }
 
     // form the getter
-    int maxMethodName = strlen(prefix) + strlen(name) + strlen(fmt);
+    size_t maxMethodName = strlen(prefix) + strlen(name) + strlen(fmt);
     char *methodName = malloc(maxMethodName);
     snprintf(methodName, maxMethodName, fmt, prefix, name);
     if (delim) {

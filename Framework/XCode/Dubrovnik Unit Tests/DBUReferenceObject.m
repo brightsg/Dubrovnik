@@ -227,12 +227,7 @@
 
 - (void)setIntEnumeration:(eDBUIntEnum)value
 {
-    if (NO) {
-        MonoObject *monoObject = [DBUIntEnum monoEnumFromInt32:value];
-        [self setMonoProperty:"IntEnumeration" valueObject:mono_object_unbox(monoObject)];
-    } else {
-        [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
-    }
+    [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
 }
 
 - (eDBULongEnum)longEnumeration
