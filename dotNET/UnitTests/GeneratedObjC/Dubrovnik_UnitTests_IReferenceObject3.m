@@ -48,8 +48,15 @@
     - (void)setExIntTestProperty:(float)value
 	{
 		_exIntTestProperty = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Dubrovnik.UnitTests.IReferenceObject3.ExIntTestProperty" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, float, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Dubrovnik.UnitTests.IReferenceObject3.ExIntTestProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
