@@ -68,6 +68,7 @@ MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable);
 MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature);
 MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature);
 MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName);
+MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName);
 
 // Exception handling
 void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info);

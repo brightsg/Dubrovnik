@@ -2204,33 +2204,61 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
 }
 
+#pragma mark -
+#pragma mark Thunk evaluation
+
 - (void)doTestThunks:(id)refObject class:(Class)testClass
 {
     #pragma unused(testClass)
     
+    // this works for the manually generated bindings because they
+    // use method invoke as opposed to thunks
     NSLog(@"============================================");
     NSLog(@"Method invoke re thunk performace comparison");
     NSLog(@"============================================");
+    NSString *stringValue = [refObject stringProperty];
     
     // raw thunk versus invoke timing test
     [refObject stringPropertyAccessTimingTest];
     
-    // more representative usage case scenario
+    // more representative usage case scenarios
+    
+    // getter
+    // method invoke
     int count = 1000000;
     NSDate *startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
         [refObject stringProperty];
     }
     NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
-    NSLog(@"Scenario Invoke Time: %f", invokeInterval);
+    NSLog(@"Scenario Invoke Get Time: %f", invokeInterval);
     
+    // thunk
     startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
         [refObject stringPropertyViaThunk];
     }
     NSTimeInterval thunkInterval = -[startTime timeIntervalSinceNow];
-    NSLog(@"Scenario Thunk Time: %f", thunkInterval);
-    NSLog(@"Invoke/Thunk: %f", invokeInterval / thunkInterval);
+    NSLog(@"Scenario Thunk Get Time: %f", thunkInterval);
+    NSLog(@"Scenario Get Invoke/Thunk: %f", invokeInterval / thunkInterval);
+    
+    // setter
+    // method invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject setStringProperty:stringValue];
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Invoke Set Time: %f", invokeInterval);
+    
+    // thunk invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject setStringPropertyViaThunk:stringValue];
+    }
+    thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Thunk Set Time: %f", thunkInterval);
+    NSLog(@"Scenario Set Invoke/Thunk: %f", invokeInterval / thunkInterval);
 }
 
 #pragma mark -

@@ -546,7 +546,7 @@ inline static void SetPropertySetMethod(MonoClass *monoClass, const char *proper
 	*valuePointer = (Word_t)nameToMethodArray;	
 }
 
-__attribute__((always_inline)) inline static MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName) {
+MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName) {
 	Pvoid_t nameToMethodArray = NULL;
 	MonoMethod *meth = NULL;
 	Word_t *valuePointer = NULL;
