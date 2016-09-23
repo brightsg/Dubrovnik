@@ -79,12 +79,17 @@ static const char hasValueKey = '0';
     return _decimalMonoClassRepresentation;
 }
 
-- (MonoObject *)monoDecimal {
-    
+- (MonoObject *)monoObject
+{
     // TODO: handle locale
     MonoObject *monoObject = [[self stringValue] monoValue];
-	MonoObject *monoDecimal = [[self monoClassRepresentation] invokeMonoMethod:"Parse(string)" withNumArgs:1, monoObject];
-	return(monoDecimal);
+    MonoObject *monoDecimal = [[self monoClassRepresentation] invokeMonoMethod:"Parse(string)" withNumArgs:1, monoObject];
+    return(monoDecimal);
+}
+
+- (MonoObject *)monoDecimal
+{
+    return [self monoObject];
 }
 
 - (MonoObject *)monoValue

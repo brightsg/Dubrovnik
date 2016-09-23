@@ -41,6 +41,7 @@
 #define DB_UNBOX_PTR( x ) ( *(void **)mono_object_unbox( x ) )
 #define DB_UNBOX_UPTR( x ) ( *(void **)mono_object_unbox( x ) )
 
+#define DB_BOX_CLASS( x , class) ( mono_value_box(mono_domain_get(), class, &x) )
 #define DB_BOX_DOUBLE( x ) ( mono_value_box(mono_domain_get(), mono_get_double_class(), &x) )
 #define DB_BOX_FLOAT( x ) ( mono_value_box(mono_domain_get(), mono_get_single_class(), &x) )
 #define DB_BOX_INT64( x ) ( mono_value_box(mono_domain_get(), mono_get_int64_class(), &x) )
@@ -52,3 +53,4 @@
 #define DB_BOX_UINT16( x ) ( mono_value_box(mono_domain_get(), mono_get_uint16_class(), &x) )
 #define DB_BOX_UINT8( x ) ( mono_value_box(mono_domain_get(), mono_get_byte_class(), &x) )
 #define DB_BOX_BOOLEAN( x ) ( mono_value_box(mono_domain_get(), mono_get_boolean_class(), &x) )
+

@@ -139,15 +139,20 @@ static DBMonoDateTimeOptions m_monoDateTimeOptions = DBMonoDateTimeOptionNone;
 #pragma mark -
 #pragma mark MonoObject representations
 
-- (MonoObject *)monoDateTime {
-    
-	if(_dateTimeMonoClass == NULL) {
-		_dateTimeMonoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.DateTime"];
-	}
-	int64_t ticks = ([self timeIntervalSinceReferenceDate] * NET_TICKS_PER_SECOND) + EPOCH_START_DIFFERENCE;
+- (MonoObject *)monoObject
+{
+    if(_dateTimeMonoClass == NULL) {
+        _dateTimeMonoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.DateTime"];
+    }
+    int64_t ticks = ([self timeIntervalSinceReferenceDate] * NET_TICKS_PER_SECOND) + EPOCH_START_DIFFERENCE;
     int32_t dateTimeKind = System_DateTimeKind_Utc;
-	MonoObject *monoDateTime = DBMonoObjectSignatureConstruct(_dateTimeMonoClass, "long,System.DateTimeKind", 2, &ticks, &dateTimeKind);
-	return(monoDateTime);
+    MonoObject *monoDateTime = DBMonoObjectSignatureConstruct(_dateTimeMonoClass, "long,System.DateTimeKind", 2, &ticks, &dateTimeKind);
+    return(monoDateTime);
+}
+
+- (MonoObject *)monoDateTime
+{
+    return [self monoObject];
 }
 
 - (MonoObject *)monoValue
