@@ -716,30 +716,30 @@
     @synthesize int32Pointer = _int32Pointer;
     - (int32_t *)int32Pointer
     {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		typedef int32_t * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Int32Pointer");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		int32_t * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_int32Pointer = DB_UNBOX_PTR(monoObject);
+		_int32Pointer = monoObject;
 
 		return _int32Pointer;
 	}
     - (void)setInt32Pointer:(int32_t *)value
 	{
 		_int32Pointer = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		typedef void (*Thunk)(MonoObject *, int32_t *, MonoObject**);
 		static Thunk thunk;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Int32Pointer");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
+		thunk(self.monoObject, value, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 

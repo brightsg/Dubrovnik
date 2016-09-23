@@ -1848,7 +1848,7 @@ this.Write("\r\n");
 				// thunking : primitive value types and enumerations are returned by value.
 				// other value types, such as DateTime are returned as boxed values
 				string thunkTypeDecl = null;
-				if (facet.IsSimpleValueType) {
+				if (ObjCRepresentationIsPrimitive(facet)) {
 					managedValueToObjC = "monoObject";
 					thunkTypeDecl = objCTypeDecl;
 				} else {
@@ -2219,7 +2219,7 @@ this.Write("\r\n");
 			//
 			if (facet is PropertyFacet) {
 				string thunkArgTypeDecl, thunkArg;
-				if (facet.IsSimpleValueType) {
+				if (ObjCRepresentationIsPrimitive(facet)) {
 					thunkArgTypeDecl = objCTypeDecl;
 					thunkArg = ObjCVariableName;
 				} else {

@@ -108,19 +108,13 @@ namespace Dubrovnik.Tools
 
         public string OutputFileNameSuffix { get; set; }
     
-        public bool IsStructuredValueType {
+        public bool IsStruct {
             get
             {
-					return IsValueType && !IsSimpleValueType;
+					// note that a pointer is not a value type
+					return IsValueType && !IsEnum && !IsPrimitive;
             }
         }
-
-		  public bool IsSimpleValueType {
-			  get {
-				  // simple value types have a corresponding C primitive
-				  return IsValueType && (IsEnum || IsPrimitive || IsPointer);
-			  }
-		  }
 
         public string Type {
             get
