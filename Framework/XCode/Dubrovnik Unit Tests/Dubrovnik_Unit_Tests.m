@@ -87,7 +87,7 @@ static MonoAssembly *monoAssembly;
 
 @interface Dubrovnik_Unit_Tests()
 
-- (void)doTestReferenceClass:(Class)testClass;
+- (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations;
 - (id)doTestConstructorsWithclass:(Class)testClass;
 - (void)doTestFields:(id)refObject class:(Class)testClass;
 - (void)doTestExtensionMethods:(id)refObject class:(Class)testClass;
@@ -328,7 +328,7 @@ static MonoAssembly *monoAssembly;
     @autoreleasepool {
         
         // test reference class
-        [self doTestReferenceClass:[DBUReferenceObject class]];
+        [self doTestReferenceClass:[DBUReferenceObject class] iterations:3];
         
         // managed object allocation
         id managedObject = [[DBUReferenceObject alloc] init];
@@ -351,7 +351,7 @@ static MonoAssembly *monoAssembly;
     NSLog(@"==============================================");
 
     @autoreleasepool {
-        [self doTestReferenceClass:[DUReferenceObject_ class]];
+        [self doTestReferenceClass:[DUReferenceObject_ class] iterations:3];
     }
 
     //
@@ -1252,6 +1252,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)doTestGenericMethods:(id)refObject class:(Class)testClass
 {
+#pragma unused(refObject)
 #pragma unused(testClass)
 }
 
@@ -1848,74 +1849,93 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 }
 
-- (void)doTestReferenceClass:(Class)testClass
+- (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations
 {
-    
-    //===================================
-    // constructors
-    //===================================
-    id refObject = [self doTestConstructorsWithclass:testClass];
-    
-    [self doTestGenericConstructors:testClass];
-
-    //===================================
-    // events
-    //===================================
-    
-    // the fact that the manually generated object does not have a class
-    // name that matches the managed object class causes the event tests to fail.
-    // hence we call them on the auto generated code only
-    if (m_runningAutoGenCodeTest) {
-        [self doTestEvents:refObject class:testClass];
+    if (iterations < 1) {
+        XCTAssertTrue(NO, @"The iteration count must be greater than 1 to ensure that caches that get setup on first access subsequently get queried.");
     }
     
-    //===================================
-    // equality
-    //===================================
-    [self doTestForEquality:refObject class:testClass];
-
-    //===================================
-    // fields
-    //===================================
-    [self doTestFields:refObject class:testClass];
-
-    //===================================
-    // methods
-    //===================================
-    [self doTestMethods:refObject class:testClass];
-    [self doTestExtensionMethods:refObject class:testClass];
-    [self doTestArrayMethods:refObject class:testClass];
-    [self doTestPointerMethods:refObject class:testClass];
-    [self doTestRefMethods:refObject class:testClass];
-    [self doTestGenericMethods:refObject class:testClass];
-
-    //===================================
-    // properties
-    //===================================
-    [self doTestProperties:refObject class:testClass];
-    [self doTestArrayProperties:refObject class:testClass];
-    [self doTestGenericProperties:refObject class:testClass];
-    [self doTestPointerProperties:refObject class:testClass];
-    [self doTestPropertyPersistence:refObject class:testClass];
-    [self doTestNotifyingProperties:refObject class:testClass];
-
-    //===================================
-    // representations
-    //===================================
-    [self doTestStructRepresentation:refObject class:testClass];
-    [self doTestObjectRepresentation:refObject class:testClass];
-    [self doTestArrayListRepresentation:refObject class:testClass];
+    NSDate *startTime = [NSDate date];
+    int loopCounter = iterations;
     
-    //===================================
-    // Delegates
-    //===================================
-    if (m_runningAutoGenCodeTest) {
-        [self doTestDelegates:refObject class:testClass];
-    }
+    do {
+        //===================================
+        // constructors
+        //===================================
+        id refObject = [self doTestConstructorsWithclass:testClass];
+        
+        [self doTestGenericConstructors:testClass];
+
+        //===================================
+        // events
+        //===================================
+        
+        // the fact that the manually generated object does not have a class
+        // name that matches the managed object class causes the event tests to fail.
+        // hence we call them on the auto generated code only
+        if (m_runningAutoGenCodeTest) {
+            [self doTestEvents:refObject class:testClass];
+        }
+        
+        //===================================
+        // equality
+        //===================================
+        [self doTestForEquality:refObject class:testClass];
+
+        //===================================
+        // fields
+        //===================================
+        [self doTestFields:refObject class:testClass];
+
+        //===================================
+        // methods
+        //===================================
+        [self doTestMethods:refObject class:testClass];
+        [self doTestExtensionMethods:refObject class:testClass];
+        [self doTestArrayMethods:refObject class:testClass];
+        [self doTestPointerMethods:refObject class:testClass];
+        [self doTestRefMethods:refObject class:testClass];
+        [self doTestGenericMethods:refObject class:testClass];
+
+        //===================================
+        // properties
+        //===================================
+        NSDate *propertyStartTime = [NSDate date];
+        [self doTestProperties:refObject class:testClass];
+        [self doTestArrayProperties:refObject class:testClass];
+        [self doTestGenericProperties:refObject class:testClass];
+        [self doTestPointerProperties:refObject class:testClass];
+        [self doTestPropertyPersistence:refObject class:testClass];
+        [self doTestNotifyingProperties:refObject class:testClass];
+        NSTimeInterval invokeInterval = -[propertyStartTime timeIntervalSinceNow];
+        NSLog(@"%@ : property tests (%u) Time: %f", self.runModeName, 1, invokeInterval);
+        
+        //===================================
+        // representations
+        //===================================
+        [self doTestStructRepresentation:refObject class:testClass];
+        [self doTestObjectRepresentation:refObject class:testClass];
+        [self doTestArrayListRepresentation:refObject class:testClass];
+        
+        //===================================
+        // Delegates
+        //===================================
+        if (m_runningAutoGenCodeTest) {
+            [self doTestDelegates:refObject class:testClass];
+        }
+        
+        if (!m_runningAutoGenCodeTest) {
+            [self doTestThunks:refObject class:testClass];
+        }
+    } while (--loopCounter);
     
-    if (!m_runningAutoGenCodeTest) {
-        [self doTestThunks:refObject class:testClass];
-    }
+    NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"%@ : doTestReferenceClass(%u) Time: %f", self.runModeName, iterations, invokeInterval);
+}
+
+- (NSString *)runModeName
+{
+    return m_runningAutoGenCodeTest ? @"Generated code" : @"Manual code";
 }
 
 - (void)doTestEvents:(id)refObject class:(Class)testClass
@@ -2184,33 +2204,61 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
 }
 
+#pragma mark -
+#pragma mark Thunk evaluation
+
 - (void)doTestThunks:(id)refObject class:(Class)testClass
 {
     #pragma unused(testClass)
     
+    // this works for the manually generated bindings because they
+    // use method invoke as opposed to thunks
     NSLog(@"============================================");
     NSLog(@"Method invoke re thunk performace comparison");
     NSLog(@"============================================");
+    NSString *stringValue = [refObject stringProperty];
     
     // raw thunk versus invoke timing test
     [refObject stringPropertyAccessTimingTest];
     
-    // more representative usage case scenario
+    // more representative usage case scenarios
+    
+    // getter
+    // method invoke
     int count = 1000000;
     NSDate *startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
         [refObject stringProperty];
     }
     NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
-    NSLog(@"Scenario Invoke Time: %f", invokeInterval);
+    NSLog(@"Scenario Invoke Get Time: %f", invokeInterval);
     
+    // thunk
     startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
         [refObject stringPropertyViaThunk];
     }
     NSTimeInterval thunkInterval = -[startTime timeIntervalSinceNow];
-    NSLog(@"Scenario Thunk Time: %f", thunkInterval);
-    NSLog(@"Invoke/Thunk: %f", invokeInterval / thunkInterval);
+    NSLog(@"Scenario Thunk Get Time: %f", thunkInterval);
+    NSLog(@"Scenario Get Invoke/Thunk: %f", invokeInterval / thunkInterval);
+    
+    // setter
+    // method invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject setStringProperty:stringValue];
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Invoke Set Time: %f", invokeInterval);
+    
+    // thunk invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject setStringPropertyViaThunk:stringValue];
+    }
+    thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Thunk Set Time: %f", thunkInterval);
+    NSLog(@"Scenario Set Invoke/Thunk: %f", invokeInterval / thunkInterval);
 }
 
 #pragma mark -

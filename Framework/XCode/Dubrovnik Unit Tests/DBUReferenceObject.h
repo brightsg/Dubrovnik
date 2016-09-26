@@ -162,7 +162,8 @@
 - (NSString *)stringProperty;
 - (void)setStringProperty:(NSString *)value;
 
-// thunking
+// thunking tests
+- (void)setStringPropertyViaThunk:(NSString *)value;
 - (NSString *)stringPropertyViaThunk;
 - (void)stringPropertyAccessTimingTest;
 

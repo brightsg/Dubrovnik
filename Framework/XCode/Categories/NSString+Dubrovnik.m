@@ -60,7 +60,7 @@
     if ([self respondsToSelector:@selector(representedMonoString)]) {
         monoString = [(id)self representedMonoString];
     } else {
-        monoString = mono_string_new_size(mono_domain_get(), [self length]);
+        monoString = mono_string_new_size(mono_domain_get(), (int32_t)[self length]);
         [self getCharacters:mono_string_chars(monoString)];
     }
     

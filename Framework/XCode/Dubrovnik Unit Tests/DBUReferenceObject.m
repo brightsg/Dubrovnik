@@ -8,7 +8,11 @@
 #import "DBUReferenceObject.h"
 #import "DBUIReferenceObject.h"
 
-
+/*
+ Note that the code here was written manually and uses
+ runtime method invocation as opposed to the more modern thunking
+ approach used in parts of generated code.
+ */
 @implementation DBUReferenceObject
 
 @dynamic stringProperty_;
@@ -227,12 +231,7 @@
 
 - (void)setIntEnumeration:(eDBUIntEnum)value
 {
-    if (NO) {
-        MonoObject *monoObject = [DBUIntEnum monoEnumFromInt32:value];
-        [self setMonoProperty:"IntEnumeration" valueObject:mono_object_unbox(monoObject)];
-    } else {
-        [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
-    }
+    [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
 }
 
 - (eDBULongEnum)longEnumeration
@@ -864,15 +863,23 @@
 #pragma mark -
 #pragma mark Thunk performance comparison evaluation code
 
+- (void)setStringPropertyViaThunk:(NSString *)value
+{
+    typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+    static Thunk thunk;
+    if (!thunk) {
+        MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringProperty");
+        thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+    }
+    MonoObject *monoException = NULL;
+    thunk(self.monoObject, value.monoObject, &monoException);
+    if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
 - (NSString *)stringPropertyViaThunk
 {
-    
-#ifdef DB_INVOKE_METHOD
-    MonoObject * monoObject = [self getMonoProperty:"StringProperty"];
-#else
     typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
     static Thunk thunk;
-
     if (!thunk) {
         MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringProperty");
         thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
@@ -880,7 +887,6 @@
     MonoObject *monoException = NULL;
     MonoObject *monoObject = thunk(self.monoObject, &monoException);
     if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-#endif
     
     if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;
     _stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -893,28 +899,56 @@
     MonoException *monoException = NULL;
     int count = 1000000;
     
+    NSString *stringValue = (id)[DBManagedObject objectWithMonoObject:[self getMonoProperty:"StringProperty"]];
+    
+    // Getter
+    
     // invoke method
     NSDate *startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
         monoObject = [self getMonoProperty:"StringProperty"];
     }
     NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
-    NSLog(@"Raw Invoke Time: %f", invokeInterval);
+    NSLog(@"Raw Invoke Get Time: %f", invokeInterval);
     
-    // thunk method - seems to give about a x6 improvement
-    typedef MonoObject* (*PropertyThunk)(MonoObject *, MonoException** ex);
-    static PropertyThunk thunk;
+    // thunk method - seems to give about a x 6 improvement
+    typedef MonoObject* (*GetThunk)(MonoObject *, MonoException** ex);
+    static GetThunk getThunk;
     startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
-        if (!thunk) {
+        if (!getThunk) {
             MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringProperty");
-            thunk = (PropertyThunk)mono_method_get_unmanaged_thunk(monoMethod);
+            getThunk = (GetThunk)mono_method_get_unmanaged_thunk(monoMethod);
         }
-        monoObject = thunk(self.monoObject, &monoException);
+        monoObject = getThunk(self.monoObject, &monoException);
     }
     NSTimeInterval thunkInterval = -[startTime timeIntervalSinceNow];
-    NSLog(@"Raw Thunk Time: %f", thunkInterval);
-    NSLog(@"Invoke/Thunk : %f", invokeInterval/thunkInterval);
+    NSLog(@"Raw Thunk Get Time: %f", thunkInterval);
+    NSLog(@"Get Invoke/Thunk : %f", invokeInterval/thunkInterval);
+    
+    // setter
+    // invoke method
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [self setMonoProperty:"StringProperty" valueObject:stringValue.monoObject];
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Raw Invoke Set Time: %f", invokeInterval);
+    
+    // thunk method - seems to give about a x 3 improvement
+    typedef MonoObject* (*SetThunk)(MonoObject *, MonoObject *, MonoException** ex);
+    static SetThunk setThunk;
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        if (!setThunk) {
+            MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringProperty");
+            setThunk = (SetThunk)mono_method_get_unmanaged_thunk(monoMethod);
+        }
+        setThunk(self.monoObject, stringValue.monoObject, &monoException);
+    }
+    thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Raw Thunk Set Time: %f", thunkInterval);
+    NSLog(@"Set Invoke/Thunk : %f", invokeInterval/thunkInterval);
 }
 
 @end

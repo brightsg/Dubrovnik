@@ -15,7 +15,7 @@
 #pragma mark Setup
 	// obligatory override
 	+ (const char *)monoClassName
-	{
+    {
 		return "Dubrovnik.UnitTests.ReferenceObject";
 	}
 	// obligatory override

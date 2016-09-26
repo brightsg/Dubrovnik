@@ -19,6 +19,7 @@
 - (id)initWithMonoDecimal:(MonoObject *)monoDecimal;
 - (id)initWithMonoString:(MonoString *)monoString;
 
+- (MonoObject *)monoObject;
 - (MonoObject *)monoDecimal;
 - (MonoObject *)monoValue;
 - (MonoObject *)nullableMonoDecimal;
