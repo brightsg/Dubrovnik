@@ -33,7 +33,7 @@
     + (Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
+		Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }

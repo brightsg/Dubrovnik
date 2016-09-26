@@ -33,7 +33,7 @@
     - (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4
     {
 		
-		[self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &p4];
+		[self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
         
     }
 
