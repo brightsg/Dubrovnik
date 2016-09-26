@@ -33,7 +33,7 @@
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Dubrovnik.UnitTests.IMinimalReferenceObject.StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
+		MonoObject *monoObject = [self invokeMonoMethod:"Dubrovnik.UnitTests.IMinimalReferenceObject.StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

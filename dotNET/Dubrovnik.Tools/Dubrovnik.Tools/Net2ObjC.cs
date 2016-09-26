@@ -2784,7 +2784,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 
 		//
 		// build the mono invocation argument representation
-		// eg: &p1, &p2, [p3 monoRTInvokeArg]
+		// eg: DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]
 		//
 		string argFormat = null;
 		if (idx > 0) invokeArgsBuilder.Append(", ");
@@ -2804,7 +2804,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
             } 
 			else 
 			{
-				argFormat = "&p{0}";	// value types passed as pointer to value type
+				argFormat = "DB_VALUE(p{0})";	// DB_VALUE equates to &
             }
 		}
 		invokeArgsBuilder.AppendFormat(argFormat, idx + 1);

@@ -15,7 +15,7 @@
 #pragma mark Setup
 	// obligatory override
 	+ (const char *)monoClassName
-    {
+	{
 		return "Dubrovnik.UnitTests.ReferenceObject";
 	}
 	// obligatory override
@@ -1676,7 +1676,7 @@
     - (int32_t)doubleIt_withXInt:(int32_t)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, &p1];
+		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -1760,7 +1760,7 @@
     - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, &p1, &p2, &p3, &p4, [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1890,7 +1890,7 @@
     - (NSString *)stringMethod_withN:(int32_t)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, &p1];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, DB_VALUE(p1)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1912,7 +1912,7 @@
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
