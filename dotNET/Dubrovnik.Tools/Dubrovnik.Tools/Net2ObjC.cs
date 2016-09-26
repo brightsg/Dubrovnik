@@ -2784,7 +2784,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 
 		//
 		// build the mono invocation argument representation
-		// eg: DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]
+		// eg: &p1, &p2, [p3 monoRTInvokeArg]
 		//
 		string argFormat = null;
 		if (idx > 0) invokeArgsBuilder.Append(", ");
@@ -2793,7 +2793,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			if (parameter.IsByRef) {
 				argFormat = "&refPtr{0}";	// use reference pointer
             } else {
-				argFormat = "[p{0} monoValue]";
+				argFormat = "[p{0} monoRTInvokeArg]";
             }
         } 
 		else 
@@ -2804,7 +2804,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
             } 
 			else 
 			{
-				argFormat = "DB_VALUE(p{0})";	// DB_VALUE equates to &
+				argFormat = "&p{0}";	// value types passed as pointer to value type
             }
 		}
 		invokeArgsBuilder.AppendFormat(argFormat, idx + 1);
@@ -2818,7 +2818,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (objCParameterIsObject && parameter.IsByRef) {
 
 			// dereference and assign temporary variable
-			string preProcess = string.Format("void *refPtr{0} = [*p{0} monoValue];{1}", idx + 1, Environment.NewLine);
+			string preProcess = string.Format("void *refPtr{0} = [*p{0} monoRTInvokeArg];{1}", idx + 1, Environment.NewLine);
 			referencePreProcessBuilder.Append(preProcess);
 
 			// create new object subclass for reference 
@@ -3029,7 +3029,7 @@ this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
         #line hidden
         
         #line 1157 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(";\r\n        ");
+this.Write("\r\n        ");
 
         
         #line default
@@ -3102,7 +3102,7 @@ this.Write(this.ToStringHelper.ToStringWithCulture(getExpression));
         #line hidden
         
         #line 1165 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(";\r\n        ");
+this.Write("\r\n        ");
 
         
         #line default

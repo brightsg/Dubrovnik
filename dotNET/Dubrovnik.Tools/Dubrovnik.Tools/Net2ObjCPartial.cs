@@ -444,7 +444,7 @@ namespace Dubrovnik.Tools
                             // Default setter formatter for types represented by an NSObject instance.
                             // Note that some Managed value types such as DateTime are represented by NSObject instances.
                             // Managed numeric types are represented by primitive numeric types in Obj-C.
-                            value = "[{0} monoValue]";
+									value = "[{0} monoRTInvokeArg]";
                         }
                         else
                         {

@@ -33,7 +33,7 @@
     + (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1
     {
 		
-		Dubrovnik_UnitTests_ReferenceStruct * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		Dubrovnik_UnitTests_ReferenceStruct * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -72,7 +72,7 @@
     - (void)setStringField:(NSString *)value
 	{
 		_stringField = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"StringField" valueObject:monoObject];          
 	}
 
@@ -121,7 +121,7 @@
     - (NSString *)stringMethod_withS1:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

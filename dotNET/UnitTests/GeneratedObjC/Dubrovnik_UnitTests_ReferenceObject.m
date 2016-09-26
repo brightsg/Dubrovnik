@@ -33,7 +33,7 @@
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue:(NSString *)p1
     {
 		
-		Dubrovnik_UnitTests_ReferenceObject * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		Dubrovnik_UnitTests_ReferenceObject * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1:(NSString *)p1 value2:(NSString *)p2
     {
 		
-		Dubrovnik_UnitTests_ReferenceObject * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		Dubrovnik_UnitTests_ReferenceObject * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -78,7 +78,7 @@
     + (void)setClassDateField:(NSDate *)value
 	{
 		m_classDateField = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[[self class] setMonoClassField:"ClassDateField" valueObject:monoObject];          
 	}
 
@@ -125,7 +125,7 @@
     + (void)setClassStringField:(NSString *)value
 	{
 		m_classStringField = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];          
 	}
 
@@ -143,7 +143,7 @@
     - (void)setDateField:(NSDate *)value
 	{
 		_dateField = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"DateField" valueObject:monoObject];          
 	}
 
@@ -212,7 +212,7 @@
     - (void)setStringField:(NSString *)value
 	{
 		_stringField = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"StringField" valueObject:monoObject];          
 	}
 
@@ -1632,7 +1632,7 @@
     - (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1654,7 +1654,7 @@
     - (NSDate *)dateMethod_withD1:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -1665,7 +1665,7 @@
     - (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DecimalMultiplierMethod(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DecimalMultiplierMethod(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -1676,7 +1676,7 @@
     - (int32_t)doubleIt_withXInt:(int32_t)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, &p1];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -1698,7 +1698,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -1720,7 +1720,7 @@
     - (void)invokeActionDelegate_withAction:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1
     {
 		
-		[self invokeMonoMethod:"InvokeActionDelegate(Dubrovnik.UnitTests.ReferenceObject/ActionDelegate)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"InvokeActionDelegate(Dubrovnik.UnitTests.ReferenceObject/ActionDelegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -1730,7 +1730,7 @@
     - (void)invokeFunctionDelegate1_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)p1
     {
 		
-		[self invokeMonoMethod:"InvokeFunctionDelegate1(Dubrovnik.UnitTests.ReferenceObject/FunctionDelegate1)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"InvokeFunctionDelegate1(Dubrovnik.UnitTests.ReferenceObject/FunctionDelegate1)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -1740,7 +1740,7 @@
     - (void)invokeFunctionDelegate2_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)p1
     {
 		
-		[self invokeMonoMethod:"InvokeFunctionDelegate2(Dubrovnik.UnitTests.ReferenceObject/FunctionDelegate2)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"InvokeFunctionDelegate2(Dubrovnik.UnitTests.ReferenceObject/FunctionDelegate2)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -1750,7 +1750,7 @@
     - (void)invokeSimpleDelegate_withDelg:(Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate *)p1
     {
 		
-		[self invokeMonoMethod:"InvokeSimpleDelegate(Dubrovnik.UnitTests.ReferenceObject/SimpleDelegate)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"InvokeSimpleDelegate(Dubrovnik.UnitTests.ReferenceObject/SimpleDelegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -1760,7 +1760,7 @@
     - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, &p1, &p2, &p3, &p4, [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1771,7 +1771,7 @@
     - (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
@@ -1782,7 +1782,7 @@
     - (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
@@ -1793,7 +1793,7 @@
     - (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
@@ -1804,7 +1804,7 @@
     - (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
@@ -1815,7 +1815,7 @@
     - (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
@@ -1826,7 +1826,7 @@
     - (void)raiseUnitTestEvent1
     {
 		
-		[self invokeMonoMethod:"RaiseUnitTestEvent1()" withNumArgs:0];;
+		[self invokeMonoMethod:"RaiseUnitTestEvent1()" withNumArgs:0];
         
     }
 
@@ -1836,7 +1836,7 @@
     - (void)raiseUnitTestEvent2
     {
 		
-		[self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];;
+		[self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];
         
     }
 
@@ -1846,7 +1846,7 @@
     - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [Dubrovnik_UnitTests_ReferenceStruct bestObjectWithMonoObject:monoObject];
     }
@@ -1857,7 +1857,7 @@
     - (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -1879,7 +1879,7 @@
     - (NSString *)stringMethod_withS1:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1890,7 +1890,7 @@
     - (NSString *)stringMethod_withN:(int32_t)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, &p1];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1901,7 +1901,7 @@
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1912,7 +1912,7 @@
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1923,7 +1923,7 @@
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -1933,7 +1933,7 @@
 	// Managed param types : ref System.String&
     - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"StringMethodWithStringRef(string&)" withNumArgs:1, &refPtr1];
 
@@ -1948,7 +1948,7 @@
     - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT64(monoObject);
     }
@@ -1959,7 +1959,7 @@
     - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -1970,7 +1970,7 @@
     - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT16(monoObject);
     }
@@ -1981,7 +1981,7 @@
     - (uint8_t)sum_withByteArray:(NSData *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT8(monoObject);
     }
@@ -1992,7 +1992,7 @@
     - (float)sum_withFloatArray:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }
@@ -2003,7 +2003,7 @@
     - (double)sum_withDoubleArray:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
@@ -2014,7 +2014,7 @@
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
