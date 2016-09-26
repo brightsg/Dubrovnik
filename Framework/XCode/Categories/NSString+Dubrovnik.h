@@ -32,7 +32,7 @@
 - (id)initWithMonoString:(MonoString *)monoString;
 
 - (MonoString *)monoString;
-- (MonoObject *)monoValue;
+- (MonoObject *)monoRTInvokeArg;
 - (MonoObject *)monoObject;
 
 - (NSString *)simpleObjCToMonoClassNameString;

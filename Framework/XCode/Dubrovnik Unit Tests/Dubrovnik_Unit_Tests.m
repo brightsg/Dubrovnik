@@ -2259,6 +2259,29 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     thunkInterval = -[startTime timeIntervalSinceNow];
     NSLog(@"Scenario Thunk Set Time: %f", thunkInterval);
     NSLog(@"Scenario Set Invoke/Thunk: %f", invokeInterval / thunkInterval);
+
+    // method
+    NSString *stringS1 = @"just what";
+    MonoString *monoString = mono_string_new(mono_domain_get(), "2");
+    DBManagedObject *stringObj = [DBManagedObject objectWithMonoObject:(MonoObject *)monoString];
+
+    // method invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringMethod_withS1String:stringS1 s2Object:stringObj];
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Invoke Method Time: %f", invokeInterval);
+    
+    // method
+    // thunk invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringMethodViaThunk_withS1String:stringS1 s2Object:stringObj];
+    }
+    thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Thunk Method Time: %f", thunkInterval);
+    NSLog(@"Scenario Method Invoke/Thunk: %f", invokeInterval / thunkInterval);
 }
 
 #pragma mark -

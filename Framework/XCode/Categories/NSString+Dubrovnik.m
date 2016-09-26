@@ -55,7 +55,18 @@
 
 - (MonoString *)monoString
 {
+    return (MonoString *)[self monoObject];
+}
+
+- (MonoObject *)monoRTInvokeArg
+{
+    return [self monoObject];
+}
+
+- (MonoObject *)monoObject
+{
     MonoString *monoString = nil;
+    
     // test if subclass manages its own reference to a MonoObject
     if ([self respondsToSelector:@selector(representedMonoString)]) {
         monoString = [(id)self representedMonoString];
@@ -64,17 +75,7 @@
         [self getCharacters:mono_string_chars(monoString)];
     }
     
-	return(monoString);	
-}
-
-- (MonoObject *)monoValue
-{
-    return (MonoObject *)[self monoString];
-}
-
-- (MonoObject *)monoObject
-{
-    return [self monoValue];
+    return (MonoObject *)monoString;
 }
 
 - (NSString *)simpleObjCToMonoClassNameString

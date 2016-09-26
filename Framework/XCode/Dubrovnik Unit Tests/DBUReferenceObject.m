@@ -951,6 +951,21 @@
     NSLog(@"Set Invoke/Thunk : %f", invokeInterval/thunkInterval);
 }
 
+- (NSString *)stringMethodViaThunk_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2
+{
+    typedef MonoObject* (*Thunk)(MonoObject *, MonoObject *, MonoObject *, MonoObject**);
+    static Thunk thunk;
+    if (!thunk) {
+        MonoMethod *monoMethod = GetMonoObjectMethod(self.monoObject, "StringMethod(string,object)", YES);
+        thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+    }
+    MonoObject *monoException = NULL;
+    MonoObject *monoObject = thunk(self.monoObject, p1.monoObject, p2.monoObject, &monoException);
+    if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+    
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+    
 @end
 
 

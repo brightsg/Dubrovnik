@@ -817,13 +817,12 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return monoObject;
 }
 
-- (MonoObject *)monoValue
+- (MonoObject *)monoRTInvokeArg
 {
-    // returns a pointer to an object that can be used as a property value or method invocation argument
-    // where value types are required to be passed unboxed.
-
+    // returns a pointer to an object that can be used as an argument in a
+    // call to mono_runtime_invoke()
     MonoObject *monoObject = self.monoObject;
-    MonoObject *valueObject = monoObject;
+    MonoObject *arg = monoObject;
     
     // value types must be unboxed
     MonoClass *klass = mono_object_get_class(monoObject);
@@ -833,10 +832,10 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         
         // nullable value types do not require unboxing
         if (strcmp(monoClassName, "System.Nullable`1") != 0) {
-            valueObject = mono_object_unbox(monoObject);
+            arg = mono_object_unbox(monoObject);
         }
     }
-    return valueObject;
+    return arg;
 }
 
 - (MonoAssembly *)monoAssembly

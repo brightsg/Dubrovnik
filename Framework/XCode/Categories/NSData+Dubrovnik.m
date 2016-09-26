@@ -64,7 +64,7 @@
 	return(monoArray);
 }
 
-- (MonoObject *)monoValue {
+- (MonoObject *)monoRTInvokeArg {
     return DB_OBJECT([self monoArray]);
 }
 @end
