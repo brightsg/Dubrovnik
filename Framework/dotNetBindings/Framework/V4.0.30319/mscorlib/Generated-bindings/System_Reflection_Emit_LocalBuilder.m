@@ -69,7 +69,7 @@
 	// Managed param types : System.String
     - (void)setLocalSymInfo_withName:(NSString *)p1
     {
-		[self invokeMonoMethod:"SetLocalSymInfo(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetLocalSymInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetLocalSymInfo
@@ -77,7 +77,7 @@
 	// Managed param types : System.String, System.Int32, System.Int32
     - (void)setLocalSymInfo_withName:(NSString *)p1 startOffset:(int32_t)p2 endOffset:(int32_t)p3
     {
-		[self invokeMonoMethod:"SetLocalSymInfo(string,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"SetLocalSymInfo(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 #pragma mark -

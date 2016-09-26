@@ -75,7 +75,7 @@
     - (void)setXmlElementName:(NSString *)value
 	{
 		_xmlElementName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XmlElementName" valueObject:monoObject];          
 	}
 
@@ -110,7 +110,7 @@
     - (void)setXmlNamespace:(NSString *)value
 	{
 		_xmlNamespace = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XmlNamespace" valueObject:monoObject];          
 	}
 
@@ -128,7 +128,7 @@
     - (void)setXmlTypeName:(NSString *)value
 	{
 		_xmlTypeName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XmlTypeName" valueObject:monoObject];          
 	}
 
@@ -146,7 +146,7 @@
     - (void)setXmlTypeNamespace:(NSString *)value
 	{
 		_xmlTypeNamespace = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XmlTypeNamespace" valueObject:monoObject];          
 	}
 

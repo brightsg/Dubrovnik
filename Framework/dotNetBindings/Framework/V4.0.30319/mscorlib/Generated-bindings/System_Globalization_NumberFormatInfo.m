@@ -58,7 +58,7 @@
     - (void)setCurrencyDecimalSeparator:(NSString *)value
 	{
 		_currencyDecimalSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CurrencyDecimalSeparator" valueObject:monoObject];          
 	}
 
@@ -76,7 +76,7 @@
     - (void)setCurrencyGroupSeparator:(NSString *)value
 	{
 		_currencyGroupSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CurrencyGroupSeparator" valueObject:monoObject];          
 	}
 
@@ -94,7 +94,7 @@
     - (void)setCurrencyGroupSizes:(DBSystem_Array *)value
 	{
 		_currencyGroupSizes = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CurrencyGroupSizes" valueObject:monoObject];          
 	}
 
@@ -146,7 +146,7 @@
     - (void)setCurrencySymbol:(NSString *)value
 	{
 		_currencySymbol = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CurrencySymbol" valueObject:monoObject];          
 	}
 
@@ -216,7 +216,7 @@
     - (void)setNaNSymbol:(NSString *)value
 	{
 		_naNSymbol = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"NaNSymbol" valueObject:monoObject];          
 	}
 
@@ -234,7 +234,7 @@
     - (void)setNativeDigits:(DBSystem_Array *)value
 	{
 		_nativeDigits = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"NativeDigits" valueObject:monoObject];          
 	}
 
@@ -252,7 +252,7 @@
     - (void)setNegativeInfinitySymbol:(NSString *)value
 	{
 		_negativeInfinitySymbol = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"NegativeInfinitySymbol" valueObject:monoObject];          
 	}
 
@@ -270,7 +270,7 @@
     - (void)setNegativeSign:(NSString *)value
 	{
 		_negativeSign = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"NegativeSign" valueObject:monoObject];          
 	}
 
@@ -305,7 +305,7 @@
     - (void)setNumberDecimalSeparator:(NSString *)value
 	{
 		_numberDecimalSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"NumberDecimalSeparator" valueObject:monoObject];          
 	}
 
@@ -323,7 +323,7 @@
     - (void)setNumberGroupSeparator:(NSString *)value
 	{
 		_numberGroupSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"NumberGroupSeparator" valueObject:monoObject];          
 	}
 
@@ -341,7 +341,7 @@
     - (void)setNumberGroupSizes:(DBSystem_Array *)value
 	{
 		_numberGroupSizes = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"NumberGroupSizes" valueObject:monoObject];          
 	}
 
@@ -393,7 +393,7 @@
     - (void)setPercentDecimalSeparator:(NSString *)value
 	{
 		_percentDecimalSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PercentDecimalSeparator" valueObject:monoObject];          
 	}
 
@@ -411,7 +411,7 @@
     - (void)setPercentGroupSeparator:(NSString *)value
 	{
 		_percentGroupSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PercentGroupSeparator" valueObject:monoObject];          
 	}
 
@@ -429,7 +429,7 @@
     - (void)setPercentGroupSizes:(DBSystem_Array *)value
 	{
 		_percentGroupSizes = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PercentGroupSizes" valueObject:monoObject];          
 	}
 
@@ -481,7 +481,7 @@
     - (void)setPercentSymbol:(NSString *)value
 	{
 		_percentSymbol = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PercentSymbol" valueObject:monoObject];          
 	}
 
@@ -499,7 +499,7 @@
     - (void)setPerMilleSymbol:(NSString *)value
 	{
 		_perMilleSymbol = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PerMilleSymbol" valueObject:monoObject];          
 	}
 
@@ -517,7 +517,7 @@
     - (void)setPositiveInfinitySymbol:(NSString *)value
 	{
 		_positiveInfinitySymbol = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PositiveInfinitySymbol" valueObject:monoObject];          
 	}
 
@@ -535,7 +535,7 @@
     - (void)setPositiveSign:(NSString *)value
 	{
 		_positiveSign = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PositiveSign" valueObject:monoObject];          
 	}
 
@@ -559,7 +559,7 @@
     - (System_Object *)getFormat_withFormatType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -570,7 +570,7 @@
     + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
     }
@@ -581,7 +581,7 @@
     + (System_Globalization_NumberFormatInfo *)readOnly_withNfi:(System_Globalization_NumberFormatInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.NumberFormatInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.NumberFormatInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
     }

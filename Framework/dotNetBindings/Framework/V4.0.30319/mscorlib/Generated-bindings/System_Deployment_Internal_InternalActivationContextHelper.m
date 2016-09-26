@@ -33,7 +33,7 @@
     + (System_Object *)getActivationContextData_withAppInfo:(System_ActivationContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetActivationContextData(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetActivationContextData(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     + (System_Object *)getApplicationComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     + (NSData *)getApplicationManifestBytes_withAppInfo:(System_ActivationContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetApplicationManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -66,7 +66,7 @@
     + (System_Object *)getDeploymentComponentManifest_withAppInfo:(System_ActivationContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentComponentManifest(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     + (NSData *)getDeploymentManifestBytes_withAppInfo:(System_ActivationContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDeploymentManifestBytes(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -88,7 +88,7 @@
     + (BOOL)isFirstRun_withAppInfo:(System_ActivationContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsFirstRun(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsFirstRun(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -98,7 +98,7 @@
 	// Managed param types : System.ActivationContext
     + (void)prepareForExecution_withAppInfo:(System_ActivationContext *)p1
     {
-		[self invokeMonoClassMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

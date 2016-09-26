@@ -40,7 +40,7 @@
 	// Managed param types : System.Func`1<System.Threading.ThreadLocal`1+T>
     + (System_Threading_ThreadLocalA1 *)new_withValueFactory:(System_FuncA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Func`1<System.Threading.ThreadLocal`1+T>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Func`1<System.Threading.ThreadLocal`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Func`1<System.Threading.ThreadLocal`1+T>, System.Boolean
     + (System_Threading_ThreadLocalA1 *)new_withValueFactory:(System_FuncA1 *)p1 trackAllValues:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"System.Func`1<System.Threading.ThreadLocal`1+T>,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Func`1<System.Threading.ThreadLocal`1+T>,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -79,7 +79,7 @@
     - (void)setValue:(System_Object *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Value" valueObject:monoObject];          
 	}
 

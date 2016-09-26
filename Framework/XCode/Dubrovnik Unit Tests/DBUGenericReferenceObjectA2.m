@@ -32,7 +32,7 @@
     - (void)setGenericPropertyWithTypeParameterT:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterT = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"GenericPropertyWithTypeParameterT" valueObject:monoObject];          
 	}
 
@@ -50,7 +50,7 @@
     - (void)setGenericPropertyWithTypeParameterU:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterU = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"GenericPropertyWithTypeParameterU" valueObject:monoObject];          
 	}
 
@@ -62,7 +62,7 @@
 	// Managed param types : <T>, <U>
     - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
@@ -71,7 +71,7 @@
 	// Managed param types : <T>, <U>
     - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 

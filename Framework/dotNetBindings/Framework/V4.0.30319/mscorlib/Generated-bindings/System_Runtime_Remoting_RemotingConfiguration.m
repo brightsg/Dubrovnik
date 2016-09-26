@@ -53,7 +53,7 @@
     + (void)setApplicationName:(NSString *)value
 	{
 		m_applicationName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[[self class] setMonoClassProperty:"ApplicationName" valueObject:monoObject];          
 	}
 
@@ -94,7 +94,7 @@
 	// Managed param types : System.String
     + (void)configure_withFilename:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Configure
@@ -102,7 +102,7 @@
 	// Managed param types : System.String, System.Boolean
     + (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2
     {
-		[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : CustomErrorsEnabled
@@ -166,7 +166,7 @@
     + (BOOL)isActivationAllowed_withSvrType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsActivationAllowed(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsActivationAllowed(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -177,7 +177,7 @@
     + (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withSvrType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRemotelyActivatedClientType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRemotelyActivatedClientType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_ActivatedClientTypeEntry objectWithMonoObject:monoObject];
     }
@@ -188,7 +188,7 @@
     + (System_Runtime_Remoting_ActivatedClientTypeEntry *)isRemotelyActivatedClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRemotelyActivatedClientType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRemotelyActivatedClientType(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_ActivatedClientTypeEntry objectWithMonoObject:monoObject];
     }
@@ -199,7 +199,7 @@
     + (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withSvrType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellKnownClientType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellKnownClientType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_WellKnownClientTypeEntry objectWithMonoObject:monoObject];
     }
@@ -210,7 +210,7 @@
     + (System_Runtime_Remoting_WellKnownClientTypeEntry *)isWellKnownClientType_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellKnownClientType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellKnownClientType(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_WellKnownClientTypeEntry objectWithMonoObject:monoObject];
     }
@@ -220,7 +220,7 @@
 	// Managed param types : System.Type, System.String
     + (void)registerActivatedClientType_withType:(System_Type *)p1 appUrl:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterActivatedClientType
@@ -228,7 +228,7 @@
 	// Managed param types : System.Runtime.Remoting.ActivatedClientTypeEntry
     + (void)registerActivatedClientType_withEntry:(System_Runtime_Remoting_ActivatedClientTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterActivatedServiceType
@@ -236,7 +236,7 @@
 	// Managed param types : System.Type
     + (void)registerActivatedServiceType_withType:(System_Type *)p1
     {
-		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Type)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterActivatedServiceType
@@ -244,7 +244,7 @@
 	// Managed param types : System.Runtime.Remoting.ActivatedServiceTypeEntry
     + (void)registerActivatedServiceType_withEntry:(System_Runtime_Remoting_ActivatedServiceTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterWellKnownClientType
@@ -252,7 +252,7 @@
 	// Managed param types : System.Type, System.String
     + (void)registerWellKnownClientType_withType:(System_Type *)p1 objectUrl:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterWellKnownClientType
@@ -260,7 +260,7 @@
 	// Managed param types : System.Runtime.Remoting.WellKnownClientTypeEntry
     + (void)registerWellKnownClientType_withEntry:(System_Runtime_Remoting_WellKnownClientTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Runtime.Remoting.WellKnownClientTypeEntry)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Runtime.Remoting.WellKnownClientTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterWellKnownServiceType
@@ -268,7 +268,7 @@
 	// Managed param types : System.Type, System.String, System.Runtime.Remoting.WellKnownObjectMode
     + (void)registerWellKnownServiceType_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Type,string,System.Runtime.Remoting.WellKnownObjectMode)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Type,string,System.Runtime.Remoting.WellKnownObjectMode)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 	// Managed method name : RegisterWellKnownServiceType
@@ -276,7 +276,7 @@
 	// Managed param types : System.Runtime.Remoting.WellKnownServiceTypeEntry
     + (void)registerWellKnownServiceType_withEntry:(System_Runtime_Remoting_WellKnownServiceTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Runtime.Remoting.WellKnownServiceTypeEntry)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Runtime.Remoting.WellKnownServiceTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

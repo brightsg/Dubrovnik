@@ -40,7 +40,7 @@
 	// Managed param types : System.Collections.IComparer
     + (System_Collections_SortedList *)new_withComparer:(System_Collections_IComparer *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.IComparer" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.IComparer" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Collections.IComparer, System.Int32
     + (System_Collections_SortedList *)new_withComparer:(System_Collections_IComparer *)p1 capacity:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.IComparer,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Collections.IComparer,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Collections.IDictionary
     + (System_Collections_SortedList *)new_withD:(System_Collections_IDictionary *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.IDictionary" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Collections.IDictionary, System.Collections.IComparer
     + (System_Collections_SortedList *)new_withD:(System_Collections_IDictionary *)p1 comparer:(System_Collections_IComparer *)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IComparer" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -145,7 +145,7 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Item" valueObject:monoObject];          
 	}
 
@@ -193,7 +193,7 @@
 	// Managed param types : System.Object, System.Object
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Clear
@@ -221,7 +221,7 @@
     - (BOOL)contains_withKey:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -232,7 +232,7 @@
     - (BOOL)containsKey_withKey:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -243,7 +243,7 @@
     - (BOOL)containsValue_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -253,7 +253,7 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetByIndex
@@ -317,7 +317,7 @@
     - (int32_t)indexOfKey_withKey:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOfKey(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOfKey(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -328,7 +328,7 @@
     - (int32_t)indexOfValue_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOfValue(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOfValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -338,7 +338,7 @@
 	// Managed param types : System.Object
     - (void)remove_withKey:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveAt
@@ -354,7 +354,7 @@
 	// Managed param types : System.Int32, System.Object
     - (void)setByIndex_withIndex:(int32_t)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"SetByIndex(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"SetByIndex(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Synchronized
@@ -363,7 +363,7 @@
     + (System_Collections_SortedList *)synchronized_withList:(System_Collections_SortedList *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.SortedList)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.SortedList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_SortedList objectWithMonoObject:monoObject];
     }

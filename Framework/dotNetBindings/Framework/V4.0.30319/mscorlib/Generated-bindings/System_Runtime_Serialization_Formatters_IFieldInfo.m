@@ -41,7 +41,7 @@
     - (void)setFieldNames:(DBSystem_Array *)value
 	{
 		_fieldNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.Runtime.Serialization.Formatters.IFieldInfo.FieldNames" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setFieldTypes:(DBSystem_Array *)value
 	{
 		_fieldTypes = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.Runtime.Serialization.Formatters.IFieldInfo.FieldTypes" valueObject:monoObject];          
 	}
 

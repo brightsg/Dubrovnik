@@ -175,7 +175,7 @@
 	// Managed param types : ref <T&>
     + (System_Object *)read_withLocationRef:(System_Object **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Read(<_T_0>&)" withNumArgs:1, &refPtr1];
 
@@ -293,7 +293,7 @@
 	// Managed param types : ref <T&>, <System.Threading.Volatile+T>
     + (void)write_withLocationRef:(System_Object **)p1 value:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"Write(<_T_0>&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+		[self invokeMonoClassMethod:"Write(<_T_0>&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 ;
     }
 

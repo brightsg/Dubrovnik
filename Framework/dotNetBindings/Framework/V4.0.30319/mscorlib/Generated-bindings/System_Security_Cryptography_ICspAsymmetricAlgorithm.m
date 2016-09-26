@@ -58,7 +58,7 @@
 	// Managed param types : System.Byte[]
     - (void)importCspBlob_withRawData:(NSData *)p1
     {
-		[self invokeMonoMethod:"System.Security.Cryptography.ICspAsymmetricAlgorithm.ImportCspBlob(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Security.Cryptography.ICspAsymmetricAlgorithm.ImportCspBlob(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

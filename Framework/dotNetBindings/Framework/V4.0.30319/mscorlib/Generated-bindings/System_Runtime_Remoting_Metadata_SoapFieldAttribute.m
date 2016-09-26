@@ -58,7 +58,7 @@
     - (void)setXmlElementName:(NSString *)value
 	{
 		_xmlElementName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XmlElementName" valueObject:monoObject];          
 	}
 

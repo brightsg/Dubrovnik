@@ -33,7 +33,7 @@
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -44,7 +44,7 @@
     - (BOOL)equals_withObjSTLockCookie:(System_Threading_LockCookie *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.LockCookie)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.LockCookie)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -66,7 +66,7 @@
     + (BOOL)op_Equality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.LockCookie,System.Threading.LockCookie)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.LockCookie,System.Threading.LockCookie)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -77,7 +77,7 @@
     + (BOOL)op_Inequality_withA:(System_Threading_LockCookie *)p1 b:(System_Threading_LockCookie *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.LockCookie,System.Threading.LockCookie)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.LockCookie,System.Threading.LockCookie)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

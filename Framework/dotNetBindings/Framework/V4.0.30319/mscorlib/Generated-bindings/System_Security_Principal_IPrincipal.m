@@ -48,7 +48,7 @@
     - (BOOL)isInRole_withRole:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Principal.IPrincipal.IsInRole(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Principal.IPrincipal.IsInRole(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

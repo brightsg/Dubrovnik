@@ -76,7 +76,7 @@
 	// Managed param types : System.TimeSpan
     - (void)acquireReaderLock_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"AcquireReaderLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AcquireReaderLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AcquireWriterLock
@@ -92,7 +92,7 @@
 	// Managed param types : System.TimeSpan
     - (void)acquireWriterLock_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"AcquireWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AcquireWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AnyWritersSince
@@ -168,7 +168,7 @@
     - (System_Threading_LockCookie *)upgradeToWriterLock_withTimeout:(System_TimeSpan *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
     }

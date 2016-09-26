@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Cryptography.CspParameters, System.Security.Permissions.KeyContainerPermissionFlags
     + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withParameters:(System_Security_Cryptography_CspParameters *)p1 flags:(System_Security_Permissions_KeyContainerPermissionFlags)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters,System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters,System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.String, System.Int32, System.String, System.Int32, System.Security.Permissions.KeyContainerPermissionFlags
     + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withKeyStore:(NSString *)p1 providerName:(NSString *)p2 providerType:(int32_t)p3 keyContainerName:(NSString *)p4 keySpec:(int32_t)p5 flags:(System_Security_Permissions_KeyContainerPermissionFlags)p6
     {
-		return [[self alloc] initWithSignature:"string,string,int,string,int,System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], DB_VALUE(p5), DB_VALUE(p6)];;
+		return [[self alloc] initWithSignature:"string,string,int,string,int,System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5), DB_VALUE(p6)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.Security.Permissions.KeyContainerPermissionFlags
     + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withKeyContainerName:(NSString *)p1 flags:(System_Security_Permissions_KeyContainerPermissionFlags)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"string,System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -85,7 +85,7 @@
     - (void)setKeyContainerName:(NSString *)value
 	{
 		_keyContainerName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"KeyContainerName" valueObject:monoObject];          
 	}
 
@@ -120,7 +120,7 @@
     - (void)setKeyStore:(NSString *)value
 	{
 		_keyStore = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"KeyStore" valueObject:monoObject];          
 	}
 
@@ -138,7 +138,7 @@
     - (void)setProviderName:(NSString *)value
 	{
 		_providerName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ProviderName" valueObject:monoObject];          
 	}
 
@@ -168,7 +168,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

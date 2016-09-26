@@ -83,7 +83,7 @@
     + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ActivationContext objectWithMonoObject:monoObject];
     }
@@ -94,7 +94,7 @@
     + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ActivationContext objectWithMonoObject:monoObject];
     }

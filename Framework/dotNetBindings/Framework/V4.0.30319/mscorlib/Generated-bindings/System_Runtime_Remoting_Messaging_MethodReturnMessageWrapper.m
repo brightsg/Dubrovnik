@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodReturnMessage
     + (System_Runtime_Remoting_Messaging_MethodReturnMessageWrapper *)new_withMsg:(System_Runtime_Remoting_Messaging_IMethodReturnMessage *)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMethodReturnMessage" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMethodReturnMessage" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -63,7 +63,7 @@
     - (void)setArgs:(DBSystem_Array *)value
 	{
 		_args = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Args" valueObject:monoObject];          
 	}
 
@@ -193,7 +193,7 @@
     - (void)setReturnValue:(System_Object *)value
 	{
 		_returnValue = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ReturnValue" valueObject:monoObject];          
 	}
 
@@ -223,7 +223,7 @@
     - (void)setUri:(NSString *)value
 	{
 		_uri = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Uri" valueObject:monoObject];          
 	}
 

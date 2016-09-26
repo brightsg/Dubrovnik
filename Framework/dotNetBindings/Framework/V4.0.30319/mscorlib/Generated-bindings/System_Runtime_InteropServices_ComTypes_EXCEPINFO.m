@@ -41,7 +41,7 @@
     - (void)setBstrDescription:(NSString *)value
 	{
 		_bstrDescription = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"bstrDescription" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setBstrHelpFile:(NSString *)value
 	{
 		_bstrHelpFile = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"bstrHelpFile" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setBstrSource:(NSString *)value
 	{
 		_bstrSource = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"bstrSource" valueObject:monoObject];          
 	}
 

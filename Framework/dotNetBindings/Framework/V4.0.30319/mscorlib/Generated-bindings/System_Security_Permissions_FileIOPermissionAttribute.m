@@ -52,7 +52,7 @@
     - (void)setAll:(NSString *)value
 	{
 		_all = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"All" valueObject:monoObject];          
 	}
 
@@ -104,7 +104,7 @@
     - (void)setAppend:(NSString *)value
 	{
 		_append = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Append" valueObject:monoObject];          
 	}
 
@@ -122,7 +122,7 @@
     - (void)setChangeAccessControl:(NSString *)value
 	{
 		_changeAccessControl = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ChangeAccessControl" valueObject:monoObject];          
 	}
 
@@ -140,7 +140,7 @@
     - (void)setPathDiscovery:(NSString *)value
 	{
 		_pathDiscovery = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PathDiscovery" valueObject:monoObject];          
 	}
 
@@ -158,7 +158,7 @@
     - (void)setRead:(NSString *)value
 	{
 		_read = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Read" valueObject:monoObject];          
 	}
 
@@ -176,7 +176,7 @@
     - (void)setViewAccessControl:(NSString *)value
 	{
 		_viewAccessControl = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ViewAccessControl" valueObject:monoObject];          
 	}
 
@@ -194,7 +194,7 @@
     - (void)setViewAndModify:(NSString *)value
 	{
 		_viewAndModify = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ViewAndModify" valueObject:monoObject];          
 	}
 
@@ -212,7 +212,7 @@
     - (void)setWrite:(NSString *)value
 	{
 		_write = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Write" valueObject:monoObject];          
 	}
 

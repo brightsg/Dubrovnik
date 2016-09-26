@@ -111,7 +111,7 @@
 	// Managed param types : System.TimeSpan, ref System.Boolean&
     - (void)tryEnter_withTimeout:(System_TimeSpan *)p1 lockTakenRef:(BOOL*)p2
     {
-		[self invokeMonoMethod:"TryEnter(System.TimeSpan,bool&)" withNumArgs:2, [p1 monoValue], p2];;
+		[self invokeMonoMethod:"TryEnter(System.TimeSpan,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
     }
 
 	// Managed method name : TryEnter

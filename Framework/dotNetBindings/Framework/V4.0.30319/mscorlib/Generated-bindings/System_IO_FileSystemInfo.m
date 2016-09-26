@@ -58,7 +58,7 @@
     - (void)setCreationTime:(NSDate *)value
 	{
 		_creationTime = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CreationTime" valueObject:monoObject];          
 	}
 
@@ -76,7 +76,7 @@
     - (void)setCreationTimeUtc:(NSDate *)value
 	{
 		_creationTimeUtc = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CreationTimeUtc" valueObject:monoObject];          
 	}
 
@@ -129,7 +129,7 @@
     - (void)setLastAccessTime:(NSDate *)value
 	{
 		_lastAccessTime = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LastAccessTime" valueObject:monoObject];          
 	}
 
@@ -147,7 +147,7 @@
     - (void)setLastAccessTimeUtc:(NSDate *)value
 	{
 		_lastAccessTimeUtc = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LastAccessTimeUtc" valueObject:monoObject];          
 	}
 
@@ -165,7 +165,7 @@
     - (void)setLastWriteTime:(NSDate *)value
 	{
 		_lastWriteTime = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LastWriteTime" valueObject:monoObject];          
 	}
 
@@ -183,7 +183,7 @@
     - (void)setLastWriteTimeUtc:(NSDate *)value
 	{
 		_lastWriteTimeUtc = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LastWriteTimeUtc" valueObject:monoObject];          
 	}
 
@@ -215,7 +215,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Refresh

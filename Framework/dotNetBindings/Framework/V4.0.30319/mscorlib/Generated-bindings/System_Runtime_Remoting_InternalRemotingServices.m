@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (void)debugOutChnl_withS:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"DebugOutChnl(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"DebugOutChnl(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetCachedSoapAttribute
@@ -41,7 +41,7 @@
     + (System_Runtime_Remoting_Metadata_SoapAttribute *)getCachedSoapAttribute_withReflectionObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCachedSoapAttribute(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCachedSoapAttribute(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_Metadata_SoapAttribute objectWithMonoObject:monoObject];
     }
@@ -51,7 +51,7 @@
 	// Managed param types : System.Boolean, System.String
     + (void)remotingAssert_withCondition:(BOOL)p1 message:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"RemotingAssert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RemotingAssert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemotingTrace
@@ -59,7 +59,7 @@
 	// Managed param types : System.Object[]
     + (void)remotingTrace_withMessages:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"RemotingTrace(object[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RemotingTrace(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetServerIdentity
@@ -67,7 +67,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.MethodCall, System.Object
     + (void)setServerIdentity_withM:(System_Runtime_Remoting_Messaging_MethodCall *)p1 srvID:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetServerIdentity(System.Runtime.Remoting.Messaging.MethodCall,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"SetServerIdentity(System.Runtime.Remoting.Messaging.MethodCall,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

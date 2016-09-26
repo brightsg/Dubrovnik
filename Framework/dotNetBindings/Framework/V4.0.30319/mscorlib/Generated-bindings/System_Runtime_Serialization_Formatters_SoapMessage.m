@@ -41,7 +41,7 @@
     - (void)setHeaders:(DBSystem_Array *)value
 	{
 		_headers = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Headers" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setMethodName:(NSString *)value
 	{
 		_methodName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"MethodName" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setParamNames:(DBSystem_Array *)value
 	{
 		_paramNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ParamNames" valueObject:monoObject];          
 	}
 
@@ -95,7 +95,7 @@
     - (void)setParamTypes:(DBSystem_Array *)value
 	{
 		_paramTypes = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ParamTypes" valueObject:monoObject];          
 	}
 
@@ -113,7 +113,7 @@
     - (void)setParamValues:(DBSystem_Array *)value
 	{
 		_paramValues = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ParamValues" valueObject:monoObject];          
 	}
 
@@ -131,7 +131,7 @@
     - (void)setXmlNameSpace:(NSString *)value
 	{
 		_xmlNameSpace = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XmlNameSpace" valueObject:monoObject];          
 	}
 

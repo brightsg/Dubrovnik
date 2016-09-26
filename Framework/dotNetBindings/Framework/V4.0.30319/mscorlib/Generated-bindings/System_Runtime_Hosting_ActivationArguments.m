@@ -32,7 +32,7 @@
 	// Managed param types : System.ApplicationIdentity
     + (System_Runtime_Hosting_ActivationArguments *)new_withApplicationIdentity:(System_ApplicationIdentity *)p1
     {
-		return [[self alloc] initWithSignature:"System.ApplicationIdentity" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.ApplicationIdentity" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.ApplicationIdentity, System.String[]
     + (System_Runtime_Hosting_ActivationArguments *)new_withApplicationIdentity:(System_ApplicationIdentity *)p1 activationData:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.ApplicationIdentity,string[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.ApplicationIdentity,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.ActivationContext
     + (System_Runtime_Hosting_ActivationArguments *)new_withActivationData:(System_ActivationContext *)p1
     {
-		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.ActivationContext, System.String[]
     + (System_Runtime_Hosting_ActivationArguments *)new_withActivationContext:(System_ActivationContext *)p1 activationData:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.ActivationContext,string[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.ActivationContext,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

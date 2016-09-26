@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.String, System.String
     + (System_Runtime_Serialization_Formatters_ServerFault *)new_withExceptionType:(NSString *)p1 message:(NSString *)p2 stackTrace:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setExceptionMessage:(NSString *)value
 	{
 		_exceptionMessage = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ExceptionMessage" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setExceptionType:(NSString *)value
 	{
 		_exceptionType = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ExceptionType" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setStackTrace:(NSString *)value
 	{
 		_stackTrace = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"StackTrace" valueObject:monoObject];          
 	}
 

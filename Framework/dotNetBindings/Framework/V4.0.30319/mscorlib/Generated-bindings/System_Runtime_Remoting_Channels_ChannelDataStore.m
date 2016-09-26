@@ -32,7 +32,7 @@
 	// Managed param types : System.String[]
     + (System_Runtime_Remoting_Channels_ChannelDataStore *)new_withChannelURIs:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"string[]" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setChannelUris:(DBSystem_Array *)value
 	{
 		_channelUris = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ChannelUris" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Item" valueObject:monoObject];          
 	}
 

@@ -41,7 +41,7 @@
     - (void)setAbbreviatedDayNames:(DBSystem_Array *)value
 	{
 		_abbreviatedDayNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AbbreviatedDayNames" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setAbbreviatedMonthGenitiveNames:(DBSystem_Array *)value
 	{
 		_abbreviatedMonthGenitiveNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AbbreviatedMonthGenitiveNames" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setAbbreviatedMonthNames:(DBSystem_Array *)value
 	{
 		_abbreviatedMonthNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AbbreviatedMonthNames" valueObject:monoObject];          
 	}
 
@@ -95,7 +95,7 @@
     - (void)setAMDesignator:(NSString *)value
 	{
 		_aMDesignator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AMDesignator" valueObject:monoObject];          
 	}
 
@@ -160,7 +160,7 @@
     - (void)setDateSeparator:(NSString *)value
 	{
 		_dateSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"DateSeparator" valueObject:monoObject];          
 	}
 
@@ -178,7 +178,7 @@
     - (void)setDayNames:(DBSystem_Array *)value
 	{
 		_dayNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"DayNames" valueObject:monoObject];          
 	}
 
@@ -213,7 +213,7 @@
     - (void)setFullDateTimePattern:(NSString *)value
 	{
 		_fullDateTimePattern = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"FullDateTimePattern" valueObject:monoObject];          
 	}
 
@@ -254,7 +254,7 @@
     - (void)setLongDatePattern:(NSString *)value
 	{
 		_longDatePattern = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LongDatePattern" valueObject:monoObject];          
 	}
 
@@ -272,7 +272,7 @@
     - (void)setLongTimePattern:(NSString *)value
 	{
 		_longTimePattern = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LongTimePattern" valueObject:monoObject];          
 	}
 
@@ -290,7 +290,7 @@
     - (void)setMonthDayPattern:(NSString *)value
 	{
 		_monthDayPattern = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"MonthDayPattern" valueObject:monoObject];          
 	}
 
@@ -308,7 +308,7 @@
     - (void)setMonthGenitiveNames:(DBSystem_Array *)value
 	{
 		_monthGenitiveNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"MonthGenitiveNames" valueObject:monoObject];          
 	}
 
@@ -326,7 +326,7 @@
     - (void)setMonthNames:(DBSystem_Array *)value
 	{
 		_monthNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"MonthNames" valueObject:monoObject];          
 	}
 
@@ -356,7 +356,7 @@
     - (void)setPMDesignator:(NSString *)value
 	{
 		_pMDesignator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PMDesignator" valueObject:monoObject];          
 	}
 
@@ -386,7 +386,7 @@
     - (void)setShortDatePattern:(NSString *)value
 	{
 		_shortDatePattern = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ShortDatePattern" valueObject:monoObject];          
 	}
 
@@ -404,7 +404,7 @@
     - (void)setShortestDayNames:(DBSystem_Array *)value
 	{
 		_shortestDayNames = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ShortestDayNames" valueObject:monoObject];          
 	}
 
@@ -422,7 +422,7 @@
     - (void)setShortTimePattern:(NSString *)value
 	{
 		_shortTimePattern = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ShortTimePattern" valueObject:monoObject];          
 	}
 
@@ -452,7 +452,7 @@
     - (void)setTimeSeparator:(NSString *)value
 	{
 		_timeSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"TimeSeparator" valueObject:monoObject];          
 	}
 
@@ -482,7 +482,7 @@
     - (void)setYearMonthPattern:(NSString *)value
 	{
 		_yearMonthPattern = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"YearMonthPattern" valueObject:monoObject];          
 	}
 
@@ -572,7 +572,7 @@
     - (int32_t)getEra_withEraName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEra(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetEra(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -594,7 +594,7 @@
     - (System_Object *)getFormat_withFormatType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -605,7 +605,7 @@
     + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
     }
@@ -638,7 +638,7 @@
     + (System_Globalization_DateTimeFormatInfo *)readOnly_withDtfi:(System_Globalization_DateTimeFormatInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.DateTimeFormatInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.DateTimeFormatInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
     }
@@ -648,7 +648,7 @@
 	// Managed param types : System.String[], System.Char
     - (void)setAllDateTimePatterns_withPatterns:(DBSystem_Array *)p1 format:(uint16_t)p2
     {
-		[self invokeMonoMethod:"SetAllDateTimePatterns(string[],char)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"SetAllDateTimePatterns(string[],char)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -

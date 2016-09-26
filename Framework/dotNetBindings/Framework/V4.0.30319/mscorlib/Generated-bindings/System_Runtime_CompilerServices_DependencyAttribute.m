@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.Runtime.CompilerServices.LoadHint
     + (System_Runtime_CompilerServices_DependencyAttribute *)new_withDependentAssemblyArgument:(NSString *)p1 loadHintArgument:(System_Runtime_CompilerServices_LoadHint)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Runtime.CompilerServices.LoadHint" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"string,System.Runtime.CompilerServices.LoadHint" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -

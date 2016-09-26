@@ -77,7 +77,7 @@
     - (void)setLpstrSchema:(NSString *)value
 	{
 		_lpstrSchema = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"lpstrSchema" valueObject:monoObject];          
 	}
 

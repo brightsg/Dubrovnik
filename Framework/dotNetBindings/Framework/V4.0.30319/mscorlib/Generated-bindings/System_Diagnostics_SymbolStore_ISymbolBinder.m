@@ -33,7 +33,7 @@
     - (System_Diagnostics_SymbolStore_ISymbolReader *)getReader_withImporter:(int32_t)p1 filename:(NSString *)p2 searchPath:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolBinder.GetReader(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolBinder.GetReader(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Diagnostics_SymbolStore_ISymbolReader objectWithMonoObject:monoObject];
     }

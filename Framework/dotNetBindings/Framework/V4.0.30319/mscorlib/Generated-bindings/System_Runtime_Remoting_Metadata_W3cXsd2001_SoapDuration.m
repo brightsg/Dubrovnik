@@ -48,7 +48,7 @@
     + (System_TimeSpan *)parse_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
@@ -59,7 +59,7 @@
     + (NSString *)toString_withTimeSpan:(System_TimeSpan *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

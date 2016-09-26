@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Guid&, ref System.Object&
     - (void)bindToObject_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidResultRef:(System_Guid **)p3 ppvResultRef:(System_Object **)p4
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.BindToObject(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid&,object&)" withNumArgs:4, [p1 monoValue], [p2 monoValue], &refPtr3, &refPtr4];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.BindToObject(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid&,object&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3, &refPtr4];
 ;
     }
 
@@ -41,7 +41,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Guid&, ref System.Object&
     - (void)bindToStorage_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 riidRef:(System_Guid **)p3 ppvObjRef:(System_Object **)p4
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.BindToStorage(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid&,object&)" withNumArgs:4, [p1 monoValue], [p2 monoValue], &refPtr3, &refPtr4];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.BindToStorage(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid&,object&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3, &refPtr4];
 ;
     }
 
@@ -50,7 +50,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Runtime.InteropServices.ComTypes.IMoniker&
     - (void)commonPrefixWith_withPmkOther:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1 ppmkPrefixRef:(System_Runtime_InteropServices_ComTypes_IMoniker **)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.CommonPrefixWith(System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.CommonPrefixWith(System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 ;
     }
 
@@ -59,7 +59,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker, System.Boolean, ref System.Runtime.InteropServices.ComTypes.IMoniker&
     - (void)composeWith_withPmkRight:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1 fOnlyIfNotGeneric:(BOOL)p2 ppmkCompositeRef:(System_Runtime_InteropServices_ComTypes_IMoniker **)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.ComposeWith(System.Runtime.InteropServices.ComTypes.IMoniker,bool,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), &refPtr3];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.ComposeWith(System.Runtime.InteropServices.ComTypes.IMoniker,bool,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];
 ;
     }
 
@@ -86,7 +86,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.String&
     - (void)getDisplayName_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 ppszDisplayNameRef:(NSString **)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.GetDisplayName(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,string&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], &refPtr3];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.GetDisplayName(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,string&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
 ;
     }
 
@@ -103,7 +103,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Runtime.InteropServices.ComTypes.FILETIME&
     - (void)getTimeOfLastChange_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 pFileTimeRef:(System_Runtime_InteropServices_ComTypes_FILETIME **)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.GetTimeOfLastChange(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.FILETIME&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], &refPtr3];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.GetTimeOfLastChange(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.FILETIME&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
 ;
     }
 
@@ -141,7 +141,7 @@
     - (int32_t)isEqual_withPmkOtherMoniker:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.IsEqual(System.Runtime.InteropServices.ComTypes.IMoniker)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.IsEqual(System.Runtime.InteropServices.ComTypes.IMoniker)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -152,7 +152,7 @@
     - (int32_t)isRunning_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 pmkNewlyRunning:(System_Runtime_InteropServices_ComTypes_IMoniker *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.IsRunning(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.IsRunning(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -173,7 +173,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IStream
     - (void)load_withPStm:(System_Runtime_InteropServices_ComTypes_IStream *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.Load(System.Runtime.InteropServices.ComTypes.IStream)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.Load(System.Runtime.InteropServices.ComTypes.IStream)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ParseDisplayName
@@ -181,7 +181,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Runtime.InteropServices.ComTypes.IMoniker, System.String, ref System.Int32&, ref System.Runtime.InteropServices.ComTypes.IMoniker&
     - (void)parseDisplayName_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 pmkToLeft:(System_Runtime_InteropServices_ComTypes_IMoniker *)p2 pszDisplayName:(NSString *)p3 pchEatenRef:(int32_t*)p4 ppmkOutRef:(System_Runtime_InteropServices_ComTypes_IMoniker **)p5
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.ParseDisplayName(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,string,int&,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], p4, &refPtr5];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.ParseDisplayName(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,string,int&,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], p4, &refPtr5];
 ;
     }
 
@@ -190,7 +190,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IBindCtx, System.Int32, ref System.Runtime.InteropServices.ComTypes.IMoniker&, ref System.Runtime.InteropServices.ComTypes.IMoniker&
     - (void)reduce_withPbc:(System_Runtime_InteropServices_ComTypes_IBindCtx *)p1 dwReduceHowFar:(int32_t)p2 ppmkToLeftRef:(System_Runtime_InteropServices_ComTypes_IMoniker **)p3 ppmkReducedRef:(System_Runtime_InteropServices_ComTypes_IMoniker **)p4
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.Reduce(System.Runtime.InteropServices.ComTypes.IBindCtx,int,System.Runtime.InteropServices.ComTypes.IMoniker&,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), &refPtr3, &refPtr4];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.Reduce(System.Runtime.InteropServices.ComTypes.IBindCtx,int,System.Runtime.InteropServices.ComTypes.IMoniker&,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3, &refPtr4];
 ;
     }
 
@@ -199,7 +199,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Runtime.InteropServices.ComTypes.IMoniker&
     - (void)relativePathTo_withPmkOther:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1 ppmkRelPathRef:(System_Runtime_InteropServices_ComTypes_IMoniker **)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.RelativePathTo(System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.RelativePathTo(System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 ;
     }
 
@@ -208,7 +208,7 @@
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IStream, System.Boolean
     - (void)save_withPStm:(System_Runtime_InteropServices_ComTypes_IStream *)p1 fClearDirty:(BOOL)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.Save(System.Runtime.InteropServices.ComTypes.IStream,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IMoniker.Save(System.Runtime.InteropServices.ComTypes.IStream,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -

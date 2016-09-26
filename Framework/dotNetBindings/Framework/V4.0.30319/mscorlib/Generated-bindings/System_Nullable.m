@@ -33,7 +33,7 @@
     + (int32_t)compare_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Nullable`1<System.Nullable+T>,System.Nullable`1<System.Nullable+T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Nullable`1<System.Nullable+T>,System.Nullable`1<System.Nullable+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -44,7 +44,7 @@
     + (BOOL)equals_withN1:(System_NullableA1 *)p1 n2:(System_NullableA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.Nullable`1<System.Nullable+T>,System.Nullable`1<System.Nullable+T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.Nullable`1<System.Nullable+T>,System.Nullable`1<System.Nullable+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -55,7 +55,7 @@
     + (System_Type *)getUnderlyingType_withNullableType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnderlyingType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnderlyingType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }

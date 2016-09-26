@@ -52,7 +52,7 @@
     - (void)setDate:(NSDate *)value
 	{
 		_date = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Date" valueObject:monoObject];          
 	}
 

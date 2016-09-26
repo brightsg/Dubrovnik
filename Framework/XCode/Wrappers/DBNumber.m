@@ -697,7 +697,7 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     self.gcHandle = mono_gchandle_new(monoObject, FALSE);
 }
 
-- (void *)monoValue
+- (void *)monoRTInvokeArg
 {
     return (void *)[self valuePointer];
 }

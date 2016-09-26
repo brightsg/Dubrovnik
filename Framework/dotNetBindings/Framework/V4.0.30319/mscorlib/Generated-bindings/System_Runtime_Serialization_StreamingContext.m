@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.Serialization.StreamingContextStates, System.Object
     + (System_Runtime_Serialization_StreamingContext *)new_withState:(System_Runtime_Serialization_StreamingContextStates)p1 additional:(System_Object *)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContextStates,object" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContextStates,object" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -78,7 +78,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -53,7 +53,7 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.Runtime.Remoting.Channels.IChannelDataStore.Item" valueObject:monoObject];          
 	}
 

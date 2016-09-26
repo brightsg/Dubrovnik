@@ -46,7 +46,7 @@
         // If the method signature has value type then invoke by value.
         // If not, then invoke by reference.
         if (mono_class_is_valuetype(monoClass)) {
-            invokeObj = [key monoValue];
+            invokeObj = [key monoRTInvokeArg];
         } else {
             invokeObj = [key monoObject];
         }
@@ -66,7 +66,7 @@
     BOOL containsKey = NO;
     
     // TODO: use -confromsToProtocol? YES: and apply to key id too.
-    if ([key respondsToSelector:@selector(monoObject)] && [key respondsToSelector:@selector(monoValue)]) {
+    if ([key respondsToSelector:@selector(monoObject)] && [key respondsToSelector:@selector(monoRTInvokeArg)]) {
         
         // form the method signature using key generic type
         // TODO: perform method name caching
@@ -80,7 +80,7 @@
         // If the method signature has value type then invoke by value.
         // If not, then invoke by reference.
         if (mono_class_is_valuetype(monoClass)) {
-            invokeObj = [key monoValue];
+            invokeObj = [key monoRTInvokeArg];
         } else {
             invokeObj = [key monoObject];
         }
@@ -90,10 +90,10 @@
         containsKey = DB_UNBOX_BOOLEAN(monoObject);
     } else {
         if ([key isKindOfClass:[NSNumber class]]) {
-            [NSException raise:@"Invalid numeric key object" format:@"%@ numeric key %@ (%@) must be a subclass of NSNumber that responds to -monoObject and -monoValue. Dubrovnik provides DBNumber for just this purpose.", [self class], key, [key class]];
+            [NSException raise:@"Invalid numeric key object" format:@"%@ numeric key %@ (%@) must be a subclass of NSNumber that responds to -monoObject and -monoRTInvokeArg. Dubrovnik provides DBNumber for just this purpose.", [self class], key, [key class]];
             
         } else {
-            [NSException raise:@"Invalid key object" format:@"%@ Key %@ (%@) must respond to -monoObject and -monoValue.", [self class], key, [key class]];
+            [NSException raise:@"Invalid key object" format:@"%@ Key %@ (%@) must respond to -monoObject and -monoRTInvokeArg.", [self class], key, [key class]];
         }
     }
     
@@ -110,7 +110,7 @@
 
 - (void)addKey:(System_Object *)key value:(System_Object *)value
 {
-    [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [key monoValue], [value monoValue]];
+    [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [key monoRTInvokeArg], [value monoRTInvokeArg]];
 }
 
 @end

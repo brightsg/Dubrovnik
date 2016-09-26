@@ -32,7 +32,7 @@
 	// Managed param types : System.ActivationContext
     + (System_Security_Policy_ApplicationSecurityInfo *)new_withActivationContext:(System_ActivationContext *)p1
     {
-		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

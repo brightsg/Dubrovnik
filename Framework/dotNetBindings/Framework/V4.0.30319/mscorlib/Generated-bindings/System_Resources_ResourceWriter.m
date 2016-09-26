@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Resources_ResourceWriter *)new_withFileName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.IO.Stream
     + (System_Resources_ResourceWriter *)new_withStream:(System_IO_Stream *)p1
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -72,7 +72,7 @@
 	// Managed param types : System.String, System.String
     - (void)addResource_withNameString:(NSString *)p1 valueString:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddResource(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddResource
@@ -80,7 +80,7 @@
 	// Managed param types : System.String, System.Object
     - (void)addResource_withNameString:(NSString *)p1 valueObject:(System_Object *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddResource
@@ -88,7 +88,7 @@
 	// Managed param types : System.String, System.IO.Stream
     - (void)addResource_withNameString:(NSString *)p1 valueSIStream:(System_IO_Stream *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,System.IO.Stream)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddResource(string,System.IO.Stream)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddResource
@@ -96,7 +96,7 @@
 	// Managed param types : System.String, System.IO.Stream, System.Boolean
     - (void)addResource_withName:(NSString *)p1 value:(System_IO_Stream *)p2 closeAfterWrite:(BOOL)p3
     {
-		[self invokeMonoMethod:"AddResource(string,System.IO.Stream,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"AddResource(string,System.IO.Stream,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 	// Managed method name : AddResource
@@ -104,7 +104,7 @@
 	// Managed param types : System.String, System.Byte[]
     - (void)addResource_withNameString:(NSString *)p1 valueByte:(NSData *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddResource(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddResourceData
@@ -112,7 +112,7 @@
 	// Managed param types : System.String, System.String, System.Byte[]
     - (void)addResourceData_withName:(NSString *)p1 typeName:(NSString *)p2 serializedData:(NSData *)p3
     {
-		[self invokeMonoMethod:"AddResourceData(string,string,byte[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"AddResourceData(string,string,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Close

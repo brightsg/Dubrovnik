@@ -33,7 +33,7 @@
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Collections_Generic_IEnumerableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Collections_Generic_IEnumerableA1 *)p1 partitionerOptions:(System_Collections_Concurrent_EnumerablePartitionerOptions)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(System_Collections_Generic_IListA1 *)p1 loadBalance:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(System_Object *)p1 loadBalance:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>[],bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>[],bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 objectWithMonoObject:monoObject];
     }

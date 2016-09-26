@@ -41,7 +41,7 @@
     - (void)setD:(NSData *)value
 	{
 		_d = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"D" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setDP:(NSData *)value
 	{
 		_dP = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"DP" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setDQ:(NSData *)value
 	{
 		_dQ = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"DQ" valueObject:monoObject];          
 	}
 
@@ -95,7 +95,7 @@
     - (void)setExponent:(NSData *)value
 	{
 		_exponent = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Exponent" valueObject:monoObject];          
 	}
 
@@ -113,7 +113,7 @@
     - (void)setInverseQ:(NSData *)value
 	{
 		_inverseQ = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"InverseQ" valueObject:monoObject];          
 	}
 
@@ -131,7 +131,7 @@
     - (void)setModulus:(NSData *)value
 	{
 		_modulus = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Modulus" valueObject:monoObject];          
 	}
 
@@ -149,7 +149,7 @@
     - (void)setP:(NSData *)value
 	{
 		_p = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"P" valueObject:monoObject];          
 	}
 
@@ -167,7 +167,7 @@
     - (void)setQ:(NSData *)value
 	{
 		_q = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Q" valueObject:monoObject];          
 	}
 

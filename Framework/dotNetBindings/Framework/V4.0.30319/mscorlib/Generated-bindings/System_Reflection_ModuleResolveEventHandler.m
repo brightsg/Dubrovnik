@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_Reflection_ModuleResolveEventHandler *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -44,7 +44,7 @@
     - (System_IAsyncResult *)beginInvoke_withSender:(System_Object *)p1 e:(System_ResolveEventArgs *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.ResolveEventArgs,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.ResolveEventArgs,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (System_Reflection_Module *)endInvoke_withResult:(System_IAsyncResult *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Module objectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (System_Reflection_Module *)invoke_withSender:(System_Object *)p1 e:(System_ResolveEventArgs *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.ResolveEventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.ResolveEventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_Module objectWithMonoObject:monoObject];
     }

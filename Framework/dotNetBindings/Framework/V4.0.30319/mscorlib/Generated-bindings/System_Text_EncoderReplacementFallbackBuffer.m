@@ -32,7 +32,7 @@
 	// Managed param types : System.Text.EncoderReplacementFallback
     + (System_Text_EncoderReplacementFallbackBuffer *)new_withFallback:(System_Text_EncoderReplacementFallback *)p1
     {
-		return [[self alloc] initWithSignature:"System.Text.EncoderReplacementFallback" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Text.EncoderReplacementFallback" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

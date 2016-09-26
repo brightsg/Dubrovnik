@@ -50,7 +50,7 @@
 	// Managed param types : System.String, ref System.Object&
     - (void)getObjectParam_withPszKey:(NSString *)p1 ppunkRef:(System_Object **)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.GetObjectParam(string,object&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.GetObjectParam(string,object&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 ;
     }
 
@@ -68,7 +68,7 @@
 	// Managed param types : System.Object
     - (void)registerObjectBound_withPunk:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RegisterObjectBound(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RegisterObjectBound(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterObjectParam
@@ -76,7 +76,7 @@
 	// Managed param types : System.String, System.Object
     - (void)registerObjectParam_withPszKey:(NSString *)p1 punk:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RegisterObjectParam(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RegisterObjectParam(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ReleaseBoundObjects
@@ -92,7 +92,7 @@
 	// Managed param types : System.Object
     - (void)revokeObjectBound_withPunk:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RevokeObjectBound(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RevokeObjectBound(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RevokeObjectParam
@@ -101,7 +101,7 @@
     - (int32_t)revokeObjectParam_withPszKey:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RevokeObjectParam(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IBindCtx.RevokeObjectParam(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

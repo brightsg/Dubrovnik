@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.Object
     + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2
     {
-		return [[self alloc] initWithSignature:"string,object" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,object" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Object, System.Boolean
     + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2 _MustUnderstand:(BOOL)p3
     {
-		return [[self alloc] initWithSignature:"string,object,bool" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"string,object,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.Object, System.Boolean, System.String
     + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2 _MustUnderstand:(BOOL)p3 _HeaderNamespace:(NSString *)p4
     {
-		return [[self alloc] initWithSignature:"string,object,bool,string" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];;
+		return [[self alloc] initWithSignature:"string,object,bool,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -68,7 +68,7 @@
     - (void)setHeaderNamespace:(NSString *)value
 	{
 		_headerNamespace = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"HeaderNamespace" valueObject:monoObject];          
 	}
 
@@ -103,7 +103,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Name" valueObject:monoObject];          
 	}
 
@@ -121,7 +121,7 @@
     - (void)setValue:(System_Object *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Value" valueObject:monoObject];          
 	}
 

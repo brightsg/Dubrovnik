@@ -82,7 +82,7 @@
     - (int32_t)add_withAccessEntry:(System_Security_Permissions_KeyContainerPermissionAccessEntry *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Security.Permissions.KeyContainerPermissionAccessEntry)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Security.Permissions.KeyContainerPermissionAccessEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -100,7 +100,7 @@
 	// Managed param types : System.Security.Permissions.KeyContainerPermissionAccessEntry[], System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetEnumerator
@@ -120,7 +120,7 @@
     - (int32_t)indexOf_withAccessEntry:(System_Security_Permissions_KeyContainerPermissionAccessEntry *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Security.Permissions.KeyContainerPermissionAccessEntry)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Security.Permissions.KeyContainerPermissionAccessEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -130,7 +130,7 @@
 	// Managed param types : System.Security.Permissions.KeyContainerPermissionAccessEntry
     - (void)remove_withAccessEntry:(System_Security_Permissions_KeyContainerPermissionAccessEntry *)p1
     {
-		[self invokeMonoMethod:"Remove(System.Security.Permissions.KeyContainerPermissionAccessEntry)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Security.Permissions.KeyContainerPermissionAccessEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

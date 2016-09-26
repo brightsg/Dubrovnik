@@ -82,7 +82,7 @@
     + (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
@@ -92,7 +92,7 @@
 	// Managed param types : System.Runtime.Remoting.Contexts.CrossContextDelegate
     - (void)doCallBack_withDeleg:(System_Runtime_Remoting_Contexts_CrossContextDelegate *)p1
     {
-		[self invokeMonoMethod:"DoCallBack(System.Runtime.Remoting.Contexts.CrossContextDelegate)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DoCallBack(System.Runtime.Remoting.Contexts.CrossContextDelegate)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : FreeNamedDataSlot
@@ -100,7 +100,7 @@
 	// Managed param types : System.String
     + (void)freeNamedDataSlot_withName:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Freeze
@@ -117,7 +117,7 @@
     + (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -128,7 +128,7 @@
     + (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
@@ -139,7 +139,7 @@
     - (System_Runtime_Remoting_Contexts_IContextProperty *)getProperty_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_Contexts_IContextProperty objectWithMonoObject:monoObject];
     }
@@ -150,7 +150,7 @@
     + (BOOL)registerDynamicProperty_withProp:(System_Runtime_Remoting_Contexts_IDynamicProperty *)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterDynamicProperty(System.Runtime.Remoting.Contexts.IDynamicProperty,System.ContextBoundObject,System.Runtime.Remoting.Contexts.Context)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterDynamicProperty(System.Runtime.Remoting.Contexts.IDynamicProperty,System.ContextBoundObject,System.Runtime.Remoting.Contexts.Context)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -160,7 +160,7 @@
 	// Managed param types : System.LocalDataStoreSlot, System.Object
     + (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetProperty
@@ -168,7 +168,7 @@
 	// Managed param types : System.Runtime.Remoting.Contexts.IContextProperty
     - (void)setProperty_withProp:(System_Runtime_Remoting_Contexts_IContextProperty *)p1
     {
-		[self invokeMonoMethod:"SetProperty(System.Runtime.Remoting.Contexts.IContextProperty)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetProperty(System.Runtime.Remoting.Contexts.IContextProperty)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ToString
@@ -188,7 +188,7 @@
     + (BOOL)unregisterDynamicProperty_withName:(NSString *)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"UnregisterDynamicProperty(string,System.ContextBoundObject,System.Runtime.Remoting.Contexts.Context)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"UnregisterDynamicProperty(string,System.ContextBoundObject,System.Runtime.Remoting.Contexts.Context)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

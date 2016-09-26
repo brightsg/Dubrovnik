@@ -53,7 +53,7 @@
 	// Managed param types : System.Runtime.Serialization.ISurrogateSelector
     - (void)chainSelector_withSelector:(System_Runtime_Serialization_ISurrogateSelector *)p1
     {
-		[self invokeMonoMethod:"ChainSelector(System.Runtime.Serialization.ISurrogateSelector)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"ChainSelector(System.Runtime.Serialization.ISurrogateSelector)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetNextSelector
@@ -83,9 +83,9 @@
 	// Managed param types : System.Type, System.Runtime.Serialization.StreamingContext, ref System.Runtime.Serialization.ISurrogateSelector&
     - (System_Runtime_Serialization_ISerializationSurrogate *)getSurrogate_withType:(System_Type *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2 ssoutRef:(System_Runtime_Serialization_ISurrogateSelector **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSurrogate(System.Type,System.Runtime.Serialization.StreamingContext,System.Runtime.Serialization.ISurrogateSelector&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], &refPtr3];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetSurrogate(System.Type,System.Runtime.Serialization.StreamingContext,System.Runtime.Serialization.ISurrogateSelector&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
 
 		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
 
@@ -97,7 +97,7 @@
 	// Managed param types : System.Object
     - (void)setRootObject_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"SetRootObject(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetRootObject(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : UseSoapFormat

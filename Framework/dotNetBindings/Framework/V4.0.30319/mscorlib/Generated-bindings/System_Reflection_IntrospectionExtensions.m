@@ -33,7 +33,7 @@
     + (System_Reflection_TypeInfo *)getTypeInfo_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeInfo(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeInfo(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }

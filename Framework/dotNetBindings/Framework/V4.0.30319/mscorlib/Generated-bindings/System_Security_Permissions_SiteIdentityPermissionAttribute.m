@@ -52,7 +52,7 @@
     - (void)setSite:(NSString *)value
 	{
 		_site = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Site" valueObject:monoObject];          
 	}
 

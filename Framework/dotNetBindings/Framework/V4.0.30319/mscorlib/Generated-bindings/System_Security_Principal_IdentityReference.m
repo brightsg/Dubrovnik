@@ -48,7 +48,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -70,7 +70,7 @@
     - (BOOL)isValidTargetType_withTargetType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsValidTargetType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsValidTargetType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -81,7 +81,7 @@
     + (BOOL)op_Equality_withLeft:(System_Security_Principal_IdentityReference *)p1 right:(System_Security_Principal_IdentityReference *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Security.Principal.IdentityReference,System.Security.Principal.IdentityReference)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Security.Principal.IdentityReference,System.Security.Principal.IdentityReference)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -92,7 +92,7 @@
     + (BOOL)op_Inequality_withLeft:(System_Security_Principal_IdentityReference *)p1 right:(System_Security_Principal_IdentityReference *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Security.Principal.IdentityReference,System.Security.Principal.IdentityReference)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Security.Principal.IdentityReference,System.Security.Principal.IdentityReference)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -114,7 +114,7 @@
     - (System_Security_Principal_IdentityReference *)translate_withTargetType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Principal_IdentityReference objectWithMonoObject:monoObject];
     }

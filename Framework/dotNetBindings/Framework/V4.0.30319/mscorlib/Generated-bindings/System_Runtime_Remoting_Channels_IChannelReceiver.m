@@ -48,7 +48,7 @@
     - (DBSystem_Array *)getUrlsForUri_withObjectURI:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.GetUrlsForUri(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.GetUrlsForUri(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -58,7 +58,7 @@
 	// Managed param types : System.Object
     - (void)startListening_withData:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StartListening(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StartListening(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : StopListening
@@ -66,7 +66,7 @@
 	// Managed param types : System.Object
     - (void)stopListening_withData:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StopListening(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StopListening(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

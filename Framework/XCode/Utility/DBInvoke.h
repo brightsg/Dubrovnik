@@ -24,7 +24,7 @@
 
 // mono object and value casting
 #define DB_PTR(x) &x
-#define DB_VALUE(x) (MonoObject *)&x // DEPRECATED
+#define DB_VALUE(x) (MonoObject *)&x
 #define DB_STRING(x) (MonoString *)x
 #define DB_OBJECT(x) (MonoObject *)x
 #define DB_ARRAY(x) (MonoArray *)x

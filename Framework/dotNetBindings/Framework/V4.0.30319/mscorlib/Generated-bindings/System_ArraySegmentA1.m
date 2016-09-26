@@ -32,7 +32,7 @@
 	// Managed param types : <T[]>
     + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>[]" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"<_T_0>[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : <T[]>, System.Int32, System.Int32
     + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"<_T_0>[],int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"<_T_0>[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 #pragma mark -
@@ -89,7 +89,7 @@
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -100,7 +100,7 @@
     - (BOOL)equals_withObjSArraySegmentA1:(System_ArraySegmentA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ArraySegment`1<System.ArraySegment`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ArraySegment`1<System.ArraySegment`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -122,7 +122,7 @@
     + (BOOL)op_Equality_withA:(System_ArraySegmentA1 *)p1 b:(System_ArraySegmentA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.ArraySegment`1<System.ArraySegment`1+T>,System.ArraySegment`1<System.ArraySegment`1+T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.ArraySegment`1<System.ArraySegment`1+T>,System.ArraySegment`1<System.ArraySegment`1+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -133,7 +133,7 @@
     + (BOOL)op_Inequality_withA:(System_ArraySegmentA1 *)p1 b:(System_ArraySegmentA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.ArraySegment`1<System.ArraySegment`1+T>,System.ArraySegment`1<System.ArraySegment`1+T>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.ArraySegment`1<System.ArraySegment`1+T>,System.ArraySegment`1<System.ArraySegment`1+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

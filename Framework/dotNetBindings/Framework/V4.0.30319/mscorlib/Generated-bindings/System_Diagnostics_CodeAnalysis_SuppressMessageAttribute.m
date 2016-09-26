@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.String
     + (System_Diagnostics_CodeAnalysis_SuppressMessageAttribute *)new_withCategory:(NSString *)p1 checkId:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -76,7 +76,7 @@
     - (void)setJustification:(NSString *)value
 	{
 		_justification = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Justification" valueObject:monoObject];          
 	}
 
@@ -94,7 +94,7 @@
     - (void)setMessageId:(NSString *)value
 	{
 		_messageId = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"MessageId" valueObject:monoObject];          
 	}
 
@@ -112,7 +112,7 @@
     - (void)setScope:(NSString *)value
 	{
 		_scope = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Scope" valueObject:monoObject];          
 	}
 
@@ -130,7 +130,7 @@
     - (void)setTarget:(NSString *)value
 	{
 		_target = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Target" valueObject:monoObject];          
 	}
 

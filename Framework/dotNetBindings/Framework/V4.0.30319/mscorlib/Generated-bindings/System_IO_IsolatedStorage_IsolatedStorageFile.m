@@ -115,7 +115,7 @@
 	// Managed param types : System.String, System.String
     - (void)copyFile_withSourceFileName:(NSString *)p1 destinationFileName:(NSString *)p2
     {
-		[self invokeMonoMethod:"CopyFile(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"CopyFile(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : CopyFile
@@ -123,7 +123,7 @@
 	// Managed param types : System.String, System.String, System.Boolean
     - (void)copyFile_withSourceFileName:(NSString *)p1 destinationFileName:(NSString *)p2 overwrite:(BOOL)p3
     {
-		[self invokeMonoMethod:"CopyFile(string,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"CopyFile(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 	// Managed method name : CreateDirectory
@@ -131,7 +131,7 @@
 	// Managed param types : System.String
     - (void)createDirectory_withDir:(NSString *)p1
     {
-		[self invokeMonoMethod:"CreateDirectory(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"CreateDirectory(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : CreateFile
@@ -140,7 +140,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)createFile_withPath:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFile(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }
@@ -150,7 +150,7 @@
 	// Managed param types : System.String
     - (void)deleteDirectory_withDir:(NSString *)p1
     {
-		[self invokeMonoMethod:"DeleteDirectory(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DeleteDirectory(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : DeleteFile
@@ -158,7 +158,7 @@
 	// Managed param types : System.String
     - (void)deleteFile_withFile:(NSString *)p1
     {
-		[self invokeMonoMethod:"DeleteFile(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DeleteFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : DirectoryExists
@@ -167,7 +167,7 @@
     - (BOOL)directoryExists_withPath:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DirectoryExists(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DirectoryExists(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -186,7 +186,7 @@
     - (BOOL)fileExists_withPath:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FileExists(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FileExists(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -197,7 +197,7 @@
     - (System_DateTimeOffset *)getCreationTime_withPath:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCreationTime(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCreationTime(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
@@ -219,7 +219,7 @@
     - (DBSystem_Array *)getDirectoryNames_withSearchPattern:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectoryNames(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectoryNames(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -252,7 +252,7 @@
     - (DBSystem_Array *)getFileNames_withSearchPattern:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFileNames(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetFileNames(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -263,7 +263,7 @@
     - (System_DateTimeOffset *)getLastAccessTime_withPath:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetLastAccessTime(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetLastAccessTime(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
@@ -274,7 +274,7 @@
     - (System_DateTimeOffset *)getLastWriteTime_withPath:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetLastWriteTime(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetLastWriteTime(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_DateTimeOffset objectWithMonoObject:monoObject];
     }
@@ -318,7 +318,7 @@
     + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type,System.Type)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type,System.Type)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
@@ -329,7 +329,7 @@
     + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
@@ -340,7 +340,7 @@
     + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Security.Policy.Evidence,System.Type,System.Security.Policy.Evidence,System.Type)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Security.Policy.Evidence,System.Type,System.Security.Policy.Evidence,System.Type)" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
@@ -351,7 +351,7 @@
     + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationEvidenceType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
@@ -362,7 +362,7 @@
     + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFile objectWithMonoObject:monoObject];
     }
@@ -427,7 +427,7 @@
 	// Managed param types : System.String, System.String
     - (void)moveDirectory_withSourceDirectoryName:(NSString *)p1 destinationDirectoryName:(NSString *)p2
     {
-		[self invokeMonoMethod:"MoveDirectory(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"MoveDirectory(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : MoveFile
@@ -435,7 +435,7 @@
 	// Managed param types : System.String, System.String
     - (void)moveFile_withSourceFileName:(NSString *)p1 destinationFileName:(NSString *)p2
     {
-		[self invokeMonoMethod:"MoveFile(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"MoveFile(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : OpenFile
@@ -444,7 +444,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }
@@ -455,7 +455,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode,System.IO.FileAccess)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode,System.IO.FileAccess)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }
@@ -466,7 +466,7 @@
     - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"OpenFile(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return [System_IO_IsolatedStorage_IsolatedStorageFileStream objectWithMonoObject:monoObject];
     }

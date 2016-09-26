@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Policy.Evidence
     + (System_Security_Policy_Evidence *)new_withEvidence:(System_Security_Policy_Evidence *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Policy.Evidence" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Policy.Evidence" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Object[], System.Object[]
     + (System_Security_Policy_Evidence *)new_withHostEvidenceObject:(DBSystem_Array *)p1 assemblyEvidenceObject:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"object[],object[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"object[],object[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Security.Policy.EvidenceBase[], System.Security.Policy.EvidenceBase[]
     + (System_Security_Policy_Evidence *)new_withHostEvidenceSArray:(DBSystem_Array *)p1 assemblyEvidenceSArray:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Array[],System.Array[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Array[],System.Array[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -124,7 +124,7 @@
 	// Managed param types : System.Object
     - (void)addAssembly_withId:(System_Object *)p1
     {
-		[self invokeMonoMethod:"AddAssembly(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddAssembly(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddAssemblyEvidence
@@ -132,7 +132,7 @@
 	// Managed param types : <System.Security.Policy.Evidence+T>
     - (void)addAssemblyEvidence_withEvidence:(System_Object *)p1
     {
-		[self invokeMonoMethod:"AddAssemblyEvidence(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddAssemblyEvidence(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddHost
@@ -140,7 +140,7 @@
 	// Managed param types : System.Object
     - (void)addHost_withId:(System_Object *)p1
     {
-		[self invokeMonoMethod:"AddHost(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddHost(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddHostEvidence
@@ -148,7 +148,7 @@
 	// Managed param types : <System.Security.Policy.Evidence+T>
     - (void)addHostEvidence_withEvidence:(System_Object *)p1
     {
-		[self invokeMonoMethod:"AddHostEvidence(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddHostEvidence(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Clear
@@ -175,7 +175,7 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetAssemblyEnumerator
@@ -238,7 +238,7 @@
 	// Managed param types : System.Security.Policy.Evidence
     - (void)merge_withEvidence:(System_Security_Policy_Evidence *)p1
     {
-		[self invokeMonoMethod:"Merge(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Merge(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveType
@@ -246,7 +246,7 @@
 	// Managed param types : System.Type
     - (void)removeType_withT:(System_Type *)p1
     {
-		[self invokeMonoMethod:"RemoveType(System.Type)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

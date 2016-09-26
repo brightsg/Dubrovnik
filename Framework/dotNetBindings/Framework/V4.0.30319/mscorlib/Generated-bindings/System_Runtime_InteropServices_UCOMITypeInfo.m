@@ -40,7 +40,7 @@
 	// Managed param types : System.Object, ref System.Guid&, ref System.Object&
     - (void)createInstance_withPUnkOuter:(System_Object *)p1 riidRef:(System_Guid **)p2 ppvObjRef:(System_Object **)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.CreateInstance(object,System.Guid&,object&)" withNumArgs:3, [p1 monoValue], &refPtr2, &refPtr3];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.CreateInstance(object,System.Guid&,object&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
 ;
     }
 
@@ -84,7 +84,7 @@
 	// Managed param types : System.String[], System.Int32, System.Int32[]
     - (void)getIDsOfNames_withRgszNames:(DBSystem_Array *)p1 cNames:(int32_t)p2 pMemId:(DBSystem_Array *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetIDsOfNames(string[],int,int[])" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetIDsOfNames(string[],int,int[])" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetImplTypeFlags
@@ -109,7 +109,7 @@
 	// Managed param types : System.Int32, System.String[], System.Int32, ref System.Int32&
     - (void)getNames_withMemid:(int32_t)p1 rgBstrNames:(DBSystem_Array *)p2 cMaxNames:(int32_t)p3 pcNamesRef:(int32_t*)p4
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetNames(int,string[],int,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3), p4];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetNames(int,string[],int,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), p4];;
     }
 
 	// Managed method name : GetRefTypeInfo
@@ -159,7 +159,7 @@
 	// Managed param types : System.Object, System.Int32, System.Int16, ref System.Runtime.InteropServices.DISPPARAMS&, ref System.Object&, ref System.Runtime.InteropServices.EXCEPINFO&, ref System.Int32&
     - (void)invoke_withPvInstance:(System_Object *)p1 memid:(int32_t)p2 wFlags:(int16_t)p3 pDispParamsRef:(System_Runtime_InteropServices_DISPPARAMS **)p4 pVarResultRef:(System_Object **)p5 pExcepInfoRef:(System_Runtime_InteropServices_EXCEPINFO **)p6 puArgErrRef:(int32_t*)p7
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.Invoke(object,int,int16,System.Runtime.InteropServices.DISPPARAMS&,object&,System.Runtime.InteropServices.EXCEPINFO&,int&)" withNumArgs:7, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), &refPtr4, &refPtr5, &refPtr6, p7];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.Invoke(object,int,int16,System.Runtime.InteropServices.DISPPARAMS&,object&,System.Runtime.InteropServices.EXCEPINFO&,int&)" withNumArgs:7, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), &refPtr4, &refPtr5, &refPtr6, p7];
 ;
     }
 

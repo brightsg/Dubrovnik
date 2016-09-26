@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.Int32, System.Runtime.InteropServices.ComTypes.ITypeInfo[], System.Int32[], ref System.Int16&
     - (void)findName_withSzNameBuf:(NSString *)p1 lHashVal:(int32_t)p2 ppTInfo:(DBSystem_Array *)p3 rgMemId:(DBSystem_Array *)p4 pcFoundRef:(int16_t*)p5
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.ITypeLib2.FindName(string,int,System.Array[],int[],int16&)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], p5];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.ITypeLib2.FindName(string,int,System.Array[],int[],int16&)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], p5];;
     }
 
 	// Managed method name : GetAllCustData
@@ -139,7 +139,7 @@
     - (BOOL)isName_withSzNameBuf:(NSString *)p1 lHashVal:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.ITypeLib2.IsName(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.ITypeLib2.IsName(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

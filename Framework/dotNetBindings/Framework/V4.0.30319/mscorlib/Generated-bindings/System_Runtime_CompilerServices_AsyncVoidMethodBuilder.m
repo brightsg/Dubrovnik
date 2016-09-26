@@ -61,7 +61,7 @@
 	// Managed param types : System.Exception
     - (void)setException_withException:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"SetException(System.Exception)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetResult
@@ -77,7 +77,7 @@
 	// Managed param types : System.Runtime.CompilerServices.IAsyncStateMachine
     - (void)setStateMachine_withStateMachine:(System_Runtime_CompilerServices_IAsyncStateMachine *)p1
     {
-		[self invokeMonoMethod:"SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Start

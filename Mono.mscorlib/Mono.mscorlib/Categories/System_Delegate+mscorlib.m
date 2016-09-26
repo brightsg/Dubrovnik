@@ -103,7 +103,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
      
     // Invoke CreateWrapper
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateWrapper" className:"Mono.Embedding.UniversalDelegateServices" argCount:2];
-    MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoValue]);
+    MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoRTInvokeArg]);
     System_Delegate *delegate = [self objectWithMonoObject:monoResult];
     
     // retain the info.

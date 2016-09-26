@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_ConverterA2 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -44,7 +44,7 @@
     - (System_IAsyncResult *)beginInvoke_withInput:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (System_Object *)endInvoke_withResult:(System_IAsyncResult *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (System_Object *)invoke_withInput:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }

@@ -33,7 +33,7 @@
 	// Managed param types : System.String
     + (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -53,7 +53,7 @@
     - (void)setCodeBase:(NSString *)value
 	{
 		_codeBase = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CodeBase" valueObject:monoObject];          
 	}
 
@@ -107,7 +107,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
@@ -149,7 +149,7 @@
     + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }
@@ -181,7 +181,7 @@
 	// Managed param types : System.Object
     - (void)onDeserialization_withSender:(System_Object *)p1
     {
-		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ReferenceMatchesDefinition
@@ -190,7 +190,7 @@
     + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -200,7 +200,7 @@
 	// Managed param types : System.Byte[]
     - (void)setPublicKey_withPublicKey:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetPublicKeyToken
@@ -208,7 +208,7 @@
 	// Managed param types : System.Byte[]
     - (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ToString

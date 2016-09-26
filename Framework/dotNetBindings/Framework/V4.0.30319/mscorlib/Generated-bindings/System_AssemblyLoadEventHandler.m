@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_AssemblyLoadEventHandler *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -44,7 +44,7 @@
     - (System_IAsyncResult *)beginInvoke_withSender:(System_Object *)p1 args:(System_AssemblyLoadEventArgs *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.AssemblyLoadEventArgs,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.AssemblyLoadEventArgs,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
@@ -54,7 +54,7 @@
 	// Managed param types : System.IAsyncResult
     - (void)endInvoke_withResult:(System_IAsyncResult *)p1
     {
-		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Invoke
@@ -62,7 +62,7 @@
 	// Managed param types : System.Object, System.AssemblyLoadEventArgs
     - (void)invoke_withSender:(System_Object *)p1 args:(System_AssemblyLoadEventArgs *)p2
     {
-		[self invokeMonoMethod:"Invoke(object,System.AssemblyLoadEventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Invoke(object,System.AssemblyLoadEventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

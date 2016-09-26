@@ -32,7 +32,7 @@
 	// Managed param types : System.AggregateException
     + (System_Threading_Tasks_UnobservedTaskExceptionEventArgs *)new_withException:(System_AggregateException *)p1
     {
-		return [[self alloc] initWithSignature:"System.AggregateException" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.AggregateException" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.InteropServices.SafeBuffer, System.Int64, System.Int64
     + (System_IO_UnmanagedMemoryAccessor *)new_withBuffer:(System_Runtime_InteropServices_SafeBuffer *)p1 offset:(int64_t)p2 capacity:(int64_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.SafeBuffer,long,long" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.SafeBuffer,long,long" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.InteropServices.SafeBuffer, System.Int64, System.Int64, System.IO.FileAccess
     + (System_IO_UnmanagedMemoryAccessor *)new_withBuffer:(System_Runtime_InteropServices_SafeBuffer *)p1 offset:(int64_t)p2 capacity:(int64_t)p3 access:(System_IO_FileAccess)p4
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.SafeBuffer,long,long,System.IO.FileAccess" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.SafeBuffer,long,long,System.IO.FileAccess" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 #pragma mark -
@@ -105,7 +105,7 @@
     - (int32_t)readArray_withPosition:(int64_t)p1 array:(System_Object *)p2 offset:(int32_t)p3 count:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadArray(long,<_T_0>[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadArray(long,<_T_0>[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -306,7 +306,7 @@
 	// Managed param types : System.Int64, System.Decimal
     - (void)write_withPositionLong:(int64_t)p1 valueDecimal:(NSDecimalNumber *)p2
     {
-		[self invokeMonoMethod:"Write(long,decimal)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Write(long,decimal)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -371,7 +371,7 @@
 	// Managed param types : System.Int64, <T[]>, System.Int32, System.Int32
     - (void)writeArray_withPosition:(int64_t)p1 array:(System_Object *)p2 offset:(int32_t)p3 count:(int32_t)p4
     {
-		[self invokeMonoMethod:"WriteArray(long,<_T_0>[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"WriteArray(long,<_T_0>[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 #pragma mark -

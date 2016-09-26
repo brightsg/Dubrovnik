@@ -32,7 +32,7 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.Int32, System.Int32
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeInt:(int32_t)p3 periodInt:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,int,int" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,int,int" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.TimeSpan, System.TimeSpan
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeSTimeSpan:(System_TimeSpan *)p3 periodSTimeSpan:(System_TimeSpan *)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,System.TimeSpan,System.TimeSpan" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,System.TimeSpan,System.TimeSpan" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.UInt32, System.UInt32
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeUint:(uint32_t)p3 periodUint:(uint32_t)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,uint,uint" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,uint,uint" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.Int64, System.Int64
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeLong:(int64_t)p3 periodLong:(int64_t)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,long,long" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,long,long" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Threading.TimerCallback
     + (System_Threading_Timer *)new_withCallback:(System_Threading_TimerCallback *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Threading.TimerCallback" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -87,7 +87,7 @@
     - (BOOL)change_withDueTimeSTimeSpan:(System_TimeSpan *)p1 periodSTimeSpan:(System_TimeSpan *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Change(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Change(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -120,7 +120,7 @@
     - (BOOL)dispose_withNotifyObject:(System_Threading_WaitHandle *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Dispose(System.Threading.WaitHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Dispose(System.Threading.WaitHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -52,7 +52,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setPublicKey:(NSString *)value
 	{
 		_publicKey = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PublicKey" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setVersion:(NSString *)value
 	{
 		_version = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Version" valueObject:monoObject];          
 	}
 

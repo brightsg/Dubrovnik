@@ -32,7 +32,7 @@
 	// Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
     + (System_Collections_Generic_DictionaryA2__ValueCollection *)new_withDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -57,7 +57,7 @@
 	// Managed param types : <TValue[]>, System.Int32
     - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(<_T_1>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(<_T_1>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetEnumerator

@@ -32,7 +32,7 @@
 	// Managed param types : System.Action
     - (void)unsafeOnCompleted_withContinuation:(System_Action *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.CompilerServices.ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.CompilerServices.ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

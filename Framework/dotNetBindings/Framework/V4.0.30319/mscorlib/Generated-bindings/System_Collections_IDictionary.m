@@ -63,7 +63,7 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.Collections.IDictionary.Item" valueObject:monoObject];          
 	}
 
@@ -99,7 +99,7 @@
 	// Managed param types : System.Object, System.Object
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Collections.IDictionary.Add(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.Collections.IDictionary.Add(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Clear
@@ -116,7 +116,7 @@
     - (BOOL)contains_withKey:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IDictionary.Contains(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IDictionary.Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -137,7 +137,7 @@
 	// Managed param types : System.Object
     - (void)remove_withKey:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Collections.IDictionary.Remove(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Collections.IDictionary.Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

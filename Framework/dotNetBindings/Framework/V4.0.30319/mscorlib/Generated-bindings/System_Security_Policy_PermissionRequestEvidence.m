@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.PermissionSet, System.Security.PermissionSet, System.Security.PermissionSet
     + (System_Security_Policy_PermissionRequestEvidence *)new_withRequest:(System_Security_PermissionSet *)p1 optional:(System_Security_PermissionSet *)p2 denied:(System_Security_PermissionSet *)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 #pragma mark -

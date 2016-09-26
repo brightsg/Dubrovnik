@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_IO_FileInfo *)new_withFileName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -133,7 +133,7 @@
     - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
@@ -144,7 +144,7 @@
     - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
@@ -222,7 +222,7 @@
 	// Managed param types : System.String
     - (void)moveTo_withDestFileName:(NSString *)p1
     {
-		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Open
@@ -297,7 +297,7 @@
     - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
@@ -308,7 +308,7 @@
     - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_IO_FileInfo objectWithMonoObject:monoObject];
     }
@@ -318,7 +318,7 @@
 	// Managed param types : System.Security.AccessControl.FileSecurity
     - (void)setAccessControl_withFileSecurity:(System_Security_AccessControl_FileSecurity *)p1
     {
-		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.FileSecurity)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.FileSecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ToString

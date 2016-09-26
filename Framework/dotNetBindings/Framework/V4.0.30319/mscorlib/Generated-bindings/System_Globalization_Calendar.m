@@ -125,7 +125,7 @@
     - (NSDate *)addDays_withTime:(NSDate *)p1 days:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddDays(System.DateTime,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddDays(System.DateTime,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -136,7 +136,7 @@
     - (NSDate *)addHours_withTime:(NSDate *)p1 hours:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddHours(System.DateTime,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddHours(System.DateTime,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -147,7 +147,7 @@
     - (NSDate *)addMilliseconds_withTime:(NSDate *)p1 milliseconds:(double)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddMilliseconds(System.DateTime,double)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddMilliseconds(System.DateTime,double)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -158,7 +158,7 @@
     - (NSDate *)addMinutes_withTime:(NSDate *)p1 minutes:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddMinutes(System.DateTime,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddMinutes(System.DateTime,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -169,7 +169,7 @@
     - (NSDate *)addMonths_withTime:(NSDate *)p1 months:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddMonths(System.DateTime,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddMonths(System.DateTime,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -180,7 +180,7 @@
     - (NSDate *)addSeconds_withTime:(NSDate *)p1 seconds:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddSeconds(System.DateTime,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddSeconds(System.DateTime,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -191,7 +191,7 @@
     - (NSDate *)addWeeks_withTime:(NSDate *)p1 weeks:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddWeeks(System.DateTime,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddWeeks(System.DateTime,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -202,7 +202,7 @@
     - (NSDate *)addYears_withTime:(NSDate *)p1 years:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddYears(System.DateTime,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddYears(System.DateTime,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -224,7 +224,7 @@
     - (int32_t)getDayOfMonth_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfMonth(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfMonth(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -235,7 +235,7 @@
     - (System_DayOfWeek)getDayOfWeek_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfWeek(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfWeek(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -246,7 +246,7 @@
     - (int32_t)getDayOfYear_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfYear(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfYear(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -301,7 +301,7 @@
     - (int32_t)getEra_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEra(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetEra(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -312,7 +312,7 @@
     - (int32_t)getHour_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetHour(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetHour(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -345,7 +345,7 @@
     - (double)getMilliseconds_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMilliseconds(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMilliseconds(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
@@ -356,7 +356,7 @@
     - (int32_t)getMinute_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMinute(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMinute(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -367,7 +367,7 @@
     - (int32_t)getMonth_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMonth(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMonth(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -400,7 +400,7 @@
     - (int32_t)getSecond_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSecond(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetSecond(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -411,7 +411,7 @@
     - (int32_t)getWeekOfYear_withTime:(NSDate *)p1 rule:(System_Globalization_CalendarWeekRule)p2 firstDayOfWeek:(System_DayOfWeek)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetWeekOfYear(System.DateTime,System.Globalization.CalendarWeekRule,System.DayOfWeek)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetWeekOfYear(System.DateTime,System.Globalization.CalendarWeekRule,System.DayOfWeek)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -422,7 +422,7 @@
     - (int32_t)getYear_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetYear(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetYear(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -499,7 +499,7 @@
     + (System_Globalization_Calendar *)readOnly_withCalendar:(System_Globalization_Calendar *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.Calendar)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.Calendar)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Globalization_Calendar objectWithMonoObject:monoObject];
     }

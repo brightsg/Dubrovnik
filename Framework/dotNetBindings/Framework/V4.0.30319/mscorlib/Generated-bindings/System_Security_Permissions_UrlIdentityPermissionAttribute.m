@@ -52,7 +52,7 @@
     - (void)setUrl:(NSString *)value
 	{
 		_url = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Url" valueObject:monoObject];          
 	}
 

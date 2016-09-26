@@ -52,7 +52,7 @@
     - (void)setCertFile:(NSString *)value
 	{
 		_certFile = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CertFile" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setSignedFile:(NSString *)value
 	{
 		_signedFile = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"SignedFile" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setX509Certificate:(NSString *)value
 	{
 		_x509Certificate = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"X509Certificate" valueObject:monoObject];          
 	}
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.Reflection.Assembly, System.String, System.Reflection.ResourceLocation
     + (System_Reflection_ManifestResourceInfo *)new_withContainingAssembly:(System_Reflection_Assembly *)p1 containingFileName:(NSString *)p2 resourceLocation:(System_Reflection_ResourceLocation)p3
     {
-		return [[self alloc] initWithSignature:"System.Reflection.Assembly,string,System.Reflection.ResourceLocation" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"System.Reflection.Assembly,string,System.Reflection.ResourceLocation" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 #pragma mark -

@@ -40,7 +40,7 @@
 	// Managed param types : System.Exception
     - (void)onError_withError:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"System.IObserver`1<System.IObserver`1+T>.OnError(System.Exception)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.IObserver`1<System.IObserver`1+T>.OnError(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : OnNext
@@ -48,7 +48,7 @@
 	// Managed param types : <System.IObserver`1+T>
     - (void)onNext_withValue:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.IObserver`1<System.IObserver`1+T>.OnNext(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.IObserver`1<System.IObserver`1+T>.OnNext(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

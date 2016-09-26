@@ -33,7 +33,7 @@
     - (NSString *)format_withFormat:(NSString *)p1 arg:(System_Object *)p2 formatProvider:(System_IFormatProvider *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ICustomFormatter.Format(string,object,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ICustomFormatter.Format(string,object,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

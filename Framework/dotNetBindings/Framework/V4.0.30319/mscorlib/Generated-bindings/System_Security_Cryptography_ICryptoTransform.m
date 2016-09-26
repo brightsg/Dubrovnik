@@ -80,7 +80,7 @@
     - (int32_t)transformBlock_withInputBuffer:(NSData *)p1 inputOffset:(int32_t)p2 inputCount:(int32_t)p3 outputBuffer:(NSData *)p4 outputOffset:(int32_t)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Cryptography.ICryptoTransform.TransformBlock(byte[],int,int,byte[],int)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Cryptography.ICryptoTransform.TransformBlock(byte[],int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -91,7 +91,7 @@
     - (NSData *)transformFinalBlock_withInputBuffer:(NSData *)p1 inputOffset:(int32_t)p2 inputCount:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Cryptography.ICryptoTransform.TransformFinalBlock(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Cryptography.ICryptoTransform.TransformFinalBlock(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }

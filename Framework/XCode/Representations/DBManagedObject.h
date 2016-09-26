@@ -52,7 +52,7 @@ extern char DBCacheSuffixChar;
  
  TODO: generic collection objects know their type parameters. If a given parameter is a reference type then
  value types added for that parameter must not be unboxed and vice versa.
- This is equivalen to passing arguments as -monoValue (auto unboxes value types) or -monoObject (passes ref type).
+ This is equivalen to passing arguments as -monoRTInvokeArg (auto unboxes value types) or -monoObject (passes ref type).
  
  The above is not implemented so as a temporary workaround we explicity disable auto box behaviour of value types instances.
  This is far from ideal but it will serve for now.

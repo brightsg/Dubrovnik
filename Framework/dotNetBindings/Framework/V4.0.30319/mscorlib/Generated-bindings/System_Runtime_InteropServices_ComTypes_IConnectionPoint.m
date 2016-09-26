@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, ref System.Int32&
     - (void)advise_withPUnkSink:(System_Object *)p1 pdwCookieRef:(int32_t*)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IConnectionPoint.Advise(object,int&)" withNumArgs:2, [p1 monoValue], p2];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IConnectionPoint.Advise(object,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
     }
 
 	// Managed method name : EnumConnections

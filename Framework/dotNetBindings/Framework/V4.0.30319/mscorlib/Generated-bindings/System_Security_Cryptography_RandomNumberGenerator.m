@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_RandomNumberGenerator *)create_withRngName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_RandomNumberGenerator objectWithMonoObject:monoObject];
     }
@@ -62,7 +62,7 @@
 	// Managed param types : System.Byte[]
     - (void)getBytes_withData:(NSData *)p1
     {
-		[self invokeMonoMethod:"GetBytes(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"GetBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetNonZeroBytes
@@ -70,7 +70,7 @@
 	// Managed param types : System.Byte[]
     - (void)getNonZeroBytes_withData:(NSData *)p1
     {
-		[self invokeMonoMethod:"GetNonZeroBytes(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"GetNonZeroBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

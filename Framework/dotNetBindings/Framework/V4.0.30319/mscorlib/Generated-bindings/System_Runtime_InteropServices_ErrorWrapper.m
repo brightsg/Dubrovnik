@@ -40,7 +40,7 @@
 	// Managed param types : System.Object
     + (System_Runtime_InteropServices_ErrorWrapper *)new_withErrorCodeObject:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Exception
     + (System_Runtime_InteropServices_ErrorWrapper *)new_withE:(System_Exception *)p1
     {
-		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

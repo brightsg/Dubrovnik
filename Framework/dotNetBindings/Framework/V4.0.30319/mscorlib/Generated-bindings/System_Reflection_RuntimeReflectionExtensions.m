@@ -33,7 +33,7 @@
     + (System_Reflection_MethodInfo *)getMethodInfo_withDel:(System_Delegate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodInfo(System.Delegate)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodInfo(System.Delegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     + (System_Reflection_MethodInfo *)getRuntimeBaseDefinition_withMethod:(System_Reflection_MethodInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeBaseDefinition(System.Reflection.MethodInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeBaseDefinition(System.Reflection.MethodInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     + (System_Reflection_EventInfo *)getRuntimeEvent_withType:(System_Type *)p1 name:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeEvent(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeEvent(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_EventInfo objectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     + (System_Collections_Generic_IEnumerableA1 *)getRuntimeEvents_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeEvents(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeEvents(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     + (System_Reflection_FieldInfo *)getRuntimeField_withType:(System_Type *)p1 name:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeField(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeField(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     + (System_Collections_Generic_IEnumerableA1 *)getRuntimeFields_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeFields(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeFields(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
@@ -99,7 +99,7 @@
     + (System_Reflection_InterfaceMapping *)getRuntimeInterfaceMap_withTypeInfo:(System_Reflection_TypeInfo *)p1 interfaceType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeInterfaceMap(System.Reflection.TypeInfo,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeInterfaceMap(System.Reflection.TypeInfo,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_InterfaceMapping objectWithMonoObject:monoObject];
     }
@@ -110,7 +110,7 @@
     + (System_Reflection_MethodInfo *)getRuntimeMethod_withType:(System_Type *)p1 name:(NSString *)p2 parameters:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeMethod(System.Type,string,System.Array[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeMethod(System.Type,string,System.Array[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
@@ -121,7 +121,7 @@
     + (System_Collections_Generic_IEnumerableA1 *)getRuntimeMethods_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeMethods(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeMethods(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
@@ -132,7 +132,7 @@
     + (System_Collections_Generic_IEnumerableA1 *)getRuntimeProperties_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeProperties(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeProperties(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
@@ -143,7 +143,7 @@
     + (System_Reflection_PropertyInfo *)getRuntimeProperty_withType:(System_Type *)p1 name:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeProperty(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeProperty(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
     }

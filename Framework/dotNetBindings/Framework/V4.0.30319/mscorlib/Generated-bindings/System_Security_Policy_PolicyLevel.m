@@ -112,7 +112,7 @@
 	// Managed param types : System.Security.Policy.StrongName
     - (void)addFullTrustAssembly_withSn:(System_Security_Policy_StrongName *)p1
     {
-		[self invokeMonoMethod:"AddFullTrustAssembly(System.Security.Policy.StrongName)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddFullTrustAssembly(System.Security.Policy.StrongName)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddFullTrustAssembly
@@ -120,7 +120,7 @@
 	// Managed param types : System.Security.Policy.StrongNameMembershipCondition
     - (void)addFullTrustAssembly_withSnMC:(System_Security_Policy_StrongNameMembershipCondition *)p1
     {
-		[self invokeMonoMethod:"AddFullTrustAssembly(System.Security.Policy.StrongNameMembershipCondition)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddFullTrustAssembly(System.Security.Policy.StrongNameMembershipCondition)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddNamedPermissionSet
@@ -128,7 +128,7 @@
 	// Managed param types : System.Security.NamedPermissionSet
     - (void)addNamedPermissionSet_withPermSet:(System_Security_NamedPermissionSet *)p1
     {
-		[self invokeMonoMethod:"AddNamedPermissionSet(System.Security.NamedPermissionSet)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddNamedPermissionSet(System.Security.NamedPermissionSet)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ChangeNamedPermissionSet
@@ -137,7 +137,7 @@
     - (System_Security_NamedPermissionSet *)changeNamedPermissionSet_withName:(NSString *)p1 pSet:(System_Security_PermissionSet *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ChangeNamedPermissionSet(string,System.Security.PermissionSet)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ChangeNamedPermissionSet(string,System.Security.PermissionSet)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Security_NamedPermissionSet objectWithMonoObject:monoObject];
     }
@@ -158,7 +158,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetNamedPermissionSet
@@ -167,7 +167,7 @@
     - (System_Security_NamedPermissionSet *)getNamedPermissionSet_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetNamedPermissionSet(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetNamedPermissionSet(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_NamedPermissionSet objectWithMonoObject:monoObject];
     }
@@ -185,7 +185,7 @@
 	// Managed param types : System.Security.Policy.StrongName
     - (void)removeFullTrustAssembly_withSn:(System_Security_Policy_StrongName *)p1
     {
-		[self invokeMonoMethod:"RemoveFullTrustAssembly(System.Security.Policy.StrongName)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveFullTrustAssembly(System.Security.Policy.StrongName)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveFullTrustAssembly
@@ -193,7 +193,7 @@
 	// Managed param types : System.Security.Policy.StrongNameMembershipCondition
     - (void)removeFullTrustAssembly_withSnMC:(System_Security_Policy_StrongNameMembershipCondition *)p1
     {
-		[self invokeMonoMethod:"RemoveFullTrustAssembly(System.Security.Policy.StrongNameMembershipCondition)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveFullTrustAssembly(System.Security.Policy.StrongNameMembershipCondition)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveNamedPermissionSet
@@ -202,7 +202,7 @@
     - (System_Security_NamedPermissionSet *)removeNamedPermissionSet_withPermSet:(System_Security_NamedPermissionSet *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveNamedPermissionSet(System.Security.NamedPermissionSet)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemoveNamedPermissionSet(System.Security.NamedPermissionSet)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_NamedPermissionSet objectWithMonoObject:monoObject];
     }
@@ -213,7 +213,7 @@
     - (System_Security_NamedPermissionSet *)removeNamedPermissionSet_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveNamedPermissionSet(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemoveNamedPermissionSet(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_NamedPermissionSet objectWithMonoObject:monoObject];
     }
@@ -232,7 +232,7 @@
     - (System_Security_Policy_PolicyStatement *)resolve_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
     }
@@ -243,7 +243,7 @@
     - (System_Security_Policy_CodeGroup *)resolveMatchingCodeGroups_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
     }

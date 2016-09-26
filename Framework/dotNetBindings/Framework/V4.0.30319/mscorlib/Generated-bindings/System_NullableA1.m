@@ -32,7 +32,7 @@
 	// Managed param types : <System.Nullable`1+T>
     + (System_NullableA1 *)new_withValue:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -70,7 +70,7 @@
     - (BOOL)equals_withOther:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -103,7 +103,7 @@
     - (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
@@ -114,7 +114,7 @@
     + (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Nullable`1<System.Nullable`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Nullable`1<System.Nullable`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object subclassObjectWithMonoObject:monoObject];
     }
@@ -125,7 +125,7 @@
     + (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_NullableA1 objectWithMonoObject:monoObject];
     }

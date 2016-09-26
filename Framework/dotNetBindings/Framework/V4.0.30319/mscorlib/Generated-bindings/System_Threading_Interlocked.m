@@ -98,9 +98,9 @@
 	// Managed param types : ref System.Object&, System.Object, System.Object
     + (System_Object *)compareExchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2 comparandObject:(System_Object *)p3
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(object&,object,object)" withNumArgs:3, &refPtr1, [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(object&,object,object)" withNumArgs:3, &refPtr1, [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 
 		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
 
@@ -123,9 +123,9 @@
 	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>, <System.Threading.Interlocked+T>
     + (System_Object *)compareExchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(<_T_0>&,<_T_0>,<_T_0>)" withNumArgs:3, &refPtr1, [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(<_T_0>&,<_T_0>,<_T_0>)" withNumArgs:3, &refPtr1, [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 
 		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
 
@@ -203,9 +203,9 @@
 	// Managed param types : ref System.Object&, System.Object
     + (System_Object *)exchange_withLocation1ObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(object&,object)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(object&,object)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 
 		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
 
@@ -228,9 +228,9 @@
 	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>
     + (System_Object *)exchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(<_T_0>&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(<_T_0>&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 
 		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
 

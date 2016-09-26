@@ -32,7 +32,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessageSink
     + (System_Runtime_Remoting_Channels_ClientChannelSinkStack *)new_withReplySink:(System_Runtime_Remoting_Messaging_IMessageSink *)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessageSink" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessageSink" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -43,7 +43,7 @@
 	// Managed param types : System.Runtime.Remoting.Channels.ITransportHeaders, System.IO.Stream
     - (void)asyncProcessResponse_withHeaders:(System_Runtime_Remoting_Channels_ITransportHeaders *)p1 stream:(System_IO_Stream *)p2
     {
-		[self invokeMonoMethod:"AsyncProcessResponse(System.Runtime.Remoting.Channels.ITransportHeaders,System.IO.Stream)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AsyncProcessResponse(System.Runtime.Remoting.Channels.ITransportHeaders,System.IO.Stream)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : DispatchException
@@ -51,7 +51,7 @@
 	// Managed param types : System.Exception
     - (void)dispatchException_withE:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"DispatchException(System.Exception)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DispatchException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : DispatchReplyMessage
@@ -59,7 +59,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
     - (void)dispatchReplyMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
     {
-		[self invokeMonoMethod:"DispatchReplyMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DispatchReplyMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Pop
@@ -68,7 +68,7 @@
     - (System_Object *)pop_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Pop(System.Runtime.Remoting.Channels.IClientChannelSink)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Pop(System.Runtime.Remoting.Channels.IClientChannelSink)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -78,7 +78,7 @@
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink, System.Object
     - (void)push_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Push(System.Runtime.Remoting.Channels.IClientChannelSink,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Push(System.Runtime.Remoting.Channels.IClientChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32, System.Guid
     + (System_Globalization_SortVersion *)new_withFullVersion:(int32_t)p1 sortId:(System_Guid *)p2
     {
-		return [[self alloc] initWithSignature:"int,System.Guid" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"int,System.Guid" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -70,7 +70,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -81,7 +81,7 @@
     - (BOOL)equals_withOther:(System_Globalization_SortVersion *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Globalization.SortVersion)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Globalization.SortVersion)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -103,7 +103,7 @@
     + (BOOL)op_Equality_withLeft:(System_Globalization_SortVersion *)p1 right:(System_Globalization_SortVersion *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Globalization.SortVersion,System.Globalization.SortVersion)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Globalization.SortVersion,System.Globalization.SortVersion)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -114,7 +114,7 @@
     + (BOOL)op_Inequality_withLeft:(System_Globalization_SortVersion *)p1 right:(System_Globalization_SortVersion *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Globalization.SortVersion,System.Globalization.SortVersion)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Globalization.SortVersion,System.Globalization.SortVersion)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

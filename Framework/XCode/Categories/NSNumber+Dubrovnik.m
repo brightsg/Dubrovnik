@@ -16,7 +16,7 @@
 
 /*
  
- Note: We do not define -monoObject and -MonoValue methods for good reason ie:
+ Note: We do not define -monoObject and -monoRTInvokeArg methods for good reason ie:
  we cannot rely on -objCType to accurately report the type used for initialisation.
  
  Use DBNumber explicitly.

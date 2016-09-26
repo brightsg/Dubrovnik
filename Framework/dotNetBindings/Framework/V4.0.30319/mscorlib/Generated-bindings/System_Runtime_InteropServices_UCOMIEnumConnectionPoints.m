@@ -42,7 +42,7 @@
     - (int32_t)next_withCelt:(int32_t)p1 rgelt:(DBSystem_Array *)p2 pceltFetchedRef:(int32_t*)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumConnectionPoints.Next(int,System.Array[],int&)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], p3];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumConnectionPoints.Next(int,System.Array[],int&)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], p3];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

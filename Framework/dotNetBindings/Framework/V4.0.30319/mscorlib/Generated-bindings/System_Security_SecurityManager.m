@@ -81,7 +81,7 @@
     + (System_Security_PermissionSet *)getStandardSandbox_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStandardSandbox(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStandardSandbox(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
     }
@@ -101,7 +101,7 @@
     + (BOOL)isGranted_withPerm:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsGranted(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsGranted(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -112,7 +112,7 @@
     + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromFile_withPath:(NSString *)p1 type:(System_Security_PolicyLevelType)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadPolicyLevelFromFile(string,System.Security.PolicyLevelType)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadPolicyLevelFromFile(string,System.Security.PolicyLevelType)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Security_Policy_PolicyLevel objectWithMonoObject:monoObject];
     }
@@ -123,7 +123,7 @@
     + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromString_withStr:(NSString *)p1 type:(System_Security_PolicyLevelType)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadPolicyLevelFromString(string,System.Security.PolicyLevelType)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadPolicyLevelFromString(string,System.Security.PolicyLevelType)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Security_Policy_PolicyLevel objectWithMonoObject:monoObject];
     }
@@ -144,9 +144,9 @@
 	// Managed param types : System.Security.Policy.Evidence, System.Security.PermissionSet, System.Security.PermissionSet, System.Security.PermissionSet, ref System.Security.PermissionSet&
     + (System_Security_PermissionSet *)resolvePolicy_withEvidence:(System_Security_Policy_Evidence *)p1 reqdPset:(System_Security_PermissionSet *)p2 optPset:(System_Security_PermissionSet *)p3 denyPset:(System_Security_PermissionSet *)p4 deniedRef:(System_Security_PermissionSet **)p5
     {
-		void *refPtr5 = [*p5 monoValue];
+		void *refPtr5 = [*p5 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], &refPtr5];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], &refPtr5];
 
 		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
 
@@ -159,7 +159,7 @@
     + (System_Security_PermissionSet *)resolvePolicy_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
     }
@@ -170,7 +170,7 @@
     + (System_Security_PermissionSet *)resolvePolicy_withEvidences:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
     }
@@ -181,7 +181,7 @@
     + (System_Collections_IEnumerator *)resolvePolicyGroups_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicyGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicyGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
     }
@@ -192,7 +192,7 @@
     + (System_Security_PermissionSet *)resolveSystemPolicy_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveSystemPolicy(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveSystemPolicy(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
     }
@@ -210,7 +210,7 @@
 	// Managed param types : System.Security.Policy.PolicyLevel
     + (void)savePolicyLevel_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
-		[self invokeMonoClassMethod:"SavePolicyLevel(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SavePolicyLevel(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

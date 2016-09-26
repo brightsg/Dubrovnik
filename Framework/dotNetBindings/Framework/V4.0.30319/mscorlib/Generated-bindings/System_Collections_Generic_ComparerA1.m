@@ -48,7 +48,7 @@
     - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Compare(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Compare(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -59,7 +59,7 @@
     + (System_Collections_Generic_ComparerA1 *)create_withComparison:(System_ComparisonA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Comparison`1<System.Collections.Generic.Comparer`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Comparison`1<System.Collections.Generic.Comparer`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_ComparerA1 objectWithMonoObject:monoObject];
     }

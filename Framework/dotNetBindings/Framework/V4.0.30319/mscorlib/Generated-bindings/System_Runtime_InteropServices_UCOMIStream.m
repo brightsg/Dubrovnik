@@ -49,7 +49,7 @@
 	// Managed param types : System.Runtime.InteropServices.UCOMIStream, System.Int64, System.IntPtr, System.IntPtr
     - (void)copyTo_withPstm:(System_Runtime_InteropServices_UCOMIStream *)p1 cb:(int64_t)p2 pcbRead:(void *)p3 pcbWritten:(void *)p4
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIStream.CopyTo(System.Runtime.InteropServices.UCOMIStream,long,intptr,intptr)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIStream.CopyTo(System.Runtime.InteropServices.UCOMIStream,long,intptr,intptr)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 	// Managed method name : LockRegion
@@ -65,7 +65,7 @@
 	// Managed param types : System.Byte[], System.Int32, System.IntPtr
     - (void)read_withPv:(NSData *)p1 cb:(int32_t)p2 pcbRead:(void *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIStream.Read(byte[],int,intptr)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIStream.Read(byte[],int,intptr)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : Revert
@@ -114,7 +114,7 @@
 	// Managed param types : System.Byte[], System.Int32, System.IntPtr
     - (void)write_withPv:(NSData *)p1 cb:(int32_t)p2 pcbWritten:(void *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIStream.Write(byte[],int,intptr)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIStream.Write(byte[],int,intptr)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 #pragma mark -

@@ -41,7 +41,7 @@
     - (void)setKey:(NSData *)value
 	{
 		_key = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Key" valueObject:monoObject];          
 	}
 
@@ -65,7 +65,7 @@
     + (System_Security_Cryptography_TripleDES *)create_withStr:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_TripleDES objectWithMonoObject:monoObject];
     }
@@ -76,7 +76,7 @@
     + (BOOL)isWeakKey_withRgbKey:(NSData *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWeakKey(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWeakKey(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

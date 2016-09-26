@@ -123,7 +123,7 @@
     - (System_Runtime_Remoting_Messaging_IMessageCtrl *)asyncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 replySink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AsyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AsyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_Messaging_IMessageCtrl objectWithMonoObject:monoObject];
     }
@@ -144,7 +144,7 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessageCtrl
     - (void)setMessageCtrl_withMc:(System_Runtime_Remoting_Messaging_IMessageCtrl *)p1
     {
-		[self invokeMonoMethod:"SetMessageCtrl(System.Runtime.Remoting.Messaging.IMessageCtrl)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetMessageCtrl(System.Runtime.Remoting.Messaging.IMessageCtrl)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SyncProcessMessage
@@ -153,7 +153,7 @@
     - (System_Runtime_Remoting_Messaging_IMessage *)syncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
     }

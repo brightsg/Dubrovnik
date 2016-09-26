@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_RIPEMD160 *)create_withHashName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_RIPEMD160 objectWithMonoObject:monoObject];
     }

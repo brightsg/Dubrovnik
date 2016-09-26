@@ -46,7 +46,7 @@
 	// Managed param types : System.Type, System.String[]
     + (void)addAlgorithm_withAlgorithm:(System_Type *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddOID
@@ -54,7 +54,7 @@
 	// Managed param types : System.String, System.String[]
     + (void)addOID_withOid:(NSString *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : CreateFromName
@@ -63,7 +63,7 @@
     + (System_Object *)createFromName_withName:(NSString *)p1 args:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -74,7 +74,7 @@
     + (System_Object *)createFromName_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -85,7 +85,7 @@
     + (NSData *)encodeOID_withStr:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EncodeOID(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EncodeOID(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -96,7 +96,7 @@
     + (NSString *)mapNameToOID_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"MapNameToOID(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"MapNameToOID(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

@@ -32,7 +32,7 @@
 // Mono type is Dubrovnik.UnitTests.ReferenceStruct
 + (DBUReferenceStruct *)newWithS:(NSString *)p1
 {
-    return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];
+    return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 #pragma mark -
@@ -60,7 +60,7 @@
 }
 - (void)setStringField:(NSString *)value
 {
-    MonoObject *monoObject = [value monoValue];
+    MonoObject *monoObject = [value monoRTInvokeArg];
     [self setMonoField:"StringField" valueObject:monoObject];
 }
 
@@ -75,7 +75,7 @@
 }
 - (void)setStringProperty:(NSString *)value
 {
-    MonoObject *monoObject = [value monoValue];
+    MonoObject *monoObject = [value monoRTInvokeArg];
     [self setMonoProperty:"StringProperty" valueObject:monoObject];
 }
 
@@ -85,7 +85,7 @@
 // Mono type is System.String
 - (NSString *)stringMethod_withS1:(NSString *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 @end

@@ -90,7 +90,7 @@
     - (System_Object *)deserialize_withSerializationStream:(System_IO_Stream *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Serialization.IFormatter.Deserialize(System.IO.Stream)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Serialization.IFormatter.Deserialize(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -100,7 +100,7 @@
 	// Managed param types : System.IO.Stream, System.Object
     - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Serialization.IFormatter.Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Serialization.IFormatter.Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

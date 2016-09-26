@@ -70,7 +70,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -81,7 +81,7 @@
     - (NSString *)getAscii_withUnicode:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -92,7 +92,7 @@
     - (NSString *)getAscii_withUnicode:(NSString *)p1 index:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -103,7 +103,7 @@
     - (NSString *)getAscii_withUnicode:(NSString *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetAscii(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -125,7 +125,7 @@
     - (NSString *)getUnicode_withAscii:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -136,7 +136,7 @@
     - (NSString *)getUnicode_withAscii:(NSString *)p1 index:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -147,7 +147,7 @@
     - (NSString *)getUnicode_withAscii:(NSString *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetUnicode(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

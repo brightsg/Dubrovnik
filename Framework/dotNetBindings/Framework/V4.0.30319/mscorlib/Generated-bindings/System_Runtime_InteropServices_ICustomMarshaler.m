@@ -32,7 +32,7 @@
 	// Managed param types : System.Object
     - (void)cleanUpManagedData_withManagedObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.CleanUpManagedData(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.CleanUpManagedData(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : CleanUpNativeData
@@ -60,7 +60,7 @@
     - (void *)marshalManagedToNative_withManagedObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.MarshalManagedToNative(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.MarshalManagedToNative(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_PTR(monoObject);
     }

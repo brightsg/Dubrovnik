@@ -75,7 +75,7 @@
     - (void)setFeature:(NSString *)value
 	{
 		_feature = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Feature" valueObject:monoObject];          
 	}
 

@@ -41,7 +41,7 @@
     - (void)setInvocationList:(System_Object *)value
 	{
 		_invocationList = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"InvocationList" valueObject:monoObject];          
 	}
 
@@ -54,7 +54,7 @@
     - (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)addEventHandler_withHandler:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddEventHandler(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddEventHandler(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken objectWithMonoObject:monoObject];
     }
@@ -64,7 +64,7 @@
 	// Managed param types : ref System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1&
     + (System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1 *)getOrCreateEventRegistrationTokenTable_withRefEventTableRef:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1 **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetOrCreateEventRegistrationTokenTable(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>&)" withNumArgs:1, &refPtr1];
 
@@ -78,7 +78,7 @@
 	// Managed param types : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
     - (void)removeEventHandler_withToken:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1
     {
-		[self invokeMonoMethod:"RemoveEventHandler(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveEventHandler(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveEventHandler
@@ -86,7 +86,7 @@
 	// Managed param types : <System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>
     - (void)removeEventHandler_withHandler:(System_Object *)p1
     {
-		[self invokeMonoMethod:"RemoveEventHandler(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveEventHandler(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

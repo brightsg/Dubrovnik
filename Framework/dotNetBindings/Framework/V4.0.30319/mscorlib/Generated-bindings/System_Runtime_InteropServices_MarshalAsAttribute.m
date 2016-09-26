@@ -94,7 +94,7 @@
     - (void)setMarshalCookie:(NSString *)value
 	{
 		_marshalCookie = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"MarshalCookie" valueObject:monoObject];          
 	}
 
@@ -112,7 +112,7 @@
     - (void)setMarshalType:(NSString *)value
 	{
 		_marshalType = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"MarshalType" valueObject:monoObject];          
 	}
 

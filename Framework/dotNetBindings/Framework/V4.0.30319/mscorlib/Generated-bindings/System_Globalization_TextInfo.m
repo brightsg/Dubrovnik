@@ -108,7 +108,7 @@
     - (void)setListSeparator:(NSString *)value
 	{
 		_listSeparator = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ListSeparator" valueObject:monoObject];          
 	}
 
@@ -154,7 +154,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -176,7 +176,7 @@
     + (System_Globalization_TextInfo *)readOnly_withTextInfo:(System_Globalization_TextInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.TextInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.TextInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Globalization_TextInfo objectWithMonoObject:monoObject];
     }
@@ -198,7 +198,7 @@
     - (NSString *)toLower_withStr:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToLower(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToLower(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -220,7 +220,7 @@
     - (NSString *)toTitleCase_withStr:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToTitleCase(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToTitleCase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -242,7 +242,7 @@
     - (NSString *)toUpper_withStr:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToUpper(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToUpper(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

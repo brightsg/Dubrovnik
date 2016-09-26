@@ -41,7 +41,7 @@
     - (void)setTypeName:(NSString *)value
 	{
 		_typeName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.Runtime.Remoting.IRemotingTypeInfo.TypeName" valueObject:monoObject];          
 	}
 
@@ -54,7 +54,7 @@
     - (BOOL)canCastTo_withFromType:(System_Type *)p1 o:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.IRemotingTypeInfo.CanCastTo(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.IRemotingTypeInfo.CanCastTo(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
