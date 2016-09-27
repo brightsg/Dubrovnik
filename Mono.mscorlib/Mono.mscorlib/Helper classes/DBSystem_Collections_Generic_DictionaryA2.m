@@ -110,7 +110,19 @@
 
 - (void)addKey:(System_Object *)key value:(System_Object *)value
 {
-    [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [key monoRTInvokeArg], [value monoRTInvokeArg]];
+    // unbox value types if generic key parameter type is value type
+    MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+    MonoClass *klass = mono_class_from_mono_type(monoType);
+    BOOL keyParameterTypeIsValueType = mono_class_is_valuetype(klass);
+    void *keyArg = keyParameterTypeIsValueType ? [key monoRTInvokeArg] : key.monoObject;
+    
+    // unbox value types if generic value parameter type is value type
+    monoType = [self getMonoGenericTypeAtIndex:1];
+    klass = mono_class_from_mono_type(monoType);
+    BOOL valueParameterTypeIsValueType = mono_class_is_valuetype(klass);
+    void *valueArg = valueParameterTypeIsValueType ? [value monoRTInvokeArg] : value.monoObject;
+    
+    [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, keyArg, valueArg];
 }
 
 @end

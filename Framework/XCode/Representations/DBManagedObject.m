@@ -83,13 +83,15 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 // Mono objects
 @property (assign, readwrite) MonoObject *monoObject;
-@property (assign, nonatomic, readwrite) MonoClass* monoClass;
-@property (assign, nonatomic, readwrite) MonoType* monoType;
+@property (assign, nonatomic, readwrite) MonoClass *monoClass;
+@property (assign, nonatomic, readwrite) MonoType *monoType;
+#warning is it okay to keep a heap reference to this array? can it not get moved by the collector?
+@property (assign, nonatomic, readwrite) MonoArray *monoGenericTypes;
 
 // primitives
 @property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
-@property BOOL genericType;
+@property (assign, nonatomic) BOOL genericType;
 @property (assign, readwrite) BOOL isPrimaryInstance;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -322,8 +324,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         } else {
 			self = nil;
 		}
-        
-        self.autoUnboxValueType = YES;
 	}
 	
     // add primary instance to cache
@@ -826,7 +826,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     // value types must be unboxed
     MonoClass *klass = mono_object_get_class(monoObject);
-    if (mono_class_is_valuetype(klass) && self.autoUnboxValueType) { // autoUnboxValueType temp workaround
+    if (mono_class_is_valuetype(klass)) {
         
         const char *monoClassName = [self.class monoClassName];
         
@@ -943,24 +943,43 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
  */
 - (MonoType *)getFirstMonoGenericType
 {
-    return [[self class] getMonoGenericType:[self monoClass] atIndex:0];
+    return [self getMonoGenericTypeAtIndex:0];
 }
 
 - (MonoType *)getLastMonoGenericType
 {
     uintptr_t count = [self getMonoGenericTypeCount];
     
-    return [[self class] getMonoGenericType:[self monoClass] atIndex:count - 1];
+    return [self getMonoGenericTypeAtIndex:count - 1];
 }
 
 - (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx
 {
-    return [[self class] getMonoGenericType:[self monoClass] atIndex:idx];
+    // get array of generic types
+    MonoArray *genericArgArray = [self getMonoGenericTypes];
+    
+    // get required type
+    uintptr_t genericArgumentCount = mono_array_length(genericArgArray);
+    MonoType *genericParameterType = NULL;
+    if (genericArgumentCount > 0) {
+        
+        // get the type at the index
+        if (idx < genericArgumentCount) {
+            genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), idx);
+        } else {
+            [NSException raise:@"DBGetGenericTypeException" format: @"Invalid index: %ld. Number of generic type arguments: %ld", (long)idx, genericArgumentCount];
+        }
+    }
+    
+    return genericParameterType;
 }
 
 - (MonoArray *)getMonoGenericTypes
 {
-    return [[self class] getMonoGenericTypes:[self monoClass]];
+    if (self.genericType && !self.monoGenericTypes) {
+        self.monoGenericTypes = [[self class] getMonoGenericTypes:[self monoClass]];
+    }
+    return self.monoGenericTypes;
 }
 
 - (NSUInteger)getMonoGenericTypeCount

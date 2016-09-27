@@ -539,27 +539,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // Dictionary<TKey,TValue> tests
     //
-    
-    /*
-     
-     When adding value types to a collection which expects reference types we must not unbox any value types.
-     
-     TODO: generic collection objects know their type parameters. If a given parameter is a reference type then 
-     value types added for that parameter must not be unboxed and vice versa.
-     This is equivalen to passing arguments as -monoRTInvokeArg (auto unboxes value types) or -monoObject (passes ref type).
-     
-     The above is not implemented so as a temporary workaround we explicity disable auto box behaviour of value types instances.
-     This is far from ideal but it will serve for now.
-     
-     */
     System_Object *numInt = DBNumInt(51).managedObject;
-    numInt.autoUnboxValueType = NO;
     System_Object *numLongLong = DBNumLongLong(510).managedObject;
-    numLongLong.autoUnboxValueType = NO;
     System_Object *numFloat = DBNumFloat(5100).managedObject;
-    numFloat.autoUnboxValueType = NO;
     System_Object *numDouble = DBNumFloat(51000).managedObject;
-    numDouble.autoUnboxValueType = NO;
     
     // populate dictionary
     [dictionaryA2 addKey:[@"name" managedObject] value:[@"bob" managedObject]];
