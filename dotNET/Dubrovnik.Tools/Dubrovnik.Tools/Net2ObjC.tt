@@ -496,7 +496,7 @@ public void WriteFacetAsEnumeration(EnumerationFacet enumeration)
 	if (OutputFileType == OutputType.Interface) 
 	{
 #>
-typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
+typedef NS_ENUM(<#=objCEnumType#>, enum<#=objCType#>) {
 <#+
 		foreach (FieldFacet field in enumeration.Fields) {
 			string objCFieldName = ObjCIdentifierFromManagedIdentifier(field.Name);

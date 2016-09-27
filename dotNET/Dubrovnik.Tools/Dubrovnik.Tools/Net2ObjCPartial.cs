@@ -528,7 +528,7 @@ namespace Dubrovnik.Tools
                     decl += " *";
                 }
             }
-
+			   
             return decl;
         }
 
@@ -990,7 +990,11 @@ namespace Dubrovnik.Tools
                 if (managedFacet.IsByRef || managedFacet.IsPointer)
                 {
                     managedType = managedFacet.ElementType;
-                }
+					 } 
+					 else if (managedFacet.IsEnum) 
+					 {
+						 managedType = managedFacet.UnderlyingType;
+					 }
                 else
                 {
                     managedType = managedFacet.Type;
