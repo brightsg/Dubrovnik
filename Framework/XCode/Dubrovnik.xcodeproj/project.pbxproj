@@ -41,6 +41,8 @@
 		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */; };
+		AB3FF5FC1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FF5FA1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m */; };
+		AB3FF5FD1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FF5FB1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m */; };
 		AB4759761D7083D100C3319C /* DBManagedObject+Logging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB4759771D7083D100C3319C /* DBManagedObject+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -197,6 +199,8 @@
 		AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "make-mono64-bundle.sh"; path = "../../Scripts/make-mono64-bundle.sh"; sourceTree = "<group>"; };
 		AB3FB5C417F08B3D003E5304 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
 		AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libJudy.README.txt; sourceTree = "<group>"; };
+		AB3FF5FA1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_IntEnum.m; sourceTree = "<group>"; };
+		AB3FF5FB1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_LongEnum.m; sourceTree = "<group>"; };
 		AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBManagedObject+Logging.h"; sourceTree = "<group>"; };
 		AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBManagedObject+Logging.m"; sourceTree = "<group>"; };
 		AB479B2817B40288000A2315 /* Dubrovnik.UnitTests.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dubrovnik.UnitTests.exe; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/bin/Debug/Dubrovnik.UnitTests.exe; sourceTree = "<group>"; };
@@ -602,36 +606,13 @@
 		AB8DDC5818EED03A00FEEA8B /* GeneratedObjC */ = {
 			isa = PBXGroup;
 			children = (
-				ABF9706F1D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h */,
-				ABF970701D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m */,
-				ABF970711D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h */,
-				ABF970721D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m */,
-				ABF970731D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h */,
-				ABF970741D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m */,
-				ABF970751D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h */,
-				ABF970761D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m */,
-				ABB375B21986AFF800EE7517 /* Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h */,
-				ABB375B31986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject1_Protocol.h */,
-				ABB375B41986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject2_Protocol.h */,
-				ABB375B51986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3_Protocol.h */,
-				ABB375B61986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3.h */,
-				ABB375B71986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3.m */,
-				ABB375B81986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h */,
-				ABB375B91986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1_Protocol.h */,
-				ABB375BA1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1.h */,
-				ABB375BB1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1.m */,
-				ABB375BC1986AFF800EE7517 /* Dubrovnik_UnitTests_ITestProperty_Protocol.h */,
-				ABB2C95F1971C36E001AABA7 /* Dubrovnik_UnitTests_ITestProperty.h */,
+				AB3FF5FA1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m */,
+				AB3FF5FB1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m */,
+				AB4D7BAF18FC342900E7C2D3 /* Dubrovnik_ClientApplication_EventHelper.h */,
+				AB4D7BB018FC342900E7C2D3 /* Dubrovnik_ClientApplication_EventHelper.m */,
 				ABB375B11986AFDB00EE7517 /* Dubrovnik_ClientApplication_IEventHelper_Protocol.h */,
-				ABB2C9601971C36E001AABA7 /* Dubrovnik_UnitTests_ITestProperty.m */,
-				ABB2C95619717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject1.h */,
-				ABB2C95719717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject1.m */,
-				ABB2C95819717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject2.h */,
-				ABB2C95919717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject2.m */,
-				ABB2C95A19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObjectBase.h */,
-				ABB2C95B19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObjectBase.m */,
-				ABB230DC192953E1009998F9 /* Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.h */,
-				ABB230DD192953E1009998F9 /* Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.m */,
+				AB4D7BB118FC342900E7C2D3 /* Dubrovnik_ClientApplication_IEventHelper.h */,
+				AB4D7BB218FC342900E7C2D3 /* Dubrovnik_ClientApplication_IEventHelper.m */,
 				ABB230D0192953D1009998F9 /* Dubrovnik_UnitTests_BaseObject.h */,
 				ABB230D1192953D1009998F9 /* Dubrovnik_UnitTests_BaseObject.m */,
 				ABB230D2192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectOne.h */,
@@ -640,20 +621,45 @@
 				ABB230D5192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectThree.m */,
 				ABB230D6192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectTwo.h */,
 				ABB230D7192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectTwo.m */,
-				AB4D7BAF18FC342900E7C2D3 /* Dubrovnik_ClientApplication_EventHelper.h */,
-				AB4D7BB018FC342900E7C2D3 /* Dubrovnik_ClientApplication_EventHelper.m */,
-				AB4D7BB118FC342900E7C2D3 /* Dubrovnik_ClientApplication_IEventHelper.h */,
-				AB4D7BB218FC342900E7C2D3 /* Dubrovnik_ClientApplication_IEventHelper.m */,
 				AB4D7BB318FC342900E7C2D3 /* Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.h */,
 				AB4D7BB418FC342900E7C2D3 /* Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.m */,
+				ABB230DC192953E1009998F9 /* Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.h */,
+				ABB230DD192953E1009998F9 /* Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.m */,
 				AB4D7BB718FC342900E7C2D3 /* Dubrovnik_UnitTests_GenericReferenceObjectA2.h */,
 				AB4D7BB818FC342900E7C2D3 /* Dubrovnik_UnitTests_GenericReferenceObjectA2.m */,
+				ABB375B21986AFF800EE7517 /* Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h */,
 				AB4D7BB918FC342900E7C2D3 /* Dubrovnik_UnitTests_IMinimalReferenceObject.h */,
 				AB4D7BBA18FC342900E7C2D3 /* Dubrovnik_UnitTests_IMinimalReferenceObject.m */,
 				AB4D7BBB18FC342900E7C2D3 /* Dubrovnik_UnitTests_IntEnum.h */,
+				ABB375B31986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject1_Protocol.h */,
+				ABB2C95619717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject1.h */,
+				ABB2C95719717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject1.m */,
+				ABB375B41986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject2_Protocol.h */,
+				ABB2C95819717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject2.h */,
+				ABB2C95919717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject2.m */,
+				ABB375B51986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3_Protocol.h */,
+				ABB375B61986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3.h */,
+				ABB375B71986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3.m */,
+				ABB375B81986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h */,
+				ABB2C95A19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObjectBase.h */,
+				ABB2C95B19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObjectBase.m */,
+				ABB375B91986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1_Protocol.h */,
+				ABB375BA1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1.h */,
+				ABB375BB1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObjectBase1.m */,
+				ABB375BC1986AFF800EE7517 /* Dubrovnik_UnitTests_ITestProperty_Protocol.h */,
+				ABB2C95F1971C36E001AABA7 /* Dubrovnik_UnitTests_ITestProperty.h */,
+				ABB2C9601971C36E001AABA7 /* Dubrovnik_UnitTests_ITestProperty.m */,
 				AB4D7BBC18FC342900E7C2D3 /* Dubrovnik_UnitTests_LongEnum.h */,
+				ABF9706F1D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h */,
+				ABF970701D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m */,
+				ABF970711D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h */,
+				ABF970721D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m */,
+				ABF970731D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h */,
+				ABF970741D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m */,
 				AB4D7BBD18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject__NestedClass.h */,
 				AB4D7BBE18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject__NestedClass.m */,
+				ABF970751D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h */,
+				ABF970761D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m */,
 				AB4D7BBF18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject.h */,
 				AB4D7BC018FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject.m */,
 				AB4D7BC118FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceStruct.h */,
@@ -943,6 +949,7 @@
 				ABBF10B217B3D2E1006F6E93 /* DBUReferenceObject.m in Sources */,
 				ABB2C95D19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject2.m in Sources */,
 				AB4D7BCB18FC342900E7C2D3 /* Dubrovnik_UnitTests_GenericReferenceObjectA2.m in Sources */,
+				AB3FF5FD1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m in Sources */,
 				ABF9707A1D73669600B836A0 /* Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m in Sources */,
 				ABB230DA192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectThree.m in Sources */,
 				ABB375BD1986AFF800EE7517 /* Dubrovnik_UnitTests_IReferenceObject3.m in Sources */,
@@ -966,6 +973,7 @@
 				ABB230DB192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectTwo.m in Sources */,
 				AB4D7BCF18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceStruct.m in Sources */,
 				ABB230DE192953E1009998F9 /* Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.m in Sources */,
+				AB3FF5FC1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m in Sources */,
 				ABA3AFEF18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m in Sources */,
 				AB4D7BCE18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject.m in Sources */,
 				AB4D7BCD18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceObject__NestedClass.m in Sources */,

@@ -355,23 +355,17 @@ static MonoAssembly *monoAssembly;
     }
 
     //
-    // enumerations
+    // test enumerations
     //
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DBUIntEnum val1], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DBUIntEnum val2], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DBUIntEnum val3], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DBUIntEnum val4], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DUIntEnum_ val1], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DUIntEnum_ val2], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DUIntEnum_ val3], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DUIntEnum_ val4], DBUEqualityTestFailed);
 
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == [DBULongEnum val1], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == [DBULongEnum val2], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == [DBULongEnum val3], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DBULongEnum val4], DBUEqualityTestFailed);
-    
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == eDBULongEnum_Val1, DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == eDBULongEnum_Val2, DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
-    
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == [DULongEnum_ val1], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == [DULongEnum_ val2], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == [DULongEnum_ val3], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DULongEnum_ val4], DBUEqualityTestFailed);
     
 #endif
     
@@ -1636,6 +1630,24 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
+- (void)doTestEnumderations
+{
+
+    if (m_runningAutoGenCodeTest) {
+    
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DUIntEnum_ val1], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DUIntEnum_ val2], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DUIntEnum_ val3], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DUIntEnum_ val4], DBUEqualityTestFailed);
+        
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == [DULongEnum_ val1], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == [DULongEnum_ val2], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == [DULongEnum_ val3], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DULongEnum_ val4], DBUEqualityTestFailed);
+        
+    }
+
+}
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
 {
     
@@ -1921,6 +1933,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         [self doTestStructRepresentation:refObject class:testClass];
         [self doTestObjectRepresentation:refObject class:testClass];
         [self doTestArrayListRepresentation:refObject class:testClass];
+        [self doTestEnumderations];
         
         //===================================
         // Delegates
