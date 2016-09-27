@@ -1372,7 +1372,7 @@ this.Write(this.ToStringHelper.ToStringWithCulture(objCEnumType));
         #line hidden
         
         #line 499 "C:\Users\Jonathan\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
-this.Write(", ");
+this.Write(", enum");
 
         
         #line default

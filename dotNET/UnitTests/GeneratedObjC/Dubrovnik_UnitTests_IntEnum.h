@@ -4,7 +4,7 @@
 //
 
 // C enumeration
-typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
+typedef NS_ENUM(int32_t, enumDubrovnik_UnitTests_IntEnum) {
 	Dubrovnik_UnitTests_IntEnum_val1 = 1,
 	Dubrovnik_UnitTests_IntEnum_val2 = 2,
 	Dubrovnik_UnitTests_IntEnum_val3 = 3,
@@ -24,18 +24,18 @@ typedef NS_ENUM(int32_t, Dubrovnik_UnitTests_IntEnum) {
 
 	// Managed field name : val1
 	// Managed field type : Dubrovnik.UnitTests.IntEnum
-    + (Dubrovnik_UnitTests_IntEnum)val1;
+    + (int32_t)val1;
 
 	// Managed field name : val2
 	// Managed field type : Dubrovnik.UnitTests.IntEnum
-    + (Dubrovnik_UnitTests_IntEnum)val2;
+    + (int32_t)val2;
 
 	// Managed field name : val3
 	// Managed field type : Dubrovnik.UnitTests.IntEnum
-    + (Dubrovnik_UnitTests_IntEnum)val3;
+    + (int32_t)val3;
 
 	// Managed field name : val4
 	// Managed field type : Dubrovnik.UnitTests.IntEnum
-    + (Dubrovnik_UnitTests_IntEnum)val4;
+    + (int32_t)val4;
 @end
 //--Dubrovnik.CodeGenerator

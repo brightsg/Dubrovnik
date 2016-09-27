@@ -150,14 +150,14 @@
 	// Managed field name : IntEnumField
 	// Managed field type : Dubrovnik.UnitTests.IntEnum
     @synthesize intEnumField = _intEnumField;
-    - (Dubrovnik_UnitTests_IntEnum)intEnumField
+    - (int32_t)intEnumField
     {
 		MonoObject *monoObject = [self getMonoField:"IntEnumField"];
 		_intEnumField = DB_UNBOX_INT32(monoObject);
 
 		return _intEnumField;
 	}
-    - (void)setIntEnumField:(Dubrovnik_UnitTests_IntEnum)value
+    - (void)setIntEnumField:(int32_t)value
 	{
 		_intEnumField = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -184,14 +184,14 @@
 	// Managed field name : LongEnumField
 	// Managed field type : Dubrovnik.UnitTests.LongEnum
     @synthesize longEnumField = _longEnumField;
-    - (Dubrovnik_UnitTests_LongEnum)longEnumField
+    - (int64_t)longEnumField
     {
 		MonoObject *monoObject = [self getMonoField:"LongEnumField"];
 		_longEnumField = DB_UNBOX_INT64(monoObject);
 
 		return _longEnumField;
 	}
-    - (void)setLongEnumField:(Dubrovnik_UnitTests_LongEnum)value
+    - (void)setLongEnumField:(int64_t)value
 	{
 		_longEnumField = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -811,25 +811,25 @@
 	// Managed property name : IntEnumeration
 	// Managed property type : Dubrovnik.UnitTests.IntEnum
     @synthesize intEnumeration = _intEnumeration;
-    - (Dubrovnik_UnitTests_IntEnum)intEnumeration
+    - (int32_t)intEnumeration
     {
-		typedef Dubrovnik_UnitTests_IntEnum (*Thunk)(MonoObject *, MonoObject**);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "IntEnumeration");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		Dubrovnik_UnitTests_IntEnum monoObject = thunk(self.monoObject, &monoException);
+		int32_t monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		_intEnumeration = monoObject;
 
 		return _intEnumeration;
 	}
-    - (void)setIntEnumeration:(Dubrovnik_UnitTests_IntEnum)value
+    - (void)setIntEnumeration:(int32_t)value
 	{
 		_intEnumeration = value;
-		typedef void (*Thunk)(MonoObject *, Dubrovnik_UnitTests_IntEnum, MonoObject**);
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
 		static Thunk thunk;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "IntEnumeration");
@@ -1040,25 +1040,25 @@
 	// Managed property name : LongEnumeration
 	// Managed property type : Dubrovnik.UnitTests.LongEnum
     @synthesize longEnumeration = _longEnumeration;
-    - (Dubrovnik_UnitTests_LongEnum)longEnumeration
+    - (int64_t)longEnumeration
     {
-		typedef Dubrovnik_UnitTests_LongEnum (*Thunk)(MonoObject *, MonoObject**);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
 		MonoObject *monoException = NULL;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "LongEnumeration");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
-		Dubrovnik_UnitTests_LongEnum monoObject = thunk(self.monoObject, &monoException);
+		int64_t monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		_longEnumeration = monoObject;
 
 		return _longEnumeration;
 	}
-    - (void)setLongEnumeration:(Dubrovnik_UnitTests_LongEnum)value
+    - (void)setLongEnumeration:(int64_t)value
 	{
 		_longEnumeration = value;
-		typedef void (*Thunk)(MonoObject *, Dubrovnik_UnitTests_LongEnum, MonoObject**);
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
 		static Thunk thunk;
 		if (!thunk) {
 			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "LongEnumeration");

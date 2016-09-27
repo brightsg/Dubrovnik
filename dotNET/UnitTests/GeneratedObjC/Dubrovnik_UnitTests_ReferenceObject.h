@@ -56,7 +56,7 @@
 
 	// Managed field name : IntEnumField
 	// Managed field type : Dubrovnik.UnitTests.IntEnum
-    @property (nonatomic) Dubrovnik_UnitTests_IntEnum intEnumField;
+    @property (nonatomic) int32_t intEnumField;
 
 	// Managed field name : IntField
 	// Managed field type : System.Int32
@@ -64,7 +64,7 @@
 
 	// Managed field name : LongEnumField
 	// Managed field type : Dubrovnik.UnitTests.LongEnum
-    @property (nonatomic) Dubrovnik_UnitTests_LongEnum longEnumField;
+    @property (nonatomic) int64_t longEnumField;
 
 	// Managed field name : StringField
 	// Managed field type : System.String
@@ -149,7 +149,7 @@
 
 	// Managed property name : IntEnumeration
 	// Managed property type : Dubrovnik.UnitTests.IntEnum
-    @property (nonatomic) Dubrovnik_UnitTests_IntEnum intEnumeration;
+    @property (nonatomic) int32_t intEnumeration;
 
 	// Managed property name : InterfaceTestProperty
 	// Managed property type : Dubrovnik.UnitTests.ITestProperty
@@ -177,7 +177,7 @@
 
 	// Managed property name : LongEnumeration
 	// Managed property type : Dubrovnik.UnitTests.LongEnum
-    @property (nonatomic) Dubrovnik_UnitTests_LongEnum longEnumeration;
+    @property (nonatomic) int64_t longEnumeration;
 
 	// Managed property name : MinimalReferenceObject
 	// Managed property type : Dubrovnik.UnitTests.IMinimalReferenceObject
