@@ -91,13 +91,10 @@ namespace Dubrovnik.Tools
             WriteCommentBlock("Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes");
 
             // Write all enumerations
-            foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
-            {
-                foreach (EnumerationFacet enumeration in @namespace.Enumerations)
-                {
-                    WriteEnumeration(enumeration);
+				foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces) {
+					foreach (EnumerationFacet enumeration in @namespace.Enumerations) {
+						this.WriteEnumeration(enumeration);
                 }
-            
             }
 
             // Write all interfaces.
@@ -137,6 +134,15 @@ namespace Dubrovnik.Tools
                 WriteInterfaceClass(@interface);
             }
         }
+
+		  //
+		  // WriteEnumeration
+		  //
+		  public void WriteEnumeration(EnumerationFacet @enum) {
+			  WriteClassStart(@enum, "enumeration");
+			  WriteFields(@enum.Fields);
+			  WriteClassEnd(@enum);
+		  }
 
         //
         // WriteClass
