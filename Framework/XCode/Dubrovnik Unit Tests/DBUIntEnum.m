@@ -10,49 +10,42 @@
 
 @implementation DBUIntEnum
 
-+ (MonoReflectionType *)monoReflectionType {
-	
-    // TODO:
-    /*
-    DBManagedEnvironment *monoEnv = [DBManagedEnvironment currentEnvironment];
-    
-    MonoImage *monoImage  = mono_assembly_get_image(monoAssembly);
-    NSAssert(monoImage, @"invalid");
-    
-    MonoClass *monoClass = mono_class_from_name(monoImage, "DubrovnikUnitTests", "IntEnum");
-    NSAssert(monoClass, @"invalid");
-    NSAssert(mono_class_is_enum(monoClass), @"invalid");
-    
-    MonoType *monoType = mono_class_get_type(monoClass);
-    NSAssert(monoType, @"invalid");
-    
-	MonoReflectionType *monoReflectionType = mono_type_get_object(monoEnv.monoDomain, monoType);
-    NSAssert(monoReflectionType, @"invalid");
-    
-	return monoReflectionType;
-     */
-    
-    return NULL;
++ (const char *)monoClassName
+{
+    return "Dubrovnik.UnitTests.IntEnum";
 }
 
-+ (eDBUIntEnum)val1
++ (const char *)monoAssemblyName
 {
-    return 1;
+    return "Dubrovnik.UnitTests";
 }
 
-+ (eDBUIntEnum)val2
++ (int32_t)val1
 {
-    return 2;
+    int32_t value = 0;
+    [DBUIntEnum getMonoClassField:"val1" valuePtr:&value];
+    return value;
+}
+
++ (int32_t)val2
+{
+    int32_t value = 0;
+    [DBUIntEnum getMonoClassField:"val2" valuePtr:&value];
+    return value;
 }
 
 + (eDBUIntEnum)val3
 {
-    return 3;
+    int32_t value = 0;
+    [DBUIntEnum getMonoClassField:"val3" valuePtr:&value];
+    return value;
 }
 
 + (eDBUIntEnum)val4
 {
-    return 4;
+    int32_t value = 0;
+    [DBUIntEnum getMonoClassField:"val4" valuePtr:&value];
+    return value;
 }
 
 @end

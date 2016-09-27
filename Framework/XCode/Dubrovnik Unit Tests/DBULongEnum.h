@@ -17,4 +17,9 @@ typedef NS_ENUM(int64_t, eDBULongEnum) {
 
 @interface DBULongEnum : DBSystem_Enum
 
++ (int64_t)val1;
++ (int64_t)val2;
++ (int64_t)val3;
++ (int64_t)val4;
+
 @end

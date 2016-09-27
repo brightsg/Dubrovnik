@@ -362,6 +362,11 @@ static MonoAssembly *monoAssembly;
     XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DBUIntEnum val3], DBUEqualityTestFailed);
     XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DBUIntEnum val4], DBUEqualityTestFailed);
 
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == [DBULongEnum val1], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == [DBULongEnum val2], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == [DBULongEnum val3], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DBULongEnum val4], DBUEqualityTestFailed);
+    
     XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == eDBULongEnum_Val1, DBUEqualityTestFailed);
     XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == eDBULongEnum_Val2, DBUEqualityTestFailed);
     XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
@@ -1826,7 +1831,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSLog(@"Decimal number : %@", decimalNumber);
         NSLog(@"New decimal number : %@", [refObject decimalNumber]);
     }
-    
+
     //
     // enumeration properties
     //
