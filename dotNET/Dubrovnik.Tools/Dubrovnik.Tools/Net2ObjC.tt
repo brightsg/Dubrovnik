@@ -162,10 +162,7 @@ public void WriteInterfaceFilePreliminaries()
 		facets.AddRange(@namespace.Classes);
 		facets.AddRange(@namespace.Interfaces);
 		facets.AddRange(@namespace.Structs);
-		if (ImplementEnumerationsAsClasses) 
-		{
-			facets.AddRange(@namespace.Enumerations);
-        }
+		facets.AddRange(@namespace.Enumerations);
 
 		// write class predeclarations 
 		if (facets.Count() > 0 && !commentOutput) 
@@ -392,13 +389,24 @@ public void WriteClassStart(CodeFacet facet, string module, bool writeBanner = t
 	// we may not be quite ready to supply all the framework managed interfaces that
 	// are commonly referenced
 	bool outputImplementedProtocols = true;
-	if (true) {
+	if (outputImplementedProtocols) {
 		implementedProtocols =  OutputImplementedProtocolSuffix(facet);
     }
 
 	 if (writeBanner) {
 		WriteModuleBanner(facet, module);
     }
+
+	 if (facet is EnumerationFacet) {
+#>
+
+// C enumeration
+<#+
+		WriteFacetAsEnumeration((EnumerationFacet)facet);
+#>
+
+<#+
+	}
 #>
 @<#=classPrefix#> <#=facet.ObjCFacet.Type#><#=superClass#><#=implementedProtocols#>
 <#+	
@@ -477,41 +485,28 @@ public void WriteClassTeardown(CodeFacet facet)
     }
 }
 //
-// WriteEnumeration
+// WriteFacetAsEnumeration
 //
-public void WriteEnumeration(EnumerationFacet enumeration)
+public void WriteFacetAsEnumeration(EnumerationFacet enumeration)
 {
 	string objCEnumType = ObjCTypeNameFromManagedTypeName(enumeration.UnderlyingType);
 	string objCType = ObjCTypeNameFromManagedTypeName(enumeration.Type);
 
-	// output the enums as a typedef.
-	// note that we could also generate a class based definition.
-	// it remains to be seen whether this is necessary.
+	// output the enums as a C typedef enum.
 	if (OutputFileType == OutputType.Interface) 
 	{
-		if (!ImplementEnumerationsAsClasses) 
-		{
-
-			WriteModuleBanner(enumeration, "enumeration");
 #>
 typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
 <#+
-			foreach (FieldFacet field in enumeration.Fields) 
-			{
-				string objCFieldName = ObjCIdentifierFromManagedIdentifier(field.Name);
+		foreach (FieldFacet field in enumeration.Fields) {
+			string objCFieldName = ObjCIdentifierFromManagedIdentifier(field.Name);
 #>
 	<#=objCType#>_<#=objCFieldName#> = <#=field.ConstantValue#>,
 <#+
-			}
+		}
 #>
 };
 <#+
-			WriteModuleFooter();
-		}	
-		else 
-		{
-			throw new Exception("Enumerations as classes not implemented");
-		}
     } 
 
 }
@@ -548,10 +543,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	if (isObjectProperty) {
 		// test if mono object pointer and property storage reference the same managed object
 		doPropertyEqualityTest = string.Format("if ([self object:{0} isEqualToMonoObject:{1}]) return {0};", propertyStorage, ManagedVariableName);
-    }
-
-	// field access
-	string fieldAccessExpression ="";
+   }
 
 	// instance property.
 	if (!facet.IsStatic) {
