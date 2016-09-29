@@ -23,11 +23,13 @@ extern char DBCacheSuffixChar;
 
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedType.h"
 
 @class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
 
 @protocol DBManagedObject <NSObject>
 
+@property (strong, readonly) DBManagedType *managedType;
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
 @property (assign, readonly) NSUInteger monoHash;
@@ -242,17 +244,6 @@ extern char DBCacheSuffixChar;
 // Property names
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;
 + (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;
-
-// Mono type info
-- (NSUInteger)getMonoGenericTypeCount;
-- (MonoType *)getFirstMonoGenericType;
-- (MonoType *)getLastMonoGenericType;
-- (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx;
-- (MonoArray *)getMonoGenericTypes;
-
-+ (NSUInteger)getMonoGenericTypeCount:(MonoClass *)monoClass;
-+ (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx;
-+ (MonoArray *)getMonoGenericTypes:(MonoClass *)monoClass;
 
 // KVO support
 + (void)registerObservedKeys:(NSArray *)keys;

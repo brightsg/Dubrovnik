@@ -19,19 +19,25 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
+
+// module
 #import <Cocoa/Cocoa.h>
+#import "DBInvoke.h"
+#import "DBBoxing.h"
+
+// managed objects and types
 #import "DBManagedObject.h"
 #import "DBManagedEnvironment.h"
 #import "DBManagedClass.h"
-#import "DBInvoke.h"
-#import "DBBoxing.h"
-#import "NSString+Dubrovnik.h"
+#import "DBManagedEvent.h"
+#import "DBManagedApplication.h"
 #import "DBManagedMethod.h"
 #import "DBTypemanager.h"
-#import "DBManagedEvent.h"
-#import "NSObject+DBManagedEvent.h"
-#import "DBManagedApplication.h"
 #import "DBPrimaryInstanceCache.h"
+
+// categories
+#import "NSString+Dubrovnik.h"
+#import "NSObject+DBManagedEvent.h"
 
 static NSMutableArray *m_boundKeys;
 
@@ -76,22 +82,20 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 // objects
 @property (strong, readwrite) DBManagedEnvironment *monoEnvironment;
+@property (strong, readwrite) DBManagedType *managedType;
 
 // collections
-@property (strong, nonatomic) NSArray *genericParameterMonoArgumentTypeNames;
 @property (strong, nonatomic) NSMutableArray *willChangeValueForKeyTracker;
 
 // Mono objects
 @property (assign, readwrite) MonoObject *monoObject;
 @property (assign, nonatomic, readwrite) MonoClass *monoClass;
 @property (assign, nonatomic, readwrite) MonoType *monoType;
-#warning is it okay to keep a heap reference to this array? can it not get moved by the collector?
-@property (assign, nonatomic, readwrite) MonoArray *monoGenericTypes;
+
 
 // primitives
 @property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
-@property (assign, nonatomic) BOOL genericType;
 @property (assign, readwrite) BOOL isPrimaryInstance;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
@@ -464,8 +468,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
     
-    if (self.genericType) {
-        methodName = [self inflateMethodName:methodName];
+    if (self.managedType.isGenericType) {
+        methodName = [self.managedType inflateMethodName:methodName];
     }
     
     return(DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args));
@@ -473,8 +477,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
     
-    if (self.genericType) {
-        methodName = [self inflateMethodName:methodName];
+    if (self.managedType.isGenericType) {
+        methodName = [self.managedType inflateMethodName:methodName];
     }
     
     va_list va_args;
@@ -487,29 +491,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return ret;
 }
 
-- (const char *)inflateMethodName:(const char *)methodName
-{
-    /*
-     
-     Search the method signature for generic type keys and replace with actual types
-     
-     */
-    if (self.genericType && strstr(methodName, "<_T_")) {
-        NSMutableString *method = [[NSMutableString alloc] initWithUTF8String:methodName];;
-        NSUInteger i = 0;
-        
-        for (NSString *typeName in self.genericParameterMonoArgumentTypeNames) {
-            NSString *key = [NSString stringWithFormat:@"<_T_%lu>", (unsigned long)i++];
-            [method replaceOccurrencesOfString:key withString:typeName options:0 range:NSMakeRange(0, [method length])];
-        }
-        
-        // methodName should be valid until the NSAutoreleasePool state changes
-        // see http://clang.llvm.org/docs/AutomaticReferenceCounting.html#interior-pointers
-        methodName = [method UTF8String];
-    }
-    
-    return methodName;
-}
 
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
     if(numArgs > 0) {
@@ -871,6 +852,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (BOOL)isValueType
 {
+#warning why not just operate on monoClass ivar directly - should be faster at least.
     return [DBType monoObjectContainsValueType:self.monoObject];
 }
 
@@ -879,17 +861,9 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return ![self isValueType];
 }
 
-- (MonoTypeEnum)monoTypeEnumeration
-{
-    MonoType *monoType = mono_class_get_type([self monoClass]);
-    
-    MonoTypeEnum typeInt = mono_type_get_type(monoType);
-    return typeInt;
-}
-
 - (void)setupTypeInstance:(DBManagedInstanceInfo)info
 {
-    self.genericType = [self monoTypeEnumeration] == MONO_TYPE_GENERICINST;
+    self.managedType = [[DBManagedType alloc] initWithMonoType:self.monoType];
     self.testForManagedObjectEquality = YES;
     
     if ([self isValueType]) {
@@ -930,139 +904,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
     }
 }
-
-#pragma mark -
-#pragma mark Generic type handling
-
-/*
- 
- For some brief documentation on generics see
- 
- see http://www.mono-project.com/docs/advanced/runtime/docs/generics/
- 
- */
-- (MonoType *)getFirstMonoGenericType
-{
-    return [self getMonoGenericTypeAtIndex:0];
-}
-
-- (MonoType *)getLastMonoGenericType
-{
-    uintptr_t count = [self getMonoGenericTypeCount];
-    
-    return [self getMonoGenericTypeAtIndex:count - 1];
-}
-
-- (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx
-{
-    // get array of generic types
-    MonoArray *genericArgArray = [self getMonoGenericTypes];
-    
-    // get required type
-    uintptr_t genericArgumentCount = mono_array_length(genericArgArray);
-    MonoType *genericParameterType = NULL;
-    if (genericArgumentCount > 0) {
-        
-        // get the type at the index
-        if (idx < genericArgumentCount) {
-            genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), idx);
-        } else {
-            [NSException raise:@"DBGetGenericTypeException" format: @"Invalid index: %ld. Number of generic type arguments: %ld", (long)idx, genericArgumentCount];
-        }
-    }
-    
-    return genericParameterType;
-}
-
-- (MonoArray *)getMonoGenericTypes
-{
-    if (self.genericType && !self.monoGenericTypes) {
-        self.monoGenericTypes = [[self class] getMonoGenericTypes:[self monoClass]];
-    }
-    return self.monoGenericTypes;
-}
-
-- (NSUInteger)getMonoGenericTypeCount
-{
-    MonoArray *array = [self getMonoGenericTypes];
-    
-    uintptr_t count = mono_array_length(array);
-    
-    return (NSUInteger)count;
-}
-
-+ (NSUInteger)getMonoGenericTypeCount:(MonoClass *)monoClass
-{
-    MonoArray *array = [self getMonoGenericTypes:monoClass];
-    
-    uintptr_t count = mono_array_length(array);
-    
-    return (NSUInteger)count;
-}
-
-+ (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx
-{
-    // get array of generic types
-    MonoArray *genericArgArray = [self getMonoGenericTypes:monoClass];
-    
-    // get required type
-    uintptr_t genericArgumentCount = mono_array_length(genericArgArray);
-    MonoType *genericParameterType = NULL;
-    if (genericArgumentCount > 0) {
-        
-        // get the type at the index
-        if (idx < genericArgumentCount) {
-            genericParameterType = *(MonoType **)mono_array_addr_with_size(genericArgArray, sizeof(MonoType *), idx);
-        } else {
-            [NSException raise:@"DBGetGenericTypeException" format: @"Invalid index: %ld. Number of generic type arguments: %ld", (long)idx, genericArgumentCount];
-        }
-    }
-            
-    return genericParameterType;
-}
-
-+ (MonoArray *)getMonoGenericTypes:(MonoClass *)monoClass
-{
-    // Get the generic types of an object
-    // eg: for list<employee> the type employee is returned.
-    //     for dictionary<string,employee> the string and employee types are returned
-    
-    // get helper method to retrieve generic argument types
-    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GenericTypeArguments" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:1];
-    
-    // get generic method parameter type info for the method argument.
-    MonoType *objectType = mono_class_get_type(monoClass);
-    MonoReflectionType* parameterType = mono_type_get_object([DBManagedEnvironment currentDomain], objectType);
-    MonoArray *genericArgArray = (MonoArray *)DBMonoClassInvokeMethod(helperMethod, 2, parameterType, NULL);
-    
-    return genericArgArray;
-}
-
-- (NSArray *)genericParameterMonoArgumentTypeNames
-{
-    if (!_genericParameterMonoArgumentTypeNames) {
-        
-        NSInteger genericParameterCount = [self getMonoGenericTypeCount];
-        NSMutableArray *typeNames = [NSMutableArray arrayWithCapacity:genericParameterCount];
-        
-        if (genericParameterCount > 0) {
-            
-            for (NSInteger i = 0; i < genericParameterCount; i++) {
-                
-                // NOTE: this is inefficient for genericParameterCount > 1, see implementation of -getMonoGenericTypeAtIndex:
-                MonoType *genericType = [self getMonoGenericTypeAtIndex:i];
-                
-                NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:genericType];
-                [typeNames addObject:monoArgumentTypeName];
-            }
-            
-            _genericParameterMonoArgumentTypeNames = typeNames;
-        }
-    }
-    
-    return _genericParameterMonoArgumentTypeNames;
-}
-
 
 #pragma mark -
 #pragma mark Indexer access

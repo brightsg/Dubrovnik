@@ -39,6 +39,11 @@
 
 - (System_Object *)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
 {
+    /*
+     The Mono runtime doesn't expose enough of its internal workings via the enbedded API, hence the need for helper methods.
+     See: http://www.mono-project.com/docs/advanced/runtime/docs/generics/
+     */
+    
     // get array of System.Type
     NSArray <System_Type *> *systemTypes = [self systemTypesForTypeParameters:typeParameters];
     DBSystem_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
@@ -130,5 +135,6 @@
     
     return systemTypes;
 }
+
 
 @end

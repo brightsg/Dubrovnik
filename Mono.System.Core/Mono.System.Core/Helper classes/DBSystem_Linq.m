@@ -77,7 +77,7 @@
     
     // Get the type with which to inflate the method.
     // The generic type for the method equals the generic type of this object at the given index
-    MonoType *genericMonoType = [managedObject getMonoGenericTypeAtIndex:typeIndex];
+    MonoType *genericMonoType = [managedObject.managedType monoGenericTypeAtIndex:typeIndex];
     
     return [self toList:managedObject typeParameter:[NSValue valueWithPointer:genericMonoType]];
 }

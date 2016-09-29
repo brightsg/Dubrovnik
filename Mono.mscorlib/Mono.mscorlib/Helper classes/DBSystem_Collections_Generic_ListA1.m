@@ -128,7 +128,7 @@
 - (void)add:(System_Object *)object
 {
     // unbox value types if generic parameter type is value type
-    MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+    MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
     MonoClass *klass = mono_class_from_mono_type(monoType);
     BOOL parameterTypeIsValueType = mono_class_is_valuetype(klass);
     

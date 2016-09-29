@@ -39,7 +39,7 @@
     id object = nil;
     if ([self containsKey:key]) {
         
-        MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+        MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
         MonoClass * monoClass = mono_class_from_mono_type(monoType);
         void *invokeObj = NULL;
         
@@ -70,7 +70,7 @@
         
         // form the method signature using key generic type
         // TODO: perform method name caching
-        MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+        MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
         NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:monoType];
         NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoArgumentTypeName];
         
@@ -111,13 +111,13 @@
 - (void)addKey:(System_Object *)key value:(System_Object *)value
 {
     // unbox value types if generic key parameter type is value type
-    MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+    MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
     MonoClass *klass = mono_class_from_mono_type(monoType);
     BOOL keyParameterTypeIsValueType = mono_class_is_valuetype(klass);
     void *keyArg = keyParameterTypeIsValueType ? [key monoRTInvokeArg] : key.monoObject;
     
     // unbox value types if generic value parameter type is value type
-    monoType = [self getMonoGenericTypeAtIndex:1];
+    monoType = [self.managedType monoGenericTypeAtIndex:1];
     klass = mono_class_from_mono_type(monoType);
     BOOL valueParameterTypeIsValueType = mono_class_is_valuetype(klass);
     void *valueArg = valueParameterTypeIsValueType ? [value monoRTInvokeArg] : value.monoObject;
