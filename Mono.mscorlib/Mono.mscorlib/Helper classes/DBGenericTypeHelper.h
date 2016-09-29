@@ -1,5 +1,5 @@
 //
-//  DBGenericManager.h
+//  DBGenericTypeHelper.m.h
 //  Mono.mscorlib
 //
 //  Created by Jonathan Mitchell on 10/05/2016.
@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DBGenericManager : NSObject
+@interface DBGenericTypeHelper : NSObject
 
 /**
  
  Singleton shared instance.
  
  */
-+ (instancetype)sharedManager;
++ (instancetype)sharedHelper;
 
 /**
  
@@ -27,20 +27,27 @@
  2. NSObject instance responding to -monoObject (this obviously includes System_Object)
  3. NSValue containing MonoType pointer
  
- FOr more detail see the source to -monoTypeForTypeParameter:
+ For more detail see the source to -monoTypeForTypeParameter:
  */
-- (System_Object *)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters;
+- (System_Object *)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
 
 /**
  
  Create an instance of a core generic type using a type definition name eg: List<T> and an array of generic type parameters.
  
  */
-- (System_Object *)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters;
+- (System_Object *)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray<id> *)typeParameters;
 
 /**
  
- Returns a MonoType * for a given genric type parameter.
+ Returns a MonoType * for a given generic type parameter.
+ 
+ A type parameter is of type id.
+ Valid types are:
+ 1. System_Object subclass class
+ 2. NSObject instance responding to -monoObject (this obviously includes System_Object)
+ 3. NSValue containing MonoType pointer
+ 4. DBManagedType instance.
  
  */
 - (MonoType *)monoTypeForTypeParameter:(id)typeParameter;
@@ -50,6 +57,6 @@
  Returns an array of System_Type * for an array of generic type parameters.
  
  */
-- (NSArray <System_Type *> *)systemTypesForTypeParameters:(NSArray <id> *)typeParameters;
+- (NSArray<System_Type *> *)systemTypesForTypeParameters:(NSArray<id> *)typeParameters;
 
 @end

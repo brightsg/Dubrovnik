@@ -522,14 +522,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)doTestGenericConstructors:(Class)testClass
 {
     // allocate core generic types from class
-    DBSystem_Collections_Generic_ListA1 *listA1 = [DBSystem_Collections_Generic_ListA1 newCoreGenericObjectWithTypeParameters:@[[System_Object class]]];
-    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2 = [DBSystem_Collections_Generic_DictionaryA2 newCoreGenericObjectWithTypeParameters:@[[System_String class], [System_Object class]]];
-    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newCoreGenericObjectWithTypeParameters:@[[System_String class], [System_Object class]]];
+    DBSystem_Collections_Generic_ListA1 *listA1 = [DBSystem_Collections_Generic_ListA1 newObjectWithGenericTypeParameters:@[[System_Object class]]];
+    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2 = [DBSystem_Collections_Generic_DictionaryA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
     
     // allocate core generic types from type name
-    DBSystem_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
-    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2_1 = (id)[[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.Dictionary`2" typeParameters:@[[System_String class], [System_Object class]]];
-    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2_1 = (id)[[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.KeyValuePair`2" typeParameters:@[[System_String class], [System_Object class]]];
+    DBSystem_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
+    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.Dictionary`2" typeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.KeyValuePair`2" typeParameters:@[[System_String class], [System_Object class]]];
     
     // System_Object -description calls .ToString which returns a description including the generic parameter types, hence the string comparisons
     XCTAssertTrue([listA1.description isEqualToString:listA1_1.description], DBUEqualityTestFailed);

@@ -48,6 +48,7 @@
 // Mono representation
 #import "DBManagedClass.h"
 #import "DBManagedObject.h"
+#import "DBManagedType.h"
 #import "DBManagedObject+Logging.h"
 #import "DBManagedMethod.h"
 #import "DBManagedEvent.h"

@@ -46,7 +46,7 @@
         return nil;
     }
     
-    DBSystem_Collections_Generic_ListA1 *list = [[self class] newCoreGenericObjectWithTypeParameters:@[typeParameter]];
+    DBSystem_Collections_Generic_ListA1 *list = [[self class] newObjectWithGenericTypeParameters:@[typeParameter]];
     
     // add objects
     for (id object in objects) {

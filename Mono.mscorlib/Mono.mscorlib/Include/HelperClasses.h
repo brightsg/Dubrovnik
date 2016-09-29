@@ -16,5 +16,5 @@
 #import "DBSystem_Enum.h"
 #import "DBSystem_IO_FileInfo.h"
 
-#import "DBGenericManager.h"
+#import "DBGenericTypeHelper.h"
 

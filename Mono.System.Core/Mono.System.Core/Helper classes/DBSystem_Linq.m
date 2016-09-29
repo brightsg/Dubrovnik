@@ -10,7 +10,7 @@
 #import "Dubrovnik/DBManagedMethod.h"
 #import "Dubrovnik/DBManagedObject.h"
 #import "Mono.mscorlib/DBSystem_Collections_IList.h"
-#import "Mono.mscorlib/DBGenericManager.h"
+#import "Mono.mscorlib/DBGenericTypeHelper.h"
 #import "Dubrovnik/DBTypeManager.h"
 
 @implementation DBSystem_Linq
@@ -29,7 +29,7 @@
                                       assemblyName:"System.Core"];
     
     // Get the type with which to inflate the method.
-    MonoType *monoType = [[DBGenericManager sharedManager] monoTypeForTypeParameter:typeParameter];
+    MonoType *monoType = [[DBGenericTypeHelper sharedHelper] monoTypeForTypeParameter:typeParameter];
     managedMethod.genericMonoType = monoType;
     
     // Invoke the extension method passing mono object as first argument
