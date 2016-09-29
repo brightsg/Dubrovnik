@@ -7,7 +7,6 @@
 //
 
 #import "DBTypeManager.h"
-//#import "System.Object.h"
 #import "DBNumber.h"
 #import "DBManagedObject.h"
 #import "DBBoxing.h"
@@ -454,12 +453,8 @@ static BOOL m_useClassLookupCache = YES;
     MonoClass *monoClass = mono_object_get_class(monoObject);
     MonoType* monoType = mono_class_get_type(monoClass);
 
-    if (mono_class_is_valuetype(monoClass)) {
-        
-        // for certain value types it is necessary (looking at you System.Enum) to use the underlying type.
-        // if there is no underlying type mono_type_get_underlying_type just returns its argument.
+    if (mono_class_is_enum(monoClass)) {
         monoType = mono_type_get_underlying_type(monoType);
-        
     }
     
     // get a DBType object that knows how to generate an instance to represent monoObject
@@ -579,6 +574,5 @@ static BOOL m_useClassLookupCache = YES;
     
     return dbType;
 }
-
 
 @end
