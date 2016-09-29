@@ -852,8 +852,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (BOOL)isValueType
 {
-#warning why not just operate on monoClass ivar directly - should be faster at least.
-    return [DBType monoObjectContainsValueType:self.monoObject];
+   return mono_class_is_valuetype(self.monoClass);
 }
 
 - (BOOL)isReferenceType
