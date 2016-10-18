@@ -344,9 +344,17 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)dealloc
 {
-    // cleanup primary instance.
+    // Mono requires mono_thread_attach() to be called before accessing the runtime from a thread.
+    // We could do this but it seems prudent just to dispatch the required operation onto the main thread.
+        
     // hmm. need to be careful here that we don't inadvertently make an inappropriate call during the dealloc.
-    if (self.isPrimaryInstance) {
+   [self performSelectorOnMainThread:@selector(disposeOfInstance) withObject:nil waitUntilDone:YES];
+}
+
+- (void)disposeOfInstance
+{
+    // cleanup primary instance.
+     if (self.isPrimaryInstance) {
         
         // remove property change notifications
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = NO;
@@ -356,10 +364,10 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     }
     
     // free the gc handle
-	if (_mono_gchandle != 0) {
-		mono_gchandle_free(_mono_gchandle);
+    if (_mono_gchandle != 0) {
+        mono_gchandle_free(_mono_gchandle);
         _mono_gchandle = 0;
-	}
+    }
 }
 
 - (NSString *)description {
