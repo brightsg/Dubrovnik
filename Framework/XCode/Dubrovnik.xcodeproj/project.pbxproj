@@ -458,6 +458,8 @@
 		9D69DC2B08B1844D008BB787 /* Representations */ = {
 			isa = PBXGroup;
 			children = (
+				ABCF4AB6199ABD44009BE714 /* DBManagedApplication.h */,
+				ABCF4AB7199ABD44009BE714 /* DBManagedApplication.m */,
 				93365A870872370700EC726F /* DBManagedClass.h */,
 				93365A880872370700EC726F /* DBManagedClass.m */,
 				AB91B69518EE03A00021B462 /* DBManagedEvent.h */,
@@ -466,12 +468,10 @@
 				ABF43FB7179FF4FC00BAB99E /* DBManagedMethod.m */,
 				93365A890872370700EC726F /* DBManagedObject.h */,
 				93365A8A0872370700EC726F /* DBManagedObject.m */,
-				ABCF4AB6199ABD44009BE714 /* DBManagedApplication.h */,
-				ABCF4AB7199ABD44009BE714 /* DBManagedApplication.m */,
-				AB031D0219C9B46000C80422 /* DBPrimaryInstanceCache.h */,
-				AB031D0319C9B46000C80422 /* DBPrimaryInstanceCache.m */,
 				AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */,
 				AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */,
+				AB031D0219C9B46000C80422 /* DBPrimaryInstanceCache.h */,
+				AB031D0319C9B46000C80422 /* DBPrimaryInstanceCache.m */,
 			);
 			path = Representations;
 			sourceTree = "<group>";
