@@ -53,6 +53,9 @@
 #import "System_IO_Stream.h"
 #import "System_IO_StringWriter.h"
 #import "System_IO_TextReader.h"
+#import "System_IO_StringReader.h"
+
+#import "System_Threading_Tasks_TaskA1.h"
 
 #import "System_Collections_ArrayList.h"
 #import "System_Collections_Generic_DictionaryA2.h"
