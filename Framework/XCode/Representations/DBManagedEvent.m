@@ -178,7 +178,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     } else {
 
 #ifdef DB_TRACE
-        NSLog(@"Target: %@ not found with sender : %@ for event : %@. Note: this is to be expected if the target has been deallocated and this method is called in the targets dealloc.", target, sender, eventName);
+        NSLog(@"Target: %@ not found with sender : %@ for event : %@. Note: this is to be expected if the target has been deallocated and this method is called in the target's dealloc.", target, sender, eventName);
 #endif
     }
     
@@ -276,15 +276,22 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // contract
     NSAssert(sender.isPrimaryInstance, @"A non primary instance cannot be an event sender!");
     
-    // get the event targets registered with the sender
+    // get the event targets registered with the sender.
+    // once registered static event handlers are not removed.
+    // this means that we may see activity here even after we have removed all our native target objects.
+    // this is okay and failure to find a target does not indicate a program error.
     NSPointerArray *eventTargets = sender.managedEventMap[eventName];
     if (!eventTargets) {
-        NSLog(@"No event targets for object : %@ (%p) event name: %@", sender, sender, eventName);
+#ifdef DB_TRACE
+        NSLog(@"No event targets for object : %@ (%p) event name: %@. This is not an error merely a warning intended to help assist in identifying possible event issues.", sender, sender, eventName);
+#endif
         return;
     }
-    
-    //NSLog(@"Managed object : %@ (%p) generated event : %@ with target selector : %@", sender, sender, eventName, targetSelectorName);
 
+#ifdef DB_TRACE
+    NSLog(@"Managed object : %@ (%p) generated event : %@ with target selector : %@", sender, sender, eventName, targetSelectorName);
+#endif
+    
     // selector to send to targets
     SEL eventSelector = NSSelectorFromString(targetSelectorName);
     BOOL eventSelectorMethodSignatureValidated = NO;
