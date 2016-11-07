@@ -8,6 +8,7 @@
 
 // protocols
 
+#import "System_IO_FileAttributes.h"
 
 // manual bindings
 #import "System_Object.h"
