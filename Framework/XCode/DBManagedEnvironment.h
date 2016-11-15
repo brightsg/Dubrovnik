@@ -116,6 +116,22 @@
 
 /*!
  
+ Be sure to call this before -initWithDomainName
+ 
+ */
++ (void)setSignalChaining:(BOOL)value;
++ (BOOL)isSignalChaining;
+
+/*!
+ 
+ Be sure to call this before -initWithDomainName
+ 
+ */
++ (void)setCrashChaining:(BOOL)value;
++ (BOOL)isCrashChaining;
+
+/*!
+ 
  Designated intialiser
  
  */

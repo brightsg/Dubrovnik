@@ -31,6 +31,8 @@ static NSString *m_monoAssemblyRootFolder = nil;
 static NSString *m_monoConfigFolder = nil;
 static DBManagedEnvironment *_defaultEnvironment = nil;
 static DBManagedEnvironment *_currentEnvironment = nil;
+static BOOL m_signalChaining = NO;
+static BOOL m_crashChaining = NO;
 
 @interface DBManagedEnvironment()
 @property (readwrite) MonoAssembly *DubrovnikAssembly;
@@ -41,7 +43,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
 @implementation DBManagedEnvironment
 
 #pragma mark -
-#pragma mark Detection and tracing
+#pragma mark Detection, tracing abd chaining
 
 + (BOOL)monoIsAvailable
 {
@@ -59,7 +61,7 @@ static DBManagedEnvironment *_currentEnvironment = nil;
         NSArray *traceLevels = @[@"error", @"critical", @"warning", @"message", @"info", @"debug"];
         NSAssert([traceLevels containsObject:traceLevel], @"Invalid trace level: %@", traceLevel);
     }
-    
+
     mono_trace_set_level_string ([traceLevel UTF8String]);
 }
 
@@ -75,6 +77,28 @@ static DBManagedEnvironment *_currentEnvironment = nil;
     }
     
     mono_trace_set_mask_string ([traceMask UTF8String]);
+}
+
++ (void)setSignalChaining:(BOOL)value
+{
+    m_signalChaining = value;
+    mono_set_signal_chaining(m_signalChaining);
+}
+
++ (BOOL)isSignalChaining
+{
+    return m_signalChaining;
+}
+
++ (void)setCrashChaining:(BOOL)value
+{
+    m_crashChaining = value;
+    mono_set_crash_chaining(m_crashChaining);
+}
+
++ (BOOL)isCrashChaining
+{
+    return m_crashChaining;
 }
 
 #pragma mark -
