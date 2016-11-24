@@ -22,6 +22,8 @@
 #import "System_ActionA1.h"
 #import "System_StringComparison.h"
 #import "System_TimeZoneInfo.h"
+#import "System_AppDomain.h"
+#import "System_UnhandledExceptionEventArgs.h"
 
 #include "System_IntPtr.h"
 

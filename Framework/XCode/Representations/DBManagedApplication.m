@@ -11,8 +11,8 @@
 #import "DBTypemanager.h"
 #import "NSString+Dubrovnik.h"
 #import "DBInvoke.h"
-
-//#define DB_TRACE
+#import "NSObject+DBManagedEvent.h"
+#import "DBManagedEvent.h"
 
 @implementation DBManagedApplication
 
@@ -40,7 +40,7 @@
 }
 
 #pragma mark -
-#pragma mark Managed event handling
+#pragma mark INotifyPropertyChanging and INotifyPropertyChanged Managed event handling
 
 /*
  

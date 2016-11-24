@@ -86,6 +86,14 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark -
 #pragma mark Exception handling
 
+/*
+ 
+ For an overview of Mono exceptiopn handling and generation see:
+ 
+ http://www.mono-project.com/docs/advanced/runtime/docs/exception-handling/
+ 
+ */
+ 
 void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
     NSException *e = NSExceptionFromMonoException(monoException, info);
