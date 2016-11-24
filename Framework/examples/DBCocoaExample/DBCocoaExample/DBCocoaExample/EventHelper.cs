@@ -92,7 +92,10 @@ namespace Dubrovnik.ClientApplication
         public static extern void ManagedEvent_ManagedObject_PropertyChanged(object sender, EventArgs args);
 
         [MethodImpl(MethodImplOptions.InternalCall)]
-        public static extern void ManagedEvent_ManagedObject_PropertyChanging(object sender, EventArgs args); 
+        public static extern void ManagedEvent_ManagedObject_PropertyChanging(object sender, EventArgs args);
+
+		  [MethodImpl(MethodImplOptions.InternalCall)]
+		  public static extern void ManagedEvent_AppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args); 
 	}
 }
 
