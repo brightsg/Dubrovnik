@@ -79,3 +79,7 @@
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_AsyncCallback.h"
 #import "System_Runtime_InteropServices__Exception.h"
+
+#import "System_Threading_SendOrPostCallback.h"
+#import "System_Threading_SynchronizationContext.h"
+

@@ -118,7 +118,7 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 #pragma unused(options)
     
     // contract
-    NSAssert(sender.isPrimaryInstance, @"non primary instance");
+    NSAssert(sender.isPrimaryInstance, @"non primary instance : %@ : %@", sender, eventName);
     
     // add new target
     NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
