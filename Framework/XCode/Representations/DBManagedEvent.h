@@ -25,10 +25,23 @@ do { \
 //
 // define a managed event handler
 //
-#define DBDefineEventHandler(FUNCTION_NAME, CLASS_NAME, SELECTOR_STRING, OPTIONS) \
+#define DBDefineEventHandler(FUNCTION_NAME, EVENT_NAME, SELECTOR_STRING, OPTIONS) \
 static void FUNCTION_NAME(MonoObject* monoSender, MonoObject* monoEventArgs) \
 { \
-    DBDispatchEvent(CLASS_NAME, SELECTOR_STRING, OPTIONS); \
+    DBDispatchEvent(EVENT_NAME, SELECTOR_STRING, OPTIONS); \
+} \
+
+//
+// define a static managed event handler
+//
+#define DBDefineStaticEventHandler(FUNCTION_NAME, EVENT_NAME, SELECTOR_STRING, OPTIONS) \
+static void FUNCTION_NAME(MonoObject* monoSender, MonoObject* monoEventArgs) \
+{ \
+    NSMutableDictionary *opts = @{@"staticSender" : @YES}.mutableCopy; \
+    if (OPTIONS) { \
+        [opts addEntriesFromDictionary:OPTIONS]; \
+    } \
+    DBDispatchEvent(EVENT_NAME, SELECTOR_STRING, opts); \
 } \
 
 //

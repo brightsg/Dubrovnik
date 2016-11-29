@@ -33,7 +33,9 @@
 #import "DBManagedApplication.h"
 #import "DBPrimaryInstanceCache.h"
 
+// static
 static NSMutableArray *m_boundKeys;
+static NSMutableDictionary<NSString *, DBManagedObject *> *m_systemTypes;
 
 //#define DB_TRACE_KVO
 #define DB_TRACE_MONO_OBJECT_ADDRESS
@@ -94,7 +96,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 + (void)initialize
 {
-    // doing stuff here can cause issues with the managed runtime
+    // be considerate here as we can can cause issues with the managed runtime
 }
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key
@@ -319,9 +321,19 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	
     // add primary instance to cache
     if (self.isPrimaryInstance) {
-        
         [[DBPrimaryInstanceCache sharedCache] addObject:self];
-        
+    }
+    
+    // cache system types.
+    // caching them here means they will stay alive in the primary instance cache
+    // and will be available for fast retieval
+    if ([self isKindOfClass:NSClassFromString(@"System_Type")]) {
+        if (!m_systemTypes) {
+            m_systemTypes = [[NSMutableDictionary alloc] initWithCapacity:10];
+        }
+        if (!m_systemTypes[self.description]) {
+            m_systemTypes[self.description] = self;
+        }
     }
     
 	return self;

@@ -8,9 +8,22 @@
 
 #import "NSObject+DBManagedEvent.h"
 #import <objc/runtime.h>
+#import "DBManagedObject.h"
 #import "DBManagedEvent.h"
 
 @implementation NSObject (DBManagedEvent)
+
+- (void)addManagedEventHandlerForClass:(Class)managedClass
+                              eventName:(NSString *)eventName
+{
+    // for static managed event handlers we target the managed System.Type
+    NSAssert([managedClass isSubclassOfClass:[DBManagedObject class]], @"managed class required");
+    DBManagedObject *type = [managedClass performSelector:@selector(db_getType)];
+    
+    [self addManagedEventHandlerForObject:type
+                                eventName:eventName
+                        handlerMethodName:eventName];
+}
 
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
                               eventName:(NSString *)eventName

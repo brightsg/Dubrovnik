@@ -276,20 +276,29 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // contract
     NSAssert(sender.isPrimaryInstance, @"A non primary instance cannot be an event sender!");
     
+    // in the case of a static event the registered sender will be the sender's type
+    DBManagedObject *registeredSender = nil;
+    if (options[@"staticSender"]) {
+        registeredSender = [[sender class] performSelector:@selector(db_getType)];
+    }
+    else {
+        registeredSender = sender;
+    }
+    
     // get the event targets registered with the sender.
     // once registered static event handlers are not removed.
     // this means that we may see activity here even after we have removed all our native target objects.
     // this is okay and failure to find a target does not indicate a program error.
-    NSPointerArray *eventTargets = sender.managedEventMap[eventName];
+    NSPointerArray *eventTargets = registeredSender.managedEventMap[eventName];
     if (!eventTargets) {
 #ifdef DB_TRACE
-        NSLog(@"No event targets for object : %@ (%p) event name: %@. This is not an error merely a warning intended to help assist in identifying possible event issues.", sender, sender, eventName);
+        NSLog(@"No event targets for object : %@ (%p) event name: %@. This is not an error merely a warning intended to help assist in identifying possible event issues.", registeredSender, registeredSender, eventName);
 #endif
         return;
     }
 
 #ifdef DB_TRACE
-    NSLog(@"Managed object : %@ (%p) generated event : %@ with target selector : %@", sender, sender, eventName, targetSelectorName);
+    NSLog(@"Managed object : %@ (%p) generated event : %@ with target selector : %@", registeredSender, registeredSender, eventName, targetSelectorName);
 #endif
     
     // selector to send to targets

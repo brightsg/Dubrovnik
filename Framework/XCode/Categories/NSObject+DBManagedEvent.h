@@ -24,4 +24,10 @@
 
 - (void)removeManagedEventHandlerForObject:(DBManagedObject *)managedObject
                                  eventName:(NSString *)eventName;
+
+/*!
+ Add event handler for static managed event.
+ */
+- (void)addManagedEventHandlerForClass:(Class)managedClass
+                             eventName:(NSString *)eventName;
 @end
