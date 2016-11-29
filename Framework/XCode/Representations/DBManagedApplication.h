@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DBManagedEnvironment.h"
 
 @class DBManagedObject;
 
 @interface DBManagedApplication : NSObject
+
 + (instancetype)sharedManagedApplication;
 
 - (void)eventSender:(DBManagedObject *)sender propertyChanging:(DBManagedObject *)monoEventArgs;
