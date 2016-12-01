@@ -38,6 +38,7 @@
 
 + (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter
 {
+#warning TODO: refactor this so that objects with zero items return an empty list
     if (!objects || objects.count == 0) {
         return nil;
     }
@@ -64,6 +65,7 @@
 
 + (instancetype)listWithObjects:(NSArray *)objects
 {
+#warning TODO: refactor this so that objects with zero items return an empty list
     if (!objects || objects.count == 0) {
         return nil;
     }
