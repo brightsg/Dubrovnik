@@ -41,8 +41,14 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     __block System_Object *resultObject = nil;
     dispatch_block_t dispatchBlk = ^{
         
+        // process parameters
+        uint32_t paramCount = (uint32_t)mono_array_length(params);
+        NSArray *parameters = nil;
+        
         // get parameters array
-        NSArray *parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
+        if (paramCount > 0) {
+            parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
+        }
         
         // execute block
         resultObject = delegateInfo.block(parameters);
