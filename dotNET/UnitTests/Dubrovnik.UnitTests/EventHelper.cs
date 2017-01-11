@@ -134,6 +134,10 @@ namespace Dubrovnik.ClientApplication {
 		[MethodImpl(MethodImplOptions.InternalCall)]
 		public static extern void ManagedEvent_AppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args);
 
+		// raised by System.Collections.ObjectModel.ObservableCollectionA1
+		[MethodImpl(MethodImplOptions.InternalCall)]
+		public static extern void CollectionChanged(object sender, EventArgs arg);
+
 	}
 
 
