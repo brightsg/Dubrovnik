@@ -77,6 +77,8 @@
 		AB97FC0D17C3957E00CBE585 /* DBUReferenceStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97FC0C17C3957E00CBE585 /* DBUReferenceStruct.m */; };
 		ABA35A4A1A10DB3700149C00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA35A491A10DB3700149C00 /* Cocoa.framework */; };
 		ABA3AFEF18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA3AFEE18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m */; };
+		ABAAE7251E2652AE00CC81F1 /* DBManagedAssembly.h in Headers */ = {isa = PBXBuildFile; fileRef = ABAAE7231E2652AE00CC81F1 /* DBManagedAssembly.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABAAE7261E2652AE00CC81F1 /* DBManagedAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAE7241E2652AE00CC81F1 /* DBManagedAssembly.m */; };
 		ABAF626717D62D8E00D881DF /* DBUIReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */; };
 		ABB230D8192953D1009998F9 /* Dubrovnik_UnitTests_BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB230D1192953D1009998F9 /* Dubrovnik_UnitTests_BaseObject.m */; };
 		ABB230D9192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectOne.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB230D3192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectOne.m */; };
@@ -251,6 +253,8 @@
 		ABA3AFEC18F7F42F00D6806E /* Dubrovnik.UnitTests.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Dubrovnik.UnitTests.xml; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests.xml; sourceTree = "<group>"; };
 		ABA3AFED18F7F5A100D6806E /* DBUGenericReferenceObjectA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUGenericReferenceObjectA2.h; sourceTree = "<group>"; };
 		ABA3AFEE18F7F5A100D6806E /* DBUGenericReferenceObjectA2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUGenericReferenceObjectA2.m; sourceTree = "<group>"; };
+		ABAAE7231E2652AE00CC81F1 /* DBManagedAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedAssembly.h; sourceTree = "<group>"; };
+		ABAAE7241E2652AE00CC81F1 /* DBManagedAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedAssembly.m; sourceTree = "<group>"; };
 		ABAF626517D62D8D00D881DF /* DBUIReferenceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUIReferenceObject.h; sourceTree = "<group>"; };
 		ABAF626617D62D8D00D881DF /* DBUIReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUIReferenceObject.m; sourceTree = "<group>"; };
 		ABB230D0192953D1009998F9 /* Dubrovnik_UnitTests_BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_BaseObject.h; sourceTree = "<group>"; };
@@ -472,6 +476,8 @@
 				AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */,
 				AB031D0219C9B46000C80422 /* DBPrimaryInstanceCache.h */,
 				AB031D0319C9B46000C80422 /* DBPrimaryInstanceCache.m */,
+				ABAAE7231E2652AE00CC81F1 /* DBManagedAssembly.h */,
+				ABAAE7241E2652AE00CC81F1 /* DBManagedAssembly.m */,
 			);
 			path = Representations;
 			sourceTree = "<group>";
@@ -773,6 +779,7 @@
 				AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */,
 				AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */,
 				ABF43FB8179FF4FC00BAB99E /* DBManagedMethod.h in Headers */,
+				ABAAE7251E2652AE00CC81F1 /* DBManagedAssembly.h in Headers */,
 				AB49E434178ABAAE00D01244 /* NSNumber+Dubrovnik.h in Headers */,
 				AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */,
 				93365A8D0872370700EC726F /* DBManagedClass.h in Headers */,
@@ -930,6 +937,7 @@
 				AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */,
 				AB4759771D7083D100C3319C /* DBManagedObject+Logging.m in Sources */,
 				ABF960DF1A3F0B68008AD72C /* OrderedDictionary.m in Sources */,
+				ABAAE7261E2652AE00CC81F1 /* DBManagedAssembly.m in Sources */,
 				AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */,
 				AB91B69C18EE04570021B462 /* NSObject+DBManagedEvent.m in Sources */,
 			);

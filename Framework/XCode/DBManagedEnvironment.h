@@ -22,10 +22,14 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
+// global
+extern NSString * const DBNoteManagedEnvironmentInitialised;
+extern NSString * const DBNoteManagedEnvironmentLoaded;
+
 @class DBManagedEnvironment;
 
 /*
- * DBManagedEnvironment mach handler stuff
+ * DBManagedEnvironment handler stuff
  */
 
 @protocol DBManagedEnvironmentDelegate <NSObject>

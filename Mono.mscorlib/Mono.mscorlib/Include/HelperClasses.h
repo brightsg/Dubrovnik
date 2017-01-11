@@ -17,4 +17,5 @@
 #import "DBSystem_IO_FileInfo.h"
 
 #import "DBGenericManager.h"
+#import "Mono_Mscorlib_Assembly.h"
 

@@ -23,6 +23,11 @@
 #import "DBManagedEnvironment.h"
 #include <pthread.h>
 
+// global
+NSString * const DBNoteManagedEnvironmentInitialised = @"DBNoteManagedEnvironmentInitialised";
+NSString * const DBNoteManagedEnvironmentLoaded = @"DBNoteManagedEnvironmentLoaded";
+
+// static
 static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
 static NSString *m_monoDefaultMachineConfigVersion = @"4.5";
 static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
@@ -339,10 +344,18 @@ static BOOL m_crashChaining = NO;
         // In general we don't want to pin objects as this affects performance.
         // The GC will not able to manage memory efficiently.
         self.pinObjects = NO;
+
+        [[self class] setCurrentEnvironment:self];
+        
+        static BOOL m_initialEnvironmentLoaded = NO;
+        if (!m_initialEnvironmentLoaded) {
+            m_initialEnvironmentLoaded = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName:DBNoteManagedEnvironmentInitialised object:self userInfo:nil];
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:DBNoteManagedEnvironmentLoaded object:self userInfo:nil];
 	}
 	
-    [[self class] setCurrentEnvironment:self];
-    
 	return(self);
 }
 

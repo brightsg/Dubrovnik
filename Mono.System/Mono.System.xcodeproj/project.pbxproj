@@ -11,6 +11,8 @@
 		AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */; };
 		AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
+		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
 		AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */; };
 		AB7DF4C21A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +30,10 @@
 		ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */; };
+		ABA6EEE81E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA6EEE91E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */; };
+		ABAAE7211E26409F00CC81F1 /* Mono_System_Assembly.h in Headers */ = {isa = PBXBuildFile; fileRef = ABAAE71F1E26409F00CC81F1 /* Mono_System_Assembly.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABAAE7221E26409F00CC81F1 /* Mono_System_Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAE7201E26409F00CC81F1 /* Mono_System_Assembly.m */; };
 		ABDA50E41A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */; };
 		ABDA50E61A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +60,8 @@
 		AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventArgs.m; sourceTree = "<group>"; };
 		AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangingEventArgs.h; sourceTree = "<group>"; };
 		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
+		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
+		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
 		AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanged.h; sourceTree = "<group>"; };
 		AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_INotifyPropertyChanged.m; sourceTree = "<group>"; };
 		AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanging.h; sourceTree = "<group>"; };
@@ -78,6 +86,10 @@
 		ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_RegexOptions.h; sourceTree = "<group>"; };
 		ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_Regex.h; sourceTree = "<group>"; };
 		ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_RegularExpressions_Regex.m; sourceTree = "<group>"; };
+		ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedEventArgs.h; sourceTree = "<group>"; };
+		ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Specialized_NotifyCollectionChangedEventArgs.m; sourceTree = "<group>"; };
+		ABAAE71F1E26409F00CC81F1 /* Mono_System_Assembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mono_System_Assembly.h; sourceTree = "<group>"; };
+		ABAAE7201E26409F00CC81F1 /* Mono_System_Assembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mono_System_Assembly.m; sourceTree = "<group>"; };
 		ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_AsyncCompletedEventArgs.h; sourceTree = "<group>"; };
 		ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_AsyncCompletedEventArgs.m; sourceTree = "<group>"; };
 		ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_RunWorkerCompletedEventArgs.h; sourceTree = "<group>"; };
@@ -112,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB6245201E25292D00FE5316 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */,
+				AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		ABA397041906BA6300D5CA6E = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +177,10 @@
 		ABA397171906BA6300D5CA6E /* Mono.System */ = {
 			isa = PBXGroup;
 			children = (
-				ABA3975C1906BFA700D5CA6E /* Manual Bindings */,
+				AB6245201E25292D00FE5316 /* Categories */,
+				ABAAE71E1E26402900CC81F1 /* Helper classes */,
 				ABA3973F1906BAE600D5CA6E /* Include */,
+				ABA3975C1906BFA700D5CA6E /* Manual Bindings */,
 				ABA397181906BA6300D5CA6E /* Supporting Files */,
 			);
 			path = Mono.System;
@@ -223,8 +246,19 @@
 				AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */,
 				AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */,
 				AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */,
+				ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */,
+				ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */,
 			);
 			path = "Manual Bindings";
+			sourceTree = "<group>";
+		};
+		ABAAE71E1E26402900CC81F1 /* Helper classes */ = {
+			isa = PBXGroup;
+			children = (
+				ABAAE71F1E26409F00CC81F1 /* Mono_System_Assembly.h */,
+				ABAAE7201E26409F00CC81F1 /* Mono_System_Assembly.m */,
+			);
+			path = "Helper classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +274,11 @@
 				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
 				ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
 				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
+				AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */,
 				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,
+				ABAAE7211E26409F00CC81F1 /* Mono_System_Assembly.h in Headers */,
 				ABA397451906BAE600D5CA6E /* Categories.h in Headers */,
+				ABA6EEE81E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */,
 				ABDA50E41A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */,
 				ABDA50E61A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */,
 				ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */,
@@ -350,10 +387,13 @@
 				AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
 				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
 				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
+				ABA6EEE91E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */,
 				AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
 				AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
 				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
+				AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */,
 				ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */,
+				ABAAE7221E26409F00CC81F1 /* Mono_System_Assembly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

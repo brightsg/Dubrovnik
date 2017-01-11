@@ -1,6 +1,6 @@
 //
 //  ManualBindings.h
-//  Mono.System.Drawing
+//  Mono.System
 //
 //  Created by Jonathan Mitchell on 16/04/2014.
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
@@ -15,3 +15,4 @@
 #import "System_ComponentModel_INotifyPropertyChanged.h"
 #import "System_ComponentModel_AsyncCompletedEventArgs.h"
 #import "System_ComponentModel_RunWorkerCompletedEventArgs.h"
+#import "System_Collections_Specialized_NotifyCollectionChangedEventArgs.h"

@@ -14,6 +14,9 @@
 #import "NSObject+DBManagedEvent.h"
 #import "DBManagedEvent.h"
 
+// global
+NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoaded";
+
 @implementation DBManagedApplication
 
 #pragma mark -
@@ -37,6 +40,12 @@
     if (self = [super init]) {
     }
     return self;
+}
+
+- (void)configureMono
+{
+    // managed applications should call this method in order to conclude mono configuration
+    [[NSNotificationCenter defaultCenter] postNotificationName:DBNoteManagedApplicationLoaded object:self userInfo:nil];
 }
 
 #pragma mark -

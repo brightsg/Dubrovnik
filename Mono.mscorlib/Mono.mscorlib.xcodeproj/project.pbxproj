@@ -19,6 +19,8 @@
 		AB2036371DC7E94D00D419DB /* System_Threading_Tasks_TaskA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2036351DC7E94D00D419DB /* System_Threading_Tasks_TaskA1.m */; };
 		AB223CE61C9DFF2F0017DA8A /* System_TimeZoneInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB223CE41C9DFF2F0017DA8A /* System_TimeZoneInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB223CE71C9DFF2F0017DA8A /* System_TimeZoneInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB223CE51C9DFF2F0017DA8A /* System_TimeZoneInfo.m */; };
+		AB2654861E265E7800422E35 /* Mono_Mscorlib_Assembly.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2654841E265E7800422E35 /* Mono_Mscorlib_Assembly.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2654871E265E7800422E35 /* Mono_Mscorlib_Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */; };
 		AB2E742518FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742318FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E742618FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E742418FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m */; };
 		AB2E742D18FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -210,6 +212,8 @@
 		AB2036351DC7E94D00D419DB /* System_Threading_Tasks_TaskA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_Tasks_TaskA1.m; sourceTree = "<group>"; };
 		AB223CE41C9DFF2F0017DA8A /* System_TimeZoneInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_TimeZoneInfo.h; sourceTree = "<group>"; };
 		AB223CE51C9DFF2F0017DA8A /* System_TimeZoneInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_TimeZoneInfo.m; sourceTree = "<group>"; };
+		AB2654841E265E7800422E35 /* Mono_Mscorlib_Assembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mono_Mscorlib_Assembly.h; sourceTree = "<group>"; };
+		AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mono_Mscorlib_Assembly.m; sourceTree = "<group>"; };
 		AB2E742318FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_ConstructorInfo.h; sourceTree = "<group>"; };
 		AB2E742418FFCB7C0061C63E /* System_Reflection_ConstructorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_ConstructorInfo.m; sourceTree = "<group>"; };
 		AB2E742718FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IDictionaryA2.h; sourceTree = "<group>"; };
@@ -262,8 +266,8 @@
 		AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt32Transformer.h; sourceTree = "<group>"; };
 		AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt32Transformer.m; sourceTree = "<group>"; };
 		AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeKind.h; sourceTree = "<group>"; };
-		AB5F417B1CE280FB00026E36 /* DBGenericManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGenericManager.h; sourceTree = "<group>"; };
-		AB5F417C1CE280FB00026E36 /* DBGenericManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGenericManager.m; sourceTree = "<group>"; };
+		AB5F417B1CE280FB00026E36 /* DBGenericManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBGenericManager.h; path = "Helper classes/DBGenericManager.h"; sourceTree = "<group>"; };
+		AB5F417C1CE280FB00026E36 /* DBGenericManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBGenericManager.m; path = "Helper classes/DBGenericManager.m"; sourceTree = "<group>"; };
 		AB80230A1DE46D000094294A /* System_AppDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_AppDomain.h; sourceTree = "<group>"; };
 		AB80230B1DE46D000094294A /* System_AppDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_AppDomain.m; sourceTree = "<group>"; };
 		AB80230E1DE46ED40094294A /* System_UnhandledExceptionEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UnhandledExceptionEventArgs.h; sourceTree = "<group>"; };
@@ -437,6 +441,15 @@
 			path = "Value Transformers";
 			sourceTree = "<group>";
 		};
+		ABAAE71D1E263FB400CC81F1 /* Helper classes - Native */ = {
+			isa = PBXGroup;
+			children = (
+				AB5F417B1CE280FB00026E36 /* DBGenericManager.h */,
+				AB5F417C1CE280FB00026E36 /* DBGenericManager.m */,
+			);
+			name = "Helper classes - Native";
+			sourceTree = "<group>";
+		};
 		ABB8A27A18FEFB0700213B80 = {
 			isa = PBXGroup;
 			children = (
@@ -480,9 +493,10 @@
 		ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */ = {
 			isa = PBXGroup;
 			children = (
-				ABF970801D736A0100B836A0 /* Categories - Native */,
 				ABB8A37818FF086200213B80 /* Categories - Managed */,
-				ABB8A37D18FF092400213B80 /* Helper classes */,
+				ABF970801D736A0100B836A0 /* Categories - Native */,
+				ABB8A37D18FF092400213B80 /* Helper classes - Managed */,
+				ABAAE71D1E263FB400CC81F1 /* Helper classes - Native */,
 				AB2E74C118FFDB0D0061C63E /* Include */,
 				ABB8A36A18FF04B700213B80 /* Manual bindings */,
 				ABB8A43018FF1F6300213B80 /* Protocols */,
@@ -663,7 +677,7 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		ABB8A37D18FF092400213B80 /* Helper classes */ = {
+		ABB8A37D18FF092400213B80 /* Helper classes - Managed */ = {
 			isa = PBXGroup;
 			children = (
 				ABB8A41E18FF15B300213B80 /* DBSystem_Collections_ArrayList.h */,
@@ -684,9 +698,10 @@
 				ABB8A37F18FF092400213B80 /* DBSystem_IO_FileInfo.m */,
 				ABCAE5481AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h */,
 				ABCAE5491AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.m */,
-				AB5F417B1CE280FB00026E36 /* DBGenericManager.h */,
-				AB5F417C1CE280FB00026E36 /* DBGenericManager.m */,
+				AB2654841E265E7800422E35 /* Mono_Mscorlib_Assembly.h */,
+				AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */,
 			);
+			name = "Helper classes - Managed";
 			path = "Helper classes";
 			sourceTree = "<group>";
 		};
@@ -801,6 +816,7 @@
 				ABB8A3E218FF0FE800213B80 /* NSArray+mscorlib.h in Headers */,
 				ABB8A39A18FF09F900213B80 /* DBSystem_Enum.h in Headers */,
 				ABB8A40E18FF110000213B80 /* System_IO_FileInfo.h in Headers */,
+				AB2654861E265E7800422E35 /* Mono_Mscorlib_Assembly.h in Headers */,
 				ABD819E81DE8E3B000A1AD90 /* System_Threading_SynchronizationContext.h in Headers */,
 				ABB8A38018FF092400213B80 /* DBSystem_IO_FileInfo.h in Headers */,
 				ABDF3CA71BF0BC380039C3A8 /* System_StringComparison.h in Headers */,
@@ -943,6 +959,7 @@
 				AB92F2DF1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m in Sources */,
 				AB50B5E51AC599360030429C /* System_Reflection_AssemblyName.m in Sources */,
 				AB2E743218FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.m in Sources */,
+				AB2654871E265E7800422E35 /* Mono_Mscorlib_Assembly.m in Sources */,
 				ABB8A40718FF110000213B80 /* System_Convert.m in Sources */,
 				ABB9F2431DC8D4D300A95896 /* NSDate+mscorlib.m in Sources */,
 				AB3FD4F71C76098B0037899F /* System_IDisposable.m in Sources */,
