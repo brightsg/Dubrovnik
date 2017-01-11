@@ -29,10 +29,12 @@ static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
 static NSString *m_monoDefaultVersion = @"v4.0.30319";
 static NSString *m_monoAssemblyRootFolder = nil;
 static NSString *m_monoConfigFolder = nil;
+static NSString *m_localEventLogPath = nil;
 static DBManagedEnvironment *_defaultEnvironment = nil;
 static DBManagedEnvironment *_currentEnvironment = nil;
 static BOOL m_signalChaining = NO;
 static BOOL m_crashChaining = NO;
+
 
 @interface DBManagedEnvironment()
 @property (readwrite) MonoAssembly *DubrovnikAssembly;
@@ -135,6 +137,20 @@ static BOOL m_crashChaining = NO;
 
 + (void)registerInternalCall:(const char *)callName callPointer:(const void *)callPointer {
     mono_add_internal_call(callName, callPointer);
+}
+
++ (void)setLocalEventLogPath:(NSString *)path
+{
+    // NOTE: be sure to call this before -initWithDomainName
+    NSString *eventLogVar = [NSString stringWithFormat:@"local:%@", path];
+    setenv("MONO_EVENTLOG_TYPE", eventLogVar.UTF8String, 1);
+    
+    m_localEventLogPath = path;
+}
+
++ (NSString *)localEventLogPath
+{
+    return m_localEventLogPath;
 }
 
 #pragma mark -

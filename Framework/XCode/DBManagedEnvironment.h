@@ -119,6 +119,14 @@
  Be sure to call this before -initWithDomainName
  
  */
++ (void)setLocalEventLogPath:(NSString *)path;
++ (NSString *)localEventLogPath;
+
+/*!
+ 
+ Be sure to call this before -initWithDomainName
+ 
+ */
 + (void)setSignalChaining:(BOOL)value;
 + (BOOL)isSignalChaining;
 

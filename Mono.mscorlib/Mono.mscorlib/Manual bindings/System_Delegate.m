@@ -10,4 +10,16 @@
 
 @implementation System_Delegate
 
+// obligatory override
++ (const char *)monoClassName
+{
+    return "System.Delegate";
+}
+
+// obligatory override
++ (const char *)monoAssemblyName
+{
+    return "mscorlib";
+}
+
 @end
