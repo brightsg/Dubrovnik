@@ -65,4 +65,15 @@
                                    options:nil];
 }
 
+- (void)removeManagedEventHandlerForClass:(Class)managedClass
+                                eventName:(NSString *)eventName
+{
+    // for static managed event handlers we target the managed System.Type
+    NSAssert([managedClass isSubclassOfClass:[DBManagedObject class]], @"managed class required");
+    DBManagedObject *type = [managedClass performSelector:@selector(db_getType)];
+    
+    [self removeManagedEventHandlerForObject:type
+                                eventName:eventName
+                        handlerMethodName:eventName];
+}
 @end
