@@ -38,11 +38,6 @@
 
 + (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter
 {
-#warning TODO: refactor this so that objects with zero items return an empty list
-    if (!objects || objects.count == 0) {
-        return nil;
-    }
-    
     DBSystem_Collections_Generic_ListA1 *list = [[self class] newCoreGenericObjectWithTypeParameters:@[typeParameter]];
     
     // add objects
@@ -65,7 +60,7 @@
 
 + (instancetype)listWithObjects:(NSArray *)objects
 {
-#warning TODO: refactor this so that objects with zero items return an empty list
+    // we don't have much choice but to return nil here as we have no type paramter
     if (!objects || objects.count == 0) {
         return nil;
     }

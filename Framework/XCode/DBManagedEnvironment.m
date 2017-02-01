@@ -79,6 +79,7 @@ static BOOL m_crashChaining = NO;
     }
     
     if (traceMask) {
+        // TODO: we should support a comma separated list
         NSArray *traceMasks = @[@"asm", @"type", @"dll", @"gc", @"cfg", @"aot", @"security", @"all"];
         NSAssert([traceMasks containsObject:traceMask], @"Invalid trace mask: %@", traceMask);
     }

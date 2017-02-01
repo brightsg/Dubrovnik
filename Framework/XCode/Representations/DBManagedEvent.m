@@ -306,7 +306,8 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     BOOL eventSelectorMethodSignatureValidated = NO;
     
     // send event selector to targets
-    for (id eventTarget in eventTargets) {
+    // the event targets may get mutated as a result hence the copy
+    for (id eventTarget in eventTargets.copy) {
         
         // NULL is valid as NSPointerArray holds zeroing weak references
         if (!eventTarget) {
