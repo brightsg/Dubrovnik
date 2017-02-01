@@ -80,7 +80,7 @@ namespace Dubrovnik.Tools
 
 				// Hmm. we certainly need to know the element generic type info in some situations.
 				// Some more thought perhaps required here.
-				WriteGenericTypeAttributes(xtw, elementType);
+				// WriteGenericTypeAttributes(xtw, elementType);
 			}
 
 			// write generic type attributes
