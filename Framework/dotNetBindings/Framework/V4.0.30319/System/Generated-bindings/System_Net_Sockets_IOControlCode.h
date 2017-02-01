@@ -1,0 +1,41 @@
+﻿//++Dubrovnik.CodeGenerator System_Net_Sockets_IOControlCode.h
+//
+// Managed enumeration : IOControlCode
+//
+typedef NS_ENUM(int64_t, System_Net_Sockets_IOControlCode) {
+	System_Net_Sockets_IOControlCode_AbsorbRouterAlert = 2550136837,
+	System_Net_Sockets_IOControlCode_AddMulticastGroupOnInterface = 2550136842,
+	System_Net_Sockets_IOControlCode_AddressListChange = 671088663,
+	System_Net_Sockets_IOControlCode_AddressListQuery = 1207959574,
+	System_Net_Sockets_IOControlCode_AddressListSort = 3355443225,
+	System_Net_Sockets_IOControlCode_AssociateHandle = 2281701377,
+	System_Net_Sockets_IOControlCode_AsyncIO = 2147772029,
+	System_Net_Sockets_IOControlCode_BindToInterface = 2550136840,
+	System_Net_Sockets_IOControlCode_DataToRead = 1074030207,
+	System_Net_Sockets_IOControlCode_DeleteMulticastGroupFromInterface = 2550136843,
+	System_Net_Sockets_IOControlCode_EnableCircularQueuing = 671088642,
+	System_Net_Sockets_IOControlCode_Flush = 671088644,
+	System_Net_Sockets_IOControlCode_GetBroadcastAddress = 1207959557,
+	System_Net_Sockets_IOControlCode_GetExtensionFunctionPointer = 3355443206,
+	System_Net_Sockets_IOControlCode_GetGroupQos = 3355443208,
+	System_Net_Sockets_IOControlCode_GetQos = 3355443207,
+	System_Net_Sockets_IOControlCode_KeepAliveValues = 2550136836,
+	System_Net_Sockets_IOControlCode_LimitBroadcasts = 2550136839,
+	System_Net_Sockets_IOControlCode_MulticastInterface = 2550136841,
+	System_Net_Sockets_IOControlCode_MulticastScope = 2281701386,
+	System_Net_Sockets_IOControlCode_MultipointLoopback = 2281701385,
+	System_Net_Sockets_IOControlCode_NamespaceChange = 2281701401,
+	System_Net_Sockets_IOControlCode_NonBlockingIO = 2147772030,
+	System_Net_Sockets_IOControlCode_OobDataRead = 1074033415,
+	System_Net_Sockets_IOControlCode_QueryTargetPnpHandle = 1207959576,
+	System_Net_Sockets_IOControlCode_ReceiveAll = 2550136833,
+	System_Net_Sockets_IOControlCode_ReceiveAllIgmpMulticast = 2550136835,
+	System_Net_Sockets_IOControlCode_ReceiveAllMulticast = 2550136834,
+	System_Net_Sockets_IOControlCode_RoutingInterfaceChange = 2281701397,
+	System_Net_Sockets_IOControlCode_RoutingInterfaceQuery = 3355443220,
+	System_Net_Sockets_IOControlCode_SetGroupQos = 2281701388,
+	System_Net_Sockets_IOControlCode_SetQos = 2281701387,
+	System_Net_Sockets_IOControlCode_TranslateHandle = 3355443213,
+	System_Net_Sockets_IOControlCode_UnicastInterface = 2550136838,
+};
+//--Dubrovnik.CodeGenerator

@@ -1,0 +1,17 @@
+﻿//++Dubrovnik.CodeGenerator System_Security_Cryptography_X509Certificates_X509KeyUsageFlags.h
+//
+// Managed enumeration : X509KeyUsageFlags
+//
+typedef NS_ENUM(int32_t, System_Security_Cryptography_X509Certificates_X509KeyUsageFlags) {
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_CrlSign = 2,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_DataEncipherment = 16,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_DecipherOnly = 32768,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_DigitalSignature = 128,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_EncipherOnly = 1,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_KeyAgreement = 8,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_KeyCertSign = 4,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_KeyEncipherment = 32,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_None = 0,
+	System_Security_Cryptography_X509Certificates_X509KeyUsageFlags_NonRepudiation = 64,
+};
+//--Dubrovnik.CodeGenerator

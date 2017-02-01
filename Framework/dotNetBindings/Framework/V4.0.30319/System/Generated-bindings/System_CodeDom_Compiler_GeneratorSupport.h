@@ -1,0 +1,33 @@
+﻿//++Dubrovnik.CodeGenerator System_CodeDom_Compiler_GeneratorSupport.h
+//
+// Managed enumeration : GeneratorSupport
+//
+typedef NS_ENUM(int32_t, System_CodeDom_Compiler_GeneratorSupport) {
+	System_CodeDom_Compiler_GeneratorSupport_ArraysOfArrays = 1,
+	System_CodeDom_Compiler_GeneratorSupport_AssemblyAttributes = 4096,
+	System_CodeDom_Compiler_GeneratorSupport_ChainedConstructorArguments = 32768,
+	System_CodeDom_Compiler_GeneratorSupport_ComplexExpressions = 524288,
+	System_CodeDom_Compiler_GeneratorSupport_DeclareDelegates = 512,
+	System_CodeDom_Compiler_GeneratorSupport_DeclareEnums = 256,
+	System_CodeDom_Compiler_GeneratorSupport_DeclareEvents = 2048,
+	System_CodeDom_Compiler_GeneratorSupport_DeclareIndexerProperties = 33554432,
+	System_CodeDom_Compiler_GeneratorSupport_DeclareInterfaces = 1024,
+	System_CodeDom_Compiler_GeneratorSupport_DeclareValueTypes = 128,
+	System_CodeDom_Compiler_GeneratorSupport_EntryPointMethod = 2,
+	System_CodeDom_Compiler_GeneratorSupport_GenericTypeDeclaration = 16777216,
+	System_CodeDom_Compiler_GeneratorSupport_GenericTypeReference = 8388608,
+	System_CodeDom_Compiler_GeneratorSupport_GotoStatements = 4,
+	System_CodeDom_Compiler_GeneratorSupport_MultidimensionalArrays = 8,
+	System_CodeDom_Compiler_GeneratorSupport_MultipleInterfaceMembers = 131072,
+	System_CodeDom_Compiler_GeneratorSupport_NestedTypes = 65536,
+	System_CodeDom_Compiler_GeneratorSupport_ParameterAttributes = 8192,
+	System_CodeDom_Compiler_GeneratorSupport_PartialTypes = 4194304,
+	System_CodeDom_Compiler_GeneratorSupport_PublicStaticMembers = 262144,
+	System_CodeDom_Compiler_GeneratorSupport_ReferenceParameters = 16384,
+	System_CodeDom_Compiler_GeneratorSupport_Resources = 2097152,
+	System_CodeDom_Compiler_GeneratorSupport_ReturnTypeAttributes = 64,
+	System_CodeDom_Compiler_GeneratorSupport_StaticConstructors = 16,
+	System_CodeDom_Compiler_GeneratorSupport_TryCatchStatements = 32,
+	System_CodeDom_Compiler_GeneratorSupport_Win32Resources = 1048576,
+};
+//--Dubrovnik.CodeGenerator

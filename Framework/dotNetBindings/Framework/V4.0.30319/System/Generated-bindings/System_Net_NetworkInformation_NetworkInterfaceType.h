@@ -1,0 +1,35 @@
+﻿//++Dubrovnik.CodeGenerator System_Net_NetworkInformation_NetworkInterfaceType.h
+//
+// Managed enumeration : NetworkInterfaceType
+//
+typedef NS_ENUM(int32_t, System_Net_NetworkInformation_NetworkInterfaceType) {
+	System_Net_NetworkInformation_NetworkInterfaceType_AsymmetricDsl = 94,
+	System_Net_NetworkInformation_NetworkInterfaceType_Atm = 37,
+	System_Net_NetworkInformation_NetworkInterfaceType_BasicIsdn = 20,
+	System_Net_NetworkInformation_NetworkInterfaceType_Ethernet = 6,
+	System_Net_NetworkInformation_NetworkInterfaceType_Ethernet3Megabit = 26,
+	System_Net_NetworkInformation_NetworkInterfaceType_FastEthernetFx = 69,
+	System_Net_NetworkInformation_NetworkInterfaceType_FastEthernetT = 62,
+	System_Net_NetworkInformation_NetworkInterfaceType_Fddi = 15,
+	System_Net_NetworkInformation_NetworkInterfaceType_GenericModem = 48,
+	System_Net_NetworkInformation_NetworkInterfaceType_GigabitEthernet = 117,
+	System_Net_NetworkInformation_NetworkInterfaceType_HighPerformanceSerialBus = 144,
+	System_Net_NetworkInformation_NetworkInterfaceType_IPOverAtm = 114,
+	System_Net_NetworkInformation_NetworkInterfaceType_Isdn = 63,
+	System_Net_NetworkInformation_NetworkInterfaceType_Loopback = 24,
+	System_Net_NetworkInformation_NetworkInterfaceType_MultiRateSymmetricDsl = 143,
+	System_Net_NetworkInformation_NetworkInterfaceType_Ppp = 23,
+	System_Net_NetworkInformation_NetworkInterfaceType_PrimaryIsdn = 21,
+	System_Net_NetworkInformation_NetworkInterfaceType_RateAdaptDsl = 95,
+	System_Net_NetworkInformation_NetworkInterfaceType_Slip = 28,
+	System_Net_NetworkInformation_NetworkInterfaceType_SymmetricDsl = 96,
+	System_Net_NetworkInformation_NetworkInterfaceType_TokenRing = 9,
+	System_Net_NetworkInformation_NetworkInterfaceType_Tunnel = 131,
+	System_Net_NetworkInformation_NetworkInterfaceType_Unknown = 1,
+	System_Net_NetworkInformation_NetworkInterfaceType_VeryHighSpeedDsl = 97,
+	System_Net_NetworkInformation_NetworkInterfaceType_Wireless80211 = 71,
+	System_Net_NetworkInformation_NetworkInterfaceType_Wman = 237,
+	System_Net_NetworkInformation_NetworkInterfaceType_Wwanpp = 243,
+	System_Net_NetworkInformation_NetworkInterfaceType_Wwanpp2 = 244,
+};
+//--Dubrovnik.CodeGenerator

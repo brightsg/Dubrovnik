@@ -1,0 +1,17 @@
+﻿//++Dubrovnik.CodeGenerator System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags.h
+//
+// Managed enumeration : X500DistinguishedNameFlags
+//
+typedef NS_ENUM(int32_t, System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags) {
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_DoNotUsePlusSign = 32,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_DoNotUseQuotes = 64,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_ForceUTF8Encoding = 16384,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_None = 0,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_Reversed = 1,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_UseCommas = 128,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_UseNewLines = 256,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_UseSemicolons = 16,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_UseT61Encoding = 8192,
+	System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags_UseUTF8Encoding = 4096,
+};
+//--Dubrovnik.CodeGenerator

@@ -1,0 +1,35 @@
+﻿//++Dubrovnik.CodeGenerator System_Diagnostics_PerformanceCounterType.h
+//
+// Managed enumeration : PerformanceCounterType
+//
+typedef NS_ENUM(int32_t, System_Diagnostics_PerformanceCounterType) {
+	System_Diagnostics_PerformanceCounterType_AverageBase = 1073939458,
+	System_Diagnostics_PerformanceCounterType_AverageCount64 = 1073874176,
+	System_Diagnostics_PerformanceCounterType_AverageTimer32 = 805438464,
+	System_Diagnostics_PerformanceCounterType_CounterDelta32 = 4195328,
+	System_Diagnostics_PerformanceCounterType_CounterDelta64 = 4195584,
+	System_Diagnostics_PerformanceCounterType_CounterMultiBase = 1107494144,
+	System_Diagnostics_PerformanceCounterType_CounterMultiTimer = 574686464,
+	System_Diagnostics_PerformanceCounterType_CounterMultiTimer100Ns = 575735040,
+	System_Diagnostics_PerformanceCounterType_CounterMultiTimer100NsInverse = 592512256,
+	System_Diagnostics_PerformanceCounterType_CounterMultiTimerInverse = 591463680,
+	System_Diagnostics_PerformanceCounterType_CounterTimer = 541132032,
+	System_Diagnostics_PerformanceCounterType_CounterTimerInverse = 557909248,
+	System_Diagnostics_PerformanceCounterType_CountPerTimeInterval32 = 4523008,
+	System_Diagnostics_PerformanceCounterType_CountPerTimeInterval64 = 4523264,
+	System_Diagnostics_PerformanceCounterType_ElapsedTime = 807666944,
+	System_Diagnostics_PerformanceCounterType_NumberOfItems32 = 65536,
+	System_Diagnostics_PerformanceCounterType_NumberOfItems64 = 65792,
+	System_Diagnostics_PerformanceCounterType_NumberOfItemsHEX32 = 0,
+	System_Diagnostics_PerformanceCounterType_NumberOfItemsHEX64 = 256,
+	System_Diagnostics_PerformanceCounterType_RateOfCountsPerSecond32 = 272696320,
+	System_Diagnostics_PerformanceCounterType_RateOfCountsPerSecond64 = 272696576,
+	System_Diagnostics_PerformanceCounterType_RawBase = 1073939459,
+	System_Diagnostics_PerformanceCounterType_RawFraction = 537003008,
+	System_Diagnostics_PerformanceCounterType_SampleBase = 1073939457,
+	System_Diagnostics_PerformanceCounterType_SampleCounter = 4260864,
+	System_Diagnostics_PerformanceCounterType_SampleFraction = 549585920,
+	System_Diagnostics_PerformanceCounterType_Timer100Ns = 542180608,
+	System_Diagnostics_PerformanceCounterType_Timer100NsInverse = 558957824,
+};
+//--Dubrovnik.CodeGenerator
