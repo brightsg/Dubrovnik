@@ -69,7 +69,7 @@
     - (void)setKeyContainerName:(NSString *)value
 	{
 		_keyContainerName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"KeyContainerName" valueObject:monoObject];          
 	}
 
@@ -104,7 +104,7 @@
     - (void)setKeyStore:(NSString *)value
 	{
 		_keyStore = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"KeyStore" valueObject:monoObject];          
 	}
 
@@ -122,7 +122,7 @@
     - (void)setProviderName:(NSString *)value
 	{
 		_providerName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ProviderName" valueObject:monoObject];          
 	}
 

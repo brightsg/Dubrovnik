@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Security_Policy_Site *)new_withName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -81,7 +81,7 @@
     + (System_Security_Policy_Site *)createFromUrl_withUrl:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromUrl(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromUrl(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Policy_Site objectWithMonoObject:monoObject];
     }
@@ -92,7 +92,7 @@
     - (System_Security_IPermission *)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateIdentityPermission(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateIdentityPermission(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -103,7 +103,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

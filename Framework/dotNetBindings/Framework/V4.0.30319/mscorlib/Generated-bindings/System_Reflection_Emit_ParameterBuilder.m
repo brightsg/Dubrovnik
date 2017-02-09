@@ -113,7 +113,7 @@
 	// Managed param types : System.Object
     - (void)setConstant_withDefaultValue:(System_Object *)p1
     {
-		[self invokeMonoMethod:"SetConstant(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetConstant(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetCustomAttribute
@@ -121,7 +121,7 @@
 	// Managed param types : System.Reflection.ConstructorInfo, System.Byte[]
     - (void)setCustomAttribute_withCon:(System_Reflection_ConstructorInfo *)p1 binaryAttribute:(NSData *)p2
     {
-		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.ConstructorInfo,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.ConstructorInfo,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetCustomAttribute
@@ -129,7 +129,7 @@
 	// Managed param types : System.Reflection.Emit.CustomAttributeBuilder
     - (void)setCustomAttribute_withCustomBuilder:(System_Reflection_Emit_CustomAttributeBuilder *)p1
     {
-		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.Emit.CustomAttributeBuilder)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.Emit.CustomAttributeBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetMarshal
@@ -137,7 +137,7 @@
 	// Managed param types : System.Reflection.Emit.UnmanagedMarshal
     - (void)setMarshal_withUnmanagedMarshal:(System_Reflection_Emit_UnmanagedMarshal *)p1
     {
-		[self invokeMonoMethod:"SetMarshal(System.Reflection.Emit.UnmanagedMarshal)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetMarshal(System.Reflection.Emit.UnmanagedMarshal)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

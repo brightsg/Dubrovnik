@@ -52,7 +52,7 @@
     - (void)setAll:(NSString *)value
 	{
 		_all = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"All" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setRead:(NSString *)value
 	{
 		_read = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Read" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setWrite:(NSString *)value
 	{
 		_write = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Write" valueObject:monoObject];          
 	}
 

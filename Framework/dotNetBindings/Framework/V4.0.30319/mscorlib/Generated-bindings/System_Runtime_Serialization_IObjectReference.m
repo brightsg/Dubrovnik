@@ -33,7 +33,7 @@
     - (System_Object *)getRealObject_withContext:(System_Runtime_Serialization_StreamingContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Serialization.IObjectReference.GetRealObject(System.Runtime.Serialization.StreamingContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Serialization.IObjectReference.GetRealObject(System.Runtime.Serialization.StreamingContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

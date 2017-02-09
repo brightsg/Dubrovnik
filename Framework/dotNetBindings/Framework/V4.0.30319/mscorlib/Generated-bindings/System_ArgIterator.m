@@ -32,7 +32,7 @@
 	// Managed param types : System.RuntimeArgumentHandle
     + (System_ArgIterator *)new_withArglist:(System_RuntimeArgumentHandle *)p1
     {
-		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.RuntimeArgumentHandle, System.Void*
     + (System_ArgIterator *)new_withArglist:(System_RuntimeArgumentHandle *)p1 ptr:(void*)p2
     {
-		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle,void*" withNumArgs:2, [p1 monoValue], p2];;
+		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle,void*" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
     }
 
 #pragma mark -
@@ -60,7 +60,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -93,7 +93,7 @@
     - (System_TypedReference *)getNextArg_withRth:(System_RuntimeTypeHandle *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_TypedReference objectWithMonoObject:monoObject];
     }

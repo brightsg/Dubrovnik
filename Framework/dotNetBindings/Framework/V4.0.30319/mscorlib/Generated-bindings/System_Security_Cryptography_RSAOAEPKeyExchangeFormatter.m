@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     + (System_Security_Cryptography_RSAOAEPKeyExchangeFormatter *)new_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.AsymmetricAlgorithm" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Cryptography.AsymmetricAlgorithm" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setParameter:(NSData *)value
 	{
 		_parameter = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Parameter" valueObject:monoObject];          
 	}
 
@@ -95,7 +95,7 @@
     - (NSData *)createKeyExchange_withRgbData:(NSData *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateKeyExchange(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateKeyExchange(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -106,7 +106,7 @@
     - (NSData *)createKeyExchange_withRgbData:(NSData *)p1 symAlgType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateKeyExchange(byte[],System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateKeyExchange(byte[],System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -116,7 +116,7 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     - (void)setKey_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

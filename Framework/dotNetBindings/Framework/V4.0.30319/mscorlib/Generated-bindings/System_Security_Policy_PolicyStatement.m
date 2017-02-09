@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.PermissionSet
     + (System_Security_Policy_PolicyStatement *)new_withPermSet:(System_Security_PermissionSet *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Security.PermissionSet, System.Security.Policy.PolicyStatementAttribute
     + (System_Security_Policy_PolicyStatement *)new_withPermSet:(System_Security_PermissionSet *)p1 attributes:(System_Security_Policy_PolicyStatementAttribute)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.Policy.PolicyStatementAttribute" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.Policy.PolicyStatementAttribute" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -113,7 +113,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -123,7 +123,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : FromXml
@@ -131,7 +131,7 @@
 	// Managed param types : System.Security.SecurityElement, System.Security.Policy.PolicyLevel
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1 level:(System_Security_Policy_PolicyLevel *)p2
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetHashCode
@@ -162,7 +162,7 @@
     - (System_Security_SecurityElement *)toXml_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }

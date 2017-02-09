@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_IO_DriveInfo *)new_withDriveName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -143,7 +143,7 @@
     - (void)setVolumeLabel:(NSString *)value
 	{
 		_volumeLabel = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"VolumeLabel" valueObject:monoObject];          
 	}
 

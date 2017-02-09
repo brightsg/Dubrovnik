@@ -32,7 +32,7 @@
 	// Managed param types : System.Threading.Tasks.TaskScheduler
     + (System_Threading_Tasks_ConcurrentExclusiveSchedulerPair *)new_withTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Threading.Tasks.TaskScheduler, System.Int32
     + (System_Threading_Tasks_ConcurrentExclusiveSchedulerPair *)new_withTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p1 maxConcurrencyLevel:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Threading.Tasks.TaskScheduler, System.Int32, System.Int32
     + (System_Threading_Tasks_ConcurrentExclusiveSchedulerPair *)new_withTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p1 maxConcurrencyLevel:(int32_t)p2 maxItemsPerTask:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 #pragma mark -

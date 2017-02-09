@@ -284,7 +284,7 @@
     - (BOOL)equals_withOther:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -306,7 +306,7 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -406,7 +406,7 @@
     - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Invoke(object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Invoke(object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -417,7 +417,7 @@
     - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Invoke(object,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Invoke(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -428,7 +428,7 @@
     - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

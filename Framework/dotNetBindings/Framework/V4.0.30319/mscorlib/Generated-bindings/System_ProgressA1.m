@@ -32,7 +32,7 @@
 	// Managed param types : System.Action`1<System.Progress`1+T>
     + (System_ProgressA1 *)new_withHandler:(System_ActionA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Action`1<System.Progress`1+T>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Action`1<System.Progress`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

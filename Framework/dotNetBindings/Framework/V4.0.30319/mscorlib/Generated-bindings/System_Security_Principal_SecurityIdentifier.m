@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Security_Principal_SecurityIdentifier *)new_withSddlForm:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Security.Principal.WellKnownSidType, System.Security.Principal.SecurityIdentifier
     + (System_Security_Principal_SecurityIdentifier *)new_withSidType:(System_Security_Principal_WellKnownSidType)p1 domainSid:(System_Security_Principal_SecurityIdentifier *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.WellKnownSidType,System.Security.Principal.SecurityIdentifier" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Principal.WellKnownSidType,System.Security.Principal.SecurityIdentifier" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Byte[], System.Int32
     + (System_Security_Principal_SecurityIdentifier *)new_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"byte[],int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"byte[],int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -131,7 +131,7 @@
     - (int32_t)compareTo_withSid:(System_Security_Principal_SecurityIdentifier *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -142,7 +142,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -153,7 +153,7 @@
     - (BOOL)equals_withSid:(System_Security_Principal_SecurityIdentifier *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -163,7 +163,7 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetHashCode
@@ -194,7 +194,7 @@
     - (BOOL)isEqualDomainSid_withSid:(System_Security_Principal_SecurityIdentifier *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsEqualDomainSid(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsEqualDomainSid(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -205,7 +205,7 @@
     - (BOOL)isValidTargetType_withTargetType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsValidTargetType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsValidTargetType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -227,7 +227,7 @@
     + (BOOL)op_Equality_withLeft:(System_Security_Principal_SecurityIdentifier *)p1 right:(System_Security_Principal_SecurityIdentifier *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Security.Principal.SecurityIdentifier,System.Security.Principal.SecurityIdentifier)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Security.Principal.SecurityIdentifier,System.Security.Principal.SecurityIdentifier)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -238,7 +238,7 @@
     + (BOOL)op_Inequality_withLeft:(System_Security_Principal_SecurityIdentifier *)p1 right:(System_Security_Principal_SecurityIdentifier *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Security.Principal.SecurityIdentifier,System.Security.Principal.SecurityIdentifier)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Security.Principal.SecurityIdentifier,System.Security.Principal.SecurityIdentifier)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -260,7 +260,7 @@
     - (System_Security_Principal_IdentityReference *)translate_withTargetType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Translate(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Principal_IdentityReference objectWithMonoObject:monoObject];
     }

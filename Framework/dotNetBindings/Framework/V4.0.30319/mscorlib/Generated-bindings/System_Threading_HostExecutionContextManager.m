@@ -43,7 +43,7 @@
 	// Managed param types : System.Object
     - (void)revert_withPreviousState:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Revert(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Revert(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetHostExecutionContext
@@ -52,7 +52,7 @@
     - (System_Object *)setHostExecutionContext_withHostExecutionContext:(System_Threading_HostExecutionContext *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SetHostExecutionContext(System.Threading.HostExecutionContext)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SetHostExecutionContext(System.Threading.HostExecutionContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

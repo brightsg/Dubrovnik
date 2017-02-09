@@ -41,7 +41,7 @@
     - (void)setGuid:(NSString *)value
 	{
 		_guid = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Guid" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setLocalizationResources:(NSString *)value
 	{
 		_localizationResources = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LocalizationResources" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 

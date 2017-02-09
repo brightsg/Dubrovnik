@@ -58,9 +58,9 @@
 	// Managed param types : System.String, ref System.String&
     - (NSString *)parse_withUrl:(NSString *)p1 objectURIRef:(NSString **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannel.Parse(string,string&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannel.Parse(string,string&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
 

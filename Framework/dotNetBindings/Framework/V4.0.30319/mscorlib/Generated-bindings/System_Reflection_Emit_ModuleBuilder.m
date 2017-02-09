@@ -126,7 +126,7 @@
     - (System_Diagnostics_SymbolStore_ISymbolDocumentWriter *)defineDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineDocument(string,System.Guid,System.Guid,System.Guid)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineDocument(string,System.Guid,System.Guid,System.Guid)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Diagnostics_SymbolStore_ISymbolDocumentWriter objectWithMonoObject:monoObject];
     }
@@ -137,7 +137,7 @@
     - (System_Reflection_Emit_EnumBuilder *)defineEnum_withName:(NSString *)p1 visibility:(System_Reflection_TypeAttributes)p2 underlyingType:(System_Type *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineEnum(string,System.Reflection.TypeAttributes,System.Type)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineEnum(string,System.Reflection.TypeAttributes,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_EnumBuilder objectWithMonoObject:monoObject];
     }
@@ -148,7 +148,7 @@
     - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 returnType:(System_Type *)p3 parameterTypes:(DBSystem_Array *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineGlobalMethod(string,System.Reflection.MethodAttributes,System.Type,System.Array[])" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineGlobalMethod(string,System.Reflection.MethodAttributes,System.Type,System.Array[])" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodBuilder objectWithMonoObject:monoObject];
     }
@@ -159,7 +159,7 @@
     - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineGlobalMethod(string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[])" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineGlobalMethod(string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[])" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodBuilder objectWithMonoObject:monoObject];
     }
@@ -170,7 +170,7 @@
     - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 requiredReturnTypeCustomModifiers:(DBSystem_Array *)p5 optionalReturnTypeCustomModifiers:(DBSystem_Array *)p6 parameterTypes:(DBSystem_Array *)p7 requiredParameterTypeCustomModifiers:(DBSystem_Array *)p8 optionalParameterTypeCustomModifiers:(DBSystem_Array *)p9
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineGlobalMethod(string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Array[],System.Array[],System.Array[],System.Array[])" withNumArgs:9, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue], [p8 monoValue], [p9 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineGlobalMethod(string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Array[],System.Array[],System.Array[],System.Array[])" withNumArgs:9, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg], [p8 monoRTInvokeArg], [p9 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodBuilder objectWithMonoObject:monoObject];
     }
@@ -181,7 +181,7 @@
     - (System_Reflection_Emit_FieldBuilder *)defineInitializedData_withName:(NSString *)p1 data:(NSData *)p2 attributes:(System_Reflection_FieldAttributes)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineInitializedData(string,byte[],System.Reflection.FieldAttributes)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineInitializedData(string,byte[],System.Reflection.FieldAttributes)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_Reflection_Emit_FieldBuilder objectWithMonoObject:monoObject];
     }
@@ -191,7 +191,7 @@
 	// Managed param types : System.String, System.IO.Stream, System.Reflection.ResourceAttributes
     - (void)defineManifestResource_withName:(NSString *)p1 stream:(System_IO_Stream *)p2 attribute:(System_Reflection_ResourceAttributes)p3
     {
-		[self invokeMonoMethod:"DefineManifestResource(string,System.IO.Stream,System.Reflection.ResourceAttributes)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"DefineManifestResource(string,System.IO.Stream,System.Reflection.ResourceAttributes)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 	// Managed method name : DefinePInvokeMethod
@@ -200,7 +200,7 @@
     - (System_Reflection_Emit_MethodBuilder *)definePInvokeMethod_withName:(NSString *)p1 dllName:(NSString *)p2 attributes:(System_Reflection_MethodAttributes)p3 callingConvention:(System_Reflection_CallingConventions)p4 returnType:(System_Type *)p5 parameterTypes:(DBSystem_Array *)p6 nativeCallConv:(System_Runtime_InteropServices_CallingConvention)p7 nativeCharSet:(System_Runtime_InteropServices_CharSet)p8
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefinePInvokeMethod(string,string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Runtime.InteropServices.CallingConvention,System.Runtime.InteropServices.CharSet)" withNumArgs:8, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], DB_VALUE(p7), DB_VALUE(p8)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefinePInvokeMethod(string,string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Runtime.InteropServices.CallingConvention,System.Runtime.InteropServices.CharSet)" withNumArgs:8, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], DB_VALUE(p7), DB_VALUE(p8)];
 		
 		return [System_Reflection_Emit_MethodBuilder objectWithMonoObject:monoObject];
     }
@@ -211,7 +211,7 @@
     - (System_Reflection_Emit_MethodBuilder *)definePInvokeMethod_withName:(NSString *)p1 dllName:(NSString *)p2 entryName:(NSString *)p3 attributes:(System_Reflection_MethodAttributes)p4 callingConvention:(System_Reflection_CallingConventions)p5 returnType:(System_Type *)p6 parameterTypes:(DBSystem_Array *)p7 nativeCallConv:(System_Runtime_InteropServices_CallingConvention)p8 nativeCharSet:(System_Runtime_InteropServices_CharSet)p9
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefinePInvokeMethod(string,string,string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Runtime.InteropServices.CallingConvention,System.Runtime.InteropServices.CharSet)" withNumArgs:9, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5), [p6 monoValue], [p7 monoValue], DB_VALUE(p8), DB_VALUE(p9)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefinePInvokeMethod(string,string,string,System.Reflection.MethodAttributes,System.Reflection.CallingConventions,System.Type,System.Array[],System.Runtime.InteropServices.CallingConvention,System.Runtime.InteropServices.CharSet)" withNumArgs:9, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5), [p6 monoRTInvokeArg], [p7 monoRTInvokeArg], DB_VALUE(p8), DB_VALUE(p9)];
 		
 		return [System_Reflection_Emit_MethodBuilder objectWithMonoObject:monoObject];
     }
@@ -222,7 +222,7 @@
     - (System_Resources_IResourceWriter *)defineResource_withName:(NSString *)p1 description:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineResource(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineResource(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Resources_IResourceWriter objectWithMonoObject:monoObject];
     }
@@ -233,7 +233,7 @@
     - (System_Resources_IResourceWriter *)defineResource_withName:(NSString *)p1 description:(NSString *)p2 attribute:(System_Reflection_ResourceAttributes)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineResource(string,string,System.Reflection.ResourceAttributes)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineResource(string,string,System.Reflection.ResourceAttributes)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_Resources_IResourceWriter objectWithMonoObject:monoObject];
     }
@@ -244,7 +244,7 @@
     - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 interfaces:(DBSystem_Array *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,System.Array[])" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,System.Array[])" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_TypeBuilder objectWithMonoObject:monoObject];
     }
@@ -255,7 +255,7 @@
     - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_TypeBuilder objectWithMonoObject:monoObject];
     }
@@ -266,7 +266,7 @@
     - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Reflection_Emit_TypeBuilder objectWithMonoObject:monoObject];
     }
@@ -277,7 +277,7 @@
     - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_TypeBuilder objectWithMonoObject:monoObject];
     }
@@ -288,7 +288,7 @@
     - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 typesize:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,int)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,int)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return [System_Reflection_Emit_TypeBuilder objectWithMonoObject:monoObject];
     }
@@ -299,7 +299,7 @@
     - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 packingSize:(System_Reflection_Emit_PackingSize)p4 typesize:(int32_t)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,System.Reflection.Emit.PackingSize,int)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,System.Reflection.Emit.PackingSize,int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Reflection_Emit_TypeBuilder objectWithMonoObject:monoObject];
     }
@@ -310,7 +310,7 @@
     - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 packsize:(System_Reflection_Emit_PackingSize)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,System.Reflection.Emit.PackingSize)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineType(string,System.Reflection.TypeAttributes,System.Type,System.Reflection.Emit.PackingSize)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return [System_Reflection_Emit_TypeBuilder objectWithMonoObject:monoObject];
     }
@@ -321,7 +321,7 @@
     - (System_Reflection_Emit_FieldBuilder *)defineUninitializedData_withName:(NSString *)p1 size:(int32_t)p2 attributes:(System_Reflection_FieldAttributes)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"DefineUninitializedData(string,int,System.Reflection.FieldAttributes)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"DefineUninitializedData(string,int,System.Reflection.FieldAttributes)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [System_Reflection_Emit_FieldBuilder objectWithMonoObject:monoObject];
     }
@@ -331,7 +331,7 @@
 	// Managed param types : System.Byte[]
     - (void)defineUnmanagedResource_withResource:(NSData *)p1
     {
-		[self invokeMonoMethod:"DefineUnmanagedResource(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DefineUnmanagedResource(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : DefineUnmanagedResource
@@ -339,7 +339,7 @@
 	// Managed param types : System.String
     - (void)defineUnmanagedResource_withResourceFileName:(NSString *)p1
     {
-		[self invokeMonoMethod:"DefineUnmanagedResource(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DefineUnmanagedResource(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Equals
@@ -348,7 +348,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -359,7 +359,7 @@
     - (System_Reflection_MethodInfo *)getArrayMethod_withArrayClass:(System_Type *)p1 methodName:(NSString *)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetArrayMethod(System.Type,string,System.Reflection.CallingConventions,System.Type,System.Array[])" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetArrayMethod(System.Type,string,System.Reflection.CallingConventions,System.Type,System.Array[])" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
@@ -370,7 +370,7 @@
     - (System_Reflection_Emit_MethodToken *)getArrayMethodToken_withArrayClass:(System_Type *)p1 methodName:(NSString *)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetArrayMethodToken(System.Type,string,System.Reflection.CallingConventions,System.Type,System.Array[])" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetArrayMethodToken(System.Type,string,System.Reflection.CallingConventions,System.Type,System.Array[])" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodToken objectWithMonoObject:monoObject];
     }
@@ -381,7 +381,7 @@
     - (System_Reflection_Emit_MethodToken *)getConstructorToken_withConstructor:(System_Reflection_ConstructorInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerableA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructorToken(System.Reflection.ConstructorInfo,System.Collections.Generic.IEnumerable`1<System.Type>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructorToken(System.Reflection.ConstructorInfo,System.Collections.Generic.IEnumerable`1<System.Type>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodToken objectWithMonoObject:monoObject];
     }
@@ -392,7 +392,7 @@
     - (System_Reflection_Emit_MethodToken *)getConstructorToken_withCon:(System_Reflection_ConstructorInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructorToken(System.Reflection.ConstructorInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructorToken(System.Reflection.ConstructorInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodToken objectWithMonoObject:monoObject];
     }
@@ -414,7 +414,7 @@
     - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -436,7 +436,7 @@
     - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetField(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetField(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
@@ -458,7 +458,7 @@
     - (System_Reflection_Emit_FieldToken *)getFieldToken_withField:(System_Reflection_FieldInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFieldToken(System.Reflection.FieldInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetFieldToken(System.Reflection.FieldInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_FieldToken objectWithMonoObject:monoObject];
     }
@@ -491,7 +491,7 @@
     - (System_Reflection_Emit_MethodToken *)getMethodToken_withMethod:(System_Reflection_MethodInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodToken(System.Reflection.MethodInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodToken(System.Reflection.MethodInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodToken objectWithMonoObject:monoObject];
     }
@@ -502,7 +502,7 @@
     - (System_Reflection_Emit_MethodToken *)getMethodToken_withMethod:(System_Reflection_MethodInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerableA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodToken(System.Reflection.MethodInfo,System.Collections.Generic.IEnumerable`1<System.Type>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodToken(System.Reflection.MethodInfo,System.Collections.Generic.IEnumerable`1<System.Type>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_MethodToken objectWithMonoObject:monoObject];
     }
@@ -522,7 +522,7 @@
     - (System_Reflection_Emit_SignatureToken *)getSignatureToken_withSigHelper:(System_Reflection_Emit_SignatureHelper *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSignatureToken(System.Reflection.Emit.SignatureHelper)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetSignatureToken(System.Reflection.Emit.SignatureHelper)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_SignatureToken objectWithMonoObject:monoObject];
     }
@@ -533,7 +533,7 @@
     - (System_Reflection_Emit_SignatureToken *)getSignatureToken_withSigBytes:(NSData *)p1 sigLength:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSignatureToken(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetSignatureToken(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Reflection_Emit_SignatureToken objectWithMonoObject:monoObject];
     }
@@ -555,7 +555,7 @@
     - (System_Reflection_Emit_StringToken *)getStringConstant_withStr:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStringConstant(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetStringConstant(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_StringToken objectWithMonoObject:monoObject];
     }
@@ -577,7 +577,7 @@
     - (System_Type *)getType_withClassName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }
@@ -588,7 +588,7 @@
     - (System_Type *)getType_withClassName:(NSString *)p1 ignoreCase:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }
@@ -599,7 +599,7 @@
     - (System_Type *)getType_withClassName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }
@@ -621,7 +621,7 @@
     - (System_Reflection_Emit_TypeToken *)getTypeToken_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeToken(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeToken(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_TypeToken objectWithMonoObject:monoObject];
     }
@@ -632,7 +632,7 @@
     - (System_Reflection_Emit_TypeToken *)getTypeToken_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeToken(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeToken(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Emit_TypeToken objectWithMonoObject:monoObject];
     }
@@ -643,7 +643,7 @@
     - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -676,7 +676,7 @@
     - (System_Reflection_FieldInfo *)resolveField_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveField(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveField(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
@@ -687,7 +687,7 @@
     - (System_Reflection_MemberInfo *)resolveMember_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMember(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMember(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Reflection_MemberInfo objectWithMonoObject:monoObject];
     }
@@ -698,7 +698,7 @@
     - (System_Reflection_MethodBase *)resolveMethod_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethod(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethod(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
     }
@@ -731,7 +731,7 @@
     - (System_Type *)resolveType_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveType(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveType(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }
@@ -741,7 +741,7 @@
 	// Managed param types : System.Reflection.ConstructorInfo, System.Byte[]
     - (void)setCustomAttribute_withCon:(System_Reflection_ConstructorInfo *)p1 binaryAttribute:(NSData *)p2
     {
-		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.ConstructorInfo,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.ConstructorInfo,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetCustomAttribute
@@ -749,7 +749,7 @@
 	// Managed param types : System.Reflection.Emit.CustomAttributeBuilder
     - (void)setCustomAttribute_withCustomBuilder:(System_Reflection_Emit_CustomAttributeBuilder *)p1
     {
-		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.Emit.CustomAttributeBuilder)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.Emit.CustomAttributeBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetSymCustomAttribute
@@ -757,7 +757,7 @@
 	// Managed param types : System.String, System.Byte[]
     - (void)setSymCustomAttribute_withName:(NSString *)p1 data:(NSData *)p2
     {
-		[self invokeMonoMethod:"SetSymCustomAttribute(string,byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SetSymCustomAttribute(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetUserEntryPoint
@@ -765,7 +765,7 @@
 	// Managed param types : System.Reflection.MethodInfo
     - (void)setUserEntryPoint_withEntryPoint:(System_Reflection_MethodInfo *)p1
     {
-		[self invokeMonoMethod:"SetUserEntryPoint(System.Reflection.MethodInfo)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetUserEntryPoint(System.Reflection.MethodInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

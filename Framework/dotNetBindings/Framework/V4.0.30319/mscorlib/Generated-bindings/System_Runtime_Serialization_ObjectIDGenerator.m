@@ -33,7 +33,7 @@
     - (int64_t)getId_withObj:(System_Object *)p1 firstTimeRef:(BOOL*)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetId(object,bool&)" withNumArgs:2, [p1 monoValue], p2];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetId(object,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
 		
 		return DB_UNBOX_INT64(monoObject);
     }
@@ -44,7 +44,7 @@
     - (int64_t)hasId_withObj:(System_Object *)p1 firstTimeRef:(BOOL*)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"HasId(object,bool&)" withNumArgs:2, [p1 monoValue], p2];
+		MonoObject *monoObject = [self invokeMonoMethod:"HasId(object,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
 		
 		return DB_UNBOX_INT64(monoObject);
     }

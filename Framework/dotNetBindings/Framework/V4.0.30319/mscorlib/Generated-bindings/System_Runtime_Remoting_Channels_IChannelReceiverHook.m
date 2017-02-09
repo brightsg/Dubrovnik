@@ -70,7 +70,7 @@
 	// Managed param types : System.String
     - (void)addHookChannelUri_withChannelUri:(NSString *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiverHook.AddHookChannelUri(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiverHook.AddHookChannelUri(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

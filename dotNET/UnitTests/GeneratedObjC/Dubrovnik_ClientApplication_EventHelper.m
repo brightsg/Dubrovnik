@@ -33,7 +33,7 @@
     + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4
     {
 		
-		[self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];;
+		[self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
         
     }
 
@@ -43,7 +43,7 @@
     + (void)dubrovnikEventHandlerICall1_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
-		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall1(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall1(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -53,7 +53,7 @@
     + (void)dubrovnikEventHandlerICall2_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
-		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall2(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall2(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -63,7 +63,7 @@
     + (void)managedEvent_ManagedObject_PropertyChanged_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
-		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanged(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanged(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -73,7 +73,7 @@
     + (void)managedEvent_ManagedObject_PropertyChanging_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
-		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanging(object,System.EventArgs)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanging(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -83,7 +83,7 @@
     + (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ObjectSupportsEvent(object,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ObjectSupportsEvent(object,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

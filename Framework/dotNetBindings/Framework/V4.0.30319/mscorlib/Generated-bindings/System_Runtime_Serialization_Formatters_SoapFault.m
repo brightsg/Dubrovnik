@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.String, System.String, System.Runtime.Serialization.Formatters.ServerFault
     + (System_Runtime_Serialization_Formatters_SoapFault *)new_withFaultCode:(NSString *)p1 faultString:(NSString *)p2 faultActor:(NSString *)p3 serverFault:(System_Runtime_Serialization_Formatters_ServerFault *)p4
     {
-		return [[self alloc] initWithSignature:"string,string,string,System.Runtime.Serialization.Formatters.ServerFault" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		return [[self alloc] initWithSignature:"string,string,string,System.Runtime.Serialization.Formatters.ServerFault" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setDetail:(System_Object *)value
 	{
 		_detail = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Detail" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setFaultActor:(NSString *)value
 	{
 		_faultActor = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"FaultActor" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setFaultCode:(NSString *)value
 	{
 		_faultCode = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"FaultCode" valueObject:monoObject];          
 	}
 
@@ -106,7 +106,7 @@
     - (void)setFaultString:(NSString *)value
 	{
 		_faultString = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"FaultString" valueObject:monoObject];          
 	}
 
@@ -118,7 +118,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

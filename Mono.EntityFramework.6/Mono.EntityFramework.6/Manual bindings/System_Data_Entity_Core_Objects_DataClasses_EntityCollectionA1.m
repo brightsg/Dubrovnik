@@ -26,7 +26,7 @@
 // Managed param types : <TEntity>
 - (void)add_withItem:(System_Object *)p1
 {
-    [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+    [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 @end
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Principal.WindowsIdentity
     + (System_Security_Principal_WindowsPrincipal *)new_withNtIdentity:(System_Security_Principal_WindowsIdentity *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.WindowsIdentity" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Principal.WindowsIdentity" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -83,7 +83,7 @@
     - (BOOL)isInRole_withRoleString:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -116,7 +116,7 @@
     - (BOOL)isInRole_withSid:(System_Security_Principal_SecurityIdentifier *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(System.Security.Principal.SecurityIdentifier)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

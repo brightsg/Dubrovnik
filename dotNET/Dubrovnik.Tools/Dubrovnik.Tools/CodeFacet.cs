@@ -111,7 +111,8 @@ namespace Dubrovnik.Tools
         public bool IsStruct {
             get
             {
-                return IsValueType && !IsEnum && !IsPrimitive;
+					// note that a pointer is not a value type
+					return IsValueType && !IsEnum && !IsPrimitive;
             }
         }
 

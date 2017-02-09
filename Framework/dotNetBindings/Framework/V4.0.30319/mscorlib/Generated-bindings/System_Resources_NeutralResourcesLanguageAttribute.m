@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Resources_NeutralResourcesLanguageAttribute *)new_withCultureName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Resources.UltimateResourceFallbackLocation
     + (System_Resources_NeutralResourcesLanguageAttribute *)new_withCultureName:(NSString *)p1 location:(System_Resources_UltimateResourceFallbackLocation)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Resources.UltimateResourceFallbackLocation" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"string,System.Resources.UltimateResourceFallbackLocation" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -

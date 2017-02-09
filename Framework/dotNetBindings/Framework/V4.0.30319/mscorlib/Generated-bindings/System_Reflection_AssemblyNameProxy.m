@@ -33,7 +33,7 @@
     - (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
     }

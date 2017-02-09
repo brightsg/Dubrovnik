@@ -10,6 +10,10 @@
 #import "NSString+mscorlib.h"
 #import "System_Object+mscorlib.h"
 
+@interface DBSystem_Collections_Generic_ListA1 ()
+@property (nonatomic, readwrite) BOOL parameterTypeIsValueType;
+@end
+
 @implementation DBSystem_Collections_Generic_ListA1
 
 #pragma mark -
@@ -38,7 +42,7 @@
 
 + (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter
 {
-    DBSystem_Collections_Generic_ListA1 *list = [[self class] newCoreGenericObjectWithTypeParameters:@[typeParameter]];
+    DBSystem_Collections_Generic_ListA1 *list = [[self class] newObjectWithGenericTypeParameters:@[typeParameter]];
     
     // add objects
     for (id object in objects) {
@@ -71,6 +75,7 @@
     
     return list;
 }
+
 
 #pragma mark -
 #pragma mark - List and array representations
@@ -119,9 +124,14 @@
 
 - (void)add:(System_Object *)object
 {
-    [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [object monoValue]];
+    // unbox value types if generic parameter type is value type
+    MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
+    MonoClass *klass = mono_class_from_mono_type(monoType);
+    BOOL parameterTypeIsValueType = mono_class_is_valuetype(klass);
+    
+    void *arg = parameterTypeIsValueType ? [object monoRTInvokeArg] : object.monoObject;
+    [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, arg];
 }
-
 
 @synthesize count = _count;
 - (int32_t)count

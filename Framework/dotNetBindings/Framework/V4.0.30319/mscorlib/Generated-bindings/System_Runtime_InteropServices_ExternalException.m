@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Runtime_InteropServices_ExternalException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Exception
     + (System_Runtime_InteropServices_ExternalException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.Int32
     + (System_Runtime_InteropServices_ExternalException *)new_withMessage:(NSString *)p1 errorCode:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -

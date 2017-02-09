@@ -94,7 +94,7 @@
     - (int32_t)add_withTrust:(System_Security_Policy_ApplicationTrust *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Security.Policy.ApplicationTrust)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Security.Policy.ApplicationTrust)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -104,7 +104,7 @@
 	// Managed param types : System.Security.Policy.ApplicationTrust[]
     - (void)addRange_withTrustsSArray:(DBSystem_Array *)p1
     {
-		[self invokeMonoMethod:"AddRange(System.Array[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddRange
@@ -112,7 +112,7 @@
 	// Managed param types : System.Security.Policy.ApplicationTrustCollection
     - (void)addRange_withTrustsSSPApplicationTrustCollection:(System_Security_Policy_ApplicationTrustCollection *)p1
     {
-		[self invokeMonoMethod:"AddRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Clear
@@ -128,7 +128,7 @@
 	// Managed param types : System.Security.Policy.ApplicationTrust[], System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Find
@@ -137,7 +137,7 @@
     - (System_Security_Policy_ApplicationTrustCollection *)find_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(System_Security_Policy_ApplicationVersionMatch)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Find(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Find(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Security_Policy_ApplicationTrustCollection objectWithMonoObject:monoObject];
     }
@@ -158,7 +158,7 @@
 	// Managed param types : System.ApplicationIdentity, System.Security.Policy.ApplicationVersionMatch
     - (void)remove_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(System_Security_Policy_ApplicationVersionMatch)p2
     {
-		[self invokeMonoMethod:"Remove(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"Remove(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Remove
@@ -166,7 +166,7 @@
 	// Managed param types : System.Security.Policy.ApplicationTrust
     - (void)remove_withTrust:(System_Security_Policy_ApplicationTrust *)p1
     {
-		[self invokeMonoMethod:"Remove(System.Security.Policy.ApplicationTrust)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Security.Policy.ApplicationTrust)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveRange
@@ -174,7 +174,7 @@
 	// Managed param types : System.Security.Policy.ApplicationTrust[]
     - (void)removeRange_withTrustsSArray:(DBSystem_Array *)p1
     {
-		[self invokeMonoMethod:"RemoveRange(System.Array[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveRange(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveRange
@@ -182,7 +182,7 @@
 	// Managed param types : System.Security.Policy.ApplicationTrustCollection
     - (void)removeRange_withTrustsSSPApplicationTrustCollection:(System_Security_Policy_ApplicationTrustCollection *)p1
     {
-		[self invokeMonoMethod:"RemoveRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

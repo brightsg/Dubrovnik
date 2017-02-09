@@ -22,15 +22,27 @@
 
  Create an instance of the receiver's core class with a generic type parameters.
  
+ A type parameter is of type id.
+ Valid types are:
+ 1. System_Object subclass class
+ 2. NSObject instance responding to -monoObject (this obviously includes System_Object)
+ 3. NSValue containing MonoType pointer
+ 
  */
-+ (id)newCoreGenericObjectWithTypeParameters:(NSArray <id> *)typeParameters;
++ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters;
 
 /**
  
- Create an instance of the receiver's class from the mono image with a generic type parameters.
+ Create an instance of the receiver's class from the mono image with given generic type parameters.
+ 
+ A type parameter is of type id.
+ Valid types are:
+ 1. System_Object subclass class
+ 2. NSObject instance responding to -monoObject (this obviously includes System_Object)
+ 3. NSValue containing MonoType pointer
  
  */
-+ (id)newGenericObjectFrommMonoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters;
++ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
 
 /**
  
@@ -40,8 +52,14 @@
  
  typeParameters is used to determine the required generic parameter types.
  
+ A type parameter is of type id.
+ Valid types are:
+ 1. System_Object subclass class
+ 2. NSObject instance responding to -monoObject (this obviously includes System_Object)
+ 3. NSValue containing MonoType pointer
+ 
  */
-+ (id)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters;
++ (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters;
 
 /**
  
@@ -50,8 +68,14 @@
  
  typeParameters is used to determine the required generic parameter types.
  
+ A type parameter is of type id.
+ Valid types are:
+ 1. System_Object subclass class
+ 2. NSObject instance responding to -monoObject (this obviously includes System_Object)
+ 3. NSValue containing MonoType pointer
+ 
  */
-+ (id)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters;
++ (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters;
 
 //System.IConvertible convenience
 - (int8_t)int8Value;

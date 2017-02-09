@@ -45,9 +45,9 @@
     // the object generic type.
     //
     //NSString *inflatedMethodName = [NSString stringWithFormat:@"AddObject(%s)", [[object class] monoClassName]];
-    //[self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
+    //[self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoRTInvokeArg]];
     
-    [self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [object monoValue]];
+    [self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [object monoRTInvokeArg]];
 }
 
 - (DBManagedObject *)createObject
@@ -60,8 +60,8 @@
 - (void)deleteObject:(DBManagedObject *)object
 {
    // NSString *inflatedMethodName = [NSString stringWithFormat:@"DeleteObject(%s)", [[object class] monoClassName]];
-    //[self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoValue]];
-    [self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [object monoValue]];
+    //[self invokeMonoMethod:[inflatedMethodName UTF8String] withNumArgs:1, [object monoRTInvokeArg]];
+    [self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [object monoRTInvokeArg]];
 }
 
 @end

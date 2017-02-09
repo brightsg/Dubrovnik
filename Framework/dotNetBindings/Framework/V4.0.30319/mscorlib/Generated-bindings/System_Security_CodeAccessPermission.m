@@ -68,7 +68,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -78,7 +78,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withElem:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetHashCode
@@ -98,7 +98,7 @@
     - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -109,7 +109,7 @@
     - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -182,7 +182,7 @@
     - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }

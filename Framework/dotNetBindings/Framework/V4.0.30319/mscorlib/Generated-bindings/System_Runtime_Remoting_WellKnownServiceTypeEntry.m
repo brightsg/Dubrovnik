@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.String, System.String, System.Runtime.Remoting.WellKnownObjectMode
     + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2 objectUri:(NSString *)p3 mode:(System_Runtime_Remoting_WellKnownObjectMode)p4
     {
-		return [[self alloc] initWithSignature:"string,string,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];;
+		return [[self alloc] initWithSignature:"string,string,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Type, System.String, System.Runtime.Remoting.WellKnownObjectMode
     + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3
     {
-		return [[self alloc] initWithSignature:"System.Type,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"System.Type,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 #pragma mark -
@@ -60,7 +60,7 @@
     - (void)setContextAttributes:(DBSystem_Array *)value
 	{
 		_contextAttributes = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ContextAttributes" valueObject:monoObject];          
 	}
 

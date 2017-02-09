@@ -32,7 +32,7 @@
 	// Managed param types : System.Object
     - (void)disconnectedObject_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Services.ITrackingHandler.DisconnectedObject(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Remoting.Services.ITrackingHandler.DisconnectedObject(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : MarshaledObject
@@ -40,7 +40,7 @@
 	// Managed param types : System.Object, System.Runtime.Remoting.ObjRef
     - (void)marshaledObject_withObj:(System_Object *)p1 or:(System_Runtime_Remoting_ObjRef *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Services.ITrackingHandler.MarshaledObject(object,System.Runtime.Remoting.ObjRef)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Remoting.Services.ITrackingHandler.MarshaledObject(object,System.Runtime.Remoting.ObjRef)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : UnmarshaledObject
@@ -48,7 +48,7 @@
 	// Managed param types : System.Object, System.Runtime.Remoting.ObjRef
     - (void)unmarshaledObject_withObj:(System_Object *)p1 or:(System_Runtime_Remoting_ObjRef *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Services.ITrackingHandler.UnmarshaledObject(object,System.Runtime.Remoting.ObjRef)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Remoting.Services.ITrackingHandler.UnmarshaledObject(object,System.Runtime.Remoting.ObjRef)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

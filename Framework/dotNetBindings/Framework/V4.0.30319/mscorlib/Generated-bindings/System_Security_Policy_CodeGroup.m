@@ -71,7 +71,7 @@
     - (void)setDescription:(NSString *)value
 	{
 		_description = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Description" valueObject:monoObject];          
 	}
 
@@ -119,7 +119,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
@@ -161,7 +161,7 @@
 	// Managed param types : System.Security.Policy.CodeGroup
     - (void)addChild_withGroup:(System_Security_Policy_CodeGroup *)p1
     {
-		[self invokeMonoMethod:"AddChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Copy
@@ -181,7 +181,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -192,7 +192,7 @@
     - (BOOL)equals_withCg:(System_Security_Policy_CodeGroup *)p1 compareChildren:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Security.Policy.CodeGroup,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Security.Policy.CodeGroup,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -202,7 +202,7 @@
 	// Managed param types : System.Security.SecurityElement, System.Security.Policy.PolicyLevel
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1 level:(System_Security_Policy_PolicyLevel *)p2
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : FromXml
@@ -210,7 +210,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetHashCode
@@ -229,7 +229,7 @@
 	// Managed param types : System.Security.Policy.CodeGroup
     - (void)removeChild_withGroup:(System_Security_Policy_CodeGroup *)p1
     {
-		[self invokeMonoMethod:"RemoveChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Resolve
@@ -238,7 +238,7 @@
     - (System_Security_Policy_PolicyStatement *)resolve_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
     }
@@ -249,7 +249,7 @@
     - (System_Security_Policy_CodeGroup *)resolveMatchingCodeGroups_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
     }
@@ -271,7 +271,7 @@
     - (System_Security_SecurityElement *)toXml_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }

@@ -41,7 +41,7 @@
     - (void)setApplicationBase:(NSString *)value
 	{
 		_applicationBase = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.ApplicationBase" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setApplicationName:(NSString *)value
 	{
 		_applicationName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.ApplicationName" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setCachePath:(NSString *)value
 	{
 		_cachePath = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.CachePath" valueObject:monoObject];          
 	}
 
@@ -95,7 +95,7 @@
     - (void)setConfigurationFile:(NSString *)value
 	{
 		_configurationFile = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.ConfigurationFile" valueObject:monoObject];          
 	}
 
@@ -113,7 +113,7 @@
     - (void)setDynamicBase:(NSString *)value
 	{
 		_dynamicBase = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.DynamicBase" valueObject:monoObject];          
 	}
 
@@ -131,7 +131,7 @@
     - (void)setLicenseFile:(NSString *)value
 	{
 		_licenseFile = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.LicenseFile" valueObject:monoObject];          
 	}
 
@@ -149,7 +149,7 @@
     - (void)setPrivateBinPath:(NSString *)value
 	{
 		_privateBinPath = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.PrivateBinPath" valueObject:monoObject];          
 	}
 
@@ -167,7 +167,7 @@
     - (void)setPrivateBinPathProbe:(NSString *)value
 	{
 		_privateBinPathProbe = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.PrivateBinPathProbe" valueObject:monoObject];          
 	}
 
@@ -185,7 +185,7 @@
     - (void)setShadowCopyDirectories:(NSString *)value
 	{
 		_shadowCopyDirectories = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.ShadowCopyDirectories" valueObject:monoObject];          
 	}
 
@@ -203,7 +203,7 @@
     - (void)setShadowCopyFiles:(NSString *)value
 	{
 		_shadowCopyFiles = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.IAppDomainSetup.ShadowCopyFiles" valueObject:monoObject];          
 	}
 

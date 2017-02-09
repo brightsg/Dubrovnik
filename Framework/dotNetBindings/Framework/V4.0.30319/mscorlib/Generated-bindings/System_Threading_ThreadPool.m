@@ -44,7 +44,7 @@
     + (BOOL)bindHandle_withOsHandleSRISafeHandle:(System_Runtime_InteropServices_SafeHandle *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"BindHandle(System.Runtime.InteropServices.SafeHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"BindHandle(System.Runtime.InteropServices.SafeHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -79,7 +79,7 @@
     + (BOOL)queueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"QueueUserWorkItem(System.Threading.WaitCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"QueueUserWorkItem(System.Threading.WaitCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -90,7 +90,7 @@
     + (BOOL)queueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"QueueUserWorkItem(System.Threading.WaitCallback)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"QueueUserWorkItem(System.Threading.WaitCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -101,7 +101,7 @@
     + (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
@@ -112,7 +112,7 @@
     + (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
@@ -123,7 +123,7 @@
     + (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
@@ -134,7 +134,7 @@
     + (System_Threading_RegisteredWaitHandle *)registerWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(System_Object *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
@@ -178,7 +178,7 @@
     + (BOOL)unsafeQueueUserWorkItem_withCallBack:(System_Threading_WaitCallback *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeQueueUserWorkItem(System.Threading.WaitCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeQueueUserWorkItem(System.Threading.WaitCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -189,7 +189,7 @@
     + (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalUint:(uint32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
@@ -200,7 +200,7 @@
     + (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalInt:(int32_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
@@ -211,7 +211,7 @@
     + (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObjectSTWaitHandle:(System_Threading_WaitHandle *)p1 callBackSTWaitOrTimerCallback:(System_Threading_WaitOrTimerCallback *)p2 stateObject:(System_Object *)p3 millisecondsTimeOutIntervalLong:(int64_t)p4 executeOnlyOnceBool:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }
@@ -222,7 +222,7 @@
     + (System_Threading_RegisteredWaitHandle *)unsafeRegisterWaitForSingleObject_withWaitObject:(System_Threading_WaitHandle *)p1 callBack:(System_Threading_WaitOrTimerCallback *)p2 state:(System_Object *)p3 timeout:(System_TimeSpan *)p4 executeOnlyOnce:(BOOL)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
 		
 		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
     }

@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_DSA *)create_withAlgName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_DSA objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (NSData *)createSignature_withRgbHash:(NSData *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateSignature(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateSignature(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -76,7 +76,7 @@
 	// Managed param types : System.String
     - (void)fromXmlString_withXmlString:(NSString *)p1
     {
-		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ImportParameters
@@ -84,7 +84,7 @@
 	// Managed param types : System.Security.Cryptography.DSAParameters
     - (void)importParameters_withParameters:(System_Security_Cryptography_DSAParameters *)p1
     {
-		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.DSAParameters)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.DSAParameters)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ToXmlString
@@ -104,7 +104,7 @@
     - (BOOL)verifySignature_withRgbHash:(NSData *)p1 rgbSignature:(NSData *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"VerifySignature(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"VerifySignature(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

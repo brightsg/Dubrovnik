@@ -48,7 +48,7 @@
     + (NSDate *)parse_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -59,7 +59,7 @@
     + (NSString *)toString_withValue:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

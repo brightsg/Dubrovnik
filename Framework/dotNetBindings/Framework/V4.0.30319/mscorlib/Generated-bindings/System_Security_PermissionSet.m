@@ -40,7 +40,7 @@
 	// Managed param types : System.Security.PermissionSet
     + (System_Security_PermissionSet *)new_withPermSet:(System_Security_PermissionSet *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -100,7 +100,7 @@
     - (System_Security_IPermission *)addPermission_withPerm:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddPermission(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddPermission(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -130,7 +130,7 @@
     + (NSData *)convertPermissionSet_withInFormat:(NSString *)p1 inData:(NSData *)p2 outFormat:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertPermissionSet(string,byte[],string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertPermissionSet(string,byte[],string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -151,7 +151,7 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : Demand
@@ -176,7 +176,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -186,7 +186,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetEnumerator
@@ -217,7 +217,7 @@
     - (System_Security_IPermission *)getPermission_withPermClass:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetPermission(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetPermission(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -228,7 +228,7 @@
     - (System_Security_PermissionSet *)intersect_withOther:(System_Security_PermissionSet *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.PermissionSet)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.PermissionSet)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
     }
@@ -250,7 +250,7 @@
     - (BOOL)isSubsetOf_withTarget:(System_Security_PermissionSet *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.PermissionSet)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.PermissionSet)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -280,7 +280,7 @@
     - (System_Security_IPermission *)removePermission_withPermClass:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemovePermission(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemovePermission(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -299,7 +299,7 @@
     - (System_Security_IPermission *)setPermission_withPerm:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SetPermission(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SetPermission(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -332,7 +332,7 @@
     - (System_Security_PermissionSet *)union_withOther:(System_Security_PermissionSet *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.PermissionSet)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.PermissionSet)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
     }

@@ -41,7 +41,7 @@
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker, ref System.Object&
     - (void)getObject_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 ppunkObjectRef:(System_Object **)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.GetObject(System.Runtime.InteropServices.UCOMIMoniker,object&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.GetObject(System.Runtime.InteropServices.UCOMIMoniker,object&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 ;
     }
 
@@ -50,7 +50,7 @@
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker, ref System.Runtime.InteropServices.FILETIME&
     - (void)getTimeOfLastChange_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1 pfiletimeRef:(System_Runtime_InteropServices_FILETIME **)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.GetTimeOfLastChange(System.Runtime.InteropServices.UCOMIMoniker,System.Runtime.InteropServices.FILETIME&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.GetTimeOfLastChange(System.Runtime.InteropServices.UCOMIMoniker,System.Runtime.InteropServices.FILETIME&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 ;
     }
 
@@ -59,7 +59,7 @@
 	// Managed param types : System.Runtime.InteropServices.UCOMIMoniker
     - (void)isRunning_withPmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.IsRunning(System.Runtime.InteropServices.UCOMIMoniker)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.IsRunning(System.Runtime.InteropServices.UCOMIMoniker)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : NoteChangeTime
@@ -76,7 +76,7 @@
 	// Managed param types : System.Int32, System.Object, System.Runtime.InteropServices.UCOMIMoniker, ref System.Int32&
     - (void)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(System_Runtime_InteropServices_UCOMIMoniker *)p3 pdwRegisterRef:(int32_t*)p4
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.Register(int,object,System.Runtime.InteropServices.UCOMIMoniker,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], p4];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIRunningObjectTable.Register(int,object,System.Runtime.InteropServices.UCOMIMoniker,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], p4];;
     }
 
 	// Managed method name : Revoke

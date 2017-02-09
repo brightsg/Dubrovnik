@@ -92,7 +92,7 @@
     + (NSString *)generateManifest_withEventSourceType:(System_Type *)p1 assemblyPathToIncludeInManifest:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GenerateManifest(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GenerateManifest(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -103,7 +103,7 @@
     + (System_Guid *)getGuid_withEventSourceType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGuid(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGuid(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Guid objectWithMonoObject:monoObject];
     }
@@ -114,7 +114,7 @@
     + (NSString *)getName_withEventSourceType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetName(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetName(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -157,7 +157,7 @@
 	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventCommand, System.Collections.Generic.IDictionary`2<System.String, System.String>
     + (void)sendCommand_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 command:(System_Diagnostics_Tracing_EventCommand)p2 commandArguments:(System_Collections_Generic_IDictionaryA2 *)p3
     {
-		[self invokeMonoClassMethod:"SendCommand(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventCommand,System.Collections.Generic.IDictionary`2<System.String, System.String>)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoClassMethod:"SendCommand(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventCommand,System.Collections.Generic.IDictionary`2<System.String, System.String>)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetCurrentThreadActivityId
@@ -165,7 +165,7 @@
 	// Managed param types : System.Guid
     + (void)setCurrentThreadActivityId_withActivityId:(System_Guid *)p1
     {
-		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetCurrentThreadActivityId
@@ -173,7 +173,7 @@
 	// Managed param types : System.Guid, ref System.Guid&
     + (void)setCurrentThreadActivityId_withActivityId:(System_Guid *)p1 oldActivityThatWillContinueRef:(System_Guid **)p2
     {
-		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid,System.Guid&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		[self invokeMonoClassMethod:"SetCurrentThreadActivityId(System.Guid,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 ;
     }
 

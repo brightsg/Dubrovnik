@@ -74,12 +74,12 @@
 		AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */; };
 		AB5D13E21B71059D0028B42B /* System_DateTimeKind.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB5F417D1CE280FB00026E36 /* DBGenericManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5F417B1CE280FB00026E36 /* DBGenericManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB5F417E1CE280FB00026E36 /* DBGenericManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F417C1CE280FB00026E36 /* DBGenericManager.m */; };
 		AB80230C1DE46D000094294A /* System_AppDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = AB80230A1DE46D000094294A /* System_AppDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB80230D1DE46D000094294A /* System_AppDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = AB80230B1DE46D000094294A /* System_AppDomain.m */; };
 		AB8023101DE46ED40094294A /* System_UnhandledExceptionEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB80230E1DE46ED40094294A /* System_UnhandledExceptionEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8023111DE46ED40094294A /* System_UnhandledExceptionEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB80230F1DE46ED40094294A /* System_UnhandledExceptionEventArgs.m */; };
+		AB5F417D1CE280FB00026E36 /* DBGenericTypeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5F417E1CE280FB00026E36 /* DBGenericTypeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F417C1CE280FB00026E36 /* DBGenericTypeHelper.m */; };
 		AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8306B1191CFD5B009FF174 /* System_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8306B2191CFD5B009FF174 /* System_Type.m */; };
 		AB92F2DE1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -267,12 +267,12 @@
 		AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt32Transformer.h; sourceTree = "<group>"; };
 		AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt32Transformer.m; sourceTree = "<group>"; };
 		AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeKind.h; sourceTree = "<group>"; };
-		AB5F417B1CE280FB00026E36 /* DBGenericManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBGenericManager.h; path = "Helper classes/DBGenericManager.h"; sourceTree = "<group>"; };
-		AB5F417C1CE280FB00026E36 /* DBGenericManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBGenericManager.m; path = "Helper classes/DBGenericManager.m"; sourceTree = "<group>"; };
 		AB80230A1DE46D000094294A /* System_AppDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_AppDomain.h; sourceTree = "<group>"; };
 		AB80230B1DE46D000094294A /* System_AppDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_AppDomain.m; sourceTree = "<group>"; };
 		AB80230E1DE46ED40094294A /* System_UnhandledExceptionEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UnhandledExceptionEventArgs.h; sourceTree = "<group>"; };
 		AB80230F1DE46ED40094294A /* System_UnhandledExceptionEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UnhandledExceptionEventArgs.m; sourceTree = "<group>"; };
+		AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBGenericTypeHelper.h; path = "Helper classes/DBGenericTypeHelper.h"; sourceTree = "<group>"; };
+		AB5F417C1CE280FB00026E36 /* DBGenericTypeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBGenericTypeHelper.m; path = "Helper classes/DBGenericTypeHelper.m"; sourceTree = "<group>"; };
 		AB8306B1191CFD5B009FF174 /* System_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Type.h; sourceTree = "<group>"; };
 		AB8306B2191CFD5B009FF174 /* System_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Type.m; sourceTree = "<group>"; };
 		AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableBoolTransformer.h; sourceTree = "<group>"; };
@@ -411,6 +411,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB0336F11D9D206700B46A2B /* Helper classes */ = {
+			isa = PBXGroup;
+			children = (
+				AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */,
+				AB5F417C1CE280FB00026E36 /* DBGenericTypeHelper.m */,
+			);
+			name = "Helper classes";
+			sourceTree = "<group>";
+		};
 		AB2E74C118FFDB0D0061C63E /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,7 +506,9 @@
 				ABF970801D736A0100B836A0 /* Categories - Native */,
 				ABB8A37D18FF092400213B80 /* Helper classes - Managed */,
 				ABAAE71D1E263FB400CC81F1 /* Helper classes - Native */,
+				AB0336F11D9D206700B46A2B /* Helper classes */,
 				AB2E74C118FFDB0D0061C63E /* Include */,
+				ABB8A37D18FF092400213B80 /* Managed subclasses */,
 				ABB8A36A18FF04B700213B80 /* Manual bindings */,
 				ABB8A43018FF1F6300213B80 /* Protocols */,
 				ABB8A28E18FEFB0700213B80 /* Supporting Files */,
@@ -677,7 +688,7 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		ABB8A37D18FF092400213B80 /* Helper classes - Managed */ = {
+		ABB8A37D18FF092400213B80 /* Managed subclasses */ = {
 			isa = PBXGroup;
 			children = (
 				ABB8A41E18FF15B300213B80 /* DBSystem_Collections_ArrayList.h */,
@@ -760,7 +771,7 @@
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
 				AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */,
 				AB8306B3191CFD5B009FF174 /* System_Type.h in Headers */,
-				AB5F417D1CE280FB00026E36 /* DBGenericManager.h in Headers */,
+				AB5F417D1CE280FB00026E36 /* DBGenericTypeHelper.h in Headers */,
 				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
 				AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */,
 				AB8023101DE46ED40094294A /* System_UnhandledExceptionEventArgs.h in Headers */,
@@ -943,7 +954,7 @@
 				ABB8A38118FF092400213B80 /* DBSystem_IO_FileInfo.m in Sources */,
 				ABD819E71DE8E3B000A1AD90 /* System_Threading_SendOrPostCallback.m in Sources */,
 				ABCAE55F1AA90CC50006453A /* System_Reflection_Binder.m in Sources */,
-				AB5F417E1CE280FB00026E36 /* DBGenericManager.m in Sources */,
+				AB5F417E1CE280FB00026E36 /* DBGenericTypeHelper.m in Sources */,
 				AB2E745618FFCD420061C63E /* System_IO_TextReader.m in Sources */,
 				ABB8A40F18FF110000213B80 /* System_IO_FileInfo.m in Sources */,
 				ABD819E91DE8E3B000A1AD90 /* System_Threading_SynchronizationContext.m in Sources */,

@@ -337,7 +337,7 @@
     + (void)setTitle:(NSString *)value
 	{
 		m_title = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[[self class] setMonoClassProperty:"Title" valueObject:monoObject];          
 	}
 
@@ -608,7 +608,7 @@
 	// Managed param types : System.IO.TextWriter
     + (void)setError_withNewError:(System_IO_TextWriter *)p1
     {
-		[self invokeMonoClassMethod:"SetError(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SetError(System.IO.TextWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetIn
@@ -616,7 +616,7 @@
 	// Managed param types : System.IO.TextReader
     + (void)setIn_withNewIn:(System_IO_TextReader *)p1
     {
-		[self invokeMonoClassMethod:"SetIn(System.IO.TextReader)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SetIn(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetOut
@@ -624,7 +624,7 @@
 	// Managed param types : System.IO.TextWriter
     + (void)setOut_withNewOut:(System_IO_TextWriter *)p1
     {
-		[self invokeMonoClassMethod:"SetOut(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SetOut(System.IO.TextWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetWindowPosition
@@ -648,7 +648,7 @@
 	// Managed param types : System.String, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"Write(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -656,7 +656,7 @@
 	// Managed param types : System.String, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -664,7 +664,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
-		[self invokeMonoClassMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -672,7 +672,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
-		[self invokeMonoClassMethod:"Write(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string,object,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -680,7 +680,7 @@
 	// Managed param types : System.String, System.Object[]
     + (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -704,7 +704,7 @@
 	// Managed param types : System.Char[]
     + (void)write_withBuffer:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -712,7 +712,7 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     + (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : Write
@@ -728,7 +728,7 @@
 	// Managed param types : System.Decimal
     + (void)write_withValueDecimal:(NSDecimalNumber *)p1
     {
-		[self invokeMonoClassMethod:"Write(decimal)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Write(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -776,7 +776,7 @@
 	// Managed param types : System.Object
     + (void)write_withValueObject:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Write
@@ -784,7 +784,7 @@
 	// Managed param types : System.String
     + (void)write_withValueString:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -816,7 +816,7 @@
 	// Managed param types : System.Char[]
     + (void)writeLine_withBuffer:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -824,7 +824,7 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     + (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : WriteLine
@@ -832,7 +832,7 @@
 	// Managed param types : System.Decimal
     + (void)writeLine_withValueDecimal:(NSDecimalNumber *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(decimal)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -888,7 +888,7 @@
 	// Managed param types : System.Object
     + (void)writeLine_withValueObject:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -896,7 +896,7 @@
 	// Managed param types : System.String
     + (void)writeLine_withValueString:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -904,7 +904,7 @@
 	// Managed param types : System.String, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -912,7 +912,7 @@
 	// Managed param types : System.String, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -920,7 +920,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -928,7 +928,7 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object,object,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string,object,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WriteLine
@@ -936,7 +936,7 @@
 	// Managed param types : System.String, System.Object[]
     + (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

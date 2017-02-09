@@ -32,7 +32,7 @@
 	// Managed param types : System.DateTime
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDay *)new_withValue:(NSDate *)p1
     {
-		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setValue:(NSDate *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Value" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDay *)parse_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDay objectWithMonoObject:monoObject];
     }

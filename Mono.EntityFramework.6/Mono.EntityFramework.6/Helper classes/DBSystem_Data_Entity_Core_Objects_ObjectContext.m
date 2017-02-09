@@ -61,7 +61,7 @@
 
 - (void)refresh_withRefreshMode:(System_Data_Entity_Core_Objects_RefreshMode)refreshMode object:(System_Object *)object
 {
-    [self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, DB_VALUE(refreshMode), [object monoValue]];
+    [self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, DB_VALUE(refreshMode), [object monoRTInvokeArg]];
 }
 
 - (void)refreshObjectFromStore:(System_Object *)object

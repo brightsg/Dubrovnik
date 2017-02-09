@@ -29,6 +29,6 @@
 - (id)initWithMonoArray:(MonoArray *)monoArray;
 
 - (MonoArray *)monoArray;
-- (MonoObject *)monoValue;
+- (MonoObject *)monoRTInvokeArg;
 
 @end

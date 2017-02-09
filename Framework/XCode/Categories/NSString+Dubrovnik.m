@@ -55,26 +55,27 @@
 
 - (MonoString *)monoString
 {
-    MonoString *monoString = nil;
-    // test if subclass manages its own reference to a MonoObject
-    if ([self respondsToSelector:@selector(representedMonoString)]) {
-        monoString = [(id)self representedMonoString];
-    } else {
-        monoString = mono_string_new_size(mono_domain_get(), [self length]);
-        [self getCharacters:mono_string_chars(monoString)];
-    }
-    
-	return(monoString);	
+    return (MonoString *)[self monoObject];
 }
 
-- (MonoObject *)monoValue
+- (MonoObject *)monoRTInvokeArg
 {
-    return (MonoObject *)[self monoString];
+    return [self monoObject];
 }
 
 - (MonoObject *)monoObject
 {
-    return [self monoValue];
+    MonoString *monoString = nil;
+    
+    // test if subclass manages its own reference to a MonoObject
+    if ([self respondsToSelector:@selector(representedMonoString)]) {
+        monoString = [(id)self representedMonoString];
+    } else {
+        monoString = mono_string_new_size(mono_domain_get(), (int32_t)[self length]);
+        [self getCharacters:mono_string_chars(monoString)];
+    }
+    
+    return (MonoObject *)monoString;
 }
 
 - (NSString *)simpleObjCToMonoClassNameString

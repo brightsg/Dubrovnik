@@ -52,7 +52,7 @@
     - (void)setFile:(NSString *)value
 	{
 		_file = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"File" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setHex:(NSString *)value
 	{
 		_hex = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Hex" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
@@ -123,7 +123,7 @@
     - (void)setXML:(NSString *)value
 	{
 		_xML = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XML" valueObject:monoObject];          
 	}
 

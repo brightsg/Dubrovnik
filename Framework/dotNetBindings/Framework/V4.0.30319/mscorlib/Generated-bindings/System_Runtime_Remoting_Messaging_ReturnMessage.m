@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.Object[], System.Int32, System.Runtime.Remoting.Messaging.LogicalCallContext, System.Runtime.Remoting.Messaging.IMethodCallMessage
     + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(System_Object *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p5
     {
-		return [[self alloc] initWithSignature:"object,object[],int,System.Runtime.Remoting.Messaging.LogicalCallContext,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];;
+		return [[self alloc] initWithSignature:"object,object[],int,System.Runtime.Remoting.Messaging.LogicalCallContext,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Exception, System.Runtime.Remoting.Messaging.IMethodCallMessage
     + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withE:(System_Exception *)p1 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2
     {
-		return [[self alloc] initWithSignature:"System.Exception,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Exception,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -213,7 +213,7 @@
     - (void)setUri:(NSString *)value
 	{
 		_uri = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Uri" valueObject:monoObject];          
 	}
 

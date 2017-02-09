@@ -32,7 +32,15 @@
     @synthesize genericPropertyWithTypeParameterT = _genericPropertyWithTypeParameterT;
     - (System_Object *)genericPropertyWithTypeParameterT
     {
-		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterT"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "GenericPropertyWithTypeParameterT");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_genericPropertyWithTypeParameterT isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterT;					
 		_genericPropertyWithTypeParameterT = [System_Object bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +49,15 @@
     - (void)setGenericPropertyWithTypeParameterT:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterT = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"GenericPropertyWithTypeParameterT" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "GenericPropertyWithTypeParameterT");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : GenericPropertyWithTypeParameterU
@@ -50,7 +65,15 @@
     @synthesize genericPropertyWithTypeParameterU = _genericPropertyWithTypeParameterU;
     - (System_Object *)genericPropertyWithTypeParameterU
     {
-		MonoObject *monoObject = [self getMonoProperty:"GenericPropertyWithTypeParameterU"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "GenericPropertyWithTypeParameterU");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_genericPropertyWithTypeParameterU isEqualToMonoObject:monoObject]) return _genericPropertyWithTypeParameterU;					
 		_genericPropertyWithTypeParameterU = [System_Object bestObjectWithMonoObject:monoObject];
 
@@ -59,8 +82,15 @@
     - (void)setGenericPropertyWithTypeParameterU:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterU = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"GenericPropertyWithTypeParameterU" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "GenericPropertyWithTypeParameterU");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ListOfTypeT
@@ -68,7 +98,15 @@
     @synthesize listOfTypeT = _listOfTypeT;
     - (DBSystem_Collections_Generic_ListA1 *)listOfTypeT
     {
-		MonoObject *monoObject = [self getMonoProperty:"ListOfTypeT"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ListOfTypeT");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_listOfTypeT isEqualToMonoObject:monoObject]) return _listOfTypeT;					
 		_listOfTypeT = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
@@ -77,8 +115,15 @@
     - (void)setListOfTypeT:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_listOfTypeT = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ListOfTypeT" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ListOfTypeT");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ListOfTypeU
@@ -86,7 +131,15 @@
     @synthesize listOfTypeU = _listOfTypeU;
     - (DBSystem_Collections_Generic_ListA1 *)listOfTypeU
     {
-		MonoObject *monoObject = [self getMonoProperty:"ListOfTypeU"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "ListOfTypeU");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_listOfTypeU isEqualToMonoObject:monoObject]) return _listOfTypeU;					
 		_listOfTypeU = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
@@ -95,8 +148,15 @@
     - (void)setListOfTypeU:(DBSystem_Collections_Generic_ListA1 *)value
 	{
 		_listOfTypeU = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ListOfTypeU" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "ListOfTypeU");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Nested
@@ -104,7 +164,15 @@
     @synthesize nested = _nested;
     - (Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass *)nested
     {
-		MonoObject *monoObject = [self getMonoProperty:"Nested"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Nested");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nested isEqualToMonoObject:monoObject]) return _nested;					
 		_nested = [Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass bestObjectWithMonoObject:monoObject];
 
@@ -113,8 +181,15 @@
     - (void)setNested:(Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass *)value
 	{
 		_nested = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Nested" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Nested");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -126,7 +201,7 @@
     - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object bestObjectWithMonoObject:monoObject];
     }
@@ -137,7 +212,7 @@
     - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object bestObjectWithMonoObject:monoObject];
     }

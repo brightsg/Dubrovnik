@@ -32,7 +32,7 @@
 	// Managed param types : System.TimeSpan
     + (System_Threading_CancellationTokenSource *)new_withDelay:(System_TimeSpan *)p1
     {
-		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -93,7 +93,7 @@
 	// Managed param types : System.TimeSpan
     - (void)cancelAfter_withDelay:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"CancelAfter(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"CancelAfter(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : CancelAfter
@@ -110,7 +110,7 @@
     + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withToken1:(System_Threading_CancellationToken *)p1 token2:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }
@@ -121,7 +121,7 @@
     + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Array[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
     }

@@ -181,7 +181,7 @@
     - (void)setPwcsName:(NSString *)value
 	{
 		_pwcsName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"pwcsName" valueObject:monoObject];          
 	}
 

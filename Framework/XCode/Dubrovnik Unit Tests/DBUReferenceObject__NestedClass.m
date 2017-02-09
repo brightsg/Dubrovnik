@@ -33,7 +33,7 @@
     - (void)setStringProperty:(NSString *)value
 	{
 		_stringProperty = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
 	}
 

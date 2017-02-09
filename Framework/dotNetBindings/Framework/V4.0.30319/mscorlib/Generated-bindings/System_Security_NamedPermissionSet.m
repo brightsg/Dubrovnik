@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.NamedPermissionSet
     + (System_Security_NamedPermissionSet *)new_withPermSet:(System_Security_NamedPermissionSet *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.NamedPermissionSet" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.NamedPermissionSet" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String
     + (System_Security_NamedPermissionSet *)new_withName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.Security.Permissions.PermissionState
     + (System_Security_NamedPermissionSet *)new_withName:(NSString *)p1 state:(System_Security_Permissions_PermissionState)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Security.Permissions.PermissionState" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"string,System.Security.Permissions.PermissionState" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.String, System.Security.PermissionSet
     + (System_Security_NamedPermissionSet *)new_withName:(NSString *)p1 permSet:(System_Security_PermissionSet *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Security.PermissionSet" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Security.PermissionSet" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -76,7 +76,7 @@
     - (void)setDescription:(NSString *)value
 	{
 		_description = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Description" valueObject:monoObject];          
 	}
 
@@ -94,7 +94,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
@@ -118,7 +118,7 @@
     - (System_Security_NamedPermissionSet *)copy_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Copy(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Copy(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_NamedPermissionSet objectWithMonoObject:monoObject];
     }
@@ -129,7 +129,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -139,7 +139,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetHashCode

@@ -32,7 +32,7 @@
 	// Managed param types : ref System.Guid&, ref System.IntPtr&
     - (System_Runtime_InteropServices_CustomQueryInterfaceResult)getInterface_withIidRef:(System_Guid **)p1 ppvRef:(void **)p2
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ICustomQueryInterface.GetInterface(System.Guid&,intptr&)" withNumArgs:2, &refPtr1, p2];
 

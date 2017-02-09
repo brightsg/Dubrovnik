@@ -2748,7 +2748,7 @@
     + (BOOL)takesSingleByteArgument_withInst:(System_Reflection_Emit_OpCode *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TakesSingleByteArgument(System.Reflection.Emit.OpCode)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TakesSingleByteArgument(System.Reflection.Emit.OpCode)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

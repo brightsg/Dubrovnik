@@ -41,7 +41,7 @@
     - (void)setResponseXmlElementName:(NSString *)value
 	{
 		_responseXmlElementName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ResponseXmlElementName" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setResponseXmlNamespace:(NSString *)value
 	{
 		_responseXmlNamespace = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ResponseXmlNamespace" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setReturnXmlElementName:(NSString *)value
 	{
 		_returnXmlElementName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ReturnXmlElementName" valueObject:monoObject];          
 	}
 
@@ -95,7 +95,7 @@
     - (void)setSoapAction:(NSString *)value
 	{
 		_soapAction = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"SoapAction" valueObject:monoObject];          
 	}
 
@@ -130,7 +130,7 @@
     - (void)setXmlNamespace:(NSString *)value
 	{
 		_xmlNamespace = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"XmlNamespace" valueObject:monoObject];          
 	}
 

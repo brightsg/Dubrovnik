@@ -40,7 +40,7 @@
 	// Managed param types : System.Boolean, System.Threading.EventResetMode, System.String
     + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(System_Threading_EventResetMode)p2 name:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"bool,System.Threading.EventResetMode,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"bool,System.Threading.EventResetMode,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Boolean, System.Threading.EventResetMode, System.String, ref System.Boolean&
     + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(System_Threading_EventResetMode)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4
     {
-		return [[self alloc] initWithSignature:"bool,System.Threading.EventResetMode,string,bool&" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], p4];;
+		return [[self alloc] initWithSignature:"bool,System.Threading.EventResetMode,string,bool&" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], p4];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Boolean, System.Threading.EventResetMode, System.String, ref System.Boolean&, System.Security.AccessControl.EventWaitHandleSecurity
     + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(System_Threading_EventResetMode)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4 eventSecurity:(System_Security_AccessControl_EventWaitHandleSecurity *)p5
     {
-		return [[self alloc] initWithSignature:"bool,System.Threading.EventResetMode,string,bool&,System.Security.AccessControl.EventWaitHandleSecurity" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], p4, [p5 monoValue]];;
+		return [[self alloc] initWithSignature:"bool,System.Threading.EventResetMode,string,bool&,System.Security.AccessControl.EventWaitHandleSecurity" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], p4, [p5 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -79,7 +79,7 @@
     + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_EventWaitHandle objectWithMonoObject:monoObject];
     }
@@ -90,7 +90,7 @@
     + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string,System.Security.AccessControl.EventWaitHandleRights)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string,System.Security.AccessControl.EventWaitHandleRights)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Threading_EventWaitHandle objectWithMonoObject:monoObject];
     }
@@ -122,7 +122,7 @@
 	// Managed param types : System.Security.AccessControl.EventWaitHandleSecurity
     - (void)setAccessControl_withEventSecurity:(System_Security_AccessControl_EventWaitHandleSecurity *)p1
     {
-		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.EventWaitHandleSecurity)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.EventWaitHandleSecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : TryOpenExisting
@@ -130,9 +130,9 @@
 	// Managed param types : System.String, ref System.Threading.EventWaitHandle&
     + (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_EventWaitHandle **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Threading.EventWaitHandle&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Threading.EventWaitHandle&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
 
@@ -144,9 +144,9 @@
 	// Managed param types : System.String, System.Security.AccessControl.EventWaitHandleRights, ref System.Threading.EventWaitHandle&
     + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2 resultRef:(System_Threading_EventWaitHandle **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Security.AccessControl.EventWaitHandleRights,System.Threading.EventWaitHandle&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), &refPtr3];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Security.AccessControl.EventWaitHandleRights,System.Threading.EventWaitHandle&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];
 
 		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
 

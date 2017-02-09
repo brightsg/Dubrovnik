@@ -155,7 +155,7 @@
     - (System_Reflection_EventInfo *)getDeclaredEvent_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredEvent(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredEvent(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_EventInfo objectWithMonoObject:monoObject];
     }
@@ -166,7 +166,7 @@
     - (System_Reflection_FieldInfo *)getDeclaredField_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredField(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredField(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
@@ -177,7 +177,7 @@
     - (System_Reflection_MethodInfo *)getDeclaredMethod_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethod(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
@@ -188,7 +188,7 @@
     - (System_Collections_Generic_IEnumerableA1 *)getDeclaredMethods_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethods(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethods(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
@@ -199,7 +199,7 @@
     - (System_Reflection_TypeInfo *)getDeclaredNestedType_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredNestedType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredNestedType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
     }
@@ -210,7 +210,7 @@
     - (System_Reflection_PropertyInfo *)getDeclaredProperty_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredProperty(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
     }
@@ -221,7 +221,7 @@
     - (BOOL)isAssignableFrom_withTypeInfo:(System_Reflection_TypeInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsAssignableFrom(System.Reflection.TypeInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsAssignableFrom(System.Reflection.TypeInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

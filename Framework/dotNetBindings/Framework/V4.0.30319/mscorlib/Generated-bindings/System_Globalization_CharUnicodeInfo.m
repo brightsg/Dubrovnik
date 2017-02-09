@@ -44,7 +44,7 @@
     + (int32_t)getDecimalDigitValue_withS:(NSString *)p1 index:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDecimalDigitValue(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDecimalDigitValue(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -66,7 +66,7 @@
     + (int32_t)getDigitValue_withS:(NSString *)p1 index:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDigitValue(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDigitValue(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -88,7 +88,7 @@
     + (double)getNumericValue_withS:(NSString *)p1 index:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNumericValue(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNumericValue(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
@@ -110,7 +110,7 @@
     + (System_Globalization_UnicodeCategory)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

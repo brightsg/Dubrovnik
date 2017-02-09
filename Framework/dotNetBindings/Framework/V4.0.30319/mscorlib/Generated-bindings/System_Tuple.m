@@ -33,7 +33,7 @@
     + (System_TupleA1 *)create_withItem1:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_TupleA1 objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     + (System_TupleA2 *)create_withItem1:(System_Object *)p1 item2:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_TupleA2 objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     + (System_TupleA3 *)create_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_TupleA3 objectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     + (System_TupleA4 *)create_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_TupleA4 objectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     + (System_TupleA5 *)create_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4 item5:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_TupleA5 objectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     + (System_TupleA6 *)create_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4 item5:(System_Object *)p5 item6:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>)" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>)" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_TupleA6 objectWithMonoObject:monoObject];
     }
@@ -99,7 +99,7 @@
     + (System_TupleA7 *)create_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4 item5:(System_Object *)p5 item6:(System_Object *)p6 item7:(System_Object *)p7
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>)" withNumArgs:7, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
 		
 		return [System_TupleA7 objectWithMonoObject:monoObject];
     }
@@ -110,7 +110,7 @@
     + (System_TupleA8 *)create_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3 item4:(System_Object *)p4 item5:(System_Object *)p5 item6:(System_Object *)p6 item7:(System_Object *)p7 item8:(System_Object *)p8
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>,<_T_7>)" withNumArgs:8, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue], [p8 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>,<_T_7>)" withNumArgs:8, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg], [p8 monoRTInvokeArg]];
 		
 		return [System_TupleA8 objectWithMonoObject:monoObject];
     }

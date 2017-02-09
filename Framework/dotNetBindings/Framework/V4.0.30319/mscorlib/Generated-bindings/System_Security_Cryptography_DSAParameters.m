@@ -58,7 +58,7 @@
     - (void)setG:(NSData *)value
 	{
 		_g = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"G" valueObject:monoObject];          
 	}
 
@@ -76,7 +76,7 @@
     - (void)setJ:(NSData *)value
 	{
 		_j = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"J" valueObject:monoObject];          
 	}
 
@@ -94,7 +94,7 @@
     - (void)setP:(NSData *)value
 	{
 		_p = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"P" valueObject:monoObject];          
 	}
 
@@ -112,7 +112,7 @@
     - (void)setQ:(NSData *)value
 	{
 		_q = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Q" valueObject:monoObject];          
 	}
 
@@ -130,7 +130,7 @@
     - (void)setSeed:(NSData *)value
 	{
 		_seed = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Seed" valueObject:monoObject];          
 	}
 
@@ -148,7 +148,7 @@
     - (void)setX:(NSData *)value
 	{
 		_x = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"X" valueObject:monoObject];          
 	}
 
@@ -166,7 +166,7 @@
     - (void)setY:(NSData *)value
 	{
 		_y = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"Y" valueObject:monoObject];          
 	}
 

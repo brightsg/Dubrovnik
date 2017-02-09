@@ -79,15 +79,20 @@ static const char hasValueKey = '0';
     return _decimalMonoClassRepresentation;
 }
 
-- (MonoObject *)monoDecimal {
-    
+- (MonoObject *)monoObject
+{
     // TODO: handle locale
-    MonoObject *monoObject = [[self stringValue] monoValue];
-	MonoObject *monoDecimal = [[self monoClassRepresentation] invokeMonoMethod:"Parse(string)" withNumArgs:1, monoObject];
-	return(monoDecimal);
+    MonoObject *monoObject = [[self stringValue] monoRTInvokeArg];
+    MonoObject *monoDecimal = [[self monoClassRepresentation] invokeMonoMethod:"Parse(string)" withNumArgs:1, monoObject];
+    return(monoDecimal);
 }
 
-- (MonoObject *)monoValue
+- (MonoObject *)monoDecimal
+{
+    return [self monoObject];
+}
+
+- (MonoObject *)monoRTInvokeArg
 {
     return DB_OBJECT(mono_object_unbox([self monoDecimal]));
 }

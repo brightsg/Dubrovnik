@@ -8,7 +8,7 @@
 
 #import "System_Object+mscorlib.h"
 #import "DBSystem_Convert.h"
-#import "DBGenericManager.h"
+#import "DBGenericTypeHelper.h"
 
 @implementation System_Object (mscorlib)
 
@@ -25,28 +25,28 @@
 #pragma mark -
 #pragma mark Generic factory convenience methods
 
-+ (id)newCoreGenericObjectWithTypeParameters:(NSArray <id> *)typeParameters
++ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters
 {
-    return [[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:(char *)[self monoClassName]
+    return [[DBGenericTypeHelper sharedHelper] createInstanceOfCoreGenericTypeDefinition:(char *)[self monoClassName]
                                                                         typeParameters:typeParameters];
 }
 
-+ (id)newGenericObjectFrommMonoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
++ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
 {
-    return [[DBGenericManager sharedManager] createInstanceOfGenericTypeDefinition:(char *)[self monoClassName]
+    return [[DBGenericTypeHelper sharedHelper] createInstanceOfGenericTypeDefinition:(char *)[self monoClassName]
                                                                          monoImage:monoImage
                                                                     typeParameters:typeParameters];
 }
 
-+ (id)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters
++ (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters
 {
-    return [[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:genericTypeDefinitionName
+    return [[DBGenericTypeHelper sharedHelper] createInstanceOfCoreGenericTypeDefinition:genericTypeDefinitionName
                                                                         typeParameters:typeParameters];
 }
 
-+ (id)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
++ (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
 {
-    return [[DBGenericManager sharedManager] createInstanceOfGenericTypeDefinition:genericTypeDefinitionName
+    return [[DBGenericTypeHelper sharedHelper] createInstanceOfGenericTypeDefinition:genericTypeDefinitionName
                                                                          monoImage:monoImage
                                                                     typeParameters:typeParameters];
 }

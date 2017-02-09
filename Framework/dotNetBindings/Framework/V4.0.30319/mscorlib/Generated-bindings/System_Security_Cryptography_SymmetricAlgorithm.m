@@ -75,7 +75,7 @@
     - (void)setIV:(NSData *)value
 	{
 		_iV = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"IV" valueObject:monoObject];          
 	}
 
@@ -93,7 +93,7 @@
     - (void)setKey:(NSData *)value
 	{
 		_key = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Key" valueObject:monoObject];          
 	}
 
@@ -200,7 +200,7 @@
     + (System_Security_Cryptography_SymmetricAlgorithm *)create_withAlgName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_SymmetricAlgorithm objectWithMonoObject:monoObject];
     }
@@ -222,7 +222,7 @@
     - (System_Security_Cryptography_ICryptoTransform *)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
     }
@@ -244,7 +244,7 @@
     - (System_Security_Cryptography_ICryptoTransform *)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor(byte[],byte[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
     }

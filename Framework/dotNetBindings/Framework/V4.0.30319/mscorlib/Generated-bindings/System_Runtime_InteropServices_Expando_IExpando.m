@@ -33,7 +33,7 @@
     - (System_Reflection_FieldInfo *)addField_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddField(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddField(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (System_Reflection_MethodInfo *)addMethod_withName:(NSString *)p1 method:(System_Delegate *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddMethod(string,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddMethod(string,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (System_Reflection_PropertyInfo *)addProperty_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddProperty(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
     }
@@ -65,7 +65,7 @@
 	// Managed param types : System.Reflection.MemberInfo
     - (void)removeMember_withM:(System_Reflection_MemberInfo *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.RemoveMember(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.RemoveMember(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

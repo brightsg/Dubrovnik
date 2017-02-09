@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.Int32
     + (System_Runtime_InteropServices_ArrayWithOffset *)new_withArray:(System_Object *)p1 offset:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"object,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"object,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -44,7 +44,7 @@
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -55,7 +55,7 @@
     - (BOOL)equals_withObjSRIArrayWithOffset:(System_Runtime_InteropServices_ArrayWithOffset *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Runtime.InteropServices.ArrayWithOffset)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Runtime.InteropServices.ArrayWithOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -99,7 +99,7 @@
     + (BOOL)op_Equality_withA:(System_Runtime_InteropServices_ArrayWithOffset *)p1 b:(System_Runtime_InteropServices_ArrayWithOffset *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.InteropServices.ArrayWithOffset,System.Runtime.InteropServices.ArrayWithOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.InteropServices.ArrayWithOffset,System.Runtime.InteropServices.ArrayWithOffset)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -110,7 +110,7 @@
     + (BOOL)op_Inequality_withA:(System_Runtime_InteropServices_ArrayWithOffset *)p1 b:(System_Runtime_InteropServices_ArrayWithOffset *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.InteropServices.ArrayWithOffset,System.Runtime.InteropServices.ArrayWithOffset)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.InteropServices.ArrayWithOffset,System.Runtime.InteropServices.ArrayWithOffset)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -32,7 +32,7 @@
 	// Managed param types : System.Func`2<System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T>
     + (void)addEventHandler_withAddMethod:(System_FuncA2 *)p1 removeMethod:(System_ActionA1 *)p2 handler:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"AddEventHandler(System.Func`2<System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,<_T_0>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"AddEventHandler(System.Func`2<System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T, System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,<_T_0>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : FreeHString
@@ -49,7 +49,7 @@
     + (System_Runtime_InteropServices_WindowsRuntime_IActivationFactory *)getActivationFactory_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetActivationFactory(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetActivationFactory(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_InteropServices_WindowsRuntime_IActivationFactory objectWithMonoObject:monoObject];
     }
@@ -70,7 +70,7 @@
 	// Managed param types : System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>
     + (void)removeAllEventHandlers_withRemoveMethod:(System_ActionA1 *)p1
     {
-		[self invokeMonoClassMethod:"RemoveAllEventHandlers(System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveAllEventHandlers(System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveEventHandler
@@ -78,7 +78,7 @@
 	// Managed param types : System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>, <System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal+T>
     + (void)removeEventHandler_withRemoveMethod:(System_ActionA1 *)p1 handler:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"RemoveEventHandler(System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveEventHandler(System.Action`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken>,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : StringToHString
@@ -87,7 +87,7 @@
     + (void *)stringToHString_withS:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"StringToHString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"StringToHString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_PTR(monoObject);
     }

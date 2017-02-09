@@ -40,7 +40,7 @@
 	// Managed param types : System.Byte[]
     + (System_IO_MemoryStream *)new_withBuffer:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Byte[], System.Boolean
     + (System_IO_MemoryStream *)new_withBuffer:(NSData *)p1 writable:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"byte[],bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"byte[],bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32
     + (System_IO_MemoryStream *)new_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"byte[],int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"byte[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Boolean
     + (System_IO_MemoryStream *)new_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3 writable:(BOOL)p4
     {
-		return [[self alloc] initWithSignature:"byte[],int,int,bool" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		return [[self alloc] initWithSignature:"byte[],int,int,bool" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Boolean, System.Boolean
     + (System_IO_MemoryStream *)new_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3 writable:(BOOL)p4 publiclyVisible:(BOOL)p5
     {
-		return [[self alloc] initWithSignature:"byte[],int,int,bool,bool" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		return [[self alloc] initWithSignature:"byte[],int,int,bool,bool" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
     }
 
 #pragma mark -
@@ -165,7 +165,7 @@
     - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
@@ -184,7 +184,7 @@
     - (System_Threading_Tasks_Task *)flushAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
@@ -206,7 +206,7 @@
     - (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -217,7 +217,7 @@
     - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
@@ -268,7 +268,7 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32
     - (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : WriteAsync
@@ -277,7 +277,7 @@
     - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
@@ -295,7 +295,7 @@
 	// Managed param types : System.IO.Stream
     - (void)writeTo_withStream:(System_IO_Stream *)p1
     {
-		[self invokeMonoMethod:"WriteTo(System.IO.Stream)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteTo(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

@@ -27,8 +27,6 @@
 		ABB375D11986B5E300EE7517 /* DBSystem_Enum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Enum.m; sourceTree = "<group>"; };
 		ABB375D21986B5E300EE7517 /* DBSystem_IO_FileInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_IO_FileInfo.h; sourceTree = "<group>"; };
 		ABB375D31986B5E300EE7517 /* DBSystem_IO_FileInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_IO_FileInfo.m; sourceTree = "<group>"; };
-		ABB375D41986B5E300EE7517 /* DBSystem_Object.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Object.h; sourceTree = "<group>"; };
-		ABB375D51986B5E300EE7517 /* DBSystem_Object.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Object.m; sourceTree = "<group>"; };
 		ABB375D61986B64000EE7517 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.md; sourceTree = "<group>"; };
 		ABB375D81986B67900EE7517 /* mscorlib.codegen.config.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.codegen.config.objc.xml; sourceTree = "<group>"; };
 		ABB375D91986B67900EE7517 /* mscorlib.codegen.postflight.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.codegen.postflight.objc.xml; sourceTree = "<group>"; };
@@ -76,8 +74,6 @@
 				ABB375D11986B5E300EE7517 /* DBSystem_Enum.m */,
 				ABB375D21986B5E300EE7517 /* DBSystem_IO_FileInfo.h */,
 				ABB375D31986B5E300EE7517 /* DBSystem_IO_FileInfo.m */,
-				ABB375D41986B5E300EE7517 /* DBSystem_Object.h */,
-				ABB375D51986B5E300EE7517 /* DBSystem_Object.m */,
 			);
 			path = "Helper-classes";
 			sourceTree = "<group>";

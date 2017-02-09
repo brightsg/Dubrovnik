@@ -115,7 +115,7 @@
 	// Managed param types : System.Threading.CancellationToken
     - (void)wait_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
-		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Wait
@@ -124,7 +124,7 @@
     - (BOOL)wait_withTimeout:(System_TimeSpan *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Wait(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Wait(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -135,7 +135,7 @@
     - (BOOL)wait_withTimeout:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Wait(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Wait(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -157,7 +157,7 @@
     - (BOOL)wait_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Wait(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Wait(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -179,7 +179,7 @@
     - (System_Threading_Tasks_Task *)waitAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
     }
@@ -201,7 +201,7 @@
     - (System_Threading_Tasks_TaskA1 *)waitAsync_withTimeout:(System_TimeSpan *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
@@ -212,7 +212,7 @@
     - (System_Threading_Tasks_TaskA1 *)waitAsync_withTimeout:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }
@@ -223,7 +223,7 @@
     - (System_Threading_Tasks_TaskA1 *)waitAsync_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
     }

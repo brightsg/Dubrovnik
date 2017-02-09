@@ -52,7 +52,7 @@
     - (void)setTarget:(System_Object *)value
 	{
 		_target = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Target" valueObject:monoObject];          
 	}
 
@@ -76,7 +76,7 @@
     + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
     }
@@ -87,7 +87,7 @@
     + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1 type:(System_Runtime_InteropServices_GCHandleType)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object,System.Runtime.InteropServices.GCHandleType)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object,System.Runtime.InteropServices.GCHandleType)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
     }
@@ -98,7 +98,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -139,7 +139,7 @@
     + (BOOL)op_Equality_withA:(System_Runtime_InteropServices_GCHandle *)p1 b:(System_Runtime_InteropServices_GCHandle *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -161,7 +161,7 @@
     + (void *)op_Explicit_withValueSRIGCHandle:(System_Runtime_InteropServices_GCHandle *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Runtime.InteropServices.GCHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Runtime.InteropServices.GCHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_PTR(monoObject);
     }
@@ -172,7 +172,7 @@
     + (BOOL)op_Inequality_withA:(System_Runtime_InteropServices_GCHandle *)p1 b:(System_Runtime_InteropServices_GCHandle *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -183,7 +183,7 @@
     + (void *)toIntPtr_withValue:(System_Runtime_InteropServices_GCHandle *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToIntPtr(System.Runtime.InteropServices.GCHandle)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToIntPtr(System.Runtime.InteropServices.GCHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_PTR(monoObject);
     }

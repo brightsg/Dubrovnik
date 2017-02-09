@@ -8,6 +8,11 @@
 #import "DBUReferenceObject.h"
 #import "DBUIReferenceObject.h"
 
+/*
+ Note that the code here was written manually and uses
+ runtime method invocation as opposed to the more modern thunking
+ approach used in parts of generated code.
+ */
 @implementation DBUReferenceObject
 
 @dynamic stringProperty_;
@@ -52,7 +57,7 @@
 
 + (void)setClassStringField:(NSString *)value
 {
-    [[self class] setMonoClassField:"ClassStringField" valueObject:[value monoValue]];
+    [[self class] setMonoClassField:"ClassStringField" valueObject:[value monoRTInvokeArg]];
 }
 
 + (int32_t)classIntField
@@ -87,7 +92,7 @@
 }
 - (void)setStringField:(NSString *)value
 {
-    [self setMonoField:"StringField" valueObject:[value monoValue]];
+    [self setMonoField:"StringField" valueObject:[value monoRTInvokeArg]];
 }
 
 - (NSDate *)dateField
@@ -120,7 +125,7 @@
 - (BOOL)equals_withObj:(System_Object *)p1
 {
     
-    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
     
     return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -156,11 +161,9 @@
 {
     _stringProperty = value;
     
-    MonoObject *monoObject = [value monoValue];
+    MonoObject *monoObject = [value monoRTInvokeArg];
     [self setMonoProperty:"StringProperty" valueObject:monoObject];
 }
-
-
 
 - (NSDate *)date
 {
@@ -172,8 +175,8 @@
 {
     // Mono DateTime is a struct and hence a value type which must be passed to the property setter as
     // a pointer to the value rather than a boxed MonoObject representation.
-    // Calling - monoValue on an NSObject instance ensures that the correct representation is used for property values.
-    [self setMonoProperty:"Date" valueObject:[value monoValue]];
+    // Calling - monoRTInvokeArg on an NSObject instance ensures that the correct representation is used for property values.
+    [self setMonoProperty:"Date" valueObject:[value monoRTInvokeArg]];
 }
 
 - (NSDecimalNumber *)decimalNumber
@@ -184,7 +187,7 @@
 
 - (void)setDecimalNumber:(NSDecimalNumber *)value
 {
-    [self setMonoProperty:"DecimalNumber" valueObject:[value monoValue]];
+    [self setMonoProperty:"DecimalNumber" valueObject:[value monoRTInvokeArg]];
 }
 
 - (int32_t)int32Number
@@ -209,7 +212,7 @@
 
 - (void)setReferenceObjectRelative:(DBUReferenceObject *)value
 {
-    [self setMonoProperty:"ReferenceObjectRelative" valueObject:[value monoValue]];
+    [self setMonoProperty:"ReferenceObjectRelative" valueObject:[value monoRTInvokeArg]];
 }
 
 - (DBUReferenceObject *)referenceObjectRelative
@@ -226,12 +229,7 @@
 
 - (void)setIntEnumeration:(eDBUIntEnum)value
 {
-    if (NO) {
-        MonoObject *monoObject = [DBUIntEnum monoEnumFromInt32:value];
-        [self setMonoProperty:"IntEnumeration" valueObject:mono_object_unbox(monoObject)];
-    } else {
-        [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
-    }
+    [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
 }
 
 - (eDBULongEnum)longEnumeration
@@ -266,7 +264,7 @@
 - (void)setNotifyingProperty1:(NSString *)value
 {
     _notifyingProperty1 = value;
-    MonoObject *monoObject = [value monoValue];
+    MonoObject *monoObject = [value monoRTInvokeArg];
     [self setMonoProperty:"NotifyingProperty1" valueObject:monoObject];
 }
 
@@ -284,7 +282,7 @@
 - (void)setNotifyingProperty2:(NSString *)value
 {
     _notifyingProperty2 = value;
-    MonoObject *monoObject = [value monoValue];
+    MonoObject *monoObject = [value monoRTInvokeArg];
     [self setMonoProperty:"NotifyingProperty2" valueObject:monoObject];
 }
 
@@ -565,7 +563,7 @@
 }
 - (NSString *)stringMethod_withS1:(NSString *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
@@ -579,7 +577,7 @@
 
 - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
@@ -587,7 +585,7 @@
 
 - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -597,7 +595,7 @@
 // Managed param types : ref System.String&
 - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1
 {
-    void *refPtr1 = [*p1 monoValue];
+    void *refPtr1 = [*p1 monoRTInvokeArg];
     
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethodWithStringRef(string&)" withNumArgs:1, &refPtr1];
     
@@ -611,31 +609,31 @@
 
 - (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableBoolMethod(System.Nullable`1<bool>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableDateMethod(System.Nullable`1<System.DateTime>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableInt32Method(System.Nullable`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableDecimalMethod(System.Nullable`1<System.Decimal>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
 - (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"NullableDoubleMethod(System.Nullable`1<double>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [System_NullableA1 objectWithMonoObject:monoObject];
 }
 
@@ -645,7 +643,7 @@
 - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7
 {
     // note tha mono float is an alias for System.Single, hence the use of single in the signature below
-    MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
@@ -671,7 +669,7 @@
 
 - (NSDate *)dateMethod_withD1:(NSDate *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"DateMethod(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
     NSDate *value = [NSDate dateWithMonoDateTime:monoObject];
     
     return value;
@@ -683,7 +681,7 @@
 - (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
 {
     
-    MonoObject *monoObject = [self invokeMonoMethod:"DecimalMultiplierMethod(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"DecimalMultiplierMethod(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
     
     return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
@@ -694,43 +692,43 @@
 
 - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT64(monoObject);
 }
 
 - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT32(monoObject);
 }
 
 - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT32(monoObject);
 }
 
 - (int8_t)sum_withByteArray:(DBSystem_Array *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT8(monoObject);
 }
 
 - (float)sum_withFloatArray:(DBSystem_Array *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_FLOAT(monoObject);
 }
 
 - (double)sum_withDoubleArray:(DBSystem_Array *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_DOUBLE(monoObject);
 }
 
 - (NSString *)sum_withStringArray:(DBSystem_Array *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -739,7 +737,7 @@
 
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [DBUReferenceStruct objectWithMonoObject:monoObject];
 }
 
@@ -775,13 +773,13 @@
 
 - (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
@@ -799,12 +797,12 @@
 
 + (void)attachEvent:(DBUReferenceObject *)value
 {
-    [self invokeMonoClassMethod:"AttachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [value monoValue]];
+    [self invokeMonoClassMethod:"AttachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [value monoRTInvokeArg]];
 }
 
 + (void)detachEvent:(DBUReferenceObject *)value
 {
-    [self invokeMonoClassMethod:"DetachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [value monoValue]];
+    [self invokeMonoClassMethod:"DetachEvent(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [value monoRTInvokeArg]];
 }
 
 #pragma mark -
@@ -843,7 +841,7 @@
     DBManagedClass *monoClassRep = [DBManagedClass classWithMonoClassNamed:"Dubrovnik.UnitTests.Extensions.ReferenceObjectExtensions" fromMonoAssembly:monoAssembly];
 
     // call static extension method
-    MonoObject *monoObject = [monoClassRep invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [self monoValue]];
+    MonoObject *monoObject = [monoClassRep invokeMonoMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [self monoRTInvokeArg]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
@@ -857,7 +855,113 @@
 // Managed param types : System.Object, System.String, System.String, System.String, System.Boolean
 + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerClassName:(NSString *)p3 handlerMethodName:(NSString *)p4 attach:(BOOL)p5
 {
-    [self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,string,bool)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];
+    [self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,string,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
+}
+
+#pragma mark -
+#pragma mark Thunk performance comparison evaluation code
+
+- (void)setStringPropertyViaThunk:(NSString *)value
+{
+    typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+    static Thunk thunk;
+    if (!thunk) {
+        MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringProperty");
+        thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+    }
+    MonoObject *monoException = NULL;
+    thunk(self.monoObject, value.monoObject, &monoException);
+    if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+- (NSString *)stringPropertyViaThunk
+{
+    typedef MonoObject* (*Thunk)(MonoObject *, MonoObject**);
+    static Thunk thunk;
+    if (!thunk) {
+        MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringProperty");
+        thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+    }
+    MonoObject *monoException = NULL;
+    MonoObject *monoObject = thunk(self.monoObject, &monoException);
+    if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+    
+    if ([self object:_stringProperty isEqualToMonoObject:monoObject]) return _stringProperty;
+    _stringProperty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+    return _stringProperty;
+}
+
+- (void)stringPropertyAccessTimingTest
+{
+    MonoObject * monoObject = NULL;
+    MonoException *monoException = NULL;
+    int count = 1000000;
+    
+    NSString *stringValue = (id)[DBManagedObject objectWithMonoObject:[self getMonoProperty:"StringProperty"]];
+    
+    // Getter
+    
+    // invoke method
+    NSDate *startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        monoObject = [self getMonoProperty:"StringProperty"];
+    }
+    NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Raw Invoke Get Time: %f", invokeInterval);
+    
+    // thunk method - seems to give about a x 6 improvement
+    typedef MonoObject* (*GetThunk)(MonoObject *, MonoException** ex);
+    static GetThunk getThunk;
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        if (!getThunk) {
+            MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "StringProperty");
+            getThunk = (GetThunk)mono_method_get_unmanaged_thunk(monoMethod);
+        }
+        monoObject = getThunk(self.monoObject, &monoException);
+    }
+    NSTimeInterval thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Raw Thunk Get Time: %f", thunkInterval);
+    NSLog(@"Get Invoke/Thunk : %f", invokeInterval/thunkInterval);
+    
+    // setter
+    // invoke method
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [self setMonoProperty:"StringProperty" valueObject:stringValue.monoObject];
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Raw Invoke Set Time: %f", invokeInterval);
+    
+    // thunk method - seems to give about a x 3 improvement
+    typedef MonoObject* (*SetThunk)(MonoObject *, MonoObject *, MonoException** ex);
+    static SetThunk setThunk;
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        if (!setThunk) {
+            MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "StringProperty");
+            setThunk = (SetThunk)mono_method_get_unmanaged_thunk(monoMethod);
+        }
+        setThunk(self.monoObject, stringValue.monoObject, &monoException);
+    }
+    thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Raw Thunk Set Time: %f", thunkInterval);
+    NSLog(@"Set Invoke/Thunk : %f", invokeInterval/thunkInterval);
+}
+
+- (NSString *)stringMethodViaThunk_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2
+{
+    typedef MonoObject* (*Thunk)(MonoObject *, MonoObject *, MonoObject *, MonoObject**);
+    static Thunk thunk;
+    if (!thunk) {
+        MonoMethod *monoMethod = GetMonoObjectMethod(self.monoObject, "StringMethod(string,object)", YES);
+        thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+    }
+    MonoObject *monoException = NULL;
+    MonoObject *monoObject = thunk(self.monoObject, p1.monoObject, p2.monoObject, &monoException);
+    if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+    
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 @end

@@ -72,10 +72,15 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
  */
 - (void)eventSender:(DBManagedObject *)sender propertyChanging:(DBManagedObject *)monoEventArgs
 {
+
+    
     // monoEventArgs should be an instance of System.ComponentModel.PropertyChangedEventArgs
     // as long as the calling process is linked to mono.System.
     // if not it will be an instance of System.EventArgs.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     if ([monoEventArgs respondsToSelector:@selector(propertyName)]) {
+#pragma clang diagnostic pop
         
         // get the managed property name
         NSString *managedPropertyName = [monoEventArgs valueForKey:@"propertyName"];
@@ -102,7 +107,10 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
     // monoEventArgs should be an instance of System.ComponentModel.PropertyChangedEventArgs
     // as long as the calling process is linked to mono.System.
     // if not it will be an instance of System.EventArgs.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     if ([monoEventArgs respondsToSelector:@selector(propertyName)]) {
+#pragma clang diagnostic pop
         
         // get the managed property name
         NSString *managedPropertyName = [monoEventArgs valueForKey:@"propertyName"];

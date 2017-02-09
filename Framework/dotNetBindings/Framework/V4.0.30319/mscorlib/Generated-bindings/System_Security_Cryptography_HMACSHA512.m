@@ -32,7 +32,7 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_HMACSHA512 *)new_withKey:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

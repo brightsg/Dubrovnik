@@ -55,7 +55,7 @@
     - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -88,7 +88,7 @@
     - (System_Security_IPermission *)union_withTarget:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }

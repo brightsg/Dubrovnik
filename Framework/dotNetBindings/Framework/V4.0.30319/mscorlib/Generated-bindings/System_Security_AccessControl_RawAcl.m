@@ -40,7 +40,7 @@
 	// Managed param types : System.Byte[], System.Int32
     + (System_Security_AccessControl_RawAcl *)new_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"byte[],int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"byte[],int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -105,7 +105,7 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : InsertAce
@@ -113,7 +113,7 @@
 	// Managed param types : System.Int32, System.Security.AccessControl.GenericAce
     - (void)insertAce_withIndex:(int32_t)p1 ace:(System_Security_AccessControl_GenericAce *)p2
     {
-		[self invokeMonoMethod:"InsertAce(int,System.Security.AccessControl.GenericAce)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"InsertAce(int,System.Security.AccessControl.GenericAce)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RemoveAce

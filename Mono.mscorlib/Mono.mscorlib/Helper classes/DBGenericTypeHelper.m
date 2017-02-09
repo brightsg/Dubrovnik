@@ -1,23 +1,23 @@
 //
-//  DBGenericManager.m
+//  DBGenericTypeHelper.m
 //  Mono.mscorlib
 //
 //  Created by Jonathan Mitchell on 10/05/2016.
 //  Copyright © 2016 Thesaurus Software. All rights reserved.
 //
 
-#import "DBGenericManager.h"
+#import "DBGenericTypeHelper.h"
 #import "DBSystem_Array.h"
 #import "NSArray+mscorlib.h"
 #import <objc/runtime.h>
 #import "System_Type.h"
 
-@implementation DBGenericManager
+@implementation DBGenericTypeHelper
 
 #pragma mark -
 #pragma mark Singleton
 
-+ (instancetype)sharedManager
++ (instancetype)sharedHelper
 {
     static dispatch_once_t once;
     static id sharedInstance;
@@ -39,6 +39,11 @@
 
 - (System_Object *)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
 {
+    /*
+     The Mono runtime doesn't expose enough of its internal workings via the enbedded API, hence the need for helper methods.
+     See: http://www.mono-project.com/docs/advanced/runtime/docs/generics/
+     */
+    
     // get array of System.Type
     NSArray <System_Type *> *systemTypes = [self systemTypesForTypeParameters:typeParameters];
     DBSystem_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
@@ -92,6 +97,11 @@
         monoType = [DBType monoTypeForMonoObject:[typeParameter monoObject]];
     }
     
+    // DBManagedType
+    else if ([typeParameter isKindOfClass:[DBManagedType class]]) {
+        monoType = [(DBManagedType *)typeParameter monoType];
+    }
+
     // NSValue containing pointer
     else if ([typeParameter isKindOfClass:[NSValue class]]) {
         
@@ -105,7 +115,7 @@
     return monoType;
 }
 
-- (NSArray <System_Type *> *)systemTypesForTypeParameters:(NSArray <id> *)typeParameters
+- (NSArray<System_Type *> *)systemTypesForTypeParameters:(NSArray<id> *)typeParameters
 {
     NSMutableArray <System_Type *> *systemTypes = [NSMutableArray arrayWithCapacity:typeParameters.count];
     
@@ -118,7 +128,7 @@
             
             // get System.Type
             MonoReflectionType *monoReflectionType = mono_type_get_object([DBManagedEnvironment currentDomain], monoType);
-            System_Type *systemType = [[System_Object alloc] initWithMonoObject:(MonoObject *)monoReflectionType];
+            System_Type *systemType = [[System_Type alloc] initWithMonoObject:(MonoObject *)monoReflectionType];
             
             // add to array
             [systemTypes addObject:systemType];

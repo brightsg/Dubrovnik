@@ -22,9 +22,10 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
-// mono object and value casting
+// mono object and value casting used primarily when calling runtime invoke.
+// note that when calling thunks primitive value types are passed directly rather than by pointer.
 #define DB_PTR(x) &x
-#define DB_VALUE(x) (MonoObject *)&x
+#define DB_VALUE(x) (MonoObject *)&x // value types are passed as pointers to value
 #define DB_STRING(x) (MonoString *)x
 #define DB_OBJECT(x) (MonoObject *)x
 #define DB_ARRAY(x) (MonoArray *)x
@@ -67,6 +68,8 @@ MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable);
 //Method lookup
 MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature);
 MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature);
+MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName);
+MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName);
 
 // Exception handling
 void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info);

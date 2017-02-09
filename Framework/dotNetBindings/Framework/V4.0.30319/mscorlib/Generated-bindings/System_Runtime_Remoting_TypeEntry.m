@@ -41,7 +41,7 @@
     - (void)setAssemblyName:(NSString *)value
 	{
 		_assemblyName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AssemblyName" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setTypeName:(NSString *)value
 	{
 		_typeName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"TypeName" valueObject:monoObject];          
 	}
 

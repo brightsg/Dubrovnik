@@ -41,7 +41,7 @@
     - (void)setHashName:(NSString *)value
 	{
 		_hashName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"HashName" valueObject:monoObject];          
 	}
 
@@ -54,7 +54,7 @@
     - (NSData *)generateMask_withRgbSeed:(NSData *)p1 cbReturn:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GenerateMask(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GenerateMask(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }

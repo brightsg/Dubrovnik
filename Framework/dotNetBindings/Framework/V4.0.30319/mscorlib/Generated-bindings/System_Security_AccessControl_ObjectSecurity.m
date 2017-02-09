@@ -116,7 +116,7 @@
     - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 type:(System_Security_AccessControl_AccessControlType)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
 		
 		return [System_Security_AccessControl_AccessRule objectWithMonoObject:monoObject];
     }
@@ -127,7 +127,7 @@
     - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 flags:(System_Security_AccessControl_AuditFlags)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
 		
 		return [System_Security_AccessControl_AuditRule objectWithMonoObject:monoObject];
     }
@@ -138,7 +138,7 @@
     - (System_Security_Principal_IdentityReference *)getGroup_withTargetType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetGroup(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetGroup(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Principal_IdentityReference objectWithMonoObject:monoObject];
     }
@@ -149,7 +149,7 @@
     - (System_Security_Principal_IdentityReference *)getOwner_withTargetType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetOwner(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetOwner(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Principal_IdentityReference objectWithMonoObject:monoObject];
     }
@@ -193,7 +193,7 @@
     - (BOOL)modifyAccessRule_withModification:(System_Security_AccessControl_AccessControlModification)p1 rule:(System_Security_AccessControl_AccessRule *)p2 modifiedRef:(BOOL*)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ModifyAccessRule(System.Security.AccessControl.AccessControlModification,System.Security.AccessControl.AccessRule,bool&)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], p3];
+		MonoObject *monoObject = [self invokeMonoMethod:"ModifyAccessRule(System.Security.AccessControl.AccessControlModification,System.Security.AccessControl.AccessRule,bool&)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], p3];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -204,7 +204,7 @@
     - (BOOL)modifyAuditRule_withModification:(System_Security_AccessControl_AccessControlModification)p1 rule:(System_Security_AccessControl_AuditRule *)p2 modifiedRef:(BOOL*)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ModifyAuditRule(System.Security.AccessControl.AccessControlModification,System.Security.AccessControl.AuditRule,bool&)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], p3];
+		MonoObject *monoObject = [self invokeMonoMethod:"ModifyAuditRule(System.Security.AccessControl.AccessControlModification,System.Security.AccessControl.AuditRule,bool&)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], p3];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -214,7 +214,7 @@
 	// Managed param types : System.Security.Principal.IdentityReference
     - (void)purgeAccessRules_withIdentity:(System_Security_Principal_IdentityReference *)p1
     {
-		[self invokeMonoMethod:"PurgeAccessRules(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"PurgeAccessRules(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : PurgeAuditRules
@@ -222,7 +222,7 @@
 	// Managed param types : System.Security.Principal.IdentityReference
     - (void)purgeAuditRules_withIdentity:(System_Security_Principal_IdentityReference *)p1
     {
-		[self invokeMonoMethod:"PurgeAuditRules(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"PurgeAuditRules(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetAccessRuleProtection
@@ -246,7 +246,7 @@
 	// Managed param types : System.Security.Principal.IdentityReference
     - (void)setGroup_withIdentity:(System_Security_Principal_IdentityReference *)p1
     {
-		[self invokeMonoMethod:"SetGroup(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetGroup(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetOwner
@@ -254,7 +254,7 @@
 	// Managed param types : System.Security.Principal.IdentityReference
     - (void)setOwner_withIdentity:(System_Security_Principal_IdentityReference *)p1
     {
-		[self invokeMonoMethod:"SetOwner(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetOwner(System.Security.Principal.IdentityReference)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetSecurityDescriptorBinaryForm
@@ -262,7 +262,7 @@
 	// Managed param types : System.Byte[]
     - (void)setSecurityDescriptorBinaryForm_withBinaryForm:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetSecurityDescriptorBinaryForm(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetSecurityDescriptorBinaryForm(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetSecurityDescriptorBinaryForm
@@ -270,7 +270,7 @@
 	// Managed param types : System.Byte[], System.Security.AccessControl.AccessControlSections
     - (void)setSecurityDescriptorBinaryForm_withBinaryForm:(NSData *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2
     {
-		[self invokeMonoMethod:"SetSecurityDescriptorBinaryForm(byte[],System.Security.AccessControl.AccessControlSections)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"SetSecurityDescriptorBinaryForm(byte[],System.Security.AccessControl.AccessControlSections)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : SetSecurityDescriptorSddlForm
@@ -278,7 +278,7 @@
 	// Managed param types : System.String
     - (void)setSecurityDescriptorSddlForm_withSddlForm:(NSString *)p1
     {
-		[self invokeMonoMethod:"SetSecurityDescriptorSddlForm(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetSecurityDescriptorSddlForm(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetSecurityDescriptorSddlForm
@@ -286,7 +286,7 @@
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
     - (void)setSecurityDescriptorSddlForm_withSddlForm:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2
     {
-		[self invokeMonoMethod:"SetSecurityDescriptorSddlForm(string,System.Security.AccessControl.AccessControlSections)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"SetSecurityDescriptorSddlForm(string,System.Security.AccessControl.AccessControlSections)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -

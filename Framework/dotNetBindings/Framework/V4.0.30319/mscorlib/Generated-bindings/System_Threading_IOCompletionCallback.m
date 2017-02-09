@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_Threading_IOCompletionCallback *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -44,7 +44,7 @@
     - (System_IAsyncResult *)beginInvoke_withErrorCode:(uint32_t)p1 numBytes:(uint32_t)p2 pOVERLAP:(System_Threading_NativeOverlapped **)p3 callback:(System_AsyncCallback *)p4 object:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(uint,uint,System.Threading.NativeOverlapped*,System.AsyncCallback,object)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), p3, [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(uint,uint,System.Threading.NativeOverlapped*,System.AsyncCallback,object)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), p3, [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult objectWithMonoObject:monoObject];
     }
@@ -54,7 +54,7 @@
 	// Managed param types : System.IAsyncResult
     - (void)endInvoke_withResult:(System_IAsyncResult *)p1
     {
-		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Invoke

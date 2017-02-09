@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Principal.IIdentity
     + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String
     + (System_Security_Claims_ClaimsIdentity *)new_withAuthenticationType:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String
     + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1 authenticationType:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerableA1 *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.String, System.String, System.String
     + (System_Security_Claims_ClaimsIdentity *)new_withAuthenticationType:(NSString *)p1 nameType:(NSString *)p2 roleType:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +80,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String, System.String, System.String
     + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1 authenticationType:(NSString *)p2 nameType:(NSString *)p3 roleType:(NSString *)p4
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string,string,string" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string,string,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +88,7 @@
 	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String, System.String, System.String
     + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerableA1 *)p2 authenticationType:(NSString *)p3 nameType:(NSString *)p4 roleType:(NSString *)p5
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string,string,string" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>,string,string,string" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -177,7 +177,7 @@
     - (void)setBootstrapContext:(System_Object *)value
 	{
 		_bootstrapContext = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"BootstrapContext" valueObject:monoObject];          
 	}
 
@@ -218,7 +218,7 @@
     - (void)setLabel:(NSString *)value
 	{
 		_label = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Label" valueObject:monoObject];          
 	}
 
@@ -266,7 +266,7 @@
 	// Managed param types : System.Security.Claims.Claim
     - (void)addClaim_withClaim:(System_Security_Claims_Claim *)p1
     {
-		[self invokeMonoMethod:"AddClaim(System.Security.Claims.Claim)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddClaim(System.Security.Claims.Claim)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddClaims
@@ -274,7 +274,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
     - (void)addClaims_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		[self invokeMonoMethod:"AddClaims(System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddClaims(System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Clone
@@ -294,7 +294,7 @@
     - (System_Collections_Generic_IEnumerableA1 *)findAll_withMatch:(System_PredicateA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
@@ -305,7 +305,7 @@
     - (System_Collections_Generic_IEnumerableA1 *)findAll_withType:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
     }
@@ -316,7 +316,7 @@
     - (System_Security_Claims_Claim *)findFirst_withMatch:(System_PredicateA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
@@ -327,7 +327,7 @@
     - (System_Security_Claims_Claim *)findFirst_withType:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindFirst(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
     }
@@ -338,7 +338,7 @@
     - (BOOL)hasClaim_withMatch:(System_PredicateA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(System.Predicate`1<System.Security.Claims.Claim>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -349,7 +349,7 @@
     - (BOOL)hasClaim_withType:(NSString *)p1 value:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"HasClaim(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -359,7 +359,7 @@
 	// Managed param types : System.Security.Claims.Claim
     - (void)removeClaim_withClaim:(System_Security_Claims_Claim *)p1
     {
-		[self invokeMonoMethod:"RemoveClaim(System.Security.Claims.Claim)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveClaim(System.Security.Claims.Claim)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : TryRemoveClaim
@@ -368,7 +368,7 @@
     - (BOOL)tryRemoveClaim_withClaim:(System_Security_Claims_Claim *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"TryRemoveClaim(System.Security.Claims.Claim)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryRemoveClaim(System.Security.Claims.Claim)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

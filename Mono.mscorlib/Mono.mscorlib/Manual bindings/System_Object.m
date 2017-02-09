@@ -36,7 +36,7 @@
 // Managed param types : System.Object
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -45,7 +45,7 @@
 // Managed param types : System.Object, System.Object
 - (BOOL)equals_withObjA:(System_Object *)p1 objB:(System_Object *)p2
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
     return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -72,7 +72,7 @@
 // Managed param types : System.Object, System.Object
 - (BOOL)referenceEquals_withObjA:(System_Object *)p1 objB:(System_Object *)p2
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"ReferenceEquals(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"ReferenceEquals(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
     return DB_UNBOX_BOOLEAN(monoObject);
 }
 

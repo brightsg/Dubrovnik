@@ -73,7 +73,7 @@
 	// Managed param types : System.Func`1<System.Boolean>
     + (void)spinUntil_withCondition:(System_FuncA1 *)p1
     {
-		[self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SpinUntil
@@ -82,7 +82,7 @@
     + (BOOL)spinUntil_withCondition:(System_FuncA1 *)p1 timeout:(System_TimeSpan *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -93,7 +93,7 @@
     + (BOOL)spinUntil_withCondition:(System_FuncA1 *)p1 millisecondsTimeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SpinUntil(System.Func`1<System.Boolean>,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

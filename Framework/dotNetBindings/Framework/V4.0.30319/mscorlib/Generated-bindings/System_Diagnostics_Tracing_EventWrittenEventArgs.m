@@ -104,7 +104,7 @@
     - (void)setMessage:(NSString *)value
 	{
 		_message = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Message" valueObject:monoObject];          
 	}
 

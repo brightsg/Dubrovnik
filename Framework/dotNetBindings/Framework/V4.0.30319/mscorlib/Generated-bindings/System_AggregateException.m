@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_AggregateException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Exception
     + (System_AggregateException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
     + (System_AggregateException *)new_withInnerExceptionsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Exception>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Exception>" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Exception[]
     + (System_AggregateException *)new_withInnerExceptionsSArray:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"System.Array[]" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Array[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.Exception>
     + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Collections.Generic.IEnumerable`1<System.Exception>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Collections.Generic.IEnumerable`1<System.Exception>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +72,7 @@
 	// Managed param types : System.String, System.Exception[]
     + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSArray:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Array[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Array[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -120,7 +120,7 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Handle
@@ -128,7 +128,7 @@
 	// Managed param types : System.Func`2<System.Exception, System.Boolean>
     - (void)handle_withPredicate:(System_FuncA2 *)p1
     {
-		[self invokeMonoMethod:"Handle(System.Func`2<System.Exception, System.Boolean>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Handle(System.Func`2<System.Exception, System.Boolean>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ToString

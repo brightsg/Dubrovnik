@@ -32,7 +32,7 @@
 	// Managed param types : System.Threading.ThreadStart
     + (System_Threading_Thread *)new_withStartSTThreadStart:(System_Threading_ThreadStart *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.ThreadStart" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Threading.ThreadStart" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Threading.ThreadStart, System.Int32
     + (System_Threading_Thread *)new_withStartSTThreadStart:(System_Threading_ThreadStart *)p1 maxStackSizeInt:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.ThreadStart,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Threading.ThreadStart,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Threading.ParameterizedThreadStart
     + (System_Threading_Thread *)new_withStartSTParameterizedThreadStart:(System_Threading_ParameterizedThreadStart *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.Threading.ParameterizedThreadStart, System.Int32
     + (System_Threading_Thread *)new_withStartSTParameterizedThreadStart:(System_Threading_ParameterizedThreadStart *)p1 maxStackSizeInt:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -233,7 +233,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
@@ -273,7 +273,7 @@
 	// Managed param types : System.Object
     - (void)abort_withStateInfo:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Abort(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Abort(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Abort
@@ -301,7 +301,7 @@
     + (System_LocalDataStoreSlot *)allocateNamedDataSlot_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
@@ -351,7 +351,7 @@
 	// Managed param types : System.String
     + (void)freeNamedDataSlot_withName:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetApartmentState
@@ -382,7 +382,7 @@
     + (System_Object *)getData_withSlot:(System_LocalDataStoreSlot *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(System.LocalDataStoreSlot)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -426,7 +426,7 @@
     + (System_LocalDataStoreSlot *)getNamedDataSlot_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
     }
@@ -464,7 +464,7 @@
     - (BOOL)join_withTimeout:(System_TimeSpan *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Join(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Join(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -506,7 +506,7 @@
 	// Managed param types : System.Threading.CompressedStack
     - (void)setCompressedStack_withStack:(System_Threading_CompressedStack *)p1
     {
-		[self invokeMonoMethod:"SetCompressedStack(System.Threading.CompressedStack)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetCompressedStack(System.Threading.CompressedStack)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetData
@@ -514,7 +514,7 @@
 	// Managed param types : System.LocalDataStoreSlot, System.Object
     + (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Sleep
@@ -530,7 +530,7 @@
 	// Managed param types : System.TimeSpan
     + (void)sleep_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoClassMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SpinWait
@@ -554,7 +554,7 @@
 	// Managed param types : System.Object
     - (void)start_withParameter:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Start(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Start(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Suspend
@@ -713,7 +713,7 @@
 	// Managed param types : ref System.Object&
     + (System_Object *)volatileRead_withAddressObjectRef:(System_Object **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(object&)" withNumArgs:1, &refPtr1];
 
@@ -823,7 +823,7 @@
 	// Managed param types : ref System.Object&, System.Object
     + (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(object&,object)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+		[self invokeMonoClassMethod:"VolatileWrite(object&,object)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 ;
     }
 

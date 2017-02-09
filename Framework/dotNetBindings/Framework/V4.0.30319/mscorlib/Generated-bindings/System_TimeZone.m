@@ -83,7 +83,7 @@
     - (System_TimeSpan *)getUtcOffset_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUtcOffset(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetUtcOffset(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_TimeSpan objectWithMonoObject:monoObject];
     }
@@ -94,7 +94,7 @@
     - (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDaylightSavingTime(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsDaylightSavingTime(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -105,7 +105,7 @@
     + (BOOL)isDaylightSavingTime_withTime:(NSDate *)p1 daylightTimes:(System_Globalization_DaylightTime *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDaylightSavingTime(System.DateTime,System.Globalization.DaylightTime)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDaylightSavingTime(System.DateTime,System.Globalization.DaylightTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -116,7 +116,7 @@
     - (NSDate *)toLocalTime_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToLocalTime(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToLocalTime(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -127,7 +127,7 @@
     - (NSDate *)toUniversalTime_withTime:(NSDate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToUniversalTime(System.DateTime)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToUniversalTime(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }

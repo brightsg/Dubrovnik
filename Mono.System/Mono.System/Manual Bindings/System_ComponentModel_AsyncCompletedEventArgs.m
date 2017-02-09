@@ -34,7 +34,7 @@
 	// Managed param types : System.Exception, System.Boolean, System.Object
     + (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3
     {
-		return [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
     }
 
 #pragma mark -

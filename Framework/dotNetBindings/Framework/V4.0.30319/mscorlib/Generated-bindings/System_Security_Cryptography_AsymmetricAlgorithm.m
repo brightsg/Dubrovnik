@@ -108,7 +108,7 @@
     + (System_Security_Cryptography_AsymmetricAlgorithm *)create_withAlgName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_AsymmetricAlgorithm objectWithMonoObject:monoObject];
     }
@@ -126,7 +126,7 @@
 	// Managed param types : System.String
     - (void)fromXmlString_withXmlString:(NSString *)p1
     {
-		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ToXmlString

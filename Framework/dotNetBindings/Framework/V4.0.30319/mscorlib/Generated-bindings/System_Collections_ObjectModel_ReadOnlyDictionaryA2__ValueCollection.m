@@ -46,7 +46,7 @@
 	// Managed param types : <TValue[]>, System.Int32
     - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(<_T_1>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(<_T_1>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetEnumerator

@@ -85,7 +85,7 @@
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
     - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Send
@@ -93,7 +93,7 @@
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
     - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Send(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Send(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetSynchronizationContext
@@ -101,7 +101,7 @@
 	// Managed param types : System.Threading.SynchronizationContext
     + (void)setSynchronizationContext_withSyncContext:(System_Threading_SynchronizationContext *)p1
     {
-		[self invokeMonoClassMethod:"SetSynchronizationContext(System.Threading.SynchronizationContext)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SetSynchronizationContext(System.Threading.SynchronizationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Wait
@@ -110,7 +110,7 @@
     - (int32_t)wait_withWaitHandles:(DBSystem_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Wait(intptr[],bool,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Wait(intptr[],bool,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

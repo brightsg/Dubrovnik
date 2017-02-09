@@ -53,7 +53,7 @@
     + (void)setCurrentDirectory:(NSString *)value
 	{
 		m_currentDirectory = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[[self class] setMonoClassProperty:"CurrentDirectory" valueObject:monoObject];          
 	}
 
@@ -286,7 +286,7 @@
     + (NSString *)expandEnvironmentVariables_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ExpandEnvironmentVariables(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExpandEnvironmentVariables(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -296,7 +296,7 @@
 	// Managed param types : System.String
     + (void)failFast_withMessage:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FailFast(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"FailFast(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : FailFast
@@ -304,7 +304,7 @@
 	// Managed param types : System.String, System.Exception
     + (void)failFast_withMessage:(NSString *)p1 exception:(System_Exception *)p2
     {
-		[self invokeMonoClassMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetCommandLineArgs
@@ -324,7 +324,7 @@
     + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -335,7 +335,7 @@
     + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(System_EnvironmentVariableTarget)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string,System.EnvironmentVariableTarget)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string,System.EnvironmentVariableTarget)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -400,7 +400,7 @@
 	// Managed param types : System.String, System.String
     + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetEnvironmentVariable
@@ -408,7 +408,7 @@
 	// Managed param types : System.String, System.String, System.EnvironmentVariableTarget
     + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(System_EnvironmentVariableTarget)p3
     {
-		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 #pragma mark -

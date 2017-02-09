@@ -41,7 +41,7 @@
     - (void)setChannelData:(DBSystem_Array *)value
 	{
 		_channelData = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"System.Runtime.Remoting.IChannelInfo.ChannelData" valueObject:monoObject];          
 	}
 

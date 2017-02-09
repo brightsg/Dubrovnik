@@ -32,7 +32,7 @@
 	// Managed param types : System.Type, ref System.String&, ref System.String&
     - (void)bindToName_withSerializedType:(System_Type *)p1 assemblyNameRef:(NSString **)p2 typeNameRef:(NSString **)p3
     {
-		[self invokeMonoMethod:"BindToName(System.Type,string&,string&)" withNumArgs:3, [p1 monoValue], &refPtr2, &refPtr3];
+		[self invokeMonoMethod:"BindToName(System.Type,string&,string&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
 ;
     }
 
@@ -42,7 +42,7 @@
     - (System_Type *)bindToType_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BindToType(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BindToType(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }

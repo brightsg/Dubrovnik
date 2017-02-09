@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.Int32
     + (System_Security_Cryptography_Rfc2898DeriveBytes *)new_withPassword:(NSString *)p1 saltSize:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Int32, System.Int32
     + (System_Security_Cryptography_Rfc2898DeriveBytes *)new_withPassword:(NSString *)p1 saltSize:(int32_t)p2 iterations:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.String, System.Byte[]
     + (System_Security_Cryptography_Rfc2898DeriveBytes *)new_withPassword:(NSString *)p1 salt:(NSData *)p2
     {
-		return [[self alloc] initWithSignature:"string,byte[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.String, System.Byte[], System.Int32
     + (System_Security_Cryptography_Rfc2898DeriveBytes *)new_withPasswordString:(NSString *)p1 saltByte:(NSData *)p2 iterationsInt:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,byte[],int" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"string,byte[],int" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.Byte[], System.Byte[], System.Int32
     + (System_Security_Cryptography_Rfc2898DeriveBytes *)new_withPasswordByte:(NSData *)p1 saltByte:(NSData *)p2 iterationsInt:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"byte[],byte[],int" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		return [[self alloc] initWithSignature:"byte[],byte[],int" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
     }
 
 #pragma mark -
@@ -101,7 +101,7 @@
     - (void)setSalt:(NSData *)value
 	{
 		_salt = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Salt" valueObject:monoObject];          
 	}
 

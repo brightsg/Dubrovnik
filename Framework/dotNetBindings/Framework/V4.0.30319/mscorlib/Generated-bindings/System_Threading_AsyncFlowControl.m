@@ -41,7 +41,7 @@
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -52,7 +52,7 @@
     - (BOOL)equals_withObjSTAsyncFlowControl:(System_Threading_AsyncFlowControl *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.AsyncFlowControl)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.AsyncFlowControl)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -74,7 +74,7 @@
     + (BOOL)op_Equality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.AsyncFlowControl,System.Threading.AsyncFlowControl)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.AsyncFlowControl,System.Threading.AsyncFlowControl)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -85,7 +85,7 @@
     + (BOOL)op_Inequality_withA:(System_Threading_AsyncFlowControl *)p1 b:(System_Threading_AsyncFlowControl *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.AsyncFlowControl,System.Threading.AsyncFlowControl)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.AsyncFlowControl,System.Threading.AsyncFlowControl)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

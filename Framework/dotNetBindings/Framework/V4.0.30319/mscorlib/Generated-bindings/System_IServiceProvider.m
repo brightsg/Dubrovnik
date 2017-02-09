@@ -33,7 +33,7 @@
     - (System_Object *)getService_withServiceType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.IServiceProvider.GetService(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.IServiceProvider.GetService(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

@@ -93,7 +93,7 @@
 
 - (void)add:(System_Object *)object
 {
-    [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [object monoValue]];
+    [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [object monoRTInvokeArg]];
 }
 
 

@@ -124,7 +124,7 @@
     + (NSDecimalNumber *)abs_withValueDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Abs(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Abs(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -190,7 +190,7 @@
     + (NSDecimalNumber *)ceiling_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Ceiling(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Ceiling(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -267,7 +267,7 @@
     + (NSDecimalNumber *)floor_withDDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Floor(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Floor(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -443,7 +443,7 @@
     + (NSDecimalNumber *)max_withVal1Decimal:(NSDecimalNumber *)p1 val2Decimal:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Max(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Max(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -564,7 +564,7 @@
     + (NSDecimalNumber *)min_withVal1Decimal:(NSDecimalNumber *)p1 val2Decimal:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Min(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Min(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -630,7 +630,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -641,7 +641,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -652,7 +652,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(System_MidpointRounding)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,System.MidpointRounding)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,System.MidpointRounding)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -663,7 +663,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(System_MidpointRounding)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int,System.MidpointRounding)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int,System.MidpointRounding)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -740,7 +740,7 @@
     + (int32_t)sign_withValueDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Sign(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Sign(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -806,7 +806,7 @@
     + (NSDecimalNumber *)truncate_withDDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Truncate(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Truncate(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }

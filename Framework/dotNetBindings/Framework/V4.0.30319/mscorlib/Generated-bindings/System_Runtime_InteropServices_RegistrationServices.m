@@ -44,7 +44,7 @@
     - (NSString *)getProgIdForType_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetProgIdForType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetProgIdForType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -55,7 +55,7 @@
     - (DBSystem_Array *)getRegistrableTypesInAssembly_withAssembly:(System_Reflection_Assembly *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRegistrableTypesInAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetRegistrableTypesInAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -66,7 +66,7 @@
     - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(System_Runtime_InteropServices_AssemblyRegistrationFlags)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RegisterAssembly(System.Reflection.Assembly,System.Runtime.InteropServices.AssemblyRegistrationFlags)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"RegisterAssembly(System.Reflection.Assembly,System.Runtime.InteropServices.AssemblyRegistrationFlags)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -76,7 +76,7 @@
 	// Managed param types : System.Type, ref System.Guid&
     - (void)registerTypeForComClients_withType:(System_Type *)p1 gRef:(System_Guid **)p2
     {
-		[self invokeMonoMethod:"RegisterTypeForComClients(System.Type,System.Guid&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		[self invokeMonoMethod:"RegisterTypeForComClients(System.Type,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 ;
     }
 
@@ -86,7 +86,7 @@
     - (int32_t)registerTypeForComClients_withType:(System_Type *)p1 classContext:(System_Runtime_InteropServices_RegistrationClassContext)p2 flags:(System_Runtime_InteropServices_RegistrationConnectionType)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RegisterTypeForComClients(System.Type,System.Runtime.InteropServices.RegistrationClassContext,System.Runtime.InteropServices.RegistrationConnectionType)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"RegisterTypeForComClients(System.Type,System.Runtime.InteropServices.RegistrationClassContext,System.Runtime.InteropServices.RegistrationConnectionType)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -97,7 +97,7 @@
     - (BOOL)typeRepresentsComType_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"TypeRepresentsComType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TypeRepresentsComType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -108,7 +108,7 @@
     - (BOOL)typeRequiresRegistration_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"TypeRequiresRegistration(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TypeRequiresRegistration(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -119,7 +119,7 @@
     - (BOOL)unregisterAssembly_withAssembly:(System_Reflection_Assembly *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"UnregisterAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"UnregisterAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -33,7 +33,7 @@
     + (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExtensionString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -55,7 +55,7 @@
     + (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"StaticString(Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

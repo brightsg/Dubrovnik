@@ -33,7 +33,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 bodySActionA1:(System_ActionA1 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Action`1<System.Int32>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Action`1<System.Int32>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 bodySActionA1:(System_ActionA1 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Action`1<System.Int64>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Action`1<System.Int64>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 bodySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Int32>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Int32>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 bodySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Int64>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Int64>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 bodySActionA2:(System_ActionA2 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Action`2<System.Int32, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Action`2<System.Int32, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 bodySActionA2:(System_ActionA2 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Action`2<System.Int64, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Action`2<System.Int64, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -99,7 +99,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 bodySActionA2:(System_ActionA2 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Int32, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Int32, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -110,7 +110,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 bodySActionA2:(System_ActionA2 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Int64, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Int64, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -121,7 +121,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -132,7 +132,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -143,7 +143,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 localInitSFuncA1:(System_FuncA1 *)p4 bodySFuncA4:(System_FuncA4 *)p5 localFinallySActionA1:(System_ActionA1 *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(int,int,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int32, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -154,7 +154,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)for_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p3 localInitSFuncA1:(System_FuncA1 *)p4 bodySFuncA4:(System_FuncA4 *)p5 localFinallySActionA1:(System_ActionA1 *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"For(long,long,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Int64, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -165,7 +165,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 bodySActionA1:(System_ActionA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -176,7 +176,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA1:(System_ActionA1 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -187,7 +187,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 bodySActionA2:(System_ActionA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -198,7 +198,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA2:(System_ActionA2 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -209,7 +209,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 bodySActionA3:(System_ActionA3 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -220,7 +220,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA3:(System_ActionA3 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -231,7 +231,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA4:(System_FuncA4 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -242,7 +242,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -253,7 +253,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA5:(System_FuncA5 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -264,7 +264,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA5:(System_FuncA5 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -275,7 +275,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 bodySActionA1:(System_ActionA1 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -286,7 +286,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 bodySActionA2:(System_ActionA2 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -297,7 +297,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 bodySActionA3:(System_ActionA3 *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -308,7 +308,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA4:(System_FuncA4 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -319,7 +319,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 localInitSFuncA1:(System_FuncA1 *)p2 bodySFuncA5:(System_FuncA5 *)p3 localFinallySActionA1:(System_ActionA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -330,7 +330,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA1:(System_ActionA1 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`1<System.Threading.Tasks.Parallel+TSource>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -341,7 +341,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA2:(System_ActionA2 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`2<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -352,7 +352,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySActionA3:(System_ActionA3 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Action`3<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Int64>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -363,7 +363,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCPartitionerA1:(System_Collections_Concurrent_PartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA4:(System_FuncA4 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.Partitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`4<System.Threading.Tasks.Parallel+TSource, System.Threading.Tasks.ParallelLoopState, System.Threading.Tasks.Parallel+TLocal, System.Threading.Tasks.Parallel+TLocal>,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -374,7 +374,7 @@
     + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCCOrderablePartitionerA1:(System_Collections_Concurrent_OrderablePartitionerA1 *)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 localInitSFuncA1:(System_FuncA1 *)p3 bodySFuncA5:(System_FuncA5 *)p4 localFinallySActionA1:(System_ActionA1 *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ForEach(System.Collections.Concurrent.OrderablePartitioner`1<System.Threading.Tasks.Parallel+TSource>,System.Threading.Tasks.ParallelOptions,System.Func`1<System.Threading.Tasks.Parallel+TLocal>,System.Func`5,System.Action`1<System.Threading.Tasks.Parallel+TLocal>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_ParallelLoopResult objectWithMonoObject:monoObject];
     }
@@ -384,7 +384,7 @@
 	// Managed param types : System.Action[]
     + (void)invoke_withActions:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"Invoke(System.Array[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Invoke(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Invoke
@@ -392,7 +392,7 @@
 	// Managed param types : System.Threading.Tasks.ParallelOptions, System.Action[]
     + (void)invoke_withParallelOptions:(System_Threading_Tasks_ParallelOptions *)p1 actions:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"Invoke(System.Threading.Tasks.ParallelOptions,System.Array[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Invoke(System.Threading.Tasks.ParallelOptions,System.Array[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

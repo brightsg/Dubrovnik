@@ -87,7 +87,7 @@ static MonoAssembly *monoAssembly;
 
 @interface Dubrovnik_Unit_Tests()
 
-- (void)doTestReferenceClass:(Class)testClass;
+- (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations;
 - (id)doTestConstructorsWithclass:(Class)testClass;
 - (void)doTestFields:(id)refObject class:(Class)testClass;
 - (void)doTestExtensionMethods:(id)refObject class:(Class)testClass;
@@ -328,7 +328,7 @@ static MonoAssembly *monoAssembly;
     @autoreleasepool {
         
         // test reference class
-        [self doTestReferenceClass:[DBUReferenceObject class]];
+        [self doTestReferenceClass:[DBUReferenceObject class] iterations:3];
         
         // managed object allocation
         id managedObject = [[DBUReferenceObject alloc] init];
@@ -351,22 +351,21 @@ static MonoAssembly *monoAssembly;
     NSLog(@"==============================================");
 
     @autoreleasepool {
-        [self doTestReferenceClass:[DUReferenceObject_ class]];
+        [self doTestReferenceClass:[DUReferenceObject_ class] iterations:3];
     }
 
     //
-    // enumerations
+    // test enumerations
     //
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DBUIntEnum val1], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DBUIntEnum val2], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DBUIntEnum val3], DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DBUIntEnum val4], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DUIntEnum_ val1], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DUIntEnum_ val2], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DUIntEnum_ val3], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DUIntEnum_ val4], DBUEqualityTestFailed);
 
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == eDBULongEnum_Val1, DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == eDBULongEnum_Val2, DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == eDBULongEnum_Val3, DBUEqualityTestFailed);
-    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == eDBULongEnum_Val4, DBUEqualityTestFailed);
-    
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == [DULongEnum_ val1], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == [DULongEnum_ val2], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == [DULongEnum_ val3], DBUEqualityTestFailed);
+    XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DULongEnum_ val4], DBUEqualityTestFailed);
     
 #endif
     
@@ -523,14 +522,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)doTestGenericConstructors:(Class)testClass
 {
     // allocate core generic types from class
-    DBSystem_Collections_Generic_ListA1 *listA1 = [DBSystem_Collections_Generic_ListA1 newCoreGenericObjectWithTypeParameters:@[[System_Object class]]];
-    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2 = [DBSystem_Collections_Generic_DictionaryA2 newCoreGenericObjectWithTypeParameters:@[[System_String class], [System_Object class]]];
-    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newCoreGenericObjectWithTypeParameters:@[[System_String class], [System_Object class]]];
+    DBSystem_Collections_Generic_ListA1 *listA1 = [DBSystem_Collections_Generic_ListA1 newObjectWithGenericTypeParameters:@[[System_Object class]]];
+    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2 = [DBSystem_Collections_Generic_DictionaryA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
     
     // allocate core generic types from type name
-    DBSystem_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
-    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2_1 = (id)[[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.Dictionary`2" typeParameters:@[[System_String class], [System_Object class]]];
-    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2_1 = (id)[[DBGenericManager sharedManager] createInstanceOfCoreGenericTypeDefinition:"System.Collections.Generic.KeyValuePair`2" typeParameters:@[[System_String class], [System_Object class]]];
+    DBSystem_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
+    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.Dictionary`2" typeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.KeyValuePair`2" typeParameters:@[[System_String class], [System_Object class]]];
     
     // System_Object -description calls .ToString which returns a description including the generic parameter types, hence the string comparisons
     XCTAssertTrue([listA1.description isEqualToString:listA1_1.description], DBUEqualityTestFailed);
@@ -540,27 +539,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // Dictionary<TKey,TValue> tests
     //
-    
-    /*
-     
-     When adding value types to a collection which expects reference types we must not unbox any value types.
-     
-     TODO: generic collection objects know their type parameters. If a given parameter is a reference type then 
-     value types added for that parameter must not be unboxed and vice versa.
-     This is equivalen to passing arguments as -monoValue (auto unboxes value types) or -monoObject (passes ref type).
-     
-     The above is not implemented so as a temporary workaround we explicity disable auto box behaviour of value types instances.
-     This is far from ideal but it will serve for now.
-     
-     */
     System_Object *numInt = DBNumInt(51).managedObject;
-    numInt.autoUnboxValueType = NO;
     System_Object *numLongLong = DBNumLongLong(510).managedObject;
-    numLongLong.autoUnboxValueType = NO;
     System_Object *numFloat = DBNumFloat(5100).managedObject;
-    numFloat.autoUnboxValueType = NO;
     System_Object *numDouble = DBNumFloat(51000).managedObject;
-    numDouble.autoUnboxValueType = NO;
     
     // populate dictionary
     [dictionaryA2 addKey:[@"name" managedObject] value:[@"bob" managedObject]];
@@ -1260,6 +1242,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 - (void)doTestGenericMethods:(id)refObject class:(Class)testClass
 {
+#pragma unused(refObject)
 #pragma unused(testClass)
 }
 
@@ -1638,6 +1621,24 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
+- (void)doTestEnumderations
+{
+
+    if (m_runningAutoGenCodeTest) {
+    
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val1 == [DUIntEnum_ val1], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val2 == [DUIntEnum_ val2], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val3 == [DUIntEnum_ val3], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_IntEnum_val4 == [DUIntEnum_ val4], DBUEqualityTestFailed);
+        
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val1 == [DULongEnum_ val1], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val2 == [DULongEnum_ val2], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val3 == [DULongEnum_ val3], DBUEqualityTestFailed);
+        XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DULongEnum_ val4], DBUEqualityTestFailed);
+        
+    }
+
+}
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
 {
     
@@ -1833,7 +1834,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSLog(@"Decimal number : %@", decimalNumber);
         NSLog(@"New decimal number : %@", [refObject decimalNumber]);
     }
-    
+
     //
     // enumeration properties
     //
@@ -1856,70 +1857,94 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
 }
 
-- (void)doTestReferenceClass:(Class)testClass
+- (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations
 {
-    
-    //===================================
-    // constructors
-    //===================================
-    id refObject = [self doTestConstructorsWithclass:testClass];
-    
-    [self doTestGenericConstructors:testClass];
-
-    //===================================
-    // events
-    //===================================
-    
-    // the fact that the manually generated object does not have a class
-    // name that matches the managed object class causes the event tests to fail.
-    // hence we call them on the auto generated code only
-    if (m_runningAutoGenCodeTest) {
-        [self doTestEvents:refObject class:testClass];
+    if (iterations < 1) {
+        XCTAssertTrue(NO, @"The iteration count must be greater than 1 to ensure that caches that get setup on first access subsequently get queried.");
     }
     
-    //===================================
-    // equality
-    //===================================
-    [self doTestForEquality:refObject class:testClass];
-
-    //===================================
-    // fields
-    //===================================
-    [self doTestFields:refObject class:testClass];
-
-    //===================================
-    // methods
-    //===================================
-    [self doTestMethods:refObject class:testClass];
-    [self doTestExtensionMethods:refObject class:testClass];
-    [self doTestArrayMethods:refObject class:testClass];
-    [self doTestPointerMethods:refObject class:testClass];
-    [self doTestRefMethods:refObject class:testClass];
-    [self doTestGenericMethods:refObject class:testClass];
-
-    //===================================
-    // properties
-    //===================================
-    [self doTestProperties:refObject class:testClass];
-    [self doTestArrayProperties:refObject class:testClass];
-    [self doTestGenericProperties:refObject class:testClass];
-    [self doTestPointerProperties:refObject class:testClass];
-    [self doTestPropertyPersistence:refObject class:testClass];
-    [self doTestNotifyingProperties:refObject class:testClass];
-
-    //===================================
-    // representations
-    //===================================
-    [self doTestStructRepresentation:refObject class:testClass];
-    [self doTestObjectRepresentation:refObject class:testClass];
-    [self doTestArrayListRepresentation:refObject class:testClass];
+    NSDate *startTime = [NSDate date];
+    int loopCounter = iterations;
     
-    //===================================
-    // Delegates
-    //===================================
-    if (m_runningAutoGenCodeTest) {
-        [self doTestDelegates:refObject class:testClass];
-    }
+    do {
+        //===================================
+        // constructors
+        //===================================
+        id refObject = [self doTestConstructorsWithclass:testClass];
+        
+        [self doTestGenericConstructors:testClass];
+
+        //===================================
+        // events
+        //===================================
+        
+        // the fact that the manually generated object does not have a class
+        // name that matches the managed object class causes the event tests to fail.
+        // hence we call them on the auto generated code only
+        if (m_runningAutoGenCodeTest) {
+            [self doTestEvents:refObject class:testClass];
+        }
+        
+        //===================================
+        // equality
+        //===================================
+        [self doTestForEquality:refObject class:testClass];
+
+        //===================================
+        // fields
+        //===================================
+        [self doTestFields:refObject class:testClass];
+
+        //===================================
+        // methods
+        //===================================
+        [self doTestMethods:refObject class:testClass];
+        [self doTestExtensionMethods:refObject class:testClass];
+        [self doTestArrayMethods:refObject class:testClass];
+        [self doTestPointerMethods:refObject class:testClass];
+        [self doTestRefMethods:refObject class:testClass];
+        [self doTestGenericMethods:refObject class:testClass];
+
+        //===================================
+        // properties
+        //===================================
+        NSDate *propertyStartTime = [NSDate date];
+        [self doTestProperties:refObject class:testClass];
+        [self doTestArrayProperties:refObject class:testClass];
+        [self doTestGenericProperties:refObject class:testClass];
+        [self doTestPointerProperties:refObject class:testClass];
+        [self doTestPropertyPersistence:refObject class:testClass];
+        [self doTestNotifyingProperties:refObject class:testClass];
+        NSTimeInterval invokeInterval = -[propertyStartTime timeIntervalSinceNow];
+        NSLog(@"%@ : property tests (%u) Time: %f", self.runModeName, 1, invokeInterval);
+        
+        //===================================
+        // representations
+        //===================================
+        [self doTestStructRepresentation:refObject class:testClass];
+        [self doTestObjectRepresentation:refObject class:testClass];
+        [self doTestArrayListRepresentation:refObject class:testClass];
+        [self doTestEnumderations];
+        
+        //===================================
+        // Delegates
+        //===================================
+        if (m_runningAutoGenCodeTest) {
+            [self doTestDelegates:refObject class:testClass];
+        }
+        
+        if (!m_runningAutoGenCodeTest) {
+            [self doTestThunks:refObject class:testClass];
+        }
+    } while (--loopCounter);
+    
+    NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"%@ : doTestReferenceClass(%u) Time: %f", self.runModeName, iterations, invokeInterval);
+}
+
+- (NSString *)runModeName
+{
+    return m_runningAutoGenCodeTest ? @"Generated code" : @"Manual code";
 }
 
 - (void)doTestEvents:(id)refObject class:(Class)testClass
@@ -2186,6 +2211,86 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
     XCTAssertTrue(intResult2 == 17654, DBUEqualityTestFailed);
     [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
+}
+
+#pragma mark -
+#pragma mark Thunk evaluation
+
+- (void)doTestThunks:(id)refObject class:(Class)testClass
+{
+    #pragma unused(testClass)
+    
+    // this works for the manually generated bindings because they
+    // use method invoke as opposed to thunks
+    NSLog(@"============================================");
+    NSLog(@"Method invoke re thunk performace comparison");
+    NSLog(@"============================================");
+    NSString *stringValue = [refObject stringProperty];
+    
+    // raw thunk versus invoke timing test
+    [refObject stringPropertyAccessTimingTest];
+    
+    // more representative usage case scenarios
+    
+    // getter
+    // method invoke
+    int count = 1000000;
+    NSDate *startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringProperty];
+    }
+    NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Invoke Get Time: %f", invokeInterval);
+    
+    // thunk
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringPropertyViaThunk];
+    }
+    NSTimeInterval thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Thunk Get Time: %f", thunkInterval);
+    NSLog(@"Scenario Get Invoke/Thunk: %f", invokeInterval / thunkInterval);
+    
+    // setter
+    // method invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject setStringProperty:stringValue];
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Invoke Set Time: %f", invokeInterval);
+    
+    // thunk invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject setStringPropertyViaThunk:stringValue];
+    }
+    thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Thunk Set Time: %f", thunkInterval);
+    NSLog(@"Scenario Set Invoke/Thunk: %f", invokeInterval / thunkInterval);
+
+    // method
+    NSString *stringS1 = @"just what";
+    MonoString *monoString = mono_string_new(mono_domain_get(), "2");
+    DBManagedObject *stringObj = [DBManagedObject objectWithMonoObject:(MonoObject *)monoString];
+
+    // method invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringMethod_withS1String:stringS1 s2Object:stringObj];
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Invoke Method Time: %f", invokeInterval);
+    
+    // method
+    // thunk invoke
+    startTime = [NSDate date];
+    for (int i = 0; i < count; i++) {
+        [refObject stringMethodViaThunk_withS1String:stringS1 s2Object:stringObj];
+    }
+    thunkInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"Scenario Thunk Method Time: %f", thunkInterval);
+    NSLog(@"Scenario Method Invoke/Thunk: %f", invokeInterval / thunkInterval);
 }
 
 #pragma mark -

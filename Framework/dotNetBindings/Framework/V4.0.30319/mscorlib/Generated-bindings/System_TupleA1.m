@@ -32,7 +32,7 @@
 	// Managed param types : <System.Tuple`1+T1>
     + (System_TupleA1 *)new_withItem1:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -59,7 +59,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

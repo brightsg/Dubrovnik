@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.AccessControl.AceType, System.Security.AccessControl.AceFlags, System.Byte[]
     + (System_Security_AccessControl_CustomAce *)new_withType:(System_Security_AccessControl_AceType)p1 flags:(System_Security_AccessControl_AceFlags)p2 opaque:(NSData *)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.AccessControl.AceType,System.Security.AccessControl.AceFlags,byte[]" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.AccessControl.AceType,System.Security.AccessControl.AceFlags,byte[]" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -82,7 +82,7 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetOpaque
@@ -101,7 +101,7 @@
 	// Managed param types : System.Byte[]
     - (void)setOpaque_withOpaque:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

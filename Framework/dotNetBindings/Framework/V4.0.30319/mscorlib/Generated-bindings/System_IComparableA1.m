@@ -33,7 +33,7 @@
     - (int32_t)compareTo_withOther:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.IComparable`1<System.IComparable`1+T>.CompareTo(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.IComparable`1<System.IComparable`1+T>.CompareTo(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

@@ -106,7 +106,7 @@
     + (int32_t)getGeneration_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGeneration(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGeneration(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -117,7 +117,7 @@
     + (int32_t)getGeneration_withWo:(System_WeakReference *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGeneration(System.WeakReference)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetGeneration(System.WeakReference)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -138,7 +138,7 @@
 	// Managed param types : System.Object
     + (void)keepAlive_withObj:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"KeepAlive(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"KeepAlive(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : RegisterForFullGCNotification
@@ -162,7 +162,7 @@
 	// Managed param types : System.Object
     + (void)reRegisterForFinalize_withObj:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"ReRegisterForFinalize(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"ReRegisterForFinalize(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SuppressFinalize
@@ -170,7 +170,7 @@
 	// Managed param types : System.Object
     + (void)suppressFinalize_withObj:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"SuppressFinalize(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SuppressFinalize(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : WaitForFullGCApproach

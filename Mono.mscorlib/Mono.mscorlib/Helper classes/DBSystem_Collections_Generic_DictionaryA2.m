@@ -39,14 +39,14 @@
     id object = nil;
     if ([self containsKey:key]) {
         
-        MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+        MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
         MonoClass * monoClass = mono_class_from_mono_type(monoType);
         void *invokeObj = NULL;
         
         // If the method signature has value type then invoke by value.
         // If not, then invoke by reference.
         if (mono_class_is_valuetype(monoClass)) {
-            invokeObj = [key monoValue];
+            invokeObj = [key monoRTInvokeArg];
         } else {
             invokeObj = [key monoObject];
         }
@@ -66,11 +66,11 @@
     BOOL containsKey = NO;
     
     // TODO: use -confromsToProtocol? YES: and apply to key id too.
-    if ([key respondsToSelector:@selector(monoObject)] && [key respondsToSelector:@selector(monoValue)]) {
+    if ([key respondsToSelector:@selector(monoObject)] && [key respondsToSelector:@selector(monoRTInvokeArg)]) {
         
         // form the method signature using key generic type
         // TODO: perform method name caching
-        MonoType *monoType = [self getMonoGenericTypeAtIndex:0];
+        MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
         NSString *monoArgumentTypeName = [[DBTypeManager sharedManager] monoTypeSignatureForMonoType:monoType];
         NSString *methodName = [NSString stringWithFormat:@"ContainsKey(%@)", monoArgumentTypeName];
         
@@ -80,7 +80,7 @@
         // If the method signature has value type then invoke by value.
         // If not, then invoke by reference.
         if (mono_class_is_valuetype(monoClass)) {
-            invokeObj = [key monoValue];
+            invokeObj = [key monoRTInvokeArg];
         } else {
             invokeObj = [key monoObject];
         }
@@ -90,10 +90,10 @@
         containsKey = DB_UNBOX_BOOLEAN(monoObject);
     } else {
         if ([key isKindOfClass:[NSNumber class]]) {
-            [NSException raise:@"Invalid numeric key object" format:@"%@ numeric key %@ (%@) must be a subclass of NSNumber that responds to -monoObject and -monoValue. Dubrovnik provides DBNumber for just this purpose.", [self class], key, [key class]];
+            [NSException raise:@"Invalid numeric key object" format:@"%@ numeric key %@ (%@) must be a subclass of NSNumber that responds to -monoObject and -monoRTInvokeArg. Dubrovnik provides DBNumber for just this purpose.", [self class], key, [key class]];
             
         } else {
-            [NSException raise:@"Invalid key object" format:@"%@ Key %@ (%@) must respond to -monoObject and -monoValue.", [self class], key, [key class]];
+            [NSException raise:@"Invalid key object" format:@"%@ Key %@ (%@) must respond to -monoObject and -monoRTInvokeArg.", [self class], key, [key class]];
         }
     }
     
@@ -110,7 +110,19 @@
 
 - (void)addKey:(System_Object *)key value:(System_Object *)value
 {
-    [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [key monoValue], [value monoValue]];
+    // unbox value types if generic key parameter type is value type
+    MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
+    MonoClass *klass = mono_class_from_mono_type(monoType);
+    BOOL keyParameterTypeIsValueType = mono_class_is_valuetype(klass);
+    void *keyArg = keyParameterTypeIsValueType ? [key monoRTInvokeArg] : key.monoObject;
+    
+    // unbox value types if generic value parameter type is value type
+    monoType = [self.managedType monoGenericTypeAtIndex:1];
+    klass = mono_class_from_mono_type(monoType);
+    BOOL valueParameterTypeIsValueType = mono_class_is_valuetype(klass);
+    void *valueArg = valueParameterTypeIsValueType ? [value monoRTInvokeArg] : value.monoObject;
+    
+    [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, keyArg, valueArg];
 }
 
 @end

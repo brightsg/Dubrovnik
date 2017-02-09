@@ -32,7 +32,7 @@
 	// Managed param types : System.Int32, System.Int32, System.IntPtr, System.IAsyncResult
     + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventIntptr:(void *)p3 arSIAsyncResult:(System_IAsyncResult *)p4
     {
-		return [[self alloc] initWithSignature:"int,int,intptr,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];;
+		return [[self alloc] initWithSignature:"int,int,intptr,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.IAsyncResult
     + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventInt:(int32_t)p3 arSIAsyncResult:(System_IAsyncResult *)p4
     {
-		return [[self alloc] initWithSignature:"int,int,int,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue]];;
+		return [[self alloc] initWithSignature:"int,int,int,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -149,7 +149,7 @@
     - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }
@@ -160,7 +160,7 @@
     - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }
@@ -182,7 +182,7 @@
     - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }
@@ -193,7 +193,7 @@
     - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
     }

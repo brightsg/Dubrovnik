@@ -32,7 +32,7 @@
 	// Managed param types : System.String, System.Reflection.Assembly
     + (System_Resources_ResourceManager *)new_withBaseName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Reflection.Assembly" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Reflection.Assembly" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Reflection.Assembly, System.Type
     + (System_Resources_ResourceManager *)new_withBaseName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2 usingResourceSet:(System_Type *)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Reflection.Assembly,System.Type" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Reflection.Assembly,System.Type" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Type
     + (System_Resources_ResourceManager *)new_withResourceSource:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -129,7 +129,7 @@
     + (System_Resources_ResourceManager *)createFileBasedResourceManager_withBaseName:(NSString *)p1 resourceDir:(NSString *)p2 usingResourceSet:(System_Type *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFileBasedResourceManager(string,string,System.Type)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFileBasedResourceManager(string,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Resources_ResourceManager objectWithMonoObject:monoObject];
     }
@@ -140,7 +140,7 @@
     - (System_Object *)getObject_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -151,7 +151,7 @@
     - (System_Object *)getObject_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetObject(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -162,7 +162,7 @@
     - (System_Resources_ResourceSet *)getResourceSet_withCulture:(System_Globalization_CultureInfo *)p1 createIfNotExists:(BOOL)p2 tryParents:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetResourceSet(System.Globalization.CultureInfo,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetResourceSet(System.Globalization.CultureInfo,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [System_Resources_ResourceSet objectWithMonoObject:monoObject];
     }
@@ -173,7 +173,7 @@
     - (System_IO_UnmanagedMemoryStream *)getStream_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_IO_UnmanagedMemoryStream objectWithMonoObject:monoObject];
     }
@@ -184,7 +184,7 @@
     - (System_IO_UnmanagedMemoryStream *)getStream_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IO_UnmanagedMemoryStream objectWithMonoObject:monoObject];
     }
@@ -195,7 +195,7 @@
     - (NSString *)getString_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -206,7 +206,7 @@
     - (NSString *)getString_withName:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetString(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetString(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

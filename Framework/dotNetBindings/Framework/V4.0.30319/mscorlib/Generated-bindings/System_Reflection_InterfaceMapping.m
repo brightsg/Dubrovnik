@@ -41,7 +41,7 @@
     - (void)setInterfaceMethods:(DBSystem_Array *)value
 	{
 		_interfaceMethods = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"InterfaceMethods" valueObject:monoObject];          
 	}
 
@@ -77,7 +77,7 @@
     - (void)setTargetMethods:(DBSystem_Array *)value
 	{
 		_targetMethods = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"TargetMethods" valueObject:monoObject];          
 	}
 

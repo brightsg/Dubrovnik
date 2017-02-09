@@ -32,7 +32,7 @@
 	// Managed param types : <System.Collections.Generic.KeyValuePair`2+TKey>, <System.Collections.Generic.KeyValuePair`2+TValue>
     + (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		return [[self alloc] initWithSignature:"<_T_0>,<_T_1>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"<_T_0>,<_T_1>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -

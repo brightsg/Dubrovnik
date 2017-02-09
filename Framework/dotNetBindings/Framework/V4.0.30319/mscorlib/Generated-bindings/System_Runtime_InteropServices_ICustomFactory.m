@@ -33,7 +33,7 @@
     - (System_MarshalByRefObject *)createInstance_withServerType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ICustomFactory.CreateInstance(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ICustomFactory.CreateInstance(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_MarshalByRefObject objectWithMonoObject:monoObject];
     }

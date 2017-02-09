@@ -41,7 +41,7 @@
     - (void)setHashName:(NSString *)value
 	{
 		_hashName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"HashName" valueObject:monoObject];          
 	}
 
@@ -59,7 +59,7 @@
     - (void)setKey:(NSData *)value
 	{
 		_key = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Key" valueObject:monoObject];          
 	}
 
@@ -83,7 +83,7 @@
     + (System_Security_Cryptography_HMAC *)create_withAlgorithmName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_HMAC objectWithMonoObject:monoObject];
     }

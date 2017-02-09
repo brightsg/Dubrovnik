@@ -76,7 +76,7 @@
 	// Managed param types : System.Byte[]
     - (void)nextBytes_withBuffer:(NSData *)p1
     {
-		[self invokeMonoMethod:"NextBytes(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"NextBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : NextDouble

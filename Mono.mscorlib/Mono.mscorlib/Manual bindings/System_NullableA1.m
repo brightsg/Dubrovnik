@@ -38,7 +38,7 @@
 // Managed param types : <T>
 + (System_NullableA1 *)new_withValue:(DBManagedObject *)p1
 {
-    return [[self alloc] initWithSignature:"Dubrovnik.Generic.Parameter" withNumArgs:1, [p1 monoValue]];
+    return [[self alloc] initWithSignature:"Dubrovnik.Generic.Parameter" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 // Managed type : System.Boolean
@@ -77,7 +77,7 @@
 // Managed param types : System.Object
 - (BOOL)equals_withOther:(DBManagedObject *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+    MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_BOOLEAN(monoObject);
 }
 

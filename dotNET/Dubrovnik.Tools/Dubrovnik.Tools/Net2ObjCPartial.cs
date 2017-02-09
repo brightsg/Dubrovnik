@@ -91,13 +91,10 @@ namespace Dubrovnik.Tools
             WriteCommentBlock("Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes");
 
             // Write all enumerations
-            foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
-            {
-                foreach (EnumerationFacet enumeration in @namespace.Enumerations)
-                {
-                    WriteEnumeration(enumeration);
+				foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces) {
+					foreach (EnumerationFacet enumeration in @namespace.Enumerations) {
+						this.WriteEnumeration(enumeration);
                 }
-            
             }
 
             // Write all interfaces.
@@ -137,6 +134,15 @@ namespace Dubrovnik.Tools
                 WriteInterfaceClass(@interface);
             }
         }
+
+		  //
+		  // WriteEnumeration
+		  //
+		  public void WriteEnumeration(EnumerationFacet @enum) {
+			  WriteClassStart(@enum, "enumeration");
+			  WriteFields(@enum.Fields);
+			  WriteClassEnd(@enum);
+		  }
 
         //
         // WriteClass
@@ -444,7 +450,7 @@ namespace Dubrovnik.Tools
                             // Default setter formatter for types represented by an NSObject instance.
                             // Note that some Managed value types such as DateTime are represented by NSObject instances.
                             // Managed numeric types are represented by primitive numeric types in Obj-C.
-                            value = "[{0} monoValue]";
+									value = "[{0} monoRTInvokeArg]";
                         }
                         else
                         {
@@ -522,7 +528,7 @@ namespace Dubrovnik.Tools
                     decl += " *";
                 }
             }
-
+			   
             return decl;
         }
 
@@ -918,6 +924,7 @@ namespace Dubrovnik.Tools
             if (facet.IsGenericType) return false;
             if (facet.IsStruct) return false;
 
+				// pointers are not value types!
             if (facet.IsValueType || facet.IsPointer)
             {
                 return true;
@@ -983,7 +990,11 @@ namespace Dubrovnik.Tools
                 if (managedFacet.IsByRef || managedFacet.IsPointer)
                 {
                     managedType = managedFacet.ElementType;
-                }
+					 } 
+					 else if (managedFacet.IsEnum) 
+					 {
+						 managedType = managedFacet.UnderlyingType;
+					 }
                 else
                 {
                     managedType = managedFacet.Type;

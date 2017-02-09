@@ -32,7 +32,7 @@
 	// Managed param types : System.Object
     - (void)onDeserialization_withSender:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

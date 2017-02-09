@@ -62,7 +62,7 @@
     - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -73,7 +73,7 @@
     - (BOOL)equals_withObjSRETypeToken:(System_Reflection_Emit_TypeToken *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.TypeToken)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.TypeToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -95,7 +95,7 @@
     + (BOOL)op_Equality_withA:(System_Reflection_Emit_TypeToken *)p1 b:(System_Reflection_Emit_TypeToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.Emit.TypeToken,System.Reflection.Emit.TypeToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.Emit.TypeToken,System.Reflection.Emit.TypeToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -106,7 +106,7 @@
     + (BOOL)op_Inequality_withA:(System_Reflection_Emit_TypeToken *)p1 b:(System_Reflection_Emit_TypeToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.Emit.TypeToken,System.Reflection.Emit.TypeToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.Emit.TypeToken,System.Reflection.Emit.TypeToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

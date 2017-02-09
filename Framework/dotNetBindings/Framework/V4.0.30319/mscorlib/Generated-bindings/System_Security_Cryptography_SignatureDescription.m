@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.SecurityElement
     + (System_Security_Cryptography_SignatureDescription *)new_withEl:(System_Security_SecurityElement *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setDeformatterAlgorithm:(NSString *)value
 	{
 		_deformatterAlgorithm = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"DeformatterAlgorithm" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setDigestAlgorithm:(NSString *)value
 	{
 		_digestAlgorithm = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"DigestAlgorithm" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setFormatterAlgorithm:(NSString *)value
 	{
 		_formatterAlgorithm = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"FormatterAlgorithm" valueObject:monoObject];          
 	}
 
@@ -106,7 +106,7 @@
     - (void)setKeyAlgorithm:(NSString *)value
 	{
 		_keyAlgorithm = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"KeyAlgorithm" valueObject:monoObject];          
 	}
 
@@ -119,7 +119,7 @@
     - (System_Security_Cryptography_AsymmetricSignatureDeformatter *)createDeformatter_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateDeformatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateDeformatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_AsymmetricSignatureDeformatter objectWithMonoObject:monoObject];
     }
@@ -141,7 +141,7 @@
     - (System_Security_Cryptography_AsymmetricSignatureFormatter *)createFormatter_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateFormatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateFormatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_AsymmetricSignatureFormatter objectWithMonoObject:monoObject];
     }

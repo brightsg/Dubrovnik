@@ -32,7 +32,7 @@
 	// Managed param types : System.Text.DecoderReplacementFallback
     + (System_Text_DecoderReplacementFallbackBuffer *)new_withFallback:(System_Text_DecoderReplacementFallback *)p1
     {
-		return [[self alloc] initWithSignature:"System.Text.DecoderReplacementFallback" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Text.DecoderReplacementFallback" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -58,7 +58,7 @@
     - (BOOL)fallback_withBytesUnknown:(NSData *)p1 index:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Fallback(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Fallback(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

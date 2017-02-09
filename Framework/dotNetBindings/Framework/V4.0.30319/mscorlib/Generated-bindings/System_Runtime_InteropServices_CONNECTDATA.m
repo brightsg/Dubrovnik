@@ -58,7 +58,7 @@
     - (void)setPUnk:(System_Object *)value
 	{
 		_pUnk = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"pUnk" valueObject:monoObject];          
 	}
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Diagnostics_DebuggerDisplayAttribute *)new_withValue:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Name" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     - (void)setTargetTypeName:(NSString *)value
 	{
 		_targetTypeName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"TargetTypeName" valueObject:monoObject];          
 	}
 
@@ -106,7 +106,7 @@
     - (void)setType:(NSString *)value
 	{
 		_type = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Type" valueObject:monoObject];          
 	}
 

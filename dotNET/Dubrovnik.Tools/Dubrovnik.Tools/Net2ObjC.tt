@@ -162,10 +162,7 @@ public void WriteInterfaceFilePreliminaries()
 		facets.AddRange(@namespace.Classes);
 		facets.AddRange(@namespace.Interfaces);
 		facets.AddRange(@namespace.Structs);
-		if (ImplementEnumerationsAsClasses) 
-		{
-			facets.AddRange(@namespace.Enumerations);
-        }
+		facets.AddRange(@namespace.Enumerations);
 
 		// write class predeclarations 
 		if (facets.Count() > 0 && !commentOutput) 
@@ -392,13 +389,24 @@ public void WriteClassStart(CodeFacet facet, string module, bool writeBanner = t
 	// we may not be quite ready to supply all the framework managed interfaces that
 	// are commonly referenced
 	bool outputImplementedProtocols = true;
-	if (true) {
+	if (outputImplementedProtocols) {
 		implementedProtocols =  OutputImplementedProtocolSuffix(facet);
     }
 
 	 if (writeBanner) {
 		WriteModuleBanner(facet, module);
     }
+
+	 if (facet is EnumerationFacet) {
+#>
+
+// C enumeration
+<#+
+		WriteFacetAsEnumeration((EnumerationFacet)facet);
+#>
+
+<#+
+	}
 #>
 @<#=classPrefix#> <#=facet.ObjCFacet.Type#><#=superClass#><#=implementedProtocols#>
 <#+	
@@ -477,41 +485,28 @@ public void WriteClassTeardown(CodeFacet facet)
     }
 }
 //
-// WriteEnumeration
+// WriteFacetAsEnumeration
 //
-public void WriteEnumeration(EnumerationFacet enumeration)
+public void WriteFacetAsEnumeration(EnumerationFacet enumeration)
 {
 	string objCEnumType = ObjCTypeNameFromManagedTypeName(enumeration.UnderlyingType);
 	string objCType = ObjCTypeNameFromManagedTypeName(enumeration.Type);
 
-	// output the enums as a typedef.
-	// note that we could also generate a class based definition.
-	// it remains to be seen whether this is necessary.
+	// output the enums as a C typedef enum.
 	if (OutputFileType == OutputType.Interface) 
 	{
-		if (!ImplementEnumerationsAsClasses) 
-		{
-
-			WriteModuleBanner(enumeration, "enumeration");
 #>
-typedef NS_ENUM(<#=objCEnumType#>, <#=objCType#>) {
+typedef NS_ENUM(<#=objCEnumType#>, enum<#=objCType#>) {
 <#+
-			foreach (FieldFacet field in enumeration.Fields) 
-			{
-				string objCFieldName = ObjCIdentifierFromManagedIdentifier(field.Name);
+		foreach (FieldFacet field in enumeration.Fields) {
+			string objCFieldName = ObjCIdentifierFromManagedIdentifier(field.Name);
 #>
 	<#=objCType#>_<#=objCFieldName#> = <#=field.ConstantValue#>,
 <#+
-			}
+		}
 #>
 };
 <#+
-			WriteModuleFooter();
-		}	
-		else 
-		{
-			throw new Exception("Enumerations as classes not implemented");
-		}
     } 
 
 }
@@ -537,8 +532,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	// property storage and evaluation
 	string propertyAttributes = "";
 	string propertyStorage = "_" + getterName;
-	if (facet.IsStatic) 
-	{
+	if (facet.IsStatic) {
 		propertyStorage = "m" + propertyStorage;
 		if (isObjectProperty) 
         {
@@ -546,27 +540,20 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
         }
     }
 	string doPropertyEqualityTest = "";
-	if (isObjectProperty) 
-	{
+	if (isObjectProperty) {
 		// test if mono object pointer and property storage reference the same managed object
 		doPropertyEqualityTest = string.Format("if ([self object:{0} isEqualToMonoObject:{1}]) return {0};", propertyStorage, ManagedVariableName);
-    }
-
-	// field access
-	string fieldAccessExpression ="";
+   }
 
 	// instance property.
-	if (!facet.IsStatic) 
-	{
+	if (!facet.IsStatic) {
 		string attributes = "nonatomic";
 
 		// object property attributes
-		if (ObjCRepresentationIsObject(facet)) 
-		{
+		if (ObjCRepresentationIsObject(facet)) {
 			attributes += ", strong";
 		}
-		if (!facet.IsWritable) 
-		{
+		if (!facet.IsWritable) {
 			attributes += ", readonly";
 		} 
 		propertyAttributes =  String.Format("({0}) ", attributes);
@@ -576,44 +563,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	string managedValueToObjC = ManagedValueToObjc(ManagedVariableName, facet);
 	string objCValueToMono = ObjCValueToManaged(ObjCVariableName, objCTypeDecl, facet);
 	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
-
 	string objCMethodType = !facet.IsStatic ? "-" : "+";
-	string getFormat, setFormat;
-
-	// property
-	if (facet is PropertyFacet) 
-	{
-		if (!facet.IsStatic)
-		{
-			getFormat = "[self getMonoProperty:\"{0}\"]";
-			setFormat = "[self setMonoProperty:\"{0}\" valueObject:{1}]";
-		} 
-		else 
-		{
-			getFormat = "[[self class] getMonoClassProperty:\"{0}\"]";
-			setFormat = "[[self class] setMonoClassProperty:\"{0}\" valueObject:{1}]";
-        }
-
-	} 
-	// field
-	else if (facet is FieldFacet) 
-	{
-		if (!facet.IsStatic) 
-		{
-			getFormat = "[self getMonoField:\"{0}\"]";
-			setFormat = "[self setMonoField:\"{0}\" valueObject:{1}]";
-		} 
-		else 
-		{
-			getFormat = "[[self class] getMonoClassField:\"{0}\"]";
-			setFormat = "[[self class] setMonoClassField:\"{0}\" valueObject:{1}]";
-        }
-    } 
-	// invalid facet
-	else 
-	{
-		throw new Exception("Cannot write facet as accessor");
-   }
 
 	// form mono method invocation name.
 	// a prefix may be required, for instance when calling explicit interface properties.
@@ -624,9 +574,6 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
         }
     }
 	string monoInvocationName = monoMethodPrefix + accessorName;
-
-	string getExpression = String.Format(getFormat, monoInvocationName, ManagedVariableName);
-	string setExpression = String.Format(setFormat, monoInvocationName, ManagedVariableName);
 
 	// Info comment
 #>
@@ -663,10 +610,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 #>
     @synthesize <#=getterName#> = <#=propertyStorage#>;
 <#+		
-		} 
-		else 
-		{
-			// declare static property storage
+		} else { // declare static property storage
 #>
     static <#=objCTypeDecl#> <#=propertyStorage#>;
 <#+      
@@ -683,24 +627,76 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 <#+		
 		if (OutputFileType == OutputType.Implementation) 
 		{
+			if (facet is PropertyFacet) { 
+				// thunking : primitive value types and enumerations are returned by value.
+				// other value types, such as DateTime are returned as boxed values
+				string thunkTypeDecl = null;
+				if (ObjCRepresentationIsPrimitive(facet)) {
+					managedValueToObjC = "monoObject";
+					thunkTypeDecl = objCTypeDecl;
+				} else {
+					thunkTypeDecl = "MonoObject *";
+				}
+
+				if (!facet.IsStatic) {
+#>
+    {
+		typedef <#=thunkTypeDecl#> (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		<#=thunkTypeDecl#> monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+<#+
+				} // end non static property
+				else 
+				{ // static property
+#>
+    {
+		typedef <#=thunkTypeDecl#> (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		MonoObject *monoException = NULL;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		<#=thunkTypeDecl#> monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+<#+
+				} // end static property
+			} // end thunking property
+			else 
+			{  // field 
+				string getFormat;
+				if (!facet.IsStatic) {
+					getFormat = "[self getMonoField:\"{0}\"]";
+				} else {
+					getFormat = "[[self class] getMonoClassField:\"{0}\"]";
+				}
+				string getExpression = String.Format(getFormat, monoInvocationName);
 #>
     {
 		<#=monoObjectPtr#><#=ManagedVariableName#> = <#=getExpression#>;
 <#+	
-			if (isObjectProperty)
+			} // end field 
+
+			if (isObjectProperty) // object equality test
 			{
 #>
 		<#=doPropertyEqualityTest#>					
 <#+	
-			}
+			} // end object equality test
 #>
 		<#=propertyStorage#> = <#=managedValueToObjC#>;
 
 		return <#=propertyStorage#>;
 	}
 <#+	
-		} // if Implementation
-    } // if IsReadable
+		} // end implementation
+   } // end isReadable
 
 	//
 	// write setter method
@@ -713,6 +709,64 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 <#+
 		if (OutputFileType == OutputType.Implementation) 
 		{
+			//
+			// Property setter
+			//
+			if (facet is PropertyFacet) {
+				string thunkArgTypeDecl, thunkArg;
+				if (ObjCRepresentationIsPrimitive(facet)) {
+					thunkArgTypeDecl = objCTypeDecl;
+					thunkArg = ObjCVariableName;
+				} else {
+					thunkArgTypeDecl = "MonoObject *";
+					thunkArg = string.Format("[{0} monoObject]", ObjCVariableName);
+				} 
+				if (!facet.IsStatic) {
+#>
+	{
+		<#=propertyStorage#> = <#=ObjCVariableName#>;
+		typedef void (*Thunk)(MonoObject *, <#=thunkArgTypeDecl#>, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "<#=monoInvocationName#>");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, <#=thunkArg#>, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	}
+<#+
+				} // end non static
+				else 
+				{ // static
+#>
+	{
+		<#=propertyStorage#> = <#=ObjCVariableName#>;
+		typedef void (*Thunk)(<#=thunkArgTypeDecl#>, MonoObject**);
+		static Thunk thunk;
+		if (!thunk) {
+			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "<#=monoInvocationName#>");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(<#=thunkArg#>, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	}
+<#+
+				} // end static
+			} // end property 
+			else 
+			{ 
+				//
+				// field setter
+				//
+				string setFormat;
+				if (!facet.IsStatic) {
+					setFormat = "[self setMonoField:\"{0}\" valueObject:{1}]";
+				} else {
+					setFormat = "[[self class] setMonoClassField:\"{0}\" valueObject:{1}]";
+				}
+				string setExpression = String.Format(setFormat, monoInvocationName, ManagedVariableName);
 #>
 	{
 		<#=propertyStorage#> = <#=ObjCVariableName#>;
@@ -720,8 +774,9 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 		<#=setExpression#>;          
 	}
 <#+
-        }  // if Implementation
-    } // if IsWritable
+			} // end field
+		}  // end Implementation
+	} // end IsWritable
 }
 
 //
@@ -994,7 +1049,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 
 		//
 		// build the mono invocation argument representation
-		// eg: DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]
+		// eg: DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]
 		//
 		string argFormat = null;
 		if (idx > 0) invokeArgsBuilder.Append(", ");
@@ -1003,7 +1058,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			if (parameter.IsByRef) {
 				argFormat = "&refPtr{0}";	// use reference pointer
             } else {
-				argFormat = "[p{0} monoValue]";
+				argFormat = "[p{0} monoRTInvokeArg]";
             }
         } 
 		else 
@@ -1028,7 +1083,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (objCParameterIsObject && parameter.IsByRef) {
 
 			// dereference and assign temporary variable
-			string preProcess = string.Format("void *refPtr{0} = [*p{0} monoValue];{1}", idx + 1, Environment.NewLine);
+			string preProcess = string.Format("void *refPtr{0} = [*p{0} monoRTInvokeArg];{1}", idx + 1, Environment.NewLine);
 			referencePreProcessBuilder.Append(preProcess);
 
 			// create new object subclass for reference 
@@ -1091,7 +1146,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		{
 #>
 		<#=referencePreProcessBuilder.ToString()#>
-		<#=getExpression#>;
+		<#=getExpression#>
         <#=referencePostProcessBuilder.ToString()#>
 <#+
 		} 
@@ -1099,7 +1154,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		{
 #>
 		<#=referencePreProcessBuilder.ToString()#>
-		<#=objCTypeDecl#> object = <#=getExpression#>;
+		<#=objCTypeDecl#> object = <#=getExpression#>
         <#=referencePostProcessBuilder.ToString()#>
         return object;
 <#+

@@ -40,7 +40,7 @@
 	// Managed param types : System.Collections.ICollection
     + (System_Collections_Stack *)new_withCol:(System_Collections_ICollection *)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -108,7 +108,7 @@
     - (BOOL)contains_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -118,7 +118,7 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetEnumerator
@@ -159,7 +159,7 @@
 	// Managed param types : System.Object
     - (void)push_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Push(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Push(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Synchronized
@@ -168,7 +168,7 @@
     + (System_Collections_Stack *)synchronized_withStack:(System_Collections_Stack *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Stack)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Stack)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Stack objectWithMonoObject:monoObject];
     }

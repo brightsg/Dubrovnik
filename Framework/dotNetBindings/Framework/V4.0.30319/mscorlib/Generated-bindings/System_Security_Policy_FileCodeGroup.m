@@ -32,7 +32,7 @@
 	// Managed param types : System.Security.Policy.IMembershipCondition, System.Security.Permissions.FileIOPermissionAccess
     + (System_Security_Policy_FileCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1 access:(System_Security_Permissions_FileIOPermissionAccess)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Permissions.FileIOPermissionAccess" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Permissions.FileIOPermissionAccess" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -94,7 +94,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -116,7 +116,7 @@
     - (System_Security_Policy_PolicyStatement *)resolve_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
     }
@@ -127,7 +127,7 @@
     - (System_Security_Policy_CodeGroup *)resolveMatchingCodeGroups_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
     }

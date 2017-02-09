@@ -32,7 +32,7 @@
 	// Managed param types : System.Decimal
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapPositiveInteger *)new_withValue:(NSDecimalNumber *)p1
     {
-		return [[self alloc] initWithSignature:"decimal" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"decimal" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setValue:(NSDecimalNumber *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Value" valueObject:monoObject];          
 	}
 
@@ -88,7 +88,7 @@
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapPositiveInteger *)parse_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapPositiveInteger objectWithMonoObject:monoObject];
     }

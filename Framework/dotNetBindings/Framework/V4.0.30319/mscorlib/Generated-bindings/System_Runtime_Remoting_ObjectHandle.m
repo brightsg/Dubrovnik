@@ -32,7 +32,7 @@
 	// Managed param types : System.Object
     + (System_Runtime_Remoting_ObjectHandle *)new_withO:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -

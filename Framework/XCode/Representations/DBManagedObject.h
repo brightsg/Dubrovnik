@@ -23,15 +23,17 @@ extern char DBCacheSuffixChar;
 
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedType.h"
 
 @class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
 
 @protocol DBManagedObject <NSObject>
 
+@property (strong, readonly) DBManagedType *managedType;
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
 @property (assign, readonly) NSUInteger monoHash;
-- (MonoObject *)monoValue;
+- (MonoObject *)monoRTInvokeArg;
 @end
 
 @protocol DBManagedObjectOptionalCategoryMethods <NSObject>
@@ -45,20 +47,6 @@ extern char DBCacheSuffixChar;
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
 @property (assign, readonly) NSUInteger monoHash;
-
-/**
- 
- When adding value types to a collection which expects reference types we must not unbox any value types.
- 
- TODO: generic collection objects know their type parameters. If a given parameter is a reference type then
- value types added for that parameter must not be unboxed and vice versa.
- This is equivalen to passing arguments as -monoValue (auto unboxes value types) or -monoObject (passes ref type).
- 
- The above is not implemented so as a temporary workaround we explicity disable auto box behaviour of value types instances.
- This is far from ideal but it will serve for now.
- 
- */
-@property (assign) BOOL autoUnboxValueType;
 
 /*!
  
@@ -204,9 +192,9 @@ extern char DBCacheSuffixChar;
  */
 - (id)initWithSignature:(const char *)constructorSignature withNumArgs:(int)numArgs, ...;
 
-// Mono types
-- (MonoClass *)monoClass;
-- (MonoType *)monoType;
+// Mono type support
+@property (assign, nonatomic, readonly) MonoClass* monoClass;
+@property (assign, nonatomic, readonly) MonoType* monoType;
 - (char *)monoTypeName;
 
 /**
@@ -215,7 +203,7 @@ extern char DBCacheSuffixChar;
  This method is generally used when passing arguments to managed methods.
  
  */
-- (MonoObject *)monoValue;
+- (MonoObject *)monoRTInvokeArg;
 - (MonoAssembly *)monoAssembly;
 
 // Method Invocation
@@ -256,17 +244,6 @@ extern char DBCacheSuffixChar;
 // Property names
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;
 + (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;
-
-// Mono type info
-- (NSUInteger)getMonoGenericTypeCount;
-- (MonoType *)getFirstMonoGenericType;
-- (MonoType *)getLastMonoGenericType;
-- (MonoType *)getMonoGenericTypeAtIndex:(NSUInteger)idx;
-- (MonoArray *)getMonoGenericTypes;
-
-+ (NSUInteger)getMonoGenericTypeCount:(MonoClass *)monoClass;
-+ (MonoType *)getMonoGenericType:(MonoClass *)monoClass atIndex:(NSUInteger)idx;
-+ (MonoArray *)getMonoGenericTypes:(MonoClass *)monoClass;
 
 // KVO support
 + (void)registerObservedKeys:(NSArray *)keys;

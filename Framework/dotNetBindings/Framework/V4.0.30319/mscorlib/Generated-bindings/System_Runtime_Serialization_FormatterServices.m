@@ -32,7 +32,7 @@
 	// Managed param types : System.Type, System.Runtime.Serialization.Formatters.TypeFilterLevel
     + (void)checkTypeSecurity_withT:(System_Type *)p1 securityLevel:(System_Runtime_Serialization_Formatters_TypeFilterLevel)p2
     {
-		[self invokeMonoClassMethod:"CheckTypeSecurity(System.Type,System.Runtime.Serialization.Formatters.TypeFilterLevel)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoClassMethod:"CheckTypeSecurity(System.Type,System.Runtime.Serialization.Formatters.TypeFilterLevel)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : GetObjectData
@@ -41,7 +41,7 @@
     + (DBSystem_Array *)getObjectData_withObj:(System_Object *)p1 members:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetObjectData(object,System.Array[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetObjectData(object,System.Array[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -52,7 +52,7 @@
     + (System_Object *)getSafeUninitializedObject_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSafeUninitializedObject(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSafeUninitializedObject(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -63,7 +63,7 @@
     + (DBSystem_Array *)getSerializableMembers_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSerializableMembers(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSerializableMembers(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -74,7 +74,7 @@
     + (DBSystem_Array *)getSerializableMembers_withType:(System_Type *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSerializableMembers(System.Type,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSerializableMembers(System.Type,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -85,7 +85,7 @@
     + (System_Runtime_Serialization_ISerializationSurrogate *)getSurrogateForCyclicalReference_withInnerSurrogate:(System_Runtime_Serialization_ISerializationSurrogate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSurrogateForCyclicalReference(System.Runtime.Serialization.ISerializationSurrogate)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSurrogateForCyclicalReference(System.Runtime.Serialization.ISerializationSurrogate)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Serialization_ISerializationSurrogate objectWithMonoObject:monoObject];
     }
@@ -96,7 +96,7 @@
     + (System_Type *)getTypeFromAssembly_withAssem:(System_Reflection_Assembly *)p1 name:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromAssembly(System.Reflection.Assembly,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromAssembly(System.Reflection.Assembly,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Type objectWithMonoObject:monoObject];
     }
@@ -107,7 +107,7 @@
     + (System_Object *)getUninitializedObject_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUninitializedObject(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUninitializedObject(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -118,7 +118,7 @@
     + (System_Object *)populateObjectMembers_withObj:(System_Object *)p1 members:(DBSystem_Array *)p2 data:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"PopulateObjectMembers(object,System.Array[],object[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"PopulateObjectMembers(object,System.Array[],object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

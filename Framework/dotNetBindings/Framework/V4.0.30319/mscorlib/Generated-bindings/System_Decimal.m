@@ -80,7 +80,7 @@
 	// Managed param types : System.Int32[]
     + (NSDecimalNumber *)new_withBits:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -163,7 +163,7 @@
     + (NSDecimalNumber *)add_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -174,7 +174,7 @@
     + (NSDecimalNumber *)ceiling_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Ceiling(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Ceiling(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -185,7 +185,7 @@
     + (int32_t)compare_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -196,7 +196,7 @@
     - (int32_t)compareTo_withValueObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -207,7 +207,7 @@
     - (int32_t)compareTo_withValueDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -218,7 +218,7 @@
     + (NSDecimalNumber *)divide_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Divide(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Divide(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -229,7 +229,7 @@
     - (BOOL)equals_withValueObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -240,7 +240,7 @@
     - (BOOL)equals_withValueDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -251,7 +251,7 @@
     + (BOOL)equals_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -262,7 +262,7 @@
     + (NSDecimalNumber *)floor_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Floor(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Floor(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -284,7 +284,7 @@
     + (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetBits(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetBits(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -317,7 +317,7 @@
     + (NSDecimalNumber *)multiply_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Multiply(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Multiply(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -328,7 +328,7 @@
     + (NSDecimalNumber *)negate_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Negate(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Negate(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -339,7 +339,7 @@
     + (NSDecimalNumber *)op_Addition_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -350,7 +350,7 @@
     + (NSDecimalNumber *)op_Decrement_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Decrement(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Decrement(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -361,7 +361,7 @@
     + (NSDecimalNumber *)op_Division_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Division(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Division(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -372,7 +372,7 @@
     + (BOOL)op_Equality_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -405,7 +405,7 @@
     + (BOOL)op_GreaterThan_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -416,7 +416,7 @@
     + (BOOL)op_GreaterThanOrEqual_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -526,7 +526,7 @@
     + (NSDecimalNumber *)op_Increment_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Increment(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Increment(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -537,7 +537,7 @@
     + (BOOL)op_Inequality_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -548,7 +548,7 @@
     + (BOOL)op_LessThan_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -559,7 +559,7 @@
     + (BOOL)op_LessThanOrEqual_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -570,7 +570,7 @@
     + (NSDecimalNumber *)op_Modulus_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Modulus(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Modulus(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -581,7 +581,7 @@
     + (NSDecimalNumber *)op_Multiply_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Multiply(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Multiply(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -592,7 +592,7 @@
     + (NSDecimalNumber *)op_Subtraction_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -603,7 +603,7 @@
     + (NSDecimalNumber *)op_UnaryNegation_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryNegation(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryNegation(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -614,7 +614,7 @@
     + (NSDecimalNumber *)op_UnaryPlus_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryPlus(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryPlus(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -625,7 +625,7 @@
     + (NSDecimalNumber *)parse_withS:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -636,7 +636,7 @@
     + (NSDecimalNumber *)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -647,7 +647,7 @@
     + (NSDecimalNumber *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -658,7 +658,7 @@
     + (NSDecimalNumber *)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles,System.IFormatProvider)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -669,7 +669,7 @@
     + (NSDecimalNumber *)remainder_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Remainder(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Remainder(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -680,7 +680,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -691,7 +691,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -702,7 +702,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(System_MidpointRounding)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,System.MidpointRounding)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,System.MidpointRounding)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -713,7 +713,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(System_MidpointRounding)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int,System.MidpointRounding)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int,System.MidpointRounding)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -724,7 +724,7 @@
     + (NSDecimalNumber *)subtract_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(decimal,decimal)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -735,7 +735,7 @@
     + (uint8_t)toByte_withValue:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToByte(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToByte(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT8(monoObject);
     }
@@ -746,7 +746,7 @@
     + (double)toDouble_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDouble(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDouble(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
@@ -757,7 +757,7 @@
     + (int16_t)toInt16_withValue:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt16(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt16(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT16(monoObject);
     }
@@ -768,7 +768,7 @@
     + (int32_t)toInt32_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt32(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt32(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -779,7 +779,7 @@
     + (int64_t)toInt64_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt64(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt64(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT64(monoObject);
     }
@@ -790,7 +790,7 @@
     + (int64_t)toOACurrency_withValue:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToOACurrency(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToOACurrency(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT64(monoObject);
     }
@@ -801,7 +801,7 @@
     + (int8_t)toSByte_withValue:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSByte(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSByte(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT8(monoObject);
     }
@@ -812,7 +812,7 @@
     + (float)toSingle_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSingle(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSingle(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }
@@ -834,7 +834,7 @@
     - (NSString *)toString_withFormat:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -845,7 +845,7 @@
     - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -856,7 +856,7 @@
     - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -867,7 +867,7 @@
     + (uint16_t)toUInt16_withValue:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt16(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt16(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT16(monoObject);
     }
@@ -878,7 +878,7 @@
     + (uint32_t)toUInt32_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt32(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt32(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT32(monoObject);
     }
@@ -889,7 +889,7 @@
     + (uint64_t)toUInt64_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT64(monoObject);
     }
@@ -900,7 +900,7 @@
     + (NSDecimalNumber *)truncate_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Truncate(decimal)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Truncate(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -910,9 +910,9 @@
 	// Managed param types : System.String, ref System.Decimal&
     + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDecimalNumber **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,decimal&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,decimal&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
 
@@ -924,9 +924,9 @@
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Decimal&
     + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(NSDecimalNumber **)p4
     {
-		void *refPtr4 = [*p4 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,decimal&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], &refPtr4];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,decimal&)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], &refPtr4];
 
 		*p4 = [System_Object subclassObjectWithMonoObject:refPtr4];
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Security_SecurityElement *)new_withTag:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.String
     + (System_Security_SecurityElement *)new_withTag:(NSString *)p1 text:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -78,7 +78,7 @@
     - (void)setChildren:(DBSystem_Collections_ArrayList *)value
 	{
 		_children = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Children" valueObject:monoObject];          
 	}
 
@@ -96,7 +96,7 @@
     - (void)setTag:(NSString *)value
 	{
 		_tag = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Tag" valueObject:monoObject];          
 	}
 
@@ -114,7 +114,7 @@
     - (void)setText:(NSString *)value
 	{
 		_text = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Text" valueObject:monoObject];          
 	}
 
@@ -126,7 +126,7 @@
 	// Managed param types : System.String, System.String
     - (void)addAttribute_withName:(NSString *)p1 value:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddAttribute(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddAttribute(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : AddChild
@@ -134,7 +134,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)addChild_withChild:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"AddChild(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddChild(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Attribute
@@ -143,7 +143,7 @@
     - (NSString *)attribute_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Attribute(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Attribute(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -165,7 +165,7 @@
     - (BOOL)equal_withOther:(System_Security_SecurityElement *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equal(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equal(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -176,7 +176,7 @@
     + (NSString *)escape_withStr:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Escape(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Escape(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -187,7 +187,7 @@
     + (System_Security_SecurityElement *)fromString_withXml:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"FromString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"FromString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
@@ -198,7 +198,7 @@
     + (BOOL)isValidAttributeName_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -209,7 +209,7 @@
     + (BOOL)isValidAttributeValue_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeValue(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidAttributeValue(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -220,7 +220,7 @@
     + (BOOL)isValidTag_withTag:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidTag(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidTag(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -231,7 +231,7 @@
     + (BOOL)isValidText_withText:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidText(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidText(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -242,7 +242,7 @@
     - (System_Security_SecurityElement *)searchForChildByTag_withTag:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SearchForChildByTag(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SearchForChildByTag(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
     }
@@ -253,7 +253,7 @@
     - (NSString *)searchForTextOfTag_withTag:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SearchForTextOfTag(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SearchForTextOfTag(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

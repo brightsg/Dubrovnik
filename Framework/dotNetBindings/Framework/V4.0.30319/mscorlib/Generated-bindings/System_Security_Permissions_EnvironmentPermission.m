@@ -40,7 +40,7 @@
 	// Managed param types : System.Security.Permissions.EnvironmentPermissionAccess, System.String
     + (System_Security_Permissions_EnvironmentPermission *)new_withFlag:(System_Security_Permissions_EnvironmentPermissionAccess)p1 pathList:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.EnvironmentPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Security.Permissions.EnvironmentPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -51,7 +51,7 @@
 	// Managed param types : System.Security.Permissions.EnvironmentPermissionAccess, System.String
     - (void)addPathList_withFlag:(System_Security_Permissions_EnvironmentPermissionAccess)p1 pathList:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : Copy
@@ -70,7 +70,7 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEsd:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : GetPathList
@@ -90,7 +90,7 @@
     - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }
@@ -101,7 +101,7 @@
     - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -122,7 +122,7 @@
 	// Managed param types : System.Security.Permissions.EnvironmentPermissionAccess, System.String
     - (void)setPathList_withFlag:(System_Security_Permissions_EnvironmentPermissionAccess)p1 pathList:(NSString *)p2
     {
-		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : ToXml
@@ -142,7 +142,7 @@
     - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission objectWithMonoObject:monoObject];
     }

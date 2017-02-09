@@ -32,7 +32,7 @@
 	// Managed param types : System.DateTime
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate *)new_withValue:(NSDate *)p1
     {
-		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.DateTime, System.Int32
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate *)new_withValue:(NSDate *)p1 sign:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.DateTime,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		return [[self alloc] initWithSignature:"System.DateTime,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 #pragma mark -
@@ -77,7 +77,7 @@
     - (void)setValue:(NSDate *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Value" valueObject:monoObject];          
 	}
 
@@ -113,7 +113,7 @@
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate *)parse_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapDate objectWithMonoObject:monoObject];
     }

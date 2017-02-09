@@ -91,7 +91,7 @@
 	// Managed param types : System.Int32, System.String, System.String
     + (void)log_withLevel:(int32_t)p1 category:(NSString *)p2 message:(NSString *)p3
     {
-		[self invokeMonoClassMethod:"Log(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"Log(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : NotifyOfCrossThreadDependency

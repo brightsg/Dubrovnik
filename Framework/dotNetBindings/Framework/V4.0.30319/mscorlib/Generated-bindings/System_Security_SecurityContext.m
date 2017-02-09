@@ -92,7 +92,7 @@
 	// Managed param types : System.Security.SecurityContext, System.Threading.ContextCallback, System.Object
     + (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"Run(System.Security.SecurityContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"Run(System.Security.SecurityContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SuppressFlow

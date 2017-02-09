@@ -32,7 +32,7 @@
 	// Managed param types : System.String
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.String, System.Exception
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +48,7 @@
 	// Managed param types : System.Int32, System.Threading.WaitHandle
     + (System_Threading_AbandonedMutexException *)new_withLocation:(int32_t)p1 handle:(System_Threading_WaitHandle *)p2
     {
-		return [[self alloc] initWithSignature:"int,System.Threading.WaitHandle" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"int,System.Threading.WaitHandle" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +56,7 @@
 	// Managed param types : System.String, System.Int32, System.Threading.WaitHandle
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1 location:(int32_t)p2 handle:(System_Threading_WaitHandle *)p3
     {
-		return [[self alloc] initWithSignature:"string,int,System.Threading.WaitHandle" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		return [[self alloc] initWithSignature:"string,int,System.Threading.WaitHandle" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +64,7 @@
 	// Managed param types : System.String, System.Exception, System.Int32, System.Threading.WaitHandle
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2 location:(int32_t)p3 handle:(System_Threading_WaitHandle *)p4
     {
-		return [[self alloc] initWithSignature:"string,System.Exception,int,System.Threading.WaitHandle" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];;
+		return [[self alloc] initWithSignature:"string,System.Exception,int,System.Threading.WaitHandle" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];;
     }
 
 #pragma mark -

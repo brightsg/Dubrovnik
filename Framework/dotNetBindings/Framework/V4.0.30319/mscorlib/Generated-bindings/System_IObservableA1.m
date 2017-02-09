@@ -33,7 +33,7 @@
     - (System_IDisposable *)subscribe_withObserver:(System_IObserverA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.IObservable`1<System.IObservable`1+T>.Subscribe(System.IObserver`1<System.IObservable`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.IObservable`1<System.IObservable`1+T>.Subscribe(System.IObserver`1<System.IObservable`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_IDisposable objectWithMonoObject:monoObject];
     }

@@ -48,7 +48,7 @@
     + (System_Runtime_ExceptionServices_ExceptionDispatchInfo *)capture_withSource:(System_Exception *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture(System.Exception)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Runtime_ExceptionServices_ExceptionDispatchInfo objectWithMonoObject:monoObject];
     }

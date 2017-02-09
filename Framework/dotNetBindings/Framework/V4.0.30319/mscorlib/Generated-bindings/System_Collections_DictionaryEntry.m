@@ -32,7 +32,7 @@
 	// Managed param types : System.Object, System.Object
     + (System_Collections_DictionaryEntry *)new_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		return [[self alloc] initWithSignature:"object,object" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		return [[self alloc] initWithSignature:"object,object" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -52,7 +52,7 @@
     - (void)setKey:(System_Object *)value
 	{
 		_key = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Key" valueObject:monoObject];          
 	}
 
@@ -70,7 +70,7 @@
     - (void)setValue:(System_Object *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"Value" valueObject:monoObject];          
 	}
 

@@ -32,7 +32,7 @@
 	// Managed param types : System.ActivationContext
     + (System_AppDomainSetup *)new_withActivationContext:(System_ActivationContext *)p1
     {
-		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +40,7 @@
 	// Managed param types : System.Runtime.Hosting.ActivationArguments
     + (System_AppDomainSetup *)new_withActivationArguments:(System_Runtime_Hosting_ActivationArguments *)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Hosting.ActivationArguments" withNumArgs:1, [p1 monoValue]];;
+		return [[self alloc] initWithSignature:"System.Runtime.Hosting.ActivationArguments" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 #pragma mark -
@@ -96,7 +96,7 @@
     - (void)setAppDomainInitializerArguments:(DBSystem_Array *)value
 	{
 		_appDomainInitializerArguments = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AppDomainInitializerArguments" valueObject:monoObject];          
 	}
 
@@ -114,7 +114,7 @@
     - (void)setAppDomainManagerAssembly:(NSString *)value
 	{
 		_appDomainManagerAssembly = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AppDomainManagerAssembly" valueObject:monoObject];          
 	}
 
@@ -132,7 +132,7 @@
     - (void)setAppDomainManagerType:(NSString *)value
 	{
 		_appDomainManagerType = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"AppDomainManagerType" valueObject:monoObject];          
 	}
 
@@ -150,7 +150,7 @@
     - (void)setApplicationBase:(NSString *)value
 	{
 		_applicationBase = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ApplicationBase" valueObject:monoObject];          
 	}
 
@@ -168,7 +168,7 @@
     - (void)setApplicationName:(NSString *)value
 	{
 		_applicationName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ApplicationName" valueObject:monoObject];          
 	}
 
@@ -204,7 +204,7 @@
     - (void)setCachePath:(NSString *)value
 	{
 		_cachePath = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"CachePath" valueObject:monoObject];          
 	}
 
@@ -222,7 +222,7 @@
     - (void)setConfigurationFile:(NSString *)value
 	{
 		_configurationFile = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ConfigurationFile" valueObject:monoObject];          
 	}
 
@@ -308,7 +308,7 @@
     - (void)setDynamicBase:(NSString *)value
 	{
 		_dynamicBase = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"DynamicBase" valueObject:monoObject];          
 	}
 
@@ -326,7 +326,7 @@
     - (void)setLicenseFile:(NSString *)value
 	{
 		_licenseFile = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"LicenseFile" valueObject:monoObject];          
 	}
 
@@ -361,7 +361,7 @@
     - (void)setPartialTrustVisibleAssemblies:(DBSystem_Array *)value
 	{
 		_partialTrustVisibleAssemblies = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PartialTrustVisibleAssemblies" valueObject:monoObject];          
 	}
 
@@ -379,7 +379,7 @@
     - (void)setPrivateBinPath:(NSString *)value
 	{
 		_privateBinPath = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PrivateBinPath" valueObject:monoObject];          
 	}
 
@@ -397,7 +397,7 @@
     - (void)setPrivateBinPathProbe:(NSString *)value
 	{
 		_privateBinPathProbe = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"PrivateBinPathProbe" valueObject:monoObject];          
 	}
 
@@ -432,7 +432,7 @@
     - (void)setShadowCopyDirectories:(NSString *)value
 	{
 		_shadowCopyDirectories = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ShadowCopyDirectories" valueObject:monoObject];          
 	}
 
@@ -450,7 +450,7 @@
     - (void)setShadowCopyFiles:(NSString *)value
 	{
 		_shadowCopyFiles = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"ShadowCopyFiles" valueObject:monoObject];          
 	}
 
@@ -468,7 +468,7 @@
     - (void)setTargetFrameworkName:(NSString *)value
 	{
 		_targetFrameworkName = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoProperty:"TargetFrameworkName" valueObject:monoObject];          
 	}
 
@@ -491,7 +491,7 @@
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
     - (void)setCompatibilitySwitches_withSwitches:(System_Collections_Generic_IEnumerableA1 *)p1
     {
-		[self invokeMonoMethod:"SetCompatibilitySwitches(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetCompatibilitySwitches(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetConfigurationBytes
@@ -499,7 +499,7 @@
 	// Managed param types : System.Byte[]
     - (void)setConfigurationBytes_withValue:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetConfigurationBytes(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetConfigurationBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
     }
 
 	// Managed method name : SetNativeFunction
@@ -507,7 +507,7 @@
 	// Managed param types : System.String, System.Int32, System.IntPtr
     - (void)setNativeFunction_withFunctionName:(NSString *)p1 functionVersion:(int32_t)p2 functionPointer:(void *)p3
     {
-		[self invokeMonoMethod:"SetNativeFunction(string,int,intptr)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"SetNativeFunction(string,int,intptr)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
     }
 
 #pragma mark -

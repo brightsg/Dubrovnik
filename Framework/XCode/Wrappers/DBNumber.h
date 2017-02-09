@@ -78,7 +78,7 @@
  */
 @property (assign, nonatomic, readonly) const void *valuePointer NS_RETURNS_INNER_POINTER;
 @property (strong, nonatomic, readonly) id managedObject;
-@property (assign, nonatomic, readonly) void *monoValue;
+@property (assign, nonatomic, readonly) void *monoRTInvokeArg;
 @property (assign, nonatomic, readonly) MonoObject *monoObject;
 @property (assign, nonatomic, readonly) const char *monoObjCType;
 @property (assign, readonly) BOOL compareEnforcesTypeMatch;

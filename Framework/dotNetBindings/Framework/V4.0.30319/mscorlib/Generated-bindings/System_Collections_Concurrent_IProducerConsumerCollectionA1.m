@@ -32,7 +32,7 @@
 	// Managed param types : <T[]>, System.Int32
     - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
     }
 
 	// Managed method name : ToArray
@@ -52,7 +52,7 @@
     - (BOOL)tryAdd_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryAdd(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryAdd(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -62,7 +62,7 @@
 	// Managed param types : ref <T&>
     - (BOOL)tryTake_withItemRef:(System_Object **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryTake(<_T_0>&)" withNumArgs:1, &refPtr1];
 

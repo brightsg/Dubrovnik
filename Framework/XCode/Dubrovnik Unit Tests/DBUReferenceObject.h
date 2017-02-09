@@ -162,6 +162,12 @@
 - (NSString *)stringProperty;
 - (void)setStringProperty:(NSString *)value;
 
+// thunking tests
+- (void)setStringPropertyViaThunk:(NSString *)value;
+- (NSString *)stringPropertyViaThunk;
+- (void)stringPropertyAccessTimingTest;
+- (NSString *)stringMethodViaThunk_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2;
+    
 // date property implementation
 - (NSDate *)date;
 - (void)setDate:(NSDate *)value;

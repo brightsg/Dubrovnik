@@ -44,7 +44,7 @@
     - (int32_t)next_withCelt:(int32_t)p1 rgVar:(DBSystem_Array *)p2 pceltFetched:(void *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumVARIANT.Next(int,object[],intptr)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumVARIANT.Next(int,object[],intptr)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
