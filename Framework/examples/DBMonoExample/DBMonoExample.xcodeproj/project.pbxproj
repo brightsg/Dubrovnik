@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB26E0A51E4A1496004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0A41E4A1496004876FE /* Mono.framework */; };
 		AB2D24E81BE76DE200ED0544 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AB2D24E71BE76DE200ED0544 /* main.c */; };
-		AB2D24EF1BE770B600ED0544 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2D24EE1BE770B600ED0544 /* Mono64.framework */; };
 		AB2D24F11BE7713B00ED0544 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2D24F01BE7713B00ED0544 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,9 +25,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB26E0A41E4A1496004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/examples/DBMonoExample/../../../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB2D24E41BE76DE200ED0544 /* DBMonoExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DBMonoExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2D24E71BE76DE200ED0544 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		AB2D24EE1BE770B600ED0544 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = ../../../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<group>"; };
 		AB2D24F01BE7713B00ED0544 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -37,7 +37,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB2D24F11BE7713B00ED0544 /* CoreFoundation.framework in Frameworks */,
-				AB2D24EF1BE770B600ED0544 /* Mono64.framework in Frameworks */,
+				AB26E0A51E4A1496004876FE /* Mono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,8 +47,8 @@
 		AB2D24DB1BE76DE200ED0544 = {
 			isa = PBXGroup;
 			children = (
+				AB26E0A41E4A1496004876FE /* Mono.framework */,
 				AB2D24F01BE7713B00ED0544 /* CoreFoundation.framework */,
-				AB2D24EE1BE770B600ED0544 /* Mono64.framework */,
 				AB2D24E61BE76DE200ED0544 /* DBMonoExample */,
 				AB2D24E51BE76DE200ED0544 /* Products */,
 			);
@@ -169,7 +169,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/Headers/Mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Headers/Mono-2.0";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -207,7 +207,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/Headers/Mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/Headers/Mono-2.0";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;

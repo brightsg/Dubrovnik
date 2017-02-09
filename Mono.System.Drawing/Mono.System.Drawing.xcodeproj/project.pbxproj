@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB26E0AB1E4A1547004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AA1E4A1547004876FE /* Mono.framework */; };
 		AB2E74B118FFD6C90061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AC18FFD6C90061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B218FFD6C90061C63E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AD18FFD6C90061C63E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B318FFD6C90061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,7 +23,6 @@
 		ABB8A3DB18FF0C4100213B80 /* DBSystem_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */; };
 		ABB8A46118FF28A600213B80 /* System_Drawing_Size.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A46218FF28A600213B80 /* System_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */; };
-		ABB8A46818FF297700213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A46718FF297700213B80 /* Mono64.framework */; };
 		ABF5D279190C57A400E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */; };
 		ABF5D27A190C57A400E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB26E0AA1E4A1547004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Drawing/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB2E74AC18FFD6C90061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		AB2E74AD18FFD6C90061C63E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Drawing_Size.m; sourceTree = "<group>"; };
 		ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Drawing_Size.h; sourceTree = "<group>"; };
 		ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Drawing_Size.m; sourceTree = "<group>"; };
-		ABB8A46718FF297700213B80 /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Drawing/../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -69,9 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB26E0AB1E4A1547004876FE /* Mono.framework in Frameworks */,
 				ABF5D279190C57A400E9CFBD /* Dubrovnik.framework in Frameworks */,
 				ABF5D27A190C57A400E9CFBD /* Mono.mscorlib.framework in Frameworks */,
-				ABB8A46818FF297700213B80 /* Mono64.framework in Frameworks */,
 				ABB8A3AA18FF0B4900213B80 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,9 +122,9 @@
 		ABB8A3A818FF0B4900213B80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB26E0AA1E4A1547004876FE /* Mono.framework */,
 				ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */,
 				ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */,
-				ABB8A46718FF297700213B80 /* Mono64.framework */,
 				ABB8A3A918FF0B4900213B80 /* Cocoa.framework */,
 				ABB8A3AB18FF0B4900213B80 /* Other Frameworks */,
 			);
@@ -396,7 +396,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
@@ -434,7 +434,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;

@@ -1070,16 +1070,24 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
 #pragma unused(testClass)
     
-    // string pointer
+    // IntPtr pointer
     NSString *stringPointer = @"It's okay to point at me like that.";
     [refObject setPointer:(__bridge void *)(stringPointer)];
-    void * voidPtr = [refObject pointer];
+    void *voidPtr = [refObject pointer];
     XCTAssertTrue(voidPtr == (__bridge void *)stringPointer, DBUEqualityTestFailed);
     
     // int32 pointer
     int32_t theInt = 10101;
+    voidPtr = &theInt;
+    [refObject setPointer:voidPtr];
+    voidPtr = [refObject pointer];
+    XCTAssertTrue(voidPtr == &theInt, DBUEqualityTestFailed);
+    XCTAssertTrue(*(int32_t *)voidPtr == theInt, DBUEqualityTestFailed);
+    
+#warning text failing on Mono 4.6+
     [refObject setInt32Pointer:&theInt];
     int32_t *int32Pointer = [refObject int32Pointer];
+    XCTAssertTrue(int32Pointer == &theInt, DBUEqualityTestFailed);
     XCTAssertTrue(*int32Pointer == theInt, DBUEqualityTestFailed);
 }
 

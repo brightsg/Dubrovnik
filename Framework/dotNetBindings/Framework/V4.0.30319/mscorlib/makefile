@@ -7,7 +7,7 @@
 CC=clang 
 
 # compiler vars
-CINCLUDE:= -I/Library/Frameworks/Mono64.framework/headers/mono-2.0 -I$(SRCROOT)/include -I$(SRCROOT)/Helper-classes
+CINCLUDE:= -I/Library/Frameworks/Mono.framework/headers/mono-2.0 -I$(SRCROOT)/include -I$(SRCROOT)/Helper-classes
 
 # note that we explicitly target frameworks in the products folder.
 CFRAMEWORKS:=  -F $(BUILT_PRODUCTS_DIR) -F /Library/Frameworks

@@ -21,7 +21,7 @@
 //
 
 // The project header search path must reference:
-// /Library/Frameworks/Mono64.framework/headers/mono-2.0
+// /Library/Frameworks/Mono.framework/headers/mono-2.0
 // Note that the above references a custom 64 bit build at present
 //
 // If the headers still cannot cannot be found then most likely the Mono Runtime Edition (MRE) has been

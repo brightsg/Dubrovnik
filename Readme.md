@@ -25,11 +25,9 @@ The unit test setup function illustrates how simple it is to load up a managed a
 Status
 ======
 
-Version: 0.0.4 Alpha
+Version: 0.0.5 Alpha
 
-Production ready: No. But we are actively using and developing Dubrovnik as part of own software development process. In particular, we have had some success in generating a complete Obj-C representation of an EntityFramework 6 model.
-
-Dubrovnik is a work in progress and the API is still very mutable. 
+Production ready: No. But we are actively using and developing Dubrovnik as part of own software development process. In particular, we have had considerable success in generating a complete Obj-C representation of a complex EntityFramework 6 model.
 
 Provided examples
 =================
@@ -38,7 +36,7 @@ Provided examples
 
 - Calling managed code (functions, properties, fields) from native code.
 
-- Building an app bundle that contains everything to run a Cocoa fronted .NET app with the exception of the Mono64.framework (which is loaded from /Library/Frameworks).
+- Building an app bundle that contains everything to run a Cocoa fronted .NET app with the exception of the Mono.framework (which is loaded from /Library/Frameworks).
 
 - Automatic native Cocoa binding for managed classes that implement INotifyPropertyChanging and INotifyPropertyChanged. 
 
@@ -58,7 +56,7 @@ Accomplished Project Goals
 ==========================
 
 1. Obj-C code generation based on binary .NET assembly reflection.
-1. 64 bit ARC support.
+1. 64 bit ARC support linking to standard Mono OS X release v4.4.0 and above.
 1. Generic method calling.
 1. Obj-C property support in generated code.
 1. Managed event handling.
@@ -124,76 +122,22 @@ Project Map
 Mono Documentation
 ==================
 
-THe following links provide acces to the some of the most helpful Mono Documentation. The API docs are essential when trying to comprehend the embedded API.
+The following links provide acces to the some of the most helpful Mono Documentation. The API docs are essential when trying to comprehend the embedded API.
 
 * [Mono API Documentation] (http://docs.go-mono.com)
 * [Mono Runtime Documentation](http://www.mono-project.com/docs/advanced/runtime/docs/)
 * [Embedding Mono] (http://www.mono-project.com/docs/advanced/embedding)
 
-64 Bit Operation
-================
-
-Dubrovnik defaults to building as a 64 bit framework in order to enable linking with the modern Obj-C runtime.
-
-At present Mono ships as 32 bit only on OS X. Hence it is necessary to build a 64 bit version of Mono from source.
-
-Building 64 Bit Mono Framework
-=============================
-
-To build 64 bit see http://www.mono-project.com/Compiling_Mono_on_OSX.
-Use homebrew to install the GNU autoconf tools as described.
-
-The `scripts/make-mono64-bundle.sh` script is used to automate building a Mono framework bundle suitable for use with Dubrovnik.
-
-Prior to building be sure to check the required Mono branch out in `Submodules/Mono`.
-A typical invocation of this script would be:
-
-    # build /Library/Frameworks/Mono64.framework
-    # arg 1: Mono - name of bundle to build
-    # arg 2: Version - a version name, normally the Git branch version
-    # arg 3: GC identifier - sgen or boehm
-    sudo ./make-mono64-bundle.sh Mono64 4.0.4.4 sgen
-
-
-Building 64 Bit Mono Dylib
-=============================
-
-These notes describe the manual Mono dylib build process automated by `make-mono64-bundle.sh`.
-
-1. Clone the Mono Git repo from https://github.com/mono/mono and chekout the desired branch.
-2. Build the 64 bit target using ./autogen.sh
-3. Set the build PREFIX var to point to framework version folder.
-4. If the build fails make sure there isn't a space anywhere in the path leading to the repo.
-5. Once built use the make-mono64-bundle-links.sh script to add symlinks to the build.
-
-So to build say version 4.0.0 of our Mono64 framework bundler we have: 
-
-    VERSION=4.0.0
-    PREFIX=/Library/Frameworks/Mono64.framework/Versions/$VERSION
-    PATH=$PREFIX/bin:$PATH
-    cd mono
-    ./autogen.sh --prefix=$PREFIX --disable-nls
-    make
-    make install
-
-`make` will do the build, `make install` will copy it into `PREFIX`.
-
-The above build does not produce a framework bundle, rather it produces the content of a framework/Versions folder.
-We want to build a `/Library/Frameworks/Mono64.framework` bundle that mimics `/Library/Frameworks/Mono.framework`.
-Note that we cannot simply update `/Library/Frameworks/Mono` to 64bit as this will kill, among other things, the MonoDevelop IDE which requires the 32 bit build.
-
-This bundling is performed by the `make-mono64-bundle.sh` script.
-
 Prerequisites
 =============
-- [Mono Framework](http://www.mono-project.com/Downloads) MDK. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`. A 64 bit build of Mono will be required in order to support the modern Obj-C runtime.
+- [Mono Framework](http://www.mono-project.com/Downloads) 4.4.0 or higher 64 bit compatible MDK. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`.
 
 - The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK. The correct SDK must be installed for the version of Visual Studio being used. The version of the TextTemplating assembly may change with the SDK version so it may be necessary to adjust the TextTemplating assembly reference. For Visual Studio 2013 (Version 12) the required text templating assemblies can be found in C:\Program Files (x86)\Microsoft Visual Studio 12.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0. Note that references to Interface assemblies for previous TextTemplating versions will likely be required.
 
 Building It
 ===========
 
-The framework requires `/Library/Frameworks/Mono64.framework` to be present before it will build. If a 32 bit build is required then change the Mono linked framework to `/Library/Frameworks/Mono.framework`.
+The framework requires `/Library/Frameworks/Mono.framework` to be present before it will build. 
 
 There are are a number of dependencies that ship pre-built in order to support easier building. These are:
 
@@ -213,7 +157,7 @@ In order to use the framework you need to link to it. Running `otool -L` against
 	Dubrovnik.framework/Versions/A/Dubrovnik:
 	@rpath/Dubrovnik.framework/Versions/A/Dubrovnik (compatibility version 1.0.0, current version 1.0.0)
 	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 169.3.0)
-	/Library/Frameworks/Mono64.framework/Versions/3.2.3/lib/libmonoboehm-2.0.1.dylib (compatibility version 2.0.0, current version 2.0.0)
+	/Library/Frameworks/Mono.framework/Versions/3.2.3/lib/libmonoboehm-2.0.1.dylib (compatibility version 2.0.0, current version 2.0.0)
 	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa (compatibility version 1.0.0, current version 19.0.0)
 	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 945.16.0)
 	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)

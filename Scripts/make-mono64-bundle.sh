@@ -15,6 +15,9 @@
 # Typical usage would be:
 # sudo ./make-mono64-bundle.sh Mono64 4.0.4.4 sgen
 #
+# NOTE: This is a legacy script and is retained solely to support earlier versions.
+# If you need to build Mono on the mac use bockbuild.
+#
 GC_BOEHM=boehm
 GC_SGEN=sgen
 USAGE="usage is sudo make-mono64-bundle framework-name mono-version gc-name[$GC_BOEHM|$GC_SGEN]"

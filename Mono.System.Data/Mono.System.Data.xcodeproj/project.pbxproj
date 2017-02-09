@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB26E0A91E4A151A004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0A81E4A151A004876FE /* Mono.framework */; };
 		AB3FD4EA1C7606AA0037899F /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4E51C7606AA0037899F /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FD4EB1C7606AA0037899F /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4E61C7606AA0037899F /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FD4EC1C7606AA0037899F /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4E71C7606AA0037899F /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,7 +16,6 @@
 		AB3FD5031C76331F0037899F /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5021C76331F0037899F /* Dubrovnik.framework */; };
 		AB3FD5051C76334D0037899F /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */; };
 		AB3FD5071C76335D0037899F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5061C76335D0037899F /* Cocoa.framework */; };
-		AB3FD5091C76339F0037899F /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5081C76339F0037899F /* Mono64.framework */; };
 		AB3FD50D1C7635150037899F /* System_Data_IDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FD50E1C7635150037899F /* System_Data_IDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */; };
 		ABFDAB941C7639D7005230C0 /* System_Data_IDataReader.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB26E0A81E4A151A004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Data/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB3FD4D81C7605740037899F /* Mono.System.Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD4DD1C7605740037899F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3FD4E51C7606AA0037899F /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		AB3FD5021C76331F0037899F /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5061C76335D0037899F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		AB3FD5081C76339F0037899F /* Mono64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono64.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Data/../../../../../../../../../Library/Frameworks/Mono64.framework; sourceTree = "<absolute>"; };
 		AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDbConnection.h; sourceTree = "<group>"; };
 		AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDbConnection.m; sourceTree = "<group>"; };
 		AB3FD50F1C7635570037899F /* Mono.System.Data-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Data-Prefix.pch"; sourceTree = SOURCE_ROOT; };
@@ -46,10 +46,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB26E0A91E4A151A004876FE /* Mono.framework in Frameworks */,
 				AB3FD5071C76335D0037899F /* Cocoa.framework in Frameworks */,
 				AB3FD5031C76331F0037899F /* Dubrovnik.framework in Frameworks */,
 				AB3FD5051C76334D0037899F /* Mono.mscorlib.framework in Frameworks */,
-				AB3FD5091C76339F0037899F /* Mono64.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 		AB3FD50A1C7634C80037899F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AB3FD5081C76339F0037899F /* Mono64.framework */,
+				AB26E0A81E4A151A004876FE /* Mono.framework */,
 				AB3FD5061C76335D0037899F /* Cocoa.framework */,
 				AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */,
 				AB3FD5021C76331F0037899F /* Dubrovnik.framework */,
@@ -265,7 +265,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -309,7 +309,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
