@@ -30,5 +30,5 @@
 
 - (MonoArray *)monoArray;
 - (MonoObject *)monoRTInvokeArg;
-
+- (MonoObject *)monoObject;
 @end

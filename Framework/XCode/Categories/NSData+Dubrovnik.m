@@ -27,14 +27,16 @@
 
 @implementation NSData (Dubrovnik)
 
-+ (id)dataWithMonoArray:(MonoArray *)monoArray {
++ (id)dataWithMonoArray:(MonoArray *)monoArray
+{
 
 	DBData *wrappedData = [[DBData alloc] initWithMonoArray:monoArray];
 	
 	return(wrappedData);	
 }
 
-- (id)initWithMonoArray:(MonoArray *)monoArray {
+- (id)initWithMonoArray:(MonoArray *)monoArray
+{
 	if(self) {
 		self = [[DBData alloc] initWithMonoArray:monoArray];
 	}
@@ -42,7 +44,8 @@
 	return(self);	
 }
 
-- (MonoArray *)monoArray {
+- (MonoArray *)monoArray
+{
     
     MonoArray *monoArray = NULL;
     
@@ -64,7 +67,14 @@
 	return(monoArray);
 }
 
-- (MonoObject *)monoRTInvokeArg {
+- (MonoObject *)monoRTInvokeArg
+{
     return DB_OBJECT([self monoArray]);
 }
+
+- (MonoObject *)monoObject
+{
+    return [self monoArray];
+}
+
 @end
