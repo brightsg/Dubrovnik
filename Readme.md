@@ -137,7 +137,7 @@ Prerequisites
 Building It
 ===========
 
-The framework requires `/Library/Frameworks/Mono.framework` to be present before it will build. 
+The framework requires `/Library/Frameworks/Mono.framework` to be present before it will build. If you need to build Mono itself see [bockbuild](https://github.com/mono/bockbuild).
 
 There are are a number of dependencies that ship pre-built in order to support easier building. These are:
 
@@ -157,7 +157,7 @@ In order to use the framework you need to link to it. Running `otool -L` against
 	Dubrovnik.framework/Versions/A/Dubrovnik:
 	@rpath/Dubrovnik.framework/Versions/A/Dubrovnik (compatibility version 1.0.0, current version 1.0.0)
 	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 169.3.0)
-	/Library/Frameworks/Mono.framework/Versions/3.2.3/lib/libmonoboehm-2.0.1.dylib (compatibility version 2.0.0, current version 2.0.0)
+	/Library/Frameworks/Mono.framework/Versions/4.8.0/lib/libmonosgen-2.0.1.dylib (compatibility version 2.0.0, current version 2.0.0)
 	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa (compatibility version 1.0.0, current version 19.0.0)
 	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 945.16.0)
 	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)
