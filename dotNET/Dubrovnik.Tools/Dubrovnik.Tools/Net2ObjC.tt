@@ -638,14 +638,19 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 					thunkTypeDecl = "MonoObject *";
 				}
 
+				// note that the thunk is valid only for a specific class instance.
+				// if the obj-C receiver represents a managed interface then the cached thunk
+				// must be regenerated if the thunk id invalid for the receiver mono class.
 				if (!facet.IsStatic) {
 #>
     {
 		typedef <#=thunkTypeDecl#> (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
+		static MonoClass *thunkClass;
 		MonoObject *monoException = NULL;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "<#=monoInvocationName#>");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		<#=thunkTypeDecl#> monoObject = thunk(self.monoObject, &monoException);
@@ -658,9 +663,11 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
     {
 		typedef <#=thunkTypeDecl#> (*Thunk)(MonoObject**);
 		static Thunk thunk;
+		static MonoClass *thunkClass;
 		MonoObject *monoException = NULL;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "<#=monoInvocationName#>");
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "<#=monoInvocationName#>");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		<#=thunkTypeDecl#> monoObject = thunk(&monoException);
@@ -727,8 +734,10 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 		<#=propertyStorage#> = <#=ObjCVariableName#>;
 		typedef void (*Thunk)(MonoObject *, <#=thunkArgTypeDecl#>, MonoObject**);
 		static Thunk thunk;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "<#=monoInvocationName#>");
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "<#=monoInvocationName#>");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoException = NULL;
@@ -744,8 +753,10 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 		<#=propertyStorage#> = <#=ObjCVariableName#>;
 		typedef void (*Thunk)(<#=thunkArgTypeDecl#>, MonoObject**);
 		static Thunk thunk;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "<#=monoInvocationName#>");
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "<#=monoInvocationName#>");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoException = NULL;
