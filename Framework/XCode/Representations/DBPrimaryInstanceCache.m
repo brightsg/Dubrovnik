@@ -109,6 +109,8 @@ static NSMutableArray *m_cacheBuckets;
 
 - (id)objectForMonoObject:(MonoObject *)monoObject info:(DBManagedInstanceInfo *)info
 {
+    if (!monoObject) return nil;
+    
     [self lockCache];
     
     // key is mono hash based on address at the time the hash is calculated

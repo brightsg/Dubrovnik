@@ -288,10 +288,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (id)initWithMonoObject:(MonoObject *)monoObject
 {
-    // *************************************
-    // this is the designated initialiser
-    // this method will return an instance of the receiver
-    // *************************************
+    // This is the designated initialiser.
+    // This method will return an instance of the receiver.
+    // Note that it is valid for monoObject to be nil in some cases,
+    // such as a System_Nullable.
+    // Things may not work out so well passing nil for other types...
     
     // Search the primary instance cache.
     // This is essential to avoid generating multiple unmanaged wrappers
