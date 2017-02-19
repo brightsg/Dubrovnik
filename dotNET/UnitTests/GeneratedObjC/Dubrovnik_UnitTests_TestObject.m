@@ -34,9 +34,11 @@
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
+		static MonoClass *thunkClass;
 		MonoObject *monoException = NULL;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Name");
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
@@ -51,8 +53,10 @@
 		_name = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
 		static Thunk thunk;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Name");
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Name");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoException = NULL;

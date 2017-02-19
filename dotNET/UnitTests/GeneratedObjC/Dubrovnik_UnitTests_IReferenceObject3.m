@@ -34,9 +34,11 @@
     {
 		typedef float (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
+		static MonoClass *thunkClass;
 		MonoObject *monoException = NULL;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertyGetMethod(self.monoClass, "Dubrovnik.UnitTests.IReferenceObject3.ExIntTestProperty");
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Dubrovnik.UnitTests.IReferenceObject3.ExIntTestProperty");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		float monoObject = thunk(self.monoObject, &monoException);
@@ -50,8 +52,10 @@
 		_exIntTestProperty = value;
 		typedef void (*Thunk)(MonoObject *, float, MonoObject**);
 		static Thunk thunk;
-		if (!thunk) {
-			MonoMethod *monoMethod = GetPropertySetMethod(self.monoClass, "Dubrovnik.UnitTests.IReferenceObject3.ExIntTestProperty");
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Dubrovnik.UnitTests.IReferenceObject3.ExIntTestProperty");
 			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 		}
 		MonoObject *monoException = NULL;
