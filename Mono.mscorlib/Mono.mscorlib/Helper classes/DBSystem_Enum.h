@@ -26,8 +26,10 @@
 
 }
 
++ (instancetype)enumWithValue:(NSInteger)value;
+- (id)initWithValue:(NSInteger)value;
+
 + (System_Type *)underlyingType;
-+ (instancetype)enumFromValue:(void *)value;
 
 + (MonoReflectionType *)monoReflectionType;
 

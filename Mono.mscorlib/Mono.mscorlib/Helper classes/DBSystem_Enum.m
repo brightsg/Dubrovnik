@@ -30,6 +30,9 @@ static DBManagedClass *_classRep = nil;
 
 @implementation DBSystem_Enum
 
+#pragma mark -
+#pragma mark Lifecycle
+
 + (void)initialize {
     // Do not perform any mono initialization here as this method may be called
     // before mono is configured, especially in the case of OCUnit
@@ -54,21 +57,49 @@ static DBManagedClass *_classRep = nil;
     return [self getUnderlyingType_withEnumType:[self db_getType]];
 }
 
-+ (instancetype)enumFromValue:(void *)value
++ (instancetype)enumWithValue:(NSInteger)value
 {
-    System_Type *type = [self underlyingType];
+    return [[self alloc] initWithValue:value];
+}
+
+- (id)initWithValue:(NSInteger)value
+{
+    Class klass = self.class;
+    System_Type *type = [klass underlyingType];
     MonoClass *monoClass = type.monoClass;
     MonoObject *monoObject = nil;
     
-    if (type.monoClass == mono_get_int32_class()) {
-        monoObject = [self monoEnumFromInt32:*(int32_t *)value];
+    if (monoClass == mono_get_int32_class()) {
+        monoObject = [klass monoEnumFromInt32:(int32_t)value];
+    }
+    else if (monoClass == mono_get_int64_class()) {
+        monoObject = [klass monoEnumFromInt64:(int64_t)value];
+    }
+    else if (monoClass == mono_get_uint32_class()) {
+        monoObject = [klass monoEnumFromUInt32:(uint32_t)value];
+    }
+    else if (monoClass == mono_get_uint64_class()) {
+        monoObject = [klass monoEnumFromUInt64:(uint64_t)value];
+    }
+    else if (monoClass == mono_get_int16_class()) {
+        monoObject = [klass monoEnumFromInt16:(int16_t)value];
+    }
+    else if (monoClass == mono_get_uint16_class()) {
+        monoObject = [klass monoEnumFromUInt64:(uint16_t)value];
+    }
+    else if (monoClass == mono_get_int8_class()) {
+        monoObject = [klass monoEnumFromInt8:(int8_t)value];
+    }
+    else if (monoClass == mono_get_uint8_class()) {
+        monoObject = [klass monoEnumFromUInt8:(uint8_t)value];
     }
     else {
-        NSAssert(YES, @"Cannot get enum for value");
+        NSAssert(YES, @"Cannot get enum for % value : %lu", type.monoClassName, value);
     }
+        
+    self = [self initWithMonoObject:monoObject];
     
-    DBSystem_Enum *obj = [self.class objectWithMonoObject:monoObject];
-    return obj;
+    return self;
 }
 
 #pragma mark -
