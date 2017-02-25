@@ -14,6 +14,46 @@
 #import "NSObject+DBManagedEvent.h"
 #import "DBManagedEvent.h"
 
+#import <assert.h>
+#import <stdbool.h>
+#import <sys/types.h>
+#import <unistd.h>
+#import <sys/sysctl.h>
+
+// see https://developer.apple.com/library/content/qa/qa1361/_index.html
+static bool AmIBeingDebugged(void)
+// Returns true if the current process is being debugged (either
+// running under the debugger or has a debugger attached post facto).
+{
+    int                 junk;
+    int                 mib[4];
+    struct kinfo_proc   info;
+    size_t              size;
+    
+    // Initialize the flags so that, if sysctl fails for some bizarre
+    // reason, we get a predictable result.
+    
+    info.kp_proc.p_flag = 0;
+    
+    // Initialize mib, which tells sysctl the info we want, in this case
+    // we're looking for information about a specific process ID.
+    
+    mib[0] = CTL_KERN;
+    mib[1] = KERN_PROC;
+    mib[2] = KERN_PROC_PID;
+    mib[3] = getpid();
+    
+    // Call sysctl.
+    
+    size = sizeof(info);
+    junk = sysctl(mib, sizeof(mib) / sizeof(*mib), &info, &size, NULL, 0);
+    assert(junk == 0);
+    
+    // We're being debugged if the P_TRACED flag is set.
+    
+    return ( (info.kp_proc.p_flag & P_TRACED) != 0 );
+}
+
 // global
 NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoaded";
 
@@ -38,6 +78,17 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
 
 - (id)init {
     if (self = [super init]) {
+        
+        // Mono consumes several signals (http://www.mono-project.com/docs/advanced/embedding/)
+        // among them:
+        // SIGSEGV: to produce NullReferenceExceptions
+        // If LLDB is attached to the app process then it will intercept this signal and report it as a EXC_BAD_ACCESS.
+        // Setting MONO_DEBUG=explicit-null-checks instructs the JIT to deal with NULL reference detection in a way that is non optimal
+        // but does not use SIGSEGV.
+        if (self.isDebuggerAttached) {
+            NSLog(@"Debugger detected: Mono JIT will issue explicit null checks as opposed to using LLDB busting SIGSEGV.");
+            setenv("MONO_DEBUG", "explicit-null-checks", 1);
+        }
     }
     return self;
 }
@@ -46,6 +97,14 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
 {
     // managed applications should call this method in order to conclude mono configuration
     [[NSNotificationCenter defaultCenter] postNotificationName:DBNoteManagedApplicationLoaded object:self userInfo:nil];
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (BOOL)isDebuggerAttached
+{
+    return AmIBeingDebugged;
 }
 
 #pragma mark -

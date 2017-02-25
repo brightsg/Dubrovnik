@@ -26,6 +26,9 @@
 
 }
 
++ (System_Type *)underlyingType;
++ (instancetype)enumFromValue:(void *)value;
+
 + (MonoReflectionType *)monoReflectionType;
 
 + (MonoObject *)monoEnumFromInt8:(int8_t)value;

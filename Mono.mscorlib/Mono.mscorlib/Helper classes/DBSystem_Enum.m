@@ -20,6 +20,7 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #import "DBSystem_Enum.h"
+#import "System_Object+mscorlib.h"
 
 static DBManagedClass *_classRep = nil;
 
@@ -48,7 +49,30 @@ static DBManagedClass *_classRep = nil;
 	return(nil);
 }
 
++ (System_Type *)underlyingType
+{
+    return [self getUnderlyingType_withEnumType:[self db_getType]];
+}
+
++ (instancetype)enumFromValue:(void *)value
+{
+    System_Type *type = [self underlyingType];
+    MonoClass *monoClass = type.monoClass;
+    MonoObject *monoObject = nil;
+    
+    if (type.monoClass == mono_get_int32_class()) {
+        monoObject = [self monoEnumFromInt32:*(int32_t *)value];
+    }
+    else {
+        NSAssert(YES, @"Cannot get enum for value");
+    }
+    
+    DBSystem_Enum *obj = [self.class objectWithMonoObject:monoObject];
+    return obj;
+}
+
 #pragma mark -
+#pragma mark Mono enums
 
 + (MonoObject *)monoEnumFromInt8:(int8_t)value {
 	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,sbyte)" withNumArgs:2, [[self class] monoReflectionType], &value]);

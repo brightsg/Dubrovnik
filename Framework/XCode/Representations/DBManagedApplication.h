@@ -22,5 +22,6 @@ extern NSString * const DBNoteManagedApplicationLoaded;
 
 - (void)eventSender:(DBManagedObject *)sender propertyChanging:(DBManagedObject *)monoEventArgs;
 - (void)eventSender:(DBManagedObject *)sender propertyChanged:(DBManagedObject *)monoEventArgs;
+- (BOOL)isDebuggerAttached;
 
 @end
