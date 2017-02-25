@@ -911,14 +911,6 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			monoParameterType = parameter.ElementType;
       }
 
-		// The mono_method_desc * APIs prefix nested classes with a '/' rather than a '+'
-		// The approach used here is trivial and is likely fragile.
-		// We probably need a separate mono param type builder like that found in debug-helpers.c append_class_name().
-		// Note that Delegates will present as nested classes.
-		if (parameter.IsNested) {
-			monoParameterType = monoParameterType.Replace("+", "/");
-		}
-
 		//
 		// build the ObjC method interleaved parameter representation
 		// eg: name1:(int32_t)p1 name2:(int64_t)p2 name3:(NSString *)p3
@@ -973,7 +965,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
         }
 
 		//
-		// Build the mono method argument signature
+		// Build the mono method argument invocation signature
 		//
 		if (idx > 0) monoSigBuilder.Append(",");
 		string monoParameterTypeInvoke = null;
@@ -999,15 +991,28 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			monoParameterTypeInvoke = ManagedTypeInvokeFromManagedType(monoParameterType);
 		}
 
-		monoSigBuilder.Append(monoParameterTypeInvoke);
+		// Note that we use a separate variable to hold the actual type sig used in the in mono_method_desc call
+		// as the signature may need to be specfically modified for the mono_method_desc API.
+		string monoParameterTypeInvoke_ = monoParameterTypeInvoke;
+
+		// The mono_method_desc * APIs prefix nested classes with a '/' rather than a '+'
+		// The approach used here is trivial and is likely fragile.
+		// We probably need a separate mono param type builder like that found in debug-helpers.c append_class_name().
+		// Note that Delegates will present as nested classes.
+		if (parameter.IsNested) {
+			monoParameterTypeInvoke_ = monoParameterTypeInvoke_.Replace("+", "/");
+		}
+
+		// add type signature and access modifier
+		monoSigBuilder.Append(monoParameterTypeInvoke_);
 		if (parameter.IsPointer) 
 		{
 			monoSigBuilder.Append("*");
-        }
+		}
 		if (parameter.IsByRef) 
 		{
 			monoSigBuilder.Append("&");	// the signature needs to express by ref
-        }
+      }
 
 		// Build ObjC parameter name.
 		// In order to represent overloaded methods effectively the 

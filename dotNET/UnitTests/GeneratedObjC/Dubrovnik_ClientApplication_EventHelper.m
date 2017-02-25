@@ -27,6 +27,16 @@
 #pragma mark -
 #pragma mark Methods
 
+	// Managed method name : CollectionChanged
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.EventArgs
+    + (void)collectionChanged_withSender:(System_Object *)p1 arg:(System_EventArgs *)p2
+    {
+		
+		[self invokeMonoClassMethod:"CollectionChanged(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+    }
+
 	// Managed method name : ConfigureStaticEventHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.String, System.String, System.Boolean
@@ -54,6 +64,16 @@
     {
 		
 		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall2(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+    }
+
+	// Managed method name : ManagedEvent_AppDomain_UnhandledException
+	// Managed return type : System.Void
+	// Managed param types : System.Object, System.UnhandledExceptionEventArgs
+    + (void)managedEvent_AppDomain_UnhandledException_withSender:(System_Object *)p1 args:(System_UnhandledExceptionEventArgs *)p2
+    {
+		
+		[self invokeMonoClassMethod:"ManagedEvent_AppDomain_UnhandledException(object,System.UnhandledExceptionEventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
