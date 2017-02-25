@@ -87,10 +87,10 @@ static DBManagedClass *_classRep = nil;
     else if (monoClass == mono_get_uint16_class()) {
         monoObject = [klass monoEnumFromUInt64:(uint16_t)value];
     }
-    else if (monoClass == mono_get_int8_class()) {
+    else if (monoClass == mono_get_sbyte_class()) {
         monoObject = [klass monoEnumFromInt8:(int8_t)value];
     }
-    else if (monoClass == mono_get_uint8_class()) {
+    else if (monoClass == mono_get_byte_class()) {
         monoObject = [klass monoEnumFromUInt8:(uint8_t)value];
     }
     else {
