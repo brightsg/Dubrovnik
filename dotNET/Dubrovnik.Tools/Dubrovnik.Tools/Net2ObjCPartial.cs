@@ -1268,13 +1268,6 @@ namespace Dubrovnik.Tools
                 managedType = managedType.Substring(0, idx);
             }
 
-            // discard nested class info
-            idx = managedType.IndexOf("+");
-            if (idx != -1)
-            {
-                managedType = managedType.Substring(0, idx);
-            }
-
             idx = managedType.LastIndexOf('.');
             if (idx != -1)
             {

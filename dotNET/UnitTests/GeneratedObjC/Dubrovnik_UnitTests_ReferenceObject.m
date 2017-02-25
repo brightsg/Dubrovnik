@@ -1938,7 +1938,7 @@
 	// Managed method name : NestedTypeParameter
 	// Managed return type : System.Void
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass
-    - (void)nestedTypeParameter_withP1DUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1
+    - (void)nestedTypeParameter_withP1DUReferenceObject__NestedClass:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1
     {
 		
 		[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedClass)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1948,7 +1948,7 @@
 	// Managed method name : NestedTypeParameter
 	// Managed return type : System.Void
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedEnum
-    - (void)nestedTypeParameter_withP1DUReferenceObject:(int32_t)p1
+    - (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(int32_t)p1
     {
 		
 		[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:1, DB_VALUE(p1)];
