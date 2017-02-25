@@ -8,4 +8,5 @@
 
 @interface System_Enum : System_Object
 
++ (System_Type *)getUnderlyingType_withEnumType:(System_Type *)p1;
 @end
