@@ -2780,7 +2780,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			// to minimize the parameter length.
 			// Time will tell how it flies.
 			objCParamOverloadSuffix = ObjCMinimalIdentifierFromManagedIdentifier(monoParameterTypeInvoke);
-        }
+      }
 		if (parameter.IsByRef) 
 		{
 			objCParamOverloadSuffix += "Ref";
