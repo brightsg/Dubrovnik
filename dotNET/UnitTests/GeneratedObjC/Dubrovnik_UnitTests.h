@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     19/02/2017 16:46:57
+// Date:     25/02/2017 12:54:53
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6114.17872, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6265.23246, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -219,6 +219,13 @@
 #define DUReferenceStruct_ Dubrovnik_UnitTests_ReferenceStruct
 #endif
 
+@class Dubrovnik_UnitTests_ByteEnum;
+#ifdef DUByteEnum_
+#warning DUByteEnum_ class name collision.
+#else
+#define DUByteEnum_ Dubrovnik_UnitTests_ByteEnum
+#endif
+
 @class Dubrovnik_UnitTests_IntEnum;
 #ifdef DUIntEnum_
 #warning DUIntEnum_ class name collision.
@@ -231,6 +238,20 @@
 #warning DULongEnum_ class name collision.
 #else
 #define DULongEnum_ Dubrovnik_UnitTests_LongEnum
+#endif
+
+@class Dubrovnik_UnitTests_ReferenceObject__NestedEnum;
+#ifdef DUReferenceObject_NestedEnum_
+#warning DUReferenceObject_NestedEnum_ class name collision.
+#else
+#define DUReferenceObject_NestedEnum_ Dubrovnik_UnitTests_ReferenceObject__NestedEnum
+#endif
+
+@class Dubrovnik_UnitTests_ShortEnum;
+#ifdef DUShortEnum_
+#warning DUShortEnum_ class name collision.
+#else
+#define DUShortEnum_ Dubrovnik_UnitTests_ShortEnum
 #endif
 
 @class Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions;
@@ -247,8 +268,11 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 
 */
 
+#import "Dubrovnik_UnitTests_ByteEnum.h"
 #import "Dubrovnik_UnitTests_IntEnum.h"
 #import "Dubrovnik_UnitTests_LongEnum.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h"
+#import "Dubrovnik_UnitTests_ShortEnum.h"
 #import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
 #import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
 #import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"

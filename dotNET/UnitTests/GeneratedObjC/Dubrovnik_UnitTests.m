@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     19/02/2017 16:46:57
+// Date:     25/02/2017 12:54:53
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6114.17872, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6265.23246, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -46,8 +46,11 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 
 */
 
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ByteEnum.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IntEnum.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_LongEnum.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__NestedEnum.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ShortEnum.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceStruct.m
 // Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_EventHelper.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObjectThree.m

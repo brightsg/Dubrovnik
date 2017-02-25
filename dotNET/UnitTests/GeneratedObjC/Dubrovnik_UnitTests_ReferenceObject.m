@@ -1935,6 +1935,36 @@
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
+	// Managed method name : NestedTypeParameter
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass
+    - (void)nestedTypeParameter_withP1DUReferenceObject:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1
+    {
+		
+		[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedClass)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+    }
+
+	// Managed method name : NestedTypeParameter
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+    - (void)nestedTypeParameter_withP1DUReferenceObject:(int32_t)p1
+    {
+		
+		[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:1, DB_VALUE(p1)];
+        
+    }
+
+	// Managed method name : NestedTypeParameters
+	// Managed return type : System.Void
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass, Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+    - (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(int32_t)p2
+    {
+		
+		[self invokeMonoMethod:"NestedTypeParameters(Dubrovnik.UnitTests.ReferenceObject/NestedClass,Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+    }
+
 	// Managed method name : NullableBoolMethod
 	// Managed return type : System.Nullable`1<System.Boolean>
 	// Managed param types : System.Nullable`1<System.Boolean>
