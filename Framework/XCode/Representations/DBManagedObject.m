@@ -842,7 +842,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (MonoAssembly *)monoAssembly
 {
+    // TODO: see Assembly.GetAssembly(typeof(System.Int32))
     return [self.monoEnvironment loadedAssemblyWithName:[[self class] monoAssemblyName]];
+}
+
+- (MonoImage *)monoImage
+{
+    return mono_assembly_get_image(self.monoAssembly);
 }
 
 - (int)monoMethodCount
