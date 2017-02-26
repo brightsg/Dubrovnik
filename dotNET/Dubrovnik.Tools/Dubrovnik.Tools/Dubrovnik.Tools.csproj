@@ -80,8 +80,8 @@
   <ItemGroup>
     <None Include="Net2ObjC.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Net2ObjC.cs</LastGenOutput>
       <CustomToolNamespace>Dubrovnik.Tools</CustomToolNamespace>
+      <LastGenOutput>Net2ObjC1.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

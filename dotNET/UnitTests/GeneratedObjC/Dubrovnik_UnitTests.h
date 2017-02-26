@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     26/02/2017 12:11:19
+// Date:     26/02/2017 21:50:01
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6266.21939, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6266.38854, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -101,17 +101,17 @@
 #endif
 
 @class Dubrovnik_UnitTests_GenericReferenceObjectA2;
-#ifdef DUGUGUGenericReferenceObjectA2_
-#warning DUGUGUGenericReferenceObjectA2_ class name collision.
+#ifdef DUGenericReferenceObjectA2_
+#warning DUGenericReferenceObjectA2_ class name collision.
 #else
-#define DUGUGUGenericReferenceObjectA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2
+#define DUGenericReferenceObjectA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2
 #endif
 
 @class Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass;
-#ifdef DUGUGUGenericReferenceObjectA2_NestedClass_
-#warning DUGUGUGenericReferenceObjectA2_NestedClass_ class name collision.
+#ifdef DUGenericReferenceObjectA2_NestedClass_
+#warning DUGenericReferenceObjectA2_NestedClass_ class name collision.
 #else
-#define DUGUGUGenericReferenceObjectA2_NestedClass_ Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass
+#define DUGenericReferenceObjectA2_NestedClass_ Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass
 #endif
 
 @class Dubrovnik_UnitTests_ReferenceObject;
@@ -150,10 +150,10 @@
 #endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2;
-#ifdef DURURUReferenceObject_NestedGenericClassA2_
-#warning DURURUReferenceObject_NestedGenericClassA2_ class name collision.
+#ifdef DUReferenceObject_NestedGenericClassA2_
+#warning DUReferenceObject_NestedGenericClassA2_ class name collision.
 #else
-#define DURURUReferenceObject_NestedGenericClassA2_ Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2
+#define DUReferenceObject_NestedGenericClassA2_ Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2
 #endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate;

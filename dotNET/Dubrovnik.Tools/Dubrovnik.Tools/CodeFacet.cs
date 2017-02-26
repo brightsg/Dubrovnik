@@ -137,21 +137,18 @@ namespace Dubrovnik.Tools
                         GenericArgumentTypes = parts.Skip(1).ToArray();
                     }
 
-                    /* 
-                     *  Note that classes may be defined like so:
-                     *  
-                     *  <Class Name="Constants.AnnualLeave" 
-                     *          Type="MyStuff._2014.Constants+AnnualLeave" 
-                     *          BaseName="Object" 
-                     *          BaseType="System.Object">
-                     *         
-                     *  Note the difference between the Name and the Type when dealing with
-                     *  nested types.
-                     *  
-                     */
-                    // get the namespace
-                    int pos = typeValue.LastIndexOf('.');
-                    if (pos > 0)
+						  /* When seeking the namespace we first need to trim the type to the nearest nested type or arity char.
+							* Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T,Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+U>
+							*/
+						  // get the namespace
+						  string baseValue = typeValue;
+						  char[] delims = {'+', '`'};
+						  int pos = baseValue.IndexOfAny(delims);
+						  if (pos >= 0) {
+							  baseValue = baseValue.Substring(0, pos);
+						  }
+                    pos = baseValue.LastIndexOf('.');
+                    if (pos >= 0)
                     {
                         TypeNamespace = typeValue.Substring(0, pos);
                         NameFromType = typeValue.Substring(pos + 1);

@@ -427,6 +427,10 @@ public void WriteClassSetup(CodeFacet facet)
 	if (OutputFileType == OutputType.Implementation) 
 	{
 		string name = CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.NameFromType);
+		if (name.IndexOf("NestedGenericClass") >= 0) {
+			Console.WriteLine("TypeNamespace {0}", facet.TypeNamespace);
+			Console.WriteLine("name {0}", name);
+		}
 #>
 	{
 		return "<#=facet.TypeNamespace#>.<#=name#>";

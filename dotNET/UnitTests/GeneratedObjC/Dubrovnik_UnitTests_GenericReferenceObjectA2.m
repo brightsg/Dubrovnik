@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "Dubrovnik.UnitTests.GenericReferenceObject`2<Dubrovnik.UnitTests.GenericReferenceObject`2+T,Dubrovnik.UnitTests.GenericReferenceObject`2+U>";
+		return "Dubrovnik.UnitTests.GenericReferenceObject`2";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
