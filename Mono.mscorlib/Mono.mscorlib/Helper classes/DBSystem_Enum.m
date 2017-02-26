@@ -46,10 +46,10 @@ static DBManagedClass *_classRep = nil;
     return _classRep;
 }
 
-+ (MonoReflectionType *)monoReflectionType {
-	[NSException raise:@"No monoReflectionType override" format:@"This class must override +[DBEnum monoReflectionType]"];
-	
-	return(nil);
++ (MonoReflectionType *)monoReflectionType
+{
+    // System.Type is represented by MonoReflectionType
+    return mono_type_get_object([DBManagedEnvironment currentDomain], self.monoType);
 }
 
 + (System_Type *)underlyingType
@@ -59,16 +59,18 @@ static DBManagedClass *_classRep = nil;
 
 + (instancetype)enumWithValue:(NSInteger)value
 {
-    return [[self alloc] initWithValue:value];
+    DBSystem_Enum *obj = [[self alloc] initWithValue:value];
+    return obj;
 }
 
 - (id)initWithValue:(NSInteger)value
 {
     Class klass = self.class;
     System_Type *type = [klass underlyingType];
-    MonoClass *monoClass = type.monoClass;
+    MonoType *monoType = mono_reflection_type_get_type(type.monoObject); // SystemType is represented by MonoReflectionType
+    MonoClass *monoClass = mono_class_from_mono_type(monoType);
     MonoObject *monoObject = nil;
-    
+
     if (monoClass == mono_get_int32_class()) {
         monoObject = [klass monoEnumFromInt32:(int32_t)value];
     }
@@ -106,35 +108,35 @@ static DBManagedClass *_classRep = nil;
 #pragma mark Mono enums
 
 + (MonoObject *)monoEnumFromInt8:(int8_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,sbyte)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,sbyte)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 + (MonoObject *)monoEnumFromInt16:(int16_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,short)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,int16)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 + (MonoObject *)monoEnumFromInt32:(int32_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,int)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,int)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 + (MonoObject *)monoEnumFromInt64:(int64_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,long)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,long)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 + (MonoObject *)monoEnumFromUInt8:(uint8_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,byte)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,byte)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 + (MonoObject *)monoEnumFromUInt16:(uint16_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,ushort)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,uint16)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 + (MonoObject *)monoEnumFromUInt32:(uint32_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,uint)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,uint)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 + (MonoObject *)monoEnumFromUInt64:(uint64_t)value {
-	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,ulong)" withNumArgs:2, [[self class] monoReflectionType], &value]);
+	return([[self classRep] invokeMonoMethod:"ToObject(System.Type,ulong)" withNumArgs:2, [self monoReflectionType], &value]);
 }
 
 @end
