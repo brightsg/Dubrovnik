@@ -1965,6 +1965,28 @@
         
     }
 
+	// Managed method name : NestedTypeParameters
+	// Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
+    - (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"NestedTypeParameters(Dubrovnik.UnitTests.ReferenceObject/NestedGenericClass`2<string, int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : NestedTypeParameters
+	// Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
+	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
+    - (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"NestedTypeParameters(Dubrovnik.UnitTests.ReferenceObject/NestedGenericClass`2<int, string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 bestObjectWithMonoObject:monoObject];
+    }
+
 	// Managed method name : NullableBoolMethod
 	// Managed return type : System.Nullable`1<System.Boolean>
 	// Managed param types : System.Nullable`1<System.Boolean>

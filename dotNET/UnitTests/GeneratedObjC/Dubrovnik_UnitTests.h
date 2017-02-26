@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     25/02/2017 22:41:47
+// Date:     26/02/2017 12:11:19
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6265.40853, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6266.21939, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -147,6 +147,13 @@
 #warning DUReferenceObject_NestedClass_ class name collision.
 #else
 #define DUReferenceObject_NestedClass_ Dubrovnik_UnitTests_ReferenceObject__NestedClass
+#endif
+
+@class Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2;
+#ifdef DURURUReferenceObject_NestedGenericClassA2_
+#warning DURURUReferenceObject_NestedGenericClassA2_ class name collision.
+#else
+#define DURURUReferenceObject_NestedGenericClassA2_ Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2
 #endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate;
@@ -294,6 +301,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__NestedClass.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h"
 #import "Dubrovnik_UnitTests_TestObject.h"
 #import "Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.h"

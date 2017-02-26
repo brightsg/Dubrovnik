@@ -1262,13 +1262,13 @@ namespace Dubrovnik.Tools
         void ManagedNameSpaceAndNameFromManagedType(string managedType, out string nspace, out string name) {
 
             // discard generic type info
-            int idx = managedType.IndexOf("<");
-            if (idx != -1)
-            {
-                managedType = managedType.Substring(0, idx);
-            }
+            //int idx = managedType.IndexOf("<");
+            //if (idx != -1)
+            //{
+            //    managedType = managedType.Substring(0, idx);
+            //}
 
-            idx = managedType.LastIndexOf('.');
+            int idx = managedType.LastIndexOf('.');
             if (idx != -1)
             {
                 nspace = managedType.Substring(0, idx);
@@ -1286,8 +1286,14 @@ namespace Dubrovnik.Tools
         public string ObjCMinimalIdentifierFromManagedIdentifier(string managedIdentifier)
         {
             string nspace = null;
-            string name = null;
-            ManagedNameSpaceAndNameFromManagedType(managedIdentifier, out nspace, out name);
+            string nameOut = null;
+            ManagedNameSpaceAndNameFromManagedType(managedIdentifier, out nspace, out nameOut);
+				StringBuilder name = new StringBuilder(nameOut);
+
+				if (name.ToString() != "") {
+					name.Replace("<", "");
+					name.Replace(">", "");
+			  }
             managedIdentifier = ObjCAcronymFromManagedIdentifier(nspace) + name;
             string minimalName = ObjCIdentifierFromManagedIdentifier(managedIdentifier);
             return minimalName;

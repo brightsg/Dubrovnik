@@ -106,6 +106,11 @@ namespace Dubrovnik.UnitTests {
 				StringProperty = "I am a nested class property";
 			}
 		}
+		public class NestedGenericClass<T, U> {
+			public T GenericMethodReturningParameterOfTypeT(T p1, U u) {
+				return p1;
+			}
+		}
 		public enum NestedEnum { val1 = 1, val2, val3, val4 };
 
 		//==============================
@@ -621,7 +626,14 @@ namespace Dubrovnik.UnitTests {
 			// no-op required, we are just testing for correct signature generation
 			// make sure that parameter name is p1
 		}
-
+		// methods overloaded by parameter signature must have a unique Obj-C signature.
+		// nested generic types exhibit the kind of attention to detail that is needed in some cases.
+		public NestedGenericClass<string, int> NestedTypeParameters(NestedGenericClass<string, int> p) {
+			return p;
+		}
+		public NestedGenericClass<int, string> NestedTypeParameters(NestedGenericClass<int, string> p) {
+			return p;
+		}
 		//
 		// Event raising methods
 		//
