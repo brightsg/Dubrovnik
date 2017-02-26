@@ -952,6 +952,25 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     NSString *classDescription = (NSString *)[testClass classDescription];
     XCTAssertTrue([classDescription dbTestString:DBUTestString], DBUSubstringTestFailed);
+    
+    //
+    // nest type parameters + overloads
+    //
+    if (m_runningAutoGenCodeTest) {
+        Dubrovnik_UnitTests_ReferenceObject__NestedClass *nestedClass = [Dubrovnik_UnitTests_ReferenceObject__NestedClass new];
+        [refObject nestedTypeParameter_withP1DUReferenceObject__NestedEnum:Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val1];
+        [refObject nestedTypeParameter_withP1DUReferenceObject__NestedClass:nestedClass];
+        [refObject nestedTypeParameters_withP1:nestedClass p2:Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val1];
+        
+        
+        // and again, this time with generic types
+        MonoImage *image = mono_assembly_get_image(monoAssembly);
+        id nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Int32 class]] monoImage:image];
+        [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:nestedGenericClassA2];
+        
+        nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newObjectWithGenericTypeParameters:@[[System_Int32 class], [System_String class]] monoImage:image];
+        [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:nestedGenericClassA2];
+    }
 }
 
 - (void)doTestRefMethods:(id)refObject class:(Class)testClass
@@ -1509,7 +1528,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     value = [objectObjectDict objectForKey:managedKey]; // key must be a managed number
     XCTAssertTrue(value && [value isKindOfClass:[NSString class]] && [value isEqual:@"Dubrovnik.UnitTests 2"], DBUObjectNotFound);
-
     
     //=======================================
     // Dictionary<int,Dictionary<int,string>>

@@ -205,6 +205,7 @@ extern char DBCacheSuffixChar;
  */
 - (MonoObject *)monoRTInvokeArg;
 - (MonoAssembly *)monoAssembly;
+- (MonoImage *)monoImage;
 
 // Method Invocation
 + (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
