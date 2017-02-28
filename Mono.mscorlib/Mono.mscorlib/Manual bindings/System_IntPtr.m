@@ -1,4 +1,4 @@
-﻿#include "System_IntPtr.h"
+﻿#import "System_IntPtr.h"
 //++Dubrovnik.CodeGenerator System_IntPtr.m
 //
 // Managed struct : IntPtr
