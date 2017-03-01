@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5351D4BE1D6F590F00D34EFF /* System_IEquatableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = 5351D4BD1D6F590F00D34EFF /* System_IEquatableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5351D4C01D6F596B00D34EFF /* System_IEquatableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5351D4BF1D6F596B00D34EFF /* System_IEquatableA1.m */; };
+		53FDBD731E64846E00DD8BEB /* System_Collections_IEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 53FDBD711E64846E00DD8BEB /* System_Collections_IEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53FDBD741E64846E00DD8BEB /* System_Collections_IEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FDBD721E64846E00DD8BEB /* System_Collections_IEnumerator.m */; };
+		53FDBD761E6486B600DD8BEB /* System_Collections_IEnumerator_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 53FDBD751E6486B600DD8BEB /* System_Collections_IEnumerator_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53FDBD7A1E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 53FDBD771E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53FDBD7B1E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.h in Headers */ = {isa = PBXBuildFile; fileRef = 53FDBD781E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53FDBD7C1E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FDBD791E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.m */; };
 		AB0BD3CE1AC18A10009F4FEE /* System_ActionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB0BD3CF1AC18A10009F4FEE /* System_ActionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */; };
 		AB11F3761C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB11F3741C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -204,6 +210,12 @@
 /* Begin PBXFileReference section */
 		5351D4BD1D6F590F00D34EFF /* System_IEquatableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IEquatableA1.h; sourceTree = "<group>"; };
 		5351D4BF1D6F596B00D34EFF /* System_IEquatableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IEquatableA1.m; sourceTree = "<group>"; };
+		53FDBD711E64846E00DD8BEB /* System_Collections_IEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_IEnumerator.h; sourceTree = "<group>"; };
+		53FDBD721E64846E00DD8BEB /* System_Collections_IEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_IEnumerator.m; sourceTree = "<group>"; };
+		53FDBD751E6486B600DD8BEB /* System_Collections_IEnumerator_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_IEnumerator_Protocol.h; sourceTree = "<group>"; };
+		53FDBD771E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IEnumeratorA1_Protocol.h; sourceTree = "<group>"; };
+		53FDBD781E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IEnumeratorA1.h; sourceTree = "<group>"; };
+		53FDBD791E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_IEnumeratorA1.m; sourceTree = "<group>"; };
 		AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ActionA1.h; sourceTree = "<group>"; };
 		AB0BD3CD1AC18A10009F4FEE /* System_ActionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ActionA1.m; sourceTree = "<group>"; };
 		AB11F3741C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_ICollectionA1.h; sourceTree = "<group>"; };
@@ -571,12 +583,18 @@
 				AB2E742818FFCCE50061C63E /* System_Collections_Generic_IDictionaryA2.m */,
 				AB2E742918FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.h */,
 				AB2E742A18FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.m */,
+				53FDBD781E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.h */,
+				53FDBD791E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.m */,
+				53FDBD771E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1_Protocol.h */,
 				AB2E742B18FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.h */,
 				AB2E742C18FFCCE50061C63E /* System_Collections_Generic_KeyValuePairA2.m */,
 				ABB8A3EB18FF110000213B80 /* System_Collections_Generic_ListA1.h */,
 				ABB8A3EC18FF110000213B80 /* System_Collections_Generic_ListA1.m */,
 				AB2E746D18FFCF980061C63E /* System_Collections_IEnumerable.h */,
 				AB2E746E18FFCF980061C63E /* System_Collections_IEnumerable.m */,
+				53FDBD711E64846E00DD8BEB /* System_Collections_IEnumerator.h */,
+				53FDBD721E64846E00DD8BEB /* System_Collections_IEnumerator.m */,
+				53FDBD751E6486B600DD8BEB /* System_Collections_IEnumerator_Protocol.h */,
 				ABB5CC281A9678E20089891A /* System_Collections_IList.h */,
 				ABB5CC291A9678E20089891A /* System_Collections_IList.m */,
 				ABB8A3ED18FF110000213B80 /* System_Convert.h */,
@@ -755,11 +773,13 @@
 				AB3FD4FA1C7609A80037899F /* System_ICloneable.h in Headers */,
 				ABF9707E1D7369D400B836A0 /* System_Delegate+mscorlib.h in Headers */,
 				ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */,
+				53FDBD7A1E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1_Protocol.h in Headers */,
 				AB11F3761C5B85EF00EA5135 /* System_Collections_Generic_ICollectionA1.h in Headers */,
 				AB50B5E61AC599360030429C /* System_Version.h in Headers */,
 				AB50B5E41AC599360030429C /* System_Reflection_AssemblyName.h in Headers */,
 				AB0BD3CE1AC18A10009F4FEE /* System_ActionA1.h in Headers */,
 				ABCAE5651AA910DA0006453A /* System_Reflection_GenericParameterAttributes.h in Headers */,
+				53FDBD7B1E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.h in Headers */,
 				ABCAE5631AA90E180006453A /* System_Guid.h in Headers */,
 				ABCAE5521AA90A280006453A /* System_Reflection_Assembly.h in Headers */,
 				ABCAE55A1AA90C8A0006453A /* System_Reflection_MethodBase.h in Headers */,
@@ -789,6 +809,7 @@
 				ABB9F2421DC8D4D300A95896 /* NSDate+mscorlib.h in Headers */,
 				AB2E744518FFCD0A0061C63E /* System_Text_Encoding.h in Headers */,
 				AB2E746318FFCD8F0061C63E /* System_Globalization_CultureInfo.h in Headers */,
+				53FDBD731E64846E00DD8BEB /* System_Collections_IEnumerator.h in Headers */,
 				AB2E746118FFCD8F0061C63E /* System_FuncA2.h in Headers */,
 				AB2E745118FFCD420061C63E /* System_IO_Stream.h in Headers */,
 				AB2E745E18FFCD8F0061C63E /* System_DayOfWeek.h in Headers */,
@@ -805,6 +826,7 @@
 				AB4279881D75B8350042D68A /* System_IntPtr.h in Headers */,
 				AB4797FE1DD0A576007274E4 /* System_IO_FileAttributes.h in Headers */,
 				AB2E742518FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h in Headers */,
+				53FDBD761E6486B600DD8BEB /* System_Collections_IEnumerator_Protocol.h in Headers */,
 				AB2E744718FFCD0A0061C63E /* System_TimeSpan.h in Headers */,
 				ABB8A41418FF110000213B80 /* System_String.h in Headers */,
 				ABB8A40418FF110000213B80 /* System_Collections_Generic_ListA1.h in Headers */,
@@ -981,6 +1003,7 @@
 				ABB8A41118FF110000213B80 /* System_MulticastDelegate.m in Sources */,
 				ABFDAB9D1C763CA3005230C0 /* System_AsyncCallback.m in Sources */,
 				ABCAE54F1AA909710006453A /* System_Reflection_MemberFilter.m in Sources */,
+				53FDBD7C1E6486F600DD8BEB /* System_Collections_Generic_IEnumeratorA1.m in Sources */,
 				ABF9707F1D7369D400B836A0 /* System_Delegate+mscorlib.m in Sources */,
 				ABB8A40118FF110000213B80 /* System_Collections_ArrayList.m in Sources */,
 				ABB8A42B18FF15B300213B80 /* DBSystem_Collections_Generic_ListA1.m in Sources */,
@@ -1012,6 +1035,7 @@
 				ABE824331C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m in Sources */,
 				ABB8A40B18FF110000213B80 /* System_EventArgs.m in Sources */,
 				AB2E745418FFCD420061C63E /* System_IO_StringWriter.m in Sources */,
+				53FDBD741E64846E00DD8BEB /* System_Collections_IEnumerator.m in Sources */,
 				ABEFF7671E630BB4008A32EA /* System_Int32.m in Sources */,
 				AB2E744018FFCD0A0061C63E /* System_Reflection.m in Sources */,
 				ABD5F7D01A6E57660070C02B /* System_DateTime.m in Sources */,
