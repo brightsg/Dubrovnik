@@ -71,4 +71,15 @@ static NSDate * m_minValue;
     
     return _ticks;
 }
+
+// Managed method name : ToString
+// Managed return type : System.String
+// Managed param types : System.String
+- (NSString *)toString_withFormat:(NSString *)p1
+{
+    
+    MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+    
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 @end

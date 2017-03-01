@@ -31,6 +31,11 @@
 // Managed param types :
 - (NSDate *)toUniversalTime;
 
+// Managed method name : ToString
+// Managed return type : System.String
+// Managed param types : System.String
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 // Managed property name : Ticks
 // Managed property type : System.Int64
 @property (nonatomic, readonly) int64_t ticks;
