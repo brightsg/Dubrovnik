@@ -616,22 +616,25 @@ namespace Dubrovnik.UnitTests {
 		// Nested type parameter methods
 		//
 		public void NestedTypeParameters(NestedClass p1, NestedEnum p2) {
-			// no-op required, we are just testing for correct signature generation
+			int hashCode1 = p1.GetHashCode();
+			int hashCode2 = p2.GetHashCode();
 		}
 		public void NestedTypeParameter(NestedClass p1) {
-			// no-op required, we are just testing for correct signature generation
-			// make sure that parameter name is p1
+			int hashCode = p1.GetHashCode();
 		}
 		public void NestedTypeParameter(NestedEnum p1) {
 			// no-op required, we are just testing for correct signature generation
 			// make sure that parameter name is p1
+			int hashCode = p1.GetHashCode();
 		}
 		// methods overloaded by parameter signature must have a unique Obj-C signature.
 		// nested generic types exhibit the kind of attention to detail that is needed in some cases.
 		public NestedGenericClass<string, int> NestedTypeParameters(NestedGenericClass<string, int> p) {
+			int hashCode = p.GetHashCode();
 			return p;
 		}
 		public NestedGenericClass<int, string> NestedTypeParameters(NestedGenericClass<int, string> p) {
+			int hashCode = p.GetHashCode();
 			return p;
 		}
 		//
