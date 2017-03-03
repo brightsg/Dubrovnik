@@ -1665,7 +1665,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DULongEnum_ val4], DBUEqualityTestFailed);
     
         DUByteEnum_ *byteEnum = [DUByteEnum_ enumWithValue:Dubrovnik_UnitTests_ByteEnum_val1];
-        [byteEnum logMonoClassInfo];
         XCTAssertTrue(byteEnum.int8Value == Dubrovnik_UnitTests_ByteEnum_val1, DBUEqualityTestFailed);
         
         DUShortEnum_ *shortEnum = [DUShortEnum_ enumWithValue:Dubrovnik_UnitTests_ShortEnum_val1];

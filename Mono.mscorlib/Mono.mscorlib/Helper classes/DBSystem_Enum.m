@@ -104,6 +104,12 @@ static DBManagedClass *_classRep = nil;
     return self;
 }
 
+- (MonoObject *)monoRTInvokeArg
+{
+    // we are a value type but we don't want unboxed
+    return self.monoObject;
+}
+
 #pragma mark -
 #pragma mark Mono enums
 
