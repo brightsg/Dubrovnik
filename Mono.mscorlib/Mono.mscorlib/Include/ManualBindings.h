@@ -25,8 +25,8 @@
 #import "System_AppDomain.h"
 #import "System_UnhandledExceptionEventArgs.h"
 
-#include "System_IntPtr.h"
-#include "System_Int32.h"
+#import "System_IntPtr.h"
+#import "System_Int32.h"
 
 #import "System_Convert.h"
 #import "System_Enum.h"
@@ -61,10 +61,20 @@
 
 #import "System_Threading_Tasks_TaskA1.h"
 
+#import "System_ICloneable.h"
+#import "System_IDisposable.h"
+#import "System_IEquatableA1.h"
+
 #import "System_Collections_ArrayList.h"
 #import "System_Collections_Generic_DictionaryA2.h"
 #import "System_Collections_Generic_ListA1.h"
+#import "System_Collections_IEnumerator_Protocol.h"
+#import "System_Collections_IEnumerator.h"
 #import "System_Collections_IEnumerable.h"
+
+#import "System_Collections_Generic_IEnumeratorA1_Protocol.h"
+#import "System_Collections_Generic_IEnumeratorA1.h"
+#import "System_Collections_Generic_IEnumerableA1.h"
 
 #import "DBSystem_Collections_IList.h"
 #import "System_Collections_Generic_IDictionaryA2.h"
@@ -72,10 +82,6 @@
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ICollectionA1.h"
 #import "System_Collections_Generic_IComparerA1.h"
-
-#import "System_ICloneable.h"
-#import "System_IDisposable.h"
-#import "System_IEquatableA1.h"
 
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_AsyncCallback.h"
