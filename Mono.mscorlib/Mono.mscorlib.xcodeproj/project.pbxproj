@@ -93,6 +93,10 @@
 		AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */; };
 		AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB97228E1E6AD6C500DE0773 /* System_Threading_Tasks_Task.h in Headers */ = {isa = PBXBuildFile; fileRef = AB97228C1E6AD6C500DE0773 /* System_Threading_Tasks_Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB97228F1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97228D1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m */; };
+		AB9722921E6AD7D100DE0773 /* System_Threading_CancellationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = AB9722901E6AD7D100DE0773 /* System_Threading_CancellationToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB9722931E6AD7D100DE0773 /* System_Threading_CancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9722911E6AD7D100DE0773 /* System_Threading_CancellationToken.m */; };
 		ABB5CC2A1A9678E20089891A /* System_Collections_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB5CC281A9678E20089891A /* System_Collections_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5CC291A9678E20089891A /* System_Collections_IList.m */; };
 		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
@@ -296,6 +300,10 @@
 		AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDateTransformer.h; sourceTree = "<group>"; };
 		AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDateTransformer.m; sourceTree = "<group>"; };
 		AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTransformers.h; sourceTree = "<group>"; };
+		AB97228C1E6AD6C500DE0773 /* System_Threading_Tasks_Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Threading_Tasks_Task.h; sourceTree = "<group>"; };
+		AB97228D1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_Tasks_Task.m; sourceTree = "<group>"; };
+		AB9722901E6AD7D100DE0773 /* System_Threading_CancellationToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Threading_CancellationToken.h; sourceTree = "<group>"; };
+		AB9722911E6AD7D100DE0773 /* System_Threading_CancellationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_CancellationToken.m; sourceTree = "<group>"; };
 		ABB5CC281A9678E20089891A /* System_Collections_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_IList.h; sourceTree = "<group>"; };
 		ABB5CC291A9678E20089891A /* System_Collections_IList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_IList.m; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -565,6 +573,10 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB9722901E6AD7D100DE0773 /* System_Threading_CancellationToken.h */,
+				AB9722911E6AD7D100DE0773 /* System_Threading_CancellationToken.m */,
+				AB97228C1E6AD6C500DE0773 /* System_Threading_Tasks_Task.h */,
+				AB97228D1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m */,
 				ABEFF7641E630BB4008A32EA /* System_Int32.h */,
 				ABEFF7651E630BB4008A32EA /* System_Int32.m */,
 				AB0BD3CC1AC18A10009F4FEE /* System_ActionA1.h */,
@@ -795,6 +807,7 @@
 				ABCAE54A1AA893C90006453A /* DBSystem_Collections_Generic_IEnumerableA1.h in Headers */,
 				AB92F2DE1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h in Headers */,
 				ABD5F7CF1A6E57660070C02B /* System_DateTime.h in Headers */,
+				AB97228E1E6AD6C500DE0773 /* System_Threading_Tasks_Task.h in Headers */,
 				ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */,
 				ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */,
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
@@ -830,6 +843,7 @@
 				AB2E745F18FFCD8F0061C63E /* System_Exception.h in Headers */,
 				AB2036321DC7E71800D419DB /* System_IO_StringReader.h in Headers */,
 				AB4279881D75B8350042D68A /* System_IntPtr.h in Headers */,
+				AB9722921E6AD7D100DE0773 /* System_Threading_CancellationToken.h in Headers */,
 				AB4797FE1DD0A576007274E4 /* System_IO_FileAttributes.h in Headers */,
 				AB2E742518FFCB7C0061C63E /* System_Reflection_ConstructorInfo.h in Headers */,
 				53FDBD761E6486B600DD8BEB /* System_Collections_IEnumerator_Protocol.h in Headers */,
@@ -974,12 +988,14 @@
 				AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */,
 				ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */,
 				AB2E744418FFCD0A0061C63E /* System_Reflection_PropertyInfo.m in Sources */,
+				AB9722931E6AD7D100DE0773 /* System_Threading_CancellationToken.m in Sources */,
 				ABB8A40518FF110000213B80 /* System_Collections_Generic_ListA1.m in Sources */,
 				AB2E747018FFCF980061C63E /* System_Collections_IEnumerable.m in Sources */,
 				ABFDABA11C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m in Sources */,
 				AB8023111DE46ED40094294A /* System_UnhandledExceptionEventArgs.m in Sources */,
 				AB2E743018FFCCE50061C63E /* System_Collections_Generic_IEnumerableA1.m in Sources */,
 				ABB8A41D18FF155F00213B80 /* System_NullableA1.m in Sources */,
+				AB97228F1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m in Sources */,
 				AB0BD3CF1AC18A10009F4FEE /* System_ActionA1.m in Sources */,
 				ABB8A42718FF15B300213B80 /* DBSystem_Collections_ArrayList.m in Sources */,
 				ABB8A39918FF09F900213B80 /* DBSystem_Convert.m in Sources */,

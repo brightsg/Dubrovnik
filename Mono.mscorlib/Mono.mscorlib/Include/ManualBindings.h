@@ -89,4 +89,5 @@
 
 #import "System_Threading_SendOrPostCallback.h"
 #import "System_Threading_SynchronizationContext.h"
-
+#import "System_Threading_Tasks_Task.h"
+#import "System_Threading_CancellationToken.h"
