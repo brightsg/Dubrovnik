@@ -52,6 +52,7 @@
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_ConstructorInfo.h"
 #import "System_Reflection_AssemblyName.h"
+#import "System_Attribute.h"
 
 #import "System_IO_FileInfo.h"
 #import "System_IO_Stream.h"
