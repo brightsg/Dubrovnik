@@ -52,6 +52,7 @@
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_ConstructorInfo.h"
 #import "System_Reflection_AssemblyName.h"
+#import "System_Attribute.h"
 
 #import "System_IO_FileInfo.h"
 #import "System_IO_Stream.h"
@@ -89,4 +90,5 @@
 
 #import "System_Threading_SendOrPostCallback.h"
 #import "System_Threading_SynchronizationContext.h"
-
+#import "System_Threading_Tasks_Task.h"
+#import "System_Threading_CancellationToken.h"

@@ -21,7 +21,7 @@
 #import <sys/sysctl.h>
 
 // see https://developer.apple.com/library/content/qa/qa1361/_index.html
-static bool AmIBeingDebugged(void)
+static BOOL AmIBeingDebugged(void)
 // Returns true if the current process is being debugged (either
 // running under the debugger or has a debugger attached post facto).
 {
@@ -104,7 +104,7 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
 
 - (BOOL)isDebuggerAttached
 {
-    return AmIBeingDebugged;
+    return AmIBeingDebugged();
 }
 
 #pragma mark -

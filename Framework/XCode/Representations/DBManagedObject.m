@@ -824,20 +824,15 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // returns a pointer to an object that can be used as an argument in a
     // call to mono_runtime_invoke()
     MonoObject *monoObject = self.monoObject;
-    MonoObject *arg = monoObject;
     
-    // value types must be unboxed
+    // in general value types must be unboxed.
+    // there are some exceptions to this rule, such as System.Nullable and System.Enum,
+    // but in such cases the obj-C class must override this method as appropriate.
     MonoClass *klass = mono_object_get_class(monoObject);
     if (mono_class_is_valuetype(klass)) {
-        
-        const char *monoClassName = [self.class monoClassName];
-        
-        // nullable value types do not require unboxing
-        if (strcmp(monoClassName, "System.Nullable`1") != 0) {
-            arg = mono_object_unbox(monoObject);
-        }
+        return mono_object_unbox(monoObject);
     }
-    return arg;
+    return monoObject;
 }
 
 - (MonoAssembly *)monoAssembly
