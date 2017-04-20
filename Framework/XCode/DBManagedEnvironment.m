@@ -31,6 +31,7 @@ NSString * const DBNoteManagedEnvironmentLoaded = @"DBNoteManagedEnvironmentLoad
 static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono.framework/Versions/Current";
 static NSString *m_monoDefaultMachineConfigVersion = @"4.5";
 static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
+static NSString *m_monoAssemblyGACPath = @"mono/gac";
 static NSString *m_monoDefaultVersion = @"v4.0.30319";
 static NSString *m_monoAssemblyRootFolder = nil;
 static NSString *m_monoConfigFolder = nil;
@@ -429,6 +430,19 @@ static BOOL m_crashChaining = NO;
 #pragma mark -
 #pragma mark Assembly management
 
++ (NSArray<NSString *> *)defaultAssemblySearchPaths
+{
+    static NSArray<NSString *> *m_searchPaths;
+    if (!m_searchPaths) {
+        NSString *rootFolder = [DBManagedEnvironment monoAssemblyRootFolder];
+        m_searchPaths = @[
+                          [rootFolder stringByAppendingPathComponent:m_monoAssemblyDefaultSearchPath],
+                          ];
+    }
+    
+    return m_searchPaths;
+}
+    
 - (MonoAssembly *)openAssemblyWithName:(const char *)name
 {
     // check assembly cache
@@ -441,20 +455,25 @@ static BOOL m_crashChaining = NO;
         // query delegate for assembly path
         if ([self delegate]) {
             path = [[self delegate] managedEnvironment:self pathToAssemblyName:name];
+            
+            if (path) {
+                monoAssembly = [self openAssemblyWithName:name path:path];
+            }
         }
         
-        if (!path) {
+        // query default search paths
+        if (!monoAssembly) {
+            for (NSString *monoPath in [self.class defaultAssemblySearchPaths]) {
             
-            // delegate has no path suggestion hence try and load dll from default location
-            NSString *monoPath = [[DBManagedEnvironment monoAssemblyRootFolder] stringByAppendingPathComponent:m_monoAssemblyDefaultSearchPath];
-            
-            path = [monoPath stringByResolvingSymlinksInPath];
-            path = [path stringByAppendingPathComponent:@(name)];
-            path = [path stringByAppendingPathExtension:@"dll"];
-        }
-        
-        if (path) {
-            monoAssembly = [self openAssemblyWithName:name path:path];
+                // look for matching dll
+                path = [monoPath stringByAppendingPathComponent:@(name)];
+                path = [path stringByAppendingPathExtension:@"dll"];
+                path = [path stringByResolvingSymlinksInPath];
+                
+                monoAssembly = [self openAssemblyWithName:name path:path];
+                if (monoAssembly) break;
+                
+            }
         }
         
         if (!monoAssembly) {
